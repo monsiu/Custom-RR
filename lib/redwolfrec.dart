@@ -176,7 +176,7 @@ padding: const EdgeInsets.only(top: 10.0, bottom: 73),                  child: E
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://www.droidontime.com/devices';
+                        String url = 'https://redwolfrecovery.github.io/devices.html';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

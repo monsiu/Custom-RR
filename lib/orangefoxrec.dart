@@ -206,7 +206,7 @@ class OrangefoxrecPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://www.droidontime.com/devices';
+                        String url = 'https://orangefox.download/';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

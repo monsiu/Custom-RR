@@ -225,7 +225,7 @@ class TwrpPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://www.droidontime.com/devices';
+                        String url = 'https://twrp.me/Devices/';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

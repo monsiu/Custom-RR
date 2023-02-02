@@ -210,7 +210,7 @@ class SkyhawkrecPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://www.droidontime.com/devices';
+                        String url = 'https://skyhawkrecovery.github.io/Devices.html';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

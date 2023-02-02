@@ -193,7 +193,7 @@ class PitchblackrecPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://www.droidontime.com/devices';
+                        String url = 'https://pitchblackrecovery.com/#downloads';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
