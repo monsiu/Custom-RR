@@ -42,21 +42,24 @@ class PotatoaospPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Center( child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
+            Center(
+                child: Padding(
+              padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
               child: Text(
                 'Potato Open Sauce Project (POSP) defines itself as a buttery smooth aftermarket Android™ firmware. ',
                 style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
                 textAlign: TextAlign.center,
               ),
             )),
-            Center( child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
-              child: Text(
-                'Combining newest security patches, original features and wide device support, POSP is a product created to make your life easier and breathe some fresh air into the custom ROM scene.',
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-                textAlign: TextAlign.center,
-             ) ),
+            Center(
+              child: Padding(
+                  padding:
+                      const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                  child: Text(
+                    'Combining newest security patches, original features and wide device support, POSP is a product created to make your life easier and breathe some fresh air into the custom ROM scene.',
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                    textAlign: TextAlign.center,
+                  )),
             ),
             Center(
               child: Padding(
@@ -101,11 +104,11 @@ class PotatoaospPage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

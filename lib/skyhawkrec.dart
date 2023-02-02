@@ -51,14 +51,16 @@ class SkyhawkrecPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Center( child: Padding(
+            Center(
+                child: Padding(
                     padding:
                         const EdgeInsets.only(top: 12.0, left: 15, right: 15),
-                child: Text(
-              'SHRP is inspired by mordern design to bring the newest design to the native TWRP. SHRP provides much more along side of it\'s rich UI experience. New dashboard makes it very easy to interact with TWRP. SHRP got some cool features like Whole new theming section ,Flash Magisk (root or unroot), Camera2api enabler Directly from dashboard, Password protection etc. It\'s all started , lot more to come.',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-              textAlign: TextAlign.center,
-            ))),
+                    child: Text(
+                      'SHRP is inspired by mordern design to bring the newest design to the native TWRP. SHRP provides much more along side of it\'s rich UI experience. New dashboard makes it very easy to interact with TWRP. SHRP got some cool features like Whole new theming section ,Flash Magisk (root or unroot), Camera2api enabler Directly from dashboard, Password protection etc. It\'s all started , lot more to come.',
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                      textAlign: TextAlign.center,
+                    ))),
             Center(
                 child: Padding(
               padding: const EdgeInsets.only(top: 60.0),
@@ -160,8 +162,7 @@ class SkyhawkrecPage extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                               padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
-
+                padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
                 child: Text(
                   'Frequently updated',
                   style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
@@ -210,15 +211,16 @@ class SkyhawkrecPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://skyhawkrecovery.github.io/Devices.html';
+                        String url =
+                            'https://skyhawkrecovery.github.io/Devices.html';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

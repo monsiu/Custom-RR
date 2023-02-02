@@ -89,11 +89,11 @@ class BlissromPage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

@@ -5,9 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 final List<String> imgList = [
   'https://i0.wp.com/theunlockr.com/wp-content/uploads/2019/08/Evolution-X-2.png?fit=720%2C1280&ssl=1'
-  'https://telegra.ph/file/101024a64669e063aec67.png',
+      'https://telegra.ph/file/101024a64669e063aec67.png',
   'https://telegra.ph/file/c31f20504a03127993e5f.png',
-  
 ];
 
 class EvolutionxPage extends StatelessWidget {
@@ -92,11 +91,11 @@ class EvolutionxPage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

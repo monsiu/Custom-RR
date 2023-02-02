@@ -43,23 +43,25 @@ class PixelexperiencePage extends StatelessWidget {
               height: 20.0,
             ),
             Center(
-               child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
-              child: Text(
-                'PixelExperience is an AOSP based ROM, with Google apps (gapps) included and all Pixel goodies (its in the name).   ',
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-                textAlign: TextAlign.center,
-              ),
-            ),),
-            Center( child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
                 child: Text(
-
-                
-              'Get Pixel features including launcher, wallpapers, icons, fonts, bootanimation and more in the form of a Custom Operating System. Truly a fan favourite for those looking for a Pixel Experience in a non-Pixel Device . ',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-              textAlign: TextAlign.center,
-            ))),
+                  'PixelExperience is an AOSP based ROM, with Google apps (gapps) included and all Pixel goodies (its in the name).   ',
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Center(
+                child: Padding(
+                    padding:
+                        const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                    child: Text(
+                      'Get Pixel features including launcher, wallpapers, icons, fonts, bootanimation and more in the form of a Custom Operating System. Truly a fan favourite for those looking for a Pixel Experience in a non-Pixel Device . ',
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                      textAlign: TextAlign.center,
+                    ))),
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 73.0),
@@ -92,7 +94,7 @@ class PixelexperiencePage extends StatelessWidget {
             ),
             Center(
               child: Container(
-                padding: const EdgeInsets.only(top:10.0, bottom:73),
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 73),
                   child: ElevatedButton(
                       child: Text(
                         'Official Builds',
@@ -103,11 +105,11 @@ class PixelexperiencePage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

@@ -47,14 +47,16 @@ class PitchblackrecPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Center( child: Padding(
+            Center(
+                child: Padding(
                     padding:
                         const EdgeInsets.only(top: 12.0, left: 15, right: 15),
-                child: Text(
-              'Pitch Black Recovery is a fork of TWRP with many improvements to make your experience better. It\'s more flexible & easy to use.',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-              textAlign: TextAlign.center,
-             ))),
+                    child: Text(
+                      'Pitch Black Recovery is a fork of TWRP with many improvements to make your experience better. It\'s more flexible & easy to use.',
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                      textAlign: TextAlign.center,
+                    ))),
             Center(
                 child: Padding(
               padding: const EdgeInsets.only(top: 60.0),
@@ -146,8 +148,7 @@ class PitchblackrecPage extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                              padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
-
+                padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
                 child: Text(
                   'Frequently updated',
                   style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
@@ -193,15 +194,16 @@ class PitchblackrecPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://pitchblackrecovery.com/#downloads';
+                        String url =
+                            'https://pitchblackrecovery.com/#downloads';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

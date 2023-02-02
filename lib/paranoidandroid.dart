@@ -44,21 +44,25 @@ class ParanoidandroidPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Center( child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
-              child: Text(
-                'Paranoid Android is a custom ROM aiming to extend the system, working on enhancing the already existing beauty of Android and following the same design philosophies that were set forward by Google for Android Open Source Project.',
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-                textAlign: TextAlign.center,
-            )),
+            Center(
+              child: Padding(
+                  padding:
+                      const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                  child: Text(
+                    'Paranoid Android is a custom ROM aiming to extend the system, working on enhancing the already existing beauty of Android and following the same design philosophies that were set forward by Google for Android Open Source Project.',
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                    textAlign: TextAlign.center,
+                  )),
             ),
-            Center( child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
-              child: Text(
-                'This custom ROM  brands itself as a minimalist\'s ROM that provide a fluid experience, with enhancements, rather than features',
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-                textAlign: TextAlign.center,
-             ) ),
+            Center(
+              child: Padding(
+                  padding:
+                      const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                  child: Text(
+                    'This custom ROM  brands itself as a minimalist\'s ROM that provide a fluid experience, with enhancements, rather than features',
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                    textAlign: TextAlign.center,
+                  )),
             ),
             Center(
               child: Padding(
@@ -80,7 +84,7 @@ class ParanoidandroidPage extends StatelessWidget {
             SizedBox(
               height: 200,
             ),
-             Center(
+            Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 5.0),
                 child: Text(
@@ -103,11 +107,11 @@ class ParanoidandroidPage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final List<String> imgList = [
- 'https://www.droidontime.com/assets/images/about.webp',
- 'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2FMonetWannabeTwoPoint.png&w=3840&q=75',
- 'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2Fsettings_dashboard_fivetwo.png&w=3840&q=75',
- 'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2Fgaming_fivetwo.png&w=3840&q=75',
- 'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2Fwidgets_fivetwo.png&w=3840&q=75',
+  'https://www.droidontime.com/assets/images/about.webp',
+  'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2FMonetWannabeTwoPoint.png&w=3840&q=75',
+  'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2Fsettings_dashboard_fivetwo.png&w=3840&q=75',
+  'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2Fgaming_fivetwo.png&w=3840&q=75',
+  'https://blog.droidontime.com/_next/image?url=%2Fstatic%2Fimages%2Fwidgets_fivetwo.png&w=3840&q=75',
 ];
 
 class DotosPage extends StatelessWidget {
@@ -45,8 +45,8 @@ class DotosPage extends StatelessWidget {
                         const EdgeInsets.only(top: 12.0, left: 15, right: 15),
                     child: Text(
                       'DroidOnTime(DOT OS) is a custom Android firmware launched with an aim to provide Unique user interface and Optimum performance and it keeps in mind the balance between performance and battery life.',
-                                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
                       textAlign: TextAlign.center,
                     ))),
             Center(
@@ -60,7 +60,7 @@ class DotosPage extends StatelessWidget {
             )),
             Center(
               child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
                 child: Text(
                   'Screenshots',
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
@@ -90,7 +90,7 @@ class DotosPage extends StatelessWidget {
             ),
             Center(
               child: Container(
-                padding: const EdgeInsets.only(top:10.0, bottom:73),
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 73),
                   child: ElevatedButton(
                       child: Text(
                         'Official Builds',
@@ -100,11 +100,11 @@ class DotosPage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

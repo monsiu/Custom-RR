@@ -47,14 +47,16 @@ class OrangefoxrecPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Center( child: Padding(
+            Center(
+                child: Padding(
                     padding:
                         const EdgeInsets.only(top: 12.0, left: 15, right: 15),
-                child: Text(
-              'OrangeFox Recovery is one of the most popular custom recoveries, with amazing additional features, fixes and a host of supported devices.',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-              textAlign: TextAlign.center,
-            ))),
+                    child: Text(
+                      'OrangeFox Recovery is one of the most popular custom recoveries, with amazing additional features, fixes and a host of supported devices.',
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                      textAlign: TextAlign.center,
+                    ))),
             Center(
                 child: Padding(
               padding: const EdgeInsets.only(top: 60.0),
@@ -157,7 +159,6 @@ class OrangefoxrecPage extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
-
                 child: Text(
                   'Frequently updated',
                   style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
@@ -210,11 +211,11 @@ class OrangefoxrecPage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

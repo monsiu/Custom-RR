@@ -171,20 +171,22 @@ class RedwolfrecPage extends StatelessWidget {
             ),
             Center(
               child: Container(
-padding: const EdgeInsets.only(top: 10.0, bottom: 73),                  child: ElevatedButton(
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 73),
+                  child: ElevatedButton(
                       child: Text(
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url = 'https://redwolfrecovery.github.io/devices.html';
+                        String url =
+                            'https://redwolfrecovery.github.io/devices.html';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");
