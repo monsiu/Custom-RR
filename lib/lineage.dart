@@ -42,13 +42,15 @@ class LineagePage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Center(child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
-              child: Text(
-                'Lineage OS, Known commonly as the CyanogenMod successor due to the main team from that project moving on to make Lineage OS.',
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-                textAlign: TextAlign.center,
-              ),),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                child: Text(
+                  'Lineage OS, Known commonly as the CyanogenMod successor due to the main team from that project moving on to make Lineage OS.',
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
             Center(
               child: Padding(
@@ -102,11 +104,11 @@ class LineagePage extends StatelessWidget {
                         if (await canLaunch(url)) {
                           await launch(
                             url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            //enableJavaScript: true,
+                            //enableDomStorage: true,
+                            //webOnlyWindowName: '_self',
                           );
                         } else {
                           print("Not Supported");

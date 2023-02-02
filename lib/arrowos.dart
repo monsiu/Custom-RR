@@ -40,13 +40,15 @@ class ArrowosPage extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          Center( child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
-              child: Text(
-            'Arrow OS, An AOSP project that takes pride in being a project started with the goal of keeping things simple, clean, and organized while adding features that will be helpful in the long run all while aiming to deliver smooth performance and longer battery life.',
-            style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-            textAlign: TextAlign.center,
-          ))),
+          Center(
+              child: Padding(
+                  padding:
+                      const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                  child: Text(
+                    'Arrow OS, An AOSP project that takes pride in being a project started with the goal of keeping things simple, clean, and organized while adding features that will be helpful in the long run all while aiming to deliver smooth performance and longer battery life.',
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                    textAlign: TextAlign.center,
+                  ))),
           Center(
             child: Padding(
               padding: const EdgeInsets.only(top: 73.0),
@@ -67,40 +69,40 @@ class ArrowosPage extends StatelessWidget {
           SizedBox(
             height: 200,
           ),
-           Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 5.0),
-                child: Text(
-                  'Download',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5.0),
+              child: Text(
+                'Download',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
             ),
-            Center(
-              child: Container(
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 73),
-                  child: ElevatedButton(
-                      child: Text(
-                        'Official Builds',
-                      ),
-                      onPressed: () async {
-                        String url =
-                            'https://download.pixelexperience.org/devices';
-                        if (await canLaunch(url)) {
-                          await launch(
-                            url,
-                            forceSafariVC: true,
-                            forceWebView: true,
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                            webOnlyWindowName: '_self',
-                          );
-                        } else {
-                          print("Not Supported");
-                        }
-                      })),
-            ),
+          ),
+          Center(
+            child: Container(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 73),
+                child: ElevatedButton(
+                    child: Text(
+                      'Official Builds',
+                    ),
+                    onPressed: () async {
+                      String url =
+                          'https://download.pixelexperience.org/devices';
+                      if (await canLaunch(url)) {
+                        await launch(
+                          url,
+                          forceSafariVC: false,
+                          forceWebView: false,
+                          //enableJavaScript: true,
+                          //enableDomStorage: true,
+                          //webOnlyWindowName: '_self',
+                        );
+                      } else {
+                        print("Not Supported");
+                      }
+                    })),
+          ),
         ]),
       ),
     );
