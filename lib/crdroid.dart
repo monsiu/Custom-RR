@@ -15,7 +15,6 @@ final List<String> imgList = [
   'https://crdroid.net/img/gallery/gallery-7.webp',
   'https://crdroid.net/img/gallery/gallery-8.webp',
   'https://crdroid.net/img/gallery/gallery-9.webp',
-  
 ];
 
 class CrdroidPage extends StatelessWidget {
@@ -49,28 +48,31 @@ class CrdroidPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Center( child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
-                child: Text(
-                  
-              'crDroid, another well known Custom OS that is known for speed and functionality. ',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
-              textAlign: TextAlign.center,
-            ))),
             Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(top:12.0, left: 15, right: 15),
+                    padding:
+                        const EdgeInsets.only(top: 12.0, left: 15, right: 15),
+                    child: Text(
+                      'crDroid, another well known Custom OS that is known for speed and functionality. ',
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                      textAlign: TextAlign.center,
+                    ))),
+            Center(
+                child: Padding(
+              padding: const EdgeInsets.only(top: 12.0, left: 15, right: 15),
               child: Text(
                 'Also coming from the AOSP project, crDroid offers wide number of settings and cutomizations which are really impressive. It also offers unlimited google photos backups, which is a feature commonly found in Google Pixels. ',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
                 textAlign: TextAlign.center,
               ),
             )),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top:73.0),
-                  child: Text(
-'Screenshots',              style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),
+                padding: const EdgeInsets.only(top: 73.0),
+                child: Text(
+                  'Screenshots',
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -78,14 +80,14 @@ class CrdroidPage extends StatelessWidget {
             CarouselImages(
               scaleFactor: 0.6,
               listImages: imgList,
-              height: 700,  
+              height: 700,
               cachedNetworkImage: true,
-              borderRadius: 20,  
+              borderRadius: 20,
             ),
             SizedBox(
               height: 200,
             ),
-             Center(
+            Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 5.0),
                 child: Text(
@@ -97,32 +99,25 @@ class CrdroidPage extends StatelessWidget {
             ),
             Center(
               child: Container(
-                padding: const EdgeInsets.only(top:10.0, bottom:73),
-                child: ElevatedButton(
-          child:
-              Text(
-                'Official Builds',
-              
-              ),
-          onPressed: () async {
-              String  url = 'https://crdroid.net/downloads';
-              if (await canLaunch(url)) {
-                await launch(
-                  url,
-                  forceSafariVC: true,
-                  forceWebView: true,
-                  enableJavaScript: true,
-                  enableDomStorage: true,
-                  webOnlyWindowName: '_self',
-
-                );
-                }
-              }
-                
-          )),
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 73),
+                  child: ElevatedButton(
+                      child: Text(
+                        'Official Builds',
+                      ),
+                      onPressed: () async {
+                        String url = 'https://crdroid.net/downloads';
+                        if (await canLaunch(url)) {
+                          await launch(
+                            url,
+                            forceSafariVC: false,
+                            forceWebView: false,
+                            enableJavaScript: true,
+                            enableDomStorage: true,
+                            webOnlyWindowName: '_self',
+                          );
+                        }
+                      })),
             ),
-              
-            
           ],
         ),
       ),
