@@ -103,7 +103,7 @@ class ParanoidandroidPage extends StatelessWidget {
                       ),
                       onPressed: () async {
                         String url =
-                            'https://download.pixelexperience.org/devices';
+                            'https://paranoidandroid.co/';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

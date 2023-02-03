@@ -100,7 +100,7 @@ class PotatoaospPage extends StatelessWidget {
                       ),
                       onPressed: () async {
                         String url =
-                            'https://download.pixelexperience.org/devices';
+                            'https://potatoproject.co/devices';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
