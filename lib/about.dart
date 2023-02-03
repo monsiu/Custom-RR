@@ -8,7 +8,6 @@ import 'package:android/instructions.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 
-
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
 
@@ -220,9 +219,9 @@ class MyAboutPage extends StatelessWidget {
                         'images/launcher.png',
                         width: 50,
                       )),
-                      applicationVersion: "v1.0",
+                      applicationVersion: "v0.2",
                       applicationName: "Custom RR",
-                      applicationLegalese: '\u{a9} 2022 Monsiu Tech',
+                      applicationLegalese: '\u{a9} 2023 Monsiu Tech',
                       children: <Widget>[
                         SizedBox(height: 24),
                         Container(
