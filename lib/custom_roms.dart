@@ -284,9 +284,9 @@ class MycustomromsPage extends StatelessWidget {
                             width: 50,
                           )),
                         ),
-                        applicationVersion: "v1.0",
+                        applicationVersion: "v0.2",
                         applicationName: "Custom RR",
-                        applicationLegalese: '\u{a9} 2022 Monsiu Tech',
+                        applicationLegalese: '\u{a9} 2023 Monsiu Tech',
                         children: <Widget>[
                           SizedBox(height: 24),
                           Container(
