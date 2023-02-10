@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, deprecated_member_use, avoid_print, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:android/custom_roms.dart';
-import 'package:android/custom_rec.dart';
-import 'package:android/home.dart';
+import 'package:custom_rr/custom_roms.dart';
+import 'package:custom_rr/custom_rec.dart';
+import 'package:custom_rr/home.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:custom_rr/devices.dart';
 
 class InstructionsPage extends StatelessWidget {
   const InstructionsPage({Key? key}) : super(key: key);
@@ -127,7 +128,7 @@ class MyInstPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.phone_android,
+                Icons.settings,
                 size: 34.0,
                 semanticLabel: 'Custom Roms',
               ),
@@ -146,7 +147,7 @@ class MyInstPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.restore,
+                Icons.sync,
                 size: 34.0,
                 semanticLabel: 'Custom Recoveries',
               ),
@@ -164,7 +165,25 @@ class MyInstPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.monetization_on_outlined,
+                Icons.devices,
+                size: 34.0,
+                semanticLabel: 'Devices',
+              ),
+              title: const Text('Devices'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DevicesPage()));
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.monetization_on,
                 size: 34.0,
                 semanticLabel: 'Support the Project',
               ),
@@ -235,7 +254,7 @@ class MyInstPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.file_copy,
+                Icons.library_books,
                 size: 34.0,
                 semanticLabel: 'Instructions and info',
               ),
@@ -270,7 +289,7 @@ class MyInstPage extends StatelessWidget {
                           width: 50,
                         )),
                       ),
-                      applicationVersion: "v0.2",
+                      applicationVersion: "v0.3",
                       applicationName: "Custom RR",
                       applicationLegalese: '\u{a9} 2023 Monsiu Tech',
                       children: <Widget>[
@@ -310,6 +329,21 @@ class MyInstPage extends StatelessWidget {
                   // ...
                   // Then close the drawer
                 }),
+            ListTile(
+              leading: const Icon(
+                Icons.update,
+                size: 34.0,
+                semanticLabel: 'Check for Updates',
+              ),
+              title: const Text('Check for Updates'),
+              onTap: () async {
+                Navigator.pop(context);
+                // Check for updates
+                // ...
+                // Show a prompt for the user to update
+                // ...
+              },
+            ),
           ],
         ),
       ),
@@ -376,9 +410,9 @@ class MyInstPage extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 12.0, left: 15, right: 15),
+          padding: EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
           child: Text(
-            'Android being an operating system made by Google is open source. This means its (source) code is available to the public to use and modify. This is commonly known as the Android Open Source Project (AOSP). \n\nThe source code is modified by the public and this lead to the creation of custom ROMS, which are operating systems made by people outside of Google.\n\n The Custom ROMs are often Android in its purest form (vanilla) while others simply port operating systems from one phone to another, often for phones with a manufacturer skin on them that changes the look of Android like Samsung.\n\nSome ROMS offer Google Apps(gapps) while vanilla ROMS do not and they come with and are instead replaced with open source dialer app, camera app, messaging app and etc with no google apps or play store.',
+            'Android being an operating system made by Google is open source. This means its (source) code is available to the public to use and modify. This is commonly known as the Android Open Source Project (AOSP). \n\nThe source code is modified by the public and this lead to the creation of custom ROMS, which are operating systems made by people outside of Google.\n\n The Custom ROMs are often Android in its purest form (vanilla) while others simply port operating systems from one phone to another, often for phones with a manufacturer skin on them that changes the look of Android like Samsung while others are Android modified however they see fit be it in theme and functionality.\n\nSome ROMS offer Google Apps(gapps) while vanilla ROMS do not and they come with and are instead replaced with open source dialer app, camera app, messaging app and etc with no Google apps or play store but rather apps developed to be open source meaning they are open for the public to review the source code or even modify.',
             style: TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.w300,
@@ -400,11 +434,97 @@ class MyInstPage extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
           child: Text(
-            'Every Phone has a recovery and this is where you find settings such as rebooting, factory reset, erase cache and other system settings. \n\nThe recovery mode is often found when you turn off your phone and hold some buttons on your device and the phone boots into recovery...these buttons are specific to device and manufacturer so its best to read on how to do that on your device. \n\nThe custom recoveries basically replace this stock (original) recovery with an advanced one with menus and more that you can use to install Custom ROMS by flashing the ZIP files which is something you can not do on stock recovery, hence having a Custom Recovery is ESSENTIAL AND A MUST!',
+            'Every Phone has a recovery mode and this is where you find advanced settings such as rebooting, factory reset, erase cache and other advanced system settings. \n\nThe recovery mode is often found when you turn off your phone and hold some buttons on your device and the phone boots into recovery...these buttons are specific to device and manufacturer so its best to read on how to do that on your device but i will put a list to get an idea on what to try. \n\nThe custom recoveries basically replace this stock (original) recovery with an advanced one with menus and more that you can use to install Custom ROMS by flashing(basically installing) the ZIP files which is something you can not do on stock recovery, hence having a Custom Recovery is ESSENTIAL AND A MUST!',
             style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
             textAlign: TextAlign.center,
           ),
         ),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'How To Enter Recovery Mode',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Samsung Phone With A Home Button',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+              ),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Step 1: Power off Device·\n\nStep 2: Hold volume up button, Home button, then power button together·\n\nStep 3: Release all buttons when the SAMSUNG logo appears on the screen.\n\nYour device will boot into recovery where you can use the volume keys to navigate and power button to select a highlighted option.',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontStyle: FontStyle.italic,
+              ),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Samsung Phone Without A Home Button',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+              ),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Step 1: Power off Device·\n\nStep 2: Hold volume up button, then power button together·\n\nStep 3: Release all buttons when the SAMSUNG logo appears on the screen.\n\nStep 4: If the Android logo with "No command" pops up tap on the screen.\n\nYour device will go into recovery  where you can use the volume keys to navigate and power button to select a highlighted option.',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontStyle: FontStyle.italic,
+              ),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Samsung Phone Without A Home Button(ALT OPTION)',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+              ),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Step 1: Connect the Type C cable from the computer to your mobile and hold down Volume Down + Power key for a few moments to  power off Device·\n\nStep 2: Hold volume up button then power button together·\n\nStep 3: Release all buttons when the SAMSUNG logo appears on the screen.\n\nYour device will boot into recovery where you can use the volume keys to navigate and power button to select a highlighted option.',
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontStyle: FontStyle.italic,
+              ),
+              textAlign: TextAlign.center,
+            )),
         Container(
             padding: EdgeInsets.only(top: 12.0, left: 15, right: 15),
             child: Text(
@@ -439,7 +559,7 @@ class MyInstPage extends StatelessWidget {
         Container(
             padding: EdgeInsets.only(bottom: 19),
             child: Text(
-              'This is our contigency plan when all things go wrong and it is what we will use to fix any mistakes.',
+              'This are the files that contain everything needed to return the phone back to its original state(Stock) as it was directly from the manufacturers.\n\nWe need this in case things go wrong be it flashing the wrong ROM or anything really.\n\nThe files revert back the Recovery and Operating System to its original state thus clearing any problems encountered.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -459,7 +579,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'This is the bridge between our phone to flash our stock firmware. You need it to back to stock as it is what you will use to flash stock firmware...custom recovery can not do this',
+              'This is the bridge between your phone and computer used to flash our stock firmware. You need it to back to stock as it is what you will use to flash stock firmware files...custom recovery can not do this sadly as each manufacturer has different files and software that are in obscure file formats requiring the special firmware distributed by the manufacturer.\n\nSamsung for example uses ODIN as the firmware to flash your phone.\n\nYou will also need a system flash tool to flash Custom Recovery on your phone.',
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.w300,
@@ -482,7 +602,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'As previously stated this is the hub where we flash our custom rom as we can not do this through the flash tool,',
+              'As previously stated this is the hub where we flash our custom ROMS as we can not do this on the Stock Recovery. In the Custom Recovery is where we will flash everything and we can even flash custom recoveries to switch up on the fly.\n\nI have a page of custom recoveries where you can have your pick.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -501,7 +621,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'These are the files you flash in the custom recovery to get the custom recovery. Flashing is as simple as swiping as a swipe on a button.',
+              'These are the files you flash in the custom recovery to get the custom recovery. Flashing (Installing)is as simple as swiping as a swipe on a button. You will usually find the files that can be flashed are usually image files(.img file) or ZIP files and can range from custom ROMS and Recoveries to even phone software like Magisk which is our modern day rooting software.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -541,7 +661,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'This is where you should keep all files and it where the system flash tool is installed.',
+              'This is where you should keep all files and it where the Stock flash tool will be installed which you will need to flash the custom recovery. You will also use the laptop to transfer files from laptop to phone when needed.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -561,7 +681,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'A set of files that you will need to communicate with your device directly through the terminal. If you can not install custom recovery through the system flash tool you will have to push it and flash it through this way ',
+              'A set of files that you will need to communicate with your device directly through the terminal. IT IS REQUIRED FOR YOUR DEVICE TO BE DETECTED BY THE COMPUTER. Alsc, if you can not install custom recovery through the system flash tool you will have to push it and flash it through the terminal.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -581,7 +701,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'Makes sure your Device is seen by the computer. Make sure to check you have installed the right drivers for your device.',
+              'Makes sure your Device is seen by the computer. Make sure to check you have installed the right drivers for your device. Windows tends to do this automatically so you need to check for optional updates and install them. You can also download the drivers specific to your device.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -609,6 +729,54 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
+              'Unlock the Bootloader',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Open your phone’s app drawer, tap the Settings icon, and select “About Phone”. Scroll all the way down and tap the “Build Number” item seven times. You should get a message saying you are now a developer.\n\nHead back to the main Settings page, and you should see a new option near the bottom called “Developer Options”. Open that, and enable “OEM Unlocking”, if the option exists (if it doesn’t, no worries–it’s only necessary on some phones).\n\nOnce that’s done, connect your phone to your computer. You should see a popup entitled “Allow USB Debugging?” on your phone. Check the “Always allow from this computer” box and tap OK.',
+              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Boot into FASTBOOT mode/Download Mode for Samsung Devices',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Turn off your device and wait until it vibrates to indicate a successful shutdown.\n\nPress the Power button and the Volume Down button(+home button if available) and hold them down for a few seconds.\n\nThe device will soon reboot into Fastboot Mode/Download mode. You can let go of the buttons now.',
+              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'Continue unlocking bootloader',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
+              'In the previous unlocking bootloader step you had allowed your phone to be able to unlock bootloader as the bootloader is always locked, now at this step its the final step to unlock bootloader.\n\nYou need to open the terminal on your computer and while your phone is in fastboot mode you need to connect it via USB and type some code namely \n\n<fastboot flashing unlock> \n\nor\n\n<fastboot oem unlock>\n\n This will require confirmation on your phone using the volume button and upon accepting you will have fully unlocked bootloader.\n\nPlease note that some devices have special processes to unlock bootloader and so you can check the Devices page in this app to get info as per your device.',
+              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
+              textAlign: TextAlign.center,
+            )),
+        Container(
+            padding:
+                EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
+            child: Text(
               'Step 0: Confirm that the Firmware files Work',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
@@ -617,7 +785,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'Test the files by flashing your stock ROM to see if it works and that it is the correct one. Please research on how to flash your stock ROM as it is dependant on phone type and chip manufacturer',
+              'Test the files by flashing your stock ROM to see if it works and that it is the correct one. You need to be in fastboot mode/download mode to flash the stock firmware or custom recovery(both of these need the flashing tool provided by your manufacturer). \n\nOn the Download Page you will get instructions on how to flash the files in the Flashing tool. \n\nPlease check the Device section in the app drawer to get detailed info on how to flash your official firmware files.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -633,7 +801,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'In your system Flash tool you may see a recovery section which you can place your custom recovery file to flash as the phones new recovery and the phone will boot into the new recovery you flashed. \n\nOdin (Samsung flash tool) does this. Otherwise flash the recovery through the terminal by booting your phone into fastboot mode and connect it to your pc and running fastboot flash recovery <recovery file name>.img Then running <fastboot reboot> to restart device then you hold the device specific button combination to boot into recovery. And thats it!',
+              'In your system Flash tool you may see a recovery section which you can place your custom recovery file(.img file) to flash the phone’s new recovery and the phone will boot into the new recovery you flashed once completed(if not just reboot by holding down the volume down button and power button). \n\n Otherwise flash the recovery through the terminal by booting your phone into fastboot mode as stated above and connect it to your pc and run \n\n<fastboot flash recovery (recovery file name).img> \n\n(brackets and chevrons not added) \n\nThen running \n\n<fastboot reboot> to restart device\n\n then you hold the device specific button combination to boot into recovery. And thats it!',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -649,7 +817,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'Once in the Custom recovery page. \n\nYou need to take the custom rom zip file and move it into your phone download page and in the recovery page you choose install and you navigate to where you saved the file and you pick the custom ROM zip file and you swipe to flash it and upon completion click the wipe cache and then click reboot.',
+              'Once in the Custom recovery page. \n\nYou need to take the downloaded custom ROM zip file from your laptop and move it into your phone storage.\n\nOnce done, head in the custom recovery in your phone and choose install and you navigate to where you saved the file and you pick the custom ROM zip file(or image file) and you swipe to flash it and upon completion click the wipe cache and then click reboot.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -665,7 +833,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'Google apps are not installed natively in custom roms (unless specified) so you may need to flash a zip file of the Google Apps called Gapps to get the Google Play Store as well as some Google Apps that are specified in the Gapps package you chose...but note there are alternative app stores that you can use to get your favourite apps. \n\nA good example is the Aurora Store that allows install without a Google Account and you can spoof your device to get device specific apps. \n\nThere is also MicroG which works as a gapps alternative for when you need a google functionality in a bite sized format that is not systemwide like flashing gapps.',
+              'Google apps are not installed natively in custom roms (except some which come natively installed) so you may need to flash a zip file of the Google Apps called Gapps to get the Google Play Store as well as some Google Apps that are specified in the Gapps package you chose.\n\nPlease note there are alternative App Stores that you can use to get your favourite apps, Google or otherwise, that do not need GAPPS as some users do not want Google installed on their devices for security purposes . \n\nA good example is the Aurora Store that allows install without a Google Account and you can spoof your device to get device specific apps. \n\nThere is also MicroG which works as a gapps alternative for when you need a Google functionality in a bite sized format that is not systemwide like flashing gapps.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -681,7 +849,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'Magisk is our modern day rooter. It allows us to get root access systemlessly unlike the traditional and old root methods that actively changed the system partition in our device. \n\nMagisk gives us root and it installs to give us a wide range of features but please note that install of magisk may lead to device being detected as having root and banking apps may not work and Netflix will be hidden in the play store. \n\nThere are workarounds in magisk to hide magisk from the troublesome apps so that is not much of an issue. Enable Denylist and add the troublesome apps to hide root from them and reopen them to see changes. \n\nMagisk also used to offer modules that you can flash within the app to get a wide range of features but that has been removed and so you can use Foxs Magisk Module Manager to find all these modules and you can also flash them in the Fox app too and they will also appear in your Magisk App as an installed module.',
+              'Magisk is our modern day rooter. It allows us to get root access systemlessly unlike the traditional and old root methods that actively changed the system partition in our device. \n\nMagisk gives us root and it installs to give us a wide range of features and one that is popular is Viper4Android that takes audio in your device to a whole new but please note that install of magisk may lead to device being detected as having root and banking apps may not work and Netflix will be hidden in the play store. \n\nThere are workarounds in magisk to hide magisk from the troublesome apps so that is not much of an issue.\n\nEnable Denylist and add the troublesome apps to hide root from them and reopen them to see changes. \n\nMagisk also used to offer modules that you can flash within the app to get a wide range of features but that has been removed and so you can use Foxs Magisk Module Manager to find all these modules and you can also flash them in the Fox app too and they will also appear in your Magisk App as an installed module.',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),
@@ -701,7 +869,7 @@ class MyInstPage extends StatelessWidget {
             padding:
                 EdgeInsets.only(bottom: 19, top: 12.0, left: 15, right: 15),
             child: Text(
-              'You have Installed A Custom Recovery And A Custom ROM with Gapps. \n\nThat is all there is to do and you are set. The Magisk Root may cause problem in some Apps so its best to check the magisk settings and look for the Denylist and add the troublesome apps to hide root from them ',
+              'You have Installed A Custom Recovery And A Custom ROM with Gapps. \n\nThat is all there is to do and you are set.\n\nThe Magisk Root may cause problem in some Apps so its best to check the magisk settings and look for the Denylist and add the troublesome apps to hide root from them ',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             )),

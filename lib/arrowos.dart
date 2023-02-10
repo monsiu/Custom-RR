@@ -87,8 +87,7 @@ class ArrowosPage extends StatelessWidget {
                       'Official Builds',
                     ),
                     onPressed: () async {
-                      String url =
-                          'https://arrowos.net/download';
+                      String url = 'https://arrowos.net/download';
                       if (await canLaunch(url)) {
                         await launch(
                           url,

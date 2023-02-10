@@ -102,8 +102,7 @@ class ParanoidandroidPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url =
-                            'https://paranoidandroid.co/';
+                        String url = 'https://paranoidandroid.co/';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

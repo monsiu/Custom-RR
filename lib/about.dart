@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, deprecated_member_use, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:android/custom_roms.dart';
-import 'package:android/custom_rec.dart';
-import 'package:android/home.dart';
-import 'package:android/instructions.dart';
+import 'package:custom_rr/custom_roms.dart';
+import 'package:custom_rr/custom_rec.dart';
+import 'package:custom_rr/home.dart';
+
+import 'package:custom_rr/devices.dart';
+import 'package:custom_rr/instructions.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -132,7 +134,7 @@ class MyAboutPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.phone_android,
+                Icons.settings,
                 size: 34.0,
                 semanticLabel: 'Custom Roms',
               ),
@@ -151,7 +153,7 @@ class MyAboutPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.restore,
+                Icons.sync,
                 size: 34.0,
                 semanticLabel: 'Custom Recoveries',
               ),
@@ -169,7 +171,25 @@ class MyAboutPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.file_copy,
+                Icons.devices,
+                size: 34.0,
+                semanticLabel: 'Devices',
+              ),
+              title: const Text('Devices'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DevicesPage()));
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.library_books,
                 size: 34.0,
                 semanticLabel: 'Instructions and info',
               ),
@@ -187,7 +207,7 @@ class MyAboutPage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.monetization_on_outlined,
+                Icons.monetization_on,
                 size: 34.0,
                 semanticLabel: 'Support the Project',
               ),
@@ -219,7 +239,7 @@ class MyAboutPage extends StatelessWidget {
                         'images/launcher.png',
                         width: 50,
                       )),
-                      applicationVersion: "v0.2",
+                      applicationVersion: "v0.3",
                       applicationName: "Custom RR",
                       applicationLegalese: '\u{a9} 2023 Monsiu Tech',
                       children: <Widget>[
@@ -259,6 +279,21 @@ class MyAboutPage extends StatelessWidget {
                   // ...
                   // Then close the drawer
                 }),
+            ListTile(
+              leading: const Icon(
+                Icons.update,
+                size: 34.0,
+                semanticLabel: 'Check for Updates',
+              ),
+              title: const Text('Check for Updates'),
+              onTap: () async {
+                Navigator.pop(context);
+                // Check for updates
+                // ...
+                // Show a prompt for the user to update
+                // ...
+              },
+            ),
           ],
         ),
       ),

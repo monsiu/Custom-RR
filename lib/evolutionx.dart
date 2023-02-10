@@ -86,8 +86,7 @@ class EvolutionxPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url =
-                            'https://evolution-x.org/download';
+                        String url = 'https://evolution-x.org/download';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
