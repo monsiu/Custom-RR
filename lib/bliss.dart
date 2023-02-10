@@ -84,8 +84,7 @@ class BlissromPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url =
-                            'https://downloads.blissroms.org/';
+                        String url = 'https://downloads.blissroms.org/';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

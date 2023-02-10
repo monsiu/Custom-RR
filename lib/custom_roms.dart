@@ -1,18 +1,19 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, deprecated_member_use, avoid_print
-import 'package:android/crdroid.dart';
-import 'package:android/pixelexperience.dart';
-import 'package:android/dotos.dart';
-import 'package:android/arrowos.dart';
-import 'package:android/bliss.dart';
-import 'package:android/evolutionx.dart';
-import 'package:android/paranoidandroid.dart';
-import 'package:android/potatoaosp.dart';
-import 'package:android/lineage.dart';
-import 'package:android/havoc.dart';
+import 'package:custom_rr/crdroid.dart';
+import 'package:custom_rr/pixelexperience.dart';
+import 'package:custom_rr/dotos.dart';
+import 'package:custom_rr/arrowos.dart';
+import 'package:custom_rr/bliss.dart';
+import 'package:custom_rr/evolutionx.dart';
+import 'package:custom_rr/paranoidandroid.dart';
+import 'package:custom_rr/potatoaosp.dart';
+import 'package:custom_rr/lineage.dart';
+import 'package:custom_rr/devices.dart';
+import 'package:custom_rr/havoc.dart';
 import 'package:flutter/material.dart';
-import 'package:android/custom_rec.dart';
-import 'package:android/home.dart';
-import 'package:android/instructions.dart';
+import 'package:custom_rr/custom_rec.dart';
+import 'package:custom_rr/home.dart';
+import 'package:custom_rr/instructions.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -140,7 +141,7 @@ class MycustomromsPage extends StatelessWidget {
               ),
               ListTile(
                 leading: const Icon(
-                  Icons.phone_android,
+                  Icons.settings,
                   size: 34.0,
                   semanticLabel: 'Custom Roms',
                 ),
@@ -159,7 +160,7 @@ class MycustomromsPage extends StatelessWidget {
               ),
               ListTile(
                 leading: const Icon(
-                  Icons.restore,
+                  Icons.sync,
                   size: 34.0,
                   semanticLabel: 'Custom Recoveries',
                 ),
@@ -177,7 +178,25 @@ class MycustomromsPage extends StatelessWidget {
               ),
               ListTile(
                 leading: const Icon(
-                  Icons.file_copy,
+                  Icons.devices,
+                  size: 34.0,
+                  semanticLabel: 'Devices',
+                ),
+                title: const Text('Devices'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DevicesPage()));
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.library_books,
                   size: 34.0,
                   semanticLabel: 'Instructions and info',
                 ),
@@ -195,7 +214,7 @@ class MycustomromsPage extends StatelessWidget {
               ),
               ListTile(
                 leading: const Icon(
-                  Icons.monetization_on_outlined,
+                  Icons.monetization_on,
                   size: 34.0,
                   semanticLabel: 'Support the Project',
                 ),
@@ -284,7 +303,7 @@ class MycustomromsPage extends StatelessWidget {
                             width: 50,
                           )),
                         ),
-                        applicationVersion: "v0.2",
+                        applicationVersion: "v0.3",
                         applicationName: "Custom RR",
                         applicationLegalese: '\u{a9} 2023 Monsiu Tech',
                         children: <Widget>[
@@ -324,6 +343,21 @@ class MycustomromsPage extends StatelessWidget {
                     // ...
                     // Then close the drawer
                   }),
+              ListTile(
+                leading: const Icon(
+                  Icons.update,
+                  size: 34.0,
+                  semanticLabel: 'Check for Updates',
+                ),
+                title: const Text('Check for Updates'),
+                onTap: () async {
+                  Navigator.pop(context);
+                  // Check for updates
+                  // ...
+                  // Show a prompt for the user to update
+                  // ...
+                },
+              ),
             ],
           ),
         ),

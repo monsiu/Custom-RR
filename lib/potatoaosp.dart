@@ -99,8 +99,7 @@ class PotatoaospPage extends StatelessWidget {
                         'Official Builds',
                       ),
                       onPressed: () async {
-                        String url =
-                            'https://potatoproject.co/devices';
+                        String url = 'https://potatoproject.co/devices';
                         if (await canLaunch(url)) {
                           await launch(
                             url,

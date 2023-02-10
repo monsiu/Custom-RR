@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, unused_import, depend_on_referenced_packages
-import 'package:android/home.dart';
+import 'package:custom_rr/home.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:android/routes.dart';
+import 'package:custom_rr/routes.dart';
 import 'package:new_version/new_version.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -22,6 +22,7 @@ void main() {
 //Setting SystmeUIMode
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge,
       overlays: [SystemUiOverlay.top]);
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatelessWidget {

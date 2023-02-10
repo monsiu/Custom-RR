@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, unused_import, deprecated_member_use, avoid_print
+import 'package:custom_rr/custom_rec.dart';
 import 'package:custom_rr/devices.dart';
 import 'package:custom_rr/twrp.dart';
 import 'package:custom_rr/redwolfrec.dart';
@@ -23,16 +24,16 @@ import 'package:custom_rr/instructions.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class CustomrecPage extends StatelessWidget {
-  const CustomrecPage({Key? key}) : super(key: key);
+class DevicesPage extends StatelessWidget {
+  const DevicesPage({Key? key}) : super(key: key);
 
-  static const appTitle = 'Custom Recoveries';
+  static const appTitle = 'Devices';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: appTitle,
-      home: const MycustomrecsPage(title: appTitle),
+      home: const MyDevicesPage(title: appTitle),
       theme: ThemeData(
           brightness: Brightness.light,
           /* light theme settings */
@@ -52,8 +53,8 @@ class CustomrecPage extends StatelessWidget {
   }
 }
 
-class MycustomrecsPage extends StatelessWidget {
-  const MycustomrecsPage({super.key, required this.title});
+class MyDevicesPage extends StatelessWidget {
+  const MyDevicesPage({super.key, required this.title});
 
   final String title;
 
@@ -176,6 +177,24 @@ class MycustomrecsPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const CustomrecPage()));
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.library_books,
+                  size: 34.0,
+                  semanticLabel: 'Instructions and info',
+                ),
+                title: const Text('Instructions'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const InstructionsPage()));
                   // Update the state of the app
                   // ...
                   // Then close the drawer
@@ -371,7 +390,7 @@ class MycustomrecsPage extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Container(
               child: SizedBox(
-                height: 450.0,
+                height: 380.0,
                 child: Card(
                   elevation: 2.0,
                   child: InkWell(
@@ -379,7 +398,7 @@ class MycustomrecsPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => TwrpPage(),
+                            builder: (context) => HavocPage(),
                           ));
                     },
                     child: Padding(
@@ -389,42 +408,25 @@ class MycustomrecsPage extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          CachedNetworkImage(
-                            imageUrl:
-                                "https://i0.wp.com/www.androidsage.com/wp-content/uploads/2021/01/TWRP-recovery.jpg",
-                            placeholder: (context, url) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/samsung.png',
+                                  width: 500,
+                                  height: 300,
+                                )),
                           ),
                           SizedBox(
-                            height: 20.0,
+                            height: 10.0,
                           ),
                           Center(
                             child: Text(
-                              'Team Win Recovery Project (TWRP)',
+                              'Samsung Devices',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
                               ),
                               textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: 19,
-                            ),
-                            child: Center(
-                              child: Text(
-                                textAlign: TextAlign.center,
-                                'Team Win Recovery Project is an open-source software custom recovery image for Android-based devices. It supports a widest range of Devices in the Custom Recovery space',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
                             ),
                           ),
                         ],
@@ -439,7 +441,7 @@ class MycustomrecsPage extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Container(
               child: SizedBox(
-                height: 400,
+                height: 480,
                 child: Card(
                   elevation: 2.0,
                   child: InkWell(
@@ -447,7 +449,7 @@ class MycustomrecsPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RedwolfrecPage(),
+                            builder: (context) => LineagePage(),
                           ));
                     },
                     child: Padding(
@@ -457,42 +459,25 @@ class MycustomrecsPage extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          CachedNetworkImage(
-                            imageUrl:
-                                "https://forum.xda-developers.com/proxy.php?image=https%3A%2F%2Fpreview.ibb.co%2FdEEWNk%2F1495640672222.png&hash=39f616ef3fe8296072c24e0f4585d3c9",
-                            placeholder: (context, url) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/sony.png',
+                                  width: 600,
+                                  height: 400,
+                                )),
                           ),
                           SizedBox(
-                            height: 20.0,
+                            height: 10.0,
                           ),
                           Center(
                             child: Text(
-                              'Red Wolf Recovery Project',
+                              'Sony Devices',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
                               ),
                               textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: 19,
-                            ),
-                            child: Center(
-                              child: Text(
-                                textAlign: TextAlign.center,
-                                'Red Wolf Recovery is custom recovery based on TWRP source code, however some things are working here slightly different then you might expected. ​',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
                             ),
                           ),
                         ],
@@ -507,7 +492,7 @@ class MycustomrecsPage extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Container(
               child: SizedBox(
-                height: 360.0,
+                height: 434.0,
                 child: Card(
                   elevation: 2.0,
                   child: InkWell(
@@ -515,7 +500,7 @@ class MycustomrecsPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PitchblackrecPage(),
+                            builder: (context) => CrdroidPage(),
                           ));
                     },
                     child: Padding(
@@ -525,42 +510,25 @@ class MycustomrecsPage extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          CachedNetworkImage(
-                            imageUrl:
-                                "https://techsphinx.com/wp-content/uploads/2020/09/PBRP.png",
-                            placeholder: (context, url) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/huawei.png',
+                                  width: 450,
+                                  height: 320,
+                                )),
                           ),
                           SizedBox(
-                            height: 20.0,
+                            height: 43.0,
                           ),
                           Center(
                             child: Text(
-                              'Pitch Black Recovery Project',
+                              'Huawei Devices',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
                               ),
                               textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: 19,
-                            ),
-                            child: Center(
-                              child: Text(
-                                textAlign: TextAlign.center,
-                                'Pitch Black Recovery is a fork of TWRP with many improvements to make your experience better. It\'s more flexible & easy to use.',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
                             ),
                           ),
                         ],
@@ -575,7 +543,7 @@ class MycustomrecsPage extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Container(
               child: SizedBox(
-                height: 350.0,
+                height: 473.0,
                 child: Card(
                   elevation: 2.0,
                   child: InkWell(
@@ -583,7 +551,7 @@ class MycustomrecsPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => OrangefoxrecPage(), //orange
+                            builder: (context) => PixelexperiencePage(),
                           ));
                     },
                     child: Padding(
@@ -593,42 +561,25 @@ class MycustomrecsPage extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          CachedNetworkImage(
-                            imageUrl:
-                                "https://xiaomitools.com/wp-content/uploads/2020/04/of_forums_header_v2_hed_2-1024x432.jpg",
-                            placeholder: (context, url) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/lg.png',
+                                  width: 500,
+                                  height: 400,
+                                )),
                           ),
                           SizedBox(
-                            height: 20.0,
+                            height: 1.0,
                           ),
                           Center(
                             child: Text(
-                              'Orange Fox Recovery Project',
+                              'LG Devices',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
                               ),
                               textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: 19,
-                            ),
-                            child: Center(
-                              child: Text(
-                                textAlign: TextAlign.center,
-                                'OrangeFox Recovery is one of the most popular custom recoveries, with additional features, fixes and a host of supported devices.',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
                             ),
                           ),
                         ],
@@ -651,7 +602,7 @@ class MycustomrecsPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SkyhawkrecPage(),
+                            builder: (context) => ArrowosPage(),
                           ));
                     },
                     child: Padding(
@@ -661,42 +612,331 @@ class MycustomrecsPage extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          CachedNetworkImage(
-                            imageUrl:
-                                "https://forum.xda-developers.com/proxy.php?image=https%3A%2F%2Fgithub.com%2FDNI9%2FSHRP_%2Fraw%2Fmaster%2Fimg%2Fshrp3_banner_xda.png&hash=64337414359ef1feb6f4de18c17c665b",
-                            placeholder: (context, url) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/nokia.png',
+                                  width: 400,
+                                  height: 300,
+                                )),
                           ),
                           SizedBox(
-                            height: 20.0,
+                            height: 35.0,
                           ),
                           Center(
                             child: Text(
-                              'Sky Hawk Recovery Project',
+                              'Nokia Devices',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
                               ),
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: 19,
-                            ),
-                            child: Center(
-                              child: Text(
-                                textAlign: TextAlign.center,
-                                'SHRP is inspired by mordern design to bring the newest design to the native TWRP. SHRP provides much more along side of it\'s rich UI experience. New dashboard makes it very easy to interact with TWRP.',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w900,
-                                ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Container(
+              child: SizedBox(
+                height: 380.0,
+                child: Card(
+                  elevation: 2.0,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EvolutionxPage(),
+                          ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/motorola.png',
+                                  width: 500,
+                                  height: 300,
+                                )),
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          Center(
+                            child: Text(
+                              'Motorola Devices',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
                               ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Container(
+              child: SizedBox(
+                height: 470.0,
+                child: Card(
+                  elevation: 2.0,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ParanoidandroidPage(),
+                          ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/lenovo.png',
+                                  width: 500,
+                                  height: 400,
+                                )),
+                          ),
+                          SizedBox(
+                            height: 0.1,
+                          ),
+                          Center(
+                            child: Text(
+                              'Lenovo Devices',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Container(
+              child: SizedBox(
+                height: 500.0,
+                child: Card(
+                  elevation: 2.0,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DotosPage(),
+                          ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/google.png',
+                                  width: 500,
+                                  height: 400,
+                                )),
+                          ),
+                          SizedBox(
+                            height: 26.0,
+                          ),
+                          Center(
+                            child: Text(
+                              'Google Pixel Devices',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Container(
+              child: SizedBox(
+                height: 510.0,
+                child: Card(
+                  elevation: 2.0,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BlissromPage(),
+                          ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/oneplus.png',
+                                  width: 500,
+                                  height: 400,
+                                )),
+                          ),
+                          SizedBox(
+                            height: 35.0,
+                          ),
+                          Center(
+                            child: Text(
+                              'Oneplus Devices',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Container(
+              child: SizedBox(
+                height: 489.0,
+                child: Card(
+                  elevation: 2.0,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PotatoaospPage(),
+                          ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/xiaomi.png',
+                                  width: 500,
+                                  height: 400,
+                                )),
+                          ),
+                          SizedBox(
+                            height: 22.0,
+                          ),
+                          Center(
+                            child: Text(
+                              'Xiaomi Devices',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Container(
+              child: SizedBox(
+                height: 500.0,
+                child: Card(
+                  elevation: 2.0,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DotosPage(),
+                          ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Hero(
+                                tag: 'img',
+                                child: Image.asset(
+                                  'images/treble.png',
+                                  width: 500,
+                                  height: 400,
+                                )),
+                          ),
+                          SizedBox(
+                            height: 26.0,
+                          ),
+                          Center(
+                            child: Text(
+                              'Project Treble Devices',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ],
