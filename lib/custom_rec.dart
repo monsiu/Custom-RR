@@ -64,6 +64,15 @@ class MycustomrecsPage extends StatelessWidget {
           centerTitle: true,
           title: Text(title),
           actions: <Widget>[
+            IconButton(
+              onPressed: () {
+                showSearch(
+                  context: context,
+                  delegate: CustomSearchDelegate(),
+                );
+              },
+              icon: const Icon(Icons.search),
+            ),
             PopupMenuButton<String>(
               onSelected: (value) {
                 if (value == 'share') {
@@ -281,6 +290,15 @@ class MycustomrecsPage extends StatelessWidget {
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(16))),
                     actions: <Widget>[
+                      IconButton(
+                        onPressed: () {
+                          showSearch(
+                            context: context,
+                            delegate: CustomSearchDelegate(),
+                          );
+                        },
+                        icon: const Icon(Icons.search),
+                      ),
                       TextButton(
                         onPressed: () => Navigator.pop(context, 'OK'),
                         child: const Text('Enjoy the coffee  ☕'),
@@ -708,5 +726,77 @@ class MycustomrecsPage extends StatelessWidget {
             ),
           ),
         ]));
+  }
+}
+
+class CustomSearchDelegate extends SearchDelegate {
+  List<String> searchTerms = [
+    'Red Wolf Recovery',
+    'TWRP (Team Win Recovery Project)',
+    'OrangeFox Recovery',
+    'PitchBlack Recovery',
+    'Skyhawk Recovery',
+  ];
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: const Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      ),
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back),
+      onPressed: () {
+        close(context, null);
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var device in searchTerms) {
+      if (device.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(device);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index) {
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var device in searchTerms) {
+      if (device.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(device);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index) {
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+          onTap: () {
+            query = result;
+          },
+        );
+      },
+    );
   }
 }
