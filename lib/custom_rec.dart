@@ -64,15 +64,6 @@ class MycustomrecsPage extends StatelessWidget {
           centerTitle: true,
           title: Text(title),
           actions: <Widget>[
-            IconButton(
-              onPressed: () {
-                showSearch(
-                  context: context,
-                  delegate: CustomSearchDelegate(),
-                );
-              },
-              icon: const Icon(Icons.search),
-            ),
             PopupMenuButton<String>(
               onSelected: (value) {
                 if (value == 'share') {
@@ -290,15 +281,6 @@ class MycustomrecsPage extends StatelessWidget {
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(16))),
                     actions: <Widget>[
-                      IconButton(
-                        onPressed: () {
-                          showSearch(
-                            context: context,
-                            delegate: CustomSearchDelegate(),
-                          );
-                        },
-                        icon: const Icon(Icons.search),
-                      ),
                       TextButton(
                         onPressed: () => Navigator.pop(context, 'OK'),
                         child: const Text('Enjoy the coffee  ☕'),
