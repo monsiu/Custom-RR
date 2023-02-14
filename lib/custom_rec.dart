@@ -731,7 +731,7 @@ class MycustomrecsPage extends StatelessWidget {
 
 class CustomSearchDelegate extends SearchDelegate {
   List<String> searchTerms = [
-    'Red Wolf Recovery',
+    'Red Wolf Recover',
     'TWRP (Team Win Recovery Project)',
     'OrangeFox Recovery',
     'PitchBlack Recovery',
