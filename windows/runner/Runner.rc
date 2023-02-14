@@ -90,7 +90,7 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.monsiutechsolutions" "\0"
-            VALUE "FileDescription", "android" "\0"
+            VALUE "FileDescription", "Custom RR" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "android" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.monsiutechsolutions. All rights reserved." "\0"
