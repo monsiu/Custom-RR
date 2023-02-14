@@ -51,7 +51,6 @@ class MyHomePage extends StatelessWidget {
         centerTitle: true,
         title: Text(title),
         actions: <Widget>[
-          
           PopupMenuButton<String>(
             onSelected: (value) {
               if (value == 'share') {
@@ -266,7 +265,6 @@ class MyHomePage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(16))),
                   actions: <Widget>[
-                  
                     TextButton(
                       onPressed: () => Navigator.pop(context, 'OK'),
                       child: const Text('Enjoy the coffee  ☕'),
