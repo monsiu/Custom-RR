@@ -304,7 +304,7 @@ class MycustomrecsPage extends StatelessWidget {
                         applicationIcon: ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
                           child: (Image.asset(
-                            'images/launcher.png',
+                            'images/launcher2.png',
                             width: 50,
                           )),
                         ),

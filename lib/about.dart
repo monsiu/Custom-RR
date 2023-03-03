@@ -236,7 +236,7 @@ class MyAboutPage extends StatelessWidget {
                   showAboutDialog(
                       context: context,
                       applicationIcon: (Image.asset(
-                        'images/launcher.png',
+                        'images/launcher2.png',
                         width: 50,
                       )),
                       applicationVersion: "v0.3",
