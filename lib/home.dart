@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, deprecated_member_use, avoid_print, avoid_unnecessary_containers
 import 'package:custom_rr/updatedialog.dart';
-import 'package:new_version/new_version.dart';
+import 'package:new_version_plus/new_version_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_rr/custom_roms.dart';
 import 'package:custom_rr/instructions.dart';
