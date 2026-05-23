@@ -1,3 +1,4 @@
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,14 +8,29 @@ const Color kBrandSeed = Color(0xFF7ED957);
 class AppTheme {
   const AppTheme._();
 
-  static ThemeData light() => _build(Brightness.light);
-  static ThemeData dark() => _build(Brightness.dark);
+  static ThemeData light({ColorScheme? dynamicScheme}) =>
+      _build(Brightness.light, dynamicScheme);
+  static ThemeData dark({ColorScheme? dynamicScheme}) =>
+      _build(Brightness.dark, dynamicScheme);
 
-  static ThemeData _build(Brightness brightness) {
-    final ColorScheme scheme = ColorScheme.fromSeed(
-      seedColor: kBrandSeed,
-      brightness: brightness,
-    );
+  static ThemeData _build(Brightness brightness, [ColorScheme? override]) {
+    // Material You: when a wallpaper-derived scheme is available (Android
+    // 12+, some macOS builds) blend the user's primary with the brand seed
+    // using HCT harmonization. That way the palette tracks the device's
+    // accent but stays anchored to Custom RR green, and every role in the
+    // scheme (primary, secondary, tertiary, neutrals) gets regenerated from
+    // that harmonized seed so nothing in the scheme stays a stale hue from
+    // either source. On platforms without dynamic color, fall back to a
+    // pure seed-based scheme using the brand color.
+    final ColorScheme scheme = override == null
+        ? ColorScheme.fromSeed(
+            seedColor: kBrandSeed,
+            brightness: brightness,
+          )
+        : ColorScheme.fromSeed(
+            seedColor: override.primary.harmonizeWith(kBrandSeed),
+            brightness: brightness,
+          );
     final bool isDark = brightness == Brightness.dark;
 
     return ThemeData(
@@ -101,8 +117,31 @@ class AppTheme {
       ),
 
       chipTheme: ChipThemeData(
-        backgroundColor: scheme.surfaceContainerHighest,
+        // Bind every chip slot explicitly to the active scheme. Without this
+        // Flutter's M3 chip defaults pin the leading-icon color to
+        // scheme.primary, which makes Assist/Action chips render their icon
+        // in a saturated wallpaper accent (often reading as bright blue on
+        // stock Android) while the body stays neutral. Forcing each slot to
+        // an on-surface neutral keeps chips coherent across the dynamic
+        // palette while still tracking Material You.
+        backgroundColor: scheme.surfaceContainerHigh,
+        selectedColor: scheme.secondaryContainer,
+        disabledColor: scheme.onSurface.withValues(alpha: 0.08),
+        secondarySelectedColor: scheme.secondaryContainer,
+        checkmarkColor: scheme.onSecondaryContainer,
         side: BorderSide(color: scheme.outlineVariant),
+        iconTheme: IconThemeData(
+          color: scheme.onSurfaceVariant,
+          size: 18,
+        ),
+        labelStyle: TextStyle(
+          color: scheme.onSurfaceVariant,
+          fontWeight: FontWeight.w500,
+        ),
+        secondaryLabelStyle: TextStyle(
+          color: scheme.onSecondaryContainer,
+          fontWeight: FontWeight.w500,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

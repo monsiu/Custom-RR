@@ -1,5 +1,5 @@
 name: "Bug report"
-description: "Report a problem with Custom RR"
+description: "Report a problem with Custom RR by Monsiu (github.com/monsiu/Custom-RR)"
 labels: ["bug"]
 body:
   - type: input

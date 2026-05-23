@@ -99,8 +99,9 @@ class _OfflineDialogState extends State<_OfflineDialog> {
       icon: Icon(Icons.wifi_off, size: 40, color: cs.error),
       title: const Text("You're offline"),
       content: const Text(
-        'Custom RR could not reach the freshness feed. The ROM and '
-        'recovery dates shown may be out of date.\n\n'
+        'Custom RR (by Monsiu) could not reach the freshness feed on '
+        'GitHub (github.com/monsiu/Custom-RR). The ROM and recovery dates '
+        'shown may be out of date.\n\n'
         'Please reconnect to Wi-Fi or mobile data, then tap Refresh.',
       ),
       actions: <Widget>[

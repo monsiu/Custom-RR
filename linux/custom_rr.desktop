@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Custom RR
+GenericName=Custom ROM & Recovery Guide
+Comment=Browse custom Android ROMs and recoveries by device · by Monsiu
+Exec=custom_rr
+Icon=custom_rr
+Terminal=false
+Categories=Utility;Network;
+Keywords=android;rom;recovery;lineageos;twrp;grapheneos;
+StartupWMClass=custom_rr

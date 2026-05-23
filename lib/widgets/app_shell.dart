@@ -4,9 +4,11 @@ import 'package:go_router/go_router.dart';
 import '../routes.dart';
 import '../theme_controller.dart';
 import '../util/breakpoints.dart';
+import '../util/platform_shell.dart';
 import 'app_actions.dart';
 import 'app_drawer.dart';
 import 'app_nav_list.dart';
+import 'desktop_shell.dart';
 import 'offline_notice.dart';
 import 'theme_picker.dart';
 
@@ -39,6 +41,17 @@ class AppShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (useDesktopShell) {
+      return DesktopShell(
+        title: title,
+        body: body,
+        selectedRoute: selectedRoute,
+        actions: actions,
+        floatingActionButton: floatingActionButton,
+        bodyPadding: bodyPadding,
+      );
+    }
+
     final List<Widget> appBarActions = <Widget>[
       ...?actions,
       const AppShareMenu(),

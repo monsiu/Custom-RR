@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-23T08:14:15.855269Z",
+  "_generatedAt": "2026-05-23T13:26:21.616389Z",
   "roms": [
     {
       "id": "lineage",
@@ -1910,7 +1910,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://download.lineageos.org/"
+      "downloadUrl": "https://download.lineageos.org/",
+      "forumUrl": "https://forum.xda-developers.com/f/lineageos-questions-answers.5614/"
     },
     {
       "id": "crdroid",
@@ -3264,7 +3265,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://crdroid.net/"
+      "downloadUrl": "https://crdroid.net/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=crDroid&o=date&c[content]=thread"
     },
     {
       "id": "pixelexperience",
@@ -4193,7 +4195,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://download.pixelexperience.org/"
+      "downloadUrl": "https://download.pixelexperience.org/",
+      "forumUrl": "https://forum.xda-developers.com/c/pixel-experience.10089/"
     },
     {
       "id": "arrowos",
@@ -5461,7 +5464,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://arrowos.net/"
+      "downloadUrl": "https://arrowos.net/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=ArrowOS&o=date&c[content]=thread"
     },
     {
       "id": "evolutionx",
@@ -6778,7 +6782,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://evolution-x.org/"
+      "downloadUrl": "https://evolution-x.org/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Evolution+X&o=date&c[content]=thread"
     },
     {
       "id": "paranoidandroid",
@@ -7705,7 +7710,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://paranoidandroid.co/"
+      "downloadUrl": "https://paranoidandroid.co/",
+      "forumUrl": "https://forum.xda-developers.com/c/paranoid-android-aospa.10316/"
     },
     {
       "id": "havoc",
@@ -9403,7 +9409,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://havoc-os.com/"
+      "downloadUrl": "https://havoc-os.com/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Havoc-OS&o=date&c[content]=thread"
     },
     {
       "id": "dotos",
@@ -10669,7 +10676,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://www.droidontime.com/"
+      "downloadUrl": "https://www.droidontime.com/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=DotOS&o=date&c[content]=thread"
     },
     {
       "id": "bliss",
@@ -11921,7 +11929,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://blissroms.org/"
+      "downloadUrl": "https://blissroms.org/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Bliss+ROMs&o=date&c[content]=thread"
     },
     {
       "id": "potatoaosp",
@@ -12827,7 +12836,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://posp.co/"
+      "downloadUrl": "https://posp.co/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=POSP&o=date&c[content]=thread"
     },
     {
       "id": "risingos",
@@ -14059,7 +14069,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://risingos.org/"
+      "downloadUrl": "https://risingos.org/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=RisingOS&o=date&c[content]=thread"
     },
     {
       "id": "voltage",
@@ -15010,7 +15021,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://voltageos.com/"
+      "downloadUrl": "https://voltageos.com/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Voltage+OS&o=date&c[content]=thread"
     },
     {
       "id": "projectelixir",
@@ -15972,7 +15984,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://projectelixiros.com/"
+      "downloadUrl": "https://projectelixiros.com/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Project+Elixir&o=date&c[content]=thread"
     },
     {
       "id": "grapheneos",
@@ -16081,7 +16094,8 @@
         }
       ],
       "downloadLabel": "Install / web installer",
-      "downloadUrl": "https://grapheneos.org/install/"
+      "downloadUrl": "https://grapheneos.org/install/",
+      "forumUrl": "https://discuss.grapheneos.org/"
     },
     {
       "id": "calyxos",
@@ -16230,7 +16244,8 @@
         }
       ],
       "downloadLabel": "Install instructions",
-      "downloadUrl": "https://calyxos.org/install/"
+      "downloadUrl": "https://calyxos.org/install/",
+      "forumUrl": "https://discuss.calyxinstitute.org/"
     },
     {
       "id": "eos",
@@ -18504,7 +18519,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://doc.e.foundation/devices"
+      "downloadUrl": "https://doc.e.foundation/devices",
+      "forumUrl": "https://community.e.foundation/"
     },
     {
       "id": "divestos",
@@ -20883,7 +20899,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://divestos.org/pages/devices"
+      "downloadUrl": "https://divestos.org/pages/devices",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=DivestOS&o=date&c[content]=thread"
     },
     {
       "id": "derpfest",
@@ -22117,7 +22134,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://projectderp.in/"
+      "downloadUrl": "https://projectderp.in/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=DerpFest&o=date&c[content]=thread"
     }
   ],
   "recoveries": [
@@ -24866,7 +24884,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://twrp.me/Devices/"
+      "downloadUrl": "https://twrp.me/Devices/",
+      "forumUrl": "https://forum.xda-developers.com/f/orig-development.5410/"
     },
     {
       "id": "orangefox",
@@ -26095,7 +26114,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://orangefox.download/"
+      "downloadUrl": "https://orangefox.download/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=OrangeFox+Recovery&o=date&c[content]=thread"
     },
     {
       "id": "redwolf",
@@ -26989,7 +27009,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://forum.xda-developers.com/c/redwolf-recovery.10018/"
+      "downloadUrl": "https://forum.xda-developers.com/c/redwolf-recovery.10018/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=RedWolf+Recovery&o=date&c[content]=thread"
     },
     {
       "id": "pitchblack",
@@ -28433,7 +28454,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://pitchblack.tech/"
+      "downloadUrl": "https://pitchblack.tech/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=PitchBlack+Recovery&o=date&c[content]=thread"
     },
     {
       "id": "shrp",
@@ -29289,7 +29311,8 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://shrp.vercel.app/"
+      "downloadUrl": "https://shrp.vercel.app/",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=SHRP&o=date&c[content]=thread"
     }
   ],
   "devices": [

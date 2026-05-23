@@ -42,3 +42,36 @@ jobs:
           name: app-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
           if-no-files-found: error
+
+  build-linux:
+    name: Build Linux desktop
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Linux desktop deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            clang cmake ninja-build pkg-config \
+            libgtk-3-dev liblzma-dev libstdc++-12-dev
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter config --enable-linux-desktop
+      - run: flutter pub get
+      - run: flutter build linux --release
+      - name: Stage release bundle
+        run: |
+          mkdir -p dist
+          cp -r build/linux/x64/release/bundle custom_rr-linux-x64
+          cp linux/custom_rr.desktop custom_rr-linux-x64/
+          cp linux/install.sh         custom_rr-linux-x64/
+          cp images/launcher.png      custom_rr-linux-x64/custom_rr.png
+          tar -czf dist/custom_rr-linux-x64.tar.gz custom_rr-linux-x64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: custom_rr-linux-x64
+          path: dist/custom_rr-linux-x64.tar.gz
+          if-no-files-found: error

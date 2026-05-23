@@ -66,10 +66,11 @@ class _AboutPageState extends State<AboutPage> {
               Text('About the app', style: text.titleLarge),
               const SizedBox(height: 8),
               Text(
-                'Custom RR is a community-built guide for Android Custom ROMs '
-                'and Recoveries. Discover popular projects, read about their '
-                'features, view screenshots, and jump directly to official '
-                'download pages.',
+                'Custom RR is a community-built, open-source guide for '
+                'Android Custom ROMs and Recoveries, developed openly on '
+                'GitHub at github.com/monsiu/Custom-RR. Discover popular '
+                'projects, read about their features, view screenshots, '
+                'and jump directly to official download pages.',
                 style: text.bodyLarge,
               ),
               const SizedBox(height: 24),
@@ -78,7 +79,7 @@ class _AboutPageState extends State<AboutPage> {
               const ListTile(
                 leading: Icon(Icons.code),
                 title: Text('MonsiuTech Solutions'),
-                subtitle: Text('Built with Flutter'),
+                subtitle: Text('Built with Flutter · by Monsiu'),
               ),
               ListTile(
                 leading: const Icon(Icons.public),

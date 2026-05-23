@@ -171,7 +171,8 @@ class AppNavList extends StatelessWidget {
                   await SharePlus.instance.share(
                     ShareParams(
                       text:
-                          'Check out Custom RR: discover Android custom ROMs and recoveries!',
+                          'Check out Custom RR: discover Android custom ROMs and recoveries! '
+                          'Open source on GitHub: https://github.com/monsiu/Custom-RR',
                       subject: 'Custom RR',
                     ),
                   );
