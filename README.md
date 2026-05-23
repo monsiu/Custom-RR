@@ -1,27 +1,108 @@
-# Custom-RR
-An Android application to serve as the home of all Custom ROMS and Recoveries
+# Custom RR
 
-<img src="https://user-images.githubusercontent.com/69597591/216198899-3a02066b-c9a8-426f-a6cd-740e5a2fc641.png" data-canonical-src="[https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png](https://user-images.githubusercontent.com/69597591/216198899-3a02066b-c9a8-426f-a6cd-740e5a2fc641.png)" width="200" height="200" />
+[![CI](https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml/badge.svg)](https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/monsiu/Custom-RR)](LICENSE)
+[![Flutter](https://img.shields.io/badge/Flutter-3.22+-02569B?logo=flutter)](https://flutter.dev)
 
-# What can you do in the App? <br/>
-1: Download official Custom ROMS builds from the respective creators. <br/>
-2: Download official Custom Recoveries builds from the respective creators. <br/>
-3: Instructions on how to flash Custom ROMS and Recoveries. <br/>
+A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, and step-by-step flashing instructions.
 
-# What will you be able to do in the future?
-1: Download Unofficial builds of Custom ROMS. <br/>
-2: Download Unofficial builds of Custom Recoveries. <br/>
-3: A dedicated Magisk install section. <br/>
-4: Many more.
+![Custom RR logo](https://user-images.githubusercontent.com/69597591/216198899-3a02066b-c9a8-426f-a6cd-740e5a2fc641.png)
 
-# Support the cause :)
-<a href="https://www.buymeacoffee.com/monsiuYT" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+## Features
 
-# Socials
-<p>
-    <a href="https://github.com/monsiu"><picture><source height="24px" media="(prefers-color-scheme: dark)" srcset="https://i.ibb.co/dMMmCrW/Git-Hub-Mark.png"><img height="24px" src="https://i.ibb.co/9wV3HGF/Git-Hub-Mark-Light.png"></picture></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://discord.gg/BrH25zwVAG"><img height="24px" src="https://user-images.githubusercontent.com/13122796/178032563-d4e084b7-244e-4358-af50-26bde6dd4996.png" /></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://t.me/"><img height="24px" src="https://user-images.githubusercontent.com/13122796/178032213-faf25ab8-0bc3-4a94-a730-b524c96df124.png" /></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://twitter.com/monsiuyt"><img height="24px" src="https://user-images.githubusercontent.com/13122796/178032018-6da37214-7474-4641-a1da-7af7db3a31cd.png" /></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://www.youtube.com/monsiu"><img height="24px" src="https://user-images.githubusercontent.com/13122796/178032714-c51c7492-0666-44ac-99c2-f003a695ab50.png" /></a>&nbsp;&nbsp;&nbsp;
-</p>
+- Browse curated Custom ROMs (LineageOS, crDroid, Havoc, Pixel Experience, ParanoidAndroid, Evolution X, ArrowOS, dotOS, Bliss, PotatoAOSP, RisingOS, Voltage OS, Project Elixir…).
+- Browse curated Custom Recoveries (TWRP, OrangeFox, PitchBlack, RedWolf, SHRP).
+- **Device → Compatible Builds:** pick a manufacturer to see only the ROMs and recoveries that list it as supported, with per-phone-model chips for every supported device.
+- **Deep links / shareable URLs** for every ROM, recovery, and device (powered by `go_router`).
+- One tap to open the official download page.
+- “How to flash” guides for ROMs and recoveries.
+- Adaptive Material 3 layout: drawer on phones, NavigationRail on tablets, permanent side panel on desktop.
+- Light / dark / system theme picker that persists across launches.
+
+## Roadmap
+
+- Localisation (`flutter_localizations` + ARB)
+- Crash & analytics (Sentry or Firebase Crashlytics)
+- Remote-fetched catalog with offline cache
+- Unofficial / community-maintained build listings
+- Dedicated Magisk install section
+- Bundled (offline) screenshots
+
+## Deep links
+
+Every page has a stable URL. Examples:
+
+| URL              | Page                                          |
+| ---------------- | --------------------------------------------- |
+| `/`              | Home                                          |
+| `/roms`          | All ROMs                                      |
+| `/roms/lineage`  | LineageOS detail page                         |
+| `/recoveries`    | All recoveries                                |
+| `/recoveries/twrp` | TWRP detail page                            |
+| `/devices`       | All devices                                   |
+| `/devices/xiaomi`| Xiaomi-compatible ROMs & recoveries           |
+
+To enable Android App Links on your own domain, add an intent-filter to `android/app/src/main/AndroidManifest.xml` inside the main `<activity>`:
+
+```xml
+<intent-filter android:autoVerify="true">
+  <action android:name="android.intent.action.VIEW" />
+  <category android:name="android.intent.category.DEFAULT" />
+  <category android:name="android.intent.category.BROWSABLE" />
+  <data android:scheme="https" android:host="customrr.example.com" />
+</intent-filter>
+```
+
+Then host an `assetlinks.json` file at `https://customrr.example.com/.well-known/assetlinks.json` containing the app's SHA-256 signing fingerprint. See the [Android App Links docs](https://developer.android.com/training/app-links/verify-android-applinks) for full details.
+
+## Updating the catalog
+
+The shipped `assets/catalog.json` is generated from the upstream
+[LineageOS wiki](https://github.com/LineageOS/lineage_wiki) device YAMLs by
+`tool/sync_catalog.dart`. Each ROM/recovery's `devices` list is filtered
+by a per-project policy (vendor whitelist + minimum LineageOS branch /
+release year). To refresh:
+
+```bash
+dart run tool/sync_catalog.dart            # use cached YAMLs in tool/.cache/
+dart run tool/sync_catalog.dart --refresh  # re-download the wiki tarball
+```
+
+The cache lives under `tool/.cache/` and is gitignored.
+
+## Build from source
+
+```bash
+git clone https://github.com/monsiu/Custom-RR.git
+cd Custom-RR
+flutter pub get
+flutter run
+```
+
+**Requirements**: Flutter 3.22+, Dart 3.4+, Java 17, Android SDK 36 (compile/target), minSdk 21.
+
+For reproducible builds, this repo ships a [`.fvmrc`](.fvmrc); use [fvm](https://fvm.app) to pin the Flutter version automatically.
+
+## Releasing
+
+Release builds expect signing config in `android/key.properties` (see [`android/key.properties.template`](android/key.properties.template)). Without it, release builds fall back to debug signing for local testing.
+
+```bash
+flutter build apk --release
+flutter build appbundle --release
+```
+
+## Support the project
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/arial-red.png)](https://www.buymeacoffee.com/monsiuYT)
+
+## Socials
+
+- [GitHub](https://github.com/monsiu)
+- [Discord](https://discord.gg/BrH25zwVAG)
+- [Twitter / X](https://twitter.com/monsiuyt)
+- [YouTube](https://www.youtube.com/monsiu)
+
+## License
+
+Released under the terms of the [LICENSE](LICENSE) file in this repo.
