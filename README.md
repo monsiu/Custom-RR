@@ -8,7 +8,7 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
 
 A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, and step-by-step flashing instructions.
 
-![Custom RR logo](https://user-images.githubusercontent.com/69597591/216198899-3a02066b-c9a8-426f-a6cd-740e5a2fc641.png)
+![Custom RR banner](images/readme/banner.png)
 
 ## Features
 
