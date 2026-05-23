@@ -1,0 +1,62 @@
+name: sync-freshness
+
+# Refreshes assets/freshness.json from upstream sources daily and commits
+# the result back to main when it changes. The app fetches the file at
+# runtime directly from raw.githubusercontent.com, so no gh-pages branch
+# or GitHub Pages setup is required.
+#
+# On any upstream failure the scraper falls back to curated values, so the
+# job still succeeds and the committed JSON stays valid.
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # daily 06:00 UTC
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'tool/sync_freshness.dart'
+      - '.github/workflows/sync-freshness.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-freshness
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Resolve dependencies
+        run: dart pub get
+
+      - name: Run freshness scraper
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: dart run tool/sync_freshness.dart
+
+      - name: Show diff
+        run: |
+          git --no-pager diff --stat assets/freshness.json || true
+
+      - name: Commit refreshed JSON to main (if changed)
+        run: |
+          if git diff --quiet assets/freshness.json; then
+            echo "freshness.json unchanged; skipping commit"
+          else
+            git config user.name  'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add assets/freshness.json
+            git commit -m 'chore(freshness): nightly refresh [skip ci]'
+            git push
+          fi

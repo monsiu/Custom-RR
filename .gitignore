@@ -42,3 +42,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Release signing - never commit
+/android/key.properties
+*.jks
+*.keystore
+
+# Catalog sync cache (wiki tarball + extracted YAMLs)
+tool/.cache/

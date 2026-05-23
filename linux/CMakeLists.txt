@@ -3,8 +3,10 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
-# the on-disk name of your application.
-set(BINARY_NAME "Custom RR")
+# the on-disk name of your application. CMake target names cannot contain
+# spaces, so the underscored form is used here while the user-visible app
+# title remains "Custom RR" via main.dart / Info.plist / Android manifest.
+set(BINARY_NAME "custom_rr")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
 set(APPLICATION_ID "com.monsiutechsolutions.custom_rr")

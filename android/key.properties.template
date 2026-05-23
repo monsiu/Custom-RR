@@ -1,0 +1,9 @@
+# key.properties - DO NOT COMMIT
+# Copy this file to `key.properties` (no .template) and fill in real values.
+# Generate a keystore with:
+#   keytool -genkey -v -keystore ~/custom-rr-release.jks \
+#     -keyalg RSA -keysize 2048 -validity 10000 -alias custom-rr
+storePassword=CHANGEME
+keyPassword=CHANGEME
+keyAlias=custom-rr
+storeFile=/absolute/path/to/custom-rr-release.jks
