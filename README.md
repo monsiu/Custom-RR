@@ -8,13 +8,7 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
 
 A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, and step-by-step flashing instructions.
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f9b0f,100:000000&height=220&section=header&text=Custom%20RR&fontSize=70&fontColor=ffffff&fontAlignY=38&desc=Custom%20ROMs%20%26%20Recoveries,%20one%20home&descSize=18&descAlignY=62&animation=fadeIn" alt="Custom RR banner" width="100%">
-</p>
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/69597591/216198899-3a02066b-c9a8-426f-a6cd-740e5a2fc641.png" alt="Custom RR logo" width="120">
-</p>
+![Custom RR logo](https://user-images.githubusercontent.com/69597591/216198899-3a02066b-c9a8-426f-a6cd-740e5a2fc641.png)
 
 ## Features
 
