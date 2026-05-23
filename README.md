@@ -96,7 +96,7 @@ flutter build appbundle --release
 
 ## Support the project
 
-[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/arial-red.png)](https://www.buymeacoffee.com/monsiuYT)
+<a href="https://www.buymeacoffee.com/monsiuYT" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me a Coffee" height="60" width="217"></a>
 
 ## Socials
 
