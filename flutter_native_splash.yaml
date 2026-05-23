@@ -20,7 +20,10 @@ flutter_native_splash:
 
   # The image parameter allows you to specify an image used in the splash screen.  It must be a
   # png file and should be sized for 4x pixel density.
-  image: images/splash_image.png
+  # images/generated/splash_legacy.png is the source robot recomposed at
+  # 640px on a 1024x1024 transparent canvas, leaving room for the branding
+  # wordmark below it. tool/regen_icons.sh rebuilds it from images/launcher.png.
+  image: images/generated/splash_legacy.png
 
   # The branding property allows you to specify an image used as branding in the splash screen.
   # It must be a png file. It is supported for Android, iOS and the Web.  For Android 12,
@@ -36,9 +39,11 @@ flutter_native_splash:
   # parameters from above. If the image_dark parameter is specified, color_dark or
   # background_image_dark must be specified.  color_dark and background_image_dark cannot both be
   # set.
-  color_dark: "#404040"
+  # Material 3 dark surface tone (very dark green-tinted neutral) so the
+  # splash matches the in-app dark theme instead of flashing flat grey.
+  color_dark: "#101510"
   #background_image_dark: "assets/dark-background.png"
-  image_dark: images/splash_image.png
+  image_dark: images/generated/splash_legacy.png
   branding_dark: images/branding.png
 
   # Android 12 handles the splash screen differently than previous versions.  Please visit
@@ -52,7 +57,9 @@ flutter_native_splash:
     # 640 pixels in diameter.
     # App icon without an icon background: This should be 1152×1152 pixels, and fit within a circle
     # 768 pixels in diameter.
-    image: images/splash_image.png
+    # splash_android12.png is 1152x1152 with the bust scaled to ~700px so it
+    # fits inside the 768px mask circle Android 12+ applies.
+    image: images/generated/splash_android12.png
   
     # Splash screen background color.
     color: "#7ed957"
@@ -66,9 +73,11 @@ flutter_native_splash:
     # The image_dark, color_dark, icon_background_color_dark, and branding_dark set values that
     # apply when the device is in dark mode. If they are not specified, the app will use the
     # parameters from above.
-    image_dark: images/splash_image.png
-    color_dark: "#404040"
-    icon_background_color_dark: "#404040"
+    image_dark: images/generated/splash_android12.png
+    color_dark: "#101510"
+    # Keep the brand color behind the icon in dark mode so the robot reads
+    # the same way it does in light mode.
+    icon_background_color_dark: "#7ed957"
     branding_dark: images/branding.png
 
   # The android, ios and web parameters can be used to disable generating a splash screen on a given
@@ -112,7 +121,10 @@ flutter_native_splash:
   ios_content_mode: center
   #
   # web_image_mode can be one of the following modes: center, contain, stretch, and cover.
-  web_image_mode: center
+  # contain scales the splash image to fit the viewport while preserving its
+  # aspect ratio, so it never overflows on small viewports or looks tiny on
+  # 4K screens (which is what center does at native pixels).
+  web_image_mode: contain
 
   # The screen orientation can be set in Android with the android_screen_orientation parameter.
   # Valid parameters can be found here:

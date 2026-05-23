@@ -18,7 +18,8 @@ Future<void> showSupportDialog(BuildContext context) {
             const SizedBox(height: 16),
             const Text(
               'If Custom RR has helped you, consider buying us a coffee. '
-              'Your support helps keep this app free and updated!',
+              'Your support helps keep this app free, open source on '
+              'GitHub, and regularly updated!',
               textAlign: TextAlign.center,
             ),
           ],

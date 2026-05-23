@@ -129,35 +129,46 @@ class _HomePageState extends State<HomePage> {
       selectedRoute: AppRoutes.home,
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          final bool wide = constraints.maxWidth >= 720;
+          // Search + welcome copy stay inside the reading column so they
+          // remain comfortable to scan; the action grid below opts into a
+          // wider container so it can flow into 2 or 3 even columns on
+          // desktop instead of stretching two oversized cards across the
+          // whole screen with an orphan on the last row.
+          const double readingWidth = Breakpoints.readingMaxWidth;
+          const double gridMaxWidth = 1100;
+          final double available = constraints.maxWidth;
+          final double gridWidth =
+              available < gridMaxWidth ? available : gridMaxWidth;
+          final bool wide = available >= 600;
           return SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
             child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  maxWidth: Breakpoints.readingMaxWidth,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    const SizedBox(height: 8),
-                    TextField(
-                      controller: _searchController,
-                      textInputAction: TextInputAction.search,
-                      onChanged: (String v) => setState(() => _query = v),
-                      decoration: InputDecoration(
-                        hintText: 'Search ROMs, recoveries, devices…',
-                        prefixIcon: const Icon(Icons.search),
-                        suffixIcon: _query.isEmpty
-                            ? null
-                            : IconButton(
-                                icon: const Icon(Icons.close),
-                                tooltip: 'Clear',
-                                onPressed: () {
-                                  _searchController.clear();
-                                  setState(() => _query = '');
-                                },
-                              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: readingWidth),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        const SizedBox(height: 8),
+                        TextField(
+                          controller: _searchController,
+                          textInputAction: TextInputAction.search,
+                          onChanged: (String v) => setState(() => _query = v),
+                          decoration: InputDecoration(
+                            hintText: 'Search ROMs, recoveries, devices…',
+                            prefixIcon: const Icon(Icons.search),
+                            suffixIcon: _query.isEmpty
+                                ? null
+                                : IconButton(
+                                    icon: const Icon(Icons.close),
+                                    tooltip: 'Clear',
+                                    onPressed: () {
+                                      _searchController.clear();
+                                      setState(() => _query = '');
+                                    },
+                                  ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -193,33 +204,53 @@ class _HomePageState extends State<HomePage> {
                         style: Theme.of(context).textTheme.bodyLarge,
                         textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: 24),
-                      if (wide)
-                        GridView.count(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 12,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          childAspectRatio: 2.1,
-                          children: <Widget>[
-                            for (final _Action a in _actions)
-                              _ActionCard(action: a),
-                          ],
-                        )
-                      else
-                        Column(
-                          children: <Widget>[
-                            for (final _Action a in _actions)
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 12),
-                                child: _ActionCard(action: a),
-                              ),
-                          ],
-                        ),
                     ],
+                      ],
+                    ),
+                  ),
+                  if (q.isEmpty) ...<Widget>[
+                    const SizedBox(height: 24),
+                    // Action grid breaks out of the reading column so it
+                    // can flow into multiple even columns on wide windows
+                    // instead of leaving an orphan tile on the last row.
+                    Center(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: gridWidth),
+                        child: wide
+                            ? GridView(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                gridDelegate:
+                                    const SliverGridDelegateWithMaxCrossAxisExtent(
+                                  maxCrossAxisExtent: 360,
+                                  crossAxisSpacing: 12,
+                                  mainAxisSpacing: 12,
+                                  // Fixed height keeps every tile the same
+                                  // visual weight regardless of how many
+                                  // columns the viewport produces, so a
+                                  // 3-column row never shrinks cards into
+                                  // an awkward sliver.
+                                  mainAxisExtent: 104,
+                                ),
+                                children: <Widget>[
+                                  for (final _Action a in _actions)
+                                    _ActionCard(action: a),
+                                ],
+                              )
+                            : Column(
+                                children: <Widget>[
+                                  for (final _Action a in _actions)
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 12),
+                                      child: _ActionCard(action: a),
+                                    ),
+                                ],
+                              ),
+                      ),
+                    ),
                   ],
-                ),
+                ],
               ),
             ),
           );
@@ -347,11 +378,14 @@ class _ActionCard extends StatelessWidget {
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
                       action.label,
                       style: Theme.of(context).textTheme.titleMedium,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 2),
                     Text(
@@ -359,6 +393,8 @@ class _ActionCard extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: scheme.onSurfaceVariant,
                           ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),

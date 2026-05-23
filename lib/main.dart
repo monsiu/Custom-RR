@@ -6,9 +6,11 @@ import 'data/catalog_repository.dart';
 import 'data/freshness_repository.dart';
 import 'data/wishlist_repository.dart';
 import 'theme_controller.dart';
+import 'util/platform_shell.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  initPlatformShell();
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
   ]);

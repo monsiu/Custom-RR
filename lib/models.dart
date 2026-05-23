@@ -1,4 +1,5 @@
-/// Data models for ROMs, recoveries, and devices listed in Custom RR.
+/// Data models for ROMs, recoveries, and devices listed in Custom RR
+/// (https://github.com/monsiu/Custom-RR).
 library;
 
 class CatalogEntry {
@@ -13,6 +14,7 @@ class CatalogEntry {
     this.devices = const <DeviceRef>[],
     this.downloadLabel = 'Official Builds',
     required this.downloadUrl,
+    this.forumUrl = '',
   });
 
   final String id;
@@ -30,6 +32,12 @@ class CatalogEntry {
 
   final String downloadLabel;
   final String downloadUrl;
+
+  /// Optional link to a community discussion page for this ROM/recovery,
+  /// typically an XDA Developers forum category or a curated thread.
+  /// Empty string when not set. Surfaced on the detail page as a
+  /// "Discuss on XDA" button.
+  final String forumUrl;
 
   /// Distinct manufacturer names from [devices]. Used to filter ROMs/recoveries
   /// on the manufacturer-level Device page.
@@ -53,6 +61,7 @@ class CatalogEntry {
       devices: _deviceRefs(json['devices']),
       downloadLabel: (json['downloadLabel'] as String?) ?? 'Official Builds',
       downloadUrl: json['downloadUrl'] as String,
+      forumUrl: (json['forumUrl'] as String?) ?? '',
     );
   }
 }
@@ -64,6 +73,7 @@ class DeviceRef {
     required this.model,
     this.codename = '',
     this.url = '',
+    this.forumUrl = '',
   });
 
   /// Manufacturer label that must match a [DeviceEntry.name].
@@ -78,12 +88,17 @@ class DeviceRef {
   /// Optional direct deep link to the per-device download page upstream.
   final String url;
 
+  /// Optional link to a per-device community discussion thread, typically
+  /// the XDA Developers thread maintained by the device maintainer.
+  final String forumUrl;
+
   factory DeviceRef.fromJson(Map<String, dynamic> json) {
     return DeviceRef(
       brand: json['brand'] as String,
       model: json['model'] as String,
       codename: (json['codename'] as String?) ?? '',
       url: (json['url'] as String?) ?? '',
+      forumUrl: (json['forumUrl'] as String?) ?? '',
     );
   }
 }

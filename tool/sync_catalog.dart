@@ -459,6 +459,7 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://download.lineageos.org/',
+      forumUrl: 'https://forum.xda-developers.com/f/lineageos-questions-answers.5614/',
     ),
     _RomSpec(
       id: 'crdroid',
@@ -505,6 +506,7 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://download.pixelexperience.org/',
+      forumUrl: 'https://forum.xda-developers.com/c/pixel-experience.10089/',
     ),
     _RomSpec(
       id: 'arrowos',
@@ -569,6 +571,7 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://paranoidandroid.co/',
+      forumUrl: 'https://forum.xda-developers.com/c/paranoid-android-aospa.10316/',
     ),
     _RomSpec(
       id: 'havoc',
@@ -737,6 +740,7 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       ],
       downloadLabel: 'Install / web installer',
       downloadUrl: 'https://grapheneos.org/install/',
+      forumUrl: 'https://discuss.grapheneos.org/',
     ),
     _RomSpec(
       id: 'calyxos',
@@ -760,6 +764,7 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       ],
       downloadLabel: 'Install instructions',
       downloadUrl: 'https://calyxos.org/install/',
+      forumUrl: 'https://discuss.calyxinstitute.org/',
     ),
     _RomSpec(
       id: 'eos',
@@ -783,6 +788,7 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://doc.e.foundation/devices',
+      forumUrl: 'https://community.e.foundation/',
     ),
     _RomSpec(
       id: 'divestos',
@@ -846,6 +852,7 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       'devices': _toDeviceList(matched),
       'downloadLabel': s.downloadLabel,
       'downloadUrl': s.downloadUrl,
+      'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
     };
   }).toList();
 }
@@ -874,6 +881,7 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://twrp.me/Devices/',
+      forumUrl: 'https://forum.xda-developers.com/f/orig-development.5410/',
     ),
     _RomSpec(
       id: 'orangefox',
@@ -969,6 +977,7 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       'devices': _toDeviceList(matched),
       'downloadLabel': s.downloadLabel,
       'downloadUrl': s.downloadUrl,
+      'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
     };
   }).toList();
 }
@@ -1062,6 +1071,7 @@ class _RomSpec {
     required this.screenshots,
     required this.downloadLabel,
     required this.downloadUrl,
+    this.forumUrl,
   });
 
   final String id;
@@ -1073,4 +1083,18 @@ class _RomSpec {
   final List<String> screenshots;
   final String downloadLabel;
   final String downloadUrl;
+
+  /// Optional curated XDA Developers thread / category URL. When null, the
+  /// build falls back to [_xdaSearchUrl] so every entry still surfaces a
+  /// working "Discuss on XDA" button.
+  final String? forumUrl;
+}
+
+/// Deterministic XDA search URL for [name]. Used as a fallback whenever a
+/// project does not have a curated forum link, so the in-app Discussion
+/// button is never broken.
+String _xdaSearchUrl(String name) {
+  final String q = Uri.encodeQueryComponent(name);
+  return 'https://forum.xda-developers.com/search/?q=$q'
+      '&o=date&c[content]=thread';
 }

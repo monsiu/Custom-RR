@@ -28,6 +28,11 @@ class DetailPage extends StatelessWidget {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
+  Future<void> _openForum() async {
+    final Uri uri = Uri.parse(entry.forumUrl);
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
   @override
   Widget build(BuildContext context) {
     final TextTheme text = Theme.of(context).textTheme;
@@ -125,10 +130,23 @@ class DetailPage extends StatelessWidget {
                       ],
                       const SizedBox(height: 32),
                       Center(
-                        child: FilledButton.icon(
-                          icon: const Icon(Icons.download_outlined),
-                          label: Text(entry.downloadLabel),
-                          onPressed: _openDownloads,
+                        child: Wrap(
+                          spacing: 12,
+                          runSpacing: 12,
+                          alignment: WrapAlignment.center,
+                          children: <Widget>[
+                            FilledButton.icon(
+                              icon: const Icon(Icons.download_outlined),
+                              label: Text(entry.downloadLabel),
+                              onPressed: _openDownloads,
+                            ),
+                            if (entry.forumUrl.isNotEmpty)
+                              OutlinedButton.icon(
+                                icon: const Icon(Icons.forum_outlined),
+                                label: const Text('Discuss on XDA'),
+                                onPressed: _openForum,
+                              ),
+                          ],
                         ),
                       ),
                     ],
@@ -223,7 +241,10 @@ class _Screenshots extends StatelessWidget {
       },
       options: CarouselOptions(
         height: 480,
-        enableInfiniteScroll: urls.length > 1,
+        // Infinite scroll clones edge items, which duplicates the per-shot
+        // Hero tag in the subtree and throws 'multiple heroes that share
+        // the same tag'. Disable looping so each Hero is mounted once.
+        enableInfiniteScroll: false,
         viewportFraction: 0.72,
         enlargeCenterPage: true,
         autoPlay: false,
@@ -456,18 +477,36 @@ class _BrandGroup extends StatelessWidget {
                   onLongPress: d.codename.isEmpty
                       ? null
                       : () => _copyCodename(context, d.codename),
-                  child: ActionChip(
-                    visualDensity: VisualDensity.compact,
-                    avatar: const Icon(Icons.smartphone_outlined, size: 16),
-                    label: Text(d.model),
-                    onPressed: brandEntry == null || d.codename.isEmpty
-                        ? null
-                        : () => context.push(
-                              AppRoutes.deviceModelDetail(
-                                brandEntry.slug,
-                                d.codename,
-                              ),
-                            ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ActionChip(
+                        visualDensity: VisualDensity.compact,
+                        avatar:
+                            const Icon(Icons.smartphone_outlined, size: 16),
+                        label: Text(d.model),
+                        onPressed: brandEntry == null || d.codename.isEmpty
+                            ? null
+                            : () => context.push(
+                                  AppRoutes.deviceModelDetail(
+                                    brandEntry.slug,
+                                    d.codename,
+                                  ),
+                                ),
+                      ),
+                      if (d.forumUrl.isNotEmpty) ...<Widget>[
+                        const SizedBox(width: 2),
+                        IconButton(
+                          icon: const Icon(Icons.forum_outlined, size: 18),
+                          visualDensity: VisualDensity.compact,
+                          tooltip: 'XDA thread for ${d.model}',
+                          onPressed: () => launchUrl(
+                            Uri.parse(d.forumUrl),
+                            mode: LaunchMode.externalApplication,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
                 ),
               ),

@@ -1,22 +1,37 @@
 flutter_launcher_icons:
+  # images/launcher.png is the raw artwork (off-center, bleeds to edges).
+  # images/generated/* are properly-padded variants composed for each spec.
+  image_path: "images/generated/launcher_full.png"
+
   android: "launcher_icon"
-  adaptive_icon_background: "#7ed957"
-  adaptive_icon_foreground: "images/launcher.png"
-  ios: true
-  remove_alpha_ios: true
-  image_path: "images/launcher.png"
   min_sdk_android: 21
+  # Adaptive icon: foreground sits inside the 66% safe zone so the mask
+  # (circle, squircle, square, teardrop) never crops the bust.
+  adaptive_icon_background: "#7ed957"
+  adaptive_icon_foreground: "images/generated/launcher_adaptive_fg.png"
+  # Themed icon (Android 13+ Material You): solid silhouette + alpha that
+  # the system tints with the user's wallpaper accent.
+  adaptive_icon_monochrome: "images/generated/launcher_monochrome.png"
+
+  ios: true
+  # App Store rejects alpha in iOS icons, so flatten on the brand color.
+  remove_alpha_ios: true
+  background_color_ios: "#7ed957"
+
   web:
     generate: true
-    image_path: "images/launcher.png"
+    image_path: "images/generated/launcher_full.png"
     background_color: "#7ed957"
     theme_color: "#7ed957"
+
   windows:
     generate: true
-    image_path: "images/launcher.png"
-    icon_size: 48
+    image_path: "images/generated/launcher_full.png"
+    # Without icon_size the package builds a multi-resolution .ico
+    # (16/24/32/48/64/128/256) so Explorer picks the right size per zoom.
+
   macos:
     generate: true
-    image_path: "images/launcher.png"
+    image_path: "images/generated/launcher_full.png"
 
 
