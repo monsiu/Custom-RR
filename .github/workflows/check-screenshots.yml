@@ -1,0 +1,21 @@
+name: Screenshot link rot check
+
+on:
+  schedule:
+    # Weekly, Mondays 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: HEAD every screenshot URL
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Check screenshot URLs
+        run: dart run tool/check_screenshot_urls.dart

@@ -16,6 +16,7 @@ import 'pages/not_found_page.dart';
 import 'pages/recoveries_page.dart';
 import 'pages/roms_page.dart';
 import 'pages/wishlist_page.dart';
+import 'util/platform_shell.dart';
 
 /// Application route paths. These double as deep-link URLs
 /// (Android App Links / iOS Universal Links) once intent-filters
@@ -47,113 +48,130 @@ GoRouter buildRouter() {
     errorBuilder: (BuildContext context, GoRouterState state) =>
         NotFoundPage(uri: state.uri),
     routes: <RouteBase>[
-      GoRoute(
-        path: AppRoutes.home,
-        builder: (BuildContext _, GoRouterState __) => const HomePage(),
-      ),
-      GoRoute(
-        path: AppRoutes.roms,
-        builder: (BuildContext _, GoRouterState __) => const RomsPage(),
+      // On desktop, wrap every route in a SelectionArea so users can
+      // highlight and copy any text (ROM names, codenames, links). The
+      // ShellRoute sits inside the root Navigator, satisfying
+      // SelectionArea's Overlay-ancestor requirement.
+      ShellRoute(
+        builder: (BuildContext context, GoRouterState state, Widget child) {
+          return useDesktopShell ? SelectionArea(child: child) : child;
+        },
         routes: <RouteBase>[
           GoRoute(
-            path: ':id',
-            builder: (BuildContext context, GoRouterState state) {
-              final String id = state.pathParameters['id']!;
-              final CatalogEntry? entry =
-                  CatalogRepository.instance.romById(id);
-              if (entry == null) {
-                return NotFoundPage(uri: state.uri);
-              }
-              return DetailPage(entry: entry, heroTag: 'rom-$id');
-            },
+            path: AppRoutes.home,
+            builder: (BuildContext _, GoRouterState __) => const HomePage(),
           ),
-        ],
-      ),
-      GoRoute(
-        path: AppRoutes.recoveries,
-        builder: (BuildContext _, GoRouterState __) => const RecoveriesPage(),
-        routes: <RouteBase>[
           GoRoute(
-            path: ':id',
-            builder: (BuildContext context, GoRouterState state) {
-              final String id = state.pathParameters['id']!;
-              final CatalogEntry? entry =
-                  CatalogRepository.instance.recoveryById(id);
-              if (entry == null) {
-                return NotFoundPage(uri: state.uri);
-              }
-              return DetailPage(entry: entry, heroTag: 'rec-$id');
-            },
-          ),
-        ],
-      ),
-      GoRoute(
-        path: AppRoutes.devices,
-        builder: (BuildContext _, GoRouterState __) => const DevicesPage(),
-        routes: <RouteBase>[
-          GoRoute(
-            path: ':slug',
-            builder: (BuildContext context, GoRouterState state) {
-              final String slug = state.pathParameters['slug']!;
-              final DeviceEntry? device =
-                  CatalogRepository.instance.deviceBySlug(slug);
-              if (device == null) {
-                return NotFoundPage(uri: state.uri);
-              }
-              return DevicePage(device: device);
-            },
+            path: AppRoutes.roms,
+            builder: (BuildContext _, GoRouterState __) => const RomsPage(),
             routes: <RouteBase>[
               GoRoute(
-                path: 'models/:codename',
+                path: ':id',
+                builder: (BuildContext context, GoRouterState state) {
+                  final String id = state.pathParameters['id']!;
+                  final CatalogEntry? entry =
+                      CatalogRepository.instance.romById(id);
+                  if (entry == null) {
+                    return NotFoundPage(uri: state.uri);
+                  }
+                  return DetailPage(entry: entry, heroTag: 'rom-$id');
+                },
+              ),
+            ],
+          ),
+          GoRoute(
+            path: AppRoutes.recoveries,
+            builder:
+                (BuildContext _, GoRouterState __) => const RecoveriesPage(),
+            routes: <RouteBase>[
+              GoRoute(
+                path: ':id',
+                builder: (BuildContext context, GoRouterState state) {
+                  final String id = state.pathParameters['id']!;
+                  final CatalogEntry? entry =
+                      CatalogRepository.instance.recoveryById(id);
+                  if (entry == null) {
+                    return NotFoundPage(uri: state.uri);
+                  }
+                  return DetailPage(entry: entry, heroTag: 'rec-$id');
+                },
+              ),
+            ],
+          ),
+          GoRoute(
+            path: AppRoutes.devices,
+            builder:
+                (BuildContext _, GoRouterState __) => const DevicesPage(),
+            routes: <RouteBase>[
+              GoRoute(
+                path: ':slug',
                 builder: (BuildContext context, GoRouterState state) {
                   final String slug = state.pathParameters['slug']!;
-                  final String codename =
-                      Uri.decodeComponent(state.pathParameters['codename']!);
                   final DeviceEntry? device =
                       CatalogRepository.instance.deviceBySlug(slug);
                   if (device == null) {
                     return NotFoundPage(uri: state.uri);
                   }
-                  return DeviceModelPage(
-                    brand: device.name,
-                    codename: codename,
-                  );
+                  return DevicePage(device: device);
                 },
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: 'models/:codename',
+                    builder: (BuildContext context, GoRouterState state) {
+                      final String slug = state.pathParameters['slug']!;
+                      final String codename = Uri.decodeComponent(
+                        state.pathParameters['codename']!,
+                      );
+                      final DeviceEntry? device =
+                          CatalogRepository.instance.deviceBySlug(slug);
+                      if (device == null) {
+                        return NotFoundPage(uri: state.uri);
+                      }
+                      return DeviceModelPage(
+                        brand: device.name,
+                        codename: codename,
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
+          GoRoute(
+            path: AppRoutes.instructions,
+            builder:
+                (BuildContext _, GoRouterState __) => const InstructionsPage(),
+          ),
+          GoRoute(
+            path: AppRoutes.findPhone,
+            builder:
+                (BuildContext _, GoRouterState __) => const FindPhonePage(),
+          ),
+          GoRoute(
+            path: AppRoutes.wishlist,
+            builder:
+                (BuildContext _, GoRouterState __) => const WishlistPage(),
+          ),
+          GoRoute(
+            path: AppRoutes.flashScript,
+            builder: (BuildContext context, GoRouterState state) {
+              final String? brand = state.uri.queryParameters['brand'];
+              final String? codename = state.uri.queryParameters['codename'];
+              final String? romId = state.uri.queryParameters['rom'];
+              final String? recoveryId = state.uri.queryParameters['recovery'];
+              return FlashScriptPage(
+                initialBrand: brand,
+                initialCodename: codename,
+                initialRomId: romId,
+                initialRecoveryId: recoveryId,
+              );
+            },
+          ),
+          GoRoute(
+            path: AppRoutes.about,
+            builder: (BuildContext _, GoRouterState __) => const AboutPage(),
+          ),
         ],
-      ),
-      GoRoute(
-        path: AppRoutes.instructions,
-        builder: (BuildContext _, GoRouterState __) => const InstructionsPage(),
-      ),
-      GoRoute(
-        path: AppRoutes.findPhone,
-        builder: (BuildContext _, GoRouterState __) => const FindPhonePage(),
-      ),
-      GoRoute(
-        path: AppRoutes.wishlist,
-        builder: (BuildContext _, GoRouterState __) => const WishlistPage(),
-      ),
-      GoRoute(
-        path: AppRoutes.flashScript,
-        builder: (BuildContext context, GoRouterState state) {
-          final String? brand = state.uri.queryParameters['brand'];
-          final String? codename = state.uri.queryParameters['codename'];
-          final String? romId = state.uri.queryParameters['rom'];
-          final String? recoveryId = state.uri.queryParameters['recovery'];
-          return FlashScriptPage(
-            initialBrand: brand,
-            initialCodename: codename,
-            initialRomId: romId,
-            initialRecoveryId: recoveryId,
-          );
-        },
-      ),
-      GoRoute(
-        path: AppRoutes.about,
-        builder: (BuildContext _, GoRouterState __) => const AboutPage(),
       ),
     ],
   );

@@ -19,6 +19,8 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter analyze
+      - name: Catalog drift check
+        run: dart run tool/check_catalog_drift.dart
       - run: flutter test --reporter expanded
 
   build-apk:

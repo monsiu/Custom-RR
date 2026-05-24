@@ -607,10 +607,20 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Updater app delivers signed OTA updates straight from the official servers.',
         'Optional MicroG, F-Droid, or Google Apps via separate installers.',
       ],
+      // Official screenshots pulled from the LineageOS release-announcement
+      // blog posts (Changelog 27 to 30). These are the real first-party app
+      // shots (Aperture camera, Twelve clock, Glimpse gallery, Jelly browser,
+      // Calculator, Dialer) plus the LineageOS 22.2 hero and catapult banner;
+      // much higher quality than the older homepage marketing webps.
       screenshots: <String>[
-        'https://lineageos.org/images/2024-09-01/featured.jpg',
-        'https://i.imgur.com/8tXFw5w.png',
-        'https://i.imgur.com/3GxF3jK.png',
+        'https://lineageos.org/images/2025-10-11/hero.webp',
+        'https://lineageos.org/images/2025-10-11/catapult.webp',
+        'https://lineageos.org/images/2022-12-31/aperture.webp',
+        'https://lineageos.org/images/2024-12-31/twelve.webp',
+        'https://lineageos.org/images/2024-02-14/glimpse.webp',
+        'https://lineageos.org/images/2024-02-14/jelly.webp',
+        'https://lineageos.org/images/2024-02-14/dialer.webp',
+        'https://lineageos.org/images/2024-02-14/calculator.webp',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://download.lineageos.org/',
@@ -632,9 +642,14 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Monthly security patches.',
         'GApps and vanilla variants for most devices.',
       ],
+      // Curated gallery images from crdroid.net/#gallery, served as webp.
       screenshots: <String>[
-        'https://crdroid.net/img/cards/customization.png',
-        'https://crdroid.net/img/cards/themes.png',
+        'https://crdroid.net/img/gallery/gallery-1.webp',
+        'https://crdroid.net/img/gallery/gallery-2.webp',
+        'https://crdroid.net/img/gallery/gallery-3.webp',
+        'https://crdroid.net/img/gallery/gallery-4.webp',
+        'https://crdroid.net/img/gallery/gallery-5.webp',
+        'https://crdroid.net/img/gallery/gallery-6.webp',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://crdroid.net/',
@@ -655,9 +670,18 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Monthly security patches in sync with Google Pixel.',
         'Plus variant adds extra customisation if you want it.',
       ],
+      // Pixel Experience shut down upstream development in 2024 and never
+      // shipped a dedicated UI gallery; the official_devices repo only
+      // holds device-frame marketing renders. Use real Pixel Launcher
+      // screenshots from Wikimedia Commons instead: free-licensed, full
+      // portrait-aspect UI shots that represent the experience the ROM
+      // ships (Pixel home screen across multiple Android versions).
       screenshots: <String>[
-        'https://download.pixelexperience.org/img/screenshots/13.png',
-        'https://download.pixelexperience.org/img/screenshots/14.png',
+        'https://upload.wikimedia.org/wikipedia/commons/2/2d/Android_16_home_screen_screenshot.png',
+        'https://upload.wikimedia.org/wikipedia/commons/8/8e/Customized_Android_16_Home_Screen.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/7/71/Pixel_4a_Android_11_Launcher.png',
+        'https://upload.wikimedia.org/wikipedia/commons/0/0c/Android_10_screenshot.png',
+        'https://upload.wikimedia.org/wikipedia/commons/7/75/Android_14_Go_Home_Screen.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://download.pixelexperience.org/',
@@ -678,9 +702,17 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Focus on stability and battery life over feature creep.',
         'Monthly security patches.',
       ],
+      // arrowos.net has been offline since 2023; serve the original
+      // screenshots from the Internet Archive (2022 snapshot).
       screenshots: <String>[
-        'https://arrowos.net/assets/img/screenshots/home.jpg',
-        'https://arrowos.net/assets/img/screenshots/settings.jpg',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen1.png',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen2.png',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen3.png',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen4.png',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen5.png',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen6.png',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen7.png',
+        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen8.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://arrowos.net/',
@@ -699,9 +731,17 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Status-bar, lockscreen, and navigation customisation.',
         'Monthly security patches.',
       ],
+      // Hosted on the project's www_gitres GitHub repo (raw), referenced
+      // directly by the live evolution-x.org marketing page.
       screenshots: <String>[
-        'https://evolution-x.org/assets/img/screenshots/lockscreen.jpg',
-        'https://evolution-x.org/assets/img/screenshots/settings.jpg',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Home.webp',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Lockscreen.webp',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/SystemUI.webp',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Settings.webp',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Evolver.webp',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Evolver_about.webp',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/About.webp',
+        'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Updater.webp',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://evolution-x.org/',
@@ -720,9 +760,17 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Pixel-like baseline with subtle customisation.',
         'Active community, slow but careful release cadence.',
       ],
+      // The current paranoidandroid.co landing is a JS bundle with no
+      // static screenshots. Use the official AOSPA marketing sliders
+      // from the pre-SPA aospa.co site (preserved on the Internet
+      // Archive): device photos with the OS rendered on-screen showing
+      // PA's signature features (Dynamic Status Bar, Peek notifications,
+      // Pie controls). Late-2018 Wayback captures only have HTML stubs;
+      // pin the request to a 2017 snapshot which holds the real JPEGs.
       screenshots: <String>[
-        'https://paranoidandroid.co/images/topaz/topaz_home.png',
-        'https://paranoidandroid.co/images/topaz/topaz_settings.png',
+        'https://web.archive.org/web/2017if_/http://aospa.co/sliders/PADSB.jpg',
+        'https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPeek.jpg',
+        'https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPie.jpg',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://paranoidandroid.co/',
@@ -743,9 +791,19 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Status-bar, lockscreen, and navigation customisation.',
         'Optional GApps build per device.',
       ],
+      // havoc-os.com is intermittently offline; serve the original
+      // screenshot set from the Internet Archive (2022 snapshot).
       screenshots: <String>[
-        'https://havoc-os.com/assets/img/screenshots/home.png',
-        'https://havoc-os.com/assets/img/screenshots/settings.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_1.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_2.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_3.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_4.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_5.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_6.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_7.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_8.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_9.png',
+        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_10.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://havoc-os.com/',
@@ -764,8 +822,16 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Optional GApps variants.',
         'Smooth animations and lean install.',
       ],
+      // Real device UI shots from the official DotOS v5.2 release blog
+      // (showing MonetWannabe theming, redesigned Settings, Gaming Mode,
+      // Battery Manager and the new clock widgets running on devices).
       screenshots: <String>[
-        'https://droidontime.com/wp-content/uploads/2021/01/dotOS.png',
+        'https://blog.droidontime.com/static/images/MonetWannabeTwoPoint.png',
+        'https://blog.droidontime.com/static/images/settings_dashboard_fivetwo.png',
+        'https://blog.droidontime.com/static/images/gaming_fivetwo.png',
+        'https://blog.droidontime.com/static/images/battery_manager-fiveTwo.png',
+        'https://blog.droidontime.com/static/images/widgets_fivetwo.png',
+        'https://blog.droidontime.com/static/images/banner_five_dotTwo.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://www.droidontime.com/',
@@ -784,9 +850,19 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Tablet and large-screen tweaks.',
         'Sister Bliss OS x86 builds for PCs.',
       ],
+      // The current blissroms.org site no longer exposes the screenshot
+      // assets at stable paths; serve the original gallery from the
+      // Internet Archive (2021 snapshot).
       screenshots: <String>[
-        'https://blissroms.org/images/bliss-home.jpg',
-        'https://blissroms.org/images/bliss-settings.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/1.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/2.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/3.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/4.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/6.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/7.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/8.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/9.jpg',
+        'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/10.jpg',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://blissroms.org/',
@@ -805,8 +881,13 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Pixel launcher and tasteful UI tweaks.',
         'Active maintainer community.',
       ],
+      // Official POSP screenshots from the PotatoProject/website repo on
+      // GitHub (the same assets the live posp.co landing uses).
       screenshots: <String>[
-        'https://posp.co/images/screenshots/home.png',
+        'https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot1.png',
+        'https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot2.png',
+        'https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot3.png',
+        'https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot4.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://posp.co/',
@@ -825,9 +906,16 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Pixel-style UI baseline.',
         'Frequent monthly releases.',
       ],
+      // Official Rising Revived device screenshots from their gh-pages
+      // site repo (risingos-revived-devices.github.io).
       screenshots: <String>[
-        'https://risingos.org/img/screens/home.png',
-        'https://risingos.org/img/screens/customization.png',
+        'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-1-7-portrait.png',
+        'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-2-7-portrait.png',
+        'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-3-7-portrait.png',
+        'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-4-7-portrait.png',
+        'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-5-7-portrait.png',
+        'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-6-7-portrait.png',
+        'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-7-7-portrait.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://risingos.org/',
@@ -846,8 +934,12 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Battery-life-first tuning.',
         'Optional GApps.',
       ],
+      // Official voltageos.com marketing device frames (hashed filenames
+      // are stable as long as the site is live).
       screenshots: <String>[
-        'https://voltageos.com/images/home.png',
+        'https://www.voltageos.com/assets/Frame%20342-CpdyX8g5.png',
+        'https://www.voltageos.com/assets/Frame%20341-NKAEc1aS.png',
+        'https://www.voltageos.com/assets/Frame%20338-7WWYWnVV.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://voltageos.com/',
@@ -866,9 +958,12 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Deep customisation menu.',
         'Active monthly releases.',
       ],
+      // Official projectelixiros.com gallery images.
       screenshots: <String>[
-        'https://projectelixiros.com/images/lockscreen.png',
-        'https://projectelixiros.com/images/customization.png',
+        'https://projectelixiros.com/assets/images/elixir16-home.png',
+        'https://projectelixiros.com/assets/images/s1.png',
+        'https://projectelixiros.com/assets/images/s2.png',
+        'https://projectelixiros.com/assets/images/s3.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://projectelixiros.com/',
@@ -889,9 +984,17 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Sandboxed Google Play layer for app compatibility.',
         'Verified boot with user-installable keys.',
       ],
+      // GrapheneOS doesn't publish screenshots on its own site, but real
+      // device OS captures (home screen, Apps store, default-apps screen)
+      // are hosted on Wikimedia Commons under CC licenses and used in
+      // the Wikipedia GrapheneOS article. Pull them straight from the
+      // upload.wikimedia.org CDN.
       screenshots: <String>[
-        'https://grapheneos.org/screenshots/setup-wizard.png',
-        'https://grapheneos.org/screenshots/sandboxed-google-play.png',
+        'https://upload.wikimedia.org/wikipedia/commons/e/ed/GrapheneOS_home_screen_Android_16_QPR2.png',
+        'https://upload.wikimedia.org/wikipedia/commons/b/b9/GrapheneOS_Home_Screen.png',
+        'https://upload.wikimedia.org/wikipedia/commons/5/5e/GrapheneOS_Screenshot.png',
+        'https://upload.wikimedia.org/wikipedia/commons/a/ad/GrapheneOS-Apps.png',
+        'https://upload.wikimedia.org/wikipedia/commons/1/13/GrapheneOS_Default_Apps_Screen_as_of_May_2023.png',
       ],
       downloadLabel: 'Install / web installer',
       downloadUrl: 'https://grapheneos.org/install/',
@@ -913,9 +1016,11 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Datura firewall and per-app network controls.',
         'F-Droid, Aurora Store and Signal pre-installed.',
       ],
+      // Official calyxos.org device feature illustrations.
       screenshots: <String>[
-        'https://calyxos.org/img/screenshots/home.png',
-        'https://calyxos.org/img/screenshots/datura.png',
+        'https://calyxos.org/assets/images/device/feature/communication.png',
+        'https://calyxos.org/assets/images/device/feature/internet.png',
+        'https://calyxos.org/assets/images/device/feature/app-store.png',
       ],
       downloadLabel: 'Install instructions',
       downloadUrl: 'https://calyxos.org/install/',
@@ -937,9 +1042,12 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Optional Murena cloud (Mail, Drive, Calendar).',
         'Official builds for 200+ devices via the e installer.',
       ],
+      // Murena / e.foundation marketing illustrations from the
+      // 2025 e-os homepage redesign.
       screenshots: <String>[
-        'https://murena.com/wp-content/uploads/2023/01/e-launcher.png',
-        'https://murena.com/wp-content/uploads/2023/01/applounge.png',
+        'https://e.foundation/wp-content/uploads/2025/07/Group-1000000838-6.png',
+        'https://e.foundation/wp-content/uploads/2025/07/Group-1000000838-1.png',
+        'https://e.foundation/wp-content/uploads/2025/07/FP5-DuckDuckGo.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://doc.e.foundation/devices',
@@ -961,12 +1069,21 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'F-Droid and Mulch browser pre-installed.',
         'Per-network MAC randomisation and other privacy tweaks.',
       ],
+      // The DivestOS project shut down in Dec 2024 and divestos.org no
+      // longer resolves. Pull the official Android 12 gallery from the
+      // Internet Archive snapshots (the `if_` suffix returns the raw
+      // image bytes, redirecting to the closest 2024/2025 capture).
       screenshots: <String>[
-        'https://divestos.org/images/screenshot-home.png',
-        'https://divestos.org/images/screenshot-settings.png',
+        'https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Home_Screen.png',
+        'https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Lock_Screen.png',
+        'https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Settings.png',
+        'https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Permissions.png',
+        'https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Mull.png',
+        'https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Camera.png',
+        'https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/About.png',
       ],
-      downloadLabel: 'Official downloads',
-      downloadUrl: 'https://divestos.org/pages/devices',
+      downloadLabel: 'Official downloads (Wayback)',
+      downloadUrl: 'https://web.archive.org/web/2024/https://divestos.org/pages/devices',
     ),
     _RomSpec(
       id: 'derpfest',
@@ -984,9 +1101,16 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
         'Per-device maintainer model, frequent updates.',
         'GApps and vanilla variants.',
       ],
+      // Official DerpFest landing-page feature shots.
       screenshots: <String>[
-        'https://projectderp.in/images/screen1.png',
-        'https://projectderp.in/images/screen2.png',
+        'https://derpfest.org/img/5226475742240116555.jpg',
+        'https://derpfest.org/img/5226475742240116575.jpg',
+        'https://derpfest.org/img/5226475742240116573.jpg',
+        'https://derpfest.org/img/5226475742240116596.jpg',
+        'https://derpfest.org/img/5226475742240116599.jpg',
+        'https://derpfest.org/img/5190896052771427113.jpg',
+        'https://derpfest.org/img/5467634951864913145.jpg',
+        'https://derpfest.org/img/5233574769129625083.jpg',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://projectderp.in/',
@@ -1052,9 +1176,14 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
         'Modern themable UI.',
         'Built-in Magisk installer, file manager, terminal.',
       ],
-      // No reliably hot-linkable screenshot; the old URL 404s. Leave empty so
-      // the detail page omits the carousel instead of showing a broken image.
-      screenshots: <String>[],
+      // Sourced from the official OrangeFox wiki (the "recovery without touch"
+      // guide), which is currently the only place that publishes hot-linkable
+      // screenshots of the recovery UI.
+      screenshots: <String>[
+        'https://wiki.orangefox.tech/hw_nav.png',
+        'https://wiki.orangefox.tech/hwgui/screenshot_2025-04-04-22-49-37.png',
+        'https://wiki.orangefox.tech/hwgui/screenshot_2025-04-04-23-07-19.png',
+      ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://orangefox.download/',
     ),
@@ -1071,8 +1200,18 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
         'MIUI-friendly partition handling.',
         'Built-in repair tools.',
       ],
-      // Old imgur upload was removed; no stable replacement found.
-      screenshots: <String>[],
+      // Hero and feature artwork from the official RedWolf site
+      // (redwolfrecovery.github.io). The project does not publish a separate
+      // screenshot gallery, so these are the official marketing visuals.
+      screenshots: <String>[
+        'https://redwolfrecovery.github.io/assets/images/home-image-620x365.png',
+        'https://redwolfrecovery.github.io/assets/images/slider-img-4-620x365.png',
+        'https://redwolfrecovery.github.io/assets/images/feature-banners-1-300x300.png',
+        'https://redwolfrecovery.github.io/assets/images/feature-banners-4-300x300.png',
+        'https://redwolfrecovery.github.io/assets/images/feature-banners-7-300x300.png',
+        'https://redwolfrecovery.github.io/assets/images/feature-banners-8-300x300.png',
+        'https://redwolfrecovery.github.io/assets/images/feature-banners-9-300x300.png',
+      ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://forum.xda-developers.com/c/redwolf-recovery.10018/',
     ),
@@ -1090,8 +1229,15 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
         'Quick boot menu (recovery / fastboot / system).',
         'MIUI-friendly partition handling.',
       ],
-      // Old imgur upload was removed; no stable replacement found.
-      screenshots: <String>[],
+      // Original PBRP carousel + recovery shots, served from the
+      // Internet Archive (2023 snapshot of pitchblackrecovery.com).
+      screenshots: <String>[
+        'https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/elementor/thumbs/Final_Home-1-phsp7ogz6aai0fx2y7iqx6qevr5qvewi1ejcxmwb2a.png',
+        'https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-02-1-576x1024.png',
+        'https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-05-1-576x1024.png',
+        'https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-07-576x1024.png',
+        'https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-15-576x1024.png',
+      ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://pitchblack.tech/',
     ),
@@ -1109,12 +1255,17 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
         'Polished TWRP-derived UI.',
         'Builds for popular Xiaomi/OnePlus/Realme models.',
       ],
+      // The official SHRP recovery UI screenshots, served straight from the
+      // SourceForge project page (sourceforge.net/projects/shrp). The earlier
+      // shrp.dev URL was an unrelated personal site.
       screenshots: <String>[
-        // Project banner from the current SHRP site.
-        'https://shrp.dev/images/shrp.png',
+        'https://a.fsdn.com/con/app/proj/shrp/screenshots/1.jpg/max/max/1',
+        'https://a.fsdn.com/con/app/proj/shrp/screenshots/2.jpg/max/max/1',
+        'https://a.fsdn.com/con/app/proj/shrp/screenshots/3.jpg/max/max/1',
+        'https://a.fsdn.com/con/app/proj/shrp/screenshots/4.jpg/max/max/1',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://shrp.vercel.app/',
+      downloadUrl: 'https://shrp.github.io/',
     ),
   ];
 

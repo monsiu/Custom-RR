@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../models.dart';
+import '../util/xda_search.dart';
 import 'freshness_badge.dart';
 
 /// Placeholder text appended to XDA search queries so users immediately see
@@ -71,8 +71,6 @@ class CatalogCard extends StatefulWidget {
 }
 
 class _CatalogCardState extends State<CatalogCard> {
-  bool _hovering = false;
-
   @override
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;
@@ -83,11 +81,17 @@ class _CatalogCardState extends State<CatalogCard> {
             widget.assetImage!,
             fit: BoxFit.contain,
             filterQuality: FilterQuality.medium,
+            // Decode at roughly the displayed pixel size (cards top out
+            // around ~300 logical px; 720 covers 2x DPR). This avoids
+            // decoding full-resolution PNGs into the image cache, which
+            // is the biggest single perf win for the grid pages.
+            cacheWidth: 720,
           )
         : CachedNetworkImage(
             imageUrl: widget.networkImage!,
             fit: BoxFit.contain,
             filterQuality: FilterQuality.medium,
+            memCacheWidth: 720,
             placeholder: (BuildContext _, String __) => ColoredBox(
               color: scheme.surfaceContainerHighest,
               child: const Center(
@@ -186,15 +190,37 @@ class _CatalogCardState extends State<CatalogCard> {
     return Semantics(
       label: '${widget.title}. ${widget.subtitle}',
       button: true,
-      child: MouseRegion(
-        onEnter: (_) => setState(() => _hovering = true),
-        onExit: (_) => setState(() => _hovering = false),
-        child: AnimatedScale(
-          scale: _hovering ? 1.02 : 1.0,
-          duration: const Duration(milliseconds: 150),
-          curve: Curves.easeOut,
-          child: card,
-        ),
+      child: _HoverScale(child: card),
+    );
+  }
+}
+
+/// Wraps [child] in a tiny hover-scale animation without rebuilding the
+/// child on hover state changes. The scale value is held in this small
+/// stateful widget, so only the [AnimatedScale] node above the cached
+/// `child` rebuilds; the card content stays untouched.
+class _HoverScale extends StatefulWidget {
+  const _HoverScale({required this.child});
+
+  final Widget child;
+
+  @override
+  State<_HoverScale> createState() => _HoverScaleState();
+}
+
+class _HoverScaleState extends State<_HoverScale> {
+  bool _hovering = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovering = true),
+      onExit: (_) => setState(() => _hovering = false),
+      child: AnimatedScale(
+        scale: _hovering ? 1.02 : 1.0,
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.easeOut,
+        child: widget.child,
       ),
     );
   }
@@ -229,10 +255,7 @@ class _XdaPill extends StatelessWidget {
         elevation: 1,
         child: InkWell(
           customBorder: const StadiumBorder(),
-          onTap: () => launchUrl(
-            xdaSearchUri(query),
-            mode: LaunchMode.externalApplication,
-          ),
+          onTap: () => launchXdaSearch(context, xdaSearchUri(query)),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Row(

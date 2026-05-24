@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +9,7 @@ import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../util/xda_search.dart';
 import '../widgets/catalog_card.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/xda_threads_section.dart';
@@ -30,9 +30,9 @@ class DetailPage extends StatelessWidget {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
-  Future<void> _openXdaSearch() async {
+  Future<void> _openXdaSearch(BuildContext context) async {
     final Uri uri = xdaSearchUri('${entry.name} $kXdaQueryPlaceholder');
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    await launchXdaSearch(context, uri);
   }
 
   @override
@@ -121,15 +121,17 @@ class DetailPage extends StatelessWidget {
                         const SizedBox(height: 24),
                         _DeviceShowcase(entry: entry),
                       ],
-                      if (entry.screenshots.isNotEmpty) ...<Widget>[
-                        const SizedBox(height: 24),
-                        Text('Screenshots', style: text.titleLarge),
-                        const SizedBox(height: 12),
-                        _Screenshots(
-                          urls: entry.screenshots,
-                          fallbackAsset: entry.headerAsset,
-                        ),
-                      ],
+                      // Screenshots always render. For ROMs/recoveries that
+                      // don't expose stable hot-linkable UI shots, the
+                      // widget falls back to the bundled headerAsset so
+                      // there's never an empty section.
+                      const SizedBox(height: 24),
+                      Text('Screenshots', style: text.titleLarge),
+                      const SizedBox(height: 12),
+                      _Screenshots(
+                        urls: entry.screenshots,
+                        fallbackAsset: entry.headerAsset,
+                      ),
                       const SizedBox(height: 32),
                       Center(
                         child: Wrap(
@@ -145,7 +147,7 @@ class DetailPage extends StatelessWidget {
                             OutlinedButton.icon(
                               icon: const Icon(Icons.search),
                               label: const Text('Search on XDA'),
-                              onPressed: _openXdaSearch,
+                              onPressed: () => _openXdaSearch(context),
                             ),
                           ],
                         ),
@@ -190,69 +192,464 @@ class _FeatureRow extends StatelessWidget {
   }
 }
 
-class _Screenshots extends StatelessWidget {
+class _Screenshots extends StatefulWidget {
   const _Screenshots({required this.urls, required this.fallbackAsset});
 
   final List<String> urls;
   final String fallbackAsset;
 
   @override
+  State<_Screenshots> createState() => _ScreenshotsState();
+}
+
+class _ScreenshotsState extends State<_Screenshots> {
+  static const double _tileWidth = 280;
+  static const double _tileSpacing = 12;
+  static const double _heightDesktop = 480;
+  static const double _heightPhone = 360;
+  // Phones get a snap-paged PageView, desktop/tablet keeps the scrollable
+  // ListView with arrows + scrollbar. 600 dp is the Material breakpoint.
+  static const double _phoneBreakpoint = 600;
+
+  final ScrollController _scroll = ScrollController();
+  final PageController _pages = PageController();
+  bool _atStart = true;
+  bool _atEnd = false;
+  int _page = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(_onScroll);
+    _pages.addListener(_onPage);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _onScroll());
+  }
+
+  @override
+  void dispose() {
+    _scroll.removeListener(_onScroll);
+    _scroll.dispose();
+    _pages.removeListener(_onPage);
+    _pages.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (!_scroll.hasClients) {
+      return;
+    }
+    final ScrollPosition p = _scroll.position;
+    final bool start = p.pixels <= p.minScrollExtent + 1;
+    final bool end = p.pixels >= p.maxScrollExtent - 1;
+    if (start != _atStart || end != _atEnd) {
+      setState(() {
+        _atStart = start;
+        _atEnd = end;
+      });
+    }
+  }
+
+  void _onPage() {
+    if (!_pages.hasClients || _pages.page == null) {
+      return;
+    }
+    final int next = _pages.page!.round();
+    if (next != _page) {
+      setState(() => _page = next);
+    }
+  }
+
+  void _nudge(int direction) {
+    if (!_scroll.hasClients) {
+      return;
+    }
+    final double target = (_scroll.offset + direction * (_tileWidth + _tileSpacing))
+        .clamp(_scroll.position.minScrollExtent, _scroll.position.maxScrollExtent);
+    _scroll.animateTo(
+      target,
+      duration: const Duration(milliseconds: 280),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
+  void _copyUrl(BuildContext context, String url) {
+    Clipboard.setData(ClipboardData(text: url));
+    ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+      const SnackBar(
+        content: Text('Screenshot URL copied'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  List<Object> _heroTags(List<String> urls) =>
+      <Object>[for (int i = 0; i < urls.length; i++) 'shot-$i-${urls[i]}'];
+
+  @override
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;
-    return CarouselSlider.builder(
-      itemCount: urls.length,
-      itemBuilder: (BuildContext context, int index, int _) {
-        final String url = urls[index];
-        final String tag = 'shot-$index-$url';
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: () =>
-                  showZoomableImage(context, imageUrl: url, heroTag: tag),
-              child: Hero(
-                tag: tag,
-                child: CachedNetworkImage(
-                  imageUrl: url,
-                  fit: BoxFit.cover,
-                  filterQuality: FilterQuality.medium,
-                  placeholder: (BuildContext _, String __) => ColoredBox(
-                    color: scheme.surfaceContainerHighest,
-                    child: const Center(
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    ),
-                  ),
-                  // Fall back to the entry's bundled hero (e.g. recovery logo)
-                  // instead of a broken-image placeholder when a screenshot URL
-                  // 404s or the host removes the image.
-                  errorWidget: (BuildContext _, String __, Object ___) =>
-                      ColoredBox(
-                    color: scheme.surfaceContainerHighest,
-                    child: Padding(
-                      padding: const EdgeInsets.all(32),
-                      child: Image.asset(
-                        fallbackAsset,
-                        fit: BoxFit.contain,
-                        filterQuality: FilterQuality.medium,
-                      ),
-                    ),
+    final List<String> urls = widget.urls;
+    final bool isPhone =
+        MediaQuery.sizeOf(context).width < _phoneBreakpoint;
+    final double height = isPhone ? _heightPhone : _heightDesktop;
+    // When upstream doesn't expose hot-linkable shots, show a single tile
+    // with the project's bundled logo so the section is never empty.
+    if (urls.isEmpty) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: ColoredBox(
+          color: scheme.surfaceContainerHighest,
+          child: SizedBox(
+            height: height,
+            child: Padding(
+              padding: const EdgeInsets.all(48),
+              child: Image.asset(
+                widget.fallbackAsset,
+                fit: BoxFit.contain,
+                filterQuality: FilterQuality.medium,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+    return isPhone ? _buildPhone(context, urls) : _buildDesktop(context, urls);
+  }
+
+  Widget _buildTile(
+    BuildContext context, {
+    required String url,
+    required Object heroTag,
+    required VoidCallback onTap,
+    BorderRadius radius = const BorderRadius.all(Radius.circular(16)),
+  }) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    // Decode at roughly the tile's pixel width so 1080x2400 portrait
+    // screenshots don't blow the image cache to ~10 MB per ROM page.
+    final double dpr = MediaQuery.devicePixelRatioOf(context);
+    final double targetWidth = MediaQuery.sizeOf(context).width <
+            _phoneBreakpoint
+        ? MediaQuery.sizeOf(context).width
+        : _tileWidth;
+    final int cacheWidth = (targetWidth * dpr).round();
+    return ClipRRect(
+      borderRadius: radius,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          onLongPress: () => _copyUrl(context, url),
+          child: Hero(
+            tag: heroTag,
+            child: CachedNetworkImage(
+              imageUrl: url,
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.medium,
+              memCacheWidth: cacheWidth,
+              maxWidthDiskCache: cacheWidth,
+              placeholder: (BuildContext _, String __) => ColoredBox(
+                color: scheme.surfaceContainerHighest,
+                child: const Center(
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+              ),
+              // Fall back to the entry's bundled hero instead of a
+              // broken-image placeholder when a screenshot URL 404s.
+              errorWidget:
+                  (BuildContext _, String __, Object ___) => ColoredBox(
+                color: scheme.surfaceContainerHighest,
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Image.asset(
+                    widget.fallbackAsset,
+                    fit: BoxFit.contain,
+                    filterQuality: FilterQuality.medium,
                   ),
                 ),
               ),
             ),
           ),
-        );
-      },
-      options: CarouselOptions(
-        height: 480,
-        // Infinite scroll clones edge items, which duplicates the per-shot
-        // Hero tag in the subtree and throws 'multiple heroes that share
-        // the same tag'. Disable looping so each Hero is mounted once.
-        enableInfiniteScroll: false,
-        viewportFraction: 0.72,
-        enlargeCenterPage: true,
-        autoPlay: false,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPhone(BuildContext context, List<String> urls) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final List<Object> tags = _heroTags(urls);
+    final bool multi = urls.length > 1;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        SizedBox(
+          height: _heightPhone,
+          child: PageView.builder(
+            controller: _pages,
+            itemCount: urls.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: _buildTile(
+                  context,
+                  url: urls[index],
+                  heroTag: tags[index],
+                  onTap: () => showZoomableGallery(
+                    context,
+                    images: urls,
+                    initialIndex: index,
+                    heroTags: tags,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        if (multi) ...<Widget>[
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              for (int i = 0; i < urls.length; i++)
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                  width: _page == i ? 18 : 6,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: _page == i
+                        ? scheme.primary
+                        : scheme.outlineVariant,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+            ],
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildDesktop(BuildContext context, List<String> urls) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    final List<Object> tags = _heroTags(urls);
+    final bool multi = urls.length > 1;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        SizedBox(
+          // Extra height keeps room for the always-visible scrollbar track
+          // below the tiles so it never overlaps the imagery.
+          height: _heightDesktop + 18,
+          child: Stack(
+            children: <Widget>[
+              // Force the scrollbar to stay visible at all times so users
+              // (especially on Linux/desktop) immediately see the strip is
+              // horizontally scrollable.
+              ScrollbarTheme(
+                data: ScrollbarThemeData(
+                  thumbVisibility: WidgetStateProperty.all(true),
+                  trackVisibility: WidgetStateProperty.all(true),
+                  thickness: WidgetStateProperty.all(8),
+                  radius: const Radius.circular(8),
+                  interactive: true,
+                ),
+                child: Scrollbar(
+                  controller: _scroll,
+                  thumbVisibility: true,
+                  trackVisibility: true,
+                  child: ListView.separated(
+                    controller: _scroll,
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.only(bottom: 18),
+                    itemCount: urls.length,
+                    separatorBuilder: (_, __) =>
+                        const SizedBox(width: _tileSpacing),
+                    itemBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                        width: _tileWidth,
+                        height: _heightDesktop,
+                        child: _buildTile(
+                          context,
+                          url: urls[index],
+                          heroTag: tags[index],
+                          onTap: () => showZoomableGallery(
+                            context,
+                            images: urls,
+                            initialIndex: index,
+                            heroTags: tags,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              if (multi) ...<Widget>[
+                // Right-edge gradient fade hinting at off-screen content.
+                Positioned.fill(
+                  right: 0,
+                  child: IgnorePointer(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: AnimatedOpacity(
+                        opacity: _atEnd ? 0 : 1,
+                        duration: const Duration(milliseconds: 150),
+                        child: Container(
+                          width: 48,
+                          margin: const EdgeInsets.only(bottom: 18),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: <Color>[
+                                scheme.surface.withValues(alpha: 0),
+                                scheme.surface.withValues(alpha: 0.7),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                // Left-edge gradient (mirrors the right edge once scrolled).
+                Positioned.fill(
+                  left: 0,
+                  child: IgnorePointer(
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: AnimatedOpacity(
+                        opacity: _atStart ? 0 : 1,
+                        duration: const Duration(milliseconds: 150),
+                        child: Container(
+                          width: 48,
+                          margin: const EdgeInsets.only(bottom: 18),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.centerRight,
+                              end: Alignment.centerLeft,
+                              colors: <Color>[
+                                scheme.surface.withValues(alpha: 0),
+                                scheme.surface.withValues(alpha: 0.7),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                // Always-visible nav buttons (Linux/desktop has no swipe).
+                Positioned(
+                  left: 8,
+                  top: 0,
+                  bottom: 18,
+                  child: Center(
+                    child: _NavButton(
+                      icon: Icons.chevron_left,
+                      tooltip: 'Scroll left',
+                      enabled: !_atStart,
+                      onPressed: _atStart ? null : () => _nudge(-1),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 8,
+                  top: 0,
+                  bottom: 18,
+                  child: Center(
+                    child: _NavButton(
+                      icon: Icons.chevron_right,
+                      tooltip: 'Scroll right',
+                      enabled: !_atEnd,
+                      onPressed: _atEnd ? null : () => _nudge(1),
+                    ),
+                  ),
+                ),
+                // Counter pill so it's clear there are more shots even
+                // before the scrollbar/arrows are noticed.
+                Positioned(
+                  top: 12,
+                  right: 12,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: scheme.surface.withValues(alpha: 0.85),
+                      borderRadius: BorderRadius.circular(999),
+                      border: Border.all(
+                        color: scheme.outlineVariant.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 4,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            Icons.view_carousel_outlined,
+                            size: 14,
+                            color: scheme.onSurfaceVariant,
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            '${urls.length} screenshots, scroll ->',
+                            style: text.labelSmall?.copyWith(
+                              color: scheme.onSurface,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Circular nav button shown at either edge of the screenshot strip.
+/// Disabled (greyed out) at the corresponding edge of the scroll range.
+class _NavButton extends StatelessWidget {
+  const _NavButton({
+    required this.icon,
+    required this.tooltip,
+    required this.enabled,
+    required this.onPressed,
+  });
+
+  final IconData icon;
+  final String tooltip;
+  final bool enabled;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    return AnimatedOpacity(
+      opacity: enabled ? 1 : 0.35,
+      duration: const Duration(milliseconds: 150),
+      child: Tooltip(
+        message: tooltip,
+        child: Material(
+          color: scheme.surface.withValues(alpha: 0.92),
+          shape: const CircleBorder(),
+          elevation: 3,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: onPressed,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Icon(icon, size: 28, color: scheme.onSurface),
+            ),
+          ),
+        ),
       ),
     );
   }

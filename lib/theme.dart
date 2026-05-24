@@ -8,23 +8,44 @@ class AppTheme {
   const AppTheme._();
 
   static ThemeData light({ColorScheme? dynamicScheme}) =>
-      _build(Brightness.light, dynamicScheme);
-  static ThemeData dark({ColorScheme? dynamicScheme}) =>
-      _build(Brightness.dark, dynamicScheme);
+      _build(Brightness.light, dynamicScheme, amoled: false);
+  static ThemeData dark({ColorScheme? dynamicScheme, bool amoled = false}) =>
+      _build(Brightness.dark, dynamicScheme, amoled: amoled);
 
-  static ThemeData _build(Brightness brightness, [ColorScheme? override]) {
+  static ThemeData _build(
+    Brightness brightness,
+    ColorScheme? override, {
+    required bool amoled,
+  }) {
     // Material You: when a wallpaper-derived scheme is available
     // (Android 12+, some macOS builds) use it directly so every role in
     // the palette tracks the user's accent. Harmonizing the dynamic
     // primary against the brand seed clamps everything back to green and
     // defeats Material You, so we only fall back to a brand-seeded scheme
     // when no dynamic scheme is provided by the platform.
-    final ColorScheme scheme = override ??
+    ColorScheme scheme = override ??
         ColorScheme.fromSeed(
           seedColor: kBrandSeed,
           brightness: brightness,
         );
     final bool isDark = brightness == Brightness.dark;
+    // AMOLED variant: collapse the dark surface tones to pure black so
+    // OLED pixels switch off. Keep container tones as very-dark neutrals
+    // so cards and chips stay distinguishable from the background.
+    if (isDark && amoled) {
+      const Color black = Color(0xFF000000);
+      scheme = scheme.copyWith(
+        surface: black,
+        surfaceDim: black,
+        surfaceBright: const Color(0xFF1A1A1A),
+        surfaceContainerLowest: black,
+        surfaceContainerLow: const Color(0xFF0A0A0A),
+        surfaceContainer: const Color(0xFF111111),
+        surfaceContainerHigh: const Color(0xFF161616),
+        surfaceContainerHighest: const Color(0xFF1C1C1C),
+        surfaceTint: scheme.primary,
+      );
+    }
 
     return ThemeData(
       useMaterial3: true,
@@ -38,7 +59,7 @@ class AppTheme {
         foregroundColor: scheme.onSurface,
         centerTitle: true,
         elevation: 0,
-        scrolledUnderElevation: 2,
+        scrolledUnderElevation: 1,
         surfaceTintColor: scheme.surfaceTint,
       ),
 
@@ -170,15 +191,16 @@ class AppTheme {
       ),
 
       // Material 3 page transitions. Android gets predictive back support
-      // (Android 14+), iOS / macOS use Cupertino, other desktops use the
-      // standard M3 zoom transition.
+      // (Android 14+), iOS / macOS use Cupertino. On desktop the default
+      // zoom / fade-forwards transitions feel jarring, so we use a plain
+      // cross-fade for a smooth, distraction-free page swap.
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
           TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
           TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.linux: ZoomPageTransitionsBuilder(),
-          TargetPlatform.windows: ZoomPageTransitionsBuilder(),
+          TargetPlatform.linux: _FadeThroughPageTransitionsBuilder(),
+          TargetPlatform.windows: _FadeThroughPageTransitionsBuilder(),
         },
       ),
 
@@ -190,5 +212,34 @@ class AppTheme {
               )
           : null,
     );
+  }
+}
+
+/// A minimal page transition: just a cross-fade with no scale or slide.
+/// Used on Linux / Windows where the default zoom transition reads as a
+/// jarring pop-out. Short, smooth, distraction-free.
+class _FadeThroughPageTransitionsBuilder extends PageTransitionsBuilder {
+  const _FadeThroughPageTransitionsBuilder();
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 180);
+
+  @override
+  Duration get reverseTransitionDuration => const Duration(milliseconds: 140);
+
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    final CurvedAnimation fade = CurvedAnimation(
+      parent: animation,
+      curve: Curves.easeOutCubic,
+      reverseCurve: Curves.easeInCubic,
+    );
+    return FadeTransition(opacity: fade, child: child);
   }
 }

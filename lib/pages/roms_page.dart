@@ -6,6 +6,7 @@ import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
+import '../util/xda_search.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/catalog_card.dart';
 
@@ -418,9 +419,9 @@ class _DefunctCard extends StatelessWidget {
 
   final DefunctEntry entry;
 
-  Future<void> _openXdaSearch() => launchUrl(
+  Future<void> _openXdaSearch(BuildContext context) => launchXdaSearch(
+        context,
         xdaSearchUri('${entry.name} $kXdaQueryPlaceholder'),
-        mode: LaunchMode.externalApplication,
       );
 
   Future<void> _openWaybackArchive() => launchUrl(
@@ -561,7 +562,7 @@ class _DefunctCard extends StatelessWidget {
                   FilledButton.tonalIcon(
                     icon: const Icon(Icons.search, size: 18),
                     label: const Text('Search on XDA'),
-                    onPressed: _openXdaSearch,
+                    onPressed: () => _openXdaSearch(context),
                   ),
                   if (hasOfficial)
                     OutlinedButton.icon(
