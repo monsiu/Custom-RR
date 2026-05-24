@@ -46,6 +46,28 @@ Future<void> showThemePicker(BuildContext context) {
                     mode: ThemeMode.dark,
                     current: current,
                   ),
+                  const Divider(indent: 16, endIndent: 16),
+                  ValueListenableBuilder<bool>(
+                    valueListenable: ThemeController.instance.amoled,
+                    builder: (BuildContext context, bool amoled, _) {
+                      final MediaQueryData mq = MediaQuery.of(context);
+                      final bool effectiveDark = current == ThemeMode.dark ||
+                          (current == ThemeMode.system &&
+                              mq.platformBrightness == Brightness.dark);
+                      return SwitchListTile(
+                        secondary: const Icon(Icons.contrast),
+                        title: const Text('AMOLED true black'),
+                        subtitle: Text(
+                          effectiveDark
+                              ? 'Pure-black surfaces in dark mode'
+                              : 'Applies when dark mode is active',
+                        ),
+                        value: amoled,
+                        onChanged: (bool v) =>
+                            ThemeController.instance.setAmoled(v),
+                      );
+                    },
+                  ),
                   const SizedBox(height: 8),
                 ],
               ),

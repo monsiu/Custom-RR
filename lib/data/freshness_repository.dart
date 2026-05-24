@@ -29,15 +29,27 @@ class FreshnessRepository extends ChangeNotifier {
   static const String _cacheKey = 'freshness_json_v1';
   static const String _remoteUrl =
       'https://raw.githubusercontent.com/monsiu/Custom-RR/main/assets/freshness.json';
-  static const Duration _remoteTimeout = Duration(seconds: 4);
+  // First-attempt timeout. On a cold start, DNS + TLS handshake to
+  // raw.githubusercontent.com can easily take 4-6 s on mobile networks,
+  // which was firing the bogus "you're offline" dialog. 12 s + one
+  // retry handles slow networks without making users wait forever.
+  static const Duration _remoteTimeout = Duration(seconds: 12);
+  static const Duration _retryDelay = Duration(seconds: 2);
 
   Map<String, FreshnessInfo> _byId = const <String, FreshnessInfo>{};
   bool _loaded = false;
   bool _remoteKicked = false;
+  bool _hasCachedPayload = false;
   FreshnessFetchStatus _fetchStatus = FreshnessFetchStatus.idle;
 
   bool get isLoaded => _loaded;
   Map<String, FreshnessInfo> get all => _byId;
+
+  /// True when a previous successful remote fetch is cached in
+  /// SharedPreferences (or has succeeded this session). Used by the
+  /// offline notice to suppress its dialog: if we already have a recent
+  /// snapshot, a transient fetch failure isn't worth a modal.
+  bool get hasCachedPayload => _hasCachedPayload;
 
   /// State of the most recent attempt to fetch the remote snapshot.
   FreshnessFetchStatus get fetchStatus => _fetchStatus;
@@ -66,6 +78,7 @@ class FreshnessRepository extends ChangeNotifier {
       final String? cached = sp.getString(_cacheKey);
       if (cached != null && cached.isNotEmpty) {
         _applyJson(cached);
+        _hasCachedPayload = true;
       }
     } on Object {
       // Cache unavailable; ignore.
@@ -93,20 +106,32 @@ class FreshnessRepository extends ChangeNotifier {
   Future<void> _refreshRemote() async {
     _fetchStatus = FreshnessFetchStatus.loading;
     notifyListeners();
+    // One retry after a short delay; covers transient DNS hiccups and
+    // captive-portal warmup on freshly-joined Wi-Fi.
+    for (int attempt = 0; attempt < 2; attempt++) {
+      if (await _tryFetchOnce()) {
+        _fetchStatus = FreshnessFetchStatus.ok;
+        _hasCachedPayload = true;
+        notifyListeners();
+        return;
+      }
+      if (attempt == 0) {
+        await Future<void>.delayed(_retryDelay);
+      }
+    }
+    _fetchStatus = FreshnessFetchStatus.failed;
+    notifyListeners();
+  }
+
+  /// Single fetch attempt. Returns true if it succeeded and the payload
+  /// was applied + cached. Never throws.
+  Future<bool> _tryFetchOnce() async {
     try {
       final http.Response resp =
           await http.get(Uri.parse(_remoteUrl)).timeout(_remoteTimeout);
-      if (resp.statusCode < 200 || resp.statusCode >= 300) {
-        _fetchStatus = FreshnessFetchStatus.failed;
-        notifyListeners();
-        return;
-      }
+      if (resp.statusCode < 200 || resp.statusCode >= 300) return false;
       final String body = resp.body;
-      if (body.isEmpty) {
-        _fetchStatus = FreshnessFetchStatus.failed;
-        notifyListeners();
-        return;
-      }
+      if (body.isEmpty) return false;
       // Validate before caching so we don't poison the cache with garbage.
       json.decode(body);
       _applyJson(body);
@@ -116,12 +141,10 @@ class FreshnessRepository extends ChangeNotifier {
       } on Object {
         // Best-effort cache; ignore.
       }
-      _fetchStatus = FreshnessFetchStatus.ok;
-      notifyListeners();
+      return true;
     } on Object {
       // Offline, DNS, 5xx, parse error: keep whatever we already have.
-      _fetchStatus = FreshnessFetchStatus.failed;
-      notifyListeners();
+      return false;
     }
   }
 

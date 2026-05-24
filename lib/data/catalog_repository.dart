@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart' show compute;
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../models.dart';
@@ -32,11 +33,14 @@ class CatalogRepository {
     if (_loaded && overrideJson == null) return;
     final String source =
         overrideJson ?? await rootBundle.loadString(_assetPath);
-    final Map<String, dynamic> root =
-        json.decode(source) as Map<String, dynamic>;
-    _roms = _decodeList(root['roms'], CatalogEntry.fromJson);
-    _recoveries = _decodeList(root['recoveries'], CatalogEntry.fromJson);
-    _devices = _decodeList(root['devices'], DeviceEntry.fromJson);
+    // The shipped catalog is ~900 KB. Parsing + model decoding on the
+    // UI isolate was burning ~1-2 s on cold start (Skipped 750 frames /
+    // Davey! 2s in logcat). Move it to a background isolate; the result
+    // objects are plain Dart classes, safe to transfer.
+    final _ParsedCatalog parsed = await compute(_parseCatalog, source);
+    _roms = parsed.roms;
+    _recoveries = parsed.recoveries;
+    _devices = parsed.devices;
     _loaded = true;
   }
 
@@ -158,4 +162,24 @@ T? _firstWhereOrNull<T>(Iterable<T> items, bool Function(T) test) {
     if (test(item)) return item;
   }
   return null;
+}
+
+/// Result bundle for [_parseCatalog]. Held in a tiny class so it can be
+/// shipped back across the isolate boundary in a single message.
+class _ParsedCatalog {
+  _ParsedCatalog(this.roms, this.recoveries, this.devices);
+  final List<CatalogEntry> roms;
+  final List<CatalogEntry> recoveries;
+  final List<DeviceEntry> devices;
+}
+
+/// Top-level so [compute] can invoke it in a background isolate.
+_ParsedCatalog _parseCatalog(String source) {
+  final Map<String, dynamic> root =
+      json.decode(source) as Map<String, dynamic>;
+  return _ParsedCatalog(
+    _decodeList(root['roms'], CatalogEntry.fromJson),
+    _decodeList(root['recoveries'], CatalogEntry.fromJson),
+    _decodeList(root['devices'], DeviceEntry.fromJson),
+  );
 }

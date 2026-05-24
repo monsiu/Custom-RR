@@ -32,6 +32,9 @@ class WishlistRepository extends ChangeNotifier {
         ..addAll(saved);
     }
     _loaded = true;
+    // Notify in case load runs after the first frame (lazy startup path)
+    // so any AnimatedBuilder listeners pick up the persisted set.
+    notifyListeners();
   }
 
   static String keyFor(String brand, String codename) => '$brand|$codename';

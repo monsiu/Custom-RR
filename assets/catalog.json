@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-23T16:07:52.959703Z",
+  "_generatedAt": "2026-05-24T18:58:09.358981Z",
   "roms": [
     {
       "id": "lineage",
@@ -18,9 +18,14 @@
         "Optional MicroG, F-Droid, or Google Apps via separate installers."
       ],
       "screenshots": [
-        "https://lineageos.org/images/2024-09-01/featured.jpg",
-        "https://i.imgur.com/8tXFw5w.png",
-        "https://i.imgur.com/3GxF3jK.png"
+        "https://lineageos.org/images/2025-10-11/hero.webp",
+        "https://lineageos.org/images/2025-10-11/catapult.webp",
+        "https://lineageos.org/images/2022-12-31/aperture.webp",
+        "https://lineageos.org/images/2024-12-31/twelve.webp",
+        "https://lineageos.org/images/2024-02-14/glimpse.webp",
+        "https://lineageos.org/images/2024-02-14/jelly.webp",
+        "https://lineageos.org/images/2024-02-14/dialer.webp",
+        "https://lineageos.org/images/2024-02-14/calculator.webp"
       ],
       "devices": [
         {
@@ -2044,8 +2049,12 @@
         "GApps and vanilla variants for most devices."
       ],
       "screenshots": [
-        "https://crdroid.net/img/cards/customization.png",
-        "https://crdroid.net/img/cards/themes.png"
+        "https://crdroid.net/img/gallery/gallery-1.webp",
+        "https://crdroid.net/img/gallery/gallery-2.webp",
+        "https://crdroid.net/img/gallery/gallery-3.webp",
+        "https://crdroid.net/img/gallery/gallery-4.webp",
+        "https://crdroid.net/img/gallery/gallery-5.webp",
+        "https://crdroid.net/img/gallery/gallery-6.webp"
       ],
       "devices": [
         {
@@ -3499,8 +3508,11 @@
         "Plus variant adds extra customisation if you want it."
       ],
       "screenshots": [
-        "https://download.pixelexperience.org/img/screenshots/13.png",
-        "https://download.pixelexperience.org/img/screenshots/14.png"
+        "https://upload.wikimedia.org/wikipedia/commons/2/2d/Android_16_home_screen_screenshot.png",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8e/Customized_Android_16_Home_Screen.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/71/Pixel_4a_Android_11_Launcher.png",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0c/Android_10_screenshot.png",
+        "https://upload.wikimedia.org/wikipedia/commons/7/75/Android_14_Go_Home_Screen.png"
       ],
       "devices": [
         {
@@ -4500,8 +4512,14 @@
         "Monthly security patches."
       ],
       "screenshots": [
-        "https://arrowos.net/assets/img/screenshots/home.jpg",
-        "https://arrowos.net/assets/img/screenshots/settings.jpg"
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen1.png",
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen2.png",
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen3.png",
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen4.png",
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen5.png",
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen6.png",
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen7.png",
+        "https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen8.png"
       ],
       "devices": [
         {
@@ -5858,8 +5876,14 @@
         "Monthly security patches."
       ],
       "screenshots": [
-        "https://evolution-x.org/assets/img/screenshots/lockscreen.jpg",
-        "https://evolution-x.org/assets/img/screenshots/settings.jpg"
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Home.webp",
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Lockscreen.webp",
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/SystemUI.webp",
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Settings.webp",
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Evolver.webp",
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Evolver_about.webp",
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/About.webp",
+        "https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Updater.webp"
       ],
       "devices": [
         {
@@ -7274,8 +7298,9 @@
         "Active community, slow but careful release cadence."
       ],
       "screenshots": [
-        "https://paranoidandroid.co/images/topaz/topaz_home.png",
-        "https://paranoidandroid.co/images/topaz/topaz_settings.png"
+        "https://web.archive.org/web/2017if_/http://aospa.co/sliders/PADSB.jpg",
+        "https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPeek.jpg",
+        "https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPie.jpg"
       ],
       "devices": [
         {
@@ -8276,8 +8301,16 @@
         "Optional GApps build per device."
       ],
       "screenshots": [
-        "https://havoc-os.com/assets/img/screenshots/home.png",
-        "https://havoc-os.com/assets/img/screenshots/settings.png"
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_1.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_2.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_3.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_4.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_5.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_6.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_7.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_8.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_9.png",
+        "https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_10.png"
       ],
       "devices": [
         {
@@ -10082,7 +10115,12 @@
         "Smooth animations and lean install."
       ],
       "screenshots": [
-        "https://droidontime.com/wp-content/uploads/2021/01/dotOS.png"
+        "https://blog.droidontime.com/static/images/MonetWannabeTwoPoint.png",
+        "https://blog.droidontime.com/static/images/settings_dashboard_fivetwo.png",
+        "https://blog.droidontime.com/static/images/gaming_fivetwo.png",
+        "https://blog.droidontime.com/static/images/battery_manager-fiveTwo.png",
+        "https://blog.droidontime.com/static/images/widgets_fivetwo.png",
+        "https://blog.droidontime.com/static/images/banner_five_dotTwo.png"
       ],
       "devices": [
         {
@@ -11438,8 +11476,15 @@
         "Sister Bliss OS x86 builds for PCs."
       ],
       "screenshots": [
-        "https://blissroms.org/images/bliss-home.jpg",
-        "https://blissroms.org/images/bliss-settings.jpg"
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/1.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/2.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/3.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/4.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/6.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/7.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/8.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/9.jpg",
+        "https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/10.jpg"
       ],
       "devices": [
         {
@@ -12783,7 +12828,10 @@
         "Active maintainer community."
       ],
       "screenshots": [
-        "https://posp.co/images/screenshots/home.png"
+        "https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot1.png",
+        "https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot2.png",
+        "https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot3.png",
+        "https://raw.githubusercontent.com/PotatoProject/website/master/src/assets/screenshots/screenshot4.png"
       ],
       "devices": [
         {
@@ -13762,8 +13810,13 @@
         "Frequent monthly releases."
       ],
       "screenshots": [
-        "https://risingos.org/img/screens/home.png",
-        "https://risingos.org/img/screens/customization.png"
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-1-7-portrait.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-2-7-portrait.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-3-7-portrait.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-4-7-portrait.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-5-7-portrait.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-6-7-portrait.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-7-7-portrait.png"
       ],
       "devices": [
         {
@@ -15087,7 +15140,9 @@
         "Optional GApps."
       ],
       "screenshots": [
-        "https://voltageos.com/images/home.png"
+        "https://www.voltageos.com/assets/Frame%20342-CpdyX8g5.png",
+        "https://www.voltageos.com/assets/Frame%20341-NKAEc1aS.png",
+        "https://www.voltageos.com/assets/Frame%20338-7WWYWnVV.png"
       ],
       "devices": [
         {
@@ -16112,8 +16167,10 @@
         "Active monthly releases."
       ],
       "screenshots": [
-        "https://projectelixiros.com/images/lockscreen.png",
-        "https://projectelixiros.com/images/customization.png"
+        "https://projectelixiros.com/assets/images/elixir16-home.png",
+        "https://projectelixiros.com/assets/images/s1.png",
+        "https://projectelixiros.com/assets/images/s2.png",
+        "https://projectelixiros.com/assets/images/s3.png"
       ],
       "devices": [
         {
@@ -17151,8 +17208,11 @@
         "Verified boot with user-installable keys."
       ],
       "screenshots": [
-        "https://grapheneos.org/screenshots/setup-wizard.png",
-        "https://grapheneos.org/screenshots/sandboxed-google-play.png"
+        "https://upload.wikimedia.org/wikipedia/commons/e/ed/GrapheneOS_home_screen_Android_16_QPR2.png",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b9/GrapheneOS_Home_Screen.png",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5e/GrapheneOS_Screenshot.png",
+        "https://upload.wikimedia.org/wikipedia/commons/a/ad/GrapheneOS-Apps.png",
+        "https://upload.wikimedia.org/wikipedia/commons/1/13/GrapheneOS_Default_Apps_Screen_as_of_May_2023.png"
       ],
       "devices": [
         {
@@ -17275,8 +17335,9 @@
         "F-Droid, Aurora Store and Signal pre-installed."
       ],
       "screenshots": [
-        "https://calyxos.org/img/screenshots/home.png",
-        "https://calyxos.org/img/screenshots/datura.png"
+        "https://calyxos.org/assets/images/device/feature/communication.png",
+        "https://calyxos.org/assets/images/device/feature/internet.png",
+        "https://calyxos.org/assets/images/device/feature/app-store.png"
       ],
       "devices": [
         {
@@ -17443,8 +17504,9 @@
         "Official builds for 200+ devices via the e installer."
       ],
       "screenshots": [
-        "https://murena.com/wp-content/uploads/2023/01/e-launcher.png",
-        "https://murena.com/wp-content/uploads/2023/01/applounge.png"
+        "https://e.foundation/wp-content/uploads/2025/07/Group-1000000838-6.png",
+        "https://e.foundation/wp-content/uploads/2025/07/Group-1000000838-1.png",
+        "https://e.foundation/wp-content/uploads/2025/07/FP5-DuckDuckGo.png"
       ],
       "devices": [
         {
@@ -19840,8 +19902,13 @@
         "Per-network MAC randomisation and other privacy tweaks."
       ],
       "screenshots": [
-        "https://divestos.org/images/screenshot-home.png",
-        "https://divestos.org/images/screenshot-settings.png"
+        "https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Home_Screen.png",
+        "https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Lock_Screen.png",
+        "https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Settings.png",
+        "https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Permissions.png",
+        "https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Mull.png",
+        "https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/Camera.png",
+        "https://web.archive.org/web/2024if_/https://divestos.org/images/screenshots/12/About.png"
       ],
       "devices": [
         {
@@ -22323,8 +22390,8 @@
           "codename": "z2_plus"
         }
       ],
-      "downloadLabel": "Official downloads",
-      "downloadUrl": "https://divestos.org/pages/devices",
+      "downloadLabel": "Official downloads (Wayback)",
+      "downloadUrl": "https://web.archive.org/web/2024/https://divestos.org/pages/devices",
       "forumUrl": "https://forum.xda-developers.com/search/?q=DivestOS&o=date&c[content]=thread"
     },
     {
@@ -22343,8 +22410,14 @@
         "GApps and vanilla variants."
       ],
       "screenshots": [
-        "https://projectderp.in/images/screen1.png",
-        "https://projectderp.in/images/screen2.png"
+        "https://derpfest.org/img/5226475742240116555.jpg",
+        "https://derpfest.org/img/5226475742240116575.jpg",
+        "https://derpfest.org/img/5226475742240116573.jpg",
+        "https://derpfest.org/img/5226475742240116596.jpg",
+        "https://derpfest.org/img/5226475742240116599.jpg",
+        "https://derpfest.org/img/5190896052771427113.jpg",
+        "https://derpfest.org/img/5467634951864913145.jpg",
+        "https://derpfest.org/img/5233574769129625083.jpg"
       ],
       "devices": [
         {
@@ -26538,7 +26611,11 @@
         "Modern themable UI.",
         "Built-in Magisk installer, file manager, terminal."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://wiki.orangefox.tech/hw_nav.png",
+        "https://wiki.orangefox.tech/hwgui/screenshot_2025-04-04-22-49-37.png",
+        "https://wiki.orangefox.tech/hwgui/screenshot_2025-04-04-23-07-19.png"
+      ],
       "devices": [
         {
           "brand": "Asus",
@@ -27846,7 +27923,15 @@
         "MIUI-friendly partition handling.",
         "Built-in repair tools."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://redwolfrecovery.github.io/assets/images/home-image-620x365.png",
+        "https://redwolfrecovery.github.io/assets/images/slider-img-4-620x365.png",
+        "https://redwolfrecovery.github.io/assets/images/feature-banners-1-300x300.png",
+        "https://redwolfrecovery.github.io/assets/images/feature-banners-4-300x300.png",
+        "https://redwolfrecovery.github.io/assets/images/feature-banners-7-300x300.png",
+        "https://redwolfrecovery.github.io/assets/images/feature-banners-8-300x300.png",
+        "https://redwolfrecovery.github.io/assets/images/feature-banners-9-300x300.png"
+      ],
       "devices": [
         {
           "brand": "OnePlus",
@@ -28798,7 +28883,13 @@
         "Quick boot menu (recovery / fastboot / system).",
         "MIUI-friendly partition handling."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/elementor/thumbs/Final_Home-1-phsp7ogz6aai0fx2y7iqx6qevr5qvewi1ejcxmwb2a.png",
+        "https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-02-1-576x1024.png",
+        "https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-05-1-576x1024.png",
+        "https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-07-576x1024.png",
+        "https://web.archive.org/web/20231226225027im_/https://pitchblackrecovery.com/wp-content/uploads/2020/07/Screenshot_PBRP_2020-07-26-01-31-15-576x1024.png"
+      ],
       "devices": [
         {
           "brand": "Asus",
@@ -30328,7 +30419,10 @@
         "Builds for popular Xiaomi/OnePlus/Realme models."
       ],
       "screenshots": [
-        "https://shrp.dev/images/shrp.png"
+        "https://a.fsdn.com/con/app/proj/shrp/screenshots/1.jpg/max/max/1",
+        "https://a.fsdn.com/con/app/proj/shrp/screenshots/2.jpg/max/max/1",
+        "https://a.fsdn.com/con/app/proj/shrp/screenshots/3.jpg/max/max/1",
+        "https://a.fsdn.com/con/app/proj/shrp/screenshots/4.jpg/max/max/1"
       ],
       "devices": [
         {
@@ -31225,7 +31319,7 @@
         }
       ],
       "downloadLabel": "Official downloads",
-      "downloadUrl": "https://shrp.vercel.app/",
+      "downloadUrl": "https://shrp.github.io/",
       "forumUrl": "https://forum.xda-developers.com/search/?q=SHRP&o=date&c[content]=thread"
     }
   ],

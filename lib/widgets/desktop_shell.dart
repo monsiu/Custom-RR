@@ -55,7 +55,7 @@ class DesktopShell extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: scheme.surface,
         surfaceTintColor: Colors.transparent,
-        scrolledUnderElevation: 0.5,
+        scrolledUnderElevation: 1,
         title: Text(
           title,
           style: theme.textTheme.titleMedium?.copyWith(
@@ -80,7 +80,8 @@ class DesktopShell extends StatelessWidget {
                 ],
               ),
             ),
-            const Divider(height: 1, thickness: 1),
+            // No bottom Divider here; the status bar paints its own
+            // top border, so a second rule reads as a heavy doubled line.
             _DesktopStatusBar(repoUrl: _repoUrl, authorUrl: _authorUrl),
           ],
         ),
@@ -347,10 +348,10 @@ class _DesktopStatusBar extends StatelessWidget {
         );
     return Container(
       decoration: BoxDecoration(
-        color: scheme.surfaceContainerLow,
+        color: scheme.surfaceContainerLowest,
         border: Border(
           top: BorderSide(
-            color: scheme.outlineVariant.withValues(alpha: 0.6),
+            color: scheme.outlineVariant.withValues(alpha: 0.5),
           ),
         ),
       ),

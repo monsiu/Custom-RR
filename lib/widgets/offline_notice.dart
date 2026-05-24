@@ -53,6 +53,13 @@ class _OfflineNoticeState extends State<OfflineNotice> {
         FreshnessFetchStatus.failed) {
       return;
     }
+    // Suppress the dialog when we already have a cached (or just-fetched)
+    // snapshot. A transient fetch failure with usable data isn't worth
+    // a modal; the next launch will retry silently.
+    if (FreshnessRepository.instance.hasCachedPayload) {
+      _shownThisSession = true;
+      return;
+    }
     _shownThisSession = true;
     showDialog<void>(
       context: context,

@@ -72,6 +72,18 @@ dart run tool/sync_catalog.dart --refresh  # re-download the wiki tarball
 
 The cache lives under `tool/.cache/` and is gitignored.
 
+CI runs `tool/check_catalog_drift.dart` on every PR to make sure the
+committed `assets/catalog.json` matches what `sync_catalog.dart` would
+produce right now. If it drifts, regenerate and commit. A weekly
+`Screenshot link rot check` workflow (`tool/check_screenshot_urls.dart`)
+HEADs every screenshot URL and opens a job failure if any 404s or
+non-image responses appear, so you can fix dead links before users see
+broken tiles. Run it locally with:
+
+```bash
+dart run tool/check_screenshot_urls.dart
+```
+
 ## Build from source
 
 ```bash
@@ -93,6 +105,31 @@ Release builds expect signing config in `android/key.properties` (see [`android/
 flutter build apk --release
 flutter build appbundle --release
 ```
+
+## Linux desktop
+
+Custom RR also builds and runs as a native Linux app. Prereqs (Debian/Ubuntu):
+
+```bash
+sudo apt-get install -y clang cmake ninja-build pkg-config \
+  libgtk-3-dev liblzma-dev libstdc++-12-dev
+flutter config --enable-linux-desktop
+flutter build linux --release
+```
+
+The release bundle ends up in `build/linux/x64/release/bundle/`. To
+register the app with your desktop environment (menu entry + icon) use
+the helper:
+
+```bash
+cd linux
+./install.sh
+```
+
+It copies `com.monsiutechsolutions.custom_rr.desktop` to
+`~/.local/share/applications/` and points it at the built binary.
+Prebuilt Linux tarballs are uploaded by the `build-linux` CI job on
+every push to `main`.
 
 ## Support the project
 
