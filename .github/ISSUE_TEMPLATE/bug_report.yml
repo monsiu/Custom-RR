@@ -13,7 +13,7 @@ body:
     id: app-version
     attributes:
       label: Custom RR version
-      placeholder: "e.g. 0.3.0+3 (see About page)"
+      placeholder: "e.g. 0.1.0+1 (see About page)"
     validations:
       required: true
   - type: textarea
