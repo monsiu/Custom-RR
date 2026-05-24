@@ -14,12 +14,16 @@ set -euo pipefail
 PREFIX="${PREFIX:-$HOME/.local}"
 APP_ID='custom_rr'
 APP_NAME='Custom RR'
+# Reverse-DNS id used for the .desktop filename, the icon filename and
+# the StartupWMClass. Must match the GTK application-id from
+# linux/CMakeLists.txt so Wayland compositors can resolve the icon.
+DESKTOP_ID='com.monsiutechsolutions.custom_rr'
 
 BUNDLE_DIR="build/linux/x64/release/bundle"
 TARGET_DIR="$PREFIX/share/$APP_ID"
 BIN_LINK="$PREFIX/bin/$APP_ID"
-DESKTOP_FILE="$PREFIX/share/applications/$APP_ID.desktop"
-ICON_FILE="$PREFIX/share/icons/hicolor/512x512/apps/$APP_ID.png"
+DESKTOP_FILE="$PREFIX/share/applications/$DESKTOP_ID.desktop"
+ICON_FILE="$PREFIX/share/icons/hicolor/512x512/apps/$DESKTOP_ID.png"
 
 if [[ "${1:-}" == '--uninstall' ]]; then
   rm -rf "$TARGET_DIR" "$BIN_LINK" "$DESKTOP_FILE" "$ICON_FILE"
@@ -42,16 +46,22 @@ cp -r "$BUNDLE_DIR/." "$TARGET_DIR/"
 ln -sf "$TARGET_DIR/$APP_ID" "$BIN_LINK"
 
 # Desktop entry — rewrite Exec to the absolute path so launchers find it.
-sed "s|^Exec=.*|Exec=$TARGET_DIR/$APP_ID|" linux/$APP_ID.desktop > "$DESKTOP_FILE"
+sed "s|^Exec=.*|Exec=$TARGET_DIR/$APP_ID|" linux/$DESKTOP_ID.desktop > "$DESKTOP_FILE"
 chmod 644 "$DESKTOP_FILE"
 
-# Icon (reuses the launcher PNG from images/).
+# Icon (reuses the launcher PNG from images/). The filename must match
+# the desktop file's Icon= key (which itself matches the GTK
+# application-id) so Wayland compositors can resolve it.
 cp images/launcher.png "$ICON_FILE"
 
-# Refresh the desktop database so the entry appears in app menus without
-# needing a logout. Ignored if update-desktop-database isn't installed.
+# Refresh the desktop database and icon cache so the entry and icon
+# appear in app menus without needing a logout. Both are ignored if the
+# helpers aren't installed.
 if command -v update-desktop-database >/dev/null 2>&1; then
   update-desktop-database "$PREFIX/share/applications" >/dev/null 2>&1 || true
+fi
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+  gtk-update-icon-cache -q "$PREFIX/share/icons/hicolor" 2>/dev/null || true
 fi
 
 echo "Installed $APP_NAME:"

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
@@ -9,6 +10,7 @@ import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/star_button.dart';
+import '../widgets/xda_threads_section.dart';
 
 /// Per-phone-model detail page. Lists every ROM and recovery that supports
 /// the exact (brand, codename) combo. Reached by tapping a model chip on
@@ -172,6 +174,17 @@ class DeviceModelPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 24),
+                      if (ref != null && ref.forumUrl.isNotEmpty) ...<Widget>[
+                        XdaThreadsSection(forumUrl: ref.forumUrl),
+                        const SizedBox(height: 32),
+                      ] else ...<Widget>[
+                        _XdaSearchFallback(
+                          brand: brand,
+                          model: modelLabel,
+                          codename: codename,
+                        ),
+                        const SizedBox(height: 32),
+                      ],
                       _ModelSection(
                         title: 'Compatible ROMs',
                         entries: roms,
@@ -280,6 +293,72 @@ class _ModelSection extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+/// Fallback shown on model pages without a curated XDA Development forum.
+/// Sends users to an XDA-wide search prefilled with brand + model + codename
+/// so they still have a one-tap path to community discussion.
+class _XdaSearchFallback extends StatelessWidget {
+  const _XdaSearchFallback({
+    required this.brand,
+    required this.model,
+    required this.codename,
+  });
+
+  final String brand;
+  final String model;
+  final String codename;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    final String query = <String>[brand, model, codename]
+        .where((String s) => s.isNotEmpty)
+        .join(' ');
+    final Uri search = Uri.https(
+      'xdaforums.com',
+      '/search/',
+      <String, String>{'q': query, 'o': 'date'},
+    );
+
+    return Card(
+      margin: EdgeInsets.zero,
+      color: scheme.surfaceContainerHigh,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () =>
+            launchUrl(search, mode: LaunchMode.externalApplication),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: <Widget>[
+              Icon(Icons.search, color: scheme.primary),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Search XDA for this device', style: text.titleSmall),
+                    const SizedBox(height: 2),
+                    Text(
+                      'No dedicated forum is mapped yet. Opens an XDA '
+                      'search for "$query".',
+                      style: text.bodySmall?.copyWith(
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              Icon(Icons.open_in_new, size: 18, color: scheme.onSurfaceVariant),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

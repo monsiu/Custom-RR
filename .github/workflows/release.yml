@@ -1,29 +1,19 @@
-name: CI
+name: Release
 
+# Triggered when a tag like v0.1.0 is pushed. Builds release artifacts for
+# Android and Linux desktop, then opens a *draft* GitHub Release with
+# auto-generated notes so they can be reviewed before going public.
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
 
 jobs:
-  test:
-    name: Analyze and test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-      - run: flutter --version
-      - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test --reporter expanded
-
-  build-apk:
-    name: Build debug APK
-    needs: test
+  build-android:
+    name: Build release APKs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,16 +26,18 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
-      - run: flutter build apk --debug
+      # Per-ABI split: produces armeabi-v7a / arm64-v8a / x86_64 APKs
+      # with appropriate versionCode offsets (+1000 / +2000 / +4000),
+      # which is the form F-Droid-style updaters expect.
+      - run: flutter build apk --split-per-abi --release
       - uses: actions/upload-artifact@v4
         with:
-          name: app-debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: android-apks
+          path: build/app/outputs/flutter-apk/app-*-release.apk
           if-no-files-found: error
 
   build-linux:
-    name: Build Linux desktop
-    needs: test
+    name: Build Linux desktop bundle
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -72,6 +64,28 @@ jobs:
           tar -czf dist/custom_rr-linux-x64.tar.gz custom_rr-linux-x64
       - uses: actions/upload-artifact@v4
         with:
-          name: custom_rr-linux-x64
+          name: linux-bundle
           path: dist/custom_rr-linux-x64.tar.gz
           if-no-files-found: error
+
+  publish:
+    name: Publish draft release
+    needs: [build-android, build-linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Flatten artifacts
+        run: |
+          mkdir -p release-assets
+          find artifacts -type f \( -name '*.apk' -o -name '*.tar.gz' \) \
+            -exec cp {} release-assets/ \;
+          ls -la release-assets
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+          name: ${{ github.ref_name }}
+          files: release-assets/*

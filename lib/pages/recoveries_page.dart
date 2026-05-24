@@ -15,6 +15,7 @@ class RecoveriesPage extends StatelessWidget {
       heroPrefix: 'rec',
       selectedRoute: AppRoutes.recoveries,
       detailPathBuilder: AppRoutes.recoveryDetail,
+      entryKind: 'recovery',
     );
   }
 }

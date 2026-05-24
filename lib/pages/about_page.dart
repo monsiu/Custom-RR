@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../data/update_checker.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
@@ -15,6 +16,7 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
   String _version = '';
+  bool _checking = false;
 
   @override
   void initState() {
@@ -90,6 +92,23 @@ class _AboutPageState extends State<AboutPage> {
                 ),
               ),
               ListTile(
+                leading: const Icon(Icons.system_update_alt),
+                title: const Text('Check for updates'),
+                subtitle: Text(
+                  _version.isEmpty
+                      ? 'Compares your version with the latest GitHub release'
+                      : 'Current: $_version',
+                ),
+                trailing: _checking
+                    ? const SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Icon(Icons.chevron_right),
+                onTap: _checking ? null : _checkForUpdates,
+              ),
+              ListTile(
                 leading: const Icon(Icons.mail_outline),
                 title: const Text('contactmonsiu@gmail.com'),
                 onTap: () => _open(
@@ -117,5 +136,95 @@ class _AboutPageState extends State<AboutPage> {
 
   Future<void> _open(Uri uri) async {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> _checkForUpdates() async {
+    setState(() => _checking = true);
+    try {
+      final UpdateCheckResult result = await UpdateChecker.instance.check();
+      if (!mounted) return;
+      await _showUpdateDialog(result);
+    } on Object catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not check for updates: $e')),
+      );
+    } finally {
+      if (mounted) setState(() => _checking = false);
+    }
+  }
+
+  Future<void> _showUpdateDialog(UpdateCheckResult result) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final bool noReleases = result.latestVersion.isEmpty;
+    final bool upToDate = !noReleases && !result.isUpdateAvailable;
+
+    final String title = noReleases
+        ? 'No releases yet'
+        : upToDate
+            ? "You're up to date"
+            : 'Update available';
+
+    final String message = noReleases
+        ? 'This repository has no published releases yet. You can still '
+            'browse the source on GitHub.'
+        : upToDate
+            ? 'You are running the latest version (v${result.currentVersion}).'
+            : 'Custom RR v${result.latestVersion} is available. '
+                'You are on v${result.currentVersion}.';
+
+    final String notes = result.releaseNotes.trim();
+    final String trimmedNotes =
+        notes.length > 600 ? '${notes.substring(0, 600)}\u2026' : notes;
+
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext ctx) {
+        return AlertDialog(
+          icon: Icon(
+            upToDate ? Icons.check_circle_outline : Icons.system_update_alt,
+            color: scheme.primary,
+          ),
+          title: Text(title),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(message),
+                if (!noReleases && !upToDate && result.releaseName.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: 12),
+                  Text(
+                    result.releaseName,
+                    style: Theme.of(ctx).textTheme.titleSmall,
+                  ),
+                ],
+                if (!noReleases && !upToDate && trimmedNotes.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: 8),
+                  Text(
+                    trimmedNotes,
+                    style: Theme.of(ctx).textTheme.bodySmall,
+                  ),
+                ],
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: Text(upToDate ? 'OK' : 'Later'),
+            ),
+            if (result.releaseUrl.isNotEmpty)
+              FilledButton.tonal(
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                  _open(Uri.parse(result.releaseUrl));
+                },
+                child: Text(noReleases ? 'Open repository' : 'Open release'),
+              ),
+          ],
+        );
+      },
+    );
   }
 }

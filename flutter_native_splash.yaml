@@ -11,7 +11,10 @@ flutter_native_splash:
   # splash screen to a png image.  This is useful for gradients. The image will be stretch to the
   # size of the app. Only one parameter can be used, color and background_image cannot both be set.
 
-  color: "#7ed957"
+  # Neutral surface color so there is no brand-green flash before the
+  # app's Material You theme settles. Brand identity is conveyed by the
+  # icon image, not the background.
+  color: "#FFFFFF"
 
   #background_image: "assets/background.png"
 
@@ -57,12 +60,12 @@ flutter_native_splash:
     # 640 pixels in diameter.
     # App icon without an icon background: This should be 1152×1152 pixels, and fit within a circle
     # 768 pixels in diameter.
-    # splash_android12.png is 1152x1152 with the bust scaled to ~700px so it
-    # fits inside the 768px mask circle Android 12+ applies.
+    # splash_android12.png is 1152x1152 with the bust scaled to ~760px so
+    # it nearly fills the 768px mask circle Android 12+ applies.
     image: images/generated/splash_android12.png
   
     # Splash screen background color.
-    color: "#7ed957"
+    color: "#FFFFFF"
 
     # App icon background color.
     icon_background_color: "#7ed957"

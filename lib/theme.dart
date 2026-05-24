@@ -1,4 +1,3 @@
-import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,23 +13,17 @@ class AppTheme {
       _build(Brightness.dark, dynamicScheme);
 
   static ThemeData _build(Brightness brightness, [ColorScheme? override]) {
-    // Material You: when a wallpaper-derived scheme is available (Android
-    // 12+, some macOS builds) blend the user's primary with the brand seed
-    // using HCT harmonization. That way the palette tracks the device's
-    // accent but stays anchored to Custom RR green, and every role in the
-    // scheme (primary, secondary, tertiary, neutrals) gets regenerated from
-    // that harmonized seed so nothing in the scheme stays a stale hue from
-    // either source. On platforms without dynamic color, fall back to a
-    // pure seed-based scheme using the brand color.
-    final ColorScheme scheme = override == null
-        ? ColorScheme.fromSeed(
-            seedColor: kBrandSeed,
-            brightness: brightness,
-          )
-        : ColorScheme.fromSeed(
-            seedColor: override.primary.harmonizeWith(kBrandSeed),
-            brightness: brightness,
-          );
+    // Material You: when a wallpaper-derived scheme is available
+    // (Android 12+, some macOS builds) use it directly so every role in
+    // the palette tracks the user's accent. Harmonizing the dynamic
+    // primary against the brand seed clamps everything back to green and
+    // defeats Material You, so we only fall back to a brand-seeded scheme
+    // when no dynamic scheme is provided by the platform.
+    final ColorScheme scheme = override ??
+        ColorScheme.fromSeed(
+          seedColor: kBrandSeed,
+          brightness: brightness,
+        );
     final bool isDark = brightness == Brightness.dark;
 
     return ThemeData(

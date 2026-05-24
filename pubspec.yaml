@@ -1,7 +1,7 @@
 name: custom_rr
 description: A single home for popular Android custom ROMs and recoveries, with links, screenshots, and flashing instructions.
 publish_to: 'none'
-version: 0.3.0+3
+version: 0.1.0+1
 
 homepage: https://github.com/monsiu/Custom-RR
 repository: https://github.com/monsiu/Custom-RR
@@ -25,6 +25,7 @@ dependencies:
   go_router: ^14.6.2
   http: ^1.2.2
   dynamic_color: ^1.7.0
+  xml: ^6.5.0
 
 dev_dependencies:
   flutter_test:

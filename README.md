@@ -34,15 +34,15 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 
 Every page has a stable URL. Examples:
 
-| URL              | Page                                          |
-| ---------------- | --------------------------------------------- |
-| `/`              | Home                                          |
-| `/roms`          | All ROMs                                      |
-| `/roms/lineage`  | LineageOS detail page                         |
-| `/recoveries`    | All recoveries                                |
-| `/recoveries/twrp` | TWRP detail page                            |
-| `/devices`       | All devices                                   |
-| `/devices/xiaomi`| Xiaomi-compatible ROMs & recoveries           |
+| URL                  | Page                                |
+| -------------------- | ----------------------------------- |
+| `/`                  | Home                                |
+| `/roms`              | All ROMs                            |
+| `/roms/lineage`      | LineageOS detail page               |
+| `/recoveries`        | All recoveries                      |
+| `/recoveries/twrp`   | TWRP detail page                    |
+| `/devices`           | All devices                         |
+| `/devices/xiaomi`    | Xiaomi-compatible ROMs & recoveries |
 
 To enable Android App Links on your own domain, add an intent-filter to `android/app/src/main/AndroidManifest.xml` inside the main `<activity>`:
 
@@ -96,7 +96,7 @@ flutter build appbundle --release
 
 ## Support the project
 
-<a href="https://www.buymeacoffee.com/monsiuYT" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me a Coffee" height="60" width="217"></a>
+[![Buy Me a Coffee](https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png)](https://www.buymeacoffee.com/monsiuYT)
 
 ## Socials
 

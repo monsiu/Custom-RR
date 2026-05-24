@@ -62,7 +62,7 @@ class FreshnessBadge extends StatelessWidget {
     final ({Color bg, Color fg, IconData icon, String label}) s = _style(
       context,
     );
-    final String age = info.daysAgo >= 0 ? info.relativeBuilt : '—';
+    final String age = info.daysAgo >= 0 ? info.relativeBuilt : '-';
     final String text = compact ? age : '${s.label}  ·  $age';
     return Tooltip(
       message: info.daysAgo < 0
