@@ -10,7 +10,9 @@ import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../widgets/catalog_card.dart';
 import '../widgets/freshness_badge.dart';
+import '../widgets/xda_threads_section.dart';
 import '../widgets/zoomable_image_viewer.dart';
 
 /// Generic detail page used for both ROMs and recoveries.
@@ -28,8 +30,8 @@ class DetailPage extends StatelessWidget {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
-  Future<void> _openForum() async {
-    final Uri uri = Uri.parse(entry.forumUrl);
+  Future<void> _openXdaSearch() async {
+    final Uri uri = xdaSearchUri('${entry.name} $kXdaQueryPlaceholder');
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
@@ -140,15 +142,18 @@ class DetailPage extends StatelessWidget {
                               label: Text(entry.downloadLabel),
                               onPressed: _openDownloads,
                             ),
-                            if (entry.forumUrl.isNotEmpty)
-                              OutlinedButton.icon(
-                                icon: const Icon(Icons.forum_outlined),
-                                label: const Text('Discuss on XDA'),
-                                onPressed: _openForum,
-                              ),
+                            OutlinedButton.icon(
+                              icon: const Icon(Icons.search),
+                              label: const Text('Search on XDA'),
+                              onPressed: _openXdaSearch,
+                            ),
                           ],
                         ),
                       ),
+                      if (entry.forumUrl.isNotEmpty) ...<Widget>[
+                        const SizedBox(height: 32),
+                        XdaThreadsSection(forumUrl: entry.forumUrl),
+                      ],
                     ],
                   ),
                 ),
@@ -311,6 +316,9 @@ class _DeviceShowcaseState extends State<_DeviceShowcase> {
     final Map<String, List<DeviceRef>> groups = _groups;
     final String q = _query.trim().toLowerCase();
     final bool filtering = q.isNotEmpty;
+    final int xdaCount = widget.entry.devices
+        .where((DeviceRef d) => d.forumUrl.isNotEmpty)
+        .length;
 
     int totalMatches = 0;
     final List<MapEntry<String, List<DeviceRef>>> visible =
@@ -342,6 +350,33 @@ class _DeviceShowcaseState extends State<_DeviceShowcase> {
           ],
         ),
         const SizedBox(height: 12),
+        if (xdaCount > 0) ...<Widget>[
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: BoxDecoration(
+              color: scheme.primaryContainer.withValues(alpha: 0.45),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.forum_outlined, size: 18, color: scheme.primary),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    '$xdaCount of ${widget.entry.devices.length} '
+                    'device${widget.entry.devices.length == 1 ? '' : 's'} '
+                    'have an active XDA Development thread. Tap the '
+                    'forum icon next to a model to jump in.',
+                    style: text.bodySmall?.copyWith(
+                      color: scheme.onPrimaryContainer,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+        ],
         TextField(
           controller: _controller,
           textInputAction: TextInputAction.search,
@@ -465,50 +500,13 @@ class _BrandGroup extends StatelessWidget {
             ),
       children: <Widget>[
         Wrap(
-          spacing: 6,
-          runSpacing: 6,
+          spacing: 8,
+          runSpacing: 8,
           children: <Widget>[
             for (final DeviceRef d in models)
-              Tooltip(
-                message: d.codename.isEmpty
-                    ? d.model
-                    : 'Codename: ${d.codename} (long-press to copy)',
-                child: GestureDetector(
-                  onLongPress: d.codename.isEmpty
-                      ? null
-                      : () => _copyCodename(context, d.codename),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      ActionChip(
-                        visualDensity: VisualDensity.compact,
-                        avatar:
-                            const Icon(Icons.smartphone_outlined, size: 16),
-                        label: Text(d.model),
-                        onPressed: brandEntry == null || d.codename.isEmpty
-                            ? null
-                            : () => context.push(
-                                  AppRoutes.deviceModelDetail(
-                                    brandEntry.slug,
-                                    d.codename,
-                                  ),
-                                ),
-                      ),
-                      if (d.forumUrl.isNotEmpty) ...<Widget>[
-                        const SizedBox(width: 2),
-                        IconButton(
-                          icon: const Icon(Icons.forum_outlined, size: 18),
-                          visualDensity: VisualDensity.compact,
-                          tooltip: 'XDA thread for ${d.model}',
-                          onPressed: () => launchUrl(
-                            Uri.parse(d.forumUrl),
-                            mode: LaunchMode.externalApplication,
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
+              _ModelPill(
+                brandEntry: brandEntry,
+                device: d,
               ),
           ],
         ),
@@ -527,4 +525,107 @@ Future<void> _copyCodename(BuildContext context, String codename) async {
       behavior: SnackBarBehavior.floating,
     ),
   );
+}
+
+class _ModelPill extends StatelessWidget {
+  const _ModelPill({required this.brandEntry, required this.device});
+
+  final DeviceEntry? brandEntry;
+  final DeviceRef device;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    final bool hasForum = device.forumUrl.isNotEmpty;
+    final bool canOpen = brandEntry != null && device.codename.isNotEmpty;
+    final Color background = hasForum
+        ? scheme.primaryContainer.withValues(alpha: 0.55)
+        : scheme.surfaceContainerHigh;
+    final Color foreground = hasForum
+        ? scheme.onPrimaryContainer
+        : scheme.onSurface;
+    final Color border = hasForum
+        ? scheme.primary.withValues(alpha: 0.35)
+        : scheme.outlineVariant;
+
+    return Tooltip(
+      message: device.codename.isEmpty
+          ? device.model
+          : 'Codename: ${device.codename} (long-press to copy)',
+      child: Material(
+        color: background,
+        shape: StadiumBorder(side: BorderSide(color: border)),
+        clipBehavior: Clip.antiAlias,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            InkWell(
+              onTap: canOpen
+                  ? () => context.push(
+                        AppRoutes.deviceModelDetail(
+                          brandEntry!.slug,
+                          device.codename,
+                        ),
+                      )
+                  : null,
+              onLongPress: device.codename.isEmpty
+                  ? null
+                  : () => _copyCodename(context, device.codename),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(
+                  12,
+                  8,
+                  hasForum ? 10 : 14,
+                  8,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Icon(
+                      Icons.smartphone_outlined,
+                      size: 16,
+                      color: foreground,
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      device.model,
+                      style: text.labelLarge?.copyWith(color: foreground),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            if (hasForum) ...<Widget>[
+              Container(
+                width: 1,
+                height: 22,
+                color: border,
+              ),
+              InkWell(
+                onTap: () => launchUrl(
+                  Uri.parse(device.forumUrl),
+                  mode: LaunchMode.externalApplication,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 8,
+                  ),
+                  child: Tooltip(
+                    message: 'XDA thread for ${device.model}',
+                    child: Icon(
+                      Icons.forum_outlined,
+                      size: 18,
+                      color: scheme.primary,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
 }

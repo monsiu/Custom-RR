@@ -21,11 +21,13 @@ magick "$SRC_LAUNCHER" -trim +repage \
   -background none -gravity center -extent 1024x1024 \
   "$OUT/launcher_full.png"
 
-# Adaptive foreground (Android): bust at 576px (~56% of 1024), well inside
-# the 66% safe zone Android's adaptive mask carves out.
+# Adaptive foreground (Android): bust at 820px (~80% of 1024) anchored
+# to the bottom of the canvas so the shoulders hug the lower edge of the
+# adaptive mask. Top of the head sits ~200px below the canvas top, which
+# is still inside the squircle/rounded-square safe area.
 magick "$SRC_LAUNCHER" -trim +repage \
-  -resize x576 \
-  -background none -gravity center -extent 1024x1024 \
+  -resize x820 \
+  -background none -gravity south -extent 1024x1024 \
   "$OUT/launcher_adaptive_fg.png"
 
 # Themed icon (Android 13+ Material You): solid white silhouette with the
@@ -34,10 +36,11 @@ magick "$OUT/launcher_adaptive_fg.png" \
   -channel RGB -fill white -colorize 100 +channel \
   "$OUT/launcher_monochrome.png"
 
-# Android 12 splash: 1152x1152, bust at ~700px so it sits inside the 768px
-# mask circle Android 12+ applies to splash icons.
+# Android 12 splash: 1152x1152, bust at ~760px, centered. The system
+# crops splash icons to a 768px circle and uses different framing than
+# the adaptive launcher mask, so we keep this one centered for balance.
 magick "$SRC_LAUNCHER" -trim +repage \
-  -resize x700 \
+  -resize x760 \
   -background none -gravity center -extent 1152x1152 \
   "$OUT/splash_android12.png"
 

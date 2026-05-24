@@ -213,7 +213,7 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
             children: <Widget>[
               Text(
                 'Pick your phone and the projects you want to flash. '
-                'A copy-pasteable shell script appears below — '
+                'A copy-pasteable shell script appears below. '
                 'review each step before running it.',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
@@ -333,7 +333,7 @@ class _LabelledDropdown<T> extends StatelessWidget {
         child: DropdownButton<T>(
           value: items.contains(value) ? value : null,
           isExpanded: true,
-          hint: Text(items.isEmpty ? '— none available —' : 'Select…'),
+          hint: Text(items.isEmpty ? '(none available)' : 'Select…'),
           onChanged: items.isEmpty ? null : onChanged,
           items: <DropdownMenuItem<T>>[
             for (final T item in items)

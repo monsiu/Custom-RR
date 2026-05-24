@@ -7,11 +7,11 @@ import '../data/freshness_repository.dart';
 /// reconnect to Wi-Fi, with a refresh button that retries the fetch.
 ///
 /// The dialog is shown at most once per app session even if the user
-/// dismisses it — we don't want to be naggy. The user can still manually
+/// dismisses it; we don't want to be naggy. The user can still manually
 /// retry from the dialog while it's open.
 ///
 /// Wrap your page body (or the whole app shell body) in this widget. It
-/// renders [child] verbatim — the dialog is shown via [showDialog] on top.
+/// renders [child] verbatim. The dialog is shown via [showDialog] on top.
 class OfflineNotice extends StatefulWidget {
   const OfflineNotice({super.key, required this.child});
 

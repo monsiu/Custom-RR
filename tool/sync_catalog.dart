@@ -423,16 +423,171 @@ bool _yearAtLeast(_Device d, int year) =>
     d.releaseYear != null && d.releaseYear! >= year;
 
 List<Map<String, dynamic>> _toDeviceList(Iterable<_Device> devices) {
-  return devices
-      .map(
-        (_Device d) => <String, dynamic>{
-          'brand': d.vendor,
-          'model': d.model,
-          'codename': d.codename,
-        },
-      )
-      .toList();
+  return devices.map((_Device d) {
+    final String? forum = _xdaDeviceForums[d.codename];
+    return <String, dynamic>{
+      'brand': d.vendor,
+      'model': d.model,
+      'codename': d.codename,
+      if (forum != null) 'forumUrl': forum,
+    };
+  }).toList();
 }
+
+/// Curated per-codename XDA Developers forum category URLs.
+///
+/// We only seed devices we know have an active xenForo category on
+/// xdaforums.com (i.e. URLs in the canonical `/forums/<slug>.<id>/`
+/// shape, which is what [XdaFeedService.feedUrlFor] knows how to
+/// derive an RSS feed from). Devices without an entry simply do not
+/// show the "Recent XDA discussions" section, which is the safe
+/// default - the section is opt-in by codename.
+///
+/// To add a device, find its forum on https://xdaforums.com/forums/
+/// and copy the URL ending in `<slug>.<id>/`. We append
+/// `?prefix_id=33` so the section (and the "Open on XDA" button)
+/// jumps straight to the Development sub-listing rather than the
+/// noisier general forum.
+const String _xdaDevFilter = '?prefix_id=33';
+const Map<String, String> _xdaDeviceForums = <String, String>{
+  // Asus
+  'sake': 'https://xdaforums.com/f/asus-zenfone-8.12291/$_xdaDevFilter',
+
+  // Fairphone
+  'FP2': 'https://xdaforums.com/f/fairphone-2.4281/$_xdaDevFilter',
+  'FP3': 'https://xdaforums.com/f/fairphone-3-3.12787/$_xdaDevFilter',
+  'FP4': 'https://xdaforums.com/f/fairphone-4.12789/$_xdaDevFilter',
+  'FP5': 'https://xdaforums.com/f/fairphone-5.12791/$_xdaDevFilter',
+
+  // Google
+  'akita': 'https://xdaforums.com/f/google-pixel-8a.12851/$_xdaDevFilter',
+  'barbet': 'https://xdaforums.com/f/google-pixel-5a.12359/$_xdaDevFilter',
+  'bluejay': 'https://xdaforums.com/f/google-pixel-6a.12605/$_xdaDevFilter',
+  'caiman':
+      'https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/$_xdaDevFilter',
+  'cheetah': 'https://xdaforums.com/f/google-pixel-7-pro.12609/$_xdaDevFilter',
+  'husky': 'https://xdaforums.com/f/google-pixel-8-pro.12801/$_xdaDevFilter',
+  'komodo':
+      'https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/$_xdaDevFilter',
+  'lynx': 'https://xdaforums.com/f/google-pixel-7a.12743/$_xdaDevFilter',
+  'oriole': 'https://xdaforums.com/f/google-pixel-6.12311/$_xdaDevFilter',
+  'panther': 'https://xdaforums.com/f/google-pixel-7.12607/$_xdaDevFilter',
+  'raven': 'https://xdaforums.com/f/google-pixel-6-pro.12313/$_xdaDevFilter',
+  'shiba': 'https://xdaforums.com/f/google-pixel-8.12799/$_xdaDevFilter',
+  'tegu': 'https://xdaforums.com/f/google-pixel-9a.12927/$_xdaDevFilter',
+  'tokay': 'https://xdaforums.com/f/google-pixel-9.12879/$_xdaDevFilter',
+
+  // LG
+  'd800': 'https://xdaforums.com/f/at-t-lg-g2.3022/$_xdaDevFilter',
+  'd801': 'https://xdaforums.com/f/t-mobile-lg-g2.3029/$_xdaDevFilter',
+  'd850': 'https://xdaforums.com/f/at-t-lg-g3.3381/$_xdaDevFilter',
+  'd851': 'https://xdaforums.com/f/t-mobile-lg-g3.3388/$_xdaDevFilter',
+  'ls990': 'https://xdaforums.com/f/sprint-lg-g3.3374/$_xdaDevFilter',
+  'vs985': 'https://xdaforums.com/f/verizon-lg-g3.3367/$_xdaDevFilter',
+
+  // Motorola
+  'bangkk': 'https://xdaforums.com/f/motorola-moto-g84-5g.12932/$_xdaDevFilter',
+  'bathena': 'https://xdaforums.com/f/motorola-defy-2021.12369/$_xdaDevFilter',
+  'berlin': 'https://xdaforums.com/f/motorola-edge-20.12419/$_xdaDevFilter',
+  'berlna': 'https://xdaforums.com/f/motorola-edge-2021.12441/$_xdaDevFilter',
+  'borneo': 'https://xdaforums.com/f/moto-g-power-2021.12069/$_xdaDevFilter',
+  'denver': 'https://xdaforums.com/f/moto-g-stylus-5g.12373/$_xdaDevFilter',
+  'devon': 'https://xdaforums.com/f/motorola-moto-g32.12803/$_xdaDevFilter',
+  'dubai': 'https://xdaforums.com/f/motorola-edge-30.12697/$_xdaDevFilter',
+  'eqs':
+      'https://xdaforums.com/f/motorola-edge-30-ultra-motorola-moto-x30-pro.12663/$_xdaDevFilter',
+  'hawao': 'https://xdaforums.com/f/moto-g42.12629/$_xdaDevFilter',
+  'milanf': 'https://xdaforums.com/f/moto-g-stylus-5g.12373/$_xdaDevFilter',
+  'nio':
+      'https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/$_xdaDevFilter',
+  'pstar': 'https://xdaforums.com/f/motorola-edge-20-pro.12421/$_xdaDevFilter',
+  'rhode': 'https://xdaforums.com/f/motorola-moto-g52.12797/$_xdaDevFilter',
+  'rtwo':
+      'https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/$_xdaDevFilter',
+
+  // Nothing
+  'Pong': 'https://xdaforums.com/f/nothing-phone-2.12739/$_xdaDevFilter',
+  'Spacewar': 'https://xdaforums.com/f/nothing-phone-1.12585/$_xdaDevFilter',
+
+  // OSOM
+  'pyrite': 'https://xdaforums.com/f/osom-ov1.12561/$_xdaDevFilter',
+
+  // OnePlus
+  'aston':
+      'https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/$_xdaDevFilter',
+  'astonc':
+      'https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/$_xdaDevFilter',
+  'audi': 'https://xdaforums.com/f/oneplus-nord-4-ace-3v.12866/$_xdaDevFilter',
+  'avalon':
+      'https://xdaforums.com/f/oneplus-nord-4-ace-3v.12866/$_xdaDevFilter',
+  'corvette': 'https://xdaforums.com/f/oneplus-ace-3-pro.12865/$_xdaDevFilter',
+  'dodge': 'https://xdaforums.com/f/oneplus-13.12893/$_xdaDevFilter',
+  'giulia': 'https://xdaforums.com/f/oneplus-13r-ace-5.12915/$_xdaDevFilter',
+  'giuliac': 'https://xdaforums.com/f/oneplus-13r-ace-5.12915/$_xdaDevFilter',
+  'lemonade': 'https://xdaforums.com/f/oneplus-11.12687/$_xdaDevFilter',
+  'lemonadep': 'https://xdaforums.com/f/oneplus-9-pro.12153/$_xdaDevFilter',
+  'lemonades': 'https://xdaforums.com/f/oneplus-9r.12183/$_xdaDevFilter',
+  'lexus': 'https://xdaforums.com/f/oneplus-nord-5.12937/$_xdaDevFilter',
+  'martini': 'https://xdaforums.com/f/oneplus-9rt.12505/$_xdaDevFilter',
+  'salami': 'https://xdaforums.com/f/oneplus-11r-ace-2.12717/$_xdaDevFilter',
+  'waffle': 'https://xdaforums.com/f/oneplus-12.12820/$_xdaDevFilter',
+
+  // Samsung
+  'a52q': 'https://xdaforums.com/f/samsung-galaxy-a52-4g.12131/$_xdaDevFilter',
+  'a52sxq':
+      'https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/$_xdaDevFilter',
+  'a72q': 'https://xdaforums.com/f/samsung-galaxy-a72.12141/$_xdaDevFilter',
+  'a73xq': 'https://xdaforums.com/f/samsung-galaxy-a73-5g.12667/$_xdaDevFilter',
+  'dm1q': 'https://xdaforums.com/f/samsung-galaxy-s23.12707/$_xdaDevFilter',
+  'f62': 'https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/$_xdaDevFilter',
+  'm52xq': 'https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/$_xdaDevFilter',
+
+  // Sony
+  'pdx214': 'https://xdaforums.com/f/sony-xperia-5-iii.12229/$_xdaDevFilter',
+  'pdx215': 'https://xdaforums.com/f/sony-xperia-1-iii.12227/$_xdaDevFilter',
+  'pdx223': 'https://xdaforums.com/f/sony-xperia-1-iv.12633/$_xdaDevFilter',
+  'pdx224': 'https://xdaforums.com/f/sony-xperia-5-iv.12677/$_xdaDevFilter',
+  'pdx225': 'https://xdaforums.com/f/sony-xperia-10-iv.12727/$_xdaDevFilter',
+  'pdx234': 'https://xdaforums.com/f/sony-xperia-1-v.12749/$_xdaDevFilter',
+  'pdx235': 'https://xdaforums.com/f/sony-xperia-10-v.12751/$_xdaDevFilter',
+  'pdx237': 'https://xdaforums.com/f/sony-xperia-5-v.12795/$_xdaDevFilter',
+  'pdx245': 'https://xdaforums.com/f/sony-xperia-1-vi.12858/$_xdaDevFilter',
+  'pdx257': 'https://xdaforums.com/f/sony-xperia-10-vii.12986/$_xdaDevFilter',
+
+  // Wileyfox
+  'crackling': 'https://xdaforums.com/f/wileyfox-swift.4960/$_xdaDevFilter',
+
+  // Xiaomi / POCO
+  'alioth':
+      'https://xdaforums.com/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/$_xdaDevFilter',
+  'diting':
+      'https://xdaforums.com/f/xiaomi-12t-pro-redmi-k50-ultra.12673/$_xdaDevFilter',
+  'fuxi': 'https://xdaforums.com/f/xiaomi-13.12681/$_xdaDevFilter',
+  'garnet':
+      'https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/$_xdaDevFilter',
+  'haydn':
+      'https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/$_xdaDevFilter',
+  'lisa': 'https://xdaforums.com/f/xiaomi-11-lite-5g-ne.12519/$_xdaDevFilter',
+  'marble':
+      'https://xdaforums.com/f/xiaomi-poco-f5-redmi-note-12-turbo-china.12733/$_xdaDevFilter',
+  'mayfly': 'https://xdaforums.com/f/xiaomi-12s.12647/$_xdaDevFilter',
+  'mondrian':
+      'https://xdaforums.com/f/poco-f5-pro-redmi-k60-china.12741/$_xdaDevFilter',
+  'munch':
+      'https://xdaforums.com/f/xiaomi-poco-f4-munch-redmi-k40s.12661/$_xdaDevFilter',
+  'nuwa': 'https://xdaforums.com/f/xiaomi-13-pro.12683/$_xdaDevFilter',
+  'peridot':
+      'https://xdaforums.com/f/xiaomi-poco-f6-redmi-turbo-3.12852/$_xdaDevFilter',
+  'renoir': 'https://xdaforums.com/f/xiaomi-mi-11-lite-5g.12189/$_xdaDevFilter',
+  'sweet': 'https://xdaforums.com/f/redmi-note-10-pro.12117/$_xdaDevFilter',
+  'thor': 'https://xdaforums.com/f/xiaomi-12s-ultra.12643/$_xdaDevFilter',
+  'unicorn': 'https://xdaforums.com/f/xiaomi-12s-pro.12645/$_xdaDevFilter',
+  'vayu': 'https://xdaforums.com/f/xiaomi-poco-x3-pro.12163/$_xdaDevFilter',
+  'venus': 'https://xdaforums.com/f/xiaomi-mi-11.12057/$_xdaDevFilter',
+  'vermeer':
+      'https://xdaforums.com/f/xiaomi-poco-f6-pro-redmi-k70.12853/$_xdaDevFilter',
+  'zeus': 'https://xdaforums.com/f/xiaomi-12-pro.12493/$_xdaDevFilter',
+};
 
 List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
   final List<_RomSpec> specs = <_RomSpec>[

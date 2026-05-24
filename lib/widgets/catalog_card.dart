@@ -1,8 +1,25 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../models.dart';
 import 'freshness_badge.dart';
+
+/// Placeholder text appended to XDA search queries so users immediately see
+/// what they need to replace with their own device model.
+const String kXdaQueryPlaceholder = 'input your model here';
+
+/// Builds a search URL for XDA Forums content for [query].
+///
+/// XDA's own `/search/` endpoint requires being logged in, so this routes
+/// the query through Google with a `site:xdaforums.com` filter instead.
+/// That works without an account and tends to surface higher quality
+/// threads in practice.
+Uri xdaSearchUri(String query) => Uri.https(
+      'www.google.com',
+      '/search',
+      <String, String>{'q': 'site:xdaforums.com $query'},
+    );
 
 /// Card used in ROM / Recovery list pages.
 ///
@@ -22,6 +39,8 @@ class CatalogCard extends StatefulWidget {
     this.heroTag,
     this.freshness,
     this.trailing,
+    this.xdaSearchName = '',
+    this.xdaSearchKind = 'build',
   }) : assert(
           assetImage != null || networkImage != null,
           'Provide either assetImage or networkImage',
@@ -35,6 +54,17 @@ class CatalogCard extends StatefulWidget {
   final Object? heroTag;
   final FreshnessInfo? freshness;
   final Widget? trailing;
+
+  /// Name to seed an XDA search with. When non-empty, the card shows a
+  /// small "Search XDA" pill over the image that opens an XDA forums
+  /// search pre-filled with this name plus a placeholder reminding the
+  /// user to add their device model.
+  final String xdaSearchName;
+
+  /// Short noun describing what [xdaSearchName] is (e.g. "custom ROM" or
+  /// "recovery"). Used to make the pill's tooltip and search query more
+  /// specific.
+  final String xdaSearchKind;
 
   @override
   State<CatalogCard> createState() => _CatalogCardState();
@@ -97,6 +127,15 @@ class _CatalogCardState extends State<CatalogCard> {
               compact: true,
             ),
           ),
+        if (widget.xdaSearchName.isNotEmpty)
+          Positioned(
+            bottom: 8,
+            right: 8,
+            child: _XdaPill(
+              searchName: widget.xdaSearchName,
+              searchKind: widget.xdaSearchKind,
+            ),
+          ),
       ],
     );
 
@@ -155,6 +194,62 @@ class _CatalogCardState extends State<CatalogCard> {
           duration: const Duration(milliseconds: 150),
           curve: Curves.easeOut,
           child: card,
+        ),
+      ),
+    );
+  }
+}
+
+/// Compact "Search XDA" pill overlaid on the card image. Tapping opens an
+/// XDA search pre-filled with the entry name plus a placeholder reminding
+/// users to add their own device model, without triggering the card's main
+/// [InkWell].
+class _XdaPill extends StatelessWidget {
+  const _XdaPill({required this.searchName, required this.searchKind});
+
+  final String searchName;
+  final String searchKind;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final String kind = searchKind.trim();
+    final String tooltip = kind.isEmpty
+        ? 'Search for $searchName on XDA Forums'
+        : 'Search for the $searchName $kind on XDA Forums '
+            '(remember to add your device model)';
+    final String query = kind.isEmpty
+        ? '$searchName $kXdaQueryPlaceholder'
+        : '$searchName $kind $kXdaQueryPlaceholder';
+    return Tooltip(
+      message: tooltip,
+      child: Material(
+        color: scheme.surface.withValues(alpha: 0.92),
+        shape: const StadiumBorder(),
+        elevation: 1,
+        child: InkWell(
+          customBorder: const StadiumBorder(),
+          onTap: () => launchUrl(
+            xdaSearchUri(query),
+            mode: LaunchMode.externalApplication,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Icon(Icons.search, size: 14, color: scheme.primary),
+                const SizedBox(width: 6),
+                Text(
+                  'Search XDA',
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                        color: scheme.onSurface,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

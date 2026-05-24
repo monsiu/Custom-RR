@@ -11,11 +11,11 @@ import '../models.dart';
 /// Loads ROM/recovery freshness data and exposes per-entry [FreshnessInfo].
 ///
 /// Resolution order on [load]:
-///   1. Bundled `assets/freshness.json` — applied synchronously-fast so the
+///   1. Bundled `assets/freshness.json`, applied synchronously-fast so the
 ///      first frame always has *some* data.
-///   2. SharedPreferences cache — overlays #1 if present (last good remote
+///   2. SharedPreferences cache, overlays #1 if present (last good remote
 ///      payload from a previous run).
-///   3. Remote `freshness.json` — fetched in the background; on success the
+///   3. Remote `freshness.json`, fetched in the background; on success the
 ///      payload is parsed, applied, cached to SharedPreferences, and
 ///      listeners are notified so visible badges refresh.
 ///
@@ -119,7 +119,7 @@ class FreshnessRepository extends ChangeNotifier {
       _fetchStatus = FreshnessFetchStatus.ok;
       notifyListeners();
     } on Object {
-      // Offline, DNS, 5xx, parse error — keep whatever we already have.
+      // Offline, DNS, 5xx, parse error: keep whatever we already have.
       _fetchStatus = FreshnessFetchStatus.failed;
       notifyListeners();
     }

@@ -1,0 +1,91 @@
+name: Release
+
+# Triggered when a tag like v0.1.0 is pushed. Builds release artifacts for
+# Android and Linux desktop, then opens a *draft* GitHub Release with
+# auto-generated notes so they can be reviewed before going public.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-android:
+    name: Build release APKs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      # Per-ABI split: produces armeabi-v7a / arm64-v8a / x86_64 APKs
+      # with appropriate versionCode offsets (+1000 / +2000 / +4000),
+      # which is the form F-Droid-style updaters expect.
+      - run: flutter build apk --split-per-abi --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-apks
+          path: build/app/outputs/flutter-apk/app-*-release.apk
+          if-no-files-found: error
+
+  build-linux:
+    name: Build Linux desktop bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Linux desktop deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            clang cmake ninja-build pkg-config \
+            libgtk-3-dev liblzma-dev libstdc++-12-dev
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter config --enable-linux-desktop
+      - run: flutter pub get
+      - run: flutter build linux --release
+      - name: Stage release bundle
+        run: |
+          mkdir -p dist
+          cp -r build/linux/x64/release/bundle custom_rr-linux-x64
+          cp linux/com.monsiutechsolutions.custom_rr.desktop custom_rr-linux-x64/
+          cp linux/install.sh         custom_rr-linux-x64/
+          cp images/launcher.png      custom_rr-linux-x64/com.monsiutechsolutions.custom_rr.png
+          tar -czf dist/custom_rr-linux-x64.tar.gz custom_rr-linux-x64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-bundle
+          path: dist/custom_rr-linux-x64.tar.gz
+          if-no-files-found: error
+
+  publish:
+    name: Publish draft release
+    needs: [build-android, build-linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Flatten artifacts
+        run: |
+          mkdir -p release-assets
+          find artifacts -type f \( -name '*.apk' -o -name '*.tar.gz' \) \
+            -exec cp {} release-assets/ \;
+          ls -la release-assets
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+          name: ${{ github.ref_name }}
+          files: release-assets/*

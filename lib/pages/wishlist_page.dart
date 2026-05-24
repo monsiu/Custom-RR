@@ -79,7 +79,7 @@ class _EmptyState extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               'Tap the star on any device or ROM-detail row to add it here. '
-              'Starred devices stay on your phone — nothing is synced.',
+              'Starred devices stay on your phone. Nothing is synced.',
               textAlign: TextAlign.center,
               style: text.bodyMedium?.copyWith(
                 color: scheme.onSurfaceVariant,
