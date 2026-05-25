@@ -6,6 +6,7 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/donation_nudge.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -179,6 +180,7 @@ class _HomePageState extends State<HomePage> {
                     if (q.isNotEmpty)
                       _SearchResults(hits: hits, query: q)
                     else ...<Widget>[
+                      const DonationNudge(),
                       Center(
                         child: Hero(
                           tag: 'splash',

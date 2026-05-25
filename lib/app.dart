@@ -8,6 +8,7 @@ import 'theme.dart';
 import 'theme_controller.dart';
 import 'util/platform_shell.dart';
 import 'widgets/desktop_menu_bar.dart';
+import 'widgets/disclaimer_gate.dart';
 
 class CustomRrApp extends StatefulWidget {
   const CustomRrApp({super.key});
@@ -46,9 +47,10 @@ class _CustomRrAppState extends State<CustomRrApp> {
                     final Brightness brightness = Theme.of(context).brightness;
                     final bool isDark = brightness == Brightness.dark;
                     final Widget content = child ?? const SizedBox.shrink();
+                    final Widget gated = DisclaimerGate(child: content);
                     final Widget wrapped = useDesktopShell
-                        ? DesktopMenuBar(router: _router, child: content)
-                        : content;
+                        ? DesktopMenuBar(router: _router, child: gated)
+                        : gated;
                     // Desktop platforms have no system status / nav bars,
                     // so skip the AnnotatedRegion to avoid a useless
                     // rebuild wrapper on every theme change.

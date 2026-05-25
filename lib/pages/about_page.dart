@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -6,6 +7,8 @@ import '../data/update_checker.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/crypto_donate.dart';
+import '../widgets/donation_nudge.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -65,6 +68,7 @@ class _AboutPageState extends State<AboutPage> {
                 ),
               ),
               const SizedBox(height: 24),
+              const DonationNudge(),
               Text('About the app', style: text.titleLarge),
               const SizedBox(height: 8),
               Text(
@@ -126,6 +130,19 @@ class _AboutPageState extends State<AboutPage> {
                   Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
                 ),
               ),
+              ListTile(
+                leading: const Icon(Icons.currency_bitcoin),
+                title: const Text('Donate with crypto'),
+                onTap: () => showCryptoDonateSheet(context),
+              ),
+              if (kDebugMode) ...<Widget>[
+                const SizedBox(height: 16),
+                OutlinedButton.icon(
+                  onPressed: _resetDonationPrompt,
+                  icon: const Icon(Icons.refresh),
+                  label: const Text('Reset donation prompt (debug)'),
+                ),
+              ],
               const SizedBox(height: 24),
             ],
           ),
@@ -136,6 +153,17 @@ class _AboutPageState extends State<AboutPage> {
 
   Future<void> _open(Uri uri) async {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> _resetDonationPrompt() async {
+    await DonationNudge.debugReset();
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Donation prompt reset'),
+        duration: Duration(seconds: 2),
+      ),
+    );
   }
 
   Future<void> _checkForUpdates() async {

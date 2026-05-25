@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../data/catalog_repository.dart';
@@ -217,12 +220,21 @@ class _ScreenshotsState extends State<_Screenshots> {
   bool _atEnd = false;
   int _page = 0;
 
+  // One-time "tap to view full screen" affordance. Persisted across
+  // launches: once the user has tapped any screenshot tile, the hint
+  // never appears again on any detail page.
+  static const String _hintPrefsKey = 'hint_tap_screenshot_v1';
+  static bool _hintDismissedMemo = false;
+  bool _hintReady = false;
+  bool _showHint = false;
+
   @override
   void initState() {
     super.initState();
     _scroll.addListener(_onScroll);
     _pages.addListener(_onPage);
     WidgetsBinding.instance.addPostFrameCallback((_) => _onScroll());
+    _loadHintState();
   }
 
   @override
@@ -282,6 +294,39 @@ class _ScreenshotsState extends State<_Screenshots> {
     );
   }
 
+  Future<void> _loadHintState() async {
+    if (_hintDismissedMemo) return;
+    try {
+      final SharedPreferences sp = await SharedPreferences.getInstance();
+      _hintDismissedMemo = sp.getBool(_hintPrefsKey) ?? false;
+    } on Object {
+      // Prefs unavailable; behave as if the hint hasn't been dismissed.
+    }
+    if (!mounted) return;
+    setState(() {
+      _hintReady = true;
+      _showHint = !_hintDismissedMemo;
+    });
+  }
+
+  void _dismissHint() {
+    if (!_showHint && _hintDismissedMemo) return;
+    _hintDismissedMemo = true;
+    if (mounted) setState(() => _showHint = false);
+    // Best-effort persist; we already updated the in-memory memo so
+    // a failure here just means it might re-appear next launch.
+    unawaited(_persistHintDismissed());
+  }
+
+  Future<void> _persistHintDismissed() async {
+    try {
+      final SharedPreferences sp = await SharedPreferences.getInstance();
+      await sp.setBool(_hintPrefsKey, true);
+    } on Object {
+      // Ignore.
+    }
+  }
+
   List<Object> _heroTags(List<String> urls) =>
       <Object>[for (int i = 0; i < urls.length; i++) 'shot-$i-${urls[i]}'];
 
@@ -313,7 +358,72 @@ class _ScreenshotsState extends State<_Screenshots> {
         ),
       );
     }
-    return isPhone ? _buildPhone(context, urls) : _buildDesktop(context, urls);
+    return isPhone
+        ? _withTapHint(context, _buildPhone(context, urls))
+        : _withTapHint(context, _buildDesktop(context, urls));
+  }
+
+  /// Wraps the screenshot strip with a one-time "Tap to view" pill so
+  /// users discover the full-screen gallery affordance. The overlay sits
+  /// inside an [IgnorePointer] so the underlying tile still receives the
+  /// tap (which both opens the gallery and dismisses the hint).
+  Widget _withTapHint(BuildContext context, Widget child) {
+    return Stack(
+      children: <Widget>[
+        child,
+        Positioned(
+          top: 12,
+          left: 0,
+          right: 0,
+          child: IgnorePointer(
+            child: AnimatedOpacity(
+              opacity: _hintReady && _showHint ? 1 : 0,
+              duration: const Duration(milliseconds: 220),
+              child: Center(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.55),
+                    borderRadius: BorderRadius.circular(999),
+                    boxShadow: const <BoxShadow>[
+                      BoxShadow(
+                        color: Color(0x33000000),
+                        blurRadius: 8,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const Icon(
+                        Icons.touch_app,
+                        size: 16,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'Tap to view full screen',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium
+                            ?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   Widget _buildTile(
@@ -393,12 +503,15 @@ class _ScreenshotsState extends State<_Screenshots> {
                   context,
                   url: urls[index],
                   heroTag: tags[index],
-                  onTap: () => showZoomableGallery(
-                    context,
-                    images: urls,
-                    initialIndex: index,
-                    heroTags: tags,
-                  ),
+                  onTap: () {
+                    _dismissHint();
+                    showZoomableGallery(
+                      context,
+                      images: urls,
+                      initialIndex: index,
+                      heroTags: tags,
+                    );
+                  },
                 ),
               );
             },
@@ -473,12 +586,15 @@ class _ScreenshotsState extends State<_Screenshots> {
                           context,
                           url: urls[index],
                           heroTag: tags[index],
-                          onTap: () => showZoomableGallery(
-                            context,
-                            images: urls,
-                            initialIndex: index,
-                            heroTags: tags,
-                          ),
+                          onTap: () {
+                            _dismissHint();
+                            showZoomableGallery(
+                              context,
+                              images: urls,
+                              initialIndex: index,
+                              heroTags: tags,
+                            );
+                          },
                         ),
                       );
                     },

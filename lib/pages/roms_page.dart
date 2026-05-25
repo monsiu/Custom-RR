@@ -9,6 +9,7 @@ import '../routes.dart';
 import '../util/xda_search.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/catalog_card.dart';
+import '../widgets/treble_hint.dart';
 
 /// Shared list-or-grid catalog page used by both ROMs and Recoveries.
 /// Includes a search field that filters entries by name or tagline.
@@ -275,6 +276,13 @@ class _CatalogPageState extends State<CatalogPage> {
                                   entries: widget.defunct,
                                 ),
                               ),
+                            SliverToBoxAdapter(
+                              child: TrebleHintBanner(
+                                kind: widget.entryKind == 'recovery'
+                                    ? 'recovery'
+                                    : 'ROM',
+                              ),
+                            ),
                           ],
                         );
                       },

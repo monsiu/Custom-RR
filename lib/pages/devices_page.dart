@@ -5,6 +5,7 @@ import '../data/catalog_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/treble_hint.dart';
 
 class DevicesPage extends StatefulWidget {
   const DevicesPage({super.key});
@@ -89,19 +90,28 @@ class _DevicesPageState extends State<DevicesPage> {
                           ),
                     ),
                   )
-                : GridView.builder(
-                    padding: const EdgeInsets.all(12),
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 200,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: 0.9,
-                    ),
-                    itemCount: devices.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return _DeviceTile(device: devices[index]);
-                    },
+                : CustomScrollView(
+                    slivers: <Widget>[
+                      SliverPadding(
+                        padding: const EdgeInsets.all(12),
+                        sliver: SliverGrid.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: 200,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            childAspectRatio: 0.9,
+                          ),
+                          itemCount: devices.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return _DeviceTile(device: devices[index]);
+                          },
+                        ),
+                      ),
+                      const SliverToBoxAdapter(
+                        child: TrebleHintBanner(kind: 'device'),
+                      ),
+                    ],
                   ),
           ),
         ],

@@ -149,6 +149,12 @@ class _AppRail extends StatelessWidget {
       Icons.menu_book,
       'Guide',
     ),
+    _RailDest(
+      AppRoutes.treble,
+      Icons.layers_outlined,
+      Icons.layers,
+      'Treble',
+    ),
   ];
 
   @override

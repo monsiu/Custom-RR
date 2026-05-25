@@ -1,6 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'crypto_donate.dart';
+import 'donation_nudge.dart';
 
 /// Public GitHub repository for Custom RR.
 const String kCustomRrRepoUrl = 'https://github.com/monsiu/Custom-RR';
@@ -37,6 +41,60 @@ Future<void> showCustomAboutDialog(BuildContext context) async {
           ),
         ),
       ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: TextButton.icon(
+          icon: const Icon(Icons.coffee_outlined),
+          label: const Text('Buy us a coffee'),
+          onPressed: () => launchUrl(
+            Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
+            mode: LaunchMode.externalApplication,
+          ),
+        ),
+      ),
+      Builder(
+        builder: (BuildContext innerCtx) => Align(
+          alignment: Alignment.centerLeft,
+          child: TextButton.icon(
+            icon: const Icon(Icons.currency_bitcoin),
+            label: const Text('Donate with crypto'),
+            onPressed: () {
+              final NavigatorState rootNav = Navigator.of(
+                innerCtx,
+                rootNavigator: true,
+              );
+              final BuildContext rootCtx = rootNav.context;
+              rootNav.pop();
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                showCryptoDonateSheet(rootCtx);
+              });
+            },
+          ),
+        ),
+      ),
+      if (kDebugMode)
+        Builder(
+          builder: (BuildContext innerCtx) => Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: OutlinedButton.icon(
+                icon: const Icon(Icons.refresh),
+                label: const Text('Reset donation prompt (debug)'),
+                onPressed: () async {
+                  await DonationNudge.debugReset();
+                  if (!innerCtx.mounted) return;
+                  ScaffoldMessenger.of(innerCtx).showSnackBar(
+                    const SnackBar(
+                      content: Text('Donation prompt reset'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
     ],
   );
 }

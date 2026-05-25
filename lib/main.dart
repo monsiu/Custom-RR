@@ -9,6 +9,7 @@ import 'data/freshness_repository.dart';
 import 'data/wishlist_repository.dart';
 import 'theme_controller.dart';
 import 'util/platform_shell.dart';
+import 'widgets/donation_nudge.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,10 +21,16 @@ Future<void> main() async {
       ..maximumSize = 2000
       ..maximumSizeBytes = 400 * 1024 * 1024;
   }
-  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
-    DeviceOrientation.portraitUp,
-  ]);
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  // Fire and forget: these platform-channel calls don't need to gate
+  // first paint, and awaiting them extends the native splash by a frame
+  // or two each. The visual difference if portrait lock lands one frame
+  // late is imperceptible.
+  unawaited(
+    SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+      DeviceOrientation.portraitUp,
+    ]),
+  );
+  unawaited(SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge));
 
   // Critical-path: things the first frame actually reads.
   // Freshness + wishlist are wired through ChangeNotifier, so we kick
@@ -31,6 +38,8 @@ Future<void> main() async {
   // once the data lands. This shaves cold-start time on Linux/desktop.
   unawaited(FreshnessRepository.instance.load());
   unawaited(WishlistRepository.instance.load());
+  unawaited(DonationNudge.registerLaunch());
+  unawaited(DonationNudge.loadHiddenState());
   await Future.wait<void>(<Future<void>>[
     ThemeController.instance.load(),
     CatalogRepository.instance.load(),
