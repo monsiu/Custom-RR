@@ -140,6 +140,14 @@ class AppNavList extends StatelessWidget {
                 currentRoute: currentRoute,
                 onTap: () => _go(context, AppRoutes.instructions),
               ),
+              _NavTile(
+                icon: Icons.layers_outlined,
+                selectedIcon: Icons.layers,
+                label: 'Treble & GSI',
+                route: AppRoutes.treble,
+                currentRoute: currentRoute,
+                onTap: () => _go(context, AppRoutes.treble),
+              ),
               const Divider(),
               ValueListenableBuilder<ThemeMode>(
                 valueListenable: ThemeController.instance,

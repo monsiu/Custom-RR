@@ -5,6 +5,7 @@ import '../data/catalog_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../widgets/treble_hint.dart';
 
 /// Device detail page: lists the ROMs and recoveries that explicitly
 /// support this manufacturer (per the `devices` arrays in catalog.json).
@@ -92,6 +93,11 @@ class DevicePage extends StatelessWidget {
                             'No catalogued recovery lists ${device.name} as supported.',
                         onTap: (CatalogEntry e) =>
                             context.push(AppRoutes.recoveryDetail(e.id)),
+                      ),
+                      const SizedBox(height: 16),
+                      const TrebleHintBanner(
+                        kind: 'device',
+                        padding: EdgeInsets.zero,
                       ),
                     ],
                   ),

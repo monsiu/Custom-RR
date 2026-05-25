@@ -4,6 +4,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
+import '../theme.dart';
 import '../theme_controller.dart';
 import 'offline_notice.dart';
 
@@ -118,6 +119,12 @@ class _DesktopRail extends StatelessWidget {
       'Guide',
     ),
     _RailDest(
+      AppRoutes.treble,
+      Icons.layers_outlined,
+      Icons.layers,
+      'Treble',
+    ),
+    _RailDest(
       AppRoutes.about,
       Icons.info_outline,
       Icons.info,
@@ -151,12 +158,25 @@ class _DesktopRail extends StatelessWidget {
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(6),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(
-                      'images/launcher.png',
-                      width: 36,
-                      height: 36,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: kBrandSeed,
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Image.asset(
+                          'images/generated/launcher_adaptive_fg.png',
+                          width: 60,
+                          height: 60,
+                          fit: BoxFit.contain,
+                          alignment: Alignment.bottomCenter,
+                          filterQuality: FilterQuality.medium,
+                        ),
+                      ),
                     ),
                   ),
                 ),

@@ -15,6 +15,7 @@ import 'pages/instructions_page.dart';
 import 'pages/not_found_page.dart';
 import 'pages/recoveries_page.dart';
 import 'pages/roms_page.dart';
+import 'pages/treble_page.dart';
 import 'pages/wishlist_page.dart';
 import 'util/platform_shell.dart';
 
@@ -32,6 +33,7 @@ class AppRoutes {
   static const String wishlist = '/my-devices';
   static const String flashScript = '/flash-script';
   static const String instructions = '/instructions';
+  static const String treble = '/treble';
   static const String about = '/about';
 
   static String romDetail(String id) => '/roms/$id';
@@ -41,8 +43,16 @@ class AppRoutes {
       '/devices/$slug/models/${Uri.encodeComponent(codename)}';
 }
 
+/// Global key for the root [Navigator] managed by [GoRouter]. Exposed so
+/// widgets that live ABOVE the router (for example, things mounted via
+/// `MaterialApp.router`'s `builder`) can still call `showDialog` /
+/// `Navigator.of(...)` through this key once the first frame is up.
+final GlobalKey<NavigatorState> rootNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'rootNavigator');
+
 GoRouter buildRouter() {
   return GoRouter(
+    navigatorKey: rootNavigatorKey,
     initialLocation: AppRoutes.home,
     debugLogDiagnostics: false,
     errorBuilder: (BuildContext context, GoRouterState state) =>
@@ -141,6 +151,10 @@ GoRouter buildRouter() {
             path: AppRoutes.instructions,
             builder:
                 (BuildContext _, GoRouterState __) => const InstructionsPage(),
+          ),
+          GoRoute(
+            path: AppRoutes.treble,
+            builder: (BuildContext _, GoRouterState __) => const TreblePage(),
           ),
           GoRoute(
             path: AppRoutes.findPhone,

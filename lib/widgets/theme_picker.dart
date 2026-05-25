@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../theme_controller.dart';
+import 'donation_nudge.dart';
 
 /// Bottom-sheet picker that lets the user switch between System / Light / Dark.
 Future<void> showThemePicker(BuildContext context) {
   return showModalBottomSheet<void>(
     context: context,
     showDragHandle: true,
+    isScrollControlled: true,
+    constraints: const BoxConstraints(maxWidth: 640),
     builder: (BuildContext sheetContext) {
       return SafeArea(
         child: ValueListenableBuilder<ThemeMode>(
           valueListenable: ThemeController.instance,
           builder: (BuildContext context, ThemeMode current, _) {
-            return Padding(
+            return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -65,6 +68,22 @@ Future<void> showThemePicker(BuildContext context) {
                         value: amoled,
                         onChanged: (bool v) =>
                             ThemeController.instance.setAmoled(v),
+                      );
+                    },
+                  ),
+                  ValueListenableBuilder<bool>(
+                    valueListenable: DonationNudge.hiddenNotifier,
+                    builder: (BuildContext context, bool hidden, _) {
+                      return SwitchListTile(
+                        secondary: const Icon(Icons.favorite_border),
+                        title: const Text('Hide donation prompt'),
+                        subtitle: Text(
+                          hidden
+                              ? "You won't see the support card again"
+                              : 'Stops the occasional support reminder',
+                        ),
+                        value: hidden,
+                        onChanged: (bool v) => DonationNudge.setHidden(v),
                       );
                     },
                   ),

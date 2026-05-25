@@ -43,7 +43,6 @@ flutter:
     - assets/freshness.json
     - images/arrowos.png
     - images/blissrom.png
-    - images/bmc.png
     - images/branding.png
     - images/calyxos.png
     - images/crdroid_hori.png
@@ -90,6 +89,8 @@ flutter:
     - images/havoc.png
     - images/huawei.png
     - images/launcher.png
+    - images/generated/launcher_full.png
+    - images/generated/launcher_adaptive_fg.png
     - images/lenovo.png
     - images/lg.png
     - images/lineageos.png

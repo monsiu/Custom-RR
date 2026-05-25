@@ -85,6 +85,14 @@ class DesktopMenuBar extends StatelessWidget {
               onSelected: () => router.go(AppRoutes.instructions),
             ),
             PlatformMenuItem(
+              label: 'Treble & GSI',
+              shortcut: const SingleActivator(
+                LogicalKeyboardKey.digit6,
+                control: true,
+              ),
+              onSelected: () => router.go(AppRoutes.treble),
+            ),
+            PlatformMenuItem(
               label: 'Light theme',
               onSelected: () =>
                   ThemeController.instance.setMode(ThemeMode.light),
