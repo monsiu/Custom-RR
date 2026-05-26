@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import '../data/catalog_repository.dart';
@@ -62,12 +63,22 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final TextEditingController _searchController = TextEditingController();
+  final FocusNode _searchFocus = FocusNode(debugLabel: 'HomeSearch');
   String _query = '';
 
   @override
   void dispose() {
     _searchController.dispose();
+    _searchFocus.dispose();
     super.dispose();
+  }
+
+  void _focusSearch() {
+    _searchFocus.requestFocus();
+    _searchController.selection = TextSelection(
+      baseOffset: 0,
+      extentOffset: _searchController.text.length,
+    );
   }
 
   List<_SearchHit> _runSearch(String q) {
@@ -128,7 +139,20 @@ class _HomePageState extends State<HomePage> {
     return AppShell(
       title: 'Custom RR',
       selectedRoute: AppRoutes.home,
-      body: LayoutBuilder(
+      body: CallbackShortcuts(
+        bindings: <ShortcutActivator, VoidCallback>{
+          const SingleActivator(LogicalKeyboardKey.keyK, control: true):
+              _focusSearch,
+          const SingleActivator(LogicalKeyboardKey.keyK, meta: true):
+              _focusSearch,
+          const SingleActivator(LogicalKeyboardKey.keyF, control: true):
+              _focusSearch,
+          const SingleActivator(LogicalKeyboardKey.keyF, meta: true):
+              _focusSearch,
+        },
+        child: Focus(
+          autofocus: true,
+          child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           // Search + welcome copy stay inside the reading column so they
           // remain comfortable to scan; the action grid below opts into a
@@ -155,6 +179,7 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 8),
                         TextField(
                           controller: _searchController,
+                          focusNode: _searchFocus,
                           textInputAction: TextInputAction.search,
                           onChanged: (String v) => setState(() => _query = v),
                           decoration: InputDecoration(
@@ -257,6 +282,8 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         },
+          ),
+        ),
       ),
     );
   }
@@ -273,13 +300,71 @@ class _SearchResults extends StatelessWidget {
     final ColorScheme scheme = Theme.of(context).colorScheme;
     if (hits.isEmpty) {
       return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 48),
-        child: Text(
-          'No results for "$query".',
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: scheme.onSurfaceVariant,
+        padding: const EdgeInsets.symmetric(vertical: 32),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              'No results for "$query".',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                  ),
+            ),
+            const SizedBox(height: 24),
+            Card(
+              color: scheme.primaryContainer,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.bolt_rounded,
+                          color: scheme.onPrimaryContainer,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            'Not listed? Try Project Treble',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  color: scheme.onPrimaryContainer,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'If your device is not in the catalog, it may still '
+                      'be able to boot a Generic System Image (GSI). Most '
+                      'Android 9+ phones are Treble-compatible and can run '
+                      'community ROMs as a GSI even when nobody built a '
+                      'device-specific port.',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: scheme.onPrimaryContainer,
+                          ),
+                    ),
+                    const SizedBox(height: 12),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: FilledButton.tonalIcon(
+                        onPressed: () => context.push(AppRoutes.treble),
+                        icon: const Icon(Icons.arrow_forward_rounded),
+                        label: const Text('Open Treble & GSI guide'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
+            ),
+          ],
         ),
       );
     }

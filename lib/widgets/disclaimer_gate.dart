@@ -43,7 +43,7 @@ class _DisclaimerGateState extends State<DisclaimerGate> {
     // router's Navigator. Use the router's own root navigator key so
     // `showDialog` finds a Navigator to attach to.
     final BuildContext? navContext = rootNavigatorKey.currentContext;
-    if (navContext == null || !mounted) return;
+    if (navContext == null || !navContext.mounted || !mounted) return;
     await showDialog<void>(
       context: navContext,
       barrierDismissible: false,

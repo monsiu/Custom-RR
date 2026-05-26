@@ -7,6 +7,7 @@ import '../routes.dart';
 import '../theme.dart';
 import '../theme_controller.dart';
 import 'offline_notice.dart';
+import 'update_banner.dart';
 
 /// Desktop-first application shell used on Linux (and, later, Windows).
 ///
@@ -44,8 +45,11 @@ class DesktopShell extends StatelessWidget {
     final ColorScheme scheme = theme.colorScheme;
 
     final Widget paddedBody = bodyPadding == null
-        ? OfflineNotice(child: body)
-        : Padding(padding: bodyPadding!, child: OfflineNotice(child: body));
+        ? OfflineNotice(child: UpdateBanner(child: body))
+        : Padding(
+            padding: bodyPadding!,
+            child: OfflineNotice(child: UpdateBanner(child: body)),
+          );
 
     return Scaffold(
       backgroundColor: scheme.surface,

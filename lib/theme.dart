@@ -4,6 +4,85 @@ import 'package:flutter/material.dart';
 /// Brand colour for Custom RR (Custom ROMs & Recoveries).
 const Color kBrandSeed = Color(0xFF7ED957);
 
+/// Theme extension that carries Custom RR's brand palette alongside the
+/// Material You / dynamic colour scheme. Use this whenever a widget needs
+/// to render in the app's signature green regardless of the user's
+/// wallpaper-derived accent (e.g. the launcher splash, easter-egg
+/// payoffs, marketing-style headers).
+///
+/// Read with `Theme.of(context).extension<BrandColors>()!` or via the
+/// [BrandColorsX] context extension.
+@immutable
+class BrandColors extends ThemeExtension<BrandColors> {
+  const BrandColors({
+    required this.seed,
+    required this.dark,
+    required this.deep,
+    required this.onSeed,
+  });
+
+  /// Anchor brand colour (Custom RR green). Use as a primary surface or
+  /// accent that must read as "the brand".
+  final Color seed;
+
+  /// Darker variant of [seed], suitable for mid-stops in gradients or for
+  /// pressed/active states on top of a [seed] surface.
+  final Color dark;
+
+  /// Deepest variant of [seed], suitable for the bottom of a brand
+  /// gradient or for shadows / borders on brand surfaces.
+  final Color deep;
+
+  /// Foreground colour with sufficient contrast against [seed]. Currently
+  /// fixed to black because the brand green is bright enough that white
+  /// text would fail WCAG AA at body sizes.
+  final Color onSeed;
+
+  /// Standard Custom RR brand palette, derived from [kBrandSeed]. Pre-built
+  /// so we don't recompute the lerps on every theme rebuild.
+  static final BrandColors standard = BrandColors(
+    seed: kBrandSeed,
+    dark: Color.lerp(kBrandSeed, Colors.black, 0.45)!,
+    deep: Color.lerp(kBrandSeed, Colors.black, 0.70)!,
+    onSeed: const Color(0xFF0A1F0E),
+  );
+
+  @override
+  BrandColors copyWith({
+    Color? seed,
+    Color? dark,
+    Color? deep,
+    Color? onSeed,
+  }) {
+    return BrandColors(
+      seed: seed ?? this.seed,
+      dark: dark ?? this.dark,
+      deep: deep ?? this.deep,
+      onSeed: onSeed ?? this.onSeed,
+    );
+  }
+
+  @override
+  BrandColors lerp(ThemeExtension<BrandColors>? other, double t) {
+    if (other is! BrandColors) return this;
+    return BrandColors(
+      seed: Color.lerp(seed, other.seed, t)!,
+      dark: Color.lerp(dark, other.dark, t)!,
+      deep: Color.lerp(deep, other.deep, t)!,
+      onSeed: Color.lerp(onSeed, other.onSeed, t)!,
+    );
+  }
+}
+
+/// Convenience accessor: `context.brand.seed` rather than the
+/// verbose `Theme.of(context).extension<BrandColors>()!.seed`. Falls back
+/// to [BrandColors.standard] if the extension was somehow not registered,
+/// so widgets never need a nullable dance.
+extension BrandColorsX on BuildContext {
+  BrandColors get brand =>
+      Theme.of(this).extension<BrandColors>() ?? BrandColors.standard;
+}
+
 class AppTheme {
   const AppTheme._();
 
@@ -53,6 +132,14 @@ class AppTheme {
       visualDensity: VisualDensity.adaptivePlatformDensity,
       scaffoldBackgroundColor: scheme.surface,
       splashFactory: InkSparkle.splashFactory,
+
+      // Register Custom RR's brand palette as a ThemeExtension so any
+      // widget can opt back into the signature green even when the
+      // dynamic-colour scheme resolves to something else (blue / purple
+      // wallpaper accents on Android 12+, GTK accents on Linux, etc).
+      extensions: <ThemeExtension<dynamic>>[
+        BrandColors.standard,
+      ],
 
       appBarTheme: AppBarTheme(
         backgroundColor: scheme.surface,

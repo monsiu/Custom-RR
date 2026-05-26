@@ -11,6 +11,7 @@ import 'app_nav_list.dart';
 import 'desktop_shell.dart';
 import 'offline_notice.dart';
 import 'theme_picker.dart';
+import 'update_banner.dart';
 
 /// Adaptive application shell.
 ///
@@ -57,7 +58,7 @@ class AppShell extends StatelessWidget {
       const AppShareMenu(),
     ];
 
-    final Widget wrappedBody = OfflineNotice(child: body);
+    final Widget wrappedBody = OfflineNotice(child: UpdateBanner(child: body));
 
     if (Breakpoints.isCompact(context)) {
       return Scaffold(

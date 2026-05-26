@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -104,7 +105,7 @@ class UpdateChecker {
     return UpdateCheckResult(
       currentVersion: current,
       latestVersion: latest,
-      isUpdateAvailable: _isNewer(latest, current),
+      isUpdateAvailable: isNewer(latest, current),
       releaseUrl: url,
       releaseName: name,
       releaseNotes: notes,
@@ -112,7 +113,8 @@ class UpdateChecker {
     );
   }
 
-  static String _stripLeadingV(String tag) {
+  @visibleForTesting
+  static String stripLeadingV(String tag) {
     if (tag.isEmpty) return tag;
     if (tag.startsWith('v') || tag.startsWith('V')) {
       return tag.substring(1);
@@ -120,10 +122,13 @@ class UpdateChecker {
     return tag;
   }
 
+  static String _stripLeadingV(String tag) => stripLeadingV(tag);
+
   /// Returns true when [latest] is strictly newer than [current] using a
   /// loose semantic-version comparison. Non-numeric or missing components
   /// are treated as 0.
-  static bool _isNewer(String latest, String current) {
+  @visibleForTesting
+  static bool isNewer(String latest, String current) {
     if (latest.isEmpty) return false;
     final List<int> a = _versionParts(latest);
     final List<int> b = _versionParts(current);

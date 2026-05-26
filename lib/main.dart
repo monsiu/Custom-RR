@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'app.dart';
 import 'data/catalog_repository.dart';
 import 'data/freshness_repository.dart';
+import 'data/update_notifier.dart';
 import 'data/wishlist_repository.dart';
 import 'theme_controller.dart';
 import 'util/platform_shell.dart';
@@ -40,6 +41,7 @@ Future<void> main() async {
   unawaited(WishlistRepository.instance.load());
   unawaited(DonationNudge.registerLaunch());
   unawaited(DonationNudge.loadHiddenState());
+  UpdateNotifier.instance.start();
   await Future.wait<void>(<Future<void>>[
     ThemeController.instance.load(),
     CatalogRepository.instance.load(),
