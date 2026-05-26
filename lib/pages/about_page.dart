@@ -205,7 +205,7 @@ class _AboutPageState extends State<AboutPage> {
                 subtitle: const Text('What the app does and does not collect'),
                 onTap: () => _open(
                   Uri.parse(
-                    'https://github.com/monsiu/Custom-RR/blob/main/PRIVACY.md',
+                    'https://monsiu.github.io/custom-rr/privacy/',
                   ),
                 ),
               ),
