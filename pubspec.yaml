@@ -41,6 +41,7 @@ flutter:
   assets:
     - assets/catalog.json
     - assets/freshness.json
+    - PRIVACY.md
     - images/arrowos.png
     - images/blissrom.png
     - images/branding.png

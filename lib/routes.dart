@@ -13,6 +13,7 @@ import 'pages/flash_script_page.dart';
 import 'pages/home_page.dart';
 import 'pages/instructions_page.dart';
 import 'pages/not_found_page.dart';
+import 'pages/privacy_policy_page.dart';
 import 'pages/recoveries_page.dart';
 import 'pages/roms_page.dart';
 import 'pages/treble_page.dart';
@@ -35,6 +36,7 @@ class AppRoutes {
   static const String instructions = '/instructions';
   static const String treble = '/treble';
   static const String about = '/about';
+  static const String privacy = '/privacy';
 
   static String romDetail(String id) => '/roms/$id';
   static String recoveryDetail(String id) => '/recoveries/$id';
@@ -184,6 +186,11 @@ GoRouter buildRouter() {
           GoRoute(
             path: AppRoutes.about,
             builder: (BuildContext _, GoRouterState __) => const AboutPage(),
+          ),
+          GoRoute(
+            path: AppRoutes.privacy,
+            builder:
+                (BuildContext _, GoRouterState __) => const PrivacyPolicyPage(),
           ),
         ],
       ),

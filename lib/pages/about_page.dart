@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -203,11 +204,8 @@ class _AboutPageState extends State<AboutPage> {
                 leading: const Icon(Icons.privacy_tip_outlined),
                 title: const Text('Privacy policy'),
                 subtitle: const Text('What the app does and does not collect'),
-                onTap: () => _open(
-                  Uri.parse(
-                    'https://monsiu.github.io/custom-rr/privacy/',
-                  ),
-                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => context.go(AppRoutes.privacy),
               ),
               if (kDebugMode) ...<Widget>[
                 const SizedBox(height: 16),

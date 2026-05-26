@@ -108,6 +108,7 @@ const String _kTrocadorSwapUrl =
     '?ticker_to=xmr&network_to=Mainnet'
     '&address=8AKYcpCAVrZhUJ4zEmMdgi36sa2DjTWxufpbnXLwzZKU4mnBrVVHWs2eU1SnGtKKBFB3hVVJSrRbZ1zJnGqyWUix5zdmagg'
     '&fiat_equiv=USD&name=Monsiu%20Tech&email=techmonsiu%40gmail.com'
+    '&description=Donation%20to%20Custom%20RR%2C%20an%20open-source%20Android%20app%20cataloging%20custom%20ROMs%20and%20recoveries.'
     '&bgcolor=00000000'
     '&direct=False';
 
