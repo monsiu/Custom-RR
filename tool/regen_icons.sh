@@ -32,9 +32,14 @@ magick "$SRC_LAUNCHER" -trim +repage \
 
 # Themed icon (Android 13+ Material You): solid white silhouette with the
 # original alpha. The system tints this with the user's wallpaper accent.
+# IMPORTANT: emit RGBA (PNG32), not grayscale+alpha. flutter_launcher_icons
+# downsizes the source via the dart `image` package, which flattens
+# grayscale+alpha to fully opaque and produces a tinted square (no robot
+# silhouette) on Android 13+.
 magick "$OUT/launcher_adaptive_fg.png" \
   -channel RGB -fill white -colorize 100 +channel \
-  "$OUT/launcher_monochrome.png"
+  -define png:color-type=6 \
+  PNG32:"$OUT/launcher_monochrome.png"
 
 # Android 12 splash: 1152x1152, bust at ~760px, centered. The system
 # crops splash icons to a 768px circle and uses different framing than

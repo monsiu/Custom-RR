@@ -9,6 +9,7 @@ import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/crypto_donate.dart';
 import '../widgets/donation_nudge.dart';
+import 'easter_egg_page.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -18,8 +19,32 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
+  static const int _kTapsToUnlock = 5;
   String _version = '';
   bool _checking = false;
+  int _versionTaps = 0;
+  DateTime _lastTap = DateTime.fromMillisecondsSinceEpoch(0);
+
+  void _onVersionTap() {
+    final DateTime now = DateTime.now();
+    if (now.difference(_lastTap) > const Duration(seconds: 2)) {
+      _versionTaps = 0;
+    }
+    _lastTap = now;
+    setState(() {
+      _versionTaps++;
+    });
+    if (_versionTaps >= _kTapsToUnlock) {
+      _versionTaps = 0;
+      debugPrint('[EasterEgg] About page unlock, pushing EasterEggPage');
+      Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute<void>(
+          builder: (_) => const EasterEggPage(),
+          fullscreenDialog: true,
+        ),
+      );
+    }
+  }
 
   @override
   void initState() {
@@ -60,10 +85,49 @@ class _AboutPageState extends State<AboutPage> {
               const SizedBox(height: 16),
               Center(child: Text('Custom RR', style: text.headlineSmall)),
               Center(
-                child: Text(
-                  _version,
-                  style: text.bodyMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                child: InkWell(
+                  onTap: _onVersionTap,
+                  borderRadius: BorderRadius.circular(6),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          _version,
+                          style: text.bodyMedium?.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurfaceVariant,
+                          ),
+                        ),
+                        if (_versionTaps > 0) ...<Widget>[
+                          const SizedBox(width: 8),
+                          for (int i = 0; i < _kTapsToUnlock; i++)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 1.5),
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 120),
+                                width: 6,
+                                height: 6,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: i < _versionTaps
+                                      ? Theme.of(context).colorScheme.primary
+                                      : Theme.of(context)
+                                          .colorScheme
+                                          .primary
+                                          .withValues(alpha: 0.2),
+                                ),
+                              ),
+                            ),
+                        ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -134,6 +198,16 @@ class _AboutPageState extends State<AboutPage> {
                 leading: const Icon(Icons.currency_bitcoin),
                 title: const Text('Donate with crypto'),
                 onTap: () => showCryptoDonateSheet(context),
+              ),
+              ListTile(
+                leading: const Icon(Icons.privacy_tip_outlined),
+                title: const Text('Privacy policy'),
+                subtitle: const Text('What the app does and does not collect'),
+                onTap: () => _open(
+                  Uri.parse(
+                    'https://github.com/monsiu/Custom-RR/blob/main/PRIVACY.md',
+                  ),
+                ),
               ),
               if (kDebugMode) ...<Widget>[
                 const SizedBox(height: 16),

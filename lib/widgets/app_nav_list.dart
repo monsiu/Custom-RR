@@ -8,6 +8,7 @@ import '../theme_controller.dart';
 import 'about_dialog.dart';
 import 'support_dialog.dart';
 import 'theme_picker.dart';
+import 'update_nav_tile.dart';
 
 /// Shared list of navigation tiles used by both the modal [AppDrawer]
 /// (compact width) and the permanent side panel on expanded widths.
@@ -207,6 +208,7 @@ class AppNavList extends StatelessWidget {
                   showCustomAboutDialog(context);
                 },
               ),
+              UpdateNavTile(onNavigate: onNavigate),
               const SizedBox(height: 12),
             ],
           ),
