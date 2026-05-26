@@ -42,13 +42,13 @@ address, the requested URL, and a `User-Agent` string. We do not see or
 log these requests.
 
 | Service | When | Why | Their policy |
-|---|---|---|---|
-| GitHub (`raw.githubusercontent.com`, `api.github.com`) | On launch and on manual refresh | Fetch the latest ROM catalog, freshness data, and update info from this project's repository | https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement |
+| --- | --- | --- | --- |
+| GitHub (`raw.githubusercontent.com`, `api.github.com`) | On launch and on manual refresh | Fetch the latest ROM catalog, freshness data, and update info from this project's repository | [GitHub General Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement) |
 | Image CDNs (e.g. `wiki.lineageos.org`) | When viewing device pages | Load device thumbnails | Each site's own policy |
-| XDA Forums (`xdaforums.com`) | When you open an XDA section | Fetch RSS feeds for recent threads | https://www.xda-developers.com/privacy/ |
-| Trocador AnonPay (`trocador.app`) | Only if you tap "Use other crypto (swap to XMR)" in the donate sheet | Create a swap transaction and open the payment page in an in-app browser | https://trocador.app/en/privacypolicy/ |
-| Buy Me a Coffee (`buymeacoffee.com`) | Only if you tap that link from the About page | Open the donation page in your browser | https://www.buymeacoffee.com/privacy-policy |
-| Web Archive (`web.archive.org`) | Only if you tap a "View archived" link for a discontinued ROM | Open the archived page | https://archive.org/about/terms.php |
+| XDA Forums (`xdaforums.com`) | When you open an XDA section | Fetch RSS feeds for recent threads | [XDA Privacy Policy](https://www.xda-developers.com/privacy/) |
+| Trocador AnonPay (`trocador.app`) | Only if you tap "Use other crypto (swap to XMR)" in the donate sheet | Create a swap transaction and open the payment page in an in-app browser | [Trocador Privacy Policy](https://trocador.app/en/privacypolicy/) |
+| Buy Me a Coffee (`buymeacoffee.com`) | Only if you tap that link from the About page | Open the donation page in your browser | [Buy Me a Coffee Privacy Policy](https://www.buymeacoffee.com/privacy-policy) |
+| Web Archive (`web.archive.org`) | Only if you tap a "View archived" link for a discontinued ROM | Open the archived page | [Internet Archive Terms](https://archive.org/about/terms.php) |
 | External links you tap (ROM project sites, SourceForge, etc.) | Only when you tap them | Open the link in your browser | Each site's own policy |
 
 We have no agreement with these services and receive no data from them.
@@ -94,7 +94,8 @@ side, no special handling for minors is needed.
 ## Open source
 
 The source code is publicly available at
-https://github.com/monsiu/Custom-RR. You can audit exactly what the app does.
+[github.com/monsiu/Custom-RR](https://github.com/monsiu/Custom-RR). You can
+audit exactly what the app does.
 
 ## Changes to this policy
 
@@ -106,5 +107,5 @@ release notes.
 
 Questions or privacy requests:
 
-- Email: techmonsiu@gmail.com
-- Issues: https://github.com/monsiu/Custom-RR/issues
+- Email: <contactmonsiu@gmail.com>
+- Issues: <https://github.com/monsiu/Custom-RR/issues>
