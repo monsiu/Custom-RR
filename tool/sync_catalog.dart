@@ -70,10 +70,19 @@ Future<void> main(List<String> args) async {
 Future<void> _downloadWiki() async {
   Directory(_cacheDir).createSync(recursive: true);
   final String tarPath = '$_cacheDir/wiki.tar.gz';
+  // Note: the wiki tarball is ~60 MB and GitHub does not always send a
+  // Content-Length, so we cannot rely on a fixed --max-time. Instead, use
+  // a short --connect-timeout, retry transient failures, and let the
+  // transfer take as long as the connection needs.
   final ProcessResult curl = await Process.run('curl', <String>[
     '-sSL',
-    '--max-time',
-    '180',
+    '--connect-timeout',
+    '30',
+    '--retry',
+    '5',
+    '--retry-delay',
+    '3',
+    '--retry-all-errors',
     _wikiTarUrl,
     '-o',
     tarPath,
