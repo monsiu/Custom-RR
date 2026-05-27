@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-24T18:58:09.358981Z",
+  "_generatedAt": "2026-05-27T19:57:25.356388Z",
   "roms": [
     {
       "id": "lineage",
@@ -2027,6 +2027,11 @@
           "brand": "ZUK",
           "model": "Z2 Plus",
           "codename": "z2_plus"
+        },
+        {
+          "brand": "Zinwa",
+          "model": "Q25 Pro",
+          "codename": "Q25"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -19880,6 +19885,11 @@
           "brand": "ZUK",
           "model": "Z2 Plus",
           "codename": "z2_plus"
+        },
+        {
+          "brand": "Zinwa",
+          "model": "Q25 Pro",
+          "codename": "Q25"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -22388,6 +22398,11 @@
           "brand": "ZUK",
           "model": "Z2 Plus",
           "codename": "z2_plus"
+        },
+        {
+          "brand": "Zinwa",
+          "model": "Q25 Pro",
+          "codename": "Q25"
         }
       ],
       "downloadLabel": "Official downloads (Wayback)",
@@ -26592,6 +26607,11 @@
           "brand": "ZUK",
           "model": "Z2 Plus",
           "codename": "z2_plus"
+        },
+        {
+          "brand": "Zinwa",
+          "model": "Q25 Pro",
+          "codename": "Q25"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -31495,6 +31515,10 @@
     {
       "name": "ZUK",
       "imageAsset": "images/device_zuk.png"
+    },
+    {
+      "name": "Zinwa",
+      "imageAsset": "images/branding.png"
     }
   ]
 }
