@@ -135,7 +135,11 @@ List<_Device> _parseAllDevices(Directory devicesDir) {
   out.sort((_Device a, _Device b) {
     final int v = a.vendor.compareTo(b.vendor);
     if (v != 0) return v;
-    return a.model.toLowerCase().compareTo(b.model.toLowerCase());
+    final int m = a.model.toLowerCase().compareTo(b.model.toLowerCase());
+    if (m != 0) return m;
+    // Final tie-breaker so the output is fully deterministic across
+    // filesystems (listSync() order is not stable between machines).
+    return a.codename.compareTo(b.codename);
   });
   return out;
 }
