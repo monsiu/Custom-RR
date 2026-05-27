@@ -126,7 +126,7 @@ cd linux
 ./install.sh
 ```
 
-It copies `com.monsiutechsolutions.custom_rr.desktop` to
+It copies `io.github.monsiu.custom_rr.desktop` to
 `~/.local/share/applications/` and points it at the built binary.
 Prebuilt Linux tarballs are uploaded by the `build-linux` CI job on
 every push to `main`.
@@ -134,6 +134,24 @@ every push to `main`.
 ## Support the project
 
 [![Buy Me a Coffee](https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png)](https://www.buymeacoffee.com/monsiuYT)
+
+### Crypto donations
+
+Same addresses shipped in the app. Listing them here too so donors can
+cross-check the in-app values against an out-of-band source before
+sending funds.
+
+| Coin | Address |
+| ---- | ------- |
+| **BTC** (Bitcoin, P2WPKH) | `bc1qaxx6dxkz0s5cw4h9nysw4yvmsaf3qlk7j0gwa2` |
+| **BTC Lightning** | `monsiutech@cake.cash` |
+| **ETH** / EVM (mainnet) | `0x4e815A295F8096997867FBA2d7bDC6316ad970be` |
+| **BNB** Smart Chain (also accepts ETH, USDT, USDC on BSC) | `0x4aCD5AD66DD8E64e3117d9cb0CB0434294027CDd` |
+| **SOL** (Solana) | `6qC53PkKjoFtyhohHnYFApf3YccZwULFLTfrUMiruM97` |
+| **XMR** (Monero) | `8ADyd3DvN5D6wAauq2Q2BSZp7aG3LhYZAFswk5dNQohVUBDT8G84MjPimsj5vzfB8TBrwtC3y3BATNm76bX21kWfUys3ehE` |
+
+Have a different coin? Use the in-app **Swap to XMR** button (powered by
+[Trocador AnonPay](https://trocador.app/anonpay/), no account, no KYC).
 
 ## Socials
 

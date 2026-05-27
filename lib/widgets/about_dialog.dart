@@ -220,7 +220,7 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
         ),
       const SizedBox(height: 16),
       Text(
-        '© ${DateTime.now().year} MonsiuTech Solutions, by Monsiu',
+        '© ${DateTime.now().year} Monsiu Tech Solutions',
         style: theme.textTheme.bodySmall,
       ),
         ],
