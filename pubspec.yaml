@@ -27,6 +27,12 @@ dependencies:
   dynamic_color: ^1.7.0
   xml: ^6.5.0
   qr_flutter: ^4.1.0
+  # In-app updater: download the matching split APK from the latest
+  # GitHub release and hand it to the system installer.
+  dio: ^5.7.0
+  device_info_plus: ^13.1.0
+  open_filex: ^4.5.0
+  path_provider: ^2.1.4
 
 dev_dependencies:
   flutter_test:
