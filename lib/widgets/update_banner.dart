@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../data/update_checker.dart';
 import '../data/update_notifier.dart';
+import 'update_dialog.dart';
 
 /// Non-blocking strip shown above page content when a newer release is
 /// available on GitHub. Dismissable per-version: clearing it only hides
@@ -12,20 +12,6 @@ class UpdateBanner extends StatelessWidget {
   const UpdateBanner({super.key, required this.child});
 
   final Widget child;
-
-  Future<void> _open(BuildContext context, String url) async {
-    if (url.isEmpty) return;
-    final Uri uri = Uri.tryParse(url) ?? Uri();
-    final bool ok = await launchUrl(
-      uri,
-      mode: LaunchMode.externalApplication,
-    );
-    if (!ok && context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not open $url')),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +33,7 @@ class UpdateBanner extends StatelessWidget {
                   : _Banner(
                       key: ValueKey<String>(result.latestVersion),
                       result: result,
-                      onOpen: () => _open(context, result.releaseUrl),
+                      onOpen: () => showUpdateDialog(context, result),
                       onDismiss: () =>
                           UpdateNotifier.instance.dismissCurrent(),
                     ),
@@ -105,7 +91,7 @@ class _Banner extends StatelessWidget {
                 style: TextButton.styleFrom(
                   foregroundColor: scheme.onPrimaryContainer,
                 ),
-                child: const Text('View'),
+                child: const Text('Details'),
               ),
               IconButton(
                 tooltip: 'Dismiss',
