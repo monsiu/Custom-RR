@@ -50,3 +50,6 @@ app.*.map.json
 
 # Catalog sync cache (wiki tarball + extracted YAMLs)
 tool/.cache/
+
+# Gradle build output (was leaking into git status)
+/android/build/
