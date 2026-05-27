@@ -1,7 +1,3 @@
-import 'dart:async';
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,12 +5,12 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../data/update_checker.dart';
-import '../data/update_installer.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/crypto_donate.dart';
 import '../widgets/donation_nudge.dart';
+import '../widgets/update_dialog.dart';
 import 'easter_egg_page.dart';
 
 class AboutPage extends StatefulWidget {
@@ -250,7 +246,7 @@ class _AboutPageState extends State<AboutPage> {
     try {
       final UpdateCheckResult result = await UpdateChecker.instance.check();
       if (!mounted) return;
-      await _showUpdateDialog(result);
+      await showUpdateDialog(context, result);
     } on Object catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
@@ -259,270 +255,5 @@ class _AboutPageState extends State<AboutPage> {
     } finally {
       if (mounted) setState(() => _checking = false);
     }
-  }
-
-  Future<void> _showUpdateDialog(UpdateCheckResult result) {
-    final ColorScheme scheme = Theme.of(context).colorScheme;
-    final bool noReleases = result.latestVersion.isEmpty;
-    final bool upToDate = !noReleases && !result.isUpdateAvailable;
-
-    final String title = noReleases
-        ? 'No releases yet'
-        : upToDate
-            ? "You're up to date"
-            : 'Update available';
-
-    final String message = noReleases
-        ? 'This repository has no published releases yet. You can still '
-            'browse the source on GitHub.'
-        : upToDate
-            ? 'You are running the latest version (v${result.currentVersion}).'
-            : 'Custom RR v${result.latestVersion} is available. '
-                'You are on v${result.currentVersion}.';
-
-    final String notes = result.releaseNotes.trim();
-    final String trimmedNotes =
-        notes.length > 600 ? '${notes.substring(0, 600)}\u2026' : notes;
-
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext ctx) {
-        return AlertDialog(
-          icon: Icon(
-            upToDate ? Icons.check_circle_outline : Icons.system_update_alt,
-            color: scheme.primary,
-          ),
-          title: Text(title),
-          content: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(message),
-                if (!noReleases && !upToDate && result.releaseName.isNotEmpty) ...<Widget>[
-                  const SizedBox(height: 12),
-                  Text(
-                    result.releaseName,
-                    style: Theme.of(ctx).textTheme.titleSmall,
-                  ),
-                ],
-                if (!noReleases && !upToDate && trimmedNotes.isNotEmpty) ...<Widget>[
-                  const SizedBox(height: 8),
-                  Text(
-                    trimmedNotes,
-                    style: Theme.of(ctx).textTheme.bodySmall,
-                  ),
-                ],
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.of(ctx).pop(),
-              child: Text(upToDate ? 'OK' : 'Later'),
-            ),
-            if (result.releaseUrl.isNotEmpty)
-              TextButton(
-                onPressed: () {
-                  Navigator.of(ctx).pop();
-                  _open(Uri.parse(result.releaseUrl));
-                },
-                child: Text(noReleases ? 'Open repository' : 'Open release'),
-              ),
-            if (!noReleases &&
-                !upToDate &&
-                UpdateInstaller.isSupported &&
-                result.assets.any((ReleaseAsset a) => a.isApk))
-              FilledButton.icon(
-                icon: const Icon(Icons.download),
-                label: const Text('Download & install'),
-                onPressed: () {
-                  Navigator.of(ctx).pop();
-                  _downloadAndInstall(result);
-                },
-              ),
-          ],
-        );
-      },
-    );
-  }
-
-  Future<void> _downloadAndInstall(UpdateCheckResult result) async {
-    final UpdateInstaller installer = UpdateInstaller.instance;
-    final ReleaseAsset? asset;
-    try {
-      asset = await installer.pickAssetForDevice(result.assets);
-    } on NoMatchingApkException catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No APK matches this device. $e')),
-      );
-      return;
-    } on Object catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not pick APK: $e')),
-      );
-      return;
-    }
-    if (asset == null) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('This release has no APK assets.')),
-      );
-      return;
-    }
-
-    final CancelToken cancelToken = CancelToken();
-    final ({Stream<DownloadProgress> progress, Future<File> done}) job =
-        installer.download(asset, cancelToken: cancelToken);
-
-    if (!mounted) return;
-    final bool? completed = await showDialog<bool>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext ctx) => _DownloadProgressDialog(
-        asset: asset!,
-        progress: job.progress,
-        done: job.done,
-        cancelToken: cancelToken,
-      ),
-    );
-
-    if (completed != true || !mounted) return;
-    try {
-      final File apk = await job.done;
-      await installer.install(apk);
-    } on InstallLaunchException catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'Could not open installer: $e. '
-            'Allow "Install unknown apps" for Custom RR in Settings.',
-          ),
-          duration: const Duration(seconds: 6),
-        ),
-      );
-    } on Object catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Install failed: $e')),
-      );
-    }
-  }
-}
-
-class _DownloadProgressDialog extends StatefulWidget {
-  const _DownloadProgressDialog({
-    required this.asset,
-    required this.progress,
-    required this.done,
-    required this.cancelToken,
-  });
-
-  final ReleaseAsset asset;
-  final Stream<DownloadProgress> progress;
-  final Future<File> done;
-  final CancelToken cancelToken;
-
-  @override
-  State<_DownloadProgressDialog> createState() =>
-      _DownloadProgressDialogState();
-}
-
-class _DownloadProgressDialogState extends State<_DownloadProgressDialog> {
-  DownloadProgress _latest = const DownloadProgress(0, -1);
-  Object? _error;
-  bool _finished = false;
-  late final StreamSubscription<DownloadProgress> _sub;
-
-  @override
-  void initState() {
-    super.initState();
-    _sub = widget.progress.listen((DownloadProgress p) {
-      if (!mounted) return;
-      setState(() => _latest = p);
-    });
-    widget.done.then((_) {
-      if (!mounted) return;
-      setState(() => _finished = true);
-      Navigator.of(context).pop(true);
-    }).catchError((Object e) {
-      if (!mounted) return;
-      if (e is DioException && CancelToken.isCancel(e)) {
-        Navigator.of(context).pop(false);
-        return;
-      }
-      setState(() => _error = e);
-    });
-  }
-
-  @override
-  void dispose() {
-    _sub.cancel();
-    super.dispose();
-  }
-
-  String _formatBytes(int b) {
-    if (b <= 0) return '0 B';
-    const List<String> units = <String>['B', 'KB', 'MB', 'GB'];
-    double v = b.toDouble();
-    int i = 0;
-    while (v >= 1024 && i < units.length - 1) {
-      v /= 1024;
-      i++;
-    }
-    return '${v.toStringAsFixed(v >= 10 || i == 0 ? 0 : 1)} ${units[i]}';
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final double? frac = _latest.fraction;
-    final String sub = _error != null
-        ? 'Download failed: $_error'
-        : _finished
-            ? 'Download complete'
-            : _latest.total > 0
-                ? '${_formatBytes(_latest.received)} of ${_formatBytes(_latest.total)}'
-                : 'Starting download...';
-
-    return AlertDialog(
-      icon: Icon(Icons.download, color: theme.colorScheme.primary),
-      title: const Text('Downloading update'),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            widget.asset.name,
-            style: theme.textTheme.bodyMedium,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 12),
-          LinearProgressIndicator(value: frac),
-          const SizedBox(height: 8),
-          Text(sub, style: theme.textTheme.bodySmall),
-        ],
-      ),
-      actions: <Widget>[
-        if (_error != null)
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Close'),
-          )
-        else
-          TextButton(
-            onPressed: () {
-              if (!widget.cancelToken.isCancelled) {
-                widget.cancelToken.cancel('user-cancelled');
-              }
-              Navigator.of(context).pop(false);
-            },
-            child: const Text('Cancel'),
-          ),
-      ],
-    );
   }
 }
