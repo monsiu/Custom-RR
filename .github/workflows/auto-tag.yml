@@ -37,6 +37,7 @@ jobs:
       - name: Create tag if missing
         env:
           TAG: ${{ steps.ver.outputs.tag }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if git rev-parse "$TAG" >/dev/null 2>&1; then
             echo "Tag $TAG already exists, nothing to do."
@@ -47,3 +48,8 @@ jobs:
           git tag -a "$TAG" -m "$TAG"
           git push origin "$TAG"
           echo "Pushed $TAG."
+          # The default GITHUB_TOKEN cannot trigger another workflow via
+          # the tag push, so dispatch the Release workflow explicitly
+          # (workflow_dispatch IS allowed from GITHUB_TOKEN).
+          gh workflow run release.yml --ref "$TAG" -f tag="$TAG"
+          echo "Dispatched Release workflow for $TAG."
