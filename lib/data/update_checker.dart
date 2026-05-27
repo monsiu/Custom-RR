@@ -5,6 +5,26 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
 
+/// One downloadable file attached to a GitHub release (typically a
+/// per-ABI APK or a Linux tarball produced by the release workflow).
+class ReleaseAsset {
+  const ReleaseAsset({
+    required this.name,
+    required this.downloadUrl,
+    required this.sizeBytes,
+    required this.contentType,
+  });
+
+  final String name;
+  final String downloadUrl;
+  final int sizeBytes;
+  final String contentType;
+
+  /// True when the asset filename looks like a release APK (e.g.
+  /// `app-arm64-v8a-release.apk`).
+  bool get isApk => name.toLowerCase().endsWith('.apk');
+}
+
 /// Outcome of an update check against the GitHub Releases API.
 class UpdateCheckResult {
   const UpdateCheckResult({
@@ -15,6 +35,7 @@ class UpdateCheckResult {
     required this.releaseName,
     required this.releaseNotes,
     required this.publishedAt,
+    this.assets = const <ReleaseAsset>[],
   });
 
   /// Local app version (without leading 'v').
@@ -37,6 +58,10 @@ class UpdateCheckResult {
 
   /// When the release was published, or `null` if unknown.
   final DateTime? publishedAt;
+
+  /// Files attached to the release. Empty if the lookup failed or the
+  /// release has no uploaded assets yet.
+  final List<ReleaseAsset> assets;
 }
 
 /// Thin client around the GitHub Releases API used to power the in-app
@@ -101,6 +126,7 @@ class UpdateChecker {
     final String publishedRaw = (body['published_at'] as String? ?? '').trim();
     final DateTime? published =
         publishedRaw.isEmpty ? null : DateTime.tryParse(publishedRaw);
+    final List<ReleaseAsset> assets = _parseAssets(body['assets']);
 
     return UpdateCheckResult(
       currentVersion: current,
@@ -110,7 +136,29 @@ class UpdateChecker {
       releaseName: name,
       releaseNotes: notes,
       publishedAt: published,
+      assets: assets,
     );
+  }
+
+  static List<ReleaseAsset> _parseAssets(Object? raw) {
+    if (raw is! List) return const <ReleaseAsset>[];
+    final List<ReleaseAsset> out = <ReleaseAsset>[];
+    for (final Object? item in raw) {
+      if (item is! Map) continue;
+      final String name = (item['name'] as String? ?? '').trim();
+      final String url =
+          (item['browser_download_url'] as String? ?? '').trim();
+      if (name.isEmpty || url.isEmpty) continue;
+      final int size = (item['size'] as num?)?.toInt() ?? 0;
+      final String type = (item['content_type'] as String? ?? '').trim();
+      out.add(ReleaseAsset(
+        name: name,
+        downloadUrl: url,
+        sizeBytes: size,
+        contentType: type,
+      ),);
+    }
+    return List<ReleaseAsset>.unmodifiable(out);
   }
 
   @visibleForTesting

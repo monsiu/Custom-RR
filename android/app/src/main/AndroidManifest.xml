@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
 <uses-permission android:name="android.permission.INTERNET" />
+<!-- Required so the in-app updater can hand a downloaded APK to the -->
+<!-- system package installer on Android 8+ (API 26). The user still -->
+<!-- has to confirm in the installer UI and may need to grant -->
+<!-- "Install unknown apps" the first time. -->
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <!-- Provide required visibility configuration for API level 30 and above -->
 <queries>
 
@@ -17,6 +22,13 @@
   <intent>
     <action android:name="android.intent.action.SEND" />
     <data android:mimeType="*/*" />
+  </intent>
+
+  <!-- Lets the in-app updater resolve the system package installer so -->
+  <!-- open_filex can launch it with the downloaded APK. -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:mimeType="application/vnd.android.package-archive" />
   </intent>
 
   <!-- Wallet deep-link URI schemes used by the crypto donation sheet. -->
