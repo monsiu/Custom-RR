@@ -11,7 +11,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.monsiutechsolutions.custom_rr"
+    namespace "io.github.monsiu.custom_rr"
     compileSdk 36
     ndkVersion flutter.ndkVersion
 
@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.monsiutechsolutions.custom_rr"
+        applicationId "io.github.monsiu.custom_rr"
         minSdkVersion flutter.minSdkVersion
         targetSdk 36
         versionCode flutter.versionCode

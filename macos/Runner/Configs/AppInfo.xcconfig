@@ -8,7 +8,7 @@
 PRODUCT_NAME = Custom RR;
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.monsiutechsolutions.custom_rr;
+PRODUCT_BUNDLE_IDENTIFIER = io.github.monsiu.custom_rr;
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 com.monsiutechsolutions. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright (c) 2026 Monsiu. All rights reserved.
