@@ -1,12 +1,18 @@
 name: Release
 
-# Triggered when a tag like v0.1.0 is pushed. Builds release artifacts for
-# Android and Linux desktop, then opens a *draft* GitHub Release with
-# auto-generated notes so they can be reviewed before going public.
+# Triggered when a tag like v0.1.0 is pushed, or manually dispatched
+# by .github/workflows/auto-tag.yml after it pushes a new tag (because
+# the default GITHUB_TOKEN cannot trigger workflows via push events).
 on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to build (e.g. v1.0.1). Must already exist.'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -17,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -59,6 +67,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
       - name: Install Linux desktop deps
         run: |
           sudo apt-get update
@@ -105,5 +115,6 @@ jobs:
         with:
           draft: true
           generate_release_notes: true
-          name: ${{ github.ref_name }}
+          name: ${{ inputs.tag || github.ref_name }}
+          tag_name: ${{ inputs.tag || github.ref_name }}
           files: release-assets/*
