@@ -24,7 +24,7 @@ jobs:
       - run: flutter test --reporter expanded
 
   build-apk:
-    name: Build debug APK
+    name: Build release APKs
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -38,11 +38,29 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
-      - run: flutter build apk --debug
+      - name: Set up Android signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD:  ${{ secrets.ANDROID_STORE_PASSWORD }}
+          KEY_PASSWORD:    ${{ secrets.ANDROID_KEY_PASSWORD }}
+          KEY_ALIAS:       ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::warning::No ANDROID_KEYSTORE_BASE64 secret set (e.g. PR from a fork) - falling back to debug signing."
+            exit 0
+          fi
+          echo "$KEYSTORE_BASE64" | base64 -d > android/app/release.jks
+          cat > android/key.properties <<EOF
+          storePassword=$STORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=release.jks
+          EOF
+      - run: flutter build apk --split-per-abi --release
       - uses: actions/upload-artifact@v4
         with:
-          name: app-debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: app-release-apks
+          path: build/app/outputs/flutter-apk/app-*-release.apk
           if-no-files-found: error
 
   build-linux:
