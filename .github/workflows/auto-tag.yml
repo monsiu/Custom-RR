@@ -1,0 +1,49 @@
+name: Auto-tag on version bump
+
+# Watches pubspec.yaml on main. When the `version:` line changes to a
+# value that doesn't already have a matching `v<version>` tag, creates
+# and pushes that tag, which in turn triggers .github/workflows/release.yml.
+#
+# Workflow to cut a release:
+#   1. Bump `version:` in pubspec.yaml (e.g. 1.0.0+1 -> 1.0.1+2).
+#   2. Commit and push to main.
+#   3. This job tags it; the Release workflow builds and publishes.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pubspec.yaml'
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Extract version
+        id: ver
+        run: |
+          # pubspec version line looks like: "version: 1.0.0+1"
+          # Strip the build number (+N) for the tag.
+          raw=$(grep -E '^version:' pubspec.yaml | awk '{print $2}')
+          tag="v${raw%+*}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "Detected tag: $tag"
+      - name: Create tag if missing
+        env:
+          TAG: ${{ steps.ver.outputs.tag }}
+        run: |
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists, nothing to do."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$TAG" -m "$TAG"
+          git push origin "$TAG"
+          echo "Pushed $TAG."

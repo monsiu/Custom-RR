@@ -69,7 +69,7 @@ jobs:
           if-no-files-found: error
 
   publish:
-    name: Publish draft release
+    name: Publish release
     needs: [build-android, build-linux]
     runs-on: ubuntu-latest
     steps:
@@ -82,10 +82,12 @@ jobs:
           find artifacts -type f \( -name '*.apk' -o -name '*.tar.gz' \) \
             -exec cp {} release-assets/ \;
           ls -la release-assets
-      - name: Create draft release
+      - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
-          draft: true
+          draft: false
+          prerelease: false
+          make_latest: true
           generate_release_notes: true
           name: ${{ github.ref_name }}
           files: release-assets/*
