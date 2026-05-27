@@ -18,6 +18,30 @@
     <action android:name="android.intent.action.SEND" />
     <data android:mimeType="*/*" />
   </intent>
+
+  <!-- Wallet deep-link URI schemes used by the crypto donation sheet. -->
+  <!-- Without these, Android 11+ (API 30+) blocks launchUrl from -->
+  <!-- resolving installed wallet apps. -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="bitcoin" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="lightning" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="ethereum" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="solana" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="monero" />
+  </intent>
 </queries>
    <application
         android:label="Custom RR"

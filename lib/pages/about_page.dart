@@ -147,10 +147,12 @@ class _AboutPageState extends State<AboutPage> {
               const SizedBox(height: 24),
               Text('Links', style: text.titleLarge),
               const SizedBox(height: 8),
-              const ListTile(
-                leading: Icon(Icons.code),
-                title: Text('MonsiuTech Solutions'),
-                subtitle: Text('Built with Flutter · by Monsiu'),
+              ListTile(
+                leading: const Icon(Icons.code),
+                title: const Text('Monsiu Tech Solutions'),
+                subtitle: const Text('Built with Flutter - by Monsiu'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => _open(Uri.parse('https://monsiu.github.io/')),
               ),
               ListTile(
                 leading: const Icon(Icons.public),
