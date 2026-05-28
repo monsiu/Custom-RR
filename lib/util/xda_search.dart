@@ -22,10 +22,16 @@ bool _isMobile() {
 /// append. To stop mobile users from running a search that's missing
 /// their device model, this shows a one-time warning modal explaining
 /// what to do before opening the page. Desktop and web platforms
-/// (where the placeholder is visible in the search bar) launch the URL
-/// directly without any prompt.
-Future<void> launchXdaSearch(BuildContext context, Uri uri) async {
-  if (!_isMobile()) {
+/// (where the placeholder is visible in the search bar) normally launch
+/// the URL directly without any prompt, unless [alwaysWarn] is set;
+/// defunct-ROM cards use that to remind every user (regardless of
+/// platform) to replace the placeholder with their actual device model.
+Future<void> launchXdaSearch(
+  BuildContext context,
+  Uri uri, {
+  bool alwaysWarn = false,
+}) async {
+  if (!alwaysWarn && !_isMobile()) {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
     return;
   }

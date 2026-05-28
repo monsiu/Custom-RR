@@ -427,6 +427,7 @@ class _DefunctCard extends StatelessWidget {
   Future<void> _openXdaSearch(BuildContext context) => launchXdaSearch(
         context,
         xdaSearchUri('${entry.name} $kXdaQueryPlaceholder'),
+        alwaysWarn: true,
       );
 
   Future<void> _openWaybackArchive() => launchUrl(
