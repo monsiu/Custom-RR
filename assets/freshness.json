@@ -1,16 +1,16 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-05-28T17:49:59.567611Z",
-  "_netCount": 0,
-  "_curatedCount": 23,
+  "_generatedAt": "2026-05-28T23:12:58.303673Z",
+  "_netCount": 3,
+  "_curatedCount": 18,
   "entries": {
     "lineage": {
       "status": "active",
-      "lastBuild": "2026-05-12",
-      "daysAgo": 16,
-      "version": "LineageOS 22.1 (Android 15)",
+      "lastBuild": "2026-05-25",
+      "daysAgo": 3,
+      "version": "LineageOS 23.2",
       "source": "https://download.lineageos.org/",
-      "origin": "curated"
+      "origin": "network"
     },
     "crdroid": {
       "status": "active",
@@ -26,14 +26,6 @@
       "daysAgo": 269,
       "version": "PE 14 Plus",
       "source": "https://download.pixelexperience.org/",
-      "origin": "curated"
-    },
-    "arrowos": {
-      "status": "abandoned",
-      "lastBuild": "2024-11-20",
-      "daysAgo": 554,
-      "version": "Arrow 14.0",
-      "source": "https://arrowos.net/",
       "origin": "curated"
     },
     "evolutionx": {
@@ -68,21 +60,13 @@
       "source": "https://blissroms.org/",
       "origin": "curated"
     },
-    "potatoaosp": {
-      "status": "abandoned",
-      "lastBuild": "2025-06-22",
-      "daysAgo": 340,
-      "version": "POSP 5.x (Android 14)",
-      "source": "https://posp.co/",
-      "origin": "curated"
-    },
-    "risingos": {
-      "status": "active",
-      "lastBuild": "2026-05-16",
-      "daysAgo": 12,
-      "version": "Rising 4.x (Android 15)",
-      "source": "https://risingos.org/",
-      "origin": "curated"
+    "risingosrevived": {
+      "status": "stale",
+      "lastBuild": "2025-12-31",
+      "daysAgo": 148,
+      "version": "RisingOS Revived (latest)",
+      "source": "https://sourceforge.net/projects/risingos-revived/",
+      "origin": "network"
     },
     "voltage": {
       "status": "active",
@@ -110,11 +94,11 @@
     },
     "grapheneos": {
       "status": "active",
-      "lastBuild": "2026-05-20",
-      "daysAgo": 8,
-      "version": "2026052000",
+      "lastBuild": "2026-05-24",
+      "daysAgo": 4,
+      "version": "2026052400",
       "source": "https://grapheneos.org/releases",
-      "origin": "curated"
+      "origin": "network"
     },
     "calyxos": {
       "status": "active",
