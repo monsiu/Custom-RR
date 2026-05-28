@@ -178,10 +178,10 @@ class TreblePage extends StatelessWidget {
       name: 'TrebleDroid',
       status: _GsiStatus.activeDaily,
       pitch:
-          'Actively maintained successor to phh-Treble. Daily AOSP-based '
-          'builds with the widest device fix list rolled into one image, '
-          'including the most up-to-date `vndklite` and arm32_binder64 '
-          'variants.',
+          'Actively maintained AOSP-based GSI project. Daily builds with '
+          'the widest device fix list rolled into one image, including '
+          'the most up-to-date `vndklite` and arm32_binder64 variants. '
+          'Its wiki hosts the canonical cross-project GSI index.',
       primary: _GsiLink(
         label: 'GitHub Releases',
         url:
@@ -327,23 +327,6 @@ class TreblePage extends StatelessWidget {
       secondary: _GsiLink(
         label: 'GitHub org',
         url: 'https://github.com/BlissRoms',
-      ),
-    ),
-    _GsiProject(
-      name: 'phh-Treble (phhusson)',
-      status: _GsiStatus.archivedIndexed,
-      pitch:
-          'The original Treble GSI project. Releases stopped and the '
-          'community wiki has since moved to the TrebleDroid fork, which '
-          'now hosts the canonical GSI index across every project.',
-      primary: _GsiLink(
-        label: 'GSI wiki list (TrebleDroid)',
-        url:
-            'https://github.com/TrebleDroid/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list',
-      ),
-      secondary: _GsiLink(
-        label: 'Original releases',
-        url: 'https://github.com/phhusson/treble_experimentations/releases',
       ),
     ),
     _GsiProject(
@@ -1065,12 +1048,6 @@ class _GsiProjectCard extends StatelessWidget {
           scheme.onTertiaryContainer,
           Icons.verified_rounded,
         );
-      case _GsiStatus.archivedIndexed:
-        return (
-          scheme.surfaceContainerHighest,
-          scheme.onSurfaceVariant,
-          Icons.archive_outlined,
-        );
       case _GsiStatus.discontinued:
         return (
           scheme.errorContainer,
@@ -1171,7 +1148,6 @@ enum _GsiStatus {
   activeDaily('Active, daily'),
   activeMonthly('Active, monthly'),
   referenceQuarterly('Reference, quarterly'),
-  archivedIndexed('Archived but indexed'),
   discontinued('Discontinued');
 
   const _GsiStatus(this.label);
