@@ -171,6 +171,8 @@ class _CatalogCardState extends State<CatalogCard> {
                         const SizedBox(height: 4),
                         Text(
                           widget.subtitle,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
                           style: text.bodyMedium?.copyWith(
                             color: scheme.onSurfaceVariant,
                           ),
