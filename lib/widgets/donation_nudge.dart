@@ -219,9 +219,9 @@ class _DonationNudgeState extends State<DonationNudge>
             ),
             ListTile(
               leading: Icon(Icons.favorite_rounded, color: scheme.primary),
-              title: const Text('Become a supporter'),
+              title: const Text('Tip or become a supporter'),
               subtitle: const Text(
-                'Silver or Gold tier: early builds & roadmap votes',
+                'One-off tip, or Silver / Gold monthly tiers',
               ),
               onTap: () {
                 Navigator.of(ctx).pop();
@@ -352,9 +352,9 @@ class _DonationNudgeState extends State<DonationNudge>
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            'This app is free and ad-free. Silver and '
-                            'Gold supporters get new builds a few days '
-                            'early and a vote in the monthly roadmap.',
+                            'Free and ad-free. Tip once, or join '
+                            'Silver / Gold for early builds and a '
+                            'vote in the monthly roadmap.',
                             style: text.bodyMedium?.copyWith(
                               color: scheme.onSecondaryContainer,
                             ),
