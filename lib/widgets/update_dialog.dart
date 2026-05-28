@@ -34,7 +34,7 @@ Future<void> showUpdateDialog(
           : 'Custom RR v${result.latestVersion} is available. '
               'You are on v${result.currentVersion}.';
 
-  final String notes = result.releaseNotes.trim();
+  final String notes = _stripMarkdown(result.releaseNotes).trim();
   final String trimmedNotes =
       notes.length > 1200 ? '${notes.substring(0, 1200)}\u2026' : notes;
 
@@ -117,9 +117,51 @@ Future<void> showUpdateDialog(
   );
 }
 
+/// Converts a GitHub-style Markdown release body into plain text suitable
+/// for a single `Text` widget. Removes ATX headings, bold/italic markers,
+/// inline code backticks, image syntax, and reduces links to their label.
+String _stripMarkdown(String src) {
+  String s = src.replaceAll('\r\n', '\n');
+  // Drop fenced code block markers but keep the code inside.
+  s = s.replaceAll(RegExp(r'```[^\n]*\n'), '').replaceAll('```', '');
+  // Strip leading ATX heading markers and trailing #'s.
+  s = s.replaceAllMapped(
+    RegExp(r'^[ \t]{0,3}#{1,6}[ \t]+(.*?)\s*#*\s*$', multiLine: true),
+    (Match m) => m.group(1) ?? '',
+  );
+  // Images: ![alt](url) -> alt
+  s = s.replaceAllMapped(
+    RegExp(r'!\[([^\]]*)\]\([^)]*\)'),
+    (Match m) => m.group(1) ?? '',
+  );
+  // Links: [text](url) -> text
+  s = s.replaceAllMapped(
+    RegExp(r'\[([^\]]+)\]\(([^)]+)\)'),
+    (Match m) => m.group(1) ?? '',
+  );
+  // Autolinks: <url> -> url
+  s = s.replaceAllMapped(
+    RegExp(r'<((?:https?|mailto):[^>]+)>'),
+    (Match m) => m.group(1) ?? '',
+  );
+  // Bold/italic markers (** __ * _) - drop the delimiters, keep text.
+  s = s.replaceAll(RegExp(r'(\*\*|__)(.*?)\1'), r'$2');
+  s = s.replaceAll(RegExp(r'(?<!\w)[*_]([^*_\n]+)[*_](?!\w)'), r'$1');
+  // Inline code: `code` -> code
+  s = s.replaceAllMapped(
+    RegExp(r'`([^`]+)`'),
+    (Match m) => m.group(1) ?? '',
+  );
+  // Blockquote markers at line start.
+  s = s.replaceAll(RegExp(r'^[ \t]{0,3}>[ \t]?', multiLine: true), '');
+  // Horizontal rules.
+  s = s.replaceAll(RegExp(r'^[ \t]{0,3}(?:-{3,}|\*{3,}|_{3,})[ \t]*$', multiLine: true), '');
+  // Collapse 3+ blank lines down to 2.
+  s = s.replaceAll(RegExp(r'\n{3,}'), '\n\n');
+  return s;
+}
+
 /// Turns an arbitrary error into a short, user-readable line.
-/// Strips Dio's noisy stack-trace style toString and exposes the
-/// underlying network/IO cause where useful.
 String humanizeUpdateError(Object error) {
   if (error is NoMatchingApkException) {
     return 'No APK in this release matches your device '
