@@ -219,9 +219,9 @@ class _DonationNudgeState extends State<DonationNudge>
             ),
             ListTile(
               leading: Icon(Icons.favorite_rounded, color: scheme.primary),
-              title: const Text('Tip or become a supporter'),
+              title: const Text('Tip or pick a tier'),
               subtitle: const Text(
-                'One-off tip, or Silver / Gold monthly tiers',
+                'One-off tip, or join Silver / Gold for the perks',
               ),
               onTap: () {
                 Navigator.of(ctx).pop();
