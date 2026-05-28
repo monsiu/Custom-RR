@@ -72,7 +72,7 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final PackageInfo info = widget.info;
-    final String versionLine = 'v${info.version}+${info.buildNumber}';
+    final String versionLine = 'v${info.version}';
 
     return AlertDialog(
       scrollable: true,
