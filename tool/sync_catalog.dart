@@ -64,13 +64,22 @@ Future<void> main(List<String> args) async {
     '[sync] loaded ${pixelosDevices.length} PixelOS official devices',
   );
 
+  // Manufacturers shown in the Devices section must cover every vendor
+  // referenced by any ROM, including PixelOS-only ones (e.g. 10or) that
+  // never appear in the LineageOS wiki.
+  final Set<String> allVendors = <String>{
+    ...vendors,
+    ...pixelosDevices.map((_Device d) => d.vendor),
+  };
+  final List<String> mergedVendors = allVendors.toList()..sort();
+
   // Build the JSON.
   final Map<String, dynamic> root = <String, dynamic>{
     '_generated': 'tool/sync_catalog.dart',
     '_generatedAt': DateTime.now().toUtc().toIso8601String(),
     'roms': _buildRoms(devices, pixelosDevices: pixelosDevices),
     'recoveries': _buildRecoveries(devices),
-    'devices': _buildDevices(vendors),
+    'devices': _buildDevices(mergedVendors),
   };
 
   const JsonEncoder pretty = JsonEncoder.withIndent('  ');
