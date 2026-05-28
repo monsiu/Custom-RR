@@ -31,7 +31,18 @@ class TrebleHintBanner extends StatelessWidget {
     final TextTheme text = Theme.of(context).textTheme;
     final String headline = switch (kind) {
       'ROM' => "Don't see a ROM for your phone?",
+      'no-roms' => 'No catalogued ROMs cover this brand. Try a GSI.',
       _ => "Don't see your device officially supported?",
+    };
+    final String body = switch (kind) {
+      'no-roms' =>
+        'Devices with no official ROM support in this catalog are usually still flashable with a Generic System Image (GSI). If the device shipped with Android 9 or later it is almost certainly Project Treble compatible. The Treble & GSI tab walks through the whole flow and lists every active GSI project.',
+      _ =>
+        'If it shipped with Android 9 or later, it is '
+            'almost certainly Project Treble compatible, '
+            'which means a Generic System Image (GSI) can '
+            'boot on it as a "universal ROM". The Treble & '
+            'GSI tab walks through the whole flow.',
     };
     return Padding(
       padding: padding,
@@ -73,11 +84,7 @@ class TrebleHintBanner extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'If it shipped with Android 9 or later, it is '
-                          'almost certainly Project Treble compatible, '
-                          'which means a Generic System Image (GSI) can '
-                          'boot on it as a "universal ROM". The Treble & '
-                          'GSI tab walks through the whole flow.',
+                          body,
                           style: text.bodySmall?.copyWith(
                             color: scheme.onTertiaryContainer,
                           ),

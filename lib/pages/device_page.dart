@@ -95,8 +95,8 @@ class DevicePage extends StatelessWidget {
                             context.push(AppRoutes.recoveryDetail(e.id)),
                       ),
                       const SizedBox(height: 16),
-                      const TrebleHintBanner(
-                        kind: 'device',
+                      TrebleHintBanner(
+                        kind: roms.isEmpty ? 'no-roms' : 'device',
                         padding: EdgeInsets.zero,
                       ),
                     ],

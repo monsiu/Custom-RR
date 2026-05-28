@@ -3,7 +3,7 @@
 _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https://github.com/monsiu/Custom-RR)_
 
 [![CI](https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml/badge.svg)](https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/monsiu/Custom-RR)](LICENSE)
+[![License: GPL-3.0-only](https://img.shields.io/badge/License-GPL--3.0--only-blue.svg)](LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-3.22+-02569B?logo=flutter)](https://flutter.dev)
 
 A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, and step-by-step flashing instructions.
