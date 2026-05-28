@@ -333,13 +333,13 @@ class TreblePage extends StatelessWidget {
       name: 'phh-Treble (phhusson)',
       status: _GsiStatus.archivedIndexed,
       pitch:
-          'The original Treble GSI project. Releases stopped, but the '
-          'community-maintained wiki list still indexes every GSI variant '
-          'across every project. Treat it as the canonical map.',
+          'The original Treble GSI project. Releases stopped and the '
+          'community wiki has since moved to the TrebleDroid fork, which '
+          'now hosts the canonical GSI index across every project.',
       primary: _GsiLink(
-        label: 'GSI wiki list',
+        label: 'GSI wiki list (TrebleDroid)',
         url:
-            'https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list',
+            'https://github.com/TrebleDroid/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list',
       ),
       secondary: _GsiLink(
         label: 'Original releases',
@@ -358,9 +358,9 @@ class TreblePage extends StatelessWidget {
         url: 'https://github.com/ArrowOS',
       ),
       secondary: _GsiLink(
-        label: 'phh GSI wiki entry',
+        label: 'TrebleDroid GSI wiki entry',
         url:
-            'https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list',
+            'https://github.com/TrebleDroid/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list',
       ),
     ),
     _GsiProject(
@@ -374,9 +374,9 @@ class TreblePage extends StatelessWidget {
         url: 'https://github.com/DotOS',
       ),
       secondary: _GsiLink(
-        label: 'phh GSI wiki entry',
+        label: 'TrebleDroid GSI wiki entry',
         url:
-            'https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list',
+            'https://github.com/TrebleDroid/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list',
       ),
     ),
     _GsiProject(
