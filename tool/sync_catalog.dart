@@ -61,7 +61,8 @@ Future<void> main(List<String> args) async {
 
   final List<_Device> pixelosDevices = await _loadPixelosDevices(refresh: refresh);
   stdout.writeln(
-      '[sync] loaded ${pixelosDevices.length} PixelOS official devices');
+    '[sync] loaded ${pixelosDevices.length} PixelOS official devices',
+  );
 
   // Build the JSON.
   final Map<String, dynamic> root = <String, dynamic>{
@@ -144,7 +145,8 @@ Future<List<_Device>> _loadPixelosDevices({required bool refresh}) async {
       cache.writeAsStringSync(raw);
     } else if (cache.existsSync()) {
       stderr.writeln(
-          '[sync] pixelos fetch failed, using cached ${cache.path}');
+        '[sync] pixelos fetch failed, using cached ${cache.path}',
+      );
       raw = cache.readAsStringSync();
     } else {
       throw StateError('pixelos fetch failed: ${curl.stderr}');
