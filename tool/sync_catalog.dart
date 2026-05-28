@@ -306,8 +306,10 @@ typedef _Policy = bool Function(_Device d);
 _Policy _policyFor(String romId) {
   switch (romId) {
     case 'lineage':
-      // Officially everything in the wiki, modern branches only.
-      return (_Device d) => d.type == 'phone' && _branchAtLeast(d, 20);
+      // Officially everything in the wiki on a currently-maintained
+      // branch (LineageOS 20 = Android 13 and newer). All form factors
+      // included: phones, tablets, Android TV, set-top boxes.
+      return (_Device d) => _branchAtLeast(d, 20);
     case 'crdroid':
       // crDroid's official list, ~150 devices, mostly Xiaomi/OnePlus/Pixel.
       return (_Device d) =>
