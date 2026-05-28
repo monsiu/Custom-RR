@@ -105,6 +105,10 @@ jobs:
     needs: [build-android, build-linux]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+          fetch-depth: 0
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
@@ -114,11 +118,47 @@ jobs:
           find artifacts -type f \( -name '*.apk' -o -name '*.tar.gz' \) \
             -exec cp {} release-assets/ \;
           ls -la release-assets
+      - name: Build release notes
+        id: notes
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          # If RELEASE_NOTES.md is checked in, use it verbatim.
+          if [ -f RELEASE_NOTES.md ]; then
+            echo "Using RELEASE_NOTES.md"
+            cp RELEASE_NOTES.md body.md
+          else
+            # Otherwise build notes from git log between the previous tag and this one.
+            PREV=$(git tag --list 'v*' --sort=-version:refname \
+              | grep -vFx "$TAG" | head -n1 || true)
+            {
+              echo "## What's changed"
+              echo
+              if [ -n "$PREV" ]; then
+                echo "Changes since [\`$PREV\`](https://github.com/$REPO/releases/tag/$PREV):"
+                echo
+                git log --no-merges --pretty='- %s ([\`%h\`](https://github.com/'"$REPO"'/commit/%H))' "$PREV..$TAG"
+                echo
+                echo "**Full Changelog**: https://github.com/$REPO/compare/$PREV...$TAG"
+              else
+                echo "First release. Highlights from the commit history:"
+                echo
+                git log --no-merges --pretty='- %s ([\`%h\`](https://github.com/'"$REPO"'/commit/%H))' "$TAG"
+                echo
+                echo "**Full Changelog**: https://github.com/$REPO/commits/$TAG"
+              fi
+            } > body.md
+          fi
+          echo "----- body.md -----"
+          cat body.md
       - name: Publish draft release
         uses: softprops/action-gh-release@v2
         with:
           draft: true
-          generate_release_notes: true
+          generate_release_notes: false
           name: ${{ inputs.tag || github.ref_name }}
           tag_name: ${{ inputs.tag || github.ref_name }}
+          body_path: body.md
           files: release-assets/*
