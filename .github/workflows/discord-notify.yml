@@ -1,7 +1,15 @@
 name: Discord release notification
 
-# Fires when a draft release is promoted to published (or a non-draft
-# release is created directly). Does NOT fire while the release is a draft.
+# Posts an embed to a Discord channel whenever a release is published
+# (i.e. a draft is promoted, or a non-draft release is created).
+#
+# Requirements:
+#   - Repo secret DISCORD_WEBHOOK_URL set to the channel webhook.
+#     If the secret is absent the job exits cleanly with a warning.
+#   - Release must be published by a personal token / GitHub App, not
+#     the default GITHUB_TOKEN. Events fired by GITHUB_TOKEN do not
+#     start other workflows, so this one would not run.
+
 on:
   release:
     types: [published]
@@ -13,57 +21,81 @@ jobs:
   notify:
     name: Post to Discord
     runs-on: ubuntu-latest
-    if: ${{ !github.event.release.draft }}
+    if: ${{ github.event.release.draft == false }}
     steps:
       - name: Send webhook
         env:
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          TAG: ${{ github.event.release.tag_name }}
-          NAME: ${{ github.event.release.name }}
-          URL: ${{ github.event.release.html_url }}
-          BODY: ${{ github.event.release.body }}
-          IS_PRERELEASE: ${{ github.event.release.prerelease }}
+          RELEASE_JSON: ${{ toJSON(github.event.release) }}
           REPO: ${{ github.repository }}
-          AUTHOR: ${{ github.event.release.author.login }}
-          AUTHOR_AVATAR: ${{ github.event.release.author.avatar_url }}
+        shell: python
         run: |
-          set -euo pipefail
-          if [ -z "${WEBHOOK:-}" ]; then
-            echo "::warning::DISCORD_WEBHOOK_URL secret is not set; skipping."
-            exit 0
-          fi
-          # Trim release body for the embed description (Discord limit is 4096).
-          DESCRIPTION=$(printf '%s' "$BODY" | head -c 1800)
-          if [ "${#BODY}" -gt 1800 ]; then
-            DESCRIPTION="$(printf '%s\n\n[Read the full notes on GitHub](%s)' "$DESCRIPTION" "$URL")"
-          fi
-          TITLE_PREFIX="New release"
-          COLOR=3066993   # green
-          if [ "$IS_PRERELEASE" = "true" ]; then
-            TITLE_PREFIX="New pre-release"
-            COLOR=15844367 # gold
-          fi
-          PAYLOAD=$(jq -n \
-            --arg title "$TITLE_PREFIX: ${NAME:-$TAG}" \
-            --arg url "$URL" \
-            --arg desc "$DESCRIPTION" \
-            --arg repo "$REPO" \
-            --arg author "$AUTHOR" \
-            --arg avatar "$AUTHOR_AVATAR" \
-            --argjson color "$COLOR" \
-            '{
-              username: "Custom RR releases",
-              embeds: [{
-                title: $title,
-                url: $url,
-                description: $desc,
-                color: $color,
-                footer: { text: $repo },
-                author: ($author | if . == "" then null else {name: ., icon_url: $avatar, url: ("https://github.com/" + .)} end)
-              }]
-            }')
-          curl -sS -H 'Content-Type: application/json' \
-            -X POST -d "$PAYLOAD" \
-            "$WEBHOOK?wait=true" \
-            -o /tmp/discord_resp -w 'http=%{http_code}\n'
-          cat /tmp/discord_resp
+          import json
+          import os
+          import sys
+          import urllib.request
+
+          webhook = os.environ.get("WEBHOOK", "").strip()
+          if not webhook:
+              print("::warning::DISCORD_WEBHOOK_URL secret is not set; skipping.")
+              sys.exit(0)
+
+          release = json.loads(os.environ["RELEASE_JSON"])
+          repo = os.environ["REPO"]
+
+          tag = release.get("tag_name") or ""
+          name = release.get("name") or tag or "(untitled)"
+          url = release.get("html_url") or f"https://github.com/{repo}/releases"
+          body = release.get("body") or ""
+          prerelease = bool(release.get("prerelease"))
+          author = (release.get("author") or {})
+          assets = release.get("assets") or []
+
+          # Discord embed description limit is 4096; keep some headroom
+          # for the "read more" link and asset list.
+          MAX_DESC = 1800
+          if len(body) > MAX_DESC:
+              body = body[:MAX_DESC].rstrip() + f"\n\n[Read the full notes on GitHub]({url})"
+
+          if assets:
+              names = ", ".join(a.get("name", "?") for a in assets[:6])
+              extra = "" if len(assets) <= 6 else f" (+{len(assets) - 6} more)"
+              body = (body + "\n\n" if body else "") + f"**Assets:** {names}{extra}"
+
+          embed = {
+              "title": ("New pre-release: " if prerelease else "New release: ") + name,
+              "url": url,
+              "description": body or None,
+              "color": 15844367 if prerelease else 3066993,
+              "footer": {"text": repo},
+              "timestamp": release.get("published_at"),
+          }
+          login = author.get("login")
+          if login:
+              embed["author"] = {
+                  "name": login,
+                  "icon_url": author.get("avatar_url"),
+                  "url": f"https://github.com/{login}",
+              }
+          # Drop None values Discord rejects.
+          embed = {k: v for k, v in embed.items() if v is not None}
+
+          payload = {
+              "username": "Custom RR releases",
+              "embeds": [embed],
+          }
+          data = json.dumps(payload).encode("utf-8")
+          req = urllib.request.Request(
+              webhook + "?wait=true",
+              data=data,
+              headers={"Content-Type": "application/json"},
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=15) as resp:
+                  print(f"discord http={resp.status}")
+                  print(resp.read().decode("utf-8", "replace"))
+          except urllib.error.HTTPError as e:
+              print(f"::error::discord webhook failed http={e.code}")
+              print(e.read().decode("utf-8", "replace"))
+              sys.exit(1)
