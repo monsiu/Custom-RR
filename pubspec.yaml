@@ -3,6 +3,7 @@ description: A single home for popular Android custom ROMs and recoveries, with 
 publish_to: 'none'
 version: 0.1.1+2  
 
+# SPDX-License-Identifier: GPL-3.0-only
 homepage: https://github.com/monsiu/Custom-RR
 repository: https://github.com/monsiu/Custom-RR
 issue_tracker: https://github.com/monsiu/Custom-RR/issues

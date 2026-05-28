@@ -162,4 +162,4 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 
 ## License
 
-Released under the terms of the [LICENSE](LICENSE) file in this repo.
+Released under the **GNU General Public License v3.0 only** (`SPDX-License-Identifier: GPL-3.0-only`). See the [LICENSE](LICENSE) file for the full text.
