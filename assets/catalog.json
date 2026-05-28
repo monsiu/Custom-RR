@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-28T22:56:32.321955Z",
+  "_generatedAt": "2026-05-28T23:05:38.199858Z",
   "roms": [
     {
       "id": "lineage",
@@ -9955,7 +9955,7 @@
       "shortTagline": "Community continuation of RisingOS after its original team went on hiatus.",
       "description": [
         "RisingOS Revived is a community-led continuation of the original RisingOS, which has been on hiatus. A group of former contributors and device maintainers picked the codebase up to keep monthly builds, security patches, and customisation features flowing.",
-        "The project is coordinated on Telegram (https://t.me/s/RisingRevived/30) and developed openly under the RisingOS-Revived GitHub organisation (https://github.com/RisingOS-Revived). Per-device builds are published to the Revived devices page."
+        "The project is coordinated on Telegram and developed openly under the RisingOS-Revived GitHub organisation. Per-device builds are published to the Revived devices page."
       ],
       "features": [
         "Continuation of the RisingOS feature set: deep customisation, Pixel-style UI, AI integrations.",
@@ -11277,7 +11277,24 @@
       ],
       "downloadLabel": "Devices and builds",
       "downloadUrl": "https://risingos-revived-devices.github.io/",
-      "forumUrl": "https://t.me/s/RisingRevived/30"
+      "forumUrl": "https://t.me/s/RisingRevived/30",
+      "links": [
+        {
+          "label": "Telegram channel",
+          "url": "https://t.me/s/RisingRevived/30",
+          "iconName": "telegram"
+        },
+        {
+          "label": "GitHub organisation",
+          "url": "https://github.com/RisingOS-Revived",
+          "iconName": "github"
+        },
+        {
+          "label": "Devices page",
+          "url": "https://risingos-revived-devices.github.io/",
+          "iconName": "web"
+        }
+      ]
     },
     {
       "id": "voltage",

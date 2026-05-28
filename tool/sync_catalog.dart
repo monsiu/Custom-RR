@@ -929,7 +929,7 @@ List<Map<String, dynamic>> _buildRoms(
           'Community continuation of RisingOS after its original team went on hiatus.',
       description: <String>[
         'RisingOS Revived is a community-led continuation of the original RisingOS, which has been on hiatus. A group of former contributors and device maintainers picked the codebase up to keep monthly builds, security patches, and customisation features flowing.',
-        'The project is coordinated on Telegram (https://t.me/s/RisingRevived/30) and developed openly under the RisingOS-Revived GitHub organisation (https://github.com/RisingOS-Revived). Per-device builds are published to the Revived devices page.',
+        'The project is coordinated on Telegram and developed openly under the RisingOS-Revived GitHub organisation. Per-device builds are published to the Revived devices page.',
       ],
       features: <String>[
         'Continuation of the RisingOS feature set: deep customisation, Pixel-style UI, AI integrations.',
@@ -950,6 +950,23 @@ List<Map<String, dynamic>> _buildRoms(
       downloadLabel: 'Devices and builds',
       downloadUrl: 'https://risingos-revived-devices.github.io/',
       forumUrl: 'https://t.me/s/RisingRevived/30',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Telegram channel',
+          url: 'https://t.me/s/RisingRevived/30',
+          iconName: 'telegram',
+        ),
+        _RomLink(
+          label: 'GitHub organisation',
+          url: 'https://github.com/RisingOS-Revived',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Devices page',
+          url: 'https://risingos-revived-devices.github.io/',
+          iconName: 'web',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'voltage',
@@ -1221,6 +1238,8 @@ List<Map<String, dynamic>> _buildRoms(
       'downloadUrl': s.downloadUrl,
       'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
       if (s.warning != null) 'warning': s.warning,
+      if (s.links.isNotEmpty)
+        'links': s.links.map((_RomLink l) => l.toJson()).toList(),
     };
   }).toList();
 }
@@ -1468,6 +1487,7 @@ class _RomSpec {
     required this.downloadUrl,
     this.forumUrl,
     this.warning,
+    this.links = const <_RomLink>[],
   });
 
   final String id;
@@ -1489,6 +1509,27 @@ class _RomSpec {
   /// detail page. Use for credibility concerns, community controversies,
   /// or projects on hiatus that still ship downloadable builds.
   final String? warning;
+
+  /// Optional curated external links shown as clickable chips between the
+  /// description and Key Features. Use for project Telegram channels,
+  /// GitHub orgs, per-device builds pages, etc.
+  final List<_RomLink> links;
+}
+
+class _RomLink {
+  const _RomLink({required this.label, required this.url, this.iconName = ''});
+  final String label;
+  final String url;
+
+  /// One of: 'telegram', 'github', 'discord', 'matrix', 'forum', 'web'.
+  /// Empty falls back to a generic link icon on the client.
+  final String iconName;
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'label': label,
+        'url': url,
+        if (iconName.isNotEmpty) 'iconName': iconName,
+      };
 }
 
 /// Deterministic XDA search URL for [name]. Used as a fallback whenever a

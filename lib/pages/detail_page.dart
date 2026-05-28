@@ -114,6 +114,18 @@ class DetailPage extends StatelessWidget {
                         Text(paragraph, style: text.bodyLarge),
                         const SizedBox(height: 12),
                       ],
+                      if (entry.links.isNotEmpty) ...<Widget>[
+                        const SizedBox(height: 4),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: <Widget>[
+                            for (final CatalogLink link in entry.links)
+                              _LinkChip(link: link),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                      ],
                       if (entry.features.isNotEmpty) ...<Widget>[
                         const SizedBox(height: 12),
                         Text('Key Features', style: text.titleLarge),
@@ -171,6 +183,46 @@ class DetailPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _LinkChip extends StatelessWidget {
+  const _LinkChip({required this.link});
+
+  final CatalogLink link;
+
+  IconData _icon() {
+    switch (link.iconName) {
+      case 'telegram':
+        return Icons.send;
+      case 'github':
+        return Icons.code;
+      case 'discord':
+        return Icons.chat_bubble_outline;
+      case 'matrix':
+        return Icons.alternate_email;
+      case 'forum':
+        return Icons.forum_outlined;
+      case 'web':
+        return Icons.public;
+      default:
+        return Icons.link;
+    }
+  }
+
+  Future<void> _open() async {
+    await launchUrl(Uri.parse(link.url), mode: LaunchMode.externalApplication);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    return ActionChip(
+      avatar: Icon(_icon(), size: 18, color: scheme.primary),
+      label: Text(link.label),
+      onPressed: _open,
+      tooltip: link.url,
     );
   }
 }
