@@ -16,6 +16,7 @@ class CatalogEntry {
     required this.downloadUrl,
     this.forumUrl = '',
     this.warning = '',
+    this.links = const <CatalogLink>[],
   });
 
   final String id;
@@ -45,6 +46,11 @@ class CatalogEntry {
   /// from a Wayback mirror, or community controversies. Empty when none.
   final String warning;
 
+  /// Optional curated links rendered as clickable chips on the detail
+  /// page, between the description and the Key Features section. Use for
+  /// project Telegram channels, GitHub orgs, devices pages, etc.
+  final List<CatalogLink> links;
+
   /// Distinct manufacturer names from [devices]. Used to filter ROMs/recoveries
   /// on the manufacturer-level Device page.
   List<String> get supportedManufacturers {
@@ -69,6 +75,7 @@ class CatalogEntry {
       downloadUrl: json['downloadUrl'] as String,
       forumUrl: (json['forumUrl'] as String?) ?? '',
       warning: (json['warning'] as String?) ?? '',
+      links: _catalogLinks(json['links']),
     );
   }
 }
@@ -140,6 +147,38 @@ List<DeviceRef> _deviceRefs(Object? value) {
   return (value as List<dynamic>)
       .map((dynamic e) => DeviceRef.fromJson(e as Map<String, dynamic>))
       .toList(growable: false);
+}
+
+List<CatalogLink> _catalogLinks(Object? value) {
+  if (value == null) return const <CatalogLink>[];
+  return (value as List<dynamic>)
+      .map((dynamic e) => CatalogLink.fromJson(e as Map<String, dynamic>))
+      .toList(growable: false);
+}
+
+/// A curated external link rendered as a clickable chip on a ROM or
+/// recovery detail page. [iconName] is a small enum-style string
+/// ('telegram', 'github', 'web', 'discord', 'matrix', 'forum') mapped to a
+/// concrete Material icon at render time; empty falls back to a generic
+/// link icon.
+class CatalogLink {
+  const CatalogLink({
+    required this.label,
+    required this.url,
+    this.iconName = '',
+  });
+
+  final String label;
+  final String url;
+  final String iconName;
+
+  factory CatalogLink.fromJson(Map<String, dynamic> json) {
+    return CatalogLink(
+      label: json['label'] as String,
+      url: json['url'] as String,
+      iconName: (json['iconName'] as String?) ?? '',
+    );
+  }
 }
 
 /// Build-freshness status for a catalog entry. Drives the colour and label
