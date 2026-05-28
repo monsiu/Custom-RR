@@ -373,24 +373,23 @@ class _DonationNudgeState extends State<DonationNudge>
                   ],
                 ),
                 const SizedBox(height: 4),
-                Wrap(
-                  alignment: WrapAlignment.end,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 4,
-                  runSpacing: 4,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     TextButton(
                       onPressed: _snooze,
                       style: TextButton.styleFrom(
                         foregroundColor: scheme.onSecondaryContainer,
                       ),
-                      child: const Text('Maybe later'),
+                      child: const Text('Later'),
                     ),
+                    const SizedBox(width: 4),
                     FilledButton.icon(
                       onPressed: _support,
                       icon: const Icon(Icons.favorite_rounded, size: 18),
-                      label: const Text('Become a supporter'),
+                      label: const Text('Support'),
                     ),
+                    const SizedBox(width: 4),
                   ],
                 ),
               ],
