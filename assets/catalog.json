@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-28T19:04:37.640545Z",
+  "_generatedAt": "2026-05-28T21:26:25.252673Z",
   "roms": [
     {
       "id": "lineage",
@@ -30254,6 +30254,10 @@
       "imageAsset": "images/device_10or.png"
     },
     {
+      "name": "10or",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "ARK",
       "imageAsset": "images/device_ark.png"
     },
@@ -30312,6 +30316,10 @@
     {
       "name": "Lenovo",
       "imageAsset": "images/lenovo.png"
+    },
+    {
+      "name": "Micromax",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Motorola",
