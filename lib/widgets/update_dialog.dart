@@ -34,9 +34,8 @@ Future<void> showUpdateDialog(
           : 'Custom RR v${result.latestVersion} is available. '
               'You are on v${result.currentVersion}.';
 
-  final String notes = _stripMarkdown(result.releaseNotes).trim();
-  final String trimmedNotes =
-      notes.length > 1200 ? '${notes.substring(0, 1200)}\u2026' : notes;
+  final String notes = _stripMarkdown(result.releaseNotes);
+  final String trimmedNotes = _smartTruncate(notes, 1200);
 
   return showDialog<void>(
     context: context,
@@ -144,9 +143,16 @@ String _stripMarkdown(String src) {
     RegExp(r'<((?:https?|mailto):[^>]+)>'),
     (Match m) => m.group(1) ?? '',
   );
-  // Bold/italic markers (** __ * _) - drop the delimiters, keep text.
-  s = s.replaceAll(RegExp(r'(\*\*|__)(.*?)\1'), r'$2');
-  s = s.replaceAll(RegExp(r'(?<!\w)[*_]([^*_\n]+)[*_](?!\w)'), r'$1');
+  // Bold (** or __): keep inner text.
+  s = s.replaceAllMapped(
+    RegExp(r'(\*\*|__)(.+?)\1'),
+    (Match m) => m.group(2) ?? '',
+  );
+  // Italic (* or _): keep inner text, avoid eating list bullets.
+  s = s.replaceAllMapped(
+    RegExp(r'(?<![\*_\w])[*_]([^*_\n]+?)[*_](?![\*_\w])'),
+    (Match m) => m.group(1) ?? '',
+  );
   // Inline code: `code` -> code
   s = s.replaceAllMapped(
     RegExp(r'`([^`]+)`'),
@@ -155,10 +161,30 @@ String _stripMarkdown(String src) {
   // Blockquote markers at line start.
   s = s.replaceAll(RegExp(r'^[ \t]{0,3}>[ \t]?', multiLine: true), '');
   // Horizontal rules.
-  s = s.replaceAll(RegExp(r'^[ \t]{0,3}(?:-{3,}|\*{3,}|_{3,})[ \t]*$', multiLine: true), '');
+  s = s.replaceAll(
+    RegExp(r'^[ \t]{0,3}(?:-{3,}|\*{3,}|_{3,})[ \t]*$', multiLine: true),
+    '',
+  );
+  // Collapse runs of internal whitespace on each line (but keep newlines).
+  s = s.replaceAllMapped(
+    RegExp(r'[ \t]{2,}'),
+    (Match m) => ' ',
+  );
   // Collapse 3+ blank lines down to 2.
   s = s.replaceAll(RegExp(r'\n{3,}'), '\n\n');
-  return s;
+  return s.trim();
+}
+
+/// Truncates text to roughly [maxChars] on a word or newline boundary so
+/// it never cuts mid-word.
+String _smartTruncate(String s, int maxChars) {
+  if (s.length <= maxChars) return s;
+  final String head = s.substring(0, maxChars);
+  // Prefer the last newline, else last space, else hard cut.
+  int cut = head.lastIndexOf('\n');
+  if (cut < maxChars - 200) cut = head.lastIndexOf(' ');
+  if (cut < 0) cut = maxChars;
+  return '${s.substring(0, cut).trimRight()}\u2026';
 }
 
 /// Turns an arbitrary error into a short, user-readable line.
