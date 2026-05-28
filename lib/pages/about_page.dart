@@ -249,8 +249,27 @@ class _AboutPageState extends State<AboutPage> {
       await showUpdateDialog(context, result);
     } on Object catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not check for updates: $e')),
+      await showDialog<void>(
+        context: context,
+        builder: (BuildContext ctx) {
+          final ColorScheme scheme = Theme.of(ctx).colorScheme;
+          return AlertDialog(
+            icon: Icon(Icons.error_outline, color: scheme.error),
+            title: const Text('Could not check for updates'),
+            content: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 480),
+              child: SingleChildScrollView(
+                child: Text(humanizeUpdateError(e)),
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(ctx).pop(),
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
       );
     } finally {
       if (mounted) setState(() => _checking = false);

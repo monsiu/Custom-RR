@@ -117,6 +117,91 @@ Future<void> showUpdateDialog(
   );
 }
 
+/// Turns an arbitrary error into a short, user-readable line.
+/// Strips Dio's noisy stack-trace style toString and exposes the
+/// underlying network/IO cause where useful.
+String humanizeUpdateError(Object error) {
+  if (error is NoMatchingApkException) {
+    return 'No APK in this release matches your device '
+        '(supported: ${error.supportedAbis.join(", ")}).';
+  }
+  if (error is InstallLaunchException) {
+    return 'Could not open the system installer. '
+        'Allow "Install unknown apps" for Custom RR in Settings, then retry.';
+  }
+  if (error is DioException) {
+    if (CancelToken.isCancel(error)) return 'Download cancelled.';
+    final int? code = error.response?.statusCode;
+    final String host = error.requestOptions.uri.host;
+    switch (error.type) {
+      case DioExceptionType.connectionTimeout:
+      case DioExceptionType.sendTimeout:
+      case DioExceptionType.receiveTimeout:
+        return 'Network timed out contacting $host. Check your connection and retry.';
+      case DioExceptionType.badCertificate:
+        return 'TLS certificate from $host was rejected.';
+      case DioExceptionType.connectionError:
+        final Object? inner = error.error;
+        if (inner is SocketException) {
+          return 'Network unreachable: ${inner.osError?.message ?? inner.message}.';
+        }
+        return 'Could not reach $host. Check your connection.';
+      case DioExceptionType.badResponse:
+        return 'Server returned HTTP $code from $host.';
+      case DioExceptionType.cancel:
+        return 'Download cancelled.';
+      case DioExceptionType.unknown:
+        final Object? inner = error.error;
+        if (inner is SocketException) {
+          return 'Network error: ${inner.osError?.message ?? inner.message}.';
+        }
+        return 'Network error contacting $host.';
+    }
+  }
+  if (error is SocketException) {
+    return 'Network error: ${error.osError?.message ?? error.message}.';
+  }
+  if (error is HttpException) {
+    return 'HTTP error: ${error.message}.';
+  }
+  if (error is FormatException) {
+    return 'Could not parse server response: ${error.message}.';
+  }
+  if (error is FileSystemException) {
+    final String detail = error.osError?.message ?? error.message;
+    return 'File system error: $detail.';
+  }
+  final String s = error.toString();
+  // Trim Dio's multi-line dump so SnackBars stay readable.
+  final int nl = s.indexOf('\n');
+  return nl > 0 ? s.substring(0, nl) : s;
+}
+
+void _showUpdateError(BuildContext context, String headline, Object error) {
+  showDialog<void>(
+    context: context,
+    builder: (BuildContext ctx) {
+      final ColorScheme scheme = Theme.of(ctx).colorScheme;
+      return AlertDialog(
+        icon: Icon(Icons.error_outline, color: scheme.error),
+        title: Text(headline),
+        content: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 480),
+          child: SingleChildScrollView(
+            child: Text(humanizeUpdateError(error)),
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 Future<void> _downloadAndInstall(
   BuildContext context,
   UpdateCheckResult result,
@@ -125,23 +210,17 @@ Future<void> _downloadAndInstall(
   final ReleaseAsset? asset;
   try {
     asset = await installer.pickAssetForDevice(result.assets);
-  } on NoMatchingApkException catch (e) {
-    if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('No APK matches this device. $e')),
-    );
-    return;
   } on Object catch (e) {
     if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Could not pick APK: $e')),
-    );
+    _showUpdateError(context, 'Cannot install update', e);
     return;
   }
   if (asset == null) {
     if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('This release has no APK assets.')),
+    _showUpdateError(
+      context,
+      'No installable asset',
+      const FormatException('This release has no APK assets.'),
     );
     return;
   }
@@ -166,22 +245,9 @@ Future<void> _downloadAndInstall(
   try {
     final File apk = await job.done;
     await installer.install(apk);
-  } on InstallLaunchException catch (e) {
-    if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Could not open installer: $e. '
-          'Allow "Install unknown apps" for Custom RR in Settings.',
-        ),
-        duration: const Duration(seconds: 6),
-      ),
-    );
   } on Object catch (e) {
     if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Install failed: $e')),
-    );
+    _showUpdateError(context, 'Install failed', e);
   }
 }
 
@@ -251,18 +317,24 @@ class _DownloadProgressDialogState extends State<_DownloadProgressDialog> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final double? frac = _latest.fraction;
+    final double? frac = _error != null ? 0 : _latest.fraction;
     final String sub = _error != null
-        ? 'Download failed: $_error'
+        ? humanizeUpdateError(_error!)
         : _finished
             ? 'Download complete'
             : _latest.total > 0
                 ? '${_formatBytes(_latest.received)} of ${_formatBytes(_latest.total)}'
                 : 'Starting download...';
+    final Color? subColor =
+        _error != null ? theme.colorScheme.error : null;
 
     return AlertDialog(
-      icon: Icon(Icons.download, color: theme.colorScheme.primary),
-      title: const Text('Downloading update'),
+      icon: Icon(
+        _error != null ? Icons.error_outline : Icons.download,
+        color:
+            _error != null ? theme.colorScheme.error : theme.colorScheme.primary,
+      ),
+      title: Text(_error != null ? 'Download failed' : 'Downloading update'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -273,9 +345,12 @@ class _DownloadProgressDialogState extends State<_DownloadProgressDialog> {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 12),
-          LinearProgressIndicator(value: frac),
-          const SizedBox(height: 8),
-          Text(sub, style: theme.textTheme.bodySmall),
+          if (_error == null) LinearProgressIndicator(value: frac),
+          if (_error == null) const SizedBox(height: 8),
+          Text(
+            sub,
+            style: theme.textTheme.bodySmall?.copyWith(color: subColor),
+          ),
         ],
       ),
       actions: <Widget>[
