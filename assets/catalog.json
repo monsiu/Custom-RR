@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-28T22:41:44.229664Z",
+  "_generatedAt": "2026-05-28T22:56:32.321955Z",
   "roms": [
     {
       "id": "lineage",
@@ -13344,7 +13344,7 @@
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://projectelixiros.com/download",
       "forumUrl": "https://forum.xda-developers.com/search/?q=Project+Elixir&o=date&c[content]=thread",
-      "warning": "In mid-2024, users discovered a hidden \"kill switch\" in Project Elixir's source code. The developers had locked certain customisation features behind a paywall, and if the ROM detected that a user was trying to bypass that paywall (via ADB commands or other methods), the embedded code would automatically wipe the device's internal storage, external SD card, and eSIMs without consent or warning. The Android community condemned this as an extreme, unethical, and potentially illegal anti-piracy measure, especially given the risk of a bug triggering a false positive and destroying innocent users' data. Following the backlash, the developers announced they were shutting the project down, though independent device maintainers have occasionally kept builds alive. We strongly advise against installing Project Elixir; use crDroid, Evolution X, or DerpFest instead."
+      "warning": "In mid-2024, users discovered a hidden \"kill switch\" in Project Elixir's source code. The developers had locked certain customisation features behind a paywall, and if the ROM detected that a user was trying to bypass that paywall (via ADB commands or other methods), the embedded code would automatically wipe the device's internal storage, external SD card, and eSIMs without consent or warning. The Android community condemned this as an extreme, unethical, and potentially illegal anti-piracy measure, especially given the risk of a bug triggering a false positive and destroying innocent users' data.\n\nOther documented issues around the same period included: shipping closed-source, obfuscated payload code inside what is meant to be an AOSP / GPL project (violating upstream licences and Android's open-source spirit); gating features behind paid \"supporter\" tiers on Telegram and Patreon, including basic customisation toggles that other ROMs provide for free; silencing critics by banning them from the official Telegram group, Discord, and XDA threads instead of addressing the concerns; initially denying that the kill switch existed and attacking the researchers who decompiled the code; threatening legal action against community members who shared findings; and reportedly pushing retaliatory OTAs that broke installs on devices belonging to vocal critics.\n\nFollowing the backlash, the developers announced they were shutting the project down, though independent device maintainers have occasionally kept builds alive. We strongly advise against installing Project Elixir; use crDroid, Evolution X, or DerpFest instead."
     },
     {
       "id": "pixelos",
