@@ -633,6 +633,30 @@ class RomsPage extends StatelessWidget {
       lastBuild: '2022 (Android 11)',
       successor: 'crDroid, Evolution X',
     ),
+    DefunctEntry(
+      name: 'ArrowOS',
+      note:
+          'Abandoned. The arrowos.net site has been offline since 2023 with no successor announced.',
+      officialUrl: 'https://arrowos.net/',
+      lastBuild: '2023 (Android 13)',
+      successor: 'crDroid, Evolution X, DerpFest',
+    ),
+    DefunctEntry(
+      name: 'POSP (Potato Open Sauce Project)',
+      note:
+          'Defunct. The project stopped publishing builds and the maintainer team has moved on.',
+      officialUrl: 'https://posp.co/',
+      lastBuild: '2023 (Android 13)',
+      successor: 'crDroid, Evolution X',
+    ),
+    DefunctEntry(
+      name: 'RisingOS (original)',
+      note:
+          'On hiatus. Development of the original project has paused; a community fork (RisingOS Revived) has picked up the codebase. See the RisingOS Revived page in this app.',
+      officialUrl: 'https://risingos.org/',
+      lastBuild: '2024 (Android 15)',
+      successor: 'RisingOS Revived',
+    ),
   ];
 
   @override

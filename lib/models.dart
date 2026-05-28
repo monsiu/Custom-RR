@@ -15,6 +15,7 @@ class CatalogEntry {
     this.downloadLabel = 'Official Builds',
     required this.downloadUrl,
     this.forumUrl = '',
+    this.warning = '',
   });
 
   final String id;
@@ -39,6 +40,11 @@ class CatalogEntry {
   /// "Discuss on XDA" button.
   final String forumUrl;
 
+  /// Optional prominent warning shown above the description on the detail
+  /// page. Use to flag credibility concerns, abandoned projects served
+  /// from a Wayback mirror, or community controversies. Empty when none.
+  final String warning;
+
   /// Distinct manufacturer names from [devices]. Used to filter ROMs/recoveries
   /// on the manufacturer-level Device page.
   List<String> get supportedManufacturers {
@@ -62,6 +68,7 @@ class CatalogEntry {
       downloadLabel: (json['downloadLabel'] as String?) ?? 'Official Builds',
       downloadUrl: json['downloadUrl'] as String,
       forumUrl: (json['forumUrl'] as String?) ?? '',
+      warning: (json['warning'] as String?) ?? '',
     );
   }
 }

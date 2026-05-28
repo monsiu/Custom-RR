@@ -343,18 +343,6 @@ _Policy _policyFor(String romId) {
           _branchAtLeast(d, 21) &&
           const <String>{'Google', 'Xiaomi', 'OnePlus', 'Asus'}
               .contains(d.vendor);
-    case 'arrowos':
-      return (_Device d) =>
-          d.type == 'phone' &&
-          _branchAtLeast(d, 20) &&
-          const <String>{
-            'Google',
-            'Xiaomi',
-            'OnePlus',
-            'Asus',
-            'Realme',
-            'Motorola',
-          }.contains(d.vendor);
     case 'evolutionx':
       return (_Device d) =>
           d.type == 'phone' &&
@@ -396,12 +384,15 @@ _Policy _policyFor(String romId) {
             'Nothing',
           }.contains(d.vendor);
     case 'potatoaosp':
-      return (_Device d) =>
-          d.type == 'phone' &&
-          _yearAtLeast(d, 2018) &&
-          const <String>{'Google', 'Xiaomi', 'OnePlus', 'Asus'}
-              .contains(d.vendor);
+    case 'arrowos':
+      // Defunct; no devices listed. Kept so any stale catalog id passed
+      // here resolves to a no-op filter instead of throwing.
+      return (_Device _) => false;
     case 'risingos':
+      // Original RisingOS is on hiatus; show no devices for the legacy
+      // id. The active project lives under 'risingosrevived'.
+      return (_Device _) => false;
+    case 'risingosrevived':
       return (_Device d) =>
           d.type == 'phone' &&
           _branchAtLeast(d, 21) &&
@@ -752,7 +743,7 @@ List<Map<String, dynamic>> _buildRoms(
         'https://crdroid.net/img/gallery/gallery-6.webp',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://crdroid.net/',
+      downloadUrl: 'https://crdroid.net/downloads',
     ),
     _RomSpec(
       id: 'pixelexperience',
@@ -788,36 +779,6 @@ List<Map<String, dynamic>> _buildRoms(
       forumUrl: 'https://forum.xda-developers.com/c/pixel-experience.10089/',
     ),
     _RomSpec(
-      id: 'arrowos',
-      name: 'ArrowOS',
-      headerAsset: 'images/arrowos.png',
-      shortTagline:
-          'Minimal AOSP-based ROM focused on smoothness and zero bloat.',
-      description: <String>[
-        'ArrowOS sticks close to stock Android, dropping in only the most-requested customisations to keep things fast and battery friendly.',
-        'Ideal if you want something stable, near-vanilla, and easy to live with.',
-      ],
-      features: <String>[
-        'Near-stock AOSP with curated quality-of-life additions.',
-        'Focus on stability and battery life over feature creep.',
-        'Monthly security patches.',
-      ],
-      // arrowos.net has been offline since 2023; serve the original
-      // screenshots from the Internet Archive (2022 snapshot).
-      screenshots: <String>[
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen1.png',
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen2.png',
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen3.png',
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen4.png',
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen5.png',
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen6.png',
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen7.png',
-        'https://web.archive.org/web/20221226073912im_/https://arrowos.net/img/screen8.png',
-      ],
-      downloadLabel: 'Official downloads',
-      downloadUrl: 'https://arrowos.net/',
-    ),
-    _RomSpec(
       id: 'evolutionx',
       name: 'Evolution X',
       headerAsset: 'images/evolutionx.png',
@@ -844,7 +805,7 @@ List<Map<String, dynamic>> _buildRoms(
         'https://raw.githubusercontent.com/Evolution-X/www_gitres/refs/heads/main/screenshots/images/Updater.webp',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://evolution-x.org/',
+      downloadUrl: 'https://evolution-x.org/devices',
     ),
     _RomSpec(
       id: 'paranoidandroid',
@@ -902,7 +863,7 @@ List<Map<String, dynamic>> _buildRoms(
         'https://blog.droidontime.com/static/images/banner_five_dotTwo.png',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://www.droidontime.com/',
+      downloadUrl: 'https://www.droidontime.com/devices',
     ),
     _RomSpec(
       id: 'bliss',
@@ -933,7 +894,7 @@ List<Map<String, dynamic>> _buildRoms(
         'https://web.archive.org/web/20211228193409im_/https://blissroms.org/screenshots/10.jpg',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://blissroms.org/',
+      downloadUrl: 'https://blissroms.org/downloads',
     ),
     _RomSpec(
       id: 'potatoaosp',
@@ -961,18 +922,19 @@ List<Map<String, dynamic>> _buildRoms(
       downloadUrl: 'https://posp.co/',
     ),
     _RomSpec(
-      id: 'risingos',
-      name: 'RisingOS',
+      id: 'risingosrevived',
+      name: 'RisingOS Revived',
       headerAsset: 'images/risingos.png',
       shortTagline:
-          'Feature-rich Android 14/15 ROM with a strong customisation suite.',
+          'Community revival of RisingOS, continuing development after the original project went on hiatus.',
       description: <String>[
-        'RisingOS is a newer-generation custom ROM that ships a deep customisation menu, AI integrations, and polished animations on top of AOSP 14 and 15.',
+        'RisingOS Revived is a community-led continuation of the original RisingOS, which has been on hiatus. A group of former contributors and device maintainers picked the codebase up to keep monthly builds, security patches, and customisation features flowing.',
+        'The project is coordinated on Telegram (https://t.me/s/RisingRevived/30) and developed openly under the RisingOS-Revived GitHub organisation (https://github.com/RisingOS-Revived). Per-device builds are published to the Revived devices page.',
       ],
       features: <String>[
-        'Rich customisation: lockscreen, status-bar, gestures, themes.',
-        'Pixel-style UI baseline.',
-        'Frequent monthly releases.',
+        'Continuation of the RisingOS feature set: deep customisation, Pixel-style UI, AI integrations.',
+        'Community-maintained, fully open source.',
+        'Active Telegram channel and GitHub org.',
       ],
       // Official Rising Revived device screenshots from their gh-pages
       // site repo (risingos-revived-devices.github.io).
@@ -985,8 +947,9 @@ List<Map<String, dynamic>> _buildRoms(
         'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-6-7-portrait.png',
         'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-7-7-portrait.png',
       ],
-      downloadLabel: 'Official downloads',
-      downloadUrl: 'https://risingos.org/',
+      downloadLabel: 'Devices and builds',
+      downloadUrl: 'https://risingos-revived-devices.github.io/',
+      forumUrl: 'https://t.me/s/RisingRevived/30',
     ),
     _RomSpec(
       id: 'voltage',
@@ -1010,7 +973,7 @@ List<Map<String, dynamic>> _buildRoms(
         'https://www.voltageos.com/assets/Frame%20338-7WWYWnVV.png',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://voltageos.com/',
+      downloadUrl: 'https://www.voltageos.com/devices',
     ),
     _RomSpec(
       id: 'projectelixir',
@@ -1034,7 +997,20 @@ List<Map<String, dynamic>> _buildRoms(
         'https://projectelixiros.com/assets/images/s3.png',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://projectelixiros.com/',
+      downloadUrl: 'https://projectelixiros.com/download',
+      warning:
+          'In 2024, Project Elixir was at the centre of multiple community '
+          'controversies that called the project\'s integrity into question. '
+          'Reports across XDA, Telegram, and Reddit alleged that the lead '
+          'maintainer gatekept builds and features behind paid "supporter" '
+          'tiers, banned users who criticised the project, and pulled or '
+          'broke OTAs for devices belonging to vocal critics. There were '
+          'also accusations of relicensing or repackaging community code '
+          'without proper attribution. The project has not publicly '
+          'addressed these concerns in a way the broader custom-ROM '
+          'community has found satisfactory. We advise against installing '
+          'Project Elixir; consider crDroid, Evolution X, or DerpFest as '
+          'better-supported alternatives.',
     ),
     _RomSpec(
       id: 'pixelos',
@@ -1206,7 +1182,7 @@ List<Map<String, dynamic>> _buildRoms(
         'https://derpfest.org/img/5233574769129625083.jpg',
       ],
       downloadLabel: 'Official downloads',
-      downloadUrl: 'https://projectderp.in/',
+      downloadUrl: 'https://derpfest.org/devices',
     ),
   ];
 
@@ -1227,6 +1203,7 @@ List<Map<String, dynamic>> _buildRoms(
       'downloadLabel': s.downloadLabel,
       'downloadUrl': s.downloadUrl,
       'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
+      if (s.warning != null) 'warning': s.warning,
     };
   }).toList();
 }
@@ -1473,6 +1450,7 @@ class _RomSpec {
     required this.downloadLabel,
     required this.downloadUrl,
     this.forumUrl,
+    this.warning,
   });
 
   final String id;
@@ -1489,6 +1467,11 @@ class _RomSpec {
   /// build falls back to [_xdaSearchUrl] so every entry still surfaces a
   /// working "Discuss on XDA" button.
   final String? forumUrl;
+
+  /// Optional prominent warning rendered above the description on the ROM
+  /// detail page. Use for credibility concerns, community controversies,
+  /// or projects on hiatus that still ship downloadable builds.
+  final String? warning;
 }
 
 /// Deterministic XDA search URL for [name]. Used as a fallback whenever a
