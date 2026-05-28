@@ -352,9 +352,9 @@ class _DonationNudgeState extends State<DonationNudge>
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            'Free and ad-free. Tip once, or join '
-                            'Silver / Gold for early builds and a '
-                            'vote in the monthly roadmap.',
+                            'Help keep it growing. Drop a one-off tip, '
+                            'or join Silver / Gold for early builds and '
+                            'a vote in what ships next.',
                             style: text.bodyMedium?.copyWith(
                               color: scheme.onSecondaryContainer,
                             ),
