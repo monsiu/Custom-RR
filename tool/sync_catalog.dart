@@ -926,7 +926,7 @@ List<Map<String, dynamic>> _buildRoms(
       name: 'RisingOS Revived',
       headerAsset: 'images/risingos.png',
       shortTagline:
-          'Community revival of RisingOS, continuing development after the original project went on hiatus.',
+          'Community continuation of RisingOS after its original team went on hiatus.',
       description: <String>[
         'RisingOS Revived is a community-led continuation of the original RisingOS, which has been on hiatus. A group of former contributors and device maintainers picked the codebase up to keep monthly builds, security patches, and customisation features flowing.',
         'The project is coordinated on Telegram (https://t.me/s/RisingRevived/30) and developed openly under the RisingOS-Revived GitHub organisation (https://github.com/RisingOS-Revived). Per-device builds are published to the Revived devices page.',
