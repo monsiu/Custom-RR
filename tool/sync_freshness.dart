@@ -49,11 +49,6 @@ Future<void> main(List<String> args) async {
       version: 'PE 14 Plus',
       source: 'https://download.pixelexperience.org/',
     ),
-    'arrowos': _Seed(
-      lastBuild: DateTime.utc(2024, 11, 20),
-      version: 'Arrow 14.0',
-      source: 'https://arrowos.net/',
-    ),
     'evolutionx': _Seed(
       lastBuild: DateTime.utc(2026, 4, 28),
       version: 'Evolution X 10 (Android 15)',
@@ -74,15 +69,10 @@ Future<void> main(List<String> args) async {
       version: 'Bliss 18 (Android 15)',
       source: 'https://blissroms.org/',
     ),
-    'potatoaosp': _Seed(
-      lastBuild: DateTime.utc(2025, 6, 22),
-      version: 'POSP 5.x (Android 14)',
-      source: 'https://posp.co/',
-    ),
-    'risingos': _Seed(
+    'risingosrevived': _Seed(
       lastBuild: DateTime.utc(2026, 5, 16),
-      version: 'Rising 4.x (Android 15)',
-      source: 'https://risingos.org/',
+      version: 'RisingOS Revived (Android 15)',
+      source: 'https://sourceforge.net/projects/risingos-revived/',
     ),
     'voltage': _Seed(
       lastBuild: DateTime.utc(2026, 4, 30),
@@ -241,6 +231,7 @@ typedef _NetFetcher = Future<_NetResult?> Function(HttpClient client);
 final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
   'grapheneos': _fetchGrapheneOs,
   'lineage': _fetchLineage,
+  'risingosrevived': _fetchRisingOsRevived,
 };
 
 /// GrapheneOS publishes a one-line stable-channel manifest per device at
@@ -305,6 +296,66 @@ Future<String> _httpGetText(HttpClient client, Uri url) async {
     throw HttpException('HTTP ${resp.statusCode} for $url');
   }
   return utf8.decodeStream(resp);
+}
+
+/// SourceForge exposes a per-project RSS feed at
+/// `https://sourceforge.net/projects/{slug}/rss?path=/` listing the most
+/// recent files first. We take the newest `<pubDate>` as the project's
+/// last build timestamp, and pull a version hint from the file path when
+/// one is present (e.g. `.../v6.0/.../RisingOS-...-6.0-...zip`).
+Future<_NetResult?> _fetchRisingOsRevived(HttpClient client) async {
+  final Uri url = Uri.parse(
+    'https://sourceforge.net/projects/risingos-revived/rss?path=/',
+  );
+  final String body = await _httpGetText(client, url);
+
+  final RegExp itemRe =
+      RegExp(r'<item>([\s\S]*?)</item>', caseSensitive: false);
+  final RegExp pubDateRe =
+      RegExp(r'<pubDate>([^<]+)</pubDate>', caseSensitive: false);
+  // SourceForge wraps <title> in CDATA; capture either CDATA or plain text.
+  final RegExp titleRe = RegExp(
+    r'<title>\s*(?:<!\[CDATA\[([\s\S]*?)\]\]>|([^<]+))\s*</title>',
+    caseSensitive: false,
+  );
+
+  DateTime? newest;
+  String? newestTitle;
+  for (final Match m in itemRe.allMatches(body)) {
+    final String chunk = m.group(1) ?? '';
+    final Match? dm = pubDateRe.firstMatch(chunk);
+    if (dm == null) continue;
+    // SourceForge emits e.g. "Wed, 31 Dec 2025 06:21:57 UT", which
+    // HttpDate.parse rejects because the timezone token is "UT" rather
+    // than "GMT" / "UTC" / a numeric offset. Normalise before parsing.
+    final String raw = dm.group(1)!.trim().replaceFirst(
+          RegExp(r'\s+UT$', caseSensitive: false),
+          ' GMT',
+        );
+    DateTime? when;
+    try {
+      when = HttpDate.parse(raw);
+    } on Object {
+      continue;
+    }
+    if (newest == null || when.isAfter(newest)) {
+      newest = when;
+      final Match? tm = titleRe.firstMatch(chunk);
+      newestTitle = (tm?.group(1) ?? tm?.group(2))?.trim();
+    }
+  }
+  if (newest == null) return null;
+
+  String version = 'RisingOS Revived (latest)';
+  if (newestTitle != null) {
+    final Match? vm = RegExp(r'(\d+\.\d+(?:\.\d+)?)').firstMatch(newestTitle);
+    if (vm != null) version = 'RisingOS Revived ${vm.group(1)}';
+  }
+  return _NetResult(
+    lastBuild: newest,
+    version: version,
+    source: 'https://sourceforge.net/projects/risingos-revived/',
+  );
 }
 
 class _NetResult {

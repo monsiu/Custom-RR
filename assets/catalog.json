@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-28T23:05:38.199858Z",
+  "_generatedAt": "2026-05-28T23:11:14.865174Z",
   "roms": [
     {
       "id": "lineage",
@@ -11276,7 +11276,7 @@
         }
       ],
       "downloadLabel": "Devices and builds",
-      "downloadUrl": "https://risingos-revived-devices.github.io/",
+      "downloadUrl": "https://sourceforge.net/projects/risingos-revived/",
       "forumUrl": "https://t.me/s/RisingRevived/30",
       "links": [
         {
@@ -11288,6 +11288,11 @@
           "label": "GitHub organisation",
           "url": "https://github.com/RisingOS-Revived",
           "iconName": "github"
+        },
+        {
+          "label": "SourceForge downloads",
+          "url": "https://sourceforge.net/projects/risingos-revived/",
+          "iconName": "web"
         },
         {
           "label": "Devices page",
