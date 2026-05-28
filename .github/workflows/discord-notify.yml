@@ -35,9 +35,7 @@ jobs:
           # Trim release body for the embed description (Discord limit is 4096).
           DESCRIPTION=$(printf '%s' "$BODY" | head -c 1800)
           if [ "${#BODY}" -gt 1800 ]; then
-            DESCRIPTION="$DESCRIPTION
-
-[Read the full notes on GitHub]($URL)"
+            DESCRIPTION="$(printf '%s\n\n[Read the full notes on GitHub](%s)' "$DESCRIPTION" "$URL")"
           fi
           TITLE_PREFIX="New release"
           COLOR=3066993   # green
