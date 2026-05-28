@@ -7,7 +7,7 @@ import '../routes.dart';
 /// Reusable "don't see your device?" hint shown beneath catalog lists
 /// (Devices, ROMs, Recoveries) and on the brand detail page. Points
 /// users at the Treble & GSI tab as a universal fallback and links out
-/// to the phhusson GSI list and the XDA Project Treble forum.
+/// to the TrebleDroid GSI list and the XDA Project Treble forum.
 class TrebleHintBanner extends StatelessWidget {
   const TrebleHintBanner({
     super.key,
@@ -21,8 +21,8 @@ class TrebleHintBanner extends StatelessWidget {
 
   final EdgeInsetsGeometry padding;
 
-  static const String _phhussonList =
-      'https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list';
+  static const String _gsiList =
+      'https://github.com/TrebleDroid/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list';
   static const String _xdaForum = 'https://xdaforums.com/c/project-treble.7259/';
 
   @override
@@ -98,9 +98,9 @@ class TrebleHintBanner extends StatelessWidget {
                     label: const Text('Open Treble & GSI'),
                   ),
                   OutlinedButton.icon(
-                    onPressed: () => _open(context, _phhussonList),
+                    onPressed: () => _open(context, _gsiList),
                     icon: const Icon(Icons.list_alt_rounded, size: 18),
-                    label: const Text('phhusson GSI list'),
+                    label: const Text('TrebleDroid GSI list'),
                   ),
                   OutlinedButton.icon(
                     onPressed: () => _open(context, _xdaForum),
