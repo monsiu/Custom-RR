@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-28T18:32:17.044838Z",
+  "_generatedAt": "2026-05-28T19:04:37.640545Z",
   "roms": [
     {
       "id": "lineage",
@@ -70,9 +70,34 @@
           "codename": "zangyapro"
         },
         {
+          "brand": "Banana Pi",
+          "model": "M5 (Android TV)",
+          "codename": "m5"
+        },
+        {
+          "brand": "Banana Pi",
+          "model": "M5 (Tablet)",
+          "codename": "m5_tab"
+        },
+        {
+          "brand": "Dynalink",
+          "model": "TV Box 4K (2021)",
+          "codename": "wade"
+        },
+        {
           "brand": "Essential",
           "model": "PH-1",
           "codename": "mata"
+        },
+        {
+          "brand": "F(x)tec",
+          "model": "Pro¹",
+          "codename": "pro1"
+        },
+        {
+          "brand": "F(x)tec",
+          "model": "Pro¹ X",
+          "codename": "pro1x"
         },
         {
           "brand": "Fairphone",
@@ -97,6 +122,26 @@
           "model": "5",
           "codename": "FP5",
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "ADT-3",
+          "codename": "deadpool"
+        },
+        {
+          "brand": "Google",
+          "model": "Chromecast with Google TV (4K)",
+          "codename": "sabrina"
+        },
+        {
+          "brand": "Google",
+          "model": "Jamboard [Android TV]",
+          "codename": "baracus"
+        },
+        {
+          "brand": "Google",
+          "model": "Jamboard [Tablet]",
+          "codename": "baracus_tab"
         },
         {
           "brand": "Google",
@@ -232,6 +277,11 @@
         },
         {
           "brand": "Google",
+          "model": "Pixel 9 Pro Fold",
+          "codename": "comet"
+        },
+        {
+          "brand": "Google",
           "model": "Pixel 9 Pro XL",
           "codename": "komodo",
           "forumUrl": "https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/?prefix_id=33"
@@ -244,8 +294,28 @@
         },
         {
           "brand": "Google",
+          "model": "Pixel Fold",
+          "codename": "felix"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel Tablet",
+          "codename": "tangorpro"
+        },
+        {
+          "brand": "Google",
           "model": "Pixel XL",
           "codename": "marlin"
+        },
+        {
+          "brand": "HardKernel",
+          "model": "ODROID-C4 (Android TV)",
+          "codename": "odroidc4"
+        },
+        {
+          "brand": "HardKernel",
+          "model": "ODROID-C4 (Tablet)",
+          "codename": "odroidc4_tab"
         },
         {
           "brand": "LG",
@@ -756,6 +826,111 @@
           "codename": "bronco"
         },
         {
+          "brand": "NVIDIA",
+          "model": "Jetson Nano 2GB [Android TV]",
+          "codename": "porg"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson Nano 2GB [Tablet]",
+          "codename": "porg_tab"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson Nano [Android TV]",
+          "codename": "porg"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson Nano [Tablet]",
+          "codename": "porg_tab"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson TX1 [Android TV]",
+          "codename": "foster"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson TX1 [Tablet]",
+          "codename": "foster_tab"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson TX2 [Android TV]",
+          "codename": "quill"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson TX2 [Tablet]",
+          "codename": "quill_tab"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson TX2 NX [Android TV]",
+          "codename": "quill"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Jetson TX2 NX [Tablet]",
+          "codename": "quill_tab"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Shield TV (2015 / 2015 Pro / 2017 / 2019 Pro) [Android TV]",
+          "codename": "foster"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Shield TV (2015 / 2015 Pro / 2017 / 2019 Pro) [Tablet]",
+          "codename": "foster_tab"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "Shield TV (2019) [Android TV]",
+          "codename": "sif"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch Lite [Android TV]",
+          "codename": "nx"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch Lite [Tablet]",
+          "codename": "nx_tab"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch OLED [Android TV]",
+          "codename": "nx"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch OLED [Tablet]",
+          "codename": "nx_tab"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch v1 [Android TV]",
+          "codename": "nx"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch v1 [Tablet]",
+          "codename": "nx_tab"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch v2 [Android TV]",
+          "codename": "nx"
+        },
+        {
+          "brand": "Nintendo",
+          "model": "Switch v2 [Tablet]",
+          "codename": "nx_tab"
+        },
+        {
           "brand": "Nokia",
           "model": "6.1 (2018)",
           "codename": "PL2"
@@ -1081,6 +1256,56 @@
           "codename": "larry"
         },
         {
+          "brand": "OnePlus",
+          "model": "Pad 2",
+          "codename": "caihong"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Pad 2 Pro",
+          "codename": "erhai"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Pad 3",
+          "codename": "erhai"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Pad Pro",
+          "codename": "caihong"
+        },
+        {
+          "brand": "Radxa",
+          "model": "Zero (Android TV)",
+          "codename": "radxa0"
+        },
+        {
+          "brand": "Radxa",
+          "model": "Zero (Tablet)",
+          "codename": "radxa0_tab"
+        },
+        {
+          "brand": "Radxa",
+          "model": "Zero 2 (Android TV)",
+          "codename": "radxa02"
+        },
+        {
+          "brand": "Radxa",
+          "model": "Zero 2 (Tablet)",
+          "codename": "radxa02_tab"
+        },
+        {
+          "brand": "Razer",
+          "model": "Edge 5G",
+          "codename": "nicole"
+        },
+        {
+          "brand": "Razer",
+          "model": "Edge WiFi",
+          "codename": "nicole"
+        },
+        {
           "brand": "Razer",
           "model": "Phone",
           "codename": "cheryl"
@@ -1264,6 +1489,56 @@
           "codename": "star2lte"
         },
         {
+          "brand": "Samsung",
+          "model": "Galaxy Tab A 8.0 (2019)",
+          "codename": "gtowifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab A7 10.4 2020 (LTE)",
+          "codename": "gta4l"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab A7 10.4 2020 (Wi-Fi)",
+          "codename": "gta4lwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S5e (LTE)",
+          "codename": "gts4lv"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S5e (Wi-Fi)",
+          "codename": "gts4lvwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S6 Lite (LTE)",
+          "codename": "gta4xl"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S6 Lite (Wi-Fi)",
+          "codename": "gta4xlwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S6 Lite 2024 (Wi-Fi)",
+          "codename": "gta4xlswifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S7 (LTE)",
+          "codename": "gts7l"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S7 (Wi-Fi)",
+          "codename": "gts7lwifi"
+        },
+        {
           "brand": "Smartisan",
           "model": "R1",
           "codename": "trident"
@@ -1397,6 +1672,11 @@
           "brand": "Vsmart",
           "model": "Joy 3+",
           "codename": "casuarina"
+        },
+        {
+          "brand": "Walmart",
+          "model": "onn. TV Box 4K (2021)",
+          "codename": "dopinder"
         },
         {
           "brand": "Xiaomi",
@@ -1647,6 +1927,11 @@
           "brand": "Xiaomi",
           "model": "Mi Note 2",
           "codename": "scorpio"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "MIX Fold 2",
+          "codename": "zizhan"
         },
         {
           "brand": "Xiaomi",
