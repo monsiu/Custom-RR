@@ -1,0 +1,71 @@
+name: Discord release notification
+
+# Fires when a draft release is promoted to published (or a non-draft
+# release is created directly). Does NOT fire while the release is a draft.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Post to Discord
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.release.draft }}
+    steps:
+      - name: Send webhook
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TAG: ${{ github.event.release.tag_name }}
+          NAME: ${{ github.event.release.name }}
+          URL: ${{ github.event.release.html_url }}
+          BODY: ${{ github.event.release.body }}
+          IS_PRERELEASE: ${{ github.event.release.prerelease }}
+          REPO: ${{ github.repository }}
+          AUTHOR: ${{ github.event.release.author.login }}
+          AUTHOR_AVATAR: ${{ github.event.release.author.avatar_url }}
+        run: |
+          set -euo pipefail
+          if [ -z "${WEBHOOK:-}" ]; then
+            echo "::warning::DISCORD_WEBHOOK_URL secret is not set; skipping."
+            exit 0
+          fi
+          # Trim release body for the embed description (Discord limit is 4096).
+          DESCRIPTION=$(printf '%s' "$BODY" | head -c 1800)
+          if [ "${#BODY}" -gt 1800 ]; then
+            DESCRIPTION="$DESCRIPTION
+
+[Read the full notes on GitHub]($URL)"
+          fi
+          TITLE_PREFIX="New release"
+          COLOR=3066993   # green
+          if [ "$IS_PRERELEASE" = "true" ]; then
+            TITLE_PREFIX="New pre-release"
+            COLOR=15844367 # gold
+          fi
+          PAYLOAD=$(jq -n \
+            --arg title "$TITLE_PREFIX: ${NAME:-$TAG}" \
+            --arg url "$URL" \
+            --arg desc "$DESCRIPTION" \
+            --arg repo "$REPO" \
+            --arg author "$AUTHOR" \
+            --arg avatar "$AUTHOR_AVATAR" \
+            --argjson color "$COLOR" \
+            '{
+              username: "Custom RR releases",
+              embeds: [{
+                title: $title,
+                url: $url,
+                description: $desc,
+                color: $color,
+                footer: { text: $repo },
+                author: ($author | if . == "" then null else {name: ., icon_url: $avatar, url: ("https://github.com/" + .)} end)
+              }]
+            }')
+          curl -sS -H 'Content-Type: application/json' \
+            -X POST -d "$PAYLOAD" \
+            "$WEBHOOK?wait=true" \
+            -o /tmp/discord_resp -w 'http=%{http_code}\n'
+          cat /tmp/discord_resp
