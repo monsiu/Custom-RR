@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-28T22:29:49.204789Z",
+  "_generatedAt": "2026-05-28T22:37:41.048984Z",
   "roms": [
     {
       "id": "lineage",
@@ -13344,7 +13344,7 @@
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://projectelixiros.com/download",
       "forumUrl": "https://forum.xda-developers.com/search/?q=Project+Elixir&o=date&c[content]=thread",
-      "warning": "In 2024, Project Elixir was at the centre of multiple community controversies that called the project's integrity into question. Reports across XDA, Telegram, and Reddit alleged that the lead maintainer gatekept builds and features behind paid \"supporter\" tiers, banned users who criticised the project, and pulled or broke OTAs for devices belonging to vocal critics. There were also accusations of relicensing or repackaging community code without proper attribution. The project has not publicly addressed these concerns in a way the broader custom-ROM community has found satisfactory. We advise against installing Project Elixir; consider crDroid, Evolution X, or DerpFest as better-supported alternatives."
+      "warning": "In mid-2024, users discovered a hidden \"kill switch\" in Project Elixir's source code. The developers had locked certain customisation features behind a paywall, and if the ROM detected that a user was trying to bypass that paywall (via ADB commands or other methods), the embedded code would automatically wipe the device's internal storage, external SD card, and eSIMs without consent or warning. The Android community condemned this as an extreme, unethical, and potentially illegal anti-piracy measure, especially given the risk of a bug triggering a false positive and destroying innocent users' data. Following the backlash, the developers announced they were shutting the project down, though independent device maintainers have occasionally kept builds alive. We strongly advise against installing Project Elixir; use crDroid, Evolution X, or DerpFest instead."
     },
     {
       "id": "pixelos",
