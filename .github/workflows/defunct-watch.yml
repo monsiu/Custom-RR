@@ -1,0 +1,76 @@
+name: Defunct ROM watcher
+
+# Weekly check for signs of life from ROMs we have marked as defunct
+# (Havoc-OS, AOSP Extended, MoKee, Resurrection Remix, Dirty Unicorns,
+# Octavi OS, ...). If any of their GitHub orgs ship a release or push a
+# commit newer than the recorded "last build" cutoff, the job opens (or
+# updates) a tracking issue so we can revisit the catalog.
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'   # weekly, Mondays 07:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: defunct-watch
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - run: dart pub get
+
+      - name: Scan for activity
+        id: scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -o pipefail
+          dart run tool/check_defunct_activity.dart | tee scan.log
+          # Count ::warning:: lines emitted by the scanner.
+          hits=$(grep -c '^::warning::' scan.log || true)
+          echo "hits=$hits" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update tracking issue
+        if: steps.scan.outputs.hits != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          title='Defunct ROM watcher: possible signs of life'
+          # Find an existing open issue with that title.
+          existing=$(gh issue list --state open --search "in:title \"$title\"" \
+            --json number --jq '.[0].number' || true)
+          body_file=$(mktemp)
+          {
+            echo "The defunct ROM watcher detected upstream activity newer than the recorded cutoff for one or more projects in [tool/check_defunct_activity.dart](tool/check_defunct_activity.dart)."
+            echo
+            echo "Latest run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo
+            echo "If any of these projects are genuinely back, restore them in:"
+            echo "- \`tool/sync_catalog.dart\` (\`_RomSpec\` + \`buildFilterFor\` case)"
+            echo "- \`tool/sync_freshness.dart\` (\`_Seed\`)"
+            echo "- \`lib/pages/roms_page.dart\` (remove from \`_defunct\`)"
+            echo
+            echo "Otherwise, bump the threshold for the noisy project in \`_watchlist\` to silence this check."
+          } > "$body_file"
+          if [ -n "$existing" ]; then
+            echo "Updating issue #$existing"
+            gh issue comment "$existing" --body-file "$body_file"
+          else
+            echo "Creating new tracking issue"
+            gh issue create --title "$title" --body-file "$body_file" \
+              --label 'maintenance,automation' || \
+            gh issue create --title "$title" --body-file "$body_file"
+          fi

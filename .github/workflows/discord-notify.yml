@@ -25,8 +25,13 @@ jobs:
           fi
           jq -nc \
             --arg name "${NAME:-$TAG}" \
+            --arg tag "$TAG" \
             --arg url "$URL" \
-            '{username:"Custom RR releases", content:("**" + $name + "** is out.\n" + $url)}' \
+            '{
+              username: "Custom RR releases",
+              content: ("@everyone hey, Custom RR **" + $name + "** is out. give it a spin and report any bugs you run into: " + $url),
+              allowed_mentions: { parse: ["everyone"] }
+            }' \
           | curl -sS --fail-with-body \
               -H 'Content-Type: application/json' \
               --data-binary @- \

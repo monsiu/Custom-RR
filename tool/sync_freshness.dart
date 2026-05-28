@@ -64,11 +64,6 @@ Future<void> main(List<String> args) async {
       version: 'Topaz (Android 14 QPR2)',
       source: 'https://paranoidandroid.co/',
     ),
-    'havoc': _Seed(
-      lastBuild: DateTime.utc(2022, 6, 1),
-      version: 'Havoc 4.x (Android 11)',
-      source: 'https://havoc-os.com/',
-    ),
     'dotos': _Seed(
       lastBuild: DateTime.utc(2023, 8, 1),
       version: 'DotOS 6.1 (Android 13)',
@@ -98,6 +93,11 @@ Future<void> main(List<String> args) async {
       lastBuild: DateTime.utc(2026, 5, 10),
       version: 'Elixir 4 (Android 15)',
       source: 'https://projectelixiros.com/',
+    ),
+    'pixelos': _Seed(
+      lastBuild: DateTime.utc(2026, 5, 12),
+      version: 'PixelOS 15 (Android 15)',
+      source: 'https://pixelos.net/',
     ),
     'grapheneos': _Seed(
       lastBuild: DateTime.utc(2026, 5, 20),

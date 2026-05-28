@@ -87,17 +87,21 @@ jobs:
       - run: flutter pub get
       - run: flutter build linux --release
       - name: Stage release bundle
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
         run: |
+          set -euo pipefail
           mkdir -p dist
-          cp -r build/linux/x64/release/bundle custom_rr-linux-x64
-          cp linux/io.github.monsiu.custom_rr.desktop custom_rr-linux-x64/
-          cp linux/install.sh         custom_rr-linux-x64/
-          cp images/launcher.png      custom_rr-linux-x64/io.github.monsiu.custom_rr.png
-          tar -czf dist/custom_rr-linux-x64.tar.gz custom_rr-linux-x64
+          dir="custom_rr-${TAG}-linux-x64"
+          cp -r build/linux/x64/release/bundle "$dir"
+          cp linux/io.github.monsiu.custom_rr.desktop "$dir/"
+          cp linux/install.sh         "$dir/"
+          cp images/launcher.png      "$dir/io.github.monsiu.custom_rr.png"
+          tar -czf "dist/${dir}.tar.gz" "$dir"
       - uses: actions/upload-artifact@v4
         with:
           name: linux-bundle
-          path: dist/custom_rr-linux-x64.tar.gz
+          path: dist/custom_rr-*-linux-x64.tar.gz
           if-no-files-found: error
 
   publish:
@@ -113,10 +117,20 @@ jobs:
         with:
           path: artifacts
       - name: Flatten artifacts
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
         run: |
+          set -euo pipefail
           mkdir -p release-assets
-          find artifacts -type f \( -name '*.apk' -o -name '*.tar.gz' \) \
-            -exec cp {} release-assets/ \;
+          # Linux tarball: already nicely named in build-linux.
+          find artifacts -type f -name '*.tar.gz' -exec cp {} release-assets/ \;
+          # APKs come out as app-<abi>-release.apk; rename to custom_rr-<tag>-<abi>.apk.
+          for src in $(find artifacts -type f -name 'app-*-release.apk'); do
+            base=$(basename "$src")
+            abi=${base#app-}
+            abi=${abi%-release.apk}
+            cp "$src" "release-assets/custom_rr-${TAG}-${abi}.apk"
+          done
           ls -la release-assets
       - name: Build release notes
         id: notes

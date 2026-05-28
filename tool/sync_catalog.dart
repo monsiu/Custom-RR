@@ -31,6 +31,12 @@ const String _wikiTarUrl =
 const String _cacheDir = 'tool/.cache/lineage_wiki';
 const String _catalogPath = 'assets/catalog.json';
 
+// PixelOS publishes its authoritative supported-devices list as a JSON
+// blob on the `sixteen` branch of PixelOS-AOSP/official_devices.
+const String _pixelosDevicesUrl =
+    'https://raw.githubusercontent.com/PixelOS-AOSP/official_devices/sixteen/API/devices.json';
+const String _pixelosCachePath = 'tool/.cache/pixelos/devices.json';
+
 Future<void> main(List<String> args) async {
   final bool refresh = args.contains('--refresh');
   final Directory cache = Directory('$_cacheDir/devices');
@@ -53,11 +59,15 @@ Future<void> main(List<String> args) async {
   final List<String> vendors = byVendor.keys.toList()..sort();
   stdout.writeln('[sync] ${vendors.length} distinct manufacturers found');
 
+  final List<_Device> pixelosDevices = await _loadPixelosDevices(refresh: refresh);
+  stdout.writeln(
+      '[sync] loaded ${pixelosDevices.length} PixelOS official devices');
+
   // Build the JSON.
   final Map<String, dynamic> root = <String, dynamic>{
     '_generated': 'tool/sync_catalog.dart',
     '_generatedAt': DateTime.now().toUtc().toIso8601String(),
-    'roms': _buildRoms(devices),
+    'roms': _buildRoms(devices, pixelosDevices: pixelosDevices),
     'recoveries': _buildRecoveries(devices),
     'devices': _buildDevices(vendors),
   };
@@ -102,6 +112,74 @@ Future<void> _downloadWiki() async {
   if (tar.exitCode != 0) {
     throw StateError('tar failed: ${tar.stderr}');
   }
+}
+
+/// Loads the authoritative PixelOS device list from
+/// `PixelOS-AOSP/official_devices` (sixteen branch).
+///
+/// Fetches the JSON over the network and caches it at
+/// [_pixelosCachePath]. If [refresh] is false and a cache file exists, we
+/// use it. If the fetch fails and a cache exists, we fall back to the
+/// cache; otherwise we rethrow.
+Future<List<_Device>> _loadPixelosDevices({required bool refresh}) async {
+  final File cache = File(_pixelosCachePath);
+  String? raw;
+  if (!refresh && cache.existsSync()) {
+    raw = cache.readAsStringSync();
+  } else {
+    cache.parent.createSync(recursive: true);
+    final ProcessResult curl = await Process.run('curl', <String>[
+      '-sSL',
+      '--connect-timeout',
+      '15',
+      '--retry',
+      '3',
+      '--retry-delay',
+      '2',
+      '--retry-all-errors',
+      _pixelosDevicesUrl,
+    ]);
+    if (curl.exitCode == 0 && (curl.stdout as String).trim().isNotEmpty) {
+      raw = curl.stdout as String;
+      cache.writeAsStringSync(raw);
+    } else if (cache.existsSync()) {
+      stderr.writeln(
+          '[sync] pixelos fetch failed, using cached ${cache.path}');
+      raw = cache.readAsStringSync();
+    } else {
+      throw StateError('pixelos fetch failed: ${curl.stderr}');
+    }
+  }
+
+  final dynamic decoded = jsonDecode(raw);
+  final List<dynamic> entries = (decoded as Map<String, dynamic>)['devices']
+      as List<dynamic>;
+  final List<_Device> out = <_Device>[];
+  for (final dynamic e in entries) {
+    final Map<String, dynamic> m = e as Map<String, dynamic>;
+    final String codename = (m['codename'] as String?)?.trim() ?? '';
+    final String vendor = (m['vendor'] as String?)?.trim() ?? '';
+    final String model = (m['model'] as String?)?.trim() ?? '';
+    if (codename.isEmpty || vendor.isEmpty || model.isEmpty) continue;
+    out.add(
+      _Device(
+        vendor: _normalizeVendor(vendor),
+        model: model,
+        codename: codename,
+        type: 'phone',
+        currentBranch: '',
+        releaseYear: null,
+      ),
+    );
+  }
+  out.sort((_Device a, _Device b) {
+    final int v = a.vendor.compareTo(b.vendor);
+    if (v != 0) return v;
+    final int mm = a.model.toLowerCase().compareTo(b.model.toLowerCase());
+    if (mm != 0) return mm;
+    return a.codename.compareTo(b.codename);
+  });
+  return out;
 }
 
 List<_Device> _parseAllDevices(Directory devicesDir) {
@@ -286,19 +364,6 @@ _Policy _policyFor(String romId) {
             'OnePlus',
             'Nothing',
           }.contains(d.vendor);
-    case 'havoc':
-      return (_Device d) =>
-          d.type == 'phone' &&
-          _yearAtLeast(d, 2016) &&
-          const <String>{
-            'Google',
-            'Xiaomi',
-            'OnePlus',
-            'Asus',
-            'Motorola',
-            'Samsung',
-            'Sony',
-          }.contains(d.vendor);
     case 'dotos':
       return (_Device d) =>
           d.type == 'phone' &&
@@ -354,6 +419,12 @@ _Policy _policyFor(String romId) {
             'Realme',
             'Nothing',
           }.contains(d.vendor);
+    case 'pixelos':
+      // PixelOS devices come from a live fetch of the official_devices
+      // repo in [_loadPixelosDevices], so this policy is never consulted.
+      // We still need a case so the switch is exhaustive, but it should
+      // match nothing if it is ever called.
+      return (_Device _) => false;
     case 'grapheneos':
       // Pixel-only by policy.
       return (_Device d) =>
@@ -602,7 +673,10 @@ const Map<String, String> _xdaDeviceForums = <String, String>{
   'zeus': 'https://xdaforums.com/f/xiaomi-12-pro.12493/$_xdaDevFilter',
 };
 
-List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
+List<Map<String, dynamic>> _buildRoms(
+  List<_Device> all, {
+  required List<_Device> pixelosDevices,
+}) {
   final List<_RomSpec> specs = <_RomSpec>[
     _RomSpec(
       id: 'lineage',
@@ -790,38 +864,6 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       forumUrl: 'https://forum.xda-developers.com/c/paranoid-android-aospa.10316/',
     ),
     _RomSpec(
-      id: 'havoc',
-      name: 'Havoc-OS',
-      headerAsset: 'images/havoc.png',
-      shortTagline:
-          'LineageOS-derived ROM with a rich feature set and Substratum theming.',
-      description: <String>[
-        'Havoc-OS is built on top of LineageOS device trees and AOSP, bundling a large set of customisation toggles and built-in Substratum theming.',
-        'Active development has slowed in recent years; check the official site for current device coverage.',
-      ],
-      features: <String>[
-        'Substratum theming engine built in.',
-        'Status-bar, lockscreen, and navigation customisation.',
-        'Optional GApps build per device.',
-      ],
-      // havoc-os.com is intermittently offline; serve the original
-      // screenshot set from the Internet Archive (2022 snapshot).
-      screenshots: <String>[
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_1.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_2.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_3.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_4.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_5.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_6.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_7.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_8.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_9.png',
-        'https://web.archive.org/web/20221227065353im_/https://havoc-os.com/src/img/screenshots/Screenshot_10.png',
-      ],
-      downloadLabel: 'Official downloads',
-      downloadUrl: 'https://havoc-os.com/',
-    ),
-    _RomSpec(
       id: 'dotos',
       name: 'DotOS',
       headerAsset: 'images/dotos.png',
@@ -982,6 +1024,31 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
       downloadUrl: 'https://projectelixiros.com/',
     ),
     _RomSpec(
+      id: 'pixelos',
+      name: 'PixelOS',
+      headerAsset: 'images/pixelos.png',
+      shortTagline:
+          'Clean AOSP ROM that mirrors the Pixel software experience.',
+      description: <String>[
+        'PixelOS is an after-market distribution of Android based on AOSP that aims to reproduce the Pixel software experience on a wider range of devices, while staying close to stock.',
+        'Builds ship with Pixel launcher, Pixel-style system UI, and Google apps preinstalled. Customisation is intentionally minimal in favour of polish and stability.',
+      ],
+      features: <String>[
+        'Pixel launcher, wallpapers, and boot animation out of the box.',
+        'GApps and Pixel feature drops bundled.',
+        'Monthly security patches, fast adoption of new Android versions.',
+      ],
+      // Official pixelos.net marketing screenshots.
+      screenshots: <String>[
+        'https://pixelos.net/assets/img/screenshots/home.png',
+        'https://pixelos.net/assets/img/screenshots/lockscreen.png',
+        'https://pixelos.net/assets/img/screenshots/settings.png',
+        'https://pixelos.net/assets/img/screenshots/about.png',
+      ],
+      downloadLabel: 'Official downloads',
+      downloadUrl: 'https://pixelos.net/download',
+    ),
+    _RomSpec(
       id: 'grapheneos',
       name: 'GrapheneOS',
       headerAsset: 'images/grapheneos.png',
@@ -1132,7 +1199,9 @@ List<Map<String, dynamic>> _buildRoms(List<_Device> all) {
 
   return specs.map((_RomSpec s) {
     final _Policy policy = _policyFor(s.id);
-    final List<_Device> matched = all.where(policy).toList();
+    final List<_Device> matched = s.id == 'pixelos'
+        ? pixelosDevices
+        : all.where(policy).toList();
     return <String, dynamic>{
       'id': s.id,
       'name': s.name,

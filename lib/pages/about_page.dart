@@ -164,6 +164,15 @@ class _AboutPageState extends State<AboutPage> {
                 ),
               ),
               ListTile(
+                leading: const Icon(Icons.discord),
+                title: const Text('Join the Discord'),
+                subtitle: const Text('Hang out, ask questions, report bugs'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => _open(
+                  Uri.parse('https://discord.gg/DqsAR42ATR'),
+                ),
+              ),
+              ListTile(
                 leading: const Icon(Icons.system_update_alt),
                 title: const Text('Check for updates'),
                 subtitle: Text(
@@ -191,18 +200,28 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                 ),
               ),
-              ListTile(
-                leading: const Icon(Icons.coffee_outlined),
-                title: const Text('Buy us a coffee'),
-                onTap: () => _open(
-                  Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
+              if (Breakpoints.isCompact(context))
+                ListTile(
+                  leading: const Icon(Icons.favorite_outline),
+                  title: const Text('Support the project'),
+                  subtitle: const Text('Buy a coffee or donate crypto'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: _showSupportChooser,
+                )
+              else ...<Widget>[
+                ListTile(
+                  leading: const Icon(Icons.coffee_outlined),
+                  title: const Text('Buy us a coffee'),
+                  onTap: () => _open(
+                    Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
+                  ),
                 ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.currency_bitcoin),
-                title: const Text('Donate with crypto'),
-                onTap: () => showCryptoDonateSheet(context),
-              ),
+                ListTile(
+                  leading: const Icon(Icons.currency_bitcoin),
+                  title: const Text('Donate with crypto'),
+                  onTap: () => showCryptoDonateSheet(context),
+                ),
+              ],
               ListTile(
                 leading: const Icon(Icons.privacy_tip_outlined),
                 title: const Text('Privacy policy'),
@@ -228,6 +247,43 @@ class _AboutPageState extends State<AboutPage> {
 
   Future<void> _open(Uri uri) async {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> _showSupportChooser() async {
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (BuildContext ctx) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.coffee_outlined),
+                title: const Text('Buy us a coffee'),
+                subtitle: const Text('One-off tip via Buy Me a Coffee'),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  _open(
+                    Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.currency_bitcoin),
+                title: const Text('Donate with crypto'),
+                subtitle: const Text('BTC, ETH, and more'),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  showCryptoDonateSheet(context);
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   Future<void> _resetDonationPrompt() async {
