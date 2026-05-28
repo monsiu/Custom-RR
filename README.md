@@ -157,8 +157,8 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 
 - [GitHub](https://github.com/monsiu)
 - [Discord](https://discord.gg/BrH25zwVAG)
-- [Twitter / X](https://twitter.com/monsiuyt)
-- [YouTube](https://www.youtube.com/monsiu)
+- [Twitter / X](https://twitter.com/MonsiuTech)
+- [YouTube](https://www.youtube.com/@monsiutech)
 
 ## License
 
