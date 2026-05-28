@@ -276,13 +276,10 @@ class _CatalogPageState extends State<CatalogPage> {
                                   entries: widget.defunct,
                                 ),
                               ),
-                            SliverToBoxAdapter(
-                              child: TrebleHintBanner(
-                                kind: widget.entryKind == 'recovery'
-                                    ? 'recovery'
-                                    : 'ROM',
+                            if (widget.entryKind != 'recovery')
+                              const SliverToBoxAdapter(
+                                child: TrebleHintBanner(kind: 'ROM'),
                               ),
-                            ),
                           ],
                         );
                       },
@@ -627,6 +624,14 @@ class RomsPage extends StatelessWidget {
       officialUrl: 'https://octavi-os.com/',
       lastBuild: '2023 (Android 13)',
       successor: 'crDroid, Pixel Experience',
+    ),
+    DefunctEntry(
+      name: 'Havoc-OS',
+      note:
+          'No longer maintained. Active development stalled after the Android 11 cycle.',
+      officialUrl: 'https://havoc-os.com/',
+      lastBuild: '2022 (Android 11)',
+      successor: 'crDroid, Evolution X',
     ),
   ];
 

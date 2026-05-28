@@ -12,7 +12,7 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 
 ## Features
 
-- Browse curated Custom ROMs (LineageOS, crDroid, Havoc, Pixel Experience, ParanoidAndroid, Evolution X, ArrowOS, dotOS, Bliss, PotatoAOSP, RisingOS, Voltage OS, Project Elixir…).
+- Browse curated Custom ROMs (LineageOS, crDroid, Pixel Experience, ParanoidAndroid, Evolution X, ArrowOS, dotOS, Bliss, PotatoAOSP, RisingOS, Voltage OS, Project Elixir…).
 - Browse curated Custom Recoveries (TWRP, OrangeFox, PitchBlack, RedWolf, SHRP).
 - **Device → Compatible Builds:** pick a manufacturer to see only the ROMs and recoveries that list it as supported, with per-phone-model chips for every supported device.
 - **Deep links / shareable URLs** for every ROM, recovery, and device (powered by `go_router`).
@@ -156,7 +156,7 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 ## Socials
 
 - [GitHub](https://github.com/monsiu)
-- [Discord](https://discord.gg/BrH25zwVAG)
+- [Discord](https://discord.gg/DqsAR42ATR)
 - [Twitter / X](https://twitter.com/MonsiuTech)
 - [YouTube](https://www.youtube.com/@monsiutech)
 

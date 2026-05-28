@@ -21,7 +21,7 @@ class ReleaseAsset {
   final String contentType;
 
   /// True when the asset filename looks like a release APK (e.g.
-  /// `app-arm64-v8a-release.apk`).
+  /// `custom_rr-v0.1.2-arm64-v8a.apk`).
   bool get isApk => name.toLowerCase().endsWith('.apk');
 }
 

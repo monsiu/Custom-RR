@@ -31,7 +31,6 @@ class TrebleHintBanner extends StatelessWidget {
     final TextTheme text = Theme.of(context).textTheme;
     final String headline = switch (kind) {
       'ROM' => "Don't see a ROM for your phone?",
-      'recovery' => "Don't see a recovery for your phone?",
       _ => "Don't see your device officially supported?",
     };
     return Padding(
