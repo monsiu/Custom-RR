@@ -1,0 +1,16 @@
+Custom RR is a free, open-source companion app that catalogs the Android modding scene in one place: which custom ROMs and recoveries officially support your device, what Treble GSIs you can flash, and where to download them. No more bouncing between the LineageOS wiki, three Telegram channels, a SourceForge folder, and fourteen browser tabs.
+
+Features:
+
+* 18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, AlphaDroid, BlissROMs, /e/, and more), with defunct projects (ArrowOS, DotOS, Havoc-OS, Nusantara, Matrixx, PixelBuilds) clearly marked.
+* 700+ devices sourced live from the official LineageOS wiki and the official PixelOS official_devices repo.
+* Major recoveries: TWRP, OrangeFox, PBRP, SHRP, with device support and direct downloads.
+* Treble & GSI hub with per-project status badges, direct GSI downloads, the canonical TrebleDroid wiki index, A-only vs A/B and arm64 vs arm32_binder64 cheat sheets, a 6-step flash flow, and a "GSI boots but camera is broken" FAQ.
+* Filter by your phone, see only what officially supports it. Brand pages list every device and every ROM/recovery targeting them.
+* Freshness signals on every entry (active / monthly / discontinued, last build date), with a nightly automated job flagging projects going quiet.
+* Works fully offline with a bundled catalog, refreshes from GitHub at launch so new ROMs and devices appear without an app update.
+* Material 3 with dynamic color, light/dark/AMOLED themes, adaptive layouts (phone/tablet/desktop).
+* Deep links for every ROM, recovery, device, and brand: easy to share in threads.
+* In-app update check against GitHub Releases.
+
+No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub.

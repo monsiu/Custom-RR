@@ -1,0 +1,14 @@
+- Added PixelOS catalog entry sourced live from the official PixelOS-AOSP/official_devices repo.
+- Expanded LineageOS coverage to every form factor on branch 20+ (phones, tablets, Android TV, set-top boxes).
+- All GSI list links now point at the maintained TrebleDroid wiki (phhusson's wiki is archived).
+- Removed the phh-Treble entry; TrebleDroid is now the canonical GSI index across the app.
+- Havoc-OS moved to the defunct list.
+- New nightly defunct-watch job flags ROM projects going quiet.
+- Donate copy refreshed; Silver / Gold supporter tiers; nudge buttons no longer clip on narrow screens.
+- About page: Discord tile, compact-screen donation collapse.
+- Recoveries page: removed redundant Treble hint banner.
+- Sitewide Discord invite migrated to the new permanent URL.
+- Release artifacts (APK + Linux tarball) now include the version in the filename.
+- License explicitly tagged as GPL-3.0-only (SPDX).
+- Catalog generator now includes PixelOS-only vendors (10or, Micromax, etc.).
+- Various fixes and polish.
