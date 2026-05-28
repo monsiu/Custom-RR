@@ -218,9 +218,11 @@ class _DonationNudgeState extends State<DonationNudge>
               ),
             ),
             ListTile(
-              leading: Icon(Icons.coffee_outlined, color: scheme.primary),
-              title: const Text('Buy us a coffee'),
-              subtitle: const Text('Card / Apple Pay / Google Pay'),
+              leading: Icon(Icons.favorite_rounded, color: scheme.primary),
+              title: const Text('Become a supporter'),
+              subtitle: const Text(
+                'Monthly tiers with early builds & roadmap votes',
+              ),
               onTap: () {
                 Navigator.of(ctx).pop();
                 unawaited(_openBuyMeACoffee());
@@ -350,9 +352,9 @@ class _DonationNudgeState extends State<DonationNudge>
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            'This app is free and ad-free. If it has '
-                            'helped you flash a ROM or pick a recovery, '
-                            'a small tip keeps it that way.',
+                            'This app is free and ad-free. Become a '
+                            'supporter to get new builds a few days '
+                            'early and a vote in the monthly roadmap.',
                             style: text.bodyMedium?.copyWith(
                               color: scheme.onSecondaryContainer,
                             ),
@@ -384,8 +386,8 @@ class _DonationNudgeState extends State<DonationNudge>
                     const SizedBox(width: 4),
                     FilledButton.icon(
                       onPressed: _support,
-                      icon: const Icon(Icons.coffee_outlined, size: 18),
-                      label: const Text('Support'),
+                      icon: const Icon(Icons.favorite_rounded, size: 18),
+                      label: const Text('Become a supporter'),
                     ),
                     const SizedBox(width: 4),
                   ],
