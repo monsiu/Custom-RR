@@ -1,3 +1,5 @@
+# Custom RR v0.1.0
+
 ## Custom RR v0.1.0, first public preview
 
 Custom RR is a single home for popular Android custom ROMs and recoveries.
@@ -48,5 +50,5 @@ and Linux, but expect rough edges and breaking changes before v1.0.
 ### Feedback
 
 Please open issues at
-https://github.com/monsiu/Custom-RR/issues with the model, Android
+<https://github.com/monsiu/Custom-RR/issues> with the model, Android
 version, and what you were trying to do.
