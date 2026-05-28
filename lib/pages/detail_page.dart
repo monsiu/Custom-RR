@@ -105,6 +105,10 @@ class DetailPage extends StatelessWidget {
                         info: FreshnessRepository.instance.forId(entry.id),
                       ),
                       const SizedBox(height: 20),
+                      if (entry.warning.isNotEmpty) ...<Widget>[
+                        _WarningBanner(message: entry.warning),
+                        const SizedBox(height: 20),
+                      ],
                       for (final String paragraph
                           in entry.description) ...<Widget>[
                         Text(paragraph, style: text.bodyLarge),
@@ -163,6 +167,55 @@ class DetailPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _WarningBanner extends StatelessWidget {
+  const _WarningBanner({required this.message});
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: scheme.errorContainer,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: scheme.error, width: 2),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Icon(Icons.warning_amber_rounded, color: scheme.error, size: 28),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Warning',
+                  style: text.titleMedium?.copyWith(
+                    color: scheme.onErrorContainer,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  message,
+                  style: text.bodyMedium?.copyWith(
+                    color: scheme.onErrorContainer,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

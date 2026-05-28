@@ -88,6 +88,27 @@ final List<_Watch> _watchlist = <_Watch>[
     githubOrgs: <String>['Octavi-OS'],
     officialUrl: 'https://octavi-os.com/',
   ),
+  _Watch(
+    id: 'arrowos',
+    displayName: 'ArrowOS',
+    thresholdUtc: _utc(2023, 6, 1),
+    githubOrgs: <String>['ArrowOS', 'ArrowOS-Devices'],
+    officialUrl: 'https://arrowos.net/',
+  ),
+  _Watch(
+    id: 'potatoaosp',
+    displayName: 'POSP (Potato Open Sauce Project)',
+    thresholdUtc: _utc(2023, 12, 31),
+    githubOrgs: <String>['PotatoProject', 'PotatoProject-Devices'],
+    officialUrl: 'https://posp.co/',
+  ),
+  _Watch(
+    id: 'risingos',
+    displayName: 'RisingOS (original)',
+    thresholdUtc: _utc(2024, 12, 31),
+    githubOrgs: <String>['RisingOSS'],
+    officialUrl: 'https://risingos.org/',
+  ),
 ];
 
 class _Hit {
