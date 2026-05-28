@@ -53,3 +53,4 @@ tool/.cache/
 
 # Gradle build output (was leaking into git status)
 /android/build/
+flutter_*.png
