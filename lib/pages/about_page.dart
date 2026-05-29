@@ -213,7 +213,7 @@ class _AboutPageState extends State<AboutPage> {
                   leading: const Icon(Icons.coffee_outlined),
                   title: const Text('Buy us a coffee'),
                   onTap: () => _open(
-                    Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
+                    Uri.parse('https://www.buymeacoffee.com/monsiutech'),
                   ),
                 ),
                 ListTile(
@@ -265,7 +265,7 @@ class _AboutPageState extends State<AboutPage> {
                 onTap: () {
                   Navigator.of(ctx).pop();
                   _open(
-                    Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
+                    Uri.parse('https://www.buymeacoffee.com/monsiutech'),
                   );
                 },
               ),
