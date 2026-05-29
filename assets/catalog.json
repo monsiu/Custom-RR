@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-28T23:11:14.865174Z",
+  "_generatedAt": "2026-05-29T15:09:24.839324Z",
   "roms": [
     {
       "id": "lineage",
@@ -20347,6 +20347,350 @@
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://derpfest.org/devices",
       "forumUrl": "https://forum.xda-developers.com/search/?q=DerpFest&o=date&c[content]=thread"
+    },
+    {
+      "id": "un1ca",
+      "name": "UN1CA",
+      "headerAsset": "images/un1ca.png",
+      "shortTagline": "Debloated, customisable One UI custom firmware for Samsung Galaxy devices.",
+      "description": [
+        "UN1CA is a custom firmware project by salvogiangri that takes Samsung's One UI and refines it for power users: stripping bloat, restoring choice, and layering in extra features while keeping the core Samsung experience intact.",
+        "It ships an EROFS-based build, full Galaxy AI support (call assist, browsing assist, note/photo/writing assist, Now Brief and friends), an integrated OTA updater, and a long list of system-level toggles that One UI normally hides. The project is GPL-3.0 and developed in the open on GitHub with an active Telegram community."
+      ],
+      "features": [
+        "Galaxy AI features fully unlocked (audio eraser, call/browsing/writing assist, Now Brief, transcript assist, and more).",
+        "Heavily debloated and DeKnoxed One UI with stock look and feel preserved.",
+        "EROFS partitions for smaller, faster system images.",
+        "Integrated OTA updater for in-place upgrades.",
+        "Per-app blur toggle, OneUI Home animations, Vulkan toggle, and other quality-of-life switches.",
+        "Ships TrickyStore, Play Integrity Fix, and Hide My Applist hooks out of the box.",
+        "Open source under GPL-3.0 with builds published on GitHub Releases."
+      ],
+      "screenshots": [],
+      "devices": [
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A21s",
+          "codename": "a21s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A52 4G",
+          "codename": "a52q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52-4g.12131/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A52s 5G",
+          "codename": "a52sxq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A71",
+          "codename": "a71"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A72",
+          "codename": "a72q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a72.12141/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A73 5G",
+          "codename": "a73xq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a73-5g.12667/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy F62",
+          "codename": "f62",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy M20",
+          "codename": "m20lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy M52 5G",
+          "codename": "m52xq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy M62",
+          "codename": "f62",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10",
+          "codename": "d1"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10 5G",
+          "codename": "d1x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+",
+          "codename": "d2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+ 5G",
+          "codename": "d2x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10",
+          "codename": "beyond1lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10 5G",
+          "codename": "beyondx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10+",
+          "codename": "beyond2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10e",
+          "codename": "beyond0lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 (4G/5G)",
+          "codename": "x1s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 FE (Exynos)",
+          "codename": "r8s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 FE (Snapdragon)",
+          "codename": "r8q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 FE 5G",
+          "codename": "r8q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 Ultra (5G)",
+          "codename": "z3s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20+ (4G/5G)",
+          "codename": "y2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S23",
+          "codename": "dm1q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-s23.12707/?prefix_id=33"
+        }
+      ],
+      "downloadLabel": "GitHub releases",
+      "downloadUrl": "https://github.com/salvogiangri/UN1CA/releases",
+      "forumUrl": "https://github.com/salvogiangri/UN1CA/discussions",
+      "links": [
+        {
+          "label": "Telegram channel",
+          "url": "https://t.me/unicarom",
+          "iconName": "telegram"
+        },
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/salvogiangri/UN1CA",
+          "iconName": "github"
+        },
+        {
+          "label": "Discussions",
+          "url": "https://github.com/salvogiangri/UN1CA/discussions",
+          "iconName": "forum"
+        }
+      ]
+    },
+    {
+      "id": "artisanrom",
+      "name": "ArtisanROM Quant",
+      "headerAsset": "images/artisanrom.png",
+      "shortTagline": "OneUI 8 based custom firmware for Samsung Exynos 990 and Exynos 9820 devices (S10, Note10, S20, Note20 family).",
+      "description": [
+        "ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.",
+        "It is built on top of the ExtremeROM and UN1CA build system, automating firmware download, extraction, patching, and flashable zip generation. The project is GPL-3.0, maintained by Android-Artisan with a long list of contributors, and ships fully upstreamed kernels for every officially supported device."
+      ],
+      "features": [
+        "Based on the latest stable One UI 8 Galaxy S25 FE firmware.",
+        "S25 Ultra CSC, ringtones, and most S25 FE software features ported over.",
+        "Full Galaxy AI support including Now Brief, Super HDR, and adaptive color tone.",
+        "Fully upstreamed kernels for every officially supported device.",
+        "Moderately debloated and heavily DeKnoxed while keeping full SELinux enforcing.",
+        "EROFS partitions, BluetoothLibraryPatcher, and KnoxPatch integrated.",
+        "Extra mods (Disable Secure Flag, OutDoor mode) and CSC tweaks (call recording, network speed indicator, 5GHz hotspot).",
+        "Multi-user, AppLock, adaptive brightness and refresh rate support."
+      ],
+      "screenshots": [],
+      "devices": [
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A21s",
+          "codename": "a21s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A52 4G",
+          "codename": "a52q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52-4g.12131/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A52s 5G",
+          "codename": "a52sxq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A71",
+          "codename": "a71"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A72",
+          "codename": "a72q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a72.12141/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy F62",
+          "codename": "f62",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy M20",
+          "codename": "m20lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy M52 5G",
+          "codename": "m52xq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy M62",
+          "codename": "f62",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10",
+          "codename": "d1"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10 5G",
+          "codename": "d1x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+",
+          "codename": "d2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+ 5G",
+          "codename": "d2x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10",
+          "codename": "beyond1lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10 5G",
+          "codename": "beyondx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10+",
+          "codename": "beyond2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10e",
+          "codename": "beyond0lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 (4G/5G)",
+          "codename": "x1s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 FE (Exynos)",
+          "codename": "r8s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 FE (Snapdragon)",
+          "codename": "r8q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 FE 5G",
+          "codename": "r8q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20 Ultra (5G)",
+          "codename": "z3s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S20+ (4G/5G)",
+          "codename": "y2s"
+        }
+      ],
+      "downloadLabel": "GitHub releases",
+      "downloadUrl": "https://github.com/ArtisanROM/ArtisanROM/releases",
+      "forumUrl": "https://github.com/ArtisanROM/ArtisanROM/wiki",
+      "links": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/ArtisanROM/ArtisanROM",
+          "iconName": "github"
+        },
+        {
+          "label": "Wiki",
+          "url": "https://github.com/ArtisanROM/ArtisanROM/wiki",
+          "iconName": "forum"
+        },
+        {
+          "label": "Changelog",
+          "url": "https://github.com/ArtisanROM/ArtisanROM/blob/sixteen/CHANGELOG.md",
+          "iconName": "web"
+        },
+        {
+          "label": "Exynos 990 kernel sources",
+          "url": "https://github.com/Android-Artisan/android_kernel_samsung_exynos990",
+          "iconName": "github"
+        }
+      ]
     }
   ],
   "recoveries": [
