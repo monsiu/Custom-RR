@@ -270,7 +270,7 @@ jobs:
           cat body.md
       - name: Publish draft release
         id: release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           draft: true
           generate_release_notes: false
