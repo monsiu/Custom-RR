@@ -87,10 +87,24 @@ jobs:
           sudo apt-get install -y \
             clang cmake ninja-build pkg-config \
             libgtk-3-dev liblzma-dev libstdc++-12-dev
-      - uses: subosito/flutter-action@v2
+      - name: Set up Flutter (x64, cached)
+        if: matrix.arch == 'x64'
+        uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
+      - name: Set up Flutter (arm64, git clone)
+        if: matrix.arch == 'arm64'
+        # subosito/flutter-action@v2 has no Linux arm64 archive in its
+        # manifest ("Unable to determine Flutter version for ... arm64").
+        # Clone the official stable channel from flutter/flutter instead;
+        # Flutter natively supports Linux arm64.
+        run: |
+          set -euo pipefail
+          git clone --depth 1 -b stable https://github.com/flutter/flutter.git "$HOME/flutter"
+          echo "$HOME/flutter/bin" >> "$GITHUB_PATH"
+          "$HOME/flutter/bin/flutter" --version
+          "$HOME/flutter/bin/flutter" precache --linux
       - run: flutter config --enable-linux-desktop
       - run: flutter pub get
       - run: flutter build linux --release
@@ -128,10 +142,25 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.tag || github.ref }}
-      - uses: subosito/flutter-action@v2
+      - name: Set up Flutter (x64, cached)
+        if: matrix.arch == 'x64'
+        uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
+      - name: Set up Flutter (arm64, git clone)
+        if: matrix.arch == 'arm64'
+        shell: pwsh
+        # subosito/flutter-action@v2 has no Windows arm64 archive in its
+        # manifest. Clone the official stable channel from flutter/flutter
+        # instead; Flutter natively supports Windows arm64.
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $flutterDir = Join-Path $env:USERPROFILE 'flutter'
+          git clone --depth 1 -b stable https://github.com/flutter/flutter.git $flutterDir
+          Add-Content -Path $env:GITHUB_PATH -Value (Join-Path $flutterDir 'bin')
+          & (Join-Path $flutterDir 'bin\flutter.bat') --version
+          & (Join-Path $flutterDir 'bin\flutter.bat') precache --windows
       - run: flutter config --enable-windows-desktop
       - run: flutter pub get
       - run: flutter build windows --release
