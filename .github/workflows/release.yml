@@ -131,6 +131,24 @@ jobs:
           $src = 'build/windows/x64/runner/Release'
           if (-not (Test-Path $src)) { $src = 'build/windows/runner/Release' }
           Copy-Item -Recurse -Force $src $dir
+
+          # Bundle the MSVC runtime so users do not need the VC++
+          # Redistributable installed. windows-latest ships Visual Studio
+          # with vswhere; use it to find the latest installed redist dir.
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vsPath  = & $vswhere -latest -property installationPath
+          if (-not $vsPath) { throw "vswhere could not find a Visual Studio install" }
+          $redistRoot = Join-Path $vsPath 'VC\Redist\MSVC'
+          $crt = Get-ChildItem -Path $redistRoot -Directory |
+                 Sort-Object Name -Descending |
+                 ForEach-Object { Join-Path $_.FullName 'x64\Microsoft.VC143.CRT' } |
+                 Where-Object { Test-Path $_ } |
+                 Select-Object -First 1
+          if (-not $crt) { throw "Could not locate Microsoft.VC143.CRT under $redistRoot" }
+          foreach ($dll in 'msvcp140.dll','vcruntime140.dll','vcruntime140_1.dll') {
+            Copy-Item -Force (Join-Path $crt $dll) -Destination $dir
+          }
+
           Compress-Archive -Path $dir -DestinationPath "dist/$dir.zip" -Force
       - uses: actions/upload-artifact@v4
         with:
