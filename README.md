@@ -6,29 +6,38 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
 [![License: GPL-3.0-only](https://img.shields.io/badge/License-GPL--3.0--only-blue.svg)](LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-3.22+-02569B?logo=flutter)](https://flutter.dev)
 
-A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, and step-by-step flashing instructions.
+A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, freshness signals, and step-by-step flashing instructions. **18 actively maintained ROMs**, **4 recoveries**, **700+ devices**, all sourced live from the LineageOS wiki + the PixelOS `official_devices` repo and refreshed nightly.
 
 ![Custom RR banner](images/readme/banner.png)
 
 ## Features
 
-- Browse curated Custom ROMs (LineageOS, crDroid, Pixel Experience, ParanoidAndroid, Evolution X, ArrowOS, dotOS, Bliss, PotatoAOSP, RisingOS, Voltage OS, Project Elixir…).
-- Browse curated Custom Recoveries (TWRP, OrangeFox, PitchBlack, RedWolf, SHRP).
-- **Device → Compatible Builds:** pick a manufacturer to see only the ROMs and recoveries that list it as supported, with per-phone-model chips for every supported device.
-- **Deep links / shareable URLs** for every ROM, recovery, and device (powered by `go_router`).
-- One tap to open the official download page.
-- “How to flash” guides for ROMs and recoveries.
-- Adaptive Material 3 layout: drawer on phones, NavigationRail on tablets, permanent side panel on desktop.
-- Light / dark / system theme picker that persists across launches.
+- **Curated Custom ROMs.** LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, AlphaDroid, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS, and more, each with description, features, screenshots, and a one-tap link to the official download page.
+- **Curated Custom Recoveries.** TWRP, OrangeFox, PBRP, SHRP, with per-device support and direct downloads.
+- **Defunct projects clearly marked.** ArrowOS, DotOS, Havoc-OS, PotatoAOSP, RisingOS (original), MoKee, RR, AOSPE, Dirty Unicorns, Octavi OS are listed in an archived section with last-build date and successor suggestions, so users do not flash code that hasn't shipped in years.
+- **Project warning banners.** Per-entry warnings call out community-relevant concerns (for example the 2024 Project Elixir killswitch incident) so users get the context before they flash.
+- **Device → Compatible Builds.** Pick your phone and the whole app filters to ROMs and recoveries that officially support it, with per-phone-model chips for every supported device.
+- **Brand pages.** Tap Xiaomi, OnePlus, Samsung, Google Pixel, Realme, POCO, Nothing, etc. and see every device + every ROM/recovery that targets that brand.
+- **Treble & GSI hub.** Per-project status badges, direct GSI downloads, the canonical TrebleDroid wiki index, an A-only vs A/B + arm64 vs arm32_binder64 cheat sheet, a 6-step flash flow, and a "GSI boots but camera is broken" FAQ.
+- **Freshness signals on every entry.** Active / monthly / discontinued labels plus last-build date, refreshed nightly by a GitHub Action that flags projects going quiet.
+- **Live catalog.** The bundled `assets/catalog.json` keeps the app fully offline, and on launch the app refreshes itself from `raw.githubusercontent.com` so new ROMs/devices appear without an app update.
+- **Clickable link chips on every detail page** (Telegram, GitHub, Discord, Matrix, forum, web) sourced from a curated `links` field in the catalog.
+- **"How to flash" guides** for ROMs and recoveries, embedded per category, no wiki digging.
+- **Deep links / shareable URLs** for every ROM, recovery, device, and brand (powered by `go_router`), easy to drop in XDA threads.
+- **In-app update check** against GitHub Releases, with one-tap APK download + install on Android.
+- **Bundled pinch-zoom image viewer** for screenshots.
+- **Material 3 + dynamic color.** Light / dark / AMOLED themes, adaptive layouts (drawer on phones, NavigationRail on tablets, permanent side panel on desktop), theme + accent persisted across launches.
+- **In-app privacy policy page** rendered from the bundled [`PRIVACY.md`](PRIVACY.md).
+- **Zero tracking, zero ads, no Play Services, GPL-3.0**, source on GitHub.
+- **Cross-platform.** Android 5.0+ (target Android 16 / SDK 36), Linux desktop, and Windows desktop.
 
 ## Roadmap
 
 - Localisation (`flutter_localizations` + ARB)
 - Crash & analytics (Sentry or Firebase Crashlytics)
-- Remote-fetched catalog with offline cache
 - Unofficial / community-maintained build listings
 - Dedicated Magisk install section
-- Bundled (offline) screenshots
+- Auto-update for the Linux + Windows desktop builds
 
 ## Deep links
 
@@ -43,6 +52,7 @@ Every page has a stable URL. Examples:
 | `/recoveries/twrp`   | TWRP detail page                    |
 | `/devices`           | All devices                         |
 | `/devices/xiaomi`    | Xiaomi-compatible ROMs & recoveries |
+| `/treble`            | Treble / GSI hub                    |
 
 To enable Android App Links on your own domain, add an intent-filter to `android/app/src/main/AndroidManifest.xml` inside the main `<activity>`:
 
@@ -60,29 +70,37 @@ Then host an `assetlinks.json` file at `https://customrr.example.com/.well-known
 ## Updating the catalog
 
 The shipped `assets/catalog.json` is generated from the upstream
-[LineageOS wiki](https://github.com/LineageOS/lineage_wiki) device YAMLs by
-`tool/sync_catalog.dart`. Each ROM/recovery's `devices` list is filtered
-by a per-project policy (vendor whitelist + minimum LineageOS branch /
-release year). To refresh:
+[LineageOS wiki](https://github.com/LineageOS/lineage_wiki) device YAMLs +
+the [PixelOS-AOSP/official_devices](https://github.com/PixelOS-AOSP/official_devices)
+repo by [`tool/sync_catalog.dart`](tool/sync_catalog.dart). Each
+ROM/recovery's `devices` list is filtered by a per-project policy
+(vendor whitelist + minimum LineageOS branch / release year). To refresh:
 
 ```bash
 dart run tool/sync_catalog.dart            # use cached YAMLs in tool/.cache/
 dart run tool/sync_catalog.dart --refresh  # re-download the wiki tarball
 ```
 
+Freshness signals on every entry (active / monthly / discontinued, last
+build date) are produced separately by
+[`tool/sync_freshness.dart`](tool/sync_freshness.dart), which falls back
+to a curated seed when an upstream source is unreachable and ships the
+result in `assets/freshness.json`.
+
 The cache lives under `tool/.cache/` and is gitignored.
 
-CI runs `tool/check_catalog_drift.dart` on every PR to make sure the
-committed `assets/catalog.json` matches what `sync_catalog.dart` would
-produce right now. If it drifts, regenerate and commit. A weekly
-`Screenshot link rot check` workflow (`tool/check_screenshot_urls.dart`)
-HEADs every screenshot URL and opens a job failure if any 404s or
-non-image responses appear, so you can fix dead links before users see
-broken tiles. Run it locally with:
+### Automation
 
-```bash
-dart run tool/check_screenshot_urls.dart
-```
+The repo runs the following GitHub Actions so the catalog stays honest
+without maintainer babysitting:
+
+- **[`ci.yml`](.github/workflows/ci.yml) + [`check_catalog_drift.dart`](tool/check_catalog_drift.dart)** - every PR re-runs `sync_catalog.dart` and fails if the committed `assets/catalog.json` no longer matches what the script would produce. If it drifts, regenerate and commit.
+- **[`sync-catalog.yml`](.github/workflows/sync-catalog.yml)** - weekly job that re-runs the catalog sync against fresh upstream YAMLs and opens a PR if anything changed (new devices, new branches, etc.).
+- **[`sync-freshness.yml`](.github/workflows/sync-freshness.yml)** - nightly job that re-runs `sync_freshness.dart` so the in-app freshness chips stay current.
+- **[`defunct-watch.yml`](.github/workflows/defunct-watch.yml) + [`check_defunct_activity.dart`](tool/check_defunct_activity.dart)** - scheduled job that watches the upstream orgs of every shipped ROM and opens an issue if a project goes quiet, so it can be moved to the defunct list before users notice.
+- **[`check-screenshots.yml`](.github/workflows/check-screenshots.yml) + [`check_screenshot_urls.dart`](tool/check_screenshot_urls.dart)** - weekly HEAD-checks every screenshot URL so 404s and non-image responses are caught before users see broken tiles. Run it locally with `dart run tool/check_screenshot_urls.dart`.
+- **[`auto-tag.yml`](.github/workflows/auto-tag.yml) + [`release.yml`](.github/workflows/release.yml)** - bumping `version:` in `pubspec.yaml` on `main` is the entire release flow. `auto-tag.yml` pushes a matching `vX.Y.Z` tag, which triggers `release.yml` to build the Android per-ABI APKs, the Linux tarball, and the Windows zip, then publish a draft release with auto-generated notes.
+- **[`discord-notify.yml`](.github/workflows/discord-notify.yml)** - posts to a webhook on every published release.
 
 ## Build from source
 
@@ -128,8 +146,25 @@ cd linux
 
 It copies `io.github.monsiu.custom_rr.desktop` to
 `~/.local/share/applications/` and points it at the built binary.
-Prebuilt Linux tarballs are uploaded by the `build-linux` CI job on
-every push to `main`.
+Prebuilt Linux tarballs (`custom_rr-vX.Y.Z-linux-x64.tar.gz`) are
+attached to every GitHub release by the `build-linux` job.
+
+## Windows desktop
+
+Custom RR builds and runs as a native Windows app. Prereqs: a recent
+Visual Studio with the "Desktop development with C++" workload (the same
+toolchain Flutter docs require). Then:
+
+```powershell
+flutter config --enable-windows-desktop
+flutter build windows --release
+```
+
+The release folder ends up in `build\windows\x64\runner\Release\` and is
+fully portable: zip the folder, drop it anywhere, and double-click
+`Custom_RR.exe`. No installer, no admin rights. Prebuilt Windows zips
+(`custom_rr-vX.Y.Z-windows-x64.zip`) are attached to every GitHub release
+by the `build-windows` job.
 
 ## Support the project
 
