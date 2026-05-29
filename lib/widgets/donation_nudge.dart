@@ -108,7 +108,7 @@ const int _minLaunches = 5;
 const Duration _snoozeDuration = Duration(days: 7);
 
 /// Where the "Support" button sends the user.
-const String _supportUrl = 'https://www.buymeacoffee.com/monsiuYT';
+const String _supportUrl = 'https://www.buymeacoffee.com/monsiutech';
 
 class _DonationNudgeState extends State<DonationNudge>
     with SingleTickerProviderStateMixin {

@@ -152,7 +152,7 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
           icon: const Icon(Icons.coffee_outlined),
           label: const Text('Buy us a coffee'),
           onPressed: () => launchUrl(
-            Uri.parse('https://www.buymeacoffee.com/monsiuYT'),
+            Uri.parse('https://www.buymeacoffee.com/monsiutech'),
             mode: LaunchMode.externalApplication,
           ),
         ),

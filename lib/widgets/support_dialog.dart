@@ -61,7 +61,7 @@ Future<void> showSupportDialog(BuildContext context) {
                   onPressed: () async {
                     Navigator.of(dialogCtx).pop();
                     final Uri uri =
-                        Uri.parse('https://www.buymeacoffee.com/monsiuYT');
+                        Uri.parse('https://www.buymeacoffee.com/monsiutech');
                     await launchUrl(
                       uri,
                       mode: LaunchMode.externalApplication,
