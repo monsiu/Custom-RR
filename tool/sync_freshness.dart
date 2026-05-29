@@ -114,7 +114,7 @@ Future<void> main(List<String> args) async {
       version: 'DerpFest 15 (Android 15)',
       source: 'https://projectderp.in/',
     ),
-    'unica': _Seed(
+    'un1ca': _Seed(
       lastBuild: DateTime.utc(2026, 4, 1),
       version: 'UN1CA 3.0.7',
       source: 'https://github.com/salvogiangri/UN1CA/releases',
@@ -242,7 +242,7 @@ final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
   'grapheneos': _fetchGrapheneOs,
   'lineage': _fetchLineage,
   'risingosrevived': _fetchRisingOsRevived,
-  'unica': (HttpClient c) => _fetchGitHubReleaseLatest(
+  'un1ca': (HttpClient c) => _fetchGitHubReleaseLatest(
         c,
         owner: 'salvogiangri',
         repo: 'UN1CA',

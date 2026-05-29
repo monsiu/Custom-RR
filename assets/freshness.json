@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-05-29T15:37:32.903013Z",
+  "_generatedAt": "2026-05-29T15:48:37.532304Z",
   "_netCount": 5,
   "_curatedCount": 18,
   "entries": {
@@ -132,7 +132,7 @@
       "source": "https://projectderp.in/",
       "origin": "curated"
     },
-    "unica": {
+    "un1ca": {
       "status": "active",
       "lastBuild": "2026-04-01",
       "daysAgo": 57,
