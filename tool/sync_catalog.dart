@@ -1288,7 +1288,7 @@ List<Map<String, dynamic>> _buildRoms(
       name: 'ArtisanROM Quant',
       headerAsset: 'images/artisanrom.png',
       shortTagline:
-          'OneUI 8 based custom firmware for Samsung Exynos 990 and Exynos 9820 devices (S10, Note10, S20, Note20 family).',
+          'OneUI 8 custom firmware for Exynos Galaxy S10, Note10, S20 and Note20 devices.',
       description: <String>[
         'ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.',
         'It is built on top of the ExtremeROM and UN1CA build system, automating firmware download, extraction, patching, and flashable zip generation. The project is GPL-3.0, maintained by Android-Artisan with a long list of contributors, and ships fully upstreamed kernels for every officially supported device.',
