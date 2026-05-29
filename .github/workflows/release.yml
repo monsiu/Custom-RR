@@ -67,8 +67,16 @@ jobs:
           if-no-files-found: error
 
   build-linux:
-    name: Build Linux desktop bundle
-    runs-on: ubuntu-latest
+    name: Build Linux desktop bundle (${{ matrix.arch }})
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: ubuntu-latest
+          - arch: arm64
+            runner: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
         with:
@@ -89,24 +97,33 @@ jobs:
       - name: Stage release bundle
         env:
           TAG: ${{ inputs.tag || github.ref_name }}
+          ARCH: ${{ matrix.arch }}
         run: |
           set -euo pipefail
           mkdir -p dist
-          dir="custom_rr-${TAG}-linux-x64"
-          cp -r build/linux/x64/release/bundle "$dir"
+          dir="custom_rr-${TAG}-linux-${ARCH}"
+          cp -r "build/linux/${ARCH}/release/bundle" "$dir"
           cp linux/io.github.monsiu.custom_rr.desktop "$dir/"
           cp linux/install.sh         "$dir/"
           cp images/launcher.png      "$dir/io.github.monsiu.custom_rr.png"
           tar -czf "dist/${dir}.tar.gz" "$dir"
       - uses: actions/upload-artifact@v4
         with:
-          name: linux-bundle
-          path: dist/custom_rr-*-linux-x64.tar.gz
+          name: linux-bundle-${{ matrix.arch }}
+          path: dist/custom_rr-*-linux-${{ matrix.arch }}.tar.gz
           if-no-files-found: error
 
   build-windows:
-    name: Build Windows desktop bundle
-    runs-on: windows-latest
+    name: Build Windows desktop bundle (${{ matrix.arch }})
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: windows-latest
+          - arch: arm64
+            runner: windows-11-arm
     steps:
       - uses: actions/checkout@v4
         with:
@@ -122,29 +139,31 @@ jobs:
         shell: pwsh
         env:
           TAG: ${{ inputs.tag || github.ref_name }}
+          ARCH: ${{ matrix.arch }}
         run: |
           $ErrorActionPreference = 'Stop'
           New-Item -ItemType Directory -Force -Path dist | Out-Null
-          $dir = "custom_rr-$env:TAG-windows-x64"
-          # Flutter emits to build/windows/x64/runner/Release on modern Flutter; fall
-          # back to the older build/windows/runner/Release path used on some channels.
-          $src = 'build/windows/x64/runner/Release'
+          $dir = "custom_rr-$env:TAG-windows-$env:ARCH"
+          # Flutter emits to build/windows/<arch>/runner/Release on modern Flutter;
+          # fall back to the older build/windows/runner/Release path used on some channels.
+          $src = "build/windows/$env:ARCH/runner/Release"
           if (-not (Test-Path $src)) { $src = 'build/windows/runner/Release' }
           Copy-Item -Recurse -Force $src $dir
 
           # Bundle the MSVC runtime so users do not need the VC++
-          # Redistributable installed. windows-latest ships Visual Studio
-          # with vswhere; use it to find the latest installed redist dir.
+          # Redistributable installed. windows-latest / windows-11-arm both
+          # ship Visual Studio with vswhere; use it to find the latest
+          # installed redist dir for the right CPU arch.
           $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
           $vsPath  = & $vswhere -latest -property installationPath
           if (-not $vsPath) { throw "vswhere could not find a Visual Studio install" }
           $redistRoot = Join-Path $vsPath 'VC\Redist\MSVC'
           $crt = Get-ChildItem -Path $redistRoot -Directory |
                  Sort-Object Name -Descending |
-                 ForEach-Object { Join-Path $_.FullName 'x64\Microsoft.VC143.CRT' } |
+                 ForEach-Object { Join-Path $_.FullName "$env:ARCH\Microsoft.VC143.CRT" } |
                  Where-Object { Test-Path $_ } |
                  Select-Object -First 1
-          if (-not $crt) { throw "Could not locate Microsoft.VC143.CRT under $redistRoot" }
+          if (-not $crt) { throw "Could not locate $env:ARCH\Microsoft.VC143.CRT under $redistRoot" }
           foreach ($dll in 'msvcp140.dll','vcruntime140.dll','vcruntime140_1.dll') {
             Copy-Item -Force (Join-Path $crt $dll) -Destination $dir
           }
@@ -152,8 +171,8 @@ jobs:
           Compress-Archive -Path $dir -DestinationPath "dist/$dir.zip" -Force
       - uses: actions/upload-artifact@v4
         with:
-          name: windows-bundle
-          path: dist/custom_rr-*-windows-x64.zip
+          name: windows-bundle-${{ matrix.arch }}
+          path: dist/custom_rr-*-windows-${{ matrix.arch }}.zip
           if-no-files-found: error
 
   publish:
