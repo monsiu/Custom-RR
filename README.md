@@ -192,8 +192,17 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 
 - [GitHub](https://github.com/monsiu)
 - [Discord](https://discord.gg/DqsAR42ATR)
+- [Telegram](https://t.me/monsiu)
 - [Twitter / X](https://twitter.com/MonsiuTech)
 - [YouTube](https://www.youtube.com/@monsiutech)
+
+## Contact
+
+Bug report, feature request or just want to say hi?
+
+- Open an [issue on GitHub](https://github.com/monsiu/Custom-RR/issues) (preferred for anything code- or catalog-related).
+- Email: [contactmonsiu@gmail.com](mailto:contactmonsiu@gmail.com)
+- Telegram: [@monsiu](https://t.me/monsiu)
 
 ## License
 
