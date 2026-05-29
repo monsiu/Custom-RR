@@ -458,6 +458,25 @@ _Policy _policyFor(String romId) {
             'Nothing',
             'Motorola',
           }.contains(d.vendor);
+    case 'un1ca':
+      // Samsung Galaxy only custom firmware (One UI based).
+      // Per-device support depends on hand-written patches in the build
+      // system; the LineageOS wiki has no notion of these, so we surface
+      // every reasonably modern Samsung phone and let the project README
+      // be the authoritative compatibility source.
+      return (_Device d) =>
+          d.type == 'phone' &&
+          d.vendor == 'Samsung' &&
+          _yearAtLeast(d, 2019);
+    case 'artisanrom':
+      // ArtisanROM Quant targets Samsung Galaxy devices on Exynos 990
+      // (S20/Note20 series, 2020) and Exynos 9820 (S10/Note10 series,
+      // 2019), based on the UN1CA / ExtremeROM build system.
+      return (_Device d) =>
+          d.type == 'phone' &&
+          d.vendor == 'Samsung' &&
+          (d.releaseYear ?? 0) >= 2019 &&
+          (d.releaseYear ?? 0) <= 2021;
 
     // Recoveries follow approximate official device lists.
     case 'twrp':
@@ -1222,6 +1241,96 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://derpfest.org/devices',
+    ),
+    _RomSpec(
+      id: 'un1ca',
+      name: 'UN1CA',
+      headerAsset: 'images/un1ca.png',
+      shortTagline:
+          'Debloated, customisable One UI custom firmware for Samsung Galaxy devices.',
+      description: <String>[
+        "UN1CA is a custom firmware project by salvogiangri that takes Samsung's One UI and refines it for power users: stripping bloat, restoring choice, and layering in extra features while keeping the core Samsung experience intact.",
+        'It ships an EROFS-based build, full Galaxy AI support (call assist, browsing assist, note/photo/writing assist, Now Brief and friends), an integrated OTA updater, and a long list of system-level toggles that One UI normally hides. The project is GPL-3.0 and developed in the open on GitHub with an active Telegram community.',
+      ],
+      features: <String>[
+        'Galaxy AI features fully unlocked (audio eraser, call/browsing/writing assist, Now Brief, transcript assist, and more).',
+        'Heavily debloated and DeKnoxed One UI with stock look and feel preserved.',
+        'EROFS partitions for smaller, faster system images.',
+        'Integrated OTA updater for in-place upgrades.',
+        'Per-app blur toggle, OneUI Home animations, Vulkan toggle, and other quality-of-life switches.',
+        'Ships TrickyStore, Play Integrity Fix, and Hide My Applist hooks out of the box.',
+        'Open source under GPL-3.0 with builds published on GitHub Releases.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'GitHub releases',
+      downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
+      forumUrl: 'https://github.com/salvogiangri/UN1CA/discussions',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Telegram channel',
+          url: 'https://t.me/unicarom',
+          iconName: 'telegram',
+        ),
+        _RomLink(
+          label: 'GitHub repository',
+          url: 'https://github.com/salvogiangri/UN1CA',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Discussions',
+          url: 'https://github.com/salvogiangri/UN1CA/discussions',
+          iconName: 'forum',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'artisanrom',
+      name: 'ArtisanROM Quant',
+      headerAsset: 'images/artisanrom.png',
+      shortTagline:
+          'OneUI 8 based custom firmware for Samsung Exynos 990 and Exynos 9820 devices (S10, Note10, S20, Note20 family).',
+      description: <String>[
+        'ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.',
+        'It is built on top of the ExtremeROM and UN1CA build system, automating firmware download, extraction, patching, and flashable zip generation. The project is GPL-3.0, maintained by Android-Artisan with a long list of contributors, and ships fully upstreamed kernels for every officially supported device.',
+      ],
+      features: <String>[
+        'Based on the latest stable One UI 8 Galaxy S25 FE firmware.',
+        'S25 Ultra CSC, ringtones, and most S25 FE software features ported over.',
+        'Full Galaxy AI support including Now Brief, Super HDR, and adaptive color tone.',
+        'Fully upstreamed kernels for every officially supported device.',
+        'Moderately debloated and heavily DeKnoxed while keeping full SELinux enforcing.',
+        'EROFS partitions, BluetoothLibraryPatcher, and KnoxPatch integrated.',
+        'Extra mods (Disable Secure Flag, OutDoor mode) and CSC tweaks (call recording, network speed indicator, 5GHz hotspot).',
+        'Multi-user, AppLock, adaptive brightness and refresh rate support.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'GitHub releases',
+      downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',
+      forumUrl: 'https://github.com/ArtisanROM/ArtisanROM/wiki',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'GitHub repository',
+          url: 'https://github.com/ArtisanROM/ArtisanROM',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Wiki',
+          url: 'https://github.com/ArtisanROM/ArtisanROM/wiki',
+          iconName: 'forum',
+        ),
+        _RomLink(
+          label: 'Changelog',
+          url:
+              'https://github.com/ArtisanROM/ArtisanROM/blob/sixteen/CHANGELOG.md',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Exynos 990 kernel sources',
+          url:
+              'https://github.com/Android-Artisan/android_kernel_samsung_exynos990',
+          iconName: 'github',
+        ),
+      ],
     ),
   ];
 

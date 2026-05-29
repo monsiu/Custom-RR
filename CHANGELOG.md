@@ -7,6 +7,11 @@ pre-1.0, so minor bumps may include breaking changes).
 
 ## [Unreleased]
 
+### Added
+- **UN1CA** catalog entry: salvogiangri's debloated, customisable One UI custom firmware for Samsung Galaxy devices, with full Galaxy AI, integrated OTA, EROFS, TrickyStore / PIF / HMA, and links to the Telegram channel, GitHub repo, and discussions.
+- **ArtisanROM Quant** catalog entry: One UI 8 (Galaxy S25 FE) based custom firmware for Samsung Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series) devices, built on top of the ExtremeROM and UN1CA build system.
+- Banner art for both ROMs (`images/un1ca.png`, `images/artisanrom.png`).
+
 ## [0.2.0] - 2026-05-29
 
 ### Added
