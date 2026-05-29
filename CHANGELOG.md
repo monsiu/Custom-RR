@@ -10,6 +10,8 @@ pre-1.0, so minor bumps may include breaking changes).
 ## [0.2.0] - 2026-05-29
 
 ### Added
+- **Windows desktop build.** New `build-windows` matrix job in `release.yml` ships portable zips (`custom_rr-vX.Y.Z-windows-<arch>.zip`) with `Custom_RR.exe` plus the bundled MSVC runtime DLLs (`msvcp140.dll`, `vcruntime140.dll`, `vcruntime140_1.dll`) so users do not need to install the VC++ Redistributable.
+- **arm64 desktop builds for Linux and Windows.** Both `build-linux` and `build-windows` now run as a `{arch: x64, arm64}` matrix on GitHub's native arm64 runners (`ubuntu-24.04-arm`, `windows-11-arm`), so the release page carries native binaries for Raspberry Pi-class boxes, Ampere servers, Asahi M-series Linux, Surface Pro X / Copilot+ PCs, and similar. (32-bit x86 desktop remains out of scope; Flutter does not build it.)
 - **PixelOS** catalog entry with its full official device list, sourced live from `PixelOS-AOSP/official_devices`.
 - **LineageOS coverage expanded** to every form factor on branch 20+ (phones, tablets, Android TV, set-top boxes).
 - **RisingOS Revived**: new catalog entry for the community continuation of RisingOS, with SourceForge as both the download target and the live freshness source (RSS-based fetcher in `tool/sync_freshness.dart`).
