@@ -104,9 +104,43 @@ jobs:
           path: dist/custom_rr-*-linux-x64.tar.gz
           if-no-files-found: error
 
+  build-windows:
+    name: Build Windows desktop bundle
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter config --enable-windows-desktop
+      - run: flutter pub get
+      - run: flutter build windows --release
+      - name: Stage release zip
+        shell: pwsh
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          $dir = "custom_rr-$env:TAG-windows-x64"
+          # Flutter emits to build/windows/x64/runner/Release on modern Flutter; fall
+          # back to the older build/windows/runner/Release path used on some channels.
+          $src = 'build/windows/x64/runner/Release'
+          if (-not (Test-Path $src)) { $src = 'build/windows/runner/Release' }
+          Copy-Item -Recurse -Force $src $dir
+          Compress-Archive -Path $dir -DestinationPath "dist/$dir.zip" -Force
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-bundle
+          path: dist/custom_rr-*-windows-x64.zip
+          if-no-files-found: error
+
   publish:
     name: Publish draft release
-    needs: [build-android, build-linux]
+    needs: [build-android, build-linux, build-windows]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -122,8 +156,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p release-assets
-          # Linux tarball: already nicely named in build-linux.
+          # Linux tarball + Windows zip: already nicely named in their build jobs.
           find artifacts -type f -name '*.tar.gz' -exec cp {} release-assets/ \;
+          find artifacts -type f -name '*.zip'    -exec cp {} release-assets/ \;
           # APKs come out as app-<abi>-release.apk; rename to custom_rr-<tag>-<abi>.apk.
           for src in $(find artifacts -type f -name 'app-*-release.apk'); do
             base=$(basename "$src")
