@@ -402,13 +402,30 @@ class _DefunctSection extends StatelessWidget {
             style: text.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
           ),
           const SizedBox(height: 16),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: <Widget>[
-              for (final DefunctEntry e in entries)
-                _DefunctCard(entry: e),
-            ],
+          LayoutBuilder(
+            builder: (BuildContext _, BoxConstraints constraints) {
+              // Phones get one full-width card per row so the layout
+              // matches the regular ROM list above; on wider screens we
+              // keep the multi-column wrap with a comfortable ~320 cap.
+              const double spacing = 12;
+              const double targetWidth = 320;
+              final double available = constraints.maxWidth;
+              final int columns = available < targetWidth + spacing
+                  ? 1
+                  : ((available + spacing) / (targetWidth + spacing))
+                      .floor()
+                      .clamp(1, 4);
+              final double itemWidth =
+                  (available - spacing * (columns - 1)) / columns;
+              return Wrap(
+                spacing: spacing,
+                runSpacing: spacing,
+                children: <Widget>[
+                  for (final DefunctEntry e in entries)
+                    SizedBox(width: itemWidth, child: _DefunctCard(entry: e)),
+                ],
+              );
+            },
           ),
         ],
       ),
@@ -440,146 +457,143 @@ class _DefunctCard extends StatelessWidget {
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextTheme text = Theme.of(context).textTheme;
     final bool hasOfficial = entry.officialUrl.isNotEmpty;
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 320, minWidth: 260),
-      child: Card(
-        margin: EdgeInsets.zero,
-        color: scheme.surfaceContainerHigh,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: scheme.outlineVariant),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(14),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
+    return Card(
+      margin: EdgeInsets.zero,
+      color: scheme.surfaceContainerHigh,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: scheme.outlineVariant),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: scheme.surfaceContainerHighest,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: scheme.outlineVariant),
+                  ),
+                  child: Icon(
+                    Icons.do_not_disturb_on_outlined,
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(
+                        entry.name,
+                        style: text.titleMedium?.copyWith(
+                          color: scheme.onSurface,
+                          decoration: TextDecoration.lineThrough,
+                          decorationColor: scheme.onSurfaceVariant,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 4),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: scheme.errorContainer,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          'Archived',
+                          style: text.labelSmall?.copyWith(
+                            color: scheme.onErrorContainer,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              entry.note,
+              style: text.bodySmall?.copyWith(
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+            if (entry.lastBuild.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 10),
               Row(
                 children: <Widget>[
-                  Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                      color: scheme.surfaceContainerHighest,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: scheme.outlineVariant),
-                    ),
-                    child: Icon(
-                      Icons.do_not_disturb_on_outlined,
-                      color: scheme.onSurfaceVariant,
-                    ),
+                  Icon(
+                    Icons.event_outlined,
+                    size: 14,
+                    color: scheme.onSurfaceVariant,
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 6),
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text(
-                          entry.name,
-                          style: text.titleMedium?.copyWith(
-                            color: scheme.onSurface,
-                            decoration: TextDecoration.lineThrough,
-                            decorationColor: scheme.onSurfaceVariant,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 4),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: scheme.errorContainer,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Text(
-                            'Archived',
-                            style: text.labelSmall?.copyWith(
-                              color: scheme.onErrorContainer,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Text(
-                entry.note,
-                style: text.bodySmall?.copyWith(
-                  color: scheme.onSurfaceVariant,
-                ),
-              ),
-              if (entry.lastBuild.isNotEmpty) ...<Widget>[
-                const SizedBox(height: 10),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.event_outlined,
-                      size: 14,
-                      color: scheme.onSurfaceVariant,
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: Text(
-                        'Last build: ${entry.lastBuild}',
-                        style: text.labelSmall?.copyWith(
-                          color: scheme.onSurfaceVariant,
-                        ),
+                    child: Text(
+                      'Last build: ${entry.lastBuild}',
+                      style: text.labelSmall?.copyWith(
+                        color: scheme.onSurfaceVariant,
                       ),
                     ),
-                  ],
-                ),
-              ],
-              if (entry.successor.isNotEmpty) ...<Widget>[
-                const SizedBox(height: 4),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Icon(
-                      Icons.swap_horiz_outlined,
-                      size: 14,
-                      color: scheme.primary,
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: Text(
-                        'Try instead: ${entry.successor}',
-                        style: text.labelSmall?.copyWith(
-                          color: scheme.primary,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-              const SizedBox(height: 12),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: <Widget>[
-                  FilledButton.tonalIcon(
-                    icon: const Icon(Icons.search, size: 18),
-                    label: const Text('Search on XDA'),
-                    onPressed: () => _openXdaSearch(context),
                   ),
-                  if (hasOfficial)
-                    OutlinedButton.icon(
-                      icon: const Icon(Icons.history, size: 18),
-                      label: const Text('Old official site'),
-                      onPressed: _openWaybackArchive,
-                    ),
                 ],
               ),
             ],
-          ),
+            if (entry.successor.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 4),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Icon(
+                    Icons.swap_horiz_outlined,
+                    size: 14,
+                    color: scheme.primary,
+                  ),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      'Try instead: ${entry.successor}',
+                      style: text.labelSmall?.copyWith(
+                        color: scheme.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: <Widget>[
+                FilledButton.tonalIcon(
+                  icon: const Icon(Icons.search, size: 18),
+                  label: const Text('Search on XDA'),
+                  onPressed: () => _openXdaSearch(context),
+                ),
+                if (hasOfficial)
+                  OutlinedButton.icon(
+                    icon: const Icon(Icons.history, size: 18),
+                    label: const Text('Old official site'),
+                    onPressed: _openWaybackArchive,
+                  ),
+              ],
+            ),
+          ],
         ),
       ),
     );
