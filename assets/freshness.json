@@ -1,7 +1,7 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-05-29T09:43:29.583363Z",
-  "_netCount": 3,
+  "_generatedAt": "2026-05-29T15:36:06.816728Z",
+  "_netCount": 5,
   "_curatedCount": 18,
   "entries": {
     "lineage": {
@@ -131,6 +131,22 @@
       "version": "DerpFest 15 (Android 15)",
       "source": "https://projectderp.in/",
       "origin": "curated"
+    },
+    "unica": {
+      "status": "active",
+      "lastBuild": "2026-04-01",
+      "daysAgo": 57,
+      "version": "UN1CA 3.0.7",
+      "source": "https://github.com/salvogiangri/UN1CA/releases",
+      "origin": "network"
+    },
+    "artisanrom": {
+      "status": "active",
+      "lastBuild": "2026-05-18",
+      "daysAgo": 11,
+      "version": "ArtisanROM Quant 3.1.1",
+      "source": "https://github.com/ArtisanROM/ArtisanROM/releases",
+      "origin": "network"
     },
     "twrp": {
       "status": "abandoned",

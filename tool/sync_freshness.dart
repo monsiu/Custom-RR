@@ -114,6 +114,16 @@ Future<void> main(List<String> args) async {
       version: 'DerpFest 15 (Android 15)',
       source: 'https://projectderp.in/',
     ),
+    'unica': _Seed(
+      lastBuild: DateTime.utc(2026, 4, 1),
+      version: 'UN1CA 3.0.7',
+      source: 'https://github.com/salvogiangri/UN1CA/releases',
+    ),
+    'artisanrom': _Seed(
+      lastBuild: DateTime.utc(2026, 5, 15),
+      version: 'ArtisanROM Quant v3.1.1',
+      source: 'https://github.com/ArtisanROM/ArtisanROM/releases',
+    ),
 
     // Recoveries
     'twrp': _Seed(
@@ -232,6 +242,18 @@ final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
   'grapheneos': _fetchGrapheneOs,
   'lineage': _fetchLineage,
   'risingosrevived': _fetchRisingOsRevived,
+  'unica': (HttpClient c) => _fetchGitHubReleaseLatest(
+        c,
+        owner: 'salvogiangri',
+        repo: 'UN1CA',
+        displayName: 'UN1CA',
+      ),
+  'artisanrom': (HttpClient c) => _fetchGitHubReleaseLatest(
+        c,
+        owner: 'ArtisanROM',
+        repo: 'ArtisanROM',
+        displayName: 'ArtisanROM Quant',
+      ),
 };
 
 /// GrapheneOS publishes a one-line stable-channel manifest per device at
@@ -285,6 +307,37 @@ Future<_NetResult?> _fetchLineage(HttpClient client) async {
         ? 'LineageOS $newestVersion'
         : 'LineageOS (latest)',
     source: 'https://download.lineageos.org/',
+  );
+}
+
+/// GitHub Releases API: `repos/{owner}/{repo}/releases/latest` returns the
+/// most recent non-draft, non-prerelease release as JSON. We use the
+/// `published_at` timestamp as the build date and the `tag_name` (stripped
+/// of a leading `v`) as the version suffix. Drafts and prereleases are
+/// invisible to this endpoint, which is the same behaviour the in-app
+/// UpdateChecker relies on.
+Future<_NetResult?> _fetchGitHubReleaseLatest(
+  HttpClient client, {
+  required String owner,
+  required String repo,
+  required String displayName,
+}) async {
+  final Uri url =
+      Uri.parse('https://api.github.com/repos/$owner/$repo/releases/latest');
+  final String body = await _httpGetText(client, url);
+  final dynamic decoded = json.decode(body);
+  if (decoded is! Map) return null;
+  final dynamic published = decoded['published_at'];
+  final dynamic tag = decoded['tag_name'];
+  if (published is! String || tag is! String) return null;
+  final DateTime? when = DateTime.tryParse(published);
+  if (when == null) return null;
+  final String cleanTag =
+      tag.startsWith('v') || tag.startsWith('V') ? tag.substring(1) : tag;
+  return _NetResult(
+    lastBuild: when.toUtc(),
+    version: '$displayName $cleanTag',
+    source: 'https://github.com/$owner/$repo/releases',
   );
 }
 
