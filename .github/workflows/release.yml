@@ -269,6 +269,7 @@ jobs:
           echo "----- body.md -----"
           cat body.md
       - name: Publish draft release
+        id: release
         uses: softprops/action-gh-release@v2
         with:
           draft: true
@@ -277,3 +278,34 @@ jobs:
           tag_name: ${{ inputs.tag || github.ref_name }}
           body_path: body.md
           files: release-assets/*
+      - name: Force-refresh release body
+        # softprops/action-gh-release does not reliably overwrite the body of
+        # an existing draft release on subsequent runs, so PATCH it directly
+        # to guarantee the published draft matches body.md.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          RELEASE_ID: ${{ steps.release.outputs.id }}
+        run: |
+          set -euo pipefail
+          if [ -z "${RELEASE_ID:-}" ]; then
+            echo "No release id from softprops; skipping body refresh."
+            exit 0
+          fi
+          python3 - <<'PY'
+          import json, os, urllib.request
+          body = open('body.md').read()
+          req = urllib.request.Request(
+              f"https://api.github.com/repos/{os.environ['REPO']}/releases/{os.environ['RELEASE_ID']}",
+              method='PATCH',
+              data=json.dumps({'body': body}).encode(),
+              headers={
+                  'Authorization': f"Bearer {os.environ['GH_TOKEN']}",
+                  'Accept': 'application/vnd.github+json',
+                  'Content-Type': 'application/json',
+              },
+          )
+          r = urllib.request.urlopen(req)
+          d = json.load(r)
+          print(f"Body refreshed: {len(d['body'] or '')} chars")
+          PY
