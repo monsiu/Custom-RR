@@ -33,7 +33,7 @@ jobs:
         run: dart run tool/sync_catalog.dart --refresh
 
       - name: Open PR if catalog changed
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "chore(catalog): weekly automated refresh"
           title: "chore(catalog): weekly automated refresh"
