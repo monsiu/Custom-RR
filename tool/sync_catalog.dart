@@ -1264,12 +1264,14 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       // UN1CA is a One UI firmware port for Samsung Galaxy devices, so its
       // UI is stock One UI (the same software the Galaxy S25 ships). The
-      // project publishes no screenshots of its own, so these are real
-      // One UI screenshots hosted on stable third-party CDNs.
+      // project publishes no screenshots of its own, so these are real,
+      // CC-licensed One UI shots from Wikimedia Commons. They are hosted on
+      // upload.wikimedia.org (no hotlink protection) and are small native
+      // files (<450 KB) so they load reliably across platforms.
       screenshots: <String>[
-        'https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp',
-        'https://i.redd.it/screenshots-after-one-ui-7-0-update-kr-unlocked-v0-1qu8uzn2olte1.jpg?width=1440&format=pjpg&auto=webp&s=4fa9e6c51f7e1d32c06660309d95402f057cfa6f',
-        'https://www.androidauthority.com/wp-content/uploads/2024/12/One-UI-7-quick-settings-1.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/2/29/OneUI-5.0-ScreenshotRU.png',
+        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Samsung_Device_Care_One_UI_7.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
@@ -1314,12 +1316,13 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       // ArtisanROM is a One UI 8 firmware port built on Galaxy S25 FE
       // firmware, so it presents stock One UI. The project ships no
-      // screenshots of its own, so these are real One UI screenshots
-      // hosted on stable third-party CDNs.
+      // screenshots of its own, so these are real, CC-licensed One UI
+      // shots from Wikimedia Commons (upload.wikimedia.org, no hotlink
+      // protection, small native files that load reliably).
       screenshots: <String>[
-        'https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp',
-        'https://i.redd.it/screenshots-after-one-ui-7-0-update-kr-unlocked-v0-1qu8uzn2olte1.jpg?width=1440&format=pjpg&auto=webp&s=4fa9e6c51f7e1d32c06660309d95402f057cfa6f',
-        'https://www.androidauthority.com/wp-content/uploads/2024/12/One-UI-7-quick-settings-1.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Samsung_Device_Care_One_UI_7.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/5/5a/Samsung_Device_Care_2025_One_UI_7_New.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/2/29/OneUI-5.0-ScreenshotRU.png',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',
