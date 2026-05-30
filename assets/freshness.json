@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-05-30T07:20:36.365310Z",
+  "_generatedAt": "2026-05-30T08:15:52.117112Z",
   "_netCount": 10,
   "_curatedCount": 18,
   "entries": {
@@ -151,7 +151,7 @@
     "magisk": {
       "status": "stale",
       "lastBuild": "2026-02-23",
-      "daysAgo": 95,
+      "daysAgo": 96,
       "version": "Magisk 30.7",
       "source": "https://github.com/topjohnwu/Magisk/releases",
       "origin": "network"
