@@ -28,12 +28,22 @@ android {
         main.java.srcDirs += "src/main/kotlin"
     }
 
+    // Strip the AGP "Dependency metadata" block that F-Droid's scanner rejects
+    // as an extra signing block.
+    dependenciesInfo {
+        includeInApk false
+        includeInBundle false
+    }
+
     defaultConfig {
         applicationId "io.github.monsiu.custom_rr"
         minSdkVersion flutter.minSdkVersion
         targetSdk 36
-        versionCode flutter.versionCode
-        versionName flutter.versionName
+        // Literal values (kept in sync with pubspec.yaml) so F-Droid's
+        // checkupdates can parse versionCode/versionName from the git tag.
+        // Bump both here and in pubspec.yaml on every release.
+        versionCode 4
+        versionName "0.2.1"
     }
 
     signingConfigs {
@@ -60,6 +70,13 @@ android {
 
 flutter {
     source "../.."
+}
+
+// The Flutter embedding pulls in the proprietary Google Play Core library
+// (SplitCompat/SplitInstall) for deferred components, which this app does not
+// use. F-Droid's scanner flags those classes as non-free, so drop them.
+configurations.all {
+    exclude group: "com.google.android.play", module: "core"
 }
 
 dependencies {
