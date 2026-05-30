@@ -91,24 +91,17 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
         (widget.heroTags != null && i < widget.heroTags!.length)
             ? widget.heroTags![i]
             : null;
-    // Screenshots may be remote URLs or bundled assets (entries whose
-    // upstream offers no hot-linkable shots ship images in-app instead).
-    final Widget image = url.startsWith('http')
-        ? CachedNetworkImage(
-            imageUrl: url,
-            fit: BoxFit.contain,
-            placeholder: (_, __) => const Center(
-              child: CircularProgressIndicator(color: Colors.white),
-            ),
-            errorWidget: (_, __, ___) => const Center(
-              child: Icon(
-                Icons.broken_image_outlined,
-                color: Colors.white70,
-                size: 64,
-              ),
-            ),
-          )
-        : Image.asset(url, fit: BoxFit.contain);
+    final Widget image = CachedNetworkImage(
+      imageUrl: url,
+      fit: BoxFit.contain,
+      placeholder: (_, __) => const Center(
+        child: CircularProgressIndicator(color: Colors.white),
+      ),
+      errorWidget: (_, __, ___) => const Center(
+        child:
+            Icon(Icons.broken_image_outlined, color: Colors.white70, size: 64),
+      ),
+    );
     return InteractiveViewer(
       minScale: 1,
       maxScale: 4,

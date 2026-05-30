@@ -559,42 +559,33 @@ class _ScreenshotsState extends State<_Screenshots> {
           onLongPress: () => _copyUrl(context, url),
           child: Hero(
             tag: heroTag,
-            child: url.startsWith('http')
-                ? CachedNetworkImage(
-                    imageUrl: url,
-                    fit: BoxFit.cover,
+            child: CachedNetworkImage(
+              imageUrl: url,
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.medium,
+              memCacheWidth: cacheWidth,
+              maxWidthDiskCache: cacheWidth,
+              placeholder: (BuildContext _, String __) => ColoredBox(
+                color: scheme.surfaceContainerHighest,
+                child: const Center(
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+              ),
+              // Fall back to the entry's bundled hero instead of a
+              // broken-image placeholder when a screenshot URL 404s.
+              errorWidget:
+                  (BuildContext _, String __, Object ___) => ColoredBox(
+                color: scheme.surfaceContainerHighest,
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Image.asset(
+                    widget.fallbackAsset,
+                    fit: BoxFit.contain,
                     filterQuality: FilterQuality.medium,
-                    memCacheWidth: cacheWidth,
-                    maxWidthDiskCache: cacheWidth,
-                    placeholder: (BuildContext _, String __) => ColoredBox(
-                      color: scheme.surfaceContainerHighest,
-                      child: const Center(
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      ),
-                    ),
-                    // Fall back to the entry's bundled hero instead of a
-                    // broken-image placeholder when a screenshot URL 404s.
-                    errorWidget:
-                        (BuildContext _, String __, Object ___) => ColoredBox(
-                      color: scheme.surfaceContainerHighest,
-                      child: Padding(
-                        padding: const EdgeInsets.all(32),
-                        child: Image.asset(
-                          widget.fallbackAsset,
-                          fit: BoxFit.contain,
-                          filterQuality: FilterQuality.medium,
-                        ),
-                      ),
-                    ),
-                  )
-                // Bundled-asset screenshots (entries with no hot-linkable
-                // upstream shots) render straight from the app bundle.
-                : Image.asset(
-                    url,
-                    fit: BoxFit.cover,
-                    filterQuality: FilterQuality.medium,
-                    cacheWidth: cacheWidth,
                   ),
+                ),
+              ),
+            ),
           ),
         ),
       ),
