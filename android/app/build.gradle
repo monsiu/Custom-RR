@@ -59,7 +59,17 @@ android {
 
     buildTypes {
         release {
-            // Falls back to debug signing if key.properties is absent (so `flutter run --release` works locally).
+            // Falls back to debug signing if key.properties is absent (so `flutter run --release`
+            // works locally and fork PR builds can still produce throwaway APKs). The publishing
+            // workflow sets REQUIRE_RELEASE_SIGNING=true so a release that is about to be uploaded
+            // fails loudly here instead of silently shipping a debug-signed APK that users cannot
+            // install over an earlier release-signed build ("package appears to be invalid").
+            if (System.getenv("REQUIRE_RELEASE_SIGNING") == "true" && !keystorePropertiesFile.exists()) {
+                throw new RuntimeException(
+                    "REQUIRE_RELEASE_SIGNING is set but android/key.properties is missing. " +
+                    "Provide the release keystore (ANDROID_KEYSTORE_BASE64 and friends) so the " +
+                    "APK is signed with the published release key.")
+            }
             signingConfig keystorePropertiesFile.exists() ? signingConfigs.release : signingConfigs.debug
             minifyEnabled true
             shrinkResources true
@@ -67,18 +77,24 @@ android {
         }
     }
 
-    // F-Droid ships one APK per ABI (flutter build apk --split-per-abi), so each
-    // split needs a distinct versionCode to coexist in the repo. Use the scheme
-    // base * 10 + abiCode, which matches the VercodeOperation in the fdroiddata
-    // metadata (armeabi-v7a -> +1, arm64-v8a -> +2, x86_64 -> +3). A universal
-    // (non-split) build has no ABI filter and keeps the base versionCode.
+    // The GitHub release channel ships one APK per ABI (flutter build apk
+    // --split-per-abi), so each split needs a distinct versionCode. Use the
+    // scheme abiCode * 1000 + base, the stock Flutter split scheme that v0.2.0
+    // already shipped (armeabi-v7a -> 1xxx, arm64-v8a -> 2xxx, x86_64 -> 3xxx).
+    // This MUST stay continuous with prior releases: with base 4 the codes are
+    // 1004 / 2004 / 3004, which sit above v0.2.0's 1003 / 2003 / 3003 so the
+    // in-app updater can install over an existing build. Switching to a scheme
+    // that produced smaller codes (e.g. base * 10 + abiCode = 42) makes Android
+    // treat the update as a downgrade and reject it with "package appears to be
+    // invalid". The F-Droid variant builds a universal APK (no ABI filter), so
+    // it skips this override and keeps the base versionCode.
     def abiVersionCodes = ["armeabi-v7a": 1, "arm64-v8a": 2, "x86_64": 3]
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             def abi = output.filters.find { it.filterType == "ABI" }?.identifier
             def abiCode = abiVersionCodes[abi]
             if (abiCode != null) {
-                output.versionCodeOverride = variant.versionCode * 10 + abiCode
+                output.versionCodeOverride = abiCode * 1000 + variant.versionCode
             }
         }
     }
