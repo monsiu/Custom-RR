@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-30T09:03:16.346506Z",
+  "_generatedAt": "2026-05-30T09:14:35.081904Z",
   "roms": [
     {
       "id": "lineage",
@@ -20366,7 +20366,11 @@
         "Ships TrickyStore, Play Integrity Fix, and Hide My Applist hooks out of the box.",
         "Open source under GPL-3.0 with builds published on GitHub Releases."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg",
+        "https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp",
+        "https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg"
+      ],
       "devices": [
         {
           "brand": "Samsung",
@@ -20542,7 +20546,11 @@
         "Extra mods (Disable Secure Flag, OutDoor mode) and CSC tweaks (call recording, network speed indicator, 5GHz hotspot).",
         "Multi-user, AppLock, adaptive brightness and refresh rate support."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg",
+        "https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp",
+        "https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg"
+      ],
       "devices": [
         {
           "brand": "Samsung",
