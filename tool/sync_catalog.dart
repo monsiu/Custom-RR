@@ -1263,10 +1263,13 @@ List<Map<String, dynamic>> _buildRoms(
         'Open source under GPL-3.0 with builds published on GitHub Releases.',
       ],
       // UN1CA is a One UI firmware port for Samsung Galaxy devices. The
-      // project publishes no screenshots of its own, and there is no stable
-      // host we can reliably hotlink stock One UI shots from, so the
-      // Screenshots section is omitted (same as the root managers).
-      screenshots: <String>[],
+      // project publishes no screenshots of its own, so these are stock
+      // One UI shots that represent the UI it ships.
+      screenshots: <String>[
+        'https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg',
+        'https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp',
+        'https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg',
+      ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
       forumUrl: 'https://github.com/salvogiangri/UN1CA/discussions',
@@ -1309,10 +1312,13 @@ List<Map<String, dynamic>> _buildRoms(
         'Multi-user, AppLock, adaptive brightness and refresh rate support.',
       ],
       // ArtisanROM is a One UI 8 firmware port built on Galaxy S25 FE
-      // firmware. The project ships no screenshots of its own, and there is
-      // no stable host we can reliably hotlink stock One UI shots from, so
-      // the Screenshots section is omitted (same as the root managers).
-      screenshots: <String>[],
+      // firmware. The project ships no screenshots of its own, so these are
+      // stock One UI shots that represent the UI it ships.
+      screenshots: <String>[
+        'https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg',
+        'https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp',
+        'https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg',
+      ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',
       forumUrl: 'https://github.com/ArtisanROM/ArtisanROM/wiki',
