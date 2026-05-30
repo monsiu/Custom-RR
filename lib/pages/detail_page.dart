@@ -18,6 +18,13 @@ import '../widgets/freshness_badge.dart';
 import '../widgets/xda_threads_section.dart';
 import '../widgets/zoomable_image_viewer.dart';
 
+/// HTTP headers sent with remote screenshot requests. The descriptive
+/// `User-Agent` keeps image hosts (notably Wikimedia Commons) from
+/// throttling the default Dart agent and leaving screenshots blank.
+const Map<String, String> _kScreenshotHeaders = <String, String>{
+  'User-Agent': 'CustomRR/1.0 (+https://github.com/monsiu/Custom-RR)',
+};
+
 /// Generic detail page used for both ROMs and recoveries.
 ///
 /// Uses a collapsing [SliverAppBar] with the entry's header image, and
@@ -561,6 +568,11 @@ class _ScreenshotsState extends State<_Screenshots> {
             tag: heroTag,
             child: CachedNetworkImage(
               imageUrl: url,
+              // Some hosts (e.g. Wikimedia Commons) throttle or reject the
+              // generic Dart user agent the cache manager sends by default,
+              // which makes screenshots intermittently fail to load. Send a
+              // descriptive UA so requests are treated as a normal client.
+              httpHeaders: _kScreenshotHeaders,
               fit: BoxFit.cover,
               filterQuality: FilterQuality.medium,
               memCacheWidth: cacheWidth,
