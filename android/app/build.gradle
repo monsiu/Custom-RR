@@ -72,11 +72,16 @@ flutter {
     source "../.."
 }
 
-// The Flutter embedding pulls in the proprietary Google Play Core library
+// The Flutter embedding references the proprietary Google Play Core library
 // (SplitCompat/SplitInstall) for deferred components, which this app does not
-// use. F-Droid's scanner flags those classes as non-free, so drop them.
+// use. F-Droid's scanner rejects those classes as non-free. Two layers keep
+// them out of the APK:
+//   1) exclude the Maven group so it is never on the compile classpath, and
+//   2) (see proguard-rules.pro) avoid a catch-all keep on io.flutter.** so R8
+//      can tree-shake the unreachable PlayStoreDeferredComponentManager, which
+//      is what actually drags the Play Core classes into the dex.
 configurations.all {
-    exclude group: "com.google.android.play", module: "core"
+    exclude group: "com.google.android.play"
 }
 
 dependencies {
