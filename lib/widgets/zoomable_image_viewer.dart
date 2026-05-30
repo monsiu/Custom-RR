@@ -8,6 +8,13 @@ const Map<String, String> _kScreenshotHeaders = <String, String>{
   'User-Agent': 'CustomRR/1.0 (+https://github.com/monsiu/Custom-RR)',
 };
 
+/// Whether [src] is a remote screenshot URL (vs a bundled asset path).
+///
+/// Screenshots are usually hot-linked URLs, but some upstream hosts block
+/// hot-linking, so those shots are bundled and referenced by asset path.
+bool isNetworkScreenshot(String src) =>
+    src.startsWith('http://') || src.startsWith('https://');
+
 /// Opens a full-screen, pinch-to-zoom viewer for [imageUrl].
 ///
 /// Lightweight wrapper around [InteractiveViewer] so we don't need to pull
@@ -98,21 +105,36 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
         (widget.heroTags != null && i < widget.heroTags!.length)
             ? widget.heroTags![i]
             : null;
-    final Widget image = CachedNetworkImage(
-      imageUrl: url,
-      // Match the screenshot tiles: a descriptive user agent keeps hosts
-      // like Wikimedia Commons from throttling the request and leaving a
-      // broken-image placeholder in the full-screen viewer.
-      httpHeaders: _kScreenshotHeaders,
-      fit: BoxFit.contain,
-      placeholder: (_, __) => const Center(
-        child: CircularProgressIndicator(color: Colors.white),
-      ),
-      errorWidget: (_, __, ___) => const Center(
-        child:
-            Icon(Icons.broken_image_outlined, color: Colors.white70, size: 64),
-      ),
-    );
+    final Widget image = isNetworkScreenshot(url)
+        ? CachedNetworkImage(
+            imageUrl: url,
+            // Match the screenshot tiles: a descriptive user agent keeps
+            // hosts like Wikimedia Commons from throttling the request and
+            // leaving a broken-image placeholder in the full-screen viewer.
+            httpHeaders: _kScreenshotHeaders,
+            fit: BoxFit.contain,
+            placeholder: (_, __) => const Center(
+              child: CircularProgressIndicator(color: Colors.white),
+            ),
+            errorWidget: (_, __, ___) => const Center(
+              child: Icon(
+                Icons.broken_image_outlined,
+                color: Colors.white70,
+                size: 64,
+              ),
+            ),
+          )
+        : Image.asset(
+            url,
+            fit: BoxFit.contain,
+            errorBuilder: (_, __, ___) => const Center(
+              child: Icon(
+                Icons.broken_image_outlined,
+                color: Colors.white70,
+                size: 64,
+              ),
+            ),
+          );
     return InteractiveViewer(
       minScale: 1,
       maxScale: 4,

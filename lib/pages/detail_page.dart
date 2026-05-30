@@ -557,6 +557,59 @@ class _ScreenshotsState extends State<_Screenshots> {
         ? MediaQuery.sizeOf(context).width
         : _tileWidth;
     final int cacheWidth = (targetWidth * dpr).round();
+    // Screenshots are either remote URLs or bundled asset paths (used when
+    // the upstream host blocks hot-linking). Pick the matching widget.
+    final Widget image = isNetworkScreenshot(url)
+        ? CachedNetworkImage(
+            imageUrl: url,
+            // Some hosts (e.g. Wikimedia Commons) throttle or reject the
+            // generic Dart user agent the cache manager sends by default,
+            // which makes screenshots intermittently fail to load. Send a
+            // descriptive UA so requests are treated as a normal client.
+            httpHeaders: _kScreenshotHeaders,
+            fit: BoxFit.cover,
+            filterQuality: FilterQuality.medium,
+            memCacheWidth: cacheWidth,
+            maxWidthDiskCache: cacheWidth,
+            placeholder: (BuildContext _, String __) => ColoredBox(
+              color: scheme.surfaceContainerHighest,
+              child: const Center(
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
+            ),
+            // Fall back to the entry's bundled hero instead of a
+            // broken-image placeholder when a screenshot URL 404s.
+            errorWidget:
+                (BuildContext _, String __, Object ___) => ColoredBox(
+              color: scheme.surfaceContainerHighest,
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Image.asset(
+                  widget.fallbackAsset,
+                  fit: BoxFit.contain,
+                  filterQuality: FilterQuality.medium,
+                ),
+              ),
+            ),
+          )
+        : Image.asset(
+            url,
+            fit: BoxFit.cover,
+            filterQuality: FilterQuality.medium,
+            cacheWidth: cacheWidth,
+            errorBuilder:
+                (BuildContext _, Object __, StackTrace? ___) => ColoredBox(
+              color: scheme.surfaceContainerHighest,
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Image.asset(
+                  widget.fallbackAsset,
+                  fit: BoxFit.contain,
+                  filterQuality: FilterQuality.medium,
+                ),
+              ),
+            ),
+          );
     return ClipRRect(
       borderRadius: radius,
       child: Material(
@@ -566,38 +619,7 @@ class _ScreenshotsState extends State<_Screenshots> {
           onLongPress: () => _copyUrl(context, url),
           child: Hero(
             tag: heroTag,
-            child: CachedNetworkImage(
-              imageUrl: url,
-              // Some hosts (e.g. Wikimedia Commons) throttle or reject the
-              // generic Dart user agent the cache manager sends by default,
-              // which makes screenshots intermittently fail to load. Send a
-              // descriptive UA so requests are treated as a normal client.
-              httpHeaders: _kScreenshotHeaders,
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.medium,
-              memCacheWidth: cacheWidth,
-              maxWidthDiskCache: cacheWidth,
-              placeholder: (BuildContext _, String __) => ColoredBox(
-                color: scheme.surfaceContainerHighest,
-                child: const Center(
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                ),
-              ),
-              // Fall back to the entry's bundled hero instead of a
-              // broken-image placeholder when a screenshot URL 404s.
-              errorWidget:
-                  (BuildContext _, String __, Object ___) => ColoredBox(
-                color: scheme.surfaceContainerHighest,
-                child: Padding(
-                  padding: const EdgeInsets.all(32),
-                  child: Image.asset(
-                    widget.fallbackAsset,
-                    fit: BoxFit.contain,
-                    filterQuality: FilterQuality.medium,
-                  ),
-                ),
-              ),
-            ),
+            child: image,
           ),
         ),
       ),

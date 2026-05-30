@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-30T09:14:35.081904Z",
+  "_generatedAt": "2026-05-30T10:25:50.026706Z",
   "roms": [
     {
       "id": "lineage",
@@ -20367,9 +20367,13 @@
         "Open source under GPL-3.0 with builds published on GitHub Releases."
       ],
       "screenshots": [
-        "https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg",
-        "https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp",
-        "https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg"
+        "images/screenshots/un1ca/1_home.jpg",
+        "images/screenshots/un1ca/2_lockscreen.jpg",
+        "images/screenshots/un1ca/3_app_drawer.jpg",
+        "images/screenshots/un1ca/4_quick_settings.jpg",
+        "images/screenshots/un1ca/5_unica_settings.jpg",
+        "images/screenshots/un1ca/6_unica_updates.jpg",
+        "images/screenshots/un1ca/7_software_info.jpg"
       ],
       "devices": [
         {
@@ -20547,9 +20551,10 @@
         "Multi-user, AppLock, adaptive brightness and refresh rate support."
       ],
       "screenshots": [
-        "https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg",
-        "https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp",
-        "https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg"
+        "images/screenshots/un1ca/1_home.jpg",
+        "images/screenshots/un1ca/2_lockscreen.jpg",
+        "images/screenshots/un1ca/3_app_drawer.jpg",
+        "images/screenshots/un1ca/4_quick_settings.jpg"
       ],
       "devices": [
         {
