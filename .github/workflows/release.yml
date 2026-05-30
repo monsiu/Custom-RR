@@ -60,9 +60,15 @@ jobs:
           storeFile=release.jks
           EOF
       # Per-ABI split: produces armeabi-v7a / arm64-v8a / x86_64 APKs.
-      # build.gradle gives each split a distinct versionCode (base * 10 + 1/2/3),
-      # matching the VercodeOperation in the F-Droid metadata.
+      # build.gradle gives each split a distinct versionCode (abiCode * 1000 +
+      # base, i.e. 1xxx / 2xxx / 3xxx), continuous with the codes v0.2.0 shipped
+      # so the in-app updater can install over an earlier release.
+      # REQUIRE_RELEASE_SIGNING makes build.gradle fail if the release keystore is
+      # missing, so a published release is never silently debug-signed (which would
+      # break in-place updates with "package appears to be invalid").
       - run: flutter build apk --split-per-abi --release
+        env:
+          REQUIRE_RELEASE_SIGNING: "true"
       - uses: actions/upload-artifact@v4
         with:
           name: android-apks
