@@ -7,6 +7,10 @@
 -keep class io.flutter.plugins.**  { *; }
 -dontwarn io.flutter.embedding.**
 
+# Google Play Core is excluded from the F-Droid build (deferred components are
+# unused); silence the references left in the Flutter embedding.
+-dontwarn com.google.android.play.core.**
+
 # Google Material Components
 -keep class com.google.android.material.** { *; }
 -dontwarn com.google.android.material.**

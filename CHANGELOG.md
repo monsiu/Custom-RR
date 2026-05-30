@@ -7,6 +7,18 @@ pre-1.0, so minor bumps may include breaking changes).
 
 ## [0.2.1] - 2026-05-30
 
+### Fixed
+- **F-Droid build compliance.** Reproducible-build and scanner fixes for the
+  F-Droid pipeline, with no change to app behaviour:
+  - Excluded the proprietary Google Play Core library (deferred-components
+    `SplitCompat`/`SplitInstall`) that the Flutter embedding pulls in but this
+    app never uses, plus a matching `-dontwarn` ProGuard rule.
+  - Disabled the AGP dependency-metadata block (`dependenciesInfo`) so the APK
+    no longer carries the extra signing block F-Droid's scanner rejects.
+  - Hardcoded literal `versionCode`/`versionName` in `android/app/build.gradle`
+    (kept in sync with `pubspec.yaml`) so F-Droid's update checker can read the
+    version from each git tag.
+
 ### Added
 - **Official screenshots for UN1CA and ArtisanROM.** UN1CA now ships the 7 official screenshots from its XDA release thread (home, lock screen, app drawer, quick settings, UN1CA Settings, UN1CA Updates, software info). ArtisanROM ships the 11 maintainer-supplied shots (Settings, Updater, Package installer). Both sets are bundled locally under `images/screenshots/` because the upstream hosts block hot-linking, so the catalog references them as asset paths instead of URLs.
 - **Link chips on every detail page.** The clickable Website / GitHub / Forum chips previously only on the newest entries now appear on every ROM and recovery: LineageOS, crDroid, Pixel Experience, Evolution X, Paranoid Android, DotOS, Bliss, POSP, Voltage OS, Project Elixir, PixelOS, GrapheneOS, CalyxOS, /e/OS, DivestOS, DerpFest, TWRP, OrangeFox, RedWolf, PitchBlack, and SHRP.
