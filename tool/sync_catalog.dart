@@ -1315,15 +1315,20 @@ List<Map<String, dynamic>> _buildRoms(
         'Extra mods (Disable Secure Flag, OutDoor mode) and CSC tweaks (call recording, network speed indicator, 5GHz hotspot).',
         'Multi-user, AppLock, adaptive brightness and refresh rate support.',
       ],
-      // ArtisanROM is a One UI 8 firmware port and ships no screenshots of
-      // its own. These are the generic (non-UN1CA-branded) One UI shots
-      // from the bundled set, representing the UI it ships. Bundled locally
-      // because the upstream host blocks hot-linking.
+      // Official ArtisanROM screenshots provided by the maintainer.
+      // Bundled locally because the upstream host blocks hot-linking.
       screenshots: <String>[
-        'images/screenshots/un1ca/1_home.jpg',
-        'images/screenshots/un1ca/2_lockscreen.jpg',
-        'images/screenshots/un1ca/3_app_drawer.jpg',
-        'images/screenshots/un1ca/4_quick_settings.jpg',
+        'images/screenshots/artisanrom/01_settings.jpg',
+        'images/screenshots/artisanrom/02_settings.jpg',
+        'images/screenshots/artisanrom/03_settings.jpg',
+        'images/screenshots/artisanrom/04_settings.jpg',
+        'images/screenshots/artisanrom/05_updater.jpg',
+        'images/screenshots/artisanrom/06_updater.jpg',
+        'images/screenshots/artisanrom/07_updater.jpg',
+        'images/screenshots/artisanrom/08_updater.jpg',
+        'images/screenshots/artisanrom/09_updater.jpg',
+        'images/screenshots/artisanrom/10_updater.jpg',
+        'images/screenshots/artisanrom/11_package_installer.jpg',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',
