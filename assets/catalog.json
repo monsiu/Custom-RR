@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-30T10:25:50.026706Z",
+  "_generatedAt": "2026-05-30T10:42:46.178613Z",
   "roms": [
     {
       "id": "lineage",
@@ -20551,10 +20551,17 @@
         "Multi-user, AppLock, adaptive brightness and refresh rate support."
       ],
       "screenshots": [
-        "images/screenshots/un1ca/1_home.jpg",
-        "images/screenshots/un1ca/2_lockscreen.jpg",
-        "images/screenshots/un1ca/3_app_drawer.jpg",
-        "images/screenshots/un1ca/4_quick_settings.jpg"
+        "images/screenshots/artisanrom/01_settings.jpg",
+        "images/screenshots/artisanrom/02_settings.jpg",
+        "images/screenshots/artisanrom/03_settings.jpg",
+        "images/screenshots/artisanrom/04_settings.jpg",
+        "images/screenshots/artisanrom/05_updater.jpg",
+        "images/screenshots/artisanrom/06_updater.jpg",
+        "images/screenshots/artisanrom/07_updater.jpg",
+        "images/screenshots/artisanrom/08_updater.jpg",
+        "images/screenshots/artisanrom/09_updater.jpg",
+        "images/screenshots/artisanrom/10_updater.jpg",
+        "images/screenshots/artisanrom/11_package_installer.jpg"
       ],
       "devices": [
         {
