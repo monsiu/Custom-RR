@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-29T18:56:48.877579Z",
+  "_generatedAt": "2026-05-30T07:52:12.295318Z",
   "roms": [
     {
       "id": "lineage",
@@ -20366,7 +20366,12 @@
         "Ships TrickyStore, Play Integrity Fix, and Hide My Applist hooks out of the box.",
         "Open source under GPL-3.0 with builds published on GitHub Releases."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png",
+        "https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png",
+        "https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png",
+        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Bildschirmabdruck_20240219_203516_One_UI_Home_CENS.png"
+      ],
       "devices": [
         {
           "brand": "Samsung",
@@ -20542,7 +20547,11 @@
         "Extra mods (Disable Secure Flag, OutDoor mode) and CSC tweaks (call recording, network speed indicator, 5GHz hotspot).",
         "Multi-user, AppLock, adaptive brightness and refresh rate support."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png",
+        "https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png",
+        "https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png"
+      ],
       "devices": [
         {
           "brand": "Samsung",

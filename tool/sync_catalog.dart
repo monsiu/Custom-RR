@@ -1262,7 +1262,17 @@ List<Map<String, dynamic>> _buildRoms(
         'Ships TrickyStore, Play Integrity Fix, and Hide My Applist hooks out of the box.',
         'Open source under GPL-3.0 with builds published on GitHub Releases.',
       ],
-      screenshots: <String>[],
+      // UN1CA is a One UI firmware port for Samsung Galaxy devices, so its
+      // UI is stock One UI (the same software the Galaxy S25 ships). The
+      // project publishes no screenshots of its own, so these are real,
+      // CC-licensed One UI shots from Wikimedia Commons hosted on the very
+      // stable upload.wikimedia.org CDN.
+      screenshots: <String>[
+        'https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png',
+        'https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png',
+        'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
+        'https://upload.wikimedia.org/wikipedia/commons/c/cc/Bildschirmabdruck_20240219_203516_One_UI_Home_CENS.png',
+      ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
       forumUrl: 'https://github.com/salvogiangri/UN1CA/discussions',
@@ -1304,7 +1314,15 @@ List<Map<String, dynamic>> _buildRoms(
         'Extra mods (Disable Secure Flag, OutDoor mode) and CSC tweaks (call recording, network speed indicator, 5GHz hotspot).',
         'Multi-user, AppLock, adaptive brightness and refresh rate support.',
       ],
-      screenshots: <String>[],
+      // ArtisanROM is a One UI 8 firmware port built on Galaxy S25 FE
+      // firmware, so it presents stock One UI. The project ships no
+      // screenshots of its own, so these are real, CC-licensed One UI
+      // shots from Wikimedia Commons (stable upload.wikimedia.org CDN).
+      screenshots: <String>[
+        'https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png',
+        'https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png',
+        'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
+      ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',
       forumUrl: 'https://github.com/ArtisanROM/ArtisanROM/wiki',
