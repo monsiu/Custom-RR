@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/) (currently
 pre-1.0, so minor bumps may include breaking changes).
 
-## [Unreleased]
+## [0.2.1] - 2026-05-30
 
 ### Added
 - **Official screenshots for UN1CA and ArtisanROM.** UN1CA now ships the 7 official screenshots from its XDA release thread (home, lock screen, app drawer, quick settings, UN1CA Settings, UN1CA Updates, software info). ArtisanROM ships the 11 maintainer-supplied shots (Settings, Updater, Package installer). Both sets are bundled locally under `images/screenshots/` because the upstream hosts block hot-linking, so the catalog references them as asset paths instead of URLs.
@@ -13,13 +13,6 @@ pre-1.0, so minor bumps may include breaking changes).
 - **Keyboard navigation for screenshots on desktop (Linux/Windows).**
   - Full-screen gallery: Left/Right (and Up/Down) arrow keys page through the shots, Escape closes. Clickable on-screen arrows were also added since desktop has no swipe gesture. Arrow keys are ignored while pinch-zoomed.
   - Detail-page screenshot strip: arrow keys scroll the carousel while the pointer hovers it (the strip grabs focus on hover and releases on exit, so it never captures keys page-wide).
-
-### Changed
-- Screenshot rendering now handles both remote URLs (`CachedNetworkImage`) and bundled asset paths (`Image.asset`) in the detail-page tiles and the full-screen viewer, with neighbour precaching via `AssetImage` for local shots.
-
-## [0.2.1] - 2026-05-30
-
-### Added
 - **F-Droid build variant.** New `--dart-define=FDROID_BUILD=true` compile-time flag (`lib/util/build_flags.dart`) that strips the self-update machinery for F-Droid distribution: no GitHub release polling on launch, no in-app APK download/install path, and no "Check for updates" UI. GitHub-release builds are unchanged (flag defaults off). Adds the F-Droid metadata recipe (`fdroid/io.github.monsiu.custom_rr.yml`) and fastlane listing assets (icon, phone screenshots).
 - **Root section.** New top-level catalog category for Android root solutions, mirroring the Custom ROMs and Custom Recoveries sections. Reachable at `/roots`, with its own nav rail entry (shield icon), drawer tile, desktop menu shortcut (Ctrl+4), home page action, and home search hits. Initial entries:
   - **Magisk** (topjohnwu): the classic systemless root via boot-image patching, with modules and Zygisk.
@@ -32,6 +25,10 @@ pre-1.0, so minor bumps may include breaking changes).
 - **UN1CA** catalog entry: salvogiangri's debloated, customisable One UI custom firmware for Samsung Galaxy devices, with full Galaxy AI, integrated OTA, EROFS, TrickyStore / PIF / HMA, and links to the Telegram channel, GitHub repo, and discussions.
 - **ArtisanROM Quant** catalog entry: One UI 8 (Galaxy S25 FE) based custom firmware for Samsung Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series) devices, built on top of the ExtremeROM and UN1CA build system.
 - Banner art for both ROMs (`images/un1ca.png`, `images/artisanrom.png`).
+
+### Changed
+- Screenshot rendering now handles both remote URLs (`CachedNetworkImage`) and bundled asset paths (`Image.asset`) in the detail-page tiles and the full-screen viewer, with neighbour precaching via `AssetImage` for local shots.
+- Optimized every bundled image to shrink the app: oversized logos are downscaled to 720px and palette-quantized (pngquant), and the screenshots are recompressed (max width 1080, quality 82). The `images/` payload drops from ~20 MB to ~5 MB, cutting the per-architecture APK from ~42 MB to ~28 MB with no visible quality loss.
 
 ## [0.2.0] - 2026-05-29
 
