@@ -1262,13 +1262,17 @@ List<Map<String, dynamic>> _buildRoms(
         'Ships TrickyStore, Play Integrity Fix, and Hide My Applist hooks out of the box.',
         'Open source under GPL-3.0 with builds published on GitHub Releases.',
       ],
-      // UN1CA is a One UI firmware port for Samsung Galaxy devices. The
-      // project publishes no screenshots of its own, so these are stock
-      // One UI shots that represent the UI it ships.
+      // Official UN1CA screenshots from the XDA release thread. They are
+      // bundled locally (asset paths, not URLs) because the source host
+      // blocks hot-linking, so remote loading is not possible.
       screenshots: <String>[
-        'https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg',
-        'https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp',
-        'https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg',
+        'images/screenshots/un1ca/1_home.jpg',
+        'images/screenshots/un1ca/2_lockscreen.jpg',
+        'images/screenshots/un1ca/3_app_drawer.jpg',
+        'images/screenshots/un1ca/4_quick_settings.jpg',
+        'images/screenshots/un1ca/5_unica_settings.jpg',
+        'images/screenshots/un1ca/6_unica_updates.jpg',
+        'images/screenshots/un1ca/7_software_info.jpg',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
@@ -1311,13 +1315,15 @@ List<Map<String, dynamic>> _buildRoms(
         'Extra mods (Disable Secure Flag, OutDoor mode) and CSC tweaks (call recording, network speed indicator, 5GHz hotspot).',
         'Multi-user, AppLock, adaptive brightness and refresh rate support.',
       ],
-      // ArtisanROM is a One UI 8 firmware port built on Galaxy S25 FE
-      // firmware. The project ships no screenshots of its own, so these are
-      // stock One UI shots that represent the UI it ships.
+      // ArtisanROM is a One UI 8 firmware port and ships no screenshots of
+      // its own. These are the generic (non-UN1CA-branded) One UI shots
+      // from the bundled set, representing the UI it ships. Bundled locally
+      // because the upstream host blocks hot-linking.
       screenshots: <String>[
-        'https://samsungmagazine.eu/wp-content/uploads/2025/02/Domovska-obrazovka-One-UI-7-2.jpg',
-        'https://m-cdn.phonearena.com/images/articles/423706-800/Screenshot-20241206-144334-One-UI-Home.webp',
-        'https://samsungmagazine.eu/wp-content/uploads/2025/02/One-UI-7-Slozky-2.jpg',
+        'images/screenshots/un1ca/1_home.jpg',
+        'images/screenshots/un1ca/2_lockscreen.jpg',
+        'images/screenshots/un1ca/3_app_drawer.jpg',
+        'images/screenshots/un1ca/4_quick_settings.jpg',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',

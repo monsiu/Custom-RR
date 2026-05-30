@@ -47,7 +47,9 @@ Future<void> main(List<String> args) async {
       final List<dynamic>? shots = e['screenshots'] as List<dynamic>?;
       if (shots == null) continue;
       for (final dynamic s in shots) {
-        if (s is String && s.isNotEmpty) {
+        if (s is String &&
+            s.isNotEmpty &&
+            (s.startsWith('http://') || s.startsWith('https://'))) {
           jobs.add(_Job(section: section, id: id, url: s));
         }
       }
