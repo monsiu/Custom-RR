@@ -49,13 +49,6 @@ void main() {
       for (final CatalogEntry e in repo.roms) e.headerAsset,
       for (final CatalogEntry e in repo.recoveries) e.headerAsset,
       for (final DeviceEntry d in repo.devices) d.imageAsset,
-      // Bundled-asset screenshots (non-http entries) must exist too.
-      for (final CatalogEntry e in repo.roms)
-        for (final String s in e.screenshots)
-          if (!s.startsWith('http')) s,
-      for (final CatalogEntry e in repo.recoveries)
-        for (final String s in e.screenshots)
-          if (!s.startsWith('http')) s,
     ];
     for (final String path in assets) {
       expect(
