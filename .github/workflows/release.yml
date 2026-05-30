@@ -29,8 +29,11 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - id: flutter_version
+        run: echo "version=$(cat .flutter-version)" >> "$GITHUB_OUTPUT"
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: ${{ steps.flutter_version.outputs.version }}
           channel: stable
           cache: true
       - run: flutter pub get
@@ -56,9 +59,9 @@ jobs:
           keyAlias=$KEY_ALIAS
           storeFile=release.jks
           EOF
-      # Per-ABI split: produces armeabi-v7a / arm64-v8a / x86_64 APKs
-      # with appropriate versionCode offsets (+1000 / +2000 / +4000),
-      # which is the form F-Droid-style updaters expect.
+      # Per-ABI split: produces armeabi-v7a / arm64-v8a / x86_64 APKs.
+      # build.gradle gives each split a distinct versionCode (base * 10 + 1/2/3),
+      # matching the VercodeOperation in the F-Droid metadata.
       - run: flutter build apk --split-per-abi --release
       - uses: actions/upload-artifact@v4
         with:
