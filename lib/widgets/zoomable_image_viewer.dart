@@ -1,6 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+/// HTTP headers sent with remote screenshot requests. The descriptive
+/// `User-Agent` keeps image hosts (notably Wikimedia Commons) from
+/// throttling the default Dart agent and leaving screenshots blank.
+const Map<String, String> _kScreenshotHeaders = <String, String>{
+  'User-Agent': 'CustomRR/1.0 (+https://github.com/monsiu/Custom-RR)',
+};
+
 /// Opens a full-screen, pinch-to-zoom viewer for [imageUrl].
 ///
 /// Lightweight wrapper around [InteractiveViewer] so we don't need to pull
@@ -93,6 +100,10 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
             : null;
     final Widget image = CachedNetworkImage(
       imageUrl: url,
+      // Match the screenshot tiles: a descriptive user agent keeps hosts
+      // like Wikimedia Commons from throttling the request and leaving a
+      // broken-image placeholder in the full-screen viewer.
+      httpHeaders: _kScreenshotHeaders,
       fit: BoxFit.contain,
       placeholder: (_, __) => const Center(
         child: CircularProgressIndicator(color: Colors.white),
