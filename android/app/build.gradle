@@ -66,6 +66,22 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
+
+    // F-Droid ships one APK per ABI (flutter build apk --split-per-abi), so each
+    // split needs a distinct versionCode to coexist in the repo. Use the scheme
+    // base * 10 + abiCode, which matches the VercodeOperation in the fdroiddata
+    // metadata (armeabi-v7a -> +1, arm64-v8a -> +2, x86_64 -> +3). A universal
+    // (non-split) build has no ABI filter and keeps the base versionCode.
+    def abiVersionCodes = ["armeabi-v7a": 1, "arm64-v8a": 2, "x86_64": 3]
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def abi = output.filters.find { it.filterType == "ABI" }?.identifier
+            def abiCode = abiVersionCodes[abi]
+            if (abiCode != null) {
+                output.versionCodeOverride = variant.versionCode * 10 + abiCode
+            }
+        }
+    }
 }
 
 flutter {
