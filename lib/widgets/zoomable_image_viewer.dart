@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// HTTP headers sent with remote screenshot requests. The descriptive
 /// `User-Agent` keeps image hosts (notably Wikimedia Commons) from
@@ -99,6 +100,41 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
     super.dispose();
   }
 
+  // Animate to a neighbouring page. Used by the on-screen arrows and the
+  // physical keyboard (left/right) on desktop. Ignored while pinch-zoomed.
+  void _go(int delta) {
+    if (_zoomed) return;
+    final int next = (_index + delta).clamp(0, widget.images.length - 1);
+    if (next == _index) return;
+    _pages.animateToPage(
+      next,
+      duration: const Duration(milliseconds: 280),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
+  KeyEventResult _onKey(FocusNode node, KeyEvent event) {
+    if (event is! KeyDownEvent && event is! KeyRepeatEvent) {
+      return KeyEventResult.ignored;
+    }
+    final LogicalKeyboardKey key = event.logicalKey;
+    if (key == LogicalKeyboardKey.arrowRight ||
+        key == LogicalKeyboardKey.arrowDown) {
+      _go(1);
+      return KeyEventResult.handled;
+    }
+    if (key == LogicalKeyboardKey.arrowLeft ||
+        key == LogicalKeyboardKey.arrowUp) {
+      _go(-1);
+      return KeyEventResult.handled;
+    }
+    if (key == LogicalKeyboardKey.escape) {
+      Navigator.of(context).maybePop();
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
+  }
+
   Widget _buildPage(int i) {
     final String url = widget.images[i];
     final Object? tag =
@@ -164,7 +200,10 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
     final bool gallery = widget.images.length > 1;
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: GestureDetector(
+      body: Focus(
+        autofocus: true,
+        onKeyEvent: _onKey,
+        child: GestureDetector(
         onVerticalDragUpdate: _zoomed
             ? null
             : (DragUpdateDetails d) =>
@@ -195,8 +234,11 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
                   // next swipe doesn't show a spinner.
                   for (final int n in <int>[i - 1, i + 1]) {
                     if (n >= 0 && n < widget.images.length) {
+                      final String src = widget.images[n];
                       precacheImage(
-                        CachedNetworkImageProvider(widget.images[n]),
+                        isNetworkScreenshot(src)
+                            ? CachedNetworkImageProvider(src)
+                            : AssetImage(src) as ImageProvider<Object>,
                         context,
                       );
                     }
@@ -242,7 +284,74 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
                   ),
                 ),
               ),
+            // Desktop has no swipe gesture, so expose clickable arrows
+            // alongside the keyboard left/right navigation.
+            if (gallery && !_zoomed) ...<Widget>[
+              Positioned(
+                left: 8,
+                top: 0,
+                bottom: 0,
+                child: Center(
+                  child: _GalleryArrow(
+                    icon: Icons.chevron_left,
+                    tooltip: 'Previous',
+                    enabled: _index > 0,
+                    onPressed: _index > 0 ? () => _go(-1) : null,
+                  ),
+                ),
+              ),
+              Positioned(
+                right: 8,
+                top: 0,
+                bottom: 0,
+                child: Center(
+                  child: _GalleryArrow(
+                    icon: Icons.chevron_right,
+                    tooltip: 'Next',
+                    enabled: _index < widget.images.length - 1,
+                    onPressed: _index < widget.images.length - 1
+                        ? () => _go(1)
+                        : null,
+                  ),
+                ),
+              ),
+            ],
           ],
+        ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Translucent circular arrow shown at the left/right edge of the
+/// full-screen gallery on desktop where there is no swipe gesture.
+class _GalleryArrow extends StatelessWidget {
+  const _GalleryArrow({
+    required this.icon,
+    required this.tooltip,
+    required this.enabled,
+    required this.onPressed,
+  });
+
+  final IconData icon;
+  final String tooltip;
+  final bool enabled;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: tooltip,
+      child: Material(
+        color: Colors.black.withValues(alpha: enabled ? 0.45 : 0.2),
+        shape: const CircleBorder(),
+        child: IconButton(
+          icon: Icon(icon),
+          color: Colors.white,
+          disabledColor: Colors.white24,
+          tooltip: tooltip,
+          onPressed: onPressed,
         ),
       ),
     );

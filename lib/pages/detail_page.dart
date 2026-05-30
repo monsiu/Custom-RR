@@ -331,6 +331,9 @@ class _ScreenshotsState extends State<_Screenshots> {
 
   final ScrollController _scroll = ScrollController();
   final PageController _pages = PageController();
+  // Focus target for the desktop strip so physical arrow keys can scroll
+  // it left/right once the pointer hovers over the screenshots.
+  final FocusNode _stripFocus = FocusNode(debugLabel: 'screenshot-strip');
   bool _atStart = true;
   bool _atEnd = false;
   int _page = 0;
@@ -358,6 +361,7 @@ class _ScreenshotsState extends State<_Screenshots> {
     _scroll.dispose();
     _pages.removeListener(_onPage);
     _pages.dispose();
+    _stripFocus.dispose();
     super.dispose();
   }
 
@@ -397,6 +401,27 @@ class _ScreenshotsState extends State<_Screenshots> {
       duration: const Duration(milliseconds: 280),
       curve: Curves.easeOutCubic,
     );
+  }
+
+  // Arrow-key navigation for the desktop strip. Active while the pointer
+  // hovers the screenshots (the strip holds focus), so left/right scroll
+  // the carousel without hijacking page-wide key handling.
+  KeyEventResult _onStripKey(FocusNode node, KeyEvent event) {
+    if (event is! KeyDownEvent && event is! KeyRepeatEvent) {
+      return KeyEventResult.ignored;
+    }
+    final LogicalKeyboardKey key = event.logicalKey;
+    if (key == LogicalKeyboardKey.arrowRight ||
+        key == LogicalKeyboardKey.arrowDown) {
+      _nudge(1);
+      return KeyEventResult.handled;
+    }
+    if (key == LogicalKeyboardKey.arrowLeft ||
+        key == LogicalKeyboardKey.arrowUp) {
+      _nudge(-1);
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
   }
 
   void _copyUrl(BuildContext context, String url) {
@@ -696,8 +721,18 @@ class _ScreenshotsState extends State<_Screenshots> {
           // Extra height keeps room for the always-visible scrollbar track
           // below the tiles so it never overlaps the imagery.
           height: _heightDesktop + 18,
-          child: Stack(
-            children: <Widget>[
+          child: MouseRegion(
+            // Grab focus on hover so the keyboard arrow keys scroll the
+            // strip, and release it on exit so they don't stay captured.
+            onEnter: (_) => _stripFocus.requestFocus(),
+            onExit: (_) {
+              if (_stripFocus.hasFocus) _stripFocus.unfocus();
+            },
+            child: Focus(
+              focusNode: _stripFocus,
+              onKeyEvent: _onStripKey,
+              child: Stack(
+                children: <Widget>[
               // Force the scrollbar to stay visible at all times so users
               // (especially on Linux/desktop) immediately see the strip is
               // horizontally scrollable.
@@ -865,6 +900,8 @@ class _ScreenshotsState extends State<_Screenshots> {
                 ),
               ],
             ],
+              ),
+            ),
           ),
         ),
       ],
