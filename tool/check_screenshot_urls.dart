@@ -47,7 +47,9 @@ Future<void> main(List<String> args) async {
       final List<dynamic>? shots = e['screenshots'] as List<dynamic>?;
       if (shots == null) continue;
       for (final dynamic s in shots) {
-        if (s is String && s.isNotEmpty) {
+        // Skip bundled-asset screenshots (e.g. images/...): only remote
+        // http(s) URLs can rot, so those are all this sweep checks.
+        if (s is String && s.startsWith('http')) {
           jobs.add(_Job(section: section, id: id, url: s));
         }
       }

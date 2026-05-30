@@ -1264,14 +1264,16 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       // UN1CA is a One UI firmware port for Samsung Galaxy devices, so its
       // UI is stock One UI (the same software the Galaxy S25 ships). The
-      // project publishes no screenshots of its own, so these are real,
-      // CC-licensed One UI shots from Wikimedia Commons hosted on the very
-      // stable upload.wikimedia.org CDN.
+      // project publishes no screenshots of its own, so these are real
+      // One UI shots bundled in-app (sourced from Wikimedia Commons,
+      // Apache-2.0 / CC BY 4.0 / CC0; see images/screenshots/oneui/
+      // ATTRIBUTION.txt). Bundled rather than hot-linked so they render
+      // reliably offline and on desktop without CDN rate-limiting.
       screenshots: <String>[
-        'https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png',
-        'https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png',
-        'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
-        'https://upload.wikimedia.org/wikipedia/commons/c/cc/Bildschirmabdruck_20240219_203516_One_UI_Home_CENS.png',
+        'images/screenshots/oneui/oneui_home.webp',
+        'images/screenshots/oneui/oneui_apps.webp',
+        'images/screenshots/oneui/oneui_quickshare.webp',
+        'images/screenshots/oneui/oneui_home_alt.webp',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
@@ -1316,12 +1318,12 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       // ArtisanROM is a One UI 8 firmware port built on Galaxy S25 FE
       // firmware, so it presents stock One UI. The project ships no
-      // screenshots of its own, so these are real, CC-licensed One UI
-      // shots from Wikimedia Commons (stable upload.wikimedia.org CDN).
+      // screenshots of its own, so these are real One UI shots bundled
+      // in-app (see images/screenshots/oneui/ATTRIBUTION.txt).
       screenshots: <String>[
-        'https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png',
-        'https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png',
-        'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
+        'images/screenshots/oneui/oneui_apps.webp',
+        'images/screenshots/oneui/oneui_home.webp',
+        'images/screenshots/oneui/oneui_quickshare.webp',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',
