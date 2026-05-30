@@ -1266,12 +1266,14 @@ List<Map<String, dynamic>> _buildRoms(
       // UI is stock One UI (the same software the Galaxy S25 ships). The
       // project publishes no screenshots of its own, so these are real,
       // CC-licensed One UI shots from Wikimedia Commons hosted on the very
-      // stable upload.wikimedia.org CDN.
+      // stable upload.wikimedia.org CDN. The full-resolution originals are
+      // ~4 MB each and stall the image pipeline, so we use Wikimedia's
+      // 960px thumbnail renditions (same files, a fraction of the size).
       screenshots: <String>[
-        'https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png',
-        'https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png/960px-Bildschirmabdruck_20240219_204617_One_UI_Home.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png/960px-Screenshot_der_Appliste_One_UI_7.0_20250514.png',
         'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
-        'https://upload.wikimedia.org/wikipedia/commons/c/cc/Bildschirmabdruck_20240219_203516_One_UI_Home_CENS.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Bildschirmabdruck_20240219_203516_One_UI_Home_CENS.png/960px-Bildschirmabdruck_20240219_203516_One_UI_Home_CENS.png',
       ],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
@@ -1318,9 +1320,11 @@ List<Map<String, dynamic>> _buildRoms(
       // firmware, so it presents stock One UI. The project ships no
       // screenshots of its own, so these are real, CC-licensed One UI
       // shots from Wikimedia Commons (stable upload.wikimedia.org CDN).
+      // The full-resolution originals are ~4 MB each and stall the image
+      // pipeline, so we use Wikimedia's 960px thumbnail renditions.
       screenshots: <String>[
-        'https://upload.wikimedia.org/wikipedia/commons/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png',
-        'https://upload.wikimedia.org/wikipedia/commons/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Screenshot_der_Appliste_One_UI_7.0_20250514.png/960px-Screenshot_der_Appliste_One_UI_7.0_20250514.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Bildschirmabdruck_20240219_204617_One_UI_Home.png/960px-Bildschirmabdruck_20240219_204617_One_UI_Home.png',
         'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
       ],
       downloadLabel: 'GitHub releases',
