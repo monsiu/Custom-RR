@@ -1262,17 +1262,11 @@ List<Map<String, dynamic>> _buildRoms(
         'Ships TrickyStore, Play Integrity Fix, and Hide My Applist hooks out of the box.',
         'Open source under GPL-3.0 with builds published on GitHub Releases.',
       ],
-      // UN1CA is a One UI firmware port for Samsung Galaxy devices, so its
-      // UI is stock One UI (the same software the Galaxy S25 ships). The
-      // project publishes no screenshots of its own, so these are real,
-      // CC-licensed One UI shots from Wikimedia Commons. They are hosted on
-      // upload.wikimedia.org (no hotlink protection) and are small native
-      // files (<450 KB) so they load reliably across platforms.
-      screenshots: <String>[
-        'https://upload.wikimedia.org/wikipedia/commons/2/29/OneUI-5.0-ScreenshotRU.png',
-        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Samsung_Device_Care_One_UI_7.jpg',
-        'https://upload.wikimedia.org/wikipedia/commons/0/09/Quick_Share_in_One_UI.png',
-      ],
+      // UN1CA is a One UI firmware port for Samsung Galaxy devices. The
+      // project publishes no screenshots of its own, and there is no stable
+      // host we can reliably hotlink stock One UI shots from, so the
+      // Screenshots section is omitted (same as the root managers).
+      screenshots: <String>[],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/salvogiangri/UN1CA/releases',
       forumUrl: 'https://github.com/salvogiangri/UN1CA/discussions',
@@ -1315,15 +1309,10 @@ List<Map<String, dynamic>> _buildRoms(
         'Multi-user, AppLock, adaptive brightness and refresh rate support.',
       ],
       // ArtisanROM is a One UI 8 firmware port built on Galaxy S25 FE
-      // firmware, so it presents stock One UI. The project ships no
-      // screenshots of its own, so these are real, CC-licensed One UI
-      // shots from Wikimedia Commons (upload.wikimedia.org, no hotlink
-      // protection, small native files that load reliably).
-      screenshots: <String>[
-        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Samsung_Device_Care_One_UI_7.jpg',
-        'https://upload.wikimedia.org/wikipedia/commons/5/5a/Samsung_Device_Care_2025_One_UI_7_New.jpg',
-        'https://upload.wikimedia.org/wikipedia/commons/2/29/OneUI-5.0-ScreenshotRU.png',
-      ],
+      // firmware. The project ships no screenshots of its own, and there is
+      // no stable host we can reliably hotlink stock One UI shots from, so
+      // the Screenshots section is omitted (same as the root managers).
+      screenshots: <String>[],
       downloadLabel: 'GitHub releases',
       downloadUrl: 'https://github.com/ArtisanROM/ArtisanROM/releases',
       forumUrl: 'https://github.com/ArtisanROM/ArtisanROM/wiki',
