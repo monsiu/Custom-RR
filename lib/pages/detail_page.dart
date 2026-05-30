@@ -140,17 +140,20 @@ class DetailPage extends StatelessWidget {
                         const SizedBox(height: 24),
                         _DeviceShowcase(entry: entry),
                       ],
-                      // Screenshots always render. For ROMs/recoveries that
-                      // don't expose stable hot-linkable UI shots, the
-                      // widget falls back to the bundled headerAsset so
-                      // there's never an empty section.
-                      const SizedBox(height: 24),
-                      Text('Screenshots', style: text.titleLarge),
-                      const SizedBox(height: 12),
-                      _Screenshots(
-                        urls: entry.screenshots,
-                        fallbackAsset: entry.headerAsset,
-                      ),
+                      // Only render the Screenshots section when the entry
+                      // has real, hot-linkable shots. Entries whose upstream
+                      // projects publish none (several root managers, a few
+                      // ROMs) omit the section entirely instead of showing
+                      // the project logo as a placeholder.
+                      if (entry.screenshots.isNotEmpty) ...<Widget>[
+                        const SizedBox(height: 24),
+                        Text('Screenshots', style: text.titleLarge),
+                        const SizedBox(height: 12),
+                        _Screenshots(
+                          urls: entry.screenshots,
+                          fallbackAsset: entry.headerAsset,
+                        ),
+                      ],
                       const SizedBox(height: 32),
                       Center(
                         child: Wrap(
