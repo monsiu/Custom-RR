@@ -1,9 +1,14 @@
-# Flutter wrapper
+# Flutter wrapper.
+# NOTE: deliberately no catch-all "-keep class io.flutter.** { *; }". That rule
+# would retain io.flutter.embedding.engine.deferredcomponents.
+# PlayStoreDeferredComponentManager, which hard-references the proprietary
+# Google Play Core classes and drags them into the APK (rejected by F-Droid's
+# scanner). This app uses the default Application, so the deferred-components
+# manager is unreachable and R8 can tree-shake it, along with Play Core.
 -keep class io.flutter.app.** { *; }
 -keep class io.flutter.plugin.**  { *; }
 -keep class io.flutter.util.**  { *; }
 -keep class io.flutter.view.**  { *; }
--keep class io.flutter.**  { *; }
 -keep class io.flutter.plugins.**  { *; }
 -dontwarn io.flutter.embedding.**
 
