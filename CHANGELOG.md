@@ -7,6 +7,15 @@ pre-1.0, so minor bumps may include breaking changes).
 
 ## [Unreleased]
 
+### Added
+- **Official screenshots for UN1CA and ArtisanROM.** UN1CA now ships the 7 official screenshots from its XDA release thread (home, lock screen, app drawer, quick settings, UN1CA Settings, UN1CA Updates, software info). ArtisanROM ships the 11 maintainer-supplied shots (Settings, Updater, Package installer). Both sets are bundled locally under `images/screenshots/` because the upstream hosts block hot-linking, so the catalog references them as asset paths instead of URLs.
+- **Keyboard navigation for screenshots on desktop (Linux/Windows).**
+  - Full-screen gallery: Left/Right (and Up/Down) arrow keys page through the shots, Escape closes. Clickable on-screen arrows were also added since desktop has no swipe gesture. Arrow keys are ignored while pinch-zoomed.
+  - Detail-page screenshot strip: arrow keys scroll the carousel while the pointer hovers it (the strip grabs focus on hover and releases on exit, so it never captures keys page-wide).
+
+### Changed
+- Screenshot rendering now handles both remote URLs (`CachedNetworkImage`) and bundled asset paths (`Image.asset`) in the detail-page tiles and the full-screen viewer, with neighbour precaching via `AssetImage` for local shots.
+
 ## [0.2.1] - 2026-05-30
 
 ### Added
