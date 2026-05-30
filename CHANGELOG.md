@@ -9,6 +9,7 @@ pre-1.0, so minor bumps may include breaking changes).
 
 ### Added
 - **Official screenshots for UN1CA and ArtisanROM.** UN1CA now ships the 7 official screenshots from its XDA release thread (home, lock screen, app drawer, quick settings, UN1CA Settings, UN1CA Updates, software info). ArtisanROM ships the 11 maintainer-supplied shots (Settings, Updater, Package installer). Both sets are bundled locally under `images/screenshots/` because the upstream hosts block hot-linking, so the catalog references them as asset paths instead of URLs.
+- **Link chips on every detail page.** The clickable Website / GitHub / Forum chips previously only on the newest entries now appear on every ROM and recovery: LineageOS, crDroid, Pixel Experience, Evolution X, Paranoid Android, DotOS, Bliss, POSP, Voltage OS, Project Elixir, PixelOS, GrapheneOS, CalyxOS, /e/OS, DivestOS, DerpFest, TWRP, OrangeFox, RedWolf, PitchBlack, and SHRP.
 - **Keyboard navigation for screenshots on desktop (Linux/Windows).**
   - Full-screen gallery: Left/Right (and Up/Down) arrow keys page through the shots, Escape closes. Clickable on-screen arrows were also added since desktop has no swipe gesture. Arrow keys are ignored while pinch-zoomed.
   - Detail-page screenshot strip: arrow keys scroll the carousel while the pointer hovers it (the strip grabs focus on hover and releases on exit, so it never captures keys page-wide).

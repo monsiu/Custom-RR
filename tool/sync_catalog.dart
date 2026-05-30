@@ -736,6 +736,23 @@ List<Map<String, dynamic>> _buildRoms(
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://download.lineageos.org/',
       forumUrl: 'https://forum.xda-developers.com/f/lineageos-questions-answers.5614/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://lineageos.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/LineageOS',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Wiki',
+          url: 'https://wiki.lineageos.org/',
+          iconName: 'web',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'crdroid',
@@ -764,6 +781,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://crdroid.net/downloads',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://crdroid.net/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/crdroidandroid',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'pixelexperience',
@@ -797,6 +826,18 @@ List<Map<String, dynamic>> _buildRoms(
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://download.pixelexperience.org/',
       forumUrl: 'https://forum.xda-developers.com/c/pixel-experience.10089/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://pixelexperience.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/PixelExperience',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'evolutionx',
@@ -826,6 +867,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://evolution-x.org/devices',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://evolution-x.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/Evolution-X',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'paranoidandroid',
@@ -856,6 +909,18 @@ List<Map<String, dynamic>> _buildRoms(
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://paranoidandroid.co/',
       forumUrl: 'https://forum.xda-developers.com/c/paranoid-android-aospa.10316/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://paranoidandroid.co/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/AOSPA',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'dotos',
@@ -884,6 +949,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://www.droidontime.com/devices',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://www.droidontime.com/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/DotOS',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'bliss',
@@ -915,6 +992,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://blissroms.org/downloads',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://blissroms.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/BlissRoms',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'potatoaosp',
@@ -940,6 +1029,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://posp.co/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://posp.co/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/PotatoProject',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'risingosrevived',
@@ -1016,6 +1117,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://www.voltageos.com/devices',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://www.voltageos.com/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/VoltageOS',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'projectelixir',
@@ -1070,6 +1183,13 @@ List<Map<String, dynamic>> _buildRoms(
           'maintainers have occasionally kept builds alive. We strongly '
           'advise against installing Project Elixir; use crDroid, '
           'Evolution X, or DerpFest instead.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://projectelixiros.com/',
+          iconName: 'web',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'pixelos',
@@ -1095,6 +1215,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://pixelos.net/download',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://pixelos.net/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/PixelOS-AOSP',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'grapheneos',
@@ -1127,6 +1259,23 @@ List<Map<String, dynamic>> _buildRoms(
       downloadLabel: 'Install / web installer',
       downloadUrl: 'https://grapheneos.org/install/',
       forumUrl: 'https://discuss.grapheneos.org/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://grapheneos.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/GrapheneOS',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Forum',
+          url: 'https://discuss.grapheneos.org/',
+          iconName: 'forum',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'calyxos',
@@ -1153,6 +1302,23 @@ List<Map<String, dynamic>> _buildRoms(
       downloadLabel: 'Install instructions',
       downloadUrl: 'https://calyxos.org/install/',
       forumUrl: 'https://discuss.calyxinstitute.org/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://calyxos.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Source',
+          url: 'https://gitlab.com/CalyxOS',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Forum',
+          url: 'https://discuss.calyxinstitute.org/',
+          iconName: 'forum',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'eos',
@@ -1180,6 +1346,23 @@ List<Map<String, dynamic>> _buildRoms(
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://doc.e.foundation/devices',
       forumUrl: 'https://community.e.foundation/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://e.foundation/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Murena',
+          url: 'https://murena.com/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Forum',
+          url: 'https://community.e.foundation/',
+          iconName: 'forum',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'divestos',
@@ -1212,6 +1395,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads (Wayback)',
       downloadUrl: 'https://web.archive.org/web/2024/https://divestos.org/pages/devices',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/Divested-Mobile',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Website (Wayback)',
+          url: 'https://web.archive.org/web/2024/https://divestos.org/',
+          iconName: 'web',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'derpfest',
@@ -1242,6 +1437,18 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://derpfest.org/devices',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://derpfest.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/DerpFest-AOSP',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'un1ca',
@@ -1409,6 +1616,18 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://twrp.me/Devices/',
       forumUrl: 'https://forum.xda-developers.com/f/orig-development.5410/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://twrp.me/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/TeamWin',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'orangefox',
@@ -1434,6 +1653,18 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://orangefox.download/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://orangefox.download/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Wiki',
+          url: 'https://wiki.orangefox.tech/',
+          iconName: 'web',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'redwolf',
@@ -1462,6 +1693,13 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://forum.xda-developers.com/c/redwolf-recovery.10018/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://redwolfrecovery.github.io/',
+          iconName: 'web',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'pitchblack',
@@ -1488,6 +1726,18 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://pitchblack.tech/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://pitchblack.tech/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/PitchBlackRecoveryProject',
+          iconName: 'github',
+        ),
+      ],
     ),
     _RomSpec(
       id: 'shrp',
@@ -1514,6 +1764,18 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://shrp.github.io/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://shrp.github.io/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/SHRP',
+          iconName: 'github',
+        ),
+      ],
     ),
   ];
 
@@ -1532,6 +1794,8 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       'downloadLabel': s.downloadLabel,
       'downloadUrl': s.downloadUrl,
       'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
+      if (s.links.isNotEmpty)
+        'links': s.links.map((_RomLink l) => l.toJson()).toList(),
     };
   }).toList();
 }

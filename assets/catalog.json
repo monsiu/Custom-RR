@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-30T10:42:46.178613Z",
+  "_generatedAt": "2026-05-30T11:01:34.768376Z",
   "roms": [
     {
       "id": "lineage",
@@ -2321,7 +2321,24 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://download.lineageos.org/",
-      "forumUrl": "https://forum.xda-developers.com/f/lineageos-questions-answers.5614/"
+      "forumUrl": "https://forum.xda-developers.com/f/lineageos-questions-answers.5614/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://lineageos.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/LineageOS",
+          "iconName": "github"
+        },
+        {
+          "label": "Wiki",
+          "url": "https://wiki.lineageos.org/",
+          "iconName": "web"
+        }
+      ]
     },
     {
       "id": "crdroid",
@@ -3780,7 +3797,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://crdroid.net/downloads",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=crDroid&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=crDroid&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://crdroid.net/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/crdroidandroid",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "pixelexperience",
@@ -4785,7 +4814,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://download.pixelexperience.org/",
-      "forumUrl": "https://forum.xda-developers.com/c/pixel-experience.10089/"
+      "forumUrl": "https://forum.xda-developers.com/c/pixel-experience.10089/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://pixelexperience.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/PixelExperience",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "evolutionx",
@@ -6207,7 +6248,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://evolution-x.org/devices",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=Evolution+X&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Evolution+X&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://evolution-x.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Evolution-X",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "paranoidandroid",
@@ -7209,7 +7262,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://paranoidandroid.co/",
-      "forumUrl": "https://forum.xda-developers.com/c/paranoid-android-aospa.10316/"
+      "forumUrl": "https://forum.xda-developers.com/c/paranoid-android-aospa.10316/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://paranoidandroid.co/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/AOSPA",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "dotos",
@@ -8570,7 +8635,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://www.droidontime.com/devices",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=DotOS&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=DotOS&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.droidontime.com/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/DotOS",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "bliss",
@@ -9922,7 +9999,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://blissroms.org/downloads",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=Bliss+ROMs&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Bliss+ROMs&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://blissroms.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/BlissRoms",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "potatoaosp",
@@ -9946,7 +10035,19 @@
       "devices": [],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://posp.co/",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=POSP&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=POSP&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://posp.co/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/PotatoProject",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "risingosrevived",
@@ -12326,7 +12427,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://www.voltageos.com/devices",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=Voltage+OS&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=Voltage+OS&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.voltageos.com/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/VoltageOS",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "projectelixir",
@@ -13366,7 +13479,14 @@
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://projectelixiros.com/download",
       "forumUrl": "https://forum.xda-developers.com/search/?q=Project+Elixir&o=date&c[content]=thread",
-      "warning": "In mid-2024, users discovered a hidden \"kill switch\" in Project Elixir's source code. The developers had locked certain customisation features behind a paywall, and if the ROM detected that a user was trying to bypass that paywall (via ADB commands or other methods), the embedded code would automatically wipe the device's internal storage, external SD card, and eSIMs without consent or warning. The Android community condemned this as an extreme, unethical, and potentially illegal anti-piracy measure, especially given the risk of a bug triggering a false positive and destroying innocent users' data.\n\nOther documented issues around the same period included: shipping closed-source, obfuscated payload code inside what is meant to be an AOSP / GPL project (violating upstream licences and Android's open-source spirit); gating features behind paid \"supporter\" tiers on Telegram and Patreon, including basic customisation toggles that other ROMs provide for free; silencing critics by banning them from the official Telegram group, Discord, and XDA threads instead of addressing the concerns; initially denying that the kill switch existed and attacking the researchers who decompiled the code; threatening legal action against community members who shared findings; and reportedly pushing retaliatory OTAs that broke installs on devices belonging to vocal critics.\n\nFollowing the backlash, the developers announced they were shutting the project down, though independent device maintainers have occasionally kept builds alive. We strongly advise against installing Project Elixir; use crDroid, Evolution X, or DerpFest instead."
+      "warning": "In mid-2024, users discovered a hidden \"kill switch\" in Project Elixir's source code. The developers had locked certain customisation features behind a paywall, and if the ROM detected that a user was trying to bypass that paywall (via ADB commands or other methods), the embedded code would automatically wipe the device's internal storage, external SD card, and eSIMs without consent or warning. The Android community condemned this as an extreme, unethical, and potentially illegal anti-piracy measure, especially given the risk of a bug triggering a false positive and destroying innocent users' data.\n\nOther documented issues around the same period included: shipping closed-source, obfuscated payload code inside what is meant to be an AOSP / GPL project (violating upstream licences and Android's open-source spirit); gating features behind paid \"supporter\" tiers on Telegram and Patreon, including basic customisation toggles that other ROMs provide for free; silencing critics by banning them from the official Telegram group, Discord, and XDA threads instead of addressing the concerns; initially denying that the kill switch existed and attacking the researchers who decompiled the code; threatening legal action against community members who shared findings; and reportedly pushing retaliatory OTAs that broke installs on devices belonging to vocal critics.\n\nFollowing the backlash, the developers announced they were shutting the project down, though independent device maintainers have occasionally kept builds alive. We strongly advise against installing Project Elixir; use crDroid, Evolution X, or DerpFest instead.",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://projectelixiros.com/",
+          "iconName": "web"
+        }
+      ]
     },
     {
       "id": "pixelos",
@@ -13801,7 +13921,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://pixelos.net/download",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=PixelOS&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=PixelOS&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://pixelos.net/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/PixelOS-AOSP",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "grapheneos",
@@ -13928,7 +14060,24 @@
       ],
       "downloadLabel": "Install / web installer",
       "downloadUrl": "https://grapheneos.org/install/",
-      "forumUrl": "https://discuss.grapheneos.org/"
+      "forumUrl": "https://discuss.grapheneos.org/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://grapheneos.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/GrapheneOS",
+          "iconName": "github"
+        },
+        {
+          "label": "Forum",
+          "url": "https://discuss.grapheneos.org/",
+          "iconName": "forum"
+        }
+      ]
     },
     {
       "id": "calyxos",
@@ -14097,7 +14246,24 @@
       ],
       "downloadLabel": "Install instructions",
       "downloadUrl": "https://calyxos.org/install/",
-      "forumUrl": "https://discuss.calyxinstitute.org/"
+      "forumUrl": "https://discuss.calyxinstitute.org/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://calyxos.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "Source",
+          "url": "https://gitlab.com/CalyxOS",
+          "iconName": "web"
+        },
+        {
+          "label": "Forum",
+          "url": "https://discuss.calyxinstitute.org/",
+          "iconName": "forum"
+        }
+      ]
     },
     {
       "id": "eos",
@@ -16500,7 +16666,24 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://doc.e.foundation/devices",
-      "forumUrl": "https://community.e.foundation/"
+      "forumUrl": "https://community.e.foundation/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://e.foundation/",
+          "iconName": "web"
+        },
+        {
+          "label": "Murena",
+          "url": "https://murena.com/",
+          "iconName": "web"
+        },
+        {
+          "label": "Forum",
+          "url": "https://community.e.foundation/",
+          "iconName": "forum"
+        }
+      ]
     },
     {
       "id": "divestos",
@@ -19013,7 +19196,19 @@
       ],
       "downloadLabel": "Official downloads (Wayback)",
       "downloadUrl": "https://web.archive.org/web/2024/https://divestos.org/pages/devices",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=DivestOS&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=DivestOS&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Divested-Mobile",
+          "iconName": "github"
+        },
+        {
+          "label": "Website (Wayback)",
+          "url": "https://web.archive.org/web/2024/https://divestos.org/",
+          "iconName": "web"
+        }
+      ]
     },
     {
       "id": "derpfest",
@@ -20346,7 +20541,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://derpfest.org/devices",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=DerpFest&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=DerpFest&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://derpfest.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/DerpFest-AOSP",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "un1ca",
@@ -23586,7 +23793,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://twrp.me/Devices/",
-      "forumUrl": "https://forum.xda-developers.com/f/orig-development.5410/"
+      "forumUrl": "https://forum.xda-developers.com/f/orig-development.5410/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://twrp.me/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/TeamWin",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "orangefox",
@@ -24898,7 +25117,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://orangefox.download/",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=OrangeFox+Recovery&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=OrangeFox+Recovery&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://orangefox.download/",
+          "iconName": "web"
+        },
+        {
+          "label": "Wiki",
+          "url": "https://wiki.orangefox.tech/",
+          "iconName": "web"
+        }
+      ]
     },
     {
       "id": "redwolf",
@@ -25858,7 +26089,14 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://forum.xda-developers.com/c/redwolf-recovery.10018/",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=RedWolf+Recovery&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=RedWolf+Recovery&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://redwolfrecovery.github.io/",
+          "iconName": "web"
+        }
+      ]
     },
     {
       "id": "pitchblack",
@@ -27393,7 +27631,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://pitchblack.tech/",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=PitchBlack+Recovery&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=PitchBlack+Recovery&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://pitchblack.tech/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/PitchBlackRecoveryProject",
+          "iconName": "github"
+        }
+      ]
     },
     {
       "id": "shrp",
@@ -28310,7 +28560,19 @@
       ],
       "downloadLabel": "Official downloads",
       "downloadUrl": "https://shrp.github.io/",
-      "forumUrl": "https://forum.xda-developers.com/search/?q=SHRP&o=date&c[content]=thread"
+      "forumUrl": "https://forum.xda-developers.com/search/?q=SHRP&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://shrp.github.io/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/SHRP",
+          "iconName": "github"
+        }
+      ]
     }
   ],
   "roots": [
