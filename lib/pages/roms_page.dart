@@ -276,7 +276,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                   entries: widget.defunct,
                                 ),
                               ),
-                            if (widget.entryKind != 'recovery')
+                            if (widget.entryKind == 'custom ROM')
                               const SliverToBoxAdapter(
                                 child: TrebleHintBanner(kind: 'ROM'),
                               ),

@@ -16,6 +16,7 @@ import 'pages/not_found_page.dart';
 import 'pages/privacy_policy_page.dart';
 import 'pages/recoveries_page.dart';
 import 'pages/roms_page.dart';
+import 'pages/roots_page.dart';
 import 'pages/treble_page.dart';
 import 'pages/wishlist_page.dart';
 import 'util/platform_shell.dart';
@@ -29,6 +30,7 @@ class AppRoutes {
   static const String home = '/';
   static const String roms = '/roms';
   static const String recoveries = '/recoveries';
+  static const String roots = '/roots';
   static const String devices = '/devices';
   static const String findPhone = '/find-my-phone';
   static const String wishlist = '/my-devices';
@@ -40,6 +42,7 @@ class AppRoutes {
 
   static String romDetail(String id) => '/roms/$id';
   static String recoveryDetail(String id) => '/recoveries/$id';
+  static String rootDetail(String id) => '/roots/$id';
   static String deviceDetail(String slug) => '/devices/$slug';
   static String deviceModelDetail(String slug, String codename) =>
       '/devices/$slug/models/${Uri.encodeComponent(codename)}';
@@ -106,6 +109,24 @@ GoRouter buildRouter() {
                     return NotFoundPage(uri: state.uri);
                   }
                   return DetailPage(entry: entry, heroTag: 'rec-$id');
+                },
+              ),
+            ],
+          ),
+          GoRoute(
+            path: AppRoutes.roots,
+            builder: (BuildContext _, GoRouterState __) => const RootsPage(),
+            routes: <RouteBase>[
+              GoRoute(
+                path: ':id',
+                builder: (BuildContext context, GoRouterState state) {
+                  final String id = state.pathParameters['id']!;
+                  final CatalogEntry? entry =
+                      CatalogRepository.instance.rootById(id);
+                  if (entry == null) {
+                    return NotFoundPage(uri: state.uri);
+                  }
+                  return DetailPage(entry: entry, heroTag: 'root-$id');
                 },
               ),
             ],

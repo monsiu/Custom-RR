@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../util/build_flags.dart';
 import 'update_checker.dart';
 
 /// Passive background update notifier.
@@ -31,6 +32,8 @@ class UpdateNotifier {
   /// returns immediately. Errors are swallowed since this is a passive
   /// nicety, not a critical-path operation.
   void start() {
+    // F-Droid builds never poll GitHub for updates; the store handles it.
+    if (kFdroidBuild) return;
     if (_started) return;
     _started = true;
     // Defer by a short delay so we don't race with first-frame work like

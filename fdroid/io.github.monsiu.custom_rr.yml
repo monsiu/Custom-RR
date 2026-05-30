@@ -1,0 +1,68 @@
+# F-Droid build recipe for Custom RR.
+#
+# This file is NOT used by the app build. It is the metadata recipe that
+# goes into F-Droid's data repo. To submit:
+#
+#   1. Fork https://gitlab.com/fdroid/fdroiddata
+#   2. Copy this file to  metadata/io.github.monsiu.custom_rr.yml
+#   3. Run  fdroid lint io.github.monsiu.custom_rr  and
+#           fdroid build io.github.monsiu.custom_rr  locally if you can
+#   4. Open a merge request.
+#
+# Lines marked "VERIFY" below should be double-checked against the actual
+# tagged release before submitting.
+
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: monsiu
+AuthorWebSite: https://monsiu.github.io/
+WebSite: https://github.com/monsiu/Custom-RR
+SourceCode: https://github.com/monsiu/Custom-RR
+IssueTracker: https://github.com/monsiu/Custom-RR/issues
+Changelog: https://github.com/monsiu/Custom-RR/blob/HEAD/CHANGELOG.md
+# VERIFY: donation link must be confirmed by upstream (it is: same GitHub account).
+Donate: https://buymeacoffee.com/monsiutech
+
+AutoName: Custom RR
+
+RepoType: git
+Repo: https://github.com/monsiu/Custom-RR.git
+
+Builds:
+  - versionName: 0.2.1
+    versionCode: 4
+    commit: v0.2.1
+    # The Flutter SDK comes from F-Droid's `flutter` srclib. If 3.44.0 is not
+    # yet registered in fdroiddata/srclibs/flutter.yml, either add it in the
+    # same MR or pin to the nearest available stable tag.
+    srclibs:
+      - flutter@3.44.0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    build: |
+      $$flutter$$/bin/flutter config --no-analytics --no-cli-animations
+      $$flutter$$/bin/flutter pub get
+      $$flutter$$/bin/flutter build apk --release --dart-define=FDROID_BUILD=true
+
+MaintainerNotes: |-
+  Flutter app. Built with the F-Droid `flutter` srclib so the toolchain is
+  the prebuilt-but-FLOSS Flutter SDK that the inclusion policy explicitly
+  permits.
+
+  The `--dart-define=FDROID_BUILD=true` flag compiles out the app's
+  self-update machinery (see lib/util/build_flags.dart): no GitHub release
+  polling, no in-app APK download/install path, and no "Check for updates"
+  UI. The GitHub-release variant keeps it; the F-Droid variant does not, so
+  there is no UpdateCheck anti-feature and no APK side-loading to flag.
+
+  Signing: android/app/build.gradle falls back to debug signing when
+  android/key.properties is absent (it is not committed), so the build
+  produces an unsigned-by-upstream APK that F-Droid signs with its own key.
+
+  REQUEST_INSTALL_PACKAGES remains declared in the manifest but is unused in
+  the F-Droid variant because the installer code path is gated off.
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags ^v[0-9.]+$
+CurrentVersion: 0.2.1
+CurrentVersionCode: 4

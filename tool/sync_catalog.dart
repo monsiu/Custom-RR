@@ -79,6 +79,7 @@ Future<void> main(List<String> args) async {
     '_generatedAt': DateTime.now().toUtc().toIso8601String(),
     'roms': _buildRoms(devices, pixelosDevices: pixelosDevices),
     'recoveries': _buildRecoveries(devices),
+    'roots': _buildRoots(),
     'devices': _buildDevices(mergedVendors),
   };
 
@@ -1506,6 +1507,237 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       'downloadLabel': s.downloadLabel,
       'downloadUrl': s.downloadUrl,
       'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
+    };
+  }).toList();
+}
+
+/// Root solutions are device-agnostic (they target kernels / boot images,
+/// not specific phones), so they don't run through `_policyFor` and ship
+/// with an empty `devices` list. The `links` field surfaces the upstream
+/// Telegram/Discord/docs channels that root projects rely on.
+List<Map<String, dynamic>> _buildRoots() {
+  final List<_RomSpec> specs = <_RomSpec>[
+    _RomSpec(
+      id: 'magisk',
+      name: 'Magisk',
+      headerAsset: 'images/magisk.png',
+      shortTagline:
+          'The original systemless root: boot-image patching, modules, and Zygisk.',
+      description: <String>[
+        'Magisk is the most widely adopted root solution for Android. It patches the boot image to inject a small init shim that mounts a writable overlay over /system, giving root and module support without modifying real partitions.',
+        'The module system lets the community ship systemless tweaks (audio mods, hosts blockers, font packs) that can be enabled/disabled at runtime. Zygisk runs code inside every app process, which third-party modules like LSPosed use to hook frameworks.',
+      ],
+      features: <String>[
+        'Systemless root via boot-image patching.',
+        'Module ecosystem with hundreds of community modules.',
+        'Per-app root permission management with logging.',
+        'Zygisk runtime code injection into the Zygote.',
+        'MagiskBoot tool for unpacking/repacking boot.img.',
+        'DenyList to hide modifications from selected apps.',
+        'Supports Android 6.0 through current releases.',
+      ],
+      screenshots: <String>[
+        // From the official Magisk repo's docs/images. The project does not
+        // publish a dedicated screenshot gallery; these are the in-app shots
+        // embedded in the installation / OTA guides and are the most
+        // UI-representative hot-linkable assets the upstream provides.
+        'https://raw.githubusercontent.com/topjohnwu/Magisk/master/docs/images/device_info.png',
+        'https://raw.githubusercontent.com/topjohnwu/Magisk/master/docs/images/manager_reboot.png',
+        'https://raw.githubusercontent.com/topjohnwu/Magisk/master/docs/images/install_inactive_slot.png',
+        'https://raw.githubusercontent.com/topjohnwu/Magisk/master/docs/images/restore_img.png',
+      ],
+      downloadLabel: 'GitHub Releases',
+      downloadUrl: 'https://github.com/topjohnwu/Magisk/releases',
+      forumUrl: 'https://forum.xda-developers.com/t/3473445/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Documentation',
+          url: 'https://topjohnwu.github.io/Magisk/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/topjohnwu/Magisk',
+          iconName: 'github',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'kernelsu',
+      name: 'KernelSU',
+      headerAsset: 'images/kernelsu.png',
+      shortTagline:
+          'Kernel-space root for GKI 2.0 devices, with per-app profiles and modules.',
+      description: <String>[
+        'KernelSU moves the root provider into the Linux kernel itself, which makes it harder to detect and removes the need to patch boot images on most modern devices.',
+        'Officially targets GKI 2.0 (kernel 5.10+); older non-GKI kernels (4.14+) can be supported by rebuilding the kernel with the KernelSU patches.',
+      ],
+      features: <String>[
+        'Kernel-based `su` implementation.',
+        'App Profile: per-app root, UID, group, capability and SELinux rules.',
+        'Module system inspired by Magisk (OverlayFS-based).',
+        'Works on WSA, ChromeOS Android subsystem and containers.',
+        'Open source, GPL-2 kernel parts + GPL-3 userspace.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'GitHub Releases',
+      downloadUrl: 'https://github.com/tiann/KernelSU/releases',
+      forumUrl: 'https://github.com/tiann/KernelSU/discussions',
+      warning:
+          'Requires a kernel built with KernelSU patches. For most devices that means flashing a compatible custom kernel (or using GKI on supported Pixel/Samsung models). Recent kernel changes have broken x86_64 builds in some configurations.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Documentation',
+          url: 'https://kernelsu.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/tiann/KernelSU',
+          iconName: 'github',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'kernelsu_next',
+      name: 'KernelSU Next',
+      headerAsset: 'images/kernelsu_next.png',
+      shortTagline:
+          'Actively maintained KernelSU fork with broader non-GKI support and Magic Mount.',
+      description: <String>[
+        'KernelSU Next is a community fork of KernelSU that adds Magic Mount (from MKSU) alongside the original OverlayFS mounter, with a toggle to switch between them. It targets devices the upstream project does not officially support, especially older non-GKI kernels.',
+        'Stays close to upstream while adding QoL features: module backup and restore, an auto-updating manager app, and tighter SuSFS integration.',
+      ],
+      features: <String>[
+        'Magic Mount or OverlayFS, switchable at runtime.',
+        'Supports non-GKI kernels from 4.4 up to 6.6.',
+        'Module backup / restore from the manager app.',
+        'SuSFS integration for hiding modifications.',
+        'Bulk module install and auto-update manager.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'GitHub Releases',
+      downloadUrl: 'https://github.com/KernelSU-Next/KernelSU-Next/releases',
+      forumUrl:
+          'https://github.com/KernelSU-Next/KernelSU-Next/discussions',
+      warning:
+          'Community fork: synced with upstream but maintains its own patches. Still requires a custom kernel built with the KernelSU Next sources.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Documentation',
+          url: 'https://kernelsu-next.github.io/webpage/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/KernelSU-Next/KernelSU-Next',
+          iconName: 'github',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'apatch',
+      name: 'APatch',
+      headerAsset: 'images/apatch.png',
+      shortTagline:
+          'KernelPatch-based root that hooks the running kernel without recompiling it.',
+      description: <String>[
+        'APatch builds on KernelPatch, a runtime kernel-patching framework. Instead of requiring a custom kernel like KernelSU, it injects inline hooks into the live kernel image, so it can run on devices whose vendor kernel is otherwise locked.',
+        'Supports both APModule (Magisk-style systemless modules) and KPModule (in-kernel patch modules) for low-level extensions.',
+      ],
+      features: <String>[
+        'Runtime kernel patching via KernelPatch.',
+        'APModule (userspace) + KPModule (kernel) support.',
+        'Inline-hook and syscall-table-hook backends.',
+        'Module system derived from KernelSU.',
+        'SELinux policy management via magiskpolicy.',
+        'Targets kernels 3.18 through 6.12 on ARM64.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'GitHub Releases',
+      downloadUrl: 'https://github.com/bmax121/APatch/releases',
+      forumUrl: 'https://github.com/bmax121/APatch/discussions',
+      warning:
+          'ARM64 only. APatch uses a SuperKey that has higher privileges than root: a weak or leaked SuperKey can take full control of the device, so treat it like a master password. Requires CONFIG_KALLSYMS in the kernel.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Documentation',
+          url: 'https://apatch.dev/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/bmax121/APatch',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Telegram',
+          url: 'https://t.me/APatchChannel',
+          iconName: 'telegram',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'sukisu',
+      name: 'SukiSU Ultra',
+      headerAsset: 'images/sukisu.png',
+      shortTagline:
+          'KernelSU fork that bundles KernelPatch Module (KPM) support and Magic Mount.',
+      description: <String>[
+        'SukiSU Ultra is an actively developed fork of KernelSU that integrates KernelPatch Module (KPM) support so users get both KernelSU-style modules and APatch-style in-kernel patches from a single project.',
+        'Ships with WebUI X for module management, Magic Mount for system overlays, and broader non-GKI coverage than upstream KernelSU.',
+      ],
+      features: <String>[
+        'Kernel-based `su` with per-app profiles.',
+        'KPM (KernelPatch Module) support.',
+        'Magic Mount for system-level overlays.',
+        'WebUI X management interface.',
+        'SuSFS integration and theming controls.',
+        'Non-GKI 4.x-5.4 LTS + GKI 5.10+ support.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'GitHub Releases',
+      downloadUrl: 'https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases',
+      forumUrl:
+          'https://github.com/SukiSU-Ultra/SukiSU-Ultra/discussions',
+      warning:
+          'Community fork of KernelSU. KPM support needs CONFIG_KPM=y in the kernel and may require backports on older kernels. Inherits KernelSU compatibility caveats on x86_64.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Documentation',
+          url: 'https://sukisu.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/SukiSU-Ultra/SukiSU-Ultra',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Telegram',
+          url: 'https://t.me/Sukiksu',
+          iconName: 'telegram',
+        ),
+      ],
+    ),
+  ];
+
+  return specs.map((_RomSpec s) {
+    return <String, dynamic>{
+      'id': s.id,
+      'name': s.name,
+      'headerAsset': s.headerAsset,
+      'shortTagline': s.shortTagline,
+      'description': s.description,
+      'features': s.features,
+      'screenshots': s.screenshots,
+      'devices': const <Map<String, dynamic>>[],
+      'downloadLabel': s.downloadLabel,
+      'downloadUrl': s.downloadUrl,
+      'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
+      if (s.warning != null) 'warning': s.warning,
+      if (s.links.isNotEmpty)
+        'links': s.links.map((_RomLink l) => l.toJson()).toList(),
     };
   }).toList();
 }

@@ -102,6 +102,14 @@ class AppNavList extends StatelessWidget {
                 onTap: () => _go(context, AppRoutes.recoveries),
               ),
               _NavTile(
+                icon: Icons.shield_outlined,
+                selectedIcon: Icons.shield,
+                label: 'Root',
+                route: AppRoutes.roots,
+                currentRoute: currentRoute,
+                onTap: () => _go(context, AppRoutes.roots),
+              ),
+              _NavTile(
                 icon: Icons.smartphone_outlined,
                 selectedIcon: Icons.smartphone,
                 label: 'Devices',

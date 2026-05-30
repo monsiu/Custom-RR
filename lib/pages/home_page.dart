@@ -31,6 +31,12 @@ class _HomePageState extends State<HomePage> {
       route: AppRoutes.recoveries,
     ),
     _Action(
+      icon: Icons.shield_outlined,
+      label: 'Root',
+      description: 'Magisk, KernelSU, APatch and more',
+      route: AppRoutes.roots,
+    ),
+    _Action(
       icon: Icons.smartphone_outlined,
       label: 'Supported Devices',
       description: 'See manufacturers covered',
@@ -113,6 +119,20 @@ class _HomePageState extends State<HomePage> {
         );
       }
     }
+    for (final CatalogEntry e in repo.roots) {
+      if (match(e.name) || match(e.shortTagline) || match(e.id)) {
+        hits.add(
+          _SearchHit(
+            title: e.name,
+            subtitle: e.shortTagline,
+            asset: e.headerAsset,
+            icon: Icons.shield_outlined,
+            route: AppRoutes.rootDetail(e.id),
+            kind: 'Root',
+          ),
+        );
+      }
+    }
     for (final DeviceEntry d in repo.devices) {
       if (match(d.name)) {
         hits.add(
@@ -183,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                           textInputAction: TextInputAction.search,
                           onChanged: (String v) => setState(() => _query = v),
                           decoration: InputDecoration(
-                            hintText: 'Search ROMs, recoveries, devices…',
+                            hintText: 'Search ROMs, recoveries, root, devices…',
                             prefixIcon: const Icon(Icons.search),
                             suffixIcon: _query.isEmpty
                                 ? null

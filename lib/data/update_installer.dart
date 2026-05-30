@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../util/build_flags.dart';
 import 'update_checker.dart';
 
 /// Snapshot of a download in flight. Emitted by [UpdateInstaller.download]
@@ -60,7 +61,10 @@ class UpdateInstaller {
   final Dio _dio;
 
   /// True on Android (the only platform where APK side-loading makes sense).
-  static bool get isSupported => !kIsWeb && Platform.isAndroid;
+  /// Always false in F-Droid builds: that variant ships without the in-app
+  /// installer because F-Droid updates the app itself.
+  static bool get isSupported =>
+      !kFdroidBuild && !kIsWeb && Platform.isAndroid;
 
   /// Picks the best-matching APK asset for this device, preferring earlier
   /// entries in [AndroidDeviceInfo.supportedAbis] (which Android orders by

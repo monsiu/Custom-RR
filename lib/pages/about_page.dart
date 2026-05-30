@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../data/update_checker.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../util/build_flags.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/crypto_donate.dart';
 import '../widgets/donation_nudge.dart';
@@ -172,23 +173,24 @@ class _AboutPageState extends State<AboutPage> {
                   Uri.parse('https://discord.gg/DqsAR42ATR'),
                 ),
               ),
-              ListTile(
-                leading: const Icon(Icons.system_update_alt),
-                title: const Text('Check for updates'),
-                subtitle: Text(
-                  _version.isEmpty
-                      ? 'Compares your version with the latest GitHub release'
-                      : 'Current: $_version',
+              if (!kFdroidBuild)
+                ListTile(
+                  leading: const Icon(Icons.system_update_alt),
+                  title: const Text('Check for updates'),
+                  subtitle: Text(
+                    _version.isEmpty
+                        ? 'Compares your version with the latest GitHub release'
+                        : 'Current: $_version',
+                  ),
+                  trailing: _checking
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.chevron_right),
+                  onTap: _checking ? null : _checkForUpdates,
                 ),
-                trailing: _checking
-                    ? const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Icon(Icons.chevron_right),
-                onTap: _checking ? null : _checkForUpdates,
-              ),
               ListTile(
                 leading: const Icon(Icons.mail_outline),
                 title: const Text('contactmonsiu@gmail.com'),
