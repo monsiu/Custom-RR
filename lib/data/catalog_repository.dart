@@ -31,7 +31,9 @@ class CatalogRepository extends ChangeNotifier {
   static final CatalogRepository instance = CatalogRepository._();
 
   static const String _assetPath = 'assets/catalog.json';
-  static const String _cacheKey = 'catalog_json_v1';
+  // Bumped to v2 in 0.3.x: schema gained the top-level `roots` key. Older
+  // cached payloads decode with roots=[], wiping the bundled list on load.
+  static const String _cacheKey = 'catalog_json_v2';
   static const String _remoteUrl =
       'https://raw.githubusercontent.com/monsiu/Custom-RR/main/assets/catalog.json';
   static const Duration _remoteTimeout = Duration(seconds: 15);
@@ -39,6 +41,7 @@ class CatalogRepository extends ChangeNotifier {
 
   List<CatalogEntry> _roms = const <CatalogEntry>[];
   List<CatalogEntry> _recoveries = const <CatalogEntry>[];
+  List<CatalogEntry> _roots = const <CatalogEntry>[];
   List<DeviceEntry> _devices = const <DeviceEntry>[];
   bool _loaded = false;
   bool _remoteKicked = false;
@@ -48,6 +51,7 @@ class CatalogRepository extends ChangeNotifier {
   bool get isLoaded => _loaded;
   List<CatalogEntry> get roms => _roms;
   List<CatalogEntry> get recoveries => _recoveries;
+  List<CatalogEntry> get roots => _roots;
   List<DeviceEntry> get devices => _devices;
 
   /// True when a previous successful remote catalog fetch is cached in
@@ -169,9 +173,16 @@ class CatalogRepository extends ChangeNotifier {
   }
 
   void _applyParsed(_ParsedCatalog parsed) {
-    _roms = parsed.roms;
-    _recoveries = parsed.recoveries;
-    _devices = parsed.devices;
+    // Each section is only overwritten if the source payload carried it.
+    // This keeps an older remote `catalog.json` (e.g. one that predates a
+    // new top-level section like `roots`) from wiping data that the local
+    // bundled asset already supplied. Without this, the cache+remote
+    // overlay path can blank out brand-new sections until the remote
+    // catalog catches up.
+    if (parsed.roms != null) _roms = parsed.roms!;
+    if (parsed.recoveries != null) _recoveries = parsed.recoveries!;
+    if (parsed.roots != null) _roots = parsed.roots!;
+    if (parsed.devices != null) _devices = parsed.devices!;
   }
 
   /// Look up a ROM by id; returns `null` if not found.
@@ -181,6 +192,10 @@ class CatalogRepository extends ChangeNotifier {
   /// Look up a recovery by id; returns `null` if not found.
   CatalogEntry? recoveryById(String id) =>
       _firstWhereOrNull(_recoveries, (CatalogEntry e) => e.id == id);
+
+  /// Look up a root solution by id; returns `null` if not found.
+  CatalogEntry? rootById(String id) =>
+      _firstWhereOrNull(_roots, (CatalogEntry e) => e.id == id);
 
   /// Look up a device by url-safe slug; returns `null` if not found.
   DeviceEntry? deviceBySlug(String slug) =>
@@ -289,10 +304,13 @@ T? _firstWhereOrNull<T>(Iterable<T> items, bool Function(T) test) {
 /// Result bundle for [_parseCatalog]. Held in a tiny class so it can be
 /// shipped back across the isolate boundary in a single message.
 class _ParsedCatalog {
-  _ParsedCatalog(this.roms, this.recoveries, this.devices);
-  final List<CatalogEntry> roms;
-  final List<CatalogEntry> recoveries;
-  final List<DeviceEntry> devices;
+  _ParsedCatalog(this.roms, this.recoveries, this.roots, this.devices);
+  // Null = the source JSON did not contain this section, so `_applyParsed`
+  // leaves the existing in-memory list untouched (vs. wiping it to []).
+  final List<CatalogEntry>? roms;
+  final List<CatalogEntry>? recoveries;
+  final List<CatalogEntry>? roots;
+  final List<DeviceEntry>? devices;
 }
 
 /// Top-level so [compute] can invoke it in a background isolate.
@@ -300,9 +318,18 @@ _ParsedCatalog _parseCatalog(String source) {
   final Map<String, dynamic> root =
       json.decode(source) as Map<String, dynamic>;
   return _ParsedCatalog(
-    _decodeList(root['roms'], CatalogEntry.fromJson),
-    _decodeList(root['recoveries'], CatalogEntry.fromJson),
-    _decodeList(root['devices'], DeviceEntry.fromJson),
+    root.containsKey('roms')
+        ? _decodeList(root['roms'], CatalogEntry.fromJson)
+        : null,
+    root.containsKey('recoveries')
+        ? _decodeList(root['recoveries'], CatalogEntry.fromJson)
+        : null,
+    root.containsKey('roots')
+        ? _decodeList(root['roots'], CatalogEntry.fromJson)
+        : null,
+    root.containsKey('devices')
+        ? _decodeList(root['devices'], DeviceEntry.fromJson)
+        : null,
   );
 }
 

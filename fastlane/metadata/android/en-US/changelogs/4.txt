@@ -1,0 +1,4 @@
+- New Root section: browse Android root solutions (Magisk, KernelSU, KernelSU Next, APatch, SukiSU Ultra) with live freshness, alongside Custom ROMs and Recoveries.
+- Added UN1CA and ArtisanROM Quant ROM entries for Samsung Galaxy devices.
+- F-Droid build variant: this release drops the in-app updater (no GitHub polling, no APK side-loading, no "Check for updates"); updates come from F-Droid.
+- Various fixes and polish.

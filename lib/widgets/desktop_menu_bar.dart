@@ -69,9 +69,17 @@ class DesktopMenuBar extends StatelessWidget {
               onSelected: () => router.go(AppRoutes.recoveries),
             ),
             PlatformMenuItem(
-              label: 'Devices',
+              label: 'Root',
               shortcut: const SingleActivator(
                 LogicalKeyboardKey.digit4,
+                control: true,
+              ),
+              onSelected: () => router.go(AppRoutes.roots),
+            ),
+            PlatformMenuItem(
+              label: 'Devices',
+              shortcut: const SingleActivator(
+                LogicalKeyboardKey.digit5,
                 control: true,
               ),
               onSelected: () => router.go(AppRoutes.devices),
@@ -79,7 +87,7 @@ class DesktopMenuBar extends StatelessWidget {
             PlatformMenuItem(
               label: 'Guide',
               shortcut: const SingleActivator(
-                LogicalKeyboardKey.digit5,
+                LogicalKeyboardKey.digit6,
                 control: true,
               ),
               onSelected: () => router.go(AppRoutes.instructions),
@@ -87,7 +95,7 @@ class DesktopMenuBar extends StatelessWidget {
             PlatformMenuItem(
               label: 'Treble & GSI',
               shortcut: const SingleActivator(
-                LogicalKeyboardKey.digit6,
+                LogicalKeyboardKey.digit7,
                 control: true,
               ),
               onSelected: () => router.go(AppRoutes.treble),

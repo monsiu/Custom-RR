@@ -139,6 +139,12 @@ class _AppRail extends StatelessWidget {
       'Recoveries',
     ),
     _RailDest(
+      AppRoutes.roots,
+      Icons.shield_outlined,
+      Icons.shield,
+      'Root',
+    ),
+    _RailDest(
       AppRoutes.devices,
       Icons.smartphone_outlined,
       Icons.smartphone,

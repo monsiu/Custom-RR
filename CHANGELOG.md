@@ -7,7 +7,18 @@ pre-1.0, so minor bumps may include breaking changes).
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-05-30
+
 ### Added
+- **F-Droid build variant.** New `--dart-define=FDROID_BUILD=true` compile-time flag (`lib/util/build_flags.dart`) that strips the self-update machinery for F-Droid distribution: no GitHub release polling on launch, no in-app APK download/install path, and no "Check for updates" UI. GitHub-release builds are unchanged (flag defaults off). Adds the F-Droid metadata recipe (`fdroid/io.github.monsiu.custom_rr.yml`) and fastlane listing assets (icon, phone screenshots).
+- **Root section.** New top-level catalog category for Android root solutions, mirroring the Custom ROMs and Custom Recoveries sections. Reachable at `/roots`, with its own nav rail entry (shield icon), drawer tile, desktop menu shortcut (Ctrl+4), home page action, and home search hits. Initial entries:
+  - **Magisk** (topjohnwu): the classic systemless root via boot-image patching, with modules and Zygisk.
+  - **KernelSU** (tiann): kernel-space root for GKI 2.0 devices with per-app profiles.
+  - **KernelSU Next** (KernelSU-Next/KernelSU-Next): community KernelSU fork with Magic Mount and broader non-GKI coverage.
+  - **APatch** (bmax121): KernelPatch-based root that hooks the running kernel without recompiling it (ARM64 only).
+  - **SukiSU Ultra** (SukiSU-Ultra/SukiSU-Ultra): KernelSU fork bundling KernelPatch Module (KPM) support and Magic Mount.
+- Banner art for all five root projects (`images/magisk.png`, `images/kernelsu.png`, `images/kernelsu_next.png`, `images/apatch.png`, `images/sukisu.png`).
+- Freshness wired up for each root entry: `tool/sync_freshness.dart` pulls the latest GitHub Release per project, with curated fallbacks shipped in `assets/freshness.json`.
 - **UN1CA** catalog entry: salvogiangri's debloated, customisable One UI custom firmware for Samsung Galaxy devices, with full Galaxy AI, integrated OTA, EROFS, TrickyStore / PIF / HMA, and links to the Telegram channel, GitHub repo, and discussions.
 - **ArtisanROM Quant** catalog entry: One UI 8 (Galaxy S25 FE) based custom firmware for Samsung Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series) devices, built on top of the ExtremeROM and UN1CA build system.
 - Banner art for both ROMs (`images/un1ca.png`, `images/artisanrom.png`).

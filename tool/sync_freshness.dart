@@ -125,6 +125,33 @@ Future<void> main(List<String> args) async {
       source: 'https://github.com/ArtisanROM/ArtisanROM/releases',
     ),
 
+    // Root solutions
+    'magisk': _Seed(
+      lastBuild: DateTime.utc(2026, 2, 23),
+      version: 'Magisk v30.7',
+      source: 'https://github.com/topjohnwu/Magisk/releases',
+    ),
+    'kernelsu': _Seed(
+      lastBuild: DateTime.utc(2026, 4, 6),
+      version: 'KernelSU v3.2.4',
+      source: 'https://github.com/tiann/KernelSU/releases',
+    ),
+    'kernelsu_next': _Seed(
+      lastBuild: DateTime.utc(2026, 4, 15),
+      version: 'KernelSU Next v3.2.0',
+      source: 'https://github.com/KernelSU-Next/KernelSU-Next/releases',
+    ),
+    'apatch': _Seed(
+      lastBuild: DateTime.utc(2025, 11, 12),
+      version: 'APatch 11142',
+      source: 'https://github.com/bmax121/APatch/releases',
+    ),
+    'sukisu': _Seed(
+      lastBuild: DateTime.utc(2026, 5, 28),
+      version: 'SukiSU Ultra v4.1.3',
+      source: 'https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases',
+    ),
+
     // Recoveries
     'twrp': _Seed(
       lastBuild: DateTime.utc(2024, 11, 2),
@@ -253,6 +280,36 @@ final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
         owner: 'ArtisanROM',
         repo: 'ArtisanROM',
         displayName: 'ArtisanROM Quant',
+      ),
+  'magisk': (HttpClient c) => _fetchGitHubReleaseLatest(
+        c,
+        owner: 'topjohnwu',
+        repo: 'Magisk',
+        displayName: 'Magisk',
+      ),
+  'kernelsu': (HttpClient c) => _fetchGitHubReleaseLatest(
+        c,
+        owner: 'tiann',
+        repo: 'KernelSU',
+        displayName: 'KernelSU',
+      ),
+  'kernelsu_next': (HttpClient c) => _fetchGitHubReleaseLatest(
+        c,
+        owner: 'KernelSU-Next',
+        repo: 'KernelSU-Next',
+        displayName: 'KernelSU Next',
+      ),
+  'apatch': (HttpClient c) => _fetchGitHubReleaseLatest(
+        c,
+        owner: 'bmax121',
+        repo: 'APatch',
+        displayName: 'APatch',
+      ),
+  'sukisu': (HttpClient c) => _fetchGitHubReleaseLatest(
+        c,
+        owner: 'SukiSU-Ultra',
+        repo: 'SukiSU-Ultra',
+        displayName: 'SukiSU Ultra',
       ),
 };
 

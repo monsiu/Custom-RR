@@ -11,6 +11,5 @@ Features:
 * Works fully offline with a bundled catalog, refreshes from GitHub at launch so new ROMs and devices appear without an app update.
 * Material 3 with dynamic color, light/dark/AMOLED themes, adaptive layouts (phone/tablet/desktop).
 * Deep links for every ROM, recovery, device, and brand: easy to share in threads.
-* In-app update check against GitHub Releases.
 
 No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub.
