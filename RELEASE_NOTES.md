@@ -17,7 +17,7 @@ Each entry pulls its latest release date live from GitHub, with curated fallback
 ### Catalog and content
 
 - **UN1CA** added: salvogiangri's debloated, customisable One UI custom firmware for Samsung Galaxy devices, with full Galaxy AI, integrated OTA, EROFS, TrickyStore / PIF / HMA, and links to the Telegram channel, GitHub repo and discussions.
-- **ArtisanROM Quant** added: One UI 8 (Galaxy S25 FE) based custom firmware for Samsung Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series) devices, built on top of the ExtremeROM and UN1CA build system.
+- **ArtisanROM Quant** added: One UI 8 (Galaxy S25 FE) based custom firmware for Samsung Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 series) devices, built on top of the ExtremeROM and UN1CA build system.
 - Live build dates for both new ROMs sourced from their GitHub Releases.
 
 ### F-Droid build variant (new)

@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-30T11:01:34.768376Z",
+  "_generatedAt": "2026-05-31T20:10:46.030054Z",
   "roms": [
     {
       "id": "lineage",
@@ -3808,6 +3808,542 @@
           "label": "GitHub",
           "url": "https://github.com/crdroidandroid",
           "iconName": "github"
+        }
+      ]
+    },
+    {
+      "id": "infinityx",
+      "name": "Project Infinity X",
+      "headerAsset": "images/infinityx.png",
+      "shortTagline": "AOSP custom ROM focused on refined performance and endless customisation.",
+      "description": [
+        "Project Infinity X is an Android 16 AOSP custom ROM that brings refined performance, stunning visuals, and deep customisation to a wide range of devices. Built for stability and designed for enthusiasts, it keeps the clean Pixel feel while adding a powerful theme engine and a large set of UI tweaks.",
+        "It is free and open-source under Apache-2.0, maintained by tejas101k and a large community of device maintainers, with regular monthly OTA updates carrying the latest Android security patches."
+      ],
+      "features": [
+        "Optimised SystemUI tweaks aiming to beat stock OEM performance.",
+        "Powerful theme engine with complete control over the UI.",
+        "Designed to stay compatible with security-sensitive apps and device integrity checks.",
+        "Adaptive battery and intelligent memory management for a smooth experience.",
+        "Monthly OTA updates with new features and the latest security patches.",
+        "Vanilla and GApps install paths, plus a GSI build for unlisted devices."
+      ],
+      "screenshots": [
+        "https://projectinfinity-x.com/assets/images/ss-1.webp",
+        "https://projectinfinity-x.com/assets/images/ss-2.webp",
+        "https://projectinfinity-x.com/assets/images/ss-3.webp",
+        "https://projectinfinity-x.com/assets/images/ss-4.webp",
+        "https://projectinfinity-x.com/assets/images/ss-5.webp",
+        "https://projectinfinity-x.com/assets/images/ss-6.webp",
+        "https://projectinfinity-x.com/assets/images/ss-7.webp",
+        "https://projectinfinity-x.com/assets/images/ss-8.webp",
+        "https://projectinfinity-x.com/assets/images/ss-9.webp",
+        "https://projectinfinity-x.com/assets/images/ss-10.webp",
+        "https://projectinfinity-x.com/assets/images/ss-11.webp",
+        "https://projectinfinity-x.com/assets/images/ss-12.webp"
+      ],
+      "devices": [
+        {
+          "brand": "Google",
+          "model": "Pixel 4a 5G",
+          "codename": "bramble"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 5",
+          "codename": "redfin"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 5a",
+          "codename": "barbet",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-5a.12359/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 6",
+          "codename": "oriole",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-6.12311/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 6 Pro",
+          "codename": "raven",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-6-pro.12313/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7",
+          "codename": "panther",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7.12607/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7 Pro",
+          "codename": "cheetah",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7-pro.12609/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7a",
+          "codename": "lynx",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7a.12743/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 8",
+          "codename": "shiba",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-8.12799/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 8 Pro",
+          "codename": "husky",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-8-pro.12801/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 8a",
+          "codename": "akita",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-8a.12851/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 9",
+          "codename": "tokay",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-9.12879/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 9 Pro",
+          "codename": "caiman",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 9 Pro XL",
+          "codename": "komodo",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 9a",
+          "codename": "tegu",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-9a.12927/?prefix_id=33"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix Note 30",
+          "codename": "X6833B"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix Note 30 Pro",
+          "codename": "X678B"
+        },
+        {
+          "brand": "Itel",
+          "model": "Itel RS4",
+          "codename": "S666LN"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Edge 30",
+          "codename": "dubai",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-30.12697/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola G54/G64",
+          "codename": "cancunf"
+        },
+        {
+          "brand": "Nothing",
+          "model": "Nothing CMF Phone 1",
+          "codename": "Tetris"
+        },
+        {
+          "brand": "Nothing",
+          "model": "Nothing Phone 2",
+          "codename": "Pong",
+          "forumUrl": "https://xdaforums.com/f/nothing-phone-2.12739/?prefix_id=33"
+        },
+        {
+          "brand": "Nothing",
+          "model": "Nothing Phone 3a/3a Pro",
+          "codename": "asteroids"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 11 5G",
+          "codename": "salami",
+          "forumUrl": "https://xdaforums.com/f/oneplus-11r-ace-2.12717/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 12R / ACE 3",
+          "codename": "aston",
+          "forumUrl": "https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 13 5G",
+          "codename": "dodge",
+          "forumUrl": "https://xdaforums.com/f/oneplus-13.12893/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 13R 5G",
+          "codename": "giulia",
+          "forumUrl": "https://xdaforums.com/f/oneplus-13r-ace-5.12915/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 7",
+          "codename": "guacamoleb"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 7T",
+          "codename": "hotdogb"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Oneplus 9",
+          "codename": "lemonade",
+          "forumUrl": "https://xdaforums.com/f/oneplus-11.12687/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Oneplus 9 Pro",
+          "codename": "lemonadep",
+          "forumUrl": "https://xdaforums.com/f/oneplus-9-pro.12153/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 9R",
+          "codename": "lemonades",
+          "forumUrl": "https://xdaforums.com/f/oneplus-9r.12183/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus Ace 3 Pro",
+          "codename": "corvette",
+          "forumUrl": "https://xdaforums.com/f/oneplus-ace-3-pro.12865/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus Ace 5 5G",
+          "codename": "giuliac",
+          "forumUrl": "https://xdaforums.com/f/oneplus-13r-ace-5.12915/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus Ace 6",
+          "codename": "ktm"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus Nord",
+          "codename": "avicii"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 6 Pro",
+          "codename": "RMX2061"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 6/6i(Indian)/6s/7/Narzo/Narzo 20 Pro/Narzo 30 4G",
+          "codename": "RM6785"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 9 SE 5G",
+          "codename": "ice"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme GT Neo 3T",
+          "codename": "spartan"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A25 5G",
+          "codename": "a25x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A33 5G",
+          "codename": "a33x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A52s 5G",
+          "codename": "a52sxq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A53 5G",
+          "codename": "a53x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy F62",
+          "codename": "f62",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M30s",
+          "codename": "m30s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M33 5G",
+          "codename": "m33x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M34 5G",
+          "codename": "m34x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M52 5G",
+          "codename": "m52xq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 10",
+          "codename": "d1"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 10 5G",
+          "codename": "d1x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 10+",
+          "codename": "d2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 10+ 5G",
+          "codename": "d2x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10",
+          "codename": "beyond1lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10 5G",
+          "codename": "beyondx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10+",
+          "codename": "beyond2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10e",
+          "codename": "beyond0lte"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 11X Pro/Mi 11i/Redmi K40 Pro+",
+          "codename": "haydn",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 9T Pro / Redmi K20 Pro",
+          "codename": "raphael"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F1",
+          "codename": "beryllium"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F3 / Redmi K40 / Mi 11X",
+          "codename": "alioth",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F5 / Redmi Note 12 Turbo",
+          "codename": "marble",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f5-redmi-note-12-turbo-china.12733/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Poco F5 Pro/Redmi K60",
+          "codename": "mondrian",
+          "forumUrl": "https://xdaforums.com/f/poco-f5-pro-redmi-k60-china.12741/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F6",
+          "codename": "peridot",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-redmi-turbo-3.12852/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Poco F6 Pro/Redmi K70",
+          "codename": "vermeer",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-pro-redmi-k70.12853/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F7 / Redmi Turbo 4 Pro",
+          "codename": "onyx"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X3 NFC",
+          "codename": "surya"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X3 Pro",
+          "codename": "vayu",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-x3-pro.12163/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X5 Pro 5G",
+          "codename": "redwood"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 12 5G / Poco M6 Pro 5G",
+          "codename": "sky"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10",
+          "codename": "mojito"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10 Pro / Pro Max",
+          "codename": "sweet",
+          "forumUrl": "https://xdaforums.com/f/redmi-note-10-pro.12117/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 11",
+          "codename": "spes"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 11 PRO PLUS 5G / POCO X4 PRO 5G",
+          "codename": "veux"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 12 5G / POCO X5 5G",
+          "codename": "stone"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 12 Pro / Pro+ 5G / Discovery Edition",
+          "codename": "rubyx"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi note 13 4G / NFC",
+          "codename": "sapphire"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 13 Pro 5G / Poco X6 5G",
+          "codename": "garnet",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 5 Pro",
+          "codename": "whyred"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 8 Pro",
+          "codename": "begonia"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 8/8T",
+          "codename": "ginkgo"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 9S/Pro/Pro Max & POCO M2 Pro",
+          "codename": "miatoll"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi 11T Pro",
+          "codename": "vili"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi 12T Pro / Redmi K50 Ultra",
+          "codename": "diting",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-12t-pro-redmi-k50-ultra.12673/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Mi 5",
+          "codename": "gemini"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Pad 6",
+          "codename": "pipa"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Redmi 9",
+          "codename": "lancelot"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Redmi Note 9",
+          "codename": "merlinx"
+        }
+      ],
+      "downloadLabel": "Official downloads",
+      "downloadUrl": "https://projectinfinity-x.com/downloads",
+      "forumUrl": "https://xdaforums.com/tags/infinityx/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://projectinfinity-x.com/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/projectinfinity-x/",
+          "iconName": "github"
+        },
+        {
+          "label": "Telegram",
+          "url": "https://t.me/projectinfinityx",
+          "iconName": "forum"
+        },
+        {
+          "label": "FAQ",
+          "url": "https://projectinfinity-x.com/faq",
+          "iconName": "web"
         }
       ]
     },
@@ -20742,9 +21278,9 @@
       "id": "artisanrom",
       "name": "ArtisanROM Quant",
       "headerAsset": "images/artisanrom.png",
-      "shortTagline": "OneUI 8 custom firmware for Exynos Galaxy S10, Note10, S20 and Note20 devices.",
+      "shortTagline": "OneUI 8 custom firmware for Exynos Galaxy S10, S20 and Note20 devices.",
       "description": [
-        "ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.",
+        "ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.",
         "It is built on top of the ExtremeROM and UN1CA build system, automating firmware download, extraction, patching, and flashable zip generation. The project is GPL-3.0, maintained by Android-Artisan with a long list of contributors, and ships fully upstreamed kernels for every officially supported device."
       ],
       "features": [
@@ -20771,77 +21307,6 @@
         "images/screenshots/artisanrom/11_package_installer.jpg"
       ],
       "devices": [
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A21s",
-          "codename": "a21s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A52 4G",
-          "codename": "a52q",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52-4g.12131/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A52s 5G",
-          "codename": "a52sxq",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A71",
-          "codename": "a71"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A72",
-          "codename": "a72q",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a72.12141/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy F62",
-          "codename": "f62",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy M20",
-          "codename": "m20lte"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy M52 5G",
-          "codename": "m52xq",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy M62",
-          "codename": "f62",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy Note10",
-          "codename": "d1"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy Note10 5G",
-          "codename": "d1x"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy Note10+",
-          "codename": "d2s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy Note10+ 5G",
-          "codename": "d2x"
-        },
         {
           "brand": "Samsung",
           "model": "Galaxy S10",
@@ -20871,16 +21336,6 @@
           "brand": "Samsung",
           "model": "Galaxy S20 FE (Exynos)",
           "codename": "r8s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 FE (Snapdragon)",
-          "codename": "r8q"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 FE 5G",
-          "codename": "r8q"
         },
         {
           "brand": "Samsung",
@@ -28826,6 +29281,14 @@
     {
       "name": "Huawei",
       "imageAsset": "images/huawei.png"
+    },
+    {
+      "name": "Infinix",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Itel",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "LG",
