@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../util/build_flags.dart';
 import 'crypto_donate.dart';
 
 /// Shows a friendly "Buy Me a Coffee" support dialog.
@@ -69,30 +70,32 @@ Future<void> showSupportDialog(BuildContext context) {
                   },
                 ),
               ),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 48,
-                child: FilledButton.tonalIcon(
-                  style: FilledButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+              if (kShowCryptoDonate) ...<Widget>[
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 48,
+                  child: FilledButton.tonalIcon(
+                    style: FilledButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
+                    icon: const Icon(Icons.currency_bitcoin_rounded),
+                    label: const Text('Donate with crypto'),
+                    onPressed: () {
+                      final NavigatorState rootNav = Navigator.of(
+                        dialogCtx,
+                        rootNavigator: true,
+                      );
+                      final BuildContext rootCtx = rootNav.context;
+                      rootNav.pop();
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        showCryptoDonateSheet(rootCtx);
+                      });
+                    },
                   ),
-                  icon: const Icon(Icons.currency_bitcoin_rounded),
-                  label: const Text('Donate with crypto'),
-                  onPressed: () {
-                    final NavigatorState rootNav = Navigator.of(
-                      dialogCtx,
-                      rootNavigator: true,
-                    );
-                    final BuildContext rootCtx = rootNav.context;
-                    rootNav.pop();
-                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                      showCryptoDonateSheet(rootCtx);
-                    });
-                  },
                 ),
-              ),
+              ],
             ],
           ),
         ),

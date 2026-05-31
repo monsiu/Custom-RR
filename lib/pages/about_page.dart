@@ -173,7 +173,7 @@ class _AboutPageState extends State<AboutPage> {
                   Uri.parse('https://discord.gg/DqsAR42ATR'),
                 ),
               ),
-              if (!kFdroidBuild)
+              if (kSelfUpdateEnabled)
                 ListTile(
                   leading: const Icon(Icons.system_update_alt),
                   title: const Text('Check for updates'),
@@ -206,7 +206,11 @@ class _AboutPageState extends State<AboutPage> {
                 ListTile(
                   leading: const Icon(Icons.favorite_outline),
                   title: const Text('Support the project'),
-                  subtitle: const Text('Buy a coffee or donate crypto'),
+                  subtitle: Text(
+                    kShowCryptoDonate
+                        ? 'Buy a coffee or donate crypto'
+                        : 'Buy us a coffee',
+                  ),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: _showSupportChooser,
                 )
@@ -218,11 +222,12 @@ class _AboutPageState extends State<AboutPage> {
                     Uri.parse('https://www.buymeacoffee.com/monsiutech'),
                   ),
                 ),
-                ListTile(
-                  leading: const Icon(Icons.currency_bitcoin),
-                  title: const Text('Donate with crypto'),
-                  onTap: () => showCryptoDonateSheet(context),
-                ),
+                if (kShowCryptoDonate)
+                  ListTile(
+                    leading: const Icon(Icons.currency_bitcoin),
+                    title: const Text('Donate with crypto'),
+                    onTap: () => showCryptoDonateSheet(context),
+                  ),
               ],
               ListTile(
                 leading: const Icon(Icons.privacy_tip_outlined),
@@ -271,15 +276,16 @@ class _AboutPageState extends State<AboutPage> {
                   );
                 },
               ),
-              ListTile(
-                leading: const Icon(Icons.currency_bitcoin),
-                title: const Text('Donate with crypto'),
-                subtitle: const Text('BTC, ETH, and more'),
-                onTap: () {
-                  Navigator.of(ctx).pop();
-                  showCryptoDonateSheet(context);
-                },
-              ),
+              if (kShowCryptoDonate)
+                ListTile(
+                  leading: const Icon(Icons.currency_bitcoin),
+                  title: const Text('Donate with crypto'),
+                  subtitle: const Text('BTC, ETH, and more'),
+                  onTap: () {
+                    Navigator.of(ctx).pop();
+                    showCryptoDonateSheet(context);
+                  },
+                ),
               const SizedBox(height: 8),
             ],
           ),

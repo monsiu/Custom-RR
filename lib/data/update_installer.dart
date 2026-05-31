@@ -61,10 +61,10 @@ class UpdateInstaller {
   final Dio _dio;
 
   /// True on Android (the only platform where APK side-loading makes sense).
-  /// Always false in F-Droid builds: that variant ships without the in-app
-  /// installer because F-Droid updates the app itself.
+  /// Always false in F-Droid and Play builds: those variants ship without the
+  /// in-app installer because the store updates the app itself.
   static bool get isSupported =>
-      !kFdroidBuild && !kIsWeb && Platform.isAndroid;
+      kSelfUpdateEnabled && !kIsWeb && Platform.isAndroid;
 
   /// Picks the best-matching APK asset for this device, preferring earlier
   /// entries in [AndroidDeviceInfo.supportedAbis] (which Android orders by

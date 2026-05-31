@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../data/update_notifier.dart';
 import '../pages/easter_egg_page.dart';
+import '../util/build_flags.dart';
 import 'crypto_donate.dart';
 import 'donation_nudge.dart';
 
@@ -157,26 +158,27 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
           ),
         ),
       ),
-      Builder(
-        builder: (BuildContext innerCtx) => Align(
-          alignment: Alignment.centerLeft,
-          child: TextButton.icon(
-            icon: const Icon(Icons.currency_bitcoin),
-            label: const Text('Donate with crypto'),
-            onPressed: () {
-              final NavigatorState rootNav = Navigator.of(
-                innerCtx,
-                rootNavigator: true,
-              );
-              final BuildContext rootCtx = rootNav.context;
-              rootNav.pop();
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                showCryptoDonateSheet(rootCtx);
-              });
-            },
+      if (kShowCryptoDonate)
+        Builder(
+          builder: (BuildContext innerCtx) => Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              icon: const Icon(Icons.currency_bitcoin),
+              label: const Text('Donate with crypto'),
+              onPressed: () {
+                final NavigatorState rootNav = Navigator.of(
+                  innerCtx,
+                  rootNavigator: true,
+                );
+                final BuildContext rootCtx = rootNav.context;
+                rootNav.pop();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  showCryptoDonateSheet(rootCtx);
+                });
+              },
+            ),
           ),
         ),
-      ),
       if (kDebugMode)
         Builder(
           builder: (BuildContext innerCtx) => Padding(
