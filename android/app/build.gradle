@@ -28,6 +28,20 @@ android {
         main.java.srcDirs += "src/main/kotlin"
     }
 
+    // Google Play variant: swap in a manifest WITHOUT the
+    // REQUEST_INSTALL_PACKAGES permission (and without the APK-installer and
+    // crypto-wallet query intents). This only happens when the build is run
+    // with PLAY_BUILD=true; every other build (default `flutter build apk`,
+    // the GitHub release workflow, and the F-Droid recipe) keeps the stock
+    // src/main/AndroidManifest.xml untouched. Pair it with
+    // `--dart-define=PLAY_BUILD=true` so the Dart side also drops the in-app
+    // updater and the crypto donation UI.
+    if (System.getenv("PLAY_BUILD") == "true") {
+        sourceSets {
+            main.manifest.srcFile "src/play/AndroidManifest.xml"
+        }
+    }
+
     // Strip the AGP "Dependency metadata" block that F-Droid's scanner rejects
     // as an extra signing block.
     dependenciesInfo {

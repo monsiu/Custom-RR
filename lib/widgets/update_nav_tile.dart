@@ -72,8 +72,8 @@ class _UpdateNavTileState extends State<UpdateNavTile> {
 
   @override
   Widget build(BuildContext context) {
-    // F-Droid builds omit the in-app update check entirely.
-    if (kFdroidBuild) return const SizedBox.shrink();
+    // F-Droid and Play builds omit the in-app update check entirely.
+    if (!kSelfUpdateEnabled) return const SizedBox.shrink();
     return ListTile(
       leading: const Icon(Icons.system_update_alt),
       title: const Text('Check for updates'),

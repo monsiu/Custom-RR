@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../util/build_flags.dart';
 import 'crypto_donate.dart';
 
 /// Friendly, low-frequency in-app prompt asking the user to support
@@ -228,15 +229,16 @@ class _DonationNudgeState extends State<DonationNudge>
                 unawaited(_openBuyMeACoffee());
               },
             ),
-            ListTile(
-              leading: Icon(Icons.currency_bitcoin, color: scheme.primary),
-              title: const Text('Donate with crypto'),
-              subtitle: const Text('Copy a wallet address'),
-              onTap: () {
-                Navigator.of(ctx).pop();
-                unawaited(_openCrypto());
-              },
-            ),
+            if (kShowCryptoDonate)
+              ListTile(
+                leading: Icon(Icons.currency_bitcoin, color: scheme.primary),
+                title: const Text('Donate with crypto'),
+                subtitle: const Text('Copy a wallet address'),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  unawaited(_openCrypto());
+                },
+              ),
             const SizedBox(height: 8),
           ],
         ),

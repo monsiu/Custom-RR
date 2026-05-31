@@ -32,8 +32,8 @@ class UpdateNotifier {
   /// returns immediately. Errors are swallowed since this is a passive
   /// nicety, not a critical-path operation.
   void start() {
-    // F-Droid builds never poll GitHub for updates; the store handles it.
-    if (kFdroidBuild) return;
+    // F-Droid and Play builds never poll GitHub for updates; the store does it.
+    if (!kSelfUpdateEnabled) return;
     if (_started) return;
     _started = true;
     // Defer by a short delay so we don't race with first-frame work like
