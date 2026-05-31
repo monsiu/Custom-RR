@@ -37,6 +37,14 @@ const String _pixelosDevicesUrl =
     'https://raw.githubusercontent.com/PixelOS-AOSP/official_devices/sixteen/API/devices.json';
 const String _pixelosCachePath = 'tool/.cache/pixelos/devices.json';
 
+// Project Infinity X stores its authoritative device roster as one JSON
+// file per codename under `devices/` on the `16` branch of
+// ProjectInfinity-X/official_devices. We grab the repo tarball once and
+// parse every device file locally (same approach as the LineageOS wiki).
+const String _infinityxTarUrl =
+    'https://github.com/ProjectInfinity-X/official_devices/archive/refs/heads/16.tar.gz';
+const String _infinityxCacheDir = 'tool/.cache/infinityx';
+
 Future<void> main(List<String> args) async {
   final bool refresh = args.contains('--refresh');
   final Directory cache = Directory('$_cacheDir/devices');
@@ -64,12 +72,19 @@ Future<void> main(List<String> args) async {
     '[sync] loaded ${pixelosDevices.length} PixelOS official devices',
   );
 
+  final List<_Device> infinityxDevices =
+      await _loadInfinityxDevices(refresh: refresh);
+  stdout.writeln(
+    '[sync] loaded ${infinityxDevices.length} Project Infinity X devices',
+  );
+
   // Manufacturers shown in the Devices section must cover every vendor
   // referenced by any ROM, including PixelOS-only ones (e.g. 10or) that
   // never appear in the LineageOS wiki.
   final Set<String> allVendors = <String>{
     ...vendors,
     ...pixelosDevices.map((_Device d) => d.vendor),
+    ...infinityxDevices.map((_Device d) => d.vendor),
   };
   final List<String> mergedVendors = allVendors.toList()..sort();
 
@@ -77,7 +92,11 @@ Future<void> main(List<String> args) async {
   final Map<String, dynamic> root = <String, dynamic>{
     '_generated': 'tool/sync_catalog.dart',
     '_generatedAt': DateTime.now().toUtc().toIso8601String(),
-    'roms': _buildRoms(devices, pixelosDevices: pixelosDevices),
+    'roms': _buildRoms(
+      devices,
+      pixelosDevices: pixelosDevices,
+      infinityxDevices: infinityxDevices,
+    ),
     'recoveries': _buildRecoveries(devices),
     'roots': _buildRoots(),
     'devices': _buildDevices(mergedVendors),
@@ -194,11 +213,116 @@ Future<List<_Device>> _loadPixelosDevices({required bool refresh}) async {
   return out;
 }
 
+/// Loads the authoritative Project Infinity X device list from
+/// `ProjectInfinity-X/official_devices` (branch `16`), where every
+/// supported device is a `devices/<codename>.json` file carrying the model
+/// name and maintainer.
+///
+/// Downloads the repo tarball once into [_infinityxCacheDir] and parses the
+/// extracted JSON files. If [refresh] is false and the cache already holds
+/// device files, we reuse them without hitting the network.
+Future<List<_Device>> _loadInfinityxDevices({required bool refresh}) async {
+  final Directory devicesDir = Directory('$_infinityxCacheDir/devices');
+  if (refresh || !devicesDir.existsSync() || devicesDir.listSync().isEmpty) {
+    Directory(_infinityxCacheDir).createSync(recursive: true);
+    final String tarPath = '$_infinityxCacheDir/repo.tar.gz';
+    final ProcessResult curl = await Process.run('curl', <String>[
+      '-sSL',
+      '--connect-timeout',
+      '30',
+      '--retry',
+      '5',
+      '--retry-delay',
+      '3',
+      '--retry-all-errors',
+      _infinityxTarUrl,
+      '-o',
+      tarPath,
+    ]);
+    if (curl.exitCode != 0) {
+      if (devicesDir.existsSync() && devicesDir.listSync().isNotEmpty) {
+        stderr.writeln(
+          '[sync] infinityx fetch failed, using cached ${devicesDir.path}',
+        );
+      } else {
+        throw StateError('infinityx curl failed: ${curl.stderr}');
+      }
+    } else {
+      // Extract only official_devices-16/devices/*.json, dropping the
+      // top-level repo folder so files land directly in the cache dir.
+      final ProcessResult tar = await Process.run('tar', <String>[
+        '-xzf',
+        tarPath,
+        '-C',
+        _infinityxCacheDir,
+        '--strip-components=1',
+        'official_devices-16/devices',
+      ]);
+      if (tar.exitCode != 0) {
+        throw StateError('infinityx tar failed: ${tar.stderr}');
+      }
+    }
+  }
+
+  final List<_Device> out = <_Device>[];
+  for (final FileSystemEntity e in devicesDir.listSync()) {
+    if (e is! File || !e.path.endsWith('.json')) continue;
+    try {
+      final Map<String, dynamic> m =
+          jsonDecode(e.readAsStringSync()) as Map<String, dynamic>;
+      final String model = (m['devicemodel'] as String?)?.trim() ?? '';
+      // The canonical, single codename is the file name; the JSON
+      // `codename` field can list variants like "ginkgo/willow".
+      final String codename =
+          e.uri.pathSegments.last.replaceAll('.json', '').trim();
+      if (model.isEmpty || codename.isEmpty) continue;
+      out.add(
+        _Device(
+          vendor: _infinityxVendor(model),
+          model: model,
+          codename: codename,
+          type: 'phone',
+          currentBranch: '',
+          releaseYear: null,
+        ),
+      );
+    } on Object catch (err) {
+      stderr.writeln('[sync] skip infinityx ${e.path}: $err');
+    }
+  }
+  out.sort((_Device a, _Device b) {
+    final int v = a.vendor.compareTo(b.vendor);
+    if (v != 0) return v;
+    final int mm = a.model.toLowerCase().compareTo(b.model.toLowerCase());
+    if (mm != 0) return mm;
+    return a.codename.compareTo(b.codename);
+  });
+  return out;
+}
+
+/// Derives the manufacturer for a Project Infinity X device from its model
+/// string, since the upstream device files carry no explicit vendor field.
+String _infinityxVendor(String model) {
+  final String m = model.toLowerCase();
+  if (m.contains('pixel')) return 'Google';
+  if (m.contains('oneplus')) return 'OnePlus';
+  if (m.contains('samsung') || m.contains('galaxy')) return 'Samsung';
+  if (m.contains('nothing') || m.contains('cmf')) return 'Nothing';
+  if (m.contains('infinix')) return 'Infinix';
+  if (m.contains('itel')) return 'Itel';
+  if (m.contains('realme') || m.contains('narzo')) return 'Realme';
+  if (m.contains('motorola')) return 'Motorola';
+  if (m.contains('poco') || m.contains('redmi') || m.contains('xiaomi')) {
+    return 'Xiaomi';
+  }
+  // Fallback: normalise the leading brand token.
+  return _normalizeVendor(model.split(RegExp(r'[\s/]')).first);
+}
+
 List<_Device> _parseAllDevices(Directory devicesDir) {
   final List<_Device> out = <_Device>[];
   for (final FileSystemEntity e in devicesDir.listSync()) {
-    if (e is! File || !e.path.endsWith('.yml')) continue;
-    try {
+    if (e is! File || !e.path.endsWith('.yml')) continue;    try {
       final YamlMap y = loadYaml(e.readAsStringSync()) as YamlMap;
       final String vendor = (y['vendor'] as String?)?.trim() ?? '';
       final String name = (y['name'] as String?)?.trim() ?? '';
@@ -459,6 +583,11 @@ _Policy _policyFor(String romId) {
             'Nothing',
             'Motorola',
           }.contains(d.vendor);
+    case 'infinityx':
+      // Project Infinity X devices come from a live fetch of its
+      // official_devices repo in [_loadInfinityxDevices], so this policy is
+      // never consulted. Match nothing if it is ever called.
+      return (_Device _) => false;
     case 'un1ca':
       // Samsung Galaxy only custom firmware (One UI based).
       // Per-device support depends on hand-written patches in the build
@@ -470,14 +599,29 @@ _Policy _policyFor(String romId) {
           d.vendor == 'Samsung' &&
           _yearAtLeast(d, 2019);
     case 'artisanrom':
-      // ArtisanROM Quant targets Samsung Galaxy devices on Exynos 990
-      // (S20/Note20 series, 2020) and Exynos 9820 (S10/Note10 series,
-      // 2019), based on the UN1CA / ExtremeROM build system.
+      // ArtisanROM Quant targets a specific, maintainer-confirmed set of
+      // Exynos Samsung Galaxy devices: the Exynos 990 S20 / Note20 series
+      // and the Exynos 9820 S10 series. The Note10 series and the various
+      // A / M / F mid-rangers that a year-based heuristic would sweep in are
+      // NOT supported, and neither is the Snapdragon S20 FE (r8q), so we pin
+      // the device list to an explicit codename allowlist instead.
+      const Set<String> artisanCodenames = <String>{
+        // Exynos 9820 - Galaxy S10 series
+        'beyond0lte', // S10e
+        'beyond1lte', // S10
+        'beyond2lte', // S10+
+        'beyondx', // S10 5G
+        // Exynos 990 - Galaxy S20 series
+        'x1s', // S20 (4G/5G)
+        'y2s', // S20+ (4G/5G)
+        'z3s', // S20 Ultra (5G)
+        'r8s', // S20 FE (Exynos)
+        // Exynos 990 - Galaxy Note20 series
+        'c1s', // Note20 (5G)
+        'c2s', // Note20 Ultra (5G)
+      };
       return (_Device d) =>
-          d.type == 'phone' &&
-          d.vendor == 'Samsung' &&
-          (d.releaseYear ?? 0) >= 2019 &&
-          (d.releaseYear ?? 0) <= 2021;
+          d.vendor == 'Samsung' && artisanCodenames.contains(d.codename);
 
     // Recoveries follow approximate official device lists.
     case 'twrp':
@@ -700,6 +844,7 @@ const Map<String, String> _xdaDeviceForums = <String, String>{
 List<Map<String, dynamic>> _buildRoms(
   List<_Device> all, {
   required List<_Device> pixelosDevices,
+  required List<_Device> infinityxDevices,
 }) {
   final List<_RomSpec> specs = <_RomSpec>[
     _RomSpec(
@@ -791,6 +936,66 @@ List<Map<String, dynamic>> _buildRoms(
           label: 'GitHub',
           url: 'https://github.com/crdroidandroid',
           iconName: 'github',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'infinityx',
+      name: 'Project Infinity X',
+      headerAsset: 'images/infinityx.png',
+      shortTagline:
+          'AOSP custom ROM focused on refined performance and endless customisation.',
+      description: <String>[
+        'Project Infinity X is an Android 16 AOSP custom ROM that brings refined performance, stunning visuals, and deep customisation to a wide range of devices. Built for stability and designed for enthusiasts, it keeps the clean Pixel feel while adding a powerful theme engine and a large set of UI tweaks.',
+        'It is free and open-source under Apache-2.0, maintained by tejas101k and a large community of device maintainers, with regular monthly OTA updates carrying the latest Android security patches.',
+      ],
+      features: <String>[
+        'Optimised SystemUI tweaks aiming to beat stock OEM performance.',
+        'Powerful theme engine with complete control over the UI.',
+        'Designed to stay compatible with security-sensitive apps and device integrity checks.',
+        'Adaptive battery and intelligent memory management for a smooth experience.',
+        'Monthly OTA updates with new features and the latest security patches.',
+        'Vanilla and GApps install paths, plus a GSI build for unlisted devices.',
+      ],
+      // Official screenshots served from the project homepage gallery
+      // (projectinfinity-x.com/#screenshots), verified hot-linkable webp.
+      screenshots: <String>[
+        'https://projectinfinity-x.com/assets/images/ss-1.webp',
+        'https://projectinfinity-x.com/assets/images/ss-2.webp',
+        'https://projectinfinity-x.com/assets/images/ss-3.webp',
+        'https://projectinfinity-x.com/assets/images/ss-4.webp',
+        'https://projectinfinity-x.com/assets/images/ss-5.webp',
+        'https://projectinfinity-x.com/assets/images/ss-6.webp',
+        'https://projectinfinity-x.com/assets/images/ss-7.webp',
+        'https://projectinfinity-x.com/assets/images/ss-8.webp',
+        'https://projectinfinity-x.com/assets/images/ss-9.webp',
+        'https://projectinfinity-x.com/assets/images/ss-10.webp',
+        'https://projectinfinity-x.com/assets/images/ss-11.webp',
+        'https://projectinfinity-x.com/assets/images/ss-12.webp',
+      ],
+      downloadLabel: 'Official downloads',
+      downloadUrl: 'https://projectinfinity-x.com/downloads',
+      forumUrl: 'https://xdaforums.com/tags/infinityx/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://projectinfinity-x.com/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitHub',
+          url: 'https://github.com/projectinfinity-x/',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Telegram',
+          url: 'https://t.me/projectinfinityx',
+          iconName: 'forum',
+        ),
+        _RomLink(
+          label: 'FAQ',
+          url: 'https://projectinfinity-x.com/faq',
+          iconName: 'web',
         ),
       ],
     ),
@@ -1507,9 +1712,9 @@ List<Map<String, dynamic>> _buildRoms(
       name: 'ArtisanROM Quant',
       headerAsset: 'images/artisanrom.png',
       shortTagline:
-          'OneUI 8 custom firmware for Exynos Galaxy S10, Note10, S20 and Note20 devices.',
+          'OneUI 8 custom firmware for Exynos Galaxy S10, S20 and Note20 devices.',
       description: <String>[
-        'ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 / Note10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.',
+        'ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.',
         'It is built on top of the ExtremeROM and UN1CA build system, automating firmware download, extraction, patching, and flashable zip generation. The project is GPL-3.0, maintained by Android-Artisan with a long list of contributors, and ships fully upstreamed kernels for every officially supported device.',
       ],
       features: <String>[
@@ -1569,9 +1774,14 @@ List<Map<String, dynamic>> _buildRoms(
 
   return specs.map((_RomSpec s) {
     final _Policy policy = _policyFor(s.id);
-    final List<_Device> matched = s.id == 'pixelos'
-        ? pixelosDevices
-        : all.where(policy).toList();
+    final List<_Device> matched;
+    if (s.id == 'pixelos') {
+      matched = pixelosDevices;
+    } else if (s.id == 'infinityx') {
+      matched = infinityxDevices;
+    } else {
+      matched = all.where(policy).toList();
+    }
     return <String, dynamic>{
       'id': s.id,
       'name': s.name,
