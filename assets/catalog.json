@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-05-31T20:10:46.030054Z",
+  "_generatedAt": "2026-06-01T07:30:00.352834Z",
   "roms": [
     {
       "id": "lineage",
@@ -3954,6 +3954,11 @@
         },
         {
           "brand": "Motorola",
+          "model": "Motorola G34/G45",
+          "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
           "model": "Motorola G54/G64",
           "codename": "cancunf"
         },
@@ -4179,6 +4184,12 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "POCO F4",
+          "codename": "munch",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f4-munch-redmi-k40s.12661/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "POCO F5 / Redmi Note 12 Turbo",
           "codename": "marble",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f5-redmi-note-12-turbo-china.12733/?prefix_id=33"
@@ -4208,6 +4219,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "POCO M3",
+          "codename": "citrus"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "POCO X3 NFC",
           "codename": "surya"
         },
@@ -4226,6 +4242,11 @@
           "brand": "Xiaomi",
           "model": "Redmi 12 5G / Poco M6 Pro 5G",
           "codename": "sky"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 9T / 9T NFC / Redmi Note 9 4G",
+          "codename": "lime"
         },
         {
           "brand": "Xiaomi",
@@ -4273,6 +4294,16 @@
           "brand": "Xiaomi",
           "model": "Redmi Note 5 Pro",
           "codename": "whyred"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 7",
+          "codename": "lavender"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 7 Pro",
+          "codename": "violet"
         },
         {
           "brand": "Xiaomi",
