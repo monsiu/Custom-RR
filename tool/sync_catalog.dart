@@ -38,11 +38,17 @@ const String _pixelosDevicesUrl =
 const String _pixelosCachePath = 'tool/.cache/pixelos/devices.json';
 
 // Project Infinity X stores its authoritative device roster as one JSON
-// file per codename under `devices/` on the `16` branch of
-// ProjectInfinity-X/official_devices. We grab the repo tarball once and
-// parse every device file locally (same approach as the LineageOS wiki).
-const String _infinityxTarUrl =
-    'https://github.com/ProjectInfinity-X/official_devices/archive/refs/heads/16.tar.gz';
+// file per codename under `devices/` on its official_devices repo. The site
+// downloads page merges the `16` (current) and `master` branches, so a few
+// devices that only live on `master` would be missed if we read `16` alone.
+// We grab both branch tarballs once and union the device files by codename
+// (16 wins on conflicts), mirroring the website's own list.
+const Map<String, String> _infinityxBranchTarUrls = <String, String>{
+  '16':
+      'https://github.com/ProjectInfinity-X/official_devices/archive/refs/heads/16.tar.gz',
+  'master':
+      'https://github.com/ProjectInfinity-X/official_devices/archive/refs/heads/master.tar.gz',
+};
 const String _infinityxCacheDir = 'tool/.cache/infinityx';
 
 Future<void> main(List<String> args) async {
@@ -214,82 +220,59 @@ Future<List<_Device>> _loadPixelosDevices({required bool refresh}) async {
 }
 
 /// Loads the authoritative Project Infinity X device list from
-/// `ProjectInfinity-X/official_devices` (branch `16`), where every
-/// supported device is a `devices/<codename>.json` file carrying the model
-/// name and maintainer.
+/// Loads the authoritative Project Infinity X device list from
+/// `ProjectInfinity-X/official_devices`, where every supported device is a
+/// `devices/<codename>.json` file carrying the model name and maintainer.
 ///
-/// Downloads the repo tarball once into [_infinityxCacheDir] and parses the
-/// extracted JSON files. If [refresh] is false and the cache already holds
-/// device files, we reuse them without hitting the network.
+/// The site downloads page merges the `16` and `master` branches, so we do
+/// the same: download both branch tarballs once into [_infinityxCacheDir]
+/// (one subfolder per branch) and union the parsed devices by codename, with
+/// the `16` branch winning on conflicts. If [refresh] is false and a branch
+/// cache already holds device files, we reuse it without hitting the network.
 Future<List<_Device>> _loadInfinityxDevices({required bool refresh}) async {
-  final Directory devicesDir = Directory('$_infinityxCacheDir/devices');
-  if (refresh || !devicesDir.existsSync() || devicesDir.listSync().isEmpty) {
-    Directory(_infinityxCacheDir).createSync(recursive: true);
-    final String tarPath = '$_infinityxCacheDir/repo.tar.gz';
-    final ProcessResult curl = await Process.run('curl', <String>[
-      '-sSL',
-      '--connect-timeout',
-      '30',
-      '--retry',
-      '5',
-      '--retry-delay',
-      '3',
-      '--retry-all-errors',
-      _infinityxTarUrl,
-      '-o',
-      tarPath,
-    ]);
-    if (curl.exitCode != 0) {
-      if (devicesDir.existsSync() && devicesDir.listSync().isNotEmpty) {
-        stderr.writeln(
-          '[sync] infinityx fetch failed, using cached ${devicesDir.path}',
+  // Union by codename; insert 16 first so it wins over master on conflicts.
+  final Map<String, _Device> byCodename = <String, _Device>{};
+  for (final MapEntry<String, String> branch
+      in _infinityxBranchTarUrls.entries) {
+    final Directory devicesDir = Directory(
+      '$_infinityxCacheDir/${branch.key}/devices',
+    );
+    await _ensureInfinityxBranch(
+      branch: branch.key,
+      tarUrl: branch.value,
+      devicesDir: devicesDir,
+      refresh: refresh,
+    );
+    if (!devicesDir.existsSync()) continue;
+    for (final FileSystemEntity e in devicesDir.listSync()) {
+      if (e is! File || !e.path.endsWith('.json')) continue;
+      try {
+        final Map<String, dynamic> m =
+            jsonDecode(e.readAsStringSync()) as Map<String, dynamic>;
+        final String model = (m['devicemodel'] as String?)?.trim() ?? '';
+        // The canonical, single codename is the file name; the JSON
+        // `codename` field can list variants like "ginkgo/willow".
+        final String codename =
+            e.uri.pathSegments.last.replaceAll('.json', '').trim();
+        if (model.isEmpty || codename.isEmpty) continue;
+        byCodename.putIfAbsent(
+          codename,
+          () => _Device(
+            vendor: _infinityxVendor(model),
+            model: model,
+            codename: codename,
+            type: 'phone',
+            currentBranch: '',
+            releaseYear: null,
+          ),
         );
-      } else {
-        throw StateError('infinityx curl failed: ${curl.stderr}');
-      }
-    } else {
-      // Extract only official_devices-16/devices/*.json, dropping the
-      // top-level repo folder so files land directly in the cache dir.
-      final ProcessResult tar = await Process.run('tar', <String>[
-        '-xzf',
-        tarPath,
-        '-C',
-        _infinityxCacheDir,
-        '--strip-components=1',
-        'official_devices-16/devices',
-      ]);
-      if (tar.exitCode != 0) {
-        throw StateError('infinityx tar failed: ${tar.stderr}');
+      } on Object catch (err) {
+        stderr.writeln('[sync] skip infinityx ${e.path}: $err');
       }
     }
   }
 
-  final List<_Device> out = <_Device>[];
-  for (final FileSystemEntity e in devicesDir.listSync()) {
-    if (e is! File || !e.path.endsWith('.json')) continue;
-    try {
-      final Map<String, dynamic> m =
-          jsonDecode(e.readAsStringSync()) as Map<String, dynamic>;
-      final String model = (m['devicemodel'] as String?)?.trim() ?? '';
-      // The canonical, single codename is the file name; the JSON
-      // `codename` field can list variants like "ginkgo/willow".
-      final String codename =
-          e.uri.pathSegments.last.replaceAll('.json', '').trim();
-      if (model.isEmpty || codename.isEmpty) continue;
-      out.add(
-        _Device(
-          vendor: _infinityxVendor(model),
-          model: model,
-          codename: codename,
-          type: 'phone',
-          currentBranch: '',
-          releaseYear: null,
-        ),
-      );
-    } on Object catch (err) {
-      stderr.writeln('[sync] skip infinityx ${e.path}: $err');
-    }
-  }
+  final List<_Device> out = byCodename.values.toList();
   out.sort((_Device a, _Device b) {
     final int v = a.vendor.compareTo(b.vendor);
     if (v != 0) return v;
@@ -299,6 +282,59 @@ Future<List<_Device>> _loadInfinityxDevices({required bool refresh}) async {
   });
   return out;
 }
+
+/// Ensures the Infinity X `devices/` files for a single [branch] are present
+/// under [devicesDir], downloading and extracting the branch tarball when
+/// needed. Falls back to any existing cache if the network fetch fails.
+Future<void> _ensureInfinityxBranch({
+  required String branch,
+  required String tarUrl,
+  required Directory devicesDir,
+  required bool refresh,
+}) async {
+  final bool cached = devicesDir.existsSync() && devicesDir.listSync().isNotEmpty;
+  if (!refresh && cached) return;
+
+  final String branchDir = '$_infinityxCacheDir/$branch';
+  Directory(branchDir).createSync(recursive: true);
+  final String tarPath = '$branchDir/repo.tar.gz';
+  final ProcessResult curl = await Process.run('curl', <String>[
+    '-sSL',
+    '--connect-timeout',
+    '30',
+    '--retry',
+    '5',
+    '--retry-delay',
+    '3',
+    '--retry-all-errors',
+    tarUrl,
+    '-o',
+    tarPath,
+  ]);
+  if (curl.exitCode != 0) {
+    if (cached) {
+      stderr.writeln(
+        '[sync] infinityx $branch fetch failed, using cached ${devicesDir.path}',
+      );
+      return;
+    }
+    throw StateError('infinityx $branch curl failed: ${curl.stderr}');
+  }
+  // Extract only official_devices-<branch>/devices/*.json, dropping the
+  // top-level repo folder so files land directly in the branch cache dir.
+  final ProcessResult tar = await Process.run('tar', <String>[
+    '-xzf',
+    tarPath,
+    '-C',
+    branchDir,
+    '--strip-components=1',
+    'official_devices-$branch/devices',
+  ]);
+  if (tar.exitCode != 0) {
+    throw StateError('infinityx $branch tar failed: ${tar.stderr}');
+  }
+}
+
 
 /// Derives the manufacturer for a Project Infinity X device from its model
 /// string, since the upstream device files carry no explicit vendor field.
