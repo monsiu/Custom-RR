@@ -5,6 +5,32 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/) (currently
 pre-1.0, so minor bumps may include breaking changes).
 
+## [0.2.2] - 2026-06-01
+
+### Added
+- **Project Infinity X** catalog entry with a live device fetch from its
+  `official_devices` repo. The device list is built by merging both the `16`
+  and `master` branches (the `16` branch wins on conflicts), matching the
+  official downloads page exactly at 94 devices.
+- **Google Play App Bundle in the release.** Cutting a release now also builds a
+  Play-signed `.aab` (`PLAY_BUILD=true`) and attaches it to the GitHub release
+  as a separate, clearly labelled asset (`custom_rr-vX.Y.Z-play-upload.aab`),
+  kept distinct from the sideload APKs and desktop bundles. It is for uploading
+  to the Play Console, not for direct installation.
+- **Play build variant.** New `--dart-define=PLAY_BUILD=true` compile-time flag
+  that swaps in the Play manifest (no `REQUEST_INSTALL_PACKAGES`) and compiles
+  out the in-app updater and crypto donation UI, so the Play build complies with
+  Google's policies. GitHub-release builds are unchanged (flag defaults off).
+
+### Fixed
+- **ArtisanROM device list.** Removed the Galaxy Note10 series (not supported)
+  and surfaced the Galaxy Note20 series (`c1s`, `c2s`), which the LineageOS wiki
+  has no entry for, so the list now matches the maintainer's S10 / S20 / Note20
+  coverage.
+- **UN1CA device list.** Pinned to the 7 official devices from the project's
+  downloads page (Galaxy A52s / A73 / M52 5G and the Exynos S21 series) instead
+  of a broad "any modern Samsung phone" heuristic.
+
 ## [0.2.1] - 2026-05-30
 
 ### Fixed
