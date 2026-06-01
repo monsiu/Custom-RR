@@ -877,6 +877,26 @@ const Map<String, String> _xdaDeviceForums = <String, String>{
   'zeus': 'https://xdaforums.com/f/xiaomi-12-pro.12493/$_xdaDevFilter',
 };
 
+/// Galaxy Note20 (Exynos 990) devices that ArtisanROM Quant supports but the
+/// LineageOS wiki has no entry for, so they must be injected by hand. Keep the
+/// codenames in sync with the `artisanrom` policy allowlist.
+const List<_DeviceSeed> _artisanExtraSeeds = <_DeviceSeed>[
+  _DeviceSeed('c1s', 'Galaxy Note20 (5G)'),
+  _DeviceSeed('c2s', 'Galaxy Note20 Ultra (5G)'),
+];
+
+List<_Device> get _artisanExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _artisanExtraSeeds)
+    _Device(
+      vendor: 'Samsung',
+      model: s.model,
+      codename: s.codename,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: 2020,
+    ),
+];
+
 List<Map<String, dynamic>> _buildRoms(
   List<_Device> all, {
   required List<_Device> pixelosDevices,
@@ -1815,6 +1835,19 @@ List<Map<String, dynamic>> _buildRoms(
       matched = pixelosDevices;
     } else if (s.id == 'infinityx') {
       matched = infinityxDevices;
+    } else if (s.id == 'artisanrom') {
+      // The maintainer supports the Exynos 990 Galaxy Note20 series, but the
+      // LineageOS wiki (our device pool) carries no Note20 entry, so the
+      // allowlist policy alone cannot surface them. Inject them explicitly
+      // and union with whatever the policy matches from the wiki pool.
+      final List<_Device> policyMatched = all.where(policy).toList();
+      final Set<String> seen =
+          policyMatched.map((_Device d) => d.codename).toSet();
+      matched = <_Device>[
+        ...policyMatched,
+        for (final _Device d in _artisanExtraDevices)
+          if (!seen.contains(d.codename)) d,
+      ];
     } else {
       matched = all.where(policy).toList();
     }
@@ -2353,6 +2386,15 @@ class _Device {
   final String type;
   final String currentBranch;
   final int? releaseYear;
+}
+
+/// Minimal codename/model pair used to inject ROM-specific devices that the
+/// upstream device pools do not carry (e.g. ArtisanROM's Galaxy Note20).
+class _DeviceSeed {
+  const _DeviceSeed(this.codename, this.model);
+
+  final String codename;
+  final String model;
 }
 
 class _RomSpec {

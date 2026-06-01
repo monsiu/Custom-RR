@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-01T07:30:00.352834Z",
+  "_generatedAt": "2026-06-01T08:22:02.782815Z",
   "roms": [
     {
       "id": "lineage",
@@ -21377,6 +21377,16 @@
           "brand": "Samsung",
           "model": "Galaxy S20+ (4G/5G)",
           "codename": "y2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note20 (5G)",
+          "codename": "c1s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note20 Ultra (5G)",
+          "codename": "c2s"
         }
       ],
       "downloadLabel": "GitHub releases",
