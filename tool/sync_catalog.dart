@@ -625,15 +625,23 @@ _Policy _policyFor(String romId) {
       // never consulted. Match nothing if it is ever called.
       return (_Device _) => false;
     case 'un1ca':
-      // Samsung Galaxy only custom firmware (One UI based).
-      // Per-device support depends on hand-written patches in the build
-      // system; the LineageOS wiki has no notion of these, so we surface
-      // every reasonably modern Samsung phone and let the project README
-      // be the authoritative compatibility source.
+      // UN1CA is a One UI based custom firmware with a small, maintainer
+      // confirmed device list. Per-device support depends on hand-written
+      // patches in the build system and the LineageOS wiki has no notion of
+      // these One UI ports, so we pin the list to an explicit codename
+      // allowlist (matching the project's official downloads page) instead of
+      // a year-based heuristic that would sweep in unsupported Samsung phones.
+      const Set<String> un1caCodenames = <String>{
+        'a52sxq', // Galaxy A52s 5G
+        'a73xq', // Galaxy A73 5G
+        'm52xq', // Galaxy M52 5G
+        'o1s', // Galaxy S21 5G (Exynos)
+        't2s', // Galaxy S21+ 5G (Exynos)
+        'p3s', // Galaxy S21 Ultra 5G (Exynos)
+        'r9s', // Galaxy S21 FE 5G (Exynos)
+      };
       return (_Device d) =>
-          d.type == 'phone' &&
-          d.vendor == 'Samsung' &&
-          _yearAtLeast(d, 2019);
+          d.vendor == 'Samsung' && un1caCodenames.contains(d.codename);
     case 'artisanrom':
       // ArtisanROM Quant targets a specific, maintainer-confirmed set of
       // Exynos Samsung Galaxy devices: the Exynos 990 S20 / Note20 series
@@ -894,6 +902,32 @@ List<_Device> get _artisanExtraDevices => <_Device>[
       type: 'phone',
       currentBranch: '',
       releaseYear: 2020,
+    ),
+];
+
+/// The full UN1CA device list from the project's official downloads page.
+/// Most of these One UI ports have no LineageOS wiki entry, so the catalog
+/// would otherwise show fewer devices than the project actually supports.
+/// Keep the codenames in sync with the `un1ca` policy allowlist.
+const List<_DeviceSeed> _un1caSeeds = <_DeviceSeed>[
+  _DeviceSeed('a52sxq', 'Galaxy A52s 5G', 2021),
+  _DeviceSeed('a73xq', 'Galaxy A73 5G', 2022),
+  _DeviceSeed('m52xq', 'Galaxy M52 5G', 2021),
+  _DeviceSeed('o1s', 'Galaxy S21 5G (Exynos)', 2021),
+  _DeviceSeed('t2s', 'Galaxy S21+ 5G (Exynos)', 2021),
+  _DeviceSeed('p3s', 'Galaxy S21 Ultra 5G (Exynos)', 2021),
+  _DeviceSeed('r9s', 'Galaxy S21 FE 5G (Exynos)', 2022),
+];
+
+List<_Device> get _un1caExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _un1caSeeds)
+    _Device(
+      vendor: 'Samsung',
+      model: s.model,
+      codename: s.codename,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: s.releaseYear ?? 2021,
     ),
 ];
 
@@ -1848,6 +1882,18 @@ List<Map<String, dynamic>> _buildRoms(
         for (final _Device d in _artisanExtraDevices)
           if (!seen.contains(d.codename)) d,
       ];
+    } else if (s.id == 'un1ca') {
+      // UN1CA's One UI ports are mostly absent from the LineageOS wiki, so
+      // inject the full official device list and union with anything the
+      // allowlist policy happens to match from the wiki pool.
+      final List<_Device> policyMatched = all.where(policy).toList();
+      final Set<String> seen =
+          policyMatched.map((_Device d) => d.codename).toSet();
+      matched = <_Device>[
+        ...policyMatched,
+        for (final _Device d in _un1caExtraDevices)
+          if (!seen.contains(d.codename)) d,
+      ];
     } else {
       matched = all.where(policy).toList();
     }
@@ -2391,10 +2437,11 @@ class _Device {
 /// Minimal codename/model pair used to inject ROM-specific devices that the
 /// upstream device pools do not carry (e.g. ArtisanROM's Galaxy Note20).
 class _DeviceSeed {
-  const _DeviceSeed(this.codename, this.model);
+  const _DeviceSeed(this.codename, this.model, [this.releaseYear]);
 
   final String codename;
   final String model;
+  final int? releaseYear;
 }
 
 class _RomSpec {
