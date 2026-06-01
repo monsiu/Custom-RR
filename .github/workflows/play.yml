@@ -1,25 +1,32 @@
 name: Play bundle
 
-# Builds the Google Play App Bundle (.aab) on demand via workflow_dispatch.
+# Builds the Google Play App Bundle (.aab) when a release is drafted, and on
+# demand via workflow_dispatch.
 #
-# On version tags the .aab is built by release.yml's build-play job and
-# attached to the GitHub release, so this workflow no longer triggers on tags
-# to avoid building the bundle twice. Use it for ad-hoc Play bundles off a
-# branch or commit without cutting a release.
+# Trigger model:
+#   * `release: [created]` fires when a release draft is saved (e.g. by hand in
+#     the GitHub UI). NOTE: the release pipeline (release.yml) drafts the
+#     release with the default GITHUB_TOKEN, and events raised by GITHUB_TOKEN
+#     cannot trigger other workflows, so release.yml ALSO dispatches this
+#     workflow explicitly right after it creates the draft. Between the two
+#     paths the bundle is built exactly once per draft.
+#   * `workflow_dispatch` lets you build an ad-hoc bundle off any branch/commit.
 #
-# This is intentionally separate from release.yml's other jobs:
-#   * It builds an .aab (not per-ABI APKs); Google Play splits per-device.
-#   * It sets PLAY_BUILD=true so build.gradle swaps in the Play manifest
+# What it does:
+#   * Builds an .aab (not per-ABI APKs); Google Play splits per-device.
+#   * Sets PLAY_BUILD=true so build.gradle swaps in the Play manifest
 #     (no REQUEST_INSTALL_PACKAGES) and the Dart side compiles out the in-app
 #     updater and the crypto donation UI (--dart-define=PLAY_BUILD=true).
-#   * The bundle is uploaded as a PRIVATE workflow artifact (Actions tab),
-#     NOT attached to a public release. With Play App Signing it is signed
-#     differently from the GitHub APKs, so it should not be offered to end
-#     users for sideloading.
+#   * Uploads the bundle as a PRIVATE workflow artifact (Actions tab), NOT
+#     attached to the public release. With Play App Signing it is signed
+#     differently from the GitHub APKs, so it must not be offered to end users
+#     for sideloading.
 #
 # Download the artifact from the workflow run page, then upload it to the
 # Play Console manually. This workflow does not auto-publish to Google Play.
 on:
+  release:
+    types: [created]
   workflow_dispatch:
     inputs:
       ref:
@@ -37,7 +44,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref || github.ref }}
+          # Manual dispatch: the chosen ref. Release draft: the draft's tag
+          # (which already exists in the tag-driven pipeline). Otherwise the
+          # branch this ran from.
+          ref: ${{ inputs.ref || github.event.release.tag_name || github.ref }}
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -82,9 +92,19 @@ jobs:
         env:
           PLAY_BUILD: "true"
           REQUIRE_RELEASE_SIGNING: "true"
+      - name: Stage Play bundle
+        env:
+          REF_INPUT: ${{ inputs.ref }}
+          REL_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          set -euo pipefail
+          label="${REF_INPUT:-${REL_TAG:-$GITHUB_REF_NAME}}"
+          mkdir -p dist
+          cp build/app/outputs/bundle/release/app-release.aab \
+            "dist/custom_rr-${label}-play-upload.aab"
       - uses: actions/upload-artifact@v4
         with:
           name: play-appbundle
-          path: build/app/outputs/bundle/release/app-release.aab
+          path: dist/custom_rr-*-play-upload.aab
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 90
