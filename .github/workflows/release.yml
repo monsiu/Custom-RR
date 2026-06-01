@@ -213,9 +213,73 @@ jobs:
           path: dist/custom_rr-*-windows-${{ matrix.arch }}.zip
           if-no-files-found: error
 
+  build-play:
+    name: Build Google Play App Bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - id: flutter_version
+        run: echo "version=$(cat .flutter-version)" >> "$GITHUB_OUTPUT"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.flutter_version.outputs.version }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Set up Android signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD:  ${{ secrets.ANDROID_STORE_PASSWORD }}
+          KEY_PASSWORD:    ${{ secrets.ANDROID_KEY_PASSWORD }}
+          KEY_ALIAS:       ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::No ANDROID_KEYSTORE_BASE64 secret set. The Play bundle must be signed with the upload key."
+            exit 1
+          fi
+          printf '%s' "$KEYSTORE_BASE64" | tr -d ' \t\r\n' | base64 -d > android/app/release.jks
+          if [ ! -s android/app/release.jks ]; then
+            echo "::error::Decoded keystore is empty - check ANDROID_KEYSTORE_BASE64 secret."
+            exit 1
+          fi
+          cat > android/key.properties <<EOF
+          storePassword=$STORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=release.jks
+          EOF
+      # PLAY_BUILD swaps in android/app/src/play/AndroidManifest.xml (no
+      # REQUEST_INSTALL_PACKAGES) and the matching --dart-define drops the
+      # in-app updater and crypto UI. REQUIRE_RELEASE_SIGNING fails the build
+      # if the upload key is missing so the .aab is never debug-signed.
+      - name: Build App Bundle
+        run: flutter build appbundle --release --dart-define=PLAY_BUILD=true
+        env:
+          PLAY_BUILD: "true"
+          REQUIRE_RELEASE_SIGNING: "true"
+      - name: Stage Play bundle
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp build/app/outputs/bundle/release/app-release.aab \
+            "dist/custom_rr-${TAG}-play-upload.aab"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: play-appbundle
+          path: dist/custom_rr-*-play-upload.aab
+          if-no-files-found: error
+
   publish:
     name: Publish draft release
-    needs: [build-android, build-linux, build-windows]
+    needs: [build-android, build-linux, build-windows, build-play]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -234,6 +298,10 @@ jobs:
           # Linux tarball + Windows zip: already nicely named in their build jobs.
           find artifacts -type f -name '*.tar.gz' -exec cp {} release-assets/ \;
           find artifacts -type f -name '*.zip'    -exec cp {} release-assets/ \;
+          # Google Play upload bundle: already named custom_rr-<tag>-play-upload.aab.
+          # This is the Play Console upload artifact, kept separate from the
+          # sideload APKs / desktop bundles; it is not meant for direct install.
+          find artifacts -type f -name '*-play-upload.aab' -exec cp {} release-assets/ \;
           # APKs come out as app-<abi>-release.apk; rename to custom_rr-<tag>-<abi>.apk.
           for src in $(find artifacts -type f -name 'app-*-release.apk'); do
             base=$(basename "$src")

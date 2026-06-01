@@ -1,24 +1,25 @@
 name: Play bundle
 
-# Builds the Google Play App Bundle (.aab) on every version tag (v*), and can
-# also be run manually via workflow_dispatch.
+# Builds the Google Play App Bundle (.aab) on demand via workflow_dispatch.
 #
-# This is intentionally separate from release.yml:
+# On version tags the .aab is built by release.yml's build-play job and
+# attached to the GitHub release, so this workflow no longer triggers on tags
+# to avoid building the bundle twice. Use it for ad-hoc Play bundles off a
+# branch or commit without cutting a release.
+#
+# This is intentionally separate from release.yml's other jobs:
 #   * It builds an .aab (not per-ABI APKs); Google Play splits per-device.
 #   * It sets PLAY_BUILD=true so build.gradle swaps in the Play manifest
 #     (no REQUEST_INSTALL_PACKAGES) and the Dart side compiles out the in-app
 #     updater and the crypto donation UI (--dart-define=PLAY_BUILD=true).
 #   * The bundle is uploaded as a PRIVATE workflow artifact (Actions tab),
-#     NOT attached to the public release. An .aab is only useful for the Play
-#     Console, and with Play App Signing it is signed differently from the
-#     GitHub APKs, so it should not be offered to end users.
+#     NOT attached to a public release. With Play App Signing it is signed
+#     differently from the GitHub APKs, so it should not be offered to end
+#     users for sideloading.
 #
 # Download the artifact from the workflow run page, then upload it to the
 # Play Console manually. This workflow does not auto-publish to Google Play.
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
     inputs:
       ref:
