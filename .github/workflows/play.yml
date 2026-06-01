@@ -1,6 +1,7 @@
 name: Play bundle
 
-# Manually-triggered build of the Google Play App Bundle (.aab).
+# Builds the Google Play App Bundle (.aab) on every version tag (v*), and can
+# also be run manually via workflow_dispatch.
 #
 # This is intentionally separate from release.yml:
 #   * It builds an .aab (not per-ABI APKs); Google Play splits per-device.
@@ -15,6 +16,9 @@ name: Play bundle
 # Download the artifact from the workflow run page, then upload it to the
 # Play Console manually. This workflow does not auto-publish to Google Play.
 on:
+  push:
+    tags:
+      - 'v*'
   workflow_dispatch:
     inputs:
       ref:
