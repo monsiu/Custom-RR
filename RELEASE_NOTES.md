@@ -10,12 +10,7 @@ A catalog-and-pipeline release: a big new ROM with a live device list, two Samsu
 
 ### Google Play build (new)
 
-This release introduces a Play-ready build of the app, selected with a `PLAY_BUILD` compile-time flag (`flutter build appbundle --release --dart-define=PLAY_BUILD=true`):
-
-- Swaps in the Play manifest (no `REQUEST_INSTALL_PACKAGES`).
-- Compiles out the in-app updater and the crypto donation UI, to comply with Google Play policy.
-
-Cutting a release now also builds a Play-signed `.aab` and uploads it as a private workflow artifact (`play-appbundle`, 90-day retention), kept separate from the public release assets. It is meant for uploading to the Play Console (download it from the Actions run page), not for direct installation. The regular GitHub-release build is unchanged and keeps the in-app updater.
+Custom RR now has a Play-ready build, available on the Google Play Store. To meet Google Play policy it leaves out the in-app updater and the crypto donation UI; updates come from Play itself. The build offered here on GitHub is unchanged and keeps the in-app updater.
 
 ### Android
 

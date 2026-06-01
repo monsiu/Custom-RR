@@ -12,15 +12,10 @@ pre-1.0, so minor bumps may include breaking changes).
   `official_devices` repo. The device list is built by merging both the `16`
   and `master` branches (the `16` branch wins on conflicts), matching the
   official downloads page exactly at 94 devices.
-- **Google Play App Bundle in the release pipeline.** Cutting a release now also
-  builds a Play-signed `.aab` (`PLAY_BUILD=true`) and uploads it as a private
-  workflow artifact (`play-appbundle`, 90-day retention), kept separate from the
-  public release assets. It is meant for uploading to the Play Console (download
-  it from the Actions run page), not for direct installation.
-- **Play build variant.** New `--dart-define=PLAY_BUILD=true` compile-time flag
-  that swaps in the Play manifest (no `REQUEST_INSTALL_PACKAGES`) and compiles
-  out the in-app updater and crypto donation UI, so the Play build complies with
-  Google's policies. GitHub-release builds are unchanged (flag defaults off).
+- **Google Play build.** Custom RR is now available on the Google Play Store.
+  To meet Google Play policy this build leaves out the in-app updater and the
+  crypto donation UI; updates come from Play itself. The GitHub build is
+  unchanged and keeps the in-app updater.
 
 ### Fixed
 - **ArtisanROM device list.** Removed the Galaxy Note10 series (not supported)
