@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-01T08:22:02.782815Z",
+  "_generatedAt": "2026-06-01T09:12:36.838752Z",
   "roms": [
     {
       "id": "lineage",
@@ -21152,31 +21152,9 @@
       "devices": [
         {
           "brand": "Samsung",
-          "model": "Galaxy A21s",
-          "codename": "a21s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A52 4G",
-          "codename": "a52q",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52-4g.12131/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
           "model": "Galaxy A52s 5G",
           "codename": "a52sxq",
           "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A71",
-          "codename": "a71"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy A72",
-          "codename": "a72q",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a72.12141/?prefix_id=33"
         },
         {
           "brand": "Samsung",
@@ -21186,102 +21164,29 @@
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy F62",
-          "codename": "f62",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy M20",
-          "codename": "m20lte"
-        },
-        {
-          "brand": "Samsung",
           "model": "Galaxy M52 5G",
           "codename": "m52xq",
           "forumUrl": "https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/?prefix_id=33"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy M62",
-          "codename": "f62",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+          "model": "Galaxy S21 5G (Exynos)",
+          "codename": "o1s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note10",
-          "codename": "d1"
+          "model": "Galaxy S21+ 5G (Exynos)",
+          "codename": "t2s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note10 5G",
-          "codename": "d1x"
+          "model": "Galaxy S21 Ultra 5G (Exynos)",
+          "codename": "p3s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note10+",
-          "codename": "d2s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy Note10+ 5G",
-          "codename": "d2x"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S10",
-          "codename": "beyond1lte"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S10 5G",
-          "codename": "beyondx"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S10+",
-          "codename": "beyond2lte"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S10e",
-          "codename": "beyond0lte"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 (4G/5G)",
-          "codename": "x1s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 FE (Exynos)",
-          "codename": "r8s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 FE (Snapdragon)",
-          "codename": "r8q"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 FE 5G",
-          "codename": "r8q"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 Ultra (5G)",
-          "codename": "z3s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20+ (4G/5G)",
-          "codename": "y2s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S23",
-          "codename": "dm1q",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-s23.12707/?prefix_id=33"
+          "model": "Galaxy S21 FE 5G (Exynos)",
+          "codename": "r9s"
         }
       ],
       "downloadLabel": "GitHub releases",
