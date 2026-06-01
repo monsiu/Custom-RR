@@ -1,49 +1,36 @@
-## Custom RR v0.2.1
+## Custom RR v0.2.2
 
-A content-and-platform release. The headline is a brand-new **Root** section sitting alongside Custom ROMs and Recoveries, two new Samsung-focused ROMs, and a dedicated **F-Droid** build of the app.
-
-### Root section (new)
-
-A new top-level category for Android root solutions, with the same live-freshness, brand-art and detail-page treatment as ROMs and recoveries. Reachable at `/roots`, with its own nav rail entry (shield icon), drawer tile, desktop menu shortcut (Ctrl+4), home-page action and home search hits. Launch entries:
-
-- **Magisk** (topjohnwu): the classic systemless root via boot-image patching, with modules and Zygisk.
-- **KernelSU** (tiann): kernel-space root for GKI 2.0 devices with per-app profiles.
-- **KernelSU Next** (KernelSU-Next): community KernelSU fork with Magic Mount and broader non-GKI coverage.
-- **APatch** (bmax121): KernelPatch-based root that hooks the running kernel without recompiling it (ARM64 only).
-- **SukiSU Ultra** (SukiSU-Ultra): KernelSU fork bundling KernelPatch Module (KPM) support and Magic Mount.
-
-Each entry pulls its latest release date live from GitHub, with curated fallbacks shipped in `assets/freshness.json`.
+A catalog-and-pipeline release: a big new ROM with a live device list, two Samsung device-list corrections, and a Google Play build of the app produced straight from CI.
 
 ### Catalog and content
 
-- **UN1CA** added: salvogiangri's debloated, customisable One UI custom firmware for Samsung Galaxy devices, with full Galaxy AI, integrated OTA, EROFS, TrickyStore / PIF / HMA, and links to the Telegram channel, GitHub repo and discussions.
-- **ArtisanROM Quant** added: One UI 8 (Galaxy S25 FE) based custom firmware for Samsung Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 series) devices, built on top of the ExtremeROM and UN1CA build system.
-- Live build dates for both new ROMs sourced from their GitHub Releases.
+- **Project Infinity X** added, with its device list fetched live from the project's `official_devices` repo. The list merges both the `16` and `master` branches (`16` wins on conflicts) so it matches the official downloads page exactly at 94 devices.
+- **ArtisanROM device list fixed.** Dropped the Galaxy Note10 series (not supported) and surfaced the Galaxy Note20 series (`c1s`, `c2s`), so the list now matches the maintainer's S10 / S20 / Note20 coverage.
+- **UN1CA device list fixed.** Pinned to the 7 official devices from the project's downloads page (Galaxy A52s / A73 / M52 5G and the Exynos S21 series) instead of a broad "any modern Samsung phone" heuristic.
 
-### F-Droid build variant (new)
+### Google Play build (new)
 
-This release introduces an F-Droid-ready build of the app, selected with a `FDROID_BUILD` compile-time flag (`flutter build apk --release --dart-define=FDROID_BUILD=true`):
+This release introduces a Play-ready build of the app, selected with a `PLAY_BUILD` compile-time flag (`flutter build appbundle --release --dart-define=PLAY_BUILD=true`):
 
-- No GitHub release polling on launch.
-- No in-app APK download / install path.
-- No "Check for updates" UI.
+- Swaps in the Play manifest (no `REQUEST_INSTALL_PACKAGES`).
+- Compiles out the in-app updater and the crypto donation UI, to comply with Google Play policy.
 
-Updates for the F-Droid build come from F-Droid itself. The regular GitHub-release build is unchanged and keeps the in-app updater. Ships the F-Droid metadata recipe (`fdroid/io.github.monsiu.custom_rr.yml`) and fastlane listing assets (512x512 icon plus phone screenshots).
+Cutting a release now also builds a Play-signed `.aab` and uploads it as a private workflow artifact (`play-appbundle`, 90-day retention), kept separate from the public release assets. It is meant for uploading to the Play Console (download it from the Actions run page), not for direct installation. The regular GitHub-release build is unchanged and keeps the in-app updater.
 
 ### Android
 
-- `custom_rr-v0.2.1-armeabi-v7a.apk` (32-bit ARM phones)
-- `custom_rr-v0.2.1-arm64-v8a.apk` (modern 64-bit ARM phones, what most people want)
-- `custom_rr-v0.2.1-x86_64.apk` (emulators, Chromebooks, x86 tablets)
+- `custom_rr-v0.2.2-armeabi-v7a.apk` (32-bit ARM phones)
+- `custom_rr-v0.2.2-arm64-v8a.apk` (modern 64-bit ARM phones, what most people want)
+- `custom_rr-v0.2.2-x86_64.apk` (emulators, Chromebooks, x86 tablets)
 
 ### Desktop
 
 Built from the same Flutter source as the Android app, with the same catalog, freshness data, brand pages and pinch-zoom viewer.
 
-- `custom_rr-v0.2.1-windows-x64.zip` for standard Intel / AMD PCs.
-- `custom_rr-v0.2.1-windows-arm64.zip` for Surface Pro X, Copilot+ PCs and other Windows-on-ARM devices.
-- `custom_rr-v0.2.1-linux-x64.tar.gz` for standard Intel / AMD desktops and laptops.
-- `custom_rr-v0.2.1-linux-arm64.tar.gz` for Raspberry Pi 4/5 (64-bit OS), Ampere servers, Asahi-Linux M-series Macs and other arm64 Linux boxes.
+- `custom_rr-v0.2.2-windows-x64.zip` for standard Intel / AMD PCs.
+- `custom_rr-v0.2.2-windows-arm64.zip` for Surface Pro X, Copilot+ PCs and other Windows-on-ARM devices.
+- `custom_rr-v0.2.2-linux-x64.tar.gz` for standard Intel / AMD desktops and laptops.
+- `custom_rr-v0.2.2-linux-arm64.tar.gz` for Raspberry Pi 4/5 (64-bit OS), Ampere servers, Asahi-Linux M-series Macs and other arm64 Linux boxes.
 
 > 32-bit x86 desktop is intentionally not shipped; Flutter dropped support for it.
 
