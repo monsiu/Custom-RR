@@ -271,15 +271,20 @@ jobs:
           mkdir -p dist
           cp build/app/outputs/bundle/release/app-release.aab \
             "dist/custom_rr-${TAG}-play-upload.aab"
+      # Private workflow artifact (Actions tab), intentionally NOT attached to
+      # the public release: the .aab is a Play Console upload input, not an
+      # end-user installable, and Play App Signing re-signs it anyway. Download
+      # it from the run page (or `gh run download`) to upload to Google Play.
       - uses: actions/upload-artifact@v4
         with:
           name: play-appbundle
           path: dist/custom_rr-*-play-upload.aab
           if-no-files-found: error
+          retention-days: 90
 
   publish:
     name: Publish draft release
-    needs: [build-android, build-linux, build-windows, build-play]
+    needs: [build-android, build-linux, build-windows]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -298,10 +303,6 @@ jobs:
           # Linux tarball + Windows zip: already nicely named in their build jobs.
           find artifacts -type f -name '*.tar.gz' -exec cp {} release-assets/ \;
           find artifacts -type f -name '*.zip'    -exec cp {} release-assets/ \;
-          # Google Play upload bundle: already named custom_rr-<tag>-play-upload.aab.
-          # This is the Play Console upload artifact, kept separate from the
-          # sideload APKs / desktop bundles; it is not meant for direct install.
-          find artifacts -type f -name '*-play-upload.aab' -exec cp {} release-assets/ \;
           # APKs come out as app-<abi>-release.apk; rename to custom_rr-<tag>-<abi>.apk.
           for src in $(find artifacts -type f -name 'app-*-release.apk'); do
             base=$(basename "$src")

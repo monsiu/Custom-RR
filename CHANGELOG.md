@@ -12,11 +12,11 @@ pre-1.0, so minor bumps may include breaking changes).
   `official_devices` repo. The device list is built by merging both the `16`
   and `master` branches (the `16` branch wins on conflicts), matching the
   official downloads page exactly at 94 devices.
-- **Google Play App Bundle in the release.** Cutting a release now also builds a
-  Play-signed `.aab` (`PLAY_BUILD=true`) and attaches it to the GitHub release
-  as a separate, clearly labelled asset (`custom_rr-vX.Y.Z-play-upload.aab`),
-  kept distinct from the sideload APKs and desktop bundles. It is for uploading
-  to the Play Console, not for direct installation.
+- **Google Play App Bundle in the release pipeline.** Cutting a release now also
+  builds a Play-signed `.aab` (`PLAY_BUILD=true`) and uploads it as a private
+  workflow artifact (`play-appbundle`, 90-day retention), kept separate from the
+  public release assets. It is meant for uploading to the Play Console (download
+  it from the Actions run page), not for direct installation.
 - **Play build variant.** New `--dart-define=PLAY_BUILD=true` compile-time flag
   that swaps in the Play manifest (no `REQUEST_INSTALL_PACKAGES`) and compiles
   out the in-app updater and crypto donation UI, so the Play build complies with
