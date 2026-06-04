@@ -26,7 +26,7 @@ dependencies:
   go_router: ^14.6.2
   http: ^1.2.2
   dynamic_color: ^1.7.0
-  xml: ^6.5.0
+  xml: ^7.0.1
   qr_flutter: ^4.1.0
   # In-app updater: download the matching split APK from the latest
   # GitHub release and hand it to the system installer.
