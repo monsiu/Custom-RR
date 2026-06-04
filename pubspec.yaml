@@ -39,7 +39,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  flutter_native_splash: ^2.4.2
+  flutter_native_splash: ^2.4.8
   flutter_launcher_icons: ^0.14.1
   yaml: ^3.1.2
 
