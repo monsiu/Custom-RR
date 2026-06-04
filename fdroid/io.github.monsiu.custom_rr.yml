@@ -32,7 +32,7 @@ Repo: https://github.com/monsiu/Custom-RR.git
 Builds:
   - versionName: 0.2.1
     versionCode: 4
-    commit: v0.2.1
+    commit: 3d25d62c52cc7f74e862e12d0338ec3925dfe880
     # The Flutter SDK comes from F-Droid's `flutter` srclib. If 3.44.0 is not
     # yet registered in fdroiddata/srclibs/flutter.yml, either add it in the
     # same MR or pin to the nearest available stable tag.
