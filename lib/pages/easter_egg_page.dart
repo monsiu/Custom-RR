@@ -108,12 +108,14 @@ class _EasterEggPageState extends State<EasterEggPage>
   ];
 
   static const List<String> _welcomeTaglines = <String>[
-    'Stay rooted, stay rad.',
+    'Stay rooted.',
     'Custom ROMs forever.',
     'fastboot oem unlock your imagination.',
     'Hello, fellow flasher.',
     'Have you backed up today?',
     'Reboot to bootloader, reboot your day.',
+    'Sign the petition to keep Android OPEN.',
+
   ];
 
   static const Duration _fastForwardInterval = Duration(milliseconds: 30);
@@ -136,6 +138,7 @@ class _EasterEggPageState extends State<EasterEggPage>
   final ScrollController _scroll = ScrollController();
   final Set<String> _achievements = <String>{};
   _Achievement? _newAchievement;
+  final List<_Achievement> _toastQueue = <_Achievement>[];
   Timer? _toastTimer;
 
   @override
@@ -193,14 +196,28 @@ class _EasterEggPageState extends State<EasterEggPage>
     if (_achievements.contains(a.id)) return;
     setState(() {
       _achievements.add(a.id);
-      _newAchievement = a;
     });
     _persistAchievements();
+    _toastQueue.add(a);
+    _showNextToast();
+  }
+
+  void _showNextToast() {
+    // Only one toast at a time; the rest wait their turn in order.
+    if (_newAchievement != null) return;
+    if (_toastQueue.isEmpty) return;
+    final _Achievement next = _toastQueue.removeAt(0);
+    setState(() => _newAchievement = next);
     HapticFeedback.heavyImpact();
     _toastTimer?.cancel();
     _toastTimer = Timer(const Duration(seconds: 3), () {
       if (!mounted) return;
       setState(() => _newAchievement = null);
+      // Brief gap so the next toast animates in cleanly instead of swapping.
+      _toastTimer = Timer(const Duration(milliseconds: 300), () {
+        if (!mounted) return;
+        _showNextToast();
+      });
     });
   }
 
@@ -374,13 +391,6 @@ class _EasterEggPageState extends State<EasterEggPage>
               },
             ),
           ),
-          if (_achievements.isNotEmpty)
-            Positioned(
-              left: 12,
-              right: 12,
-              bottom: 12,
-              child: _buildAchievementsRow(),
-            ),
           if (_newAchievement != null)
             Positioned(
               left: 0,
@@ -649,18 +659,6 @@ class _EasterEggPageState extends State<EasterEggPage>
       ),
     );
   }
-
-  Widget _buildAchievementsRow() {
-    return Wrap(
-      spacing: 8,
-      runSpacing: 6,
-      alignment: WrapAlignment.center,
-      children: _Achievement.values
-          .where((_Achievement a) => _achievements.contains(a.id))
-          .map<Widget>((_Achievement a) => _AchievementBadge(achievement: a))
-          .toList(growable: false),
-    );
-  }
 }
 
 class _ScanlinePainter extends CustomPainter {
@@ -677,49 +675,6 @@ class _ScanlinePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _ScanlinePainter oldDelegate) => false;
-}
-
-class _AchievementBadge extends StatelessWidget {
-  const _AchievementBadge({required this.achievement});
-  final _Achievement achievement;
-
-  @override
-  Widget build(BuildContext context) {
-    return Tooltip(
-      message: achievement.description,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.6),
-          border: Border.all(
-            color: _EasterEggPageState._phosphorDim,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Icon(
-              Icons.bolt,
-              size: 12,
-              color: _EasterEggPageState._amber,
-            ),
-            const SizedBox(width: 6),
-            Text(
-              achievement.label,
-              style: const TextStyle(
-                color: _EasterEggPageState._phosphor,
-                fontSize: 11,
-                fontFamily: 'monospace',
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
 
 class _AchievementToast extends StatelessWidget {
