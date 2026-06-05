@@ -56,8 +56,8 @@ android {
         // Literal values (kept in sync with pubspec.yaml) so F-Droid's
         // checkupdates can parse versionCode/versionName from the git tag.
         // Bump both here and in pubspec.yaml on every release.
-        versionCode 5
-        versionName "0.2.2"
+        versionCode 6
+        versionName "0.2.3"
     }
 
     signingConfigs {
@@ -91,24 +91,22 @@ android {
         }
     }
 
-    // The GitHub release channel ships one APK per ABI (flutter build apk
+    // The release channel ships one APK per ABI (flutter build apk
     // --split-per-abi), so each split needs a distinct versionCode. Use the
-    // scheme abiCode * 1000 + base, the stock Flutter split scheme that v0.2.0
-    // already shipped (armeabi-v7a -> 1xxx, arm64-v8a -> 2xxx, x86_64 -> 3xxx).
-    // This MUST stay continuous with prior releases: with base 4 the codes are
-    // 1004 / 2004 / 3004, which sit above v0.2.0's 1003 / 2003 / 3003 so the
-    // in-app updater can install over an existing build. Switching to a scheme
-    // that produced smaller codes (e.g. base * 10 + abiCode = 42) makes Android
-    // treat the update as a downgrade and reject it with "package appears to be
-    // invalid". The F-Droid variant builds a universal APK (no ABI filter), so
-    // it skips this override and keeps the base versionCode.
+    // stock Flutter split scheme base * 1000 + abiCode, which keeps the ABI in
+    // the low-order digits (armeabi-v7a -> x001, arm64-v8a -> x002,
+    // x86_64 -> x003). F-Droid requires the ABI in the low-order position, and
+    // this also stays continuous with prior releases: with base 6 the codes are
+    // 6001 / 6002 / 6003, which sit above v0.2.2's 1005 / 2005 / 3005 so the
+    // in-app updater can install over an existing build instead of treating the
+    // update as a downgrade.
     def abiVersionCodes = ["armeabi-v7a": 1, "arm64-v8a": 2, "x86_64": 3]
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             def abi = output.filters.find { it.filterType == "ABI" }?.identifier
             def abiCode = abiVersionCodes[abi]
             if (abiCode != null) {
-                output.versionCodeOverride = abiCode * 1000 + variant.versionCode
+                output.versionCodeOverride = variant.versionCode * 1000 + abiCode
             }
         }
     }
