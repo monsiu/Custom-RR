@@ -180,6 +180,7 @@ sending funds.
 | ---- | ------- |
 | **BTC** (Bitcoin, P2WPKH) | `bc1qaxx6dxkz0s5cw4h9nysw4yvmsaf3qlk7j0gwa2` |
 | **BTC Lightning** | `monsiutech@cake.cash` |
+| **LTC** (Litecoin, P2WPKH) | `ltc1qdrjqjzk0sfn7grysxruxuuev6jpn9yqm8wrrg0` |
 | **ETH** / EVM (mainnet) | `0x4e815A295F8096997867FBA2d7bDC6316ad970be` |
 | **BNB** Smart Chain (also accepts ETH, USDT, USDC on BSC) | `0x4aCD5AD66DD8E64e3117d9cb0CB0434294027CDd` |
 | **SOL** (Solana) | `6qC53PkKjoFtyhohHnYFApf3YccZwULFLTfrUMiruM97` |

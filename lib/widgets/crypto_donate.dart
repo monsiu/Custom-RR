@@ -20,6 +20,13 @@ const Map<String, CryptoCoin> kCryptoDonationAddresses = <String, CryptoCoin>{
         'https://mempool.space/address/bc1qaxx6dxkz0s5cw4h9nysw4yvmsaf3qlk7j0gwa2',
     walletScheme: 'bitcoin',
   ),
+  'LTC': CryptoCoin(
+    'Litecoin (P2WPKH)',
+    'ltc1qdrjqjzk0sfn7grysxruxuuev6jpn9yqm8wrrg0',
+    explorerUrl:
+        'https://litecoinspace.org/address/ltc1qdrjqjzk0sfn7grysxruxuuev6jpn9yqm8wrrg0',
+    walletScheme: 'litecoin',
+  ),
   'ETH': CryptoCoin(
     'Ethereum (ETH and ERC-20 like USDT, USDC)',
     '0x4e815A295F8096997867FBA2d7bDC6316ad970be',
