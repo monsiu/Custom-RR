@@ -22,6 +22,8 @@ class DevicePage extends StatelessWidget {
     final List<DeviceRef> models = repo.modelsForDevice(device.name);
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextTheme text = Theme.of(context).textTheme;
+    // Keep the header image below the status bar instead of hugging it.
+    final double topInset = MediaQuery.paddingOf(context).top;
 
     return Scaffold(
       body: CustomScrollView(
@@ -35,7 +37,7 @@ class DevicePage extends StatelessWidget {
               background: ColoredBox(
                 color: scheme.surfaceContainerHighest,
                 child: Padding(
-                  padding: const EdgeInsets.all(40),
+                  padding: EdgeInsets.fromLTRB(40, 40 + topInset, 40, 40),
                   child: Hero(
                     tag: 'device-${device.slug}',
                     child: Image.asset(

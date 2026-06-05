@@ -49,6 +49,8 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextTheme text = Theme.of(context).textTheme;
     final ColorScheme scheme = Theme.of(context).colorScheme;
+    // Keep the header image below the status bar instead of bleeding under it.
+    final double topInset = MediaQuery.paddingOf(context).top;
 
     return Scaffold(
       body: CustomScrollView(
@@ -67,7 +69,7 @@ class DetailPage extends StatelessWidget {
                   Hero(
                     tag: heroTag,
                     child: Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: EdgeInsets.fromLTRB(16, 16 + topInset, 16, 16),
                       child: Image.asset(
                         entry.headerAsset,
                         fit: BoxFit.contain,
