@@ -41,6 +41,8 @@ class DeviceModelPage extends StatelessWidget {
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextTheme text = Theme.of(context).textTheme;
     final String modelLabel = ref?.model ?? codename;
+    // Keep the header image below the status bar instead of hugging it.
+    final double topInset = MediaQuery.paddingOf(context).top;
 
     return Scaffold(
       body: CustomScrollView(
@@ -62,7 +64,7 @@ class DeviceModelPage extends StatelessWidget {
               background: ColoredBox(
                 color: scheme.surfaceContainerHighest,
                 child: Padding(
-                  padding: const EdgeInsets.all(24),
+                  padding: EdgeInsets.fromLTRB(24, 24 + topInset, 24, 24),
                   child: CachedNetworkImage(
                     imageUrl:
                         'https://wiki.lineageos.org/images/devices/$codename.png',
