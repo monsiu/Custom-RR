@@ -17,7 +17,6 @@ Categories:
 License: GPL-3.0-only
 AuthorName: monsiu
 AuthorWebSite: https://monsiu.github.io/
-WebSite: https://github.com/monsiu/Custom-RR
 SourceCode: https://github.com/monsiu/Custom-RR
 IssueTracker: https://github.com/monsiu/Custom-RR/issues
 Changelog: https://github.com/monsiu/Custom-RR/blob/HEAD/CHANGELOG.md
@@ -30,9 +29,9 @@ RepoType: git
 Repo: https://github.com/monsiu/Custom-RR.git
 
 Builds:
-  - versionName: 0.2.2
-    versionCode: 1005
-    commit: c7f8060ef6494f4ad8737f25fa392cb13e19b3b3
+  - versionName: 0.2.3
+    versionCode: 6001
+    commit: 8dc3eb7de7279d006e3799c813d777949fc61047
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@stable
@@ -55,9 +54,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 0.2.2
-    versionCode: 2005
-    commit: c7f8060ef6494f4ad8737f25fa392cb13e19b3b3
+  - versionName: 0.2.3
+    versionCode: 6002
+    commit: 8dc3eb7de7279d006e3799c813d777949fc61047
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@stable
@@ -80,9 +79,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm64
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 0.2.2
-    versionCode: 3005
-    commit: c7f8060ef6494f4ad8737f25fa392cb13e19b3b3
+  - versionName: 0.2.3
+    versionCode: 6003
+    commit: 8dc3eb7de7279d006e3799c813d777949fc61047
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@stable
@@ -106,38 +105,34 @@ Builds:
         --release --dart-define=FDROID_BUILD=true
 
 MaintainerNotes: |-
-  Flutter app. Built with the F-Droid `flutter` srclib on the stable channel,
+  Flutter app. Built with the F-Droid flutter srclib on the stable channel,
   checked out to the exact version pinned in the repo's .flutter-version file
-  ($flutterVersion), so the toolchain is the prebuilt-but-FLOSS Flutter SDK
-  that the inclusion policy explicitly permits.
+  (extracted in prebuild).
 
-  The GitHub release channel ships one APK per ABI (flutter build apk
-  --split-per-abi), and android/app/build.gradle gives each split a distinct
-  versionCode with the scheme abiCode * 1000 + base (armeabi-v7a -> 1xxx,
-  arm64-v8a -> 2xxx, x86_64 -> 3xxx). The build entries above mirror that, so
-  the VercodeOperation below must stay 1000/2000/3000 + %c to match the code
-  embedded in each APK. (The base %c comes from pubspec.yaml's +N build
-  number: 5 for 0.2.2, giving 1005/2005/3005.)
+  ABI split: the app ships one APK per ABI (flutter build apk --split-per-abi).
+  android/app/build.gradle assigns each split a distinct versionCode using the
+  stock Flutter scheme base * 1000 + abiCode, which keeps the ABI in the
+  low-order digits (armeabi-v7a -> x001, arm64-v8a -> x002, x86_64 -> x003) and
+  matches the VercodeOperation below. The base versionCode comes from
+  pubspec.yaml's +N build number (6 for 0.2.3), so the embedded codes are
+  6001/6002/6003.
 
-  The `--dart-define=FDROID_BUILD=true` flag compiles out the app's
-  self-update machinery (see lib/util/build_flags.dart): no GitHub release
-  polling, no in-app APK download/install path, and no "Check for updates"
-  UI. The GitHub-release variant keeps it; the F-Droid variant does not, so
-  there is no UpdateCheck anti-feature and no APK side-loading to flag.
+  The --dart-define=FDROID_BUILD=true flag compiles out the app's self-update
+  machinery (see lib/util/build_flags.dart): no GitHub release polling, no
+  in-app APK download/install path, and no "Check for updates" UI. The
+  GitHub-release variant keeps it; the F-Droid variant does not, so there is
+  no UpdateCheck anti-feature and no APK side-loading.
 
   Signing: android/app/build.gradle falls back to debug signing when
   android/key.properties is absent (it is not committed), so the build
-  produces an unsigned-by-upstream APK that F-Droid signs with its own key.
+  produces an APK that F-Droid signs with its own key.
 
-  REQUEST_INSTALL_PACKAGES remains declared in the manifest but is unused in
-  the F-Droid variant because the installer code path is gated off.
-
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]+$
 VercodeOperation:
-  - 1000 + %c
-  - 2000 + %c
-  - 3000 + %c
+  - 1000 * %c + 1
+  - 1000 * %c + 2
+  - 1000 * %c + 3
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.2.2
-CurrentVersionCode: 3005
+CurrentVersion: 0.2.3
+CurrentVersionCode: 6003

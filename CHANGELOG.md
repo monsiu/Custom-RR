@@ -5,6 +5,17 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/) (currently
 pre-1.0, so minor bumps may include breaking changes).
 
+## [0.2.3] - 2026-06-05
+
+### Changed
+- **Detail header images sit below the status bar.** On ROM, recovery, device,
+  and device model pages the header artwork no longer creeps up under the
+  status bar; it always starts just beneath it.
+
+### Removed
+- The persistent badge row on the hidden easter egg screen. Unlocking still
+  shows its brief pop-up; only the always-on badge strip is gone.
+
 ## [0.2.2] - 2026-06-01
 
 ### Added
