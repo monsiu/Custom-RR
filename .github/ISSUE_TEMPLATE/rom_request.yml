@@ -1,5 +1,5 @@
-name: "Request a ROM or recovery or GSI"
-description: "Ask us to add a custom ROM, GSI, or recovery to the Custom RR catalog"
+name: "Request a catalog entry"
+description: "Ask us to add a custom ROM, recovery, GSI, or root solution to the Custom RR catalog"
 labels: ["request"]
 body:
   - type: markdown
@@ -13,6 +13,7 @@ body:
         - "Custom ROM"
         - "Recovery"
         - "GSI (Treble generic system image)"
+        - "Root solution"
     validations:
       required: true
   - type: input

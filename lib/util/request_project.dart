@@ -29,6 +29,10 @@ Future<void> openProjectRequest({required String kind}) async {
     case 'gsi':
       params['kind'] = 'GSI (Treble generic system image)';
       break;
+    case 'root':
+    case 'root solution':
+      params['kind'] = 'Root solution';
+      break;
   }
   final Uri uri = Uri.https(
     'github.com',
