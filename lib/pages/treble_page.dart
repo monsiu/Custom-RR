@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../util/request_project.dart';
 import '../widgets/app_shell.dart';
 
 /// Project Treble / GSI overview and quick-start. Treble is largely a
@@ -490,6 +491,48 @@ class TreblePage extends StatelessWidget {
             children: <Widget>[
               _Hero(blurb: _heroBlurb),
               const SizedBox(height: 20),
+              Card(
+                color: scheme.errorContainer.withValues(alpha: 0.55),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Icon(
+                        Icons.warning_amber_rounded,
+                        color: scheme.onErrorContainer,
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'Same disclaimer as the Guide',
+                              style: text.titleSmall?.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color: scheme.onErrorContainer,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              'Flashing a GSI is the same kind of risk as '
+                              'flashing a custom ROM: bootloops, broken '
+                              'sensors, dead modems are all possible. '
+                              'Back up, take notes, and have a stock '
+                              'firmware ready to restore from.',
+                              style: text.bodySmall?.copyWith(
+                                color: scheme.onErrorContainer,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 28),
               _SectionHeader(
                 icon: Icons.fact_check_rounded,
                 title: 'Is my device Treble-ready?',
@@ -610,6 +653,33 @@ class TreblePage extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 24),
+              Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      "Don't see your GSI?",
+                      style: text.titleSmall,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'Tell us which GSI project to add next.',
+                      style: text.bodySmall?.copyWith(
+                        color: scheme.onSurfaceVariant,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 10),
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.playlist_add),
+                      label: const Text('Request a GSI'),
+                      onPressed: () => openProjectRequest(kind: 'GSI'),
+                    ),
+                  ],
+                ),
+              ),
               const SizedBox(height: 28),
               _SectionHeader(
                 icon: Icons.bolt_rounded,
@@ -714,48 +784,6 @@ class TreblePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 28),
-              Card(
-                color: scheme.errorContainer.withValues(alpha: 0.55),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Icon(
-                        Icons.warning_amber_rounded,
-                        color: scheme.onErrorContainer,
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'Same disclaimer as the Guide',
-                              style: text.titleSmall?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: scheme.onErrorContainer,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Flashing a GSI is the same kind of risk as '
-                              'flashing a custom ROM: bootloops, broken '
-                              'sensors, dead modems are all possible. '
-                              'Back up, take notes, and have a stock '
-                              'firmware ready to restore from.',
-                              style: text.bodySmall?.copyWith(
-                                color: scheme.onErrorContainer,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ),

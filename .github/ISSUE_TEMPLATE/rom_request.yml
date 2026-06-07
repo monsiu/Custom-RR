@@ -12,6 +12,7 @@ body:
       options:
         - "Custom ROM"
         - "Recovery"
+        - "GSI (Treble generic system image)"
     validations:
       required: true
   - type: input
