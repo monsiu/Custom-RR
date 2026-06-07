@@ -116,6 +116,11 @@ Future<void> main(List<String> args) async {
       version: 'DerpFest 15 (Android 15)',
       source: 'https://projectderp.in/',
     ),
+    'infinityx': _Seed(
+      lastBuild: DateTime.utc(2026, 6, 1),
+      version: 'Project Infinity X (Android 16)',
+      source: 'https://projectinfinity-x.com/downloads',
+    ),
     'un1ca': _Seed(
       lastBuild: DateTime.utc(2026, 4, 1),
       version: 'UN1CA 3.0.7',
@@ -340,6 +345,15 @@ final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
         owner: 'Evolution-X',
         repo: 'OTA',
         displayName: 'Evolution X',
+      ),
+  // Project Infinity X publishes per-device OTA metadata to its
+  // official_devices repo; the default branch tracks the newest Android
+  // version and each build lands as a commit.
+  'infinityx': (HttpClient c) => _fetchGitHubLatestCommit(
+        c,
+        owner: 'ProjectInfinity-X',
+        repo: 'official_devices',
+        displayName: 'Project Infinity X',
       ),
 };
 

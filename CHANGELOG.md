@@ -9,9 +9,9 @@ pre-1.0, so minor bumps may include breaking changes).
 
 ### Added
 - **Request a ROM, recovery, GSI, or root solution.** You can now suggest a
-  project to add to the catalog. The option lives in the in-app menu (and the
-  About page on desktop), plus a quick prompt at the bottom of the Custom ROMs,
-  Custom Recoveries, Root, and Treble & GSI lists.
+  project to add to the catalog. The option lives in the in-app menu (and a new
+  Help section in the desktop side bar), plus a quick prompt at the bottom of
+  the Custom ROMs, Custom Recoveries, Root, and Treble & GSI lists.
 - **Device codenames on ROM and recovery pages.** Each supported-device chip now
   shows the device codename next to its model name, so you can match a build to
   your exact phone at a glance.
@@ -23,10 +23,11 @@ pre-1.0, so minor bumps may include breaking changes).
 
 ### Fixed
 - **More accurate freshness badges.** Custom ROM and recovery "last build"
-  badges are now more trustworthy. crDroid, Evolution X, and OrangeFox update
-  automatically from their official sources instead of a periodically-refreshed
-  estimate, and a few entries that were showing as newer than they really are
-  (such as RisingOS Revived) now reflect their actual last build.
+  badges are now more trustworthy. crDroid, Evolution X, OrangeFox, and Project
+  Infinity X update automatically from their official sources instead of a
+  periodically-refreshed estimate, Project Infinity X now shows a freshness
+  badge at all, and a few entries that were showing as newer than they really
+  are (such as RisingOS Revived) now reflect their actual last build.
 
 ## [0.2.3] - 2026-06-05
 
