@@ -10,6 +10,11 @@ First stable release. The catalog, deep links, and data formats are now
 considered settled.
 
 ### Added
+- **Detects your phone (Android).** Open the app and it spots your device by its
+  codename, then offers a one-tap jump to its page with every ROM and recovery
+  that supports it. If your phone is not in the catalog yet, it points you to
+  Treble & GSI and the device-request flow instead. Fully on-device: no network,
+  no permissions, no tracking. Shows on the Home and "Find my phone" screens.
 - **Request a ROM, recovery, GSI, or root solution.** You can now suggest a
   project to add to the catalog. The option lives in the in-app menu (and a new
   Help section in the desktop side bar), plus a quick prompt at the bottom of
