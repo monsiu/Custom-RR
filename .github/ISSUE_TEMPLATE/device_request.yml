@@ -1,0 +1,38 @@
+name: "Request a device"
+description: "Ask us to add a device that is missing from the Custom RR catalog"
+labels: ["device"]
+body:
+  - type: markdown
+    attributes:
+      value: "Can't find your phone in the catalog? Tell us about it. The device list is built from upstream sources, so the codename and a support link help us add it fast."
+  - type: input
+    id: brand
+    attributes:
+      label: Brand
+      placeholder: "e.g. Samsung, Xiaomi, OnePlus"
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      placeholder: "e.g. Galaxy A52 5G"
+    validations:
+      required: true
+  - type: input
+    id: codename
+    attributes:
+      label: Codename
+      description: "The device codename (e.g. a52xq, oriole, alioth). Check Settings, the LineageOS wiki, or a Treble info app."
+      placeholder: "e.g. a52xq"
+  - type: textarea
+    id: support
+    attributes:
+      label: What should list it?
+      description: "Which ROM(s) or recovery should support it, with a link to the official downloads, maintainer thread, or LineageOS wiki page if you have one."
+      placeholder: "e.g. LineageOS 21 - https://wiki.lineageos.org/devices/a52xq"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: "Android version, region variant, or any other useful detail."

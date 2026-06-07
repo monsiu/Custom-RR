@@ -6,6 +6,7 @@ import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../util/request_project.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/star_button.dart';
@@ -141,14 +142,26 @@ class _FindPhonePageState extends State<FindPhonePage> {
                   child: Center(
                     child: Padding(
                       padding: const EdgeInsets.all(24),
-                      child: Text(
-                        'No device matches "$_query".\n\n'
-                        'Try the codename (e.g. "oriole" for Pixel 6), or a '
-                        'simpler brand + model spelling.',
-                        textAlign: TextAlign.center,
-                        style: text.bodyMedium?.copyWith(
-                          color: scheme.onSurfaceVariant,
-                        ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(
+                            'No device matches "$_query".\n\n'
+                            'Try the codename (e.g. "oriole" for Pixel 6), or '
+                            'a simpler brand + model spelling.',
+                            textAlign: TextAlign.center,
+                            style: text.bodyMedium?.copyWith(
+                              color: scheme.onSurfaceVariant,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          OutlinedButton.icon(
+                            icon: const Icon(Icons.add_to_home_screen),
+                            label: const Text('Request this device'),
+                            onPressed: () =>
+                                openDeviceRequest(query: _query.trim()),
+                          ),
+                        ],
                       ),
                     ),
                   ),

@@ -15,6 +15,8 @@ pre-1.0, so minor bumps may include breaking changes).
 - **Device codenames on ROM and recovery pages.** Each supported-device chip now
   shows the device codename next to its model name, so you can match a build to
   your exact phone at a glance.
+- **Request a missing device.** If "Find my phone" turns up no match, you can now
+  tap "Request this device" to ask for it to be added, with your search prefilled.
 
 ### Changed
 - **Treble & GSI safety notice moved up.** The flashing-risk disclaimer on the
