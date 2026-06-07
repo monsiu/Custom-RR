@@ -41,3 +41,24 @@ Future<void> openProjectRequest({required String kind}) async {
   );
   await launchUrl(uri, mode: LaunchMode.externalApplication);
 }
+
+/// Opens the native GitHub issue form so users can ask for a device that is
+/// missing from the catalog to be added. Opens the `device_request.yml` form
+/// (label `device`).
+///
+/// [query] is the text the user was searching for (brand, model, or codename)
+/// when they hit no results; when present it seeds the issue title so the
+/// reporter does not have to retype it.
+Future<void> openDeviceRequest({String? query}) async {
+  final String trimmed = (query ?? '').trim();
+  final Map<String, String> params = <String, String>{
+    'template': 'device_request.yml',
+    'title': trimmed.isEmpty ? 'Device request: ' : 'Device request: $trimmed',
+  };
+  final Uri uri = Uri.https(
+    'github.com',
+    '/monsiu/Custom-RR/issues/new',
+    params,
+  );
+  await launchUrl(uri, mode: LaunchMode.externalApplication);
+}
