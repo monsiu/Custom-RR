@@ -9,6 +9,7 @@ import 'app_actions.dart';
 import 'app_drawer.dart';
 import 'app_nav_list.dart';
 import 'desktop_shell.dart';
+import 'home_on_back.dart';
 import 'offline_notice.dart';
 import 'theme_picker.dart';
 import 'update_banner.dart';
@@ -42,6 +43,13 @@ class AppShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return HomeOnBack(
+      isHome: selectedRoute == AppRoutes.home,
+      child: _buildShell(context),
+    );
+  }
+
+  Widget _buildShell(BuildContext context) {
     if (useDesktopShell) {
       return DesktopShell(
         title: title,
