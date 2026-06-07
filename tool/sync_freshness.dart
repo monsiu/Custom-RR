@@ -222,11 +222,21 @@ Future<void> main(List<String> args) async {
   int curatedCount = 0;
   for (final MapEntry<String, _Seed> e in seeds.entries) {
     final _NetResult? net = netResults[e.key];
-    final DateTime lastBuild = net?.lastBuild ?? e.value.lastBuild;
-    final String version = net?.version ?? e.value.version;
-    final String source = net?.source ?? e.value.source;
-    final String origin = net != null ? 'network' : 'curated';
-    if (net != null) {
+    // Network can only push the build date FORWARD. A fetcher that returns
+    // an older date than the curated floor (e.g. it sampled the wrong
+    // SourceForge path and saw a stale root file) must not regress an entry
+    // from active to stale. When that happens, keep the curated seed.
+    final bool useNet = net != null && !net.lastBuild.isBefore(e.value.lastBuild);
+    if (net != null && !useNet) {
+      stdout.writeln('[freshness] net OLDER ${e.key}  '
+          '${_isoDate(net.lastBuild)} < curated ${_isoDate(e.value.lastBuild)}, '
+          'keeping curated');
+    }
+    final DateTime lastBuild = useNet ? net.lastBuild : e.value.lastBuild;
+    final String version = useNet ? net.version : e.value.version;
+    final String source = useNet ? net.source : e.value.source;
+    final String origin = useNet ? 'network' : 'curated';
+    if (useNet) {
       netCount++;
     } else {
       curatedCount++;
@@ -310,6 +320,24 @@ final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
         owner: 'SukiSU-Ultra',
         repo: 'SukiSU-Ultra',
         displayName: 'SukiSU Ultra',
+      ),
+  // crDroid ships per-device OTAs from one repo; every build bumps a commit
+  // on the current Android-version branch. We read the repo's default branch
+  // (which tracks the newest Android version) so this keeps working across
+  // version bumps without a hardcoded branch.
+  'crdroid': (HttpClient c) => _fetchGitHubLatestCommit(
+        c,
+        owner: 'crdroidandroid',
+        repo: 'android_vendor_crDroidOTA',
+        displayName: 'crDroid',
+        versionPattern: RegExp(r'cr(\d+\.\d+)'),
+      ),
+  'orangefox': _fetchOrangeFox,
+  'evolutionx': (HttpClient c) => _fetchGitHubLatestCommit(
+        c,
+        owner: 'Evolution-X',
+        repo: 'OTA',
+        displayName: 'Evolution X',
       ),
 };
 
@@ -411,11 +439,16 @@ Future<String> _httpGetText(HttpClient client, Uri url) async {
 /// SourceForge exposes a per-project RSS feed at
 /// `https://sourceforge.net/projects/{slug}/rss?path=/` listing the most
 /// recent files first. We take the newest `<pubDate>` as the project's
-/// last build timestamp, and pull a version hint from the file path when
-/// one is present (e.g. `.../v6.0/.../RisingOS-...-6.0-...zip`).
-Future<_NetResult?> _fetchRisingOsRevived(HttpClient client) async {
+/// last build timestamp, and pull a version hint from the file title when
+/// one is present.
+Future<_NetResult?> _fetchSourceForgeRss(
+  HttpClient client, {
+  required String slug,
+  required String displayName,
+  String? sourceUrl,
+}) async {
   final Uri url = Uri.parse(
-    'https://sourceforge.net/projects/risingos-revived/rss?path=/',
+    'https://sourceforge.net/projects/$slug/rss?path=/',
   );
   final String body = await _httpGetText(client, url);
 
@@ -456,15 +489,95 @@ Future<_NetResult?> _fetchRisingOsRevived(HttpClient client) async {
   }
   if (newest == null) return null;
 
-  String version = 'RisingOS Revived (latest)';
+  String version = '$displayName (latest)';
   if (newestTitle != null) {
     final Match? vm = RegExp(r'(\d+\.\d+(?:\.\d+)?)').firstMatch(newestTitle);
-    if (vm != null) version = 'RisingOS Revived ${vm.group(1)}';
+    if (vm != null) version = '$displayName ${vm.group(1)}';
   }
   return _NetResult(
     lastBuild: newest,
     version: version,
-    source: 'https://sourceforge.net/projects/risingos-revived/',
+    source: sourceUrl ?? 'https://sourceforge.net/projects/$slug/files/',
+  );
+}
+
+/// RisingOS Revived publishes builds on SourceForge; reuse the generic RSS
+/// reader with the project's slug.
+Future<_NetResult?> _fetchRisingOsRevived(HttpClient client) =>
+    _fetchSourceForgeRss(
+      client,
+      slug: 'risingos-revived',
+      displayName: 'RisingOS Revived',
+      sourceUrl: 'https://sourceforge.net/projects/risingos-revived/',
+    );
+
+/// GitHub commits API: `repos/{owner}/{repo}/commits?per_page=1` returns the
+/// newest commit on the repo's default branch. For projects that publish OTA
+/// metadata from a single repo (e.g. crDroid), every shipped build lands as a
+/// commit, so the latest commit date is a reliable project-wide "last build"
+/// signal. Reading the default branch keeps this current across Android
+/// version bumps without hardcoding a branch name.
+Future<_NetResult?> _fetchGitHubLatestCommit(
+  HttpClient client, {
+  required String owner,
+  required String repo,
+  required String displayName,
+  RegExp? versionPattern,
+}) async {
+  final Uri url =
+      Uri.parse('https://api.github.com/repos/$owner/$repo/commits?per_page=1');
+  final String body = await _httpGetText(client, url);
+  final dynamic decoded = json.decode(body);
+  if (decoded is! List || decoded.isEmpty) return null;
+  final dynamic first = decoded.first;
+  if (first is! Map) return null;
+  final dynamic commit = first['commit'];
+  if (commit is! Map) return null;
+  final dynamic committer = commit['committer'];
+  final dynamic dateStr = committer is Map ? committer['date'] : null;
+  if (dateStr is! String) return null;
+  final DateTime? when = DateTime.tryParse(dateStr);
+  if (when == null) return null;
+  String version = '$displayName (latest)';
+  if (versionPattern != null) {
+    final dynamic msg = commit['message'];
+    if (msg is String) {
+      final Match? vm = versionPattern.firstMatch(msg);
+      if (vm != null) {
+        version = '$displayName ${vm.groupCount >= 1 ? vm.group(1) : vm.group(0)}';
+      }
+    }
+  }
+  return _NetResult(
+    lastBuild: when.toUtc(),
+    version: version,
+    source: 'https://github.com/$owner/$repo',
+  );
+}
+
+/// OrangeFox exposes a public API. `releases/?sort=date_desc&limit=1` returns
+/// the single most recent release across all devices, whose `date` field is a
+/// unix timestamp. That is our project-wide "last build" signal.
+Future<_NetResult?> _fetchOrangeFox(HttpClient client) async {
+  final Uri url = Uri.parse(
+    'https://api.orangefox.download/v3/releases/?sort=date_desc&limit=1',
+  );
+  final String body = await _httpGetText(client, url);
+  final dynamic decoded = json.decode(body);
+  final dynamic data = decoded is Map ? decoded['data'] : decoded;
+  if (data is! List || data.isEmpty) return null;
+  final dynamic r = data.first;
+  if (r is! Map) return null;
+  final dynamic ts = r['date'];
+  if (ts is! num) return null;
+  final DateTime when =
+      DateTime.fromMillisecondsSinceEpoch((ts * 1000).round(), isUtc: true);
+  final dynamic v = r['version'];
+  final String version = v is String ? 'OrangeFox $v' : 'OrangeFox (latest)';
+  return _NetResult(
+    lastBuild: when,
+    version: version,
+    source: 'https://orangefox.download/',
   );
 }
 

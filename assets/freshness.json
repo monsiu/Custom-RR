@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-07T08:44:06.102934Z",
-  "_netCount": 10,
-  "_curatedCount": 18,
+  "_generatedAt": "2026-06-07T17:19:05.229266Z",
+  "_netCount": 11,
+  "_curatedCount": 17,
   "entries": {
     "lineage": {
       "status": "active",
@@ -14,11 +14,11 @@
     },
     "crdroid": {
       "status": "active",
-      "lastBuild": "2026-05-07",
-      "daysAgo": 31,
-      "version": "crDroid 11.5 (Android 15)",
-      "source": "https://crdroid.net/",
-      "origin": "curated"
+      "lastBuild": "2026-06-07",
+      "daysAgo": 0,
+      "version": "crDroid (latest)",
+      "source": "https://github.com/crdroidandroid/android_vendor_crDroidOTA",
+      "origin": "network"
     },
     "pixelexperience": {
       "status": "abandoned",
@@ -30,11 +30,11 @@
     },
     "evolutionx": {
       "status": "active",
-      "lastBuild": "2026-04-28",
-      "daysAgo": 40,
-      "version": "Evolution X 10 (Android 15)",
-      "source": "https://evolution-x.org/",
-      "origin": "curated"
+      "lastBuild": "2026-06-07",
+      "daysAgo": 0,
+      "version": "Evolution X (latest)",
+      "source": "https://github.com/Evolution-X/OTA",
+      "origin": "network"
     },
     "paranoidandroid": {
       "status": "abandoned",
@@ -61,12 +61,12 @@
       "origin": "curated"
     },
     "risingosrevived": {
-      "status": "stale",
-      "lastBuild": "2025-12-31",
-      "daysAgo": 158,
-      "version": "RisingOS Revived (latest)",
+      "status": "active",
+      "lastBuild": "2026-05-16",
+      "daysAgo": 22,
+      "version": "RisingOS Revived (Android 15)",
       "source": "https://sourceforge.net/projects/risingos-revived/",
-      "origin": "network"
+      "origin": "curated"
     },
     "voltage": {
       "status": "active",
@@ -135,7 +135,7 @@
     "un1ca": {
       "status": "active",
       "lastBuild": "2026-06-04",
-      "daysAgo": 2,
+      "daysAgo": 3,
       "version": "UN1CA 3.1.0",
       "source": "https://github.com/salvogiangri/UN1CA/releases",
       "origin": "network"
@@ -166,16 +166,16 @@
     },
     "kernelsu_next": {
       "status": "active",
-      "lastBuild": "2026-04-14",
+      "lastBuild": "2026-04-15",
       "daysAgo": 53,
-      "version": "KernelSU Next 3.2.0",
+      "version": "KernelSU Next v3.2.0",
       "source": "https://github.com/KernelSU-Next/KernelSU-Next/releases",
-      "origin": "network"
+      "origin": "curated"
     },
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 206,
+      "daysAgo": 207,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"
@@ -198,11 +198,11 @@
     },
     "orangefox": {
       "status": "active",
-      "lastBuild": "2026-04-25",
-      "daysAgo": 43,
-      "version": "OrangeFox R12.1",
+      "lastBuild": "2026-06-04",
+      "daysAgo": 2,
+      "version": "OrangeFox R12.0_3",
       "source": "https://orangefox.download/",
-      "origin": "curated"
+      "origin": "network"
     },
     "redwolf": {
       "status": "abandoned",
