@@ -213,9 +213,46 @@ jobs:
           path: dist/custom_rr-*-windows-${{ matrix.arch }}.zip
           if-no-files-found: error
 
+  build-macos:
+    name: Build macOS desktop bundle
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - name: Set up Flutter (cached)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter config --enable-macos-desktop
+      - run: flutter pub get
+      # Unsigned build. macOS Gatekeeper will warn on first launch; users
+      # right-click -> Open once to run it. Code signing + notarization can be
+      # added later (needs a paid Apple Developer account).
+      - run: flutter build macos --release
+      - name: Stage release bundle
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          app_dir="build/macos/Build/Products/Release"
+          app_name=$(ls "$app_dir" | grep '.app$' | head -n1)
+          # Flutter builds a universal (arm64 + Intel) binary, so one zip
+          # covers Apple Silicon and Intel Macs. Use ditto to preserve the
+          # .app bundle structure and resource forks.
+          ditto -c -k --sequesterRsrc --keepParent \
+            "$app_dir/$app_name" "dist/custom_rr-${TAG}-macos-universal.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-bundle
+          path: dist/custom_rr-*-macos-universal.zip
+          if-no-files-found: error
+
   publish:
     name: Publish draft release
-    needs: [build-android, build-linux, build-windows]
+    needs: [build-android, build-linux, build-windows, build-macos]
     runs-on: ubuntu-latest
     permissions:
       contents: write
