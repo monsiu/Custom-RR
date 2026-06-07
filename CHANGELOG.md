@@ -30,6 +30,11 @@ considered settled.
   the macOS security prompt.
 
 ### Changed
+- **Back always keeps you in the app.** The system back button and the
+  swipe-back gesture now go to the previous page when there is one, and when
+  you are on a main list (Custom ROMs, Recoveries, Root, Treble & GSI, devices,
+  and the rest) they take you to the app's Home page instead of dropping you
+  out to your launcher. From Home, back still leaves the app as usual.
 - **Refreshed download buttons.** ROM, recovery, and root pages now lead with a
   bold, brand-coloured download button that shows where the link points, with a
   clearer "Find threads on XDA" button beneath it.

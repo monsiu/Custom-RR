@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../routes.dart';
+import '../widgets/home_on_back.dart';
 
 /// Shown when a deep link or `go` call targets a non-existent path.
 class NotFoundPage extends StatelessWidget {
@@ -12,7 +13,8 @@ class NotFoundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextTheme text = Theme.of(context).textTheme;
-    return Scaffold(
+    return HomeOnBack(
+      child: Scaffold(
       appBar: AppBar(title: const Text('Not found')),
       body: Center(
         child: Padding(
@@ -41,6 +43,7 @@ class NotFoundPage extends StatelessWidget {
           ),
         ),
       ),
+    ),
     );
   }
 }

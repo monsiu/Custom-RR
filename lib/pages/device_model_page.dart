@@ -9,6 +9,7 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/freshness_badge.dart';
+import '../widgets/home_on_back.dart';
 import '../widgets/star_button.dart';
 import '../widgets/xda_threads_section.dart';
 
@@ -44,7 +45,8 @@ class DeviceModelPage extends StatelessWidget {
     // Keep the header image below the status bar instead of hugging it.
     final double topInset = MediaQuery.paddingOf(context).top;
 
-    return Scaffold(
+    return HomeOnBack(
+      child: Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar.large(
@@ -214,6 +216,7 @@ class DeviceModelPage extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

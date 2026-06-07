@@ -16,6 +16,7 @@ import '../util/breakpoints.dart';
 import '../util/xda_search.dart';
 import '../widgets/catalog_card.dart';
 import '../widgets/freshness_badge.dart';
+import '../widgets/home_on_back.dart';
 import '../widgets/xda_threads_section.dart';
 import '../widgets/zoomable_image_viewer.dart';
 
@@ -53,7 +54,8 @@ class DetailPage extends StatelessWidget {
     // Keep the header image below the status bar instead of bleeding under it.
     final double topInset = MediaQuery.paddingOf(context).top;
 
-    return Scaffold(
+    return HomeOnBack(
+      child: Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar.large(
@@ -183,6 +185,7 @@ class DetailPage extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }
