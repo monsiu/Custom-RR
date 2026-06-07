@@ -5,6 +5,19 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/) (currently
 pre-1.0, so minor bumps may include breaking changes).
 
+## [Unreleased]
+
+### Added
+- **Request a ROM, recovery, or GSI.** You can now suggest a project to add to
+  the catalog. The option lives in the in-app menu (and the About page on
+  desktop), plus a quick prompt at the bottom of the Custom ROMs, Custom
+  Recoveries, and Treble & GSI lists.
+
+### Changed
+- **Treble & GSI safety notice moved up.** The flashing-risk disclaimer on the
+  Treble & GSI page now sits at the top of the page, before the walkthrough,
+  instead of at the very bottom.
+
 ## [0.2.3] - 2026-06-05
 
 ### Changed
