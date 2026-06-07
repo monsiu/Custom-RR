@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../data/update_notifier.dart';
 import '../pages/easter_egg_page.dart';
 import '../util/build_flags.dart';
+import '../util/request_project.dart';
 import 'crypto_donate.dart';
 import 'donation_nudge.dart';
 
@@ -145,6 +146,14 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
             Uri.parse(kCustomRrRepoUrl),
             mode: LaunchMode.externalApplication,
           ),
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: TextButton.icon(
+          icon: const Icon(Icons.playlist_add),
+          label: const Text('Request a ROM or recovery'),
+          onPressed: () => openProjectRequest(kind: 'ROM or recovery'),
         ),
       ),
       Align(

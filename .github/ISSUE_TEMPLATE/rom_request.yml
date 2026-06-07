@@ -1,0 +1,41 @@
+name: "Request a ROM or recovery"
+description: "Ask us to add a custom ROM or recovery to the Custom RR catalog"
+labels: ["request"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for helping grow the Custom RR catalog. Please fill in what you can."
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What should we add?
+      options:
+        - "Custom ROM"
+        - "Recovery"
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "e.g. PixelOS / OrangeFox"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official website or source
+      description: "Project site, GitHub, XDA thread, or Telegram."
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: textarea
+    id: devices
+    attributes:
+      label: Supported devices
+      description: "Device codenames if you know them (e.g. sunny, lisa)."
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: "Maintainer, release cadence, why it should be added, etc."
