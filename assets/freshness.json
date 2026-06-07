@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-07T17:21:57.639595Z",
-  "_netCount": 11,
-  "_curatedCount": 17,
+  "_generatedAt": "2026-06-07T17:42:41.406829Z",
+  "_netCount": 12,
+  "_curatedCount": 16,
   "entries": {
     "lineage": {
       "status": "active",
@@ -61,12 +61,12 @@
       "origin": "curated"
     },
     "risingosrevived": {
-      "status": "active",
-      "lastBuild": "2026-05-16",
-      "daysAgo": 22,
-      "version": "RisingOS Revived (Android 15)",
-      "source": "https://sourceforge.net/projects/risingos-revived/",
-      "origin": "curated"
+      "status": "stale",
+      "lastBuild": "2025-12-31",
+      "daysAgo": 158,
+      "version": "RisingOS Revived (latest)",
+      "source": "https://sourceforge.net/projects/risingos-revived/files/",
+      "origin": "network"
     },
     "voltage": {
       "status": "active",

@@ -1364,7 +1364,7 @@ List<Map<String, dynamic>> _buildRoms(
         'https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-7-7-portrait.png',
       ],
       downloadLabel: 'Devices and builds',
-      downloadUrl: 'https://sourceforge.net/projects/risingos-revived/',
+      downloadUrl: 'https://sourceforge.net/projects/risingos-revived/files/',
       forumUrl: 'https://t.me/s/RisingRevived/30',
       links: <_RomLink>[
         _RomLink(
@@ -1379,7 +1379,7 @@ List<Map<String, dynamic>> _buildRoms(
         ),
         _RomLink(
           label: 'SourceForge downloads',
-          url: 'https://sourceforge.net/projects/risingos-revived/',
+          url: 'https://sourceforge.net/projects/risingos-revived/files/',
           iconName: 'web',
         ),
         _RomLink(

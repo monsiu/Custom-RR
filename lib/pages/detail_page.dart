@@ -1286,6 +1286,16 @@ class _ModelPill extends StatelessWidget {
                       device.model,
                       style: text.labelLarge?.copyWith(color: foreground),
                     ),
+                    if (device.codename.isNotEmpty) ...<Widget>[
+                      const SizedBox(width: 6),
+                      Text(
+                        device.codename,
+                        style: text.labelSmall?.copyWith(
+                          color: foreground.withValues(alpha: 0.7),
+                          fontFamily: 'monospace',
+                        ),
+                      ),
+                    ],
                   ],
                 ),
               ),

@@ -70,9 +70,11 @@ Future<void> main(List<String> args) async {
       source: 'https://blissroms.org/',
     ),
     'risingosrevived': _Seed(
-      lastBuild: DateTime.utc(2026, 5, 16),
+      // Project went quiet: newest SourceForge build is 2025-12-31. Keep the
+      // seed honest so it does not look fresher than it is when offline.
+      lastBuild: DateTime.utc(2025, 12, 31),
       version: 'RisingOS Revived (Android 15)',
-      source: 'https://sourceforge.net/projects/risingos-revived/',
+      source: 'https://sourceforge.net/projects/risingos-revived/files/',
     ),
     'voltage': _Seed(
       lastBuild: DateTime.utc(2026, 4, 30),
@@ -508,7 +510,7 @@ Future<_NetResult?> _fetchRisingOsRevived(HttpClient client) =>
       client,
       slug: 'risingos-revived',
       displayName: 'RisingOS Revived',
-      sourceUrl: 'https://sourceforge.net/projects/risingos-revived/',
+      sourceUrl: 'https://sourceforge.net/projects/risingos-revived/files/',
     );
 
 /// GitHub commits API: `repos/{owner}/{repo}/commits?per_page=1` returns the
