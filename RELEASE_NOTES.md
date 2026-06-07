@@ -1,26 +1,29 @@
-## Custom RR v0.2.3
+## Custom RR v1.0.0
 
-A small polish release: header artwork on detail pages now stays clear of the status bar, and the hidden easter egg loses its always-on badge strip.
+The first stable release. Custom RR is now a settled, dependable home for the Android modding scene: browse custom ROMs, recoveries, root solutions and Treble GSIs, see which ones officially support your device, and grab the official downloads, all in one place.
 
-### Changes
+### Highlights
 
-- **Detail header images sit below the status bar.** On ROM, recovery, device, and device model pages the header artwork no longer creeps up under the status bar; it always starts just beneath it.
-- **Easter egg tidy-up.** Removed the persistent badge row on the hidden easter egg screen. Unlocking still shows its brief pop-up; only the always-on strip is gone.
+- **Suggest what to add.** Can't find a ROM, recovery, GSI, or root solution? Request it straight from the app: from the menu (and the desktop side bar), or the quick prompt at the bottom of each list.
+- **Request a missing device.** If "Find my phone" turns up nothing, tap "Request this device" to ask for it, with your search prefilled.
+- **Device codenames on tap.** Every supported-device chip on ROM and recovery pages now shows the codename next to the model, so you can match a build to your exact phone at a glance.
+- **More trustworthy freshness badges.** crDroid, Evolution X, OrangeFox and Project Infinity X now update their "last build" status automatically from their official sources, and a few entries that looked newer than they really were now read correctly.
+- **Treble & GSI safety notice up top.** The flashing-risk disclaimer now greets you before the walkthrough instead of hiding at the bottom.
 
 ### Android
 
-- `custom_rr-v0.2.3-armeabi-v7a.apk` (32-bit ARM phones)
-- `custom_rr-v0.2.3-arm64-v8a.apk` (modern 64-bit ARM phones, what most people want)
-- `custom_rr-v0.2.3-x86_64.apk` (emulators, Chromebooks, x86 tablets)
+- `custom_rr-v1.0.0-armeabi-v7a.apk` (32-bit ARM phones)
+- `custom_rr-v1.0.0-arm64-v8a.apk` (modern 64-bit ARM phones, what most people want)
+- `custom_rr-v1.0.0-x86_64.apk` (emulators, Chromebooks, x86 tablets)
 
 ### Desktop
 
 Built from the same Flutter source as the Android app, with the same catalog, freshness data, brand pages and pinch-zoom viewer.
 
-- `custom_rr-v0.2.3-windows-x64.zip` for standard Intel / AMD PCs.
-- `custom_rr-v0.2.3-windows-arm64.zip` for Surface Pro X, Copilot+ PCs and other Windows-on-ARM devices.
-- `custom_rr-v0.2.3-linux-x64.tar.gz` for standard Intel / AMD desktops and laptops.
-- `custom_rr-v0.2.3-linux-arm64.tar.gz` for Raspberry Pi 4/5 (64-bit OS), Ampere servers, Asahi-Linux M-series Macs and other arm64 Linux boxes.
+- `custom_rr-v1.0.0-windows-x64.zip` for standard Intel / AMD PCs.
+- `custom_rr-v1.0.0-windows-arm64.zip` for Surface Pro X, Copilot+ PCs and other Windows-on-ARM devices.
+- `custom_rr-v1.0.0-linux-x64.tar.gz` for standard Intel / AMD desktops and laptops.
+- `custom_rr-v1.0.0-linux-arm64.tar.gz` for Raspberry Pi 4/5 (64-bit OS), Ampere servers, Asahi-Linux M-series Macs and other arm64 Linux boxes.
 
 > 32-bit x86 desktop is intentionally not shipped; Flutter dropped support for it.
 

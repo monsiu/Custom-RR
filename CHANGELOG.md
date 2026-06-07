@@ -2,10 +2,12 @@
 
 All notable changes to **Custom RR** are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
-project uses [Semantic Versioning](https://semver.org/) (currently
-pre-1.0, so minor bumps may include breaking changes).
+project uses [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.0.0] - 2026-06-07
+
+First stable release. The catalog, deep links, and data formats are now
+considered settled.
 
 ### Added
 - **Request a ROM, recovery, GSI, or root solution.** You can now suggest a
@@ -49,10 +51,11 @@ pre-1.0, so minor bumps may include breaking changes).
   `official_devices` repo. The device list is built by merging both the `16`
   and `master` branches (the `16` branch wins on conflicts), matching the
   official downloads page exactly at 94 devices.
-- **Google Play build.** Custom RR is now available on the Google Play Store.
-  To meet Google Play policy this build leaves out the in-app updater and the
-  crypto donation UI; updates come from Play itself. The GitHub build is
-  unchanged and keeps the in-app updater.
+- **Coming to Google Play and F-Droid.** Custom RR is on its way to both
+  stores: the Google Play build is being uploaded for review, and the F-Droid
+  listing is pending approval. The Google Play build leaves out the in-app
+  updater and the crypto donation UI to meet store policy; updates come from
+  the store itself. The GitHub build is unchanged and keeps the in-app updater.
 
 ### Fixed
 - **ArtisanROM device list.** Removed the Galaxy Note10 series (not supported)
