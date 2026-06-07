@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
 import '../theme_controller.dart';
+import '../util/request_project.dart';
 import 'about_dialog.dart';
 
 /// Wraps [child] in a single, app-wide [PlatformMenuBar].
@@ -130,6 +131,10 @@ class DesktopMenuBar extends StatelessWidget {
                 Uri.parse(_repoUrl),
                 mode: LaunchMode.externalApplication,
               ),
+            ),
+            PlatformMenuItem(
+              label: 'Request a ROM or recovery',
+              onSelected: () => openProjectRequest(kind: 'ROM or recovery'),
             ),
             PlatformMenuItem(
               label: 'Report an issue',

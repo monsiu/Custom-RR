@@ -1,7 +1,7 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-07T17:43:36.936755Z",
-  "_netCount": 12,
+  "_generatedAt": "2026-06-07T19:23:18.113287Z",
+  "_netCount": 13,
   "_curatedCount": 16,
   "entries": {
     "lineage": {
@@ -132,6 +132,14 @@
       "source": "https://projectderp.in/",
       "origin": "curated"
     },
+    "infinityx": {
+      "status": "active",
+      "lastBuild": "2026-06-07",
+      "daysAgo": 0,
+      "version": "Project Infinity X (latest)",
+      "source": "https://github.com/ProjectInfinity-X/official_devices",
+      "origin": "network"
+    },
     "un1ca": {
       "status": "active",
       "lastBuild": "2026-06-04",
@@ -199,7 +207,7 @@
     "orangefox": {
       "status": "active",
       "lastBuild": "2026-06-04",
-      "daysAgo": 2,
+      "daysAgo": 3,
       "version": "OrangeFox R12.0_3",
       "source": "https://orangefox.download/",
       "origin": "network"

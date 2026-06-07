@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../routes.dart';
 import '../theme.dart';
 import '../theme_controller.dart';
+import '../util/request_project.dart';
 import 'offline_notice.dart';
 import 'update_banner.dart';
 
@@ -96,10 +97,12 @@ class DesktopShell extends StatelessWidget {
   }
 }
 
-class _DesktopRail extends StatelessWidget {
+class _DesktopRail extends StatefulWidget {
   const _DesktopRail({required this.selectedRoute});
 
   final String selectedRoute;
+
+  static const String _repoUrl = 'https://github.com/monsiu/Custom-RR';
 
   static const List<_RailDest> _destinations = <_RailDest>[
     _RailDest(AppRoutes.home, Icons.home_outlined, Icons.home, 'Home'),
@@ -134,18 +137,50 @@ class _DesktopRail extends StatelessWidget {
       Icons.layers,
       'Treble',
     ),
-    _RailDest(
-      AppRoutes.about,
-      Icons.info_outline,
-      Icons.info,
-      'About',
-    ),
   ];
+
+  @override
+  State<_DesktopRail> createState() => _DesktopRailState();
+}
+
+class _DesktopRailState extends State<_DesktopRail> {
+  final ScrollController _scrollController = ScrollController();
+  bool _canScrollUp = false;
+  bool _canScrollDown = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_updateScrollFades);
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _updateScrollFades(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _updateScrollFades() {
+    if (!_scrollController.hasClients) return;
+    final ScrollPosition pos = _scrollController.position;
+    final bool up = pos.pixels > pos.minScrollExtent + 0.5;
+    final bool down = pos.pixels < pos.maxScrollExtent - 0.5;
+    if (up != _canScrollUp || down != _canScrollDown) {
+      setState(() {
+        _canScrollUp = up;
+        _canScrollDown = down;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;
-    final int selectedIndex = _destinations.indexWhere(
+    final String selectedRoute = widget.selectedRoute;
+    final int selectedIndex = _DesktopRail._destinations.indexWhere(
       (_RailDest d) => d.route == selectedRoute,
     );
 
@@ -200,23 +235,73 @@ class _DesktopRail extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Expanded(
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: _destinations.length,
-                itemBuilder: (BuildContext context, int i) {
-                  final _RailDest d = _destinations[i];
-                  final bool selected = i == selectedIndex;
-                  return _RailButton(
-                    icon: selected ? d.selectedIcon : d.icon,
-                    label: d.label,
-                    selected: selected,
-                    onTap: () {
-                      if (d.route == selectedRoute) return;
-                      context.go(d.route);
-                    },
+              child: NotificationListener<ScrollMetricsNotification>(
+                onNotification: (ScrollMetricsNotification _) {
+                  WidgetsBinding.instance.addPostFrameCallback(
+                    (_) => _updateScrollFades(),
                   );
+                  return false;
                 },
+                child: Stack(
+                  children: <Widget>[
+                    ListView.builder(
+                      controller: _scrollController,
+                      padding: EdgeInsets.zero,
+                      itemCount: _DesktopRail._destinations.length,
+                      itemBuilder: (BuildContext context, int i) {
+                        final _RailDest d = _DesktopRail._destinations[i];
+                        final bool selected = i == selectedIndex;
+                        return _RailButton(
+                          icon: selected ? d.selectedIcon : d.icon,
+                          label: d.label,
+                          selected: selected,
+                          onTap: () {
+                            if (d.route == selectedRoute) return;
+                            context.go(d.route);
+                          },
+                        );
+                      },
+                    ),
+                    if (_canScrollUp)
+                      const Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        child: _ScrollEdgeFade(top: true),
+                      ),
+                    if (_canScrollDown)
+                      const Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: _ScrollEdgeFade(top: false),
+                      ),
+                  ],
+                ),
               ),
+            ),
+            Container(
+              height: 1,
+              margin: const EdgeInsets.symmetric(horizontal: 14),
+              color: scheme.outlineVariant.withValues(alpha: 0.5),
+            ),
+            const SizedBox(height: 4),
+            _RailButton(
+              icon: Icons.help_outline,
+              label: 'Help',
+              onTap: () => _showHelpMenu(context),
+            ),
+            _RailButton(
+              icon: selectedRoute == AppRoutes.about
+                  ? Icons.info
+                  : Icons.info_outline,
+              label: 'About',
+              selected: selectedRoute == AppRoutes.about,
+              onTap: () {
+                if (selectedRoute != AppRoutes.about) {
+                  context.go(AppRoutes.about);
+                }
+              },
             ),
             ValueListenableBuilder<ThemeMode>(
               valueListenable: ThemeController.instance,
@@ -241,6 +326,78 @@ class _DesktopRail extends StatelessWidget {
             ),
             const SizedBox(height: 8),
           ],
+        ),
+      ),
+    );
+  }
+
+  /// Help menu shown from the desktop side rail. The native menu bar only
+  /// renders on macOS, so Linux and Windows need this in-window entry point
+  /// for the request / report / source actions.
+  void _showHelpMenu(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext ctx) {
+        return SimpleDialog(
+          title: const Text('Help'),
+          children: <Widget>[
+            ListTile(
+              leading: const Icon(Icons.playlist_add),
+              title: const Text('Request a ROM or recovery'),
+              onTap: () {
+                Navigator.of(ctx).pop();
+                openProjectRequest(kind: 'ROM or recovery');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.bug_report_outlined),
+              title: const Text('Report an issue'),
+              onTap: () {
+                Navigator.of(ctx).pop();
+                launchUrl(
+                  Uri.parse('${_DesktopRail._repoUrl}/issues/new/choose'),
+                  mode: LaunchMode.externalApplication,
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.code),
+              title: const Text('View on GitHub'),
+              onTap: () {
+                Navigator.of(ctx).pop();
+                launchUrl(
+                  Uri.parse(_DesktopRail._repoUrl),
+                  mode: LaunchMode.externalApplication,
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+/// A short vertical gradient drawn at the top or bottom of the scrollable
+/// rail destinations to signal that more items exist beyond the fold, so the
+/// fixed Help/About/Theme footer does not make the rail look complete.
+class _ScrollEdgeFade extends StatelessWidget {
+  const _ScrollEdgeFade({required this.top});
+
+  final bool top;
+
+  @override
+  Widget build(BuildContext context) {
+    final Color base = Theme.of(context).colorScheme.surfaceContainerLow;
+    return IgnorePointer(
+      child: Container(
+        height: 18,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: top ? Alignment.topCenter : Alignment.bottomCenter,
+            end: top ? Alignment.bottomCenter : Alignment.topCenter,
+            colors: <Color>[base, base.withValues(alpha: 0)],
+          ),
         ),
       ),
     );
