@@ -11,6 +11,7 @@ import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
+import '../theme.dart';
 import '../util/breakpoints.dart';
 import '../util/xda_search.dart';
 import '../widgets/catalog_card.dart';
@@ -164,24 +165,11 @@ class DetailPage extends StatelessWidget {
                         ),
                       ],
                       const SizedBox(height: 32),
-                      Center(
-                        child: Wrap(
-                          spacing: 12,
-                          runSpacing: 12,
-                          alignment: WrapAlignment.center,
-                          children: <Widget>[
-                            FilledButton.icon(
-                              icon: const Icon(Icons.download_outlined),
-                              label: Text(entry.downloadLabel),
-                              onPressed: _openDownloads,
-                            ),
-                            OutlinedButton.icon(
-                              icon: const Icon(Icons.search),
-                              label: const Text('Search on XDA'),
-                              onPressed: () => _openXdaSearch(context),
-                            ),
-                          ],
-                        ),
+                      _DownloadActions(
+                        downloadLabel: entry.downloadLabel,
+                        downloadUrl: entry.downloadUrl,
+                        onDownload: _openDownloads,
+                        onXda: () => _openXdaSearch(context),
                       ),
                       if (entry.forumUrl.isNotEmpty) ...<Widget>[
                         const SizedBox(height: 32),
@@ -195,6 +183,133 @@ class DetailPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Primary "get it" action area shown on every ROM, recovery, and root
+/// detail page: a brand-green gradient download button (the main call to
+/// action) over a tonal "find threads on XDA" button. Both stretch to the
+/// reading column width so the download reads as the obvious next step.
+class _DownloadActions extends StatelessWidget {
+  const _DownloadActions({
+    required this.downloadLabel,
+    required this.downloadUrl,
+    required this.onDownload,
+    required this.onXda,
+  });
+
+  final String downloadLabel;
+  final String downloadUrl;
+  final VoidCallback onDownload;
+  final VoidCallback onXda;
+
+  /// Host shown as the button subtitle (e.g. `lineageos.org`), so users can
+  /// see where the download link points before tapping.
+  String get _host {
+    final String h = Uri.tryParse(downloadUrl)?.host ?? '';
+    return h.startsWith('www.') ? h.substring(4) : h;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final BrandColors brand = context.brand;
+    final TextTheme text = Theme.of(context).textTheme;
+    final String host = _host;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(18),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[brand.seed, brand.dark, brand.deep],
+            ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: brand.deep.withValues(alpha: 0.35),
+                blurRadius: 16,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(18),
+              onTap: onDownload,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 18,
+                  vertical: 16,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 44,
+                      height: 44,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: brand.onSeed.withValues(alpha: 0.12),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Icon(Icons.download_rounded, color: brand.onSeed),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            downloadLabel,
+                            style: text.titleMedium?.copyWith(
+                              color: brand.onSeed,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          if (host.isNotEmpty)
+                            Text(
+                              host,
+                              style: text.bodySmall?.copyWith(
+                                color: brand.onSeed.withValues(alpha: 0.75),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Icon(
+                      Icons.open_in_new_rounded,
+                      size: 20,
+                      color: brand.onSeed.withValues(alpha: 0.8),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 12),
+        SizedBox(
+          height: 52,
+          child: FilledButton.tonalIcon(
+            style: FilledButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
+              textStyle: text.titleSmall?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            icon: const Icon(Icons.forum_outlined),
+            label: const Text('Find threads on XDA'),
+            onPressed: onXda,
+          ),
+        ),
+      ],
     );
   }
 }
