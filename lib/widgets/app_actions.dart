@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../util/request_project.dart';
+
 /// Standard AppBar share/contact menu used across all pages.
 class AppShareMenu extends StatelessWidget {
   const AppShareMenu({super.key});
@@ -22,6 +24,9 @@ class AppShareMenu extends StatelessWidget {
               ),
             );
             break;
+          case _ShareAction.requestProject:
+            await openProjectRequest(kind: 'ROM or recovery');
+            break;
           case _ShareAction.contact:
             final Uri uri = Uri(
               scheme: 'mailto',
@@ -41,6 +46,13 @@ class AppShareMenu extends StatelessWidget {
           ),
         ),
         PopupMenuItem<_ShareAction>(
+          value: _ShareAction.requestProject,
+          child: ListTile(
+            leading: Icon(Icons.playlist_add),
+            title: Text('Request a ROM or recovery'),
+          ),
+        ),
+        PopupMenuItem<_ShareAction>(
           value: _ShareAction.contact,
           child: ListTile(
             leading: Icon(Icons.mail_outline),
@@ -52,4 +64,4 @@ class AppShareMenu extends StatelessWidget {
   }
 }
 
-enum _ShareAction { share, contact }
+enum _ShareAction { share, requestProject, contact }

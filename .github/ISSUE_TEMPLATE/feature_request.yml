@@ -1,5 +1,5 @@
 name: "Feature request"
-description: "Suggest a ROM, recovery, or app feature"
+description: "Suggest an app feature or improvement for Custom RR"
 labels: ["enhancement"]
 body:
   - type: dropdown
@@ -7,8 +7,6 @@ body:
     attributes:
       label: Request type
       options:
-        - "Add a new ROM"
-        - "Add a new Recovery"
         - "App feature"
         - "Other"
     validations:
@@ -17,16 +15,16 @@ body:
     id: name
     attributes:
       label: Name
-      placeholder: "e.g. PixelOS / OrangeFox 12.1"
+      placeholder: "e.g. Filter ROMs by Android version"
     validations:
       required: true
   - type: input
     id: url
     attributes:
-      label: Official source URL
-      placeholder: "https://..."
+      label: Reference link
+      placeholder: "https://... (optional)"
   - type: textarea
     id: details
     attributes:
       label: Details
-      description: "Anything we should know: why it should be added, who maintains it, etc."
+      description: "Anything we should know: what problem it solves, how you'd expect it to work, etc."

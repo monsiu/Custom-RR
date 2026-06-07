@@ -16,6 +16,7 @@ class RecoveriesPage extends StatelessWidget {
       selectedRoute: AppRoutes.recoveries,
       detailPathBuilder: AppRoutes.recoveryDetail,
       entryKind: 'recovery',
+      requestKind: 'recovery',
     );
   }
 }

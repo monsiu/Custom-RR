@@ -6,6 +6,7 @@ import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
+import '../util/request_project.dart';
 import '../util/xda_search.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/catalog_card.dart';
@@ -23,6 +24,7 @@ class CatalogPage extends StatefulWidget {
     required this.detailPathBuilder,
     this.defunct = const <DefunctEntry>[],
     this.entryKind = 'build',
+    this.requestKind,
   });
 
   final String title;
@@ -41,6 +43,12 @@ class CatalogPage extends StatefulWidget {
   /// search query; tapping a chip just surfaces a snackbar explaining why
   /// the project is greyed out.
   final List<DefunctEntry> defunct;
+
+  /// When non-null, a "Don't see your ROM/recovery? Request it" footer is
+  /// shown at the bottom of the list and in the empty-search state. The value
+  /// is a short label such as 'ROM' or 'recovery'. Left null (e.g. for Roots)
+  /// to hide the footer entirely.
+  final String? requestKind;
 
   @override
   State<CatalogPage> createState() => _CatalogPageState();
@@ -219,11 +227,20 @@ class _CatalogPageState extends State<CatalogPage> {
           Expanded(
             child: visible.isEmpty
                 ? Center(
-                    child: Text(
-                      'No ${widget.title.toLowerCase()} match "$_query".',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: scheme.onSurfaceVariant,
-                          ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          'No ${widget.title.toLowerCase()} match "$_query".',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: scheme.onSurfaceVariant),
+                          textAlign: TextAlign.center,
+                        ),
+                        if (widget.requestKind != null)
+                          _RequestProjectFooter(kind: widget.requestKind!),
+                      ],
                     ),
                   )
                 : RefreshIndicator(
@@ -280,6 +297,12 @@ class _CatalogPageState extends State<CatalogPage> {
                               const SliverToBoxAdapter(
                                 child: TrebleHintBanner(kind: 'ROM'),
                               ),
+                            if (widget.requestKind != null)
+                              SliverToBoxAdapter(
+                                child: _RequestProjectFooter(
+                                  kind: widget.requestKind!,
+                                ),
+                              ),
                           ],
                         );
                       },
@@ -307,6 +330,46 @@ class _CatalogPageState extends State<CatalogPage> {
         precacheImage(AssetImage(entry.headerAsset), context);
         context.push(widget.detailPathBuilder(entry.id));
       },
+    );
+  }
+}
+
+/// "Don't see your ROM/recovery? Request it" prompt shown at the bottom of
+/// the ROMs and Recoveries lists (and in the empty-search state). Opens a
+/// prefilled GitHub issue via [openProjectRequest].
+class _RequestProjectFooter extends StatelessWidget {
+  const _RequestProjectFooter({required this.kind});
+
+  /// Short label such as 'ROM' or 'recovery'.
+  final String kind;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+      child: Column(
+        children: <Widget>[
+          Text(
+            "Don't see your $kind?",
+            style: text.titleSmall,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Tell us which one to add next.',
+            style: text.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 10),
+          OutlinedButton.icon(
+            icon: const Icon(Icons.playlist_add),
+            label: Text('Request a $kind'),
+            onPressed: () => openProjectRequest(kind: kind),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -684,6 +747,7 @@ class RomsPage extends StatelessWidget {
       detailPathBuilder: AppRoutes.romDetail,
       defunct: _defunct,
       entryKind: 'custom ROM',
+      requestKind: 'ROM',
     );
   }
 }
