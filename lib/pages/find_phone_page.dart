@@ -8,6 +8,7 @@ import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../util/request_project.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/device_suggestion.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/star_button.dart';
 
@@ -117,6 +118,7 @@ class _FindPhonePageState extends State<FindPhonePage> {
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
                     children: <Widget>[
+                      const DeviceSuggestion(),
                       Text(
                         'Start typing to discover every ROM and recovery '
                         'that supports your phone.',

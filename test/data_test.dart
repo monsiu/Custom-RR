@@ -108,4 +108,31 @@ void main() {
       expect(repo.recoveryById(e.id)?.id, e.id);
     }
   });
+
+  group('deviceRefByCodenameOnly (on-device detection lookup)', () {
+    test('matches a known codename regardless of brand casing', () {
+      // Pick any real device reference from the catalog as the fixture.
+      final DeviceRef sample = repo.roms
+          .expand((CatalogEntry e) => e.devices)
+          .firstWhere((DeviceRef d) => d.codename.isNotEmpty);
+
+      final DeviceRef? exact =
+          repo.deviceRefByCodenameOnly(sample.codename);
+      expect(exact, isNotNull);
+      expect(exact!.codename.toLowerCase(), sample.codename.toLowerCase());
+
+      // Case-insensitive: Android reports manufacturer/codename casing that
+      // does not always match the catalog, so the lookup must normalise.
+      final DeviceRef? upper =
+          repo.deviceRefByCodenameOnly(sample.codename.toUpperCase());
+      expect(upper, isNotNull);
+      expect(upper!.codename.toLowerCase(), sample.codename.toLowerCase());
+    });
+
+    test('returns null for an unknown or empty codename', () {
+      expect(repo.deviceRefByCodenameOnly('not-a-real-codename-xyz'), isNull);
+      expect(repo.deviceRefByCodenameOnly(''), isNull);
+      expect(repo.deviceRefByCodenameOnly('   '), isNull);
+    });
+  });
 }

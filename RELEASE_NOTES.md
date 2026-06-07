@@ -4,6 +4,7 @@ The first stable release. Custom RR is now a settled, dependable home for the An
 
 ### Highlights
 
+- **It knows your phone.** On Android, Custom RR now detects your device and offers a one-tap jump to its page, with every ROM and recovery that supports it. Not in the catalog? It points you to Treble & GSI or lets you request it. All on-device, no network or tracking.
 - **Suggest what to add.** Can't find a ROM, recovery, GSI, or root solution? Request it straight from the app: from the menu (and the desktop side bar), or the quick prompt at the bottom of each list.
 - **Request a missing device.** If "Find my phone" turns up nothing, tap "Request this device" to ask for it, with your search prefilled.
 - **Device codenames on tap.** Every supported-device chip on ROM and recovery pages now shows the codename next to the model, so you can match a build to your exact phone at a glance.

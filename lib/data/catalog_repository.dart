@@ -282,6 +282,21 @@ class CatalogRepository extends ChangeNotifier {
     }
     return null;
   }
+
+  /// Lookup the first [DeviceRef] whose codename matches, ignoring brand and
+  /// case. Used by on-device detection, where `ro.product.manufacturer`
+  /// casing (`samsung` vs `Samsung`) does not reliably match catalog brands
+  /// but the codename is effectively unique.
+  DeviceRef? deviceRefByCodenameOnly(String codename) {
+    final String needle = codename.trim().toLowerCase();
+    if (needle.isEmpty) return null;
+    for (final CatalogEntry e in <CatalogEntry>[..._roms, ..._recoveries]) {
+      for (final DeviceRef d in e.devices) {
+        if (d.codename.toLowerCase() == needle) return d;
+      }
+    }
+    return null;
+  }
 }
 
 List<T> _decodeList<T>(
