@@ -144,6 +144,11 @@ class _DesktopRail extends StatefulWidget {
 }
 
 class _DesktopRailState extends State<_DesktopRail> {
+  /// Fixed height of each rail destination button (`_RailButton` is a 56px
+  /// tap target plus 3px vertical padding on each side). Pinning the extent
+  /// keeps the scroll-into-view maths exact.
+  static const double _itemExtent = 62;
+
   final ScrollController _scrollController = ScrollController();
   bool _canScrollUp = false;
   bool _canScrollDown = false;
@@ -152,9 +157,20 @@ class _DesktopRailState extends State<_DesktopRail> {
   void initState() {
     super.initState();
     _scrollController.addListener(_updateScrollFades);
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => _updateScrollFades(),
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateScrollFades();
+      _ensureSelectedVisible();
+    });
+  }
+
+  @override
+  void didUpdateWidget(_DesktopRail oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedRoute != widget.selectedRoute) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _ensureSelectedVisible(),
+      );
+    }
   }
 
   @override
@@ -174,6 +190,25 @@ class _DesktopRailState extends State<_DesktopRail> {
         _canScrollDown = down;
       });
     }
+  }
+
+  /// Scrolls the destination list so the currently selected item is centered
+  /// in the viewport. Near the list ends the target is clamped, so the item
+  /// settles as close to the middle as possible while staying fully visible.
+  /// No-op when the selected route is not a rail destination (e.g. the About
+  /// page) or when the list does not scroll.
+  void _ensureSelectedVisible() {
+    if (!_scrollController.hasClients) return;
+    final int index = _DesktopRail._destinations.indexWhere(
+      (_RailDest d) => d.route == widget.selectedRoute,
+    );
+    if (index < 0) return;
+    final ScrollPosition pos = _scrollController.position;
+    final double itemCenter = index * _itemExtent + _itemExtent / 2;
+    final double target = (itemCenter - pos.viewportDimension / 2)
+        .clamp(pos.minScrollExtent, pos.maxScrollExtent);
+    if ((target - pos.pixels).abs() < 1) return;
+    _scrollController.jumpTo(target);
   }
 
   @override
@@ -247,6 +282,7 @@ class _DesktopRailState extends State<_DesktopRail> {
                     ListView.builder(
                       controller: _scrollController,
                       padding: EdgeInsets.zero,
+                      itemExtent: _itemExtent,
                       itemCount: _DesktopRail._destinations.length,
                       itemBuilder: (BuildContext context, int i) {
                         final _RailDest d = _DesktopRail._destinations[i];
