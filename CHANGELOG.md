@@ -12,6 +12,9 @@ pre-1.0, so minor bumps may include breaking changes).
   project to add to the catalog. The option lives in the in-app menu (and the
   About page on desktop), plus a quick prompt at the bottom of the Custom ROMs,
   Custom Recoveries, Root, and Treble & GSI lists.
+- **Device codenames on ROM and recovery pages.** Each supported-device chip now
+  shows the device codename next to its model name, so you can match a build to
+  your exact phone at a glance.
 
 ### Changed
 - **Treble & GSI safety notice moved up.** The flashing-risk disclaimer on the
@@ -22,8 +25,8 @@ pre-1.0, so minor bumps may include breaking changes).
 - **More accurate freshness badges.** Custom ROM and recovery "last build"
   badges are now more trustworthy. crDroid, Evolution X, and OrangeFox update
   automatically from their official sources instead of a periodically-refreshed
-  estimate, and an active project can no longer be shown as "stale" because an
-  automated source reported an older build than we already knew about.
+  estimate, and a few entries that were showing as newer than they really are
+  (such as RisingOS Revived) now reflect their actual last build.
 
 ## [0.2.3] - 2026-06-05
 

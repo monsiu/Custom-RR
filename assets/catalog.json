@@ -11944,7 +11944,7 @@
         }
       ],
       "downloadLabel": "Devices and builds",
-      "downloadUrl": "https://sourceforge.net/projects/risingos-revived/",
+      "downloadUrl": "https://sourceforge.net/projects/risingos-revived/files/",
       "forumUrl": "https://t.me/s/RisingRevived/30",
       "links": [
         {
@@ -11959,7 +11959,7 @@
         },
         {
           "label": "SourceForge downloads",
-          "url": "https://sourceforge.net/projects/risingos-revived/",
+          "url": "https://sourceforge.net/projects/risingos-revived/files/",
           "iconName": "web"
         },
         {
