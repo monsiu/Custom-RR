@@ -16,6 +16,7 @@ class RootsPage extends StatelessWidget {
       selectedRoute: AppRoutes.roots,
       detailPathBuilder: AppRoutes.rootDetail,
       entryKind: 'root',
+      requestKind: 'root solution',
     );
   }
 }

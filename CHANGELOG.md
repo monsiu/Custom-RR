@@ -8,10 +8,10 @@ pre-1.0, so minor bumps may include breaking changes).
 ## [Unreleased]
 
 ### Added
-- **Request a ROM, recovery, or GSI.** You can now suggest a project to add to
-  the catalog. The option lives in the in-app menu (and the About page on
-  desktop), plus a quick prompt at the bottom of the Custom ROMs, Custom
-  Recoveries, and Treble & GSI lists.
+- **Request a ROM, recovery, GSI, or root solution.** You can now suggest a
+  project to add to the catalog. The option lives in the in-app menu (and the
+  About page on desktop), plus a quick prompt at the bottom of the Custom ROMs,
+  Custom Recoveries, Root, and Treble & GSI lists.
 
 ### Changed
 - **Treble & GSI safety notice moved up.** The flashing-risk disclaimer on the

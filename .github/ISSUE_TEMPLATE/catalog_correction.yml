@@ -1,0 +1,41 @@
+name: "Catalog correction"
+description: "Report wrong or outdated info on a ROM, recovery, GSI, root, or device already in Custom RR"
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: "Spotted something wrong in the app's catalog? Help us fix it. The more specific you are, the faster it gets corrected."
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What is wrong?
+      options:
+        - "Broken or wrong download link"
+        - "Outdated status (marked active but dead, or vice versa)"
+        - "Wrong device support list / wrong codename"
+        - "Broken or outdated screenshot"
+        - "Wrong details (description, last build date, successor)"
+        - "Other"
+    validations:
+      required: true
+  - type: input
+    id: entry
+    attributes:
+      label: Which entry?
+      description: "The ROM, recovery, GSI, root solution, or device as shown in the app."
+      placeholder: "e.g. crDroid / OrangeFox / Pixel 7"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should it say instead?
+      description: "Describe what is wrong and the correct value."
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: "A link that backs up the correction (official site, release page, wiki)."
+      placeholder: "https://..."
