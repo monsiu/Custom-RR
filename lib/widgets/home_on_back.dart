@@ -11,8 +11,10 @@ import '../routes.dart';
 /// - If the current page is a top-level destination with no back history
 ///   (the Custom ROMs, Recoveries, Root, Treble & GSI, devices lists, etc.),
 ///   back goes to the app's Home page instead of leaving the app.
-/// - On the Home page itself ([isHome] = true) back keeps its normal
-///   behaviour and exits the app.
+/// - On the Home page itself ([isHome] = true) this widget adds nothing: it
+///   returns [child] untouched so the system owns the back gesture and can
+///   play the Android predictive back-to-home animation (the launcher
+///   sliding into view) when the app exits.
 ///
 /// Modal routes pushed above the current page (dialogs, bottom sheets, the
 /// navigation drawer) still close first via their own handlers, since they
@@ -26,12 +28,19 @@ class HomeOnBack extends StatelessWidget {
 
   final Widget child;
 
-  /// When true the back gesture is left alone on the Home page so it exits
-  /// the app as usual.
+  /// When true the back gesture is left entirely to the system on the Home
+  /// page, so it exits the app with the predictive back-to-home animation.
   final bool isHome;
 
   @override
   Widget build(BuildContext context) {
+    // On Home, do not wrap in a PopScope at all. The root route already
+    // reports that it can pop (bubble), so the system shows the predictive
+    // back-to-home animation; a no-op PopScope here would only risk
+    // suppressing it.
+    if (isHome) {
+      return child;
+    }
     final GoRouter? router = GoRouter.maybeOf(context);
     // Outside a GoRouter (for example in widget tests that pump a page on its
     // own) there is nothing to intercept, so behave as a plain passthrough.
@@ -39,21 +48,17 @@ class HomeOnBack extends StatelessWidget {
       return child;
     }
     // Let the framework pop natively when there is a previous page to return
-    // to (so detail pages keep their normal back animation) and on Home (so
-    // back exits the app). Everywhere else, intercept and send the user to
-    // the app's Home page rather than out of the app.
-    final bool allowNativePop = isHome || router.canPop();
+    // to (so detail pages keep their normal back animation). Only when there
+    // is nothing to pop (a top-level destination reached directly) do we
+    // intercept and send the user to the app's Home page rather than out of
+    // the app.
     return PopScope<Object?>(
-      canPop: allowNativePop,
+      canPop: router.canPop(),
       onPopInvokedWithResult: (bool didPop, Object? result) {
         if (didPop) {
           return;
         }
-        if (router.canPop()) {
-          router.pop();
-        } else {
-          context.go(AppRoutes.home);
-        }
+        context.go(AppRoutes.home);
       },
       child: child,
     );
