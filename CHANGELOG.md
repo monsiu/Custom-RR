@@ -18,6 +18,13 @@ pre-1.0, so minor bumps may include breaking changes).
   Treble & GSI page now sits at the top of the page, before the walkthrough,
   instead of at the very bottom.
 
+### Fixed
+- **More accurate freshness badges.** Custom ROM and recovery "last build"
+  badges are now more trustworthy. crDroid, Evolution X, and OrangeFox update
+  automatically from their official sources instead of a periodically-refreshed
+  estimate, and an active project can no longer be shown as "stale" because an
+  automated source reported an older build than we already knew about.
+
 ## [0.2.3] - 2026-06-05
 
 ### Changed
