@@ -1,5 +1,5 @@
-name: "Request a ROM or recovery"
-description: "Ask us to add a custom ROM or recovery to the Custom RR catalog"
+name: "Request a ROM or recovery or GSI"
+description: "Ask us to add a custom ROM, GSI, or recovery to the Custom RR catalog"
 labels: ["request"]
 body:
   - type: markdown
