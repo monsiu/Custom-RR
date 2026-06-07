@@ -24,6 +24,9 @@ Built from the same Flutter source as the Android app, with the same catalog, fr
 - `custom_rr-v1.0.0-windows-arm64.zip` for Surface Pro X, Copilot+ PCs and other Windows-on-ARM devices.
 - `custom_rr-v1.0.0-linux-x64.tar.gz` for standard Intel / AMD desktops and laptops.
 - `custom_rr-v1.0.0-linux-arm64.tar.gz` for Raspberry Pi 4/5 (64-bit OS), Ampere servers, Asahi-Linux M-series Macs and other arm64 Linux boxes.
+- `custom_rr-v1.0.0-macos-universal.zip` for macOS (Apple Silicon and Intel in one build).
+
+> The macOS build is unsigned for now: on first launch, right-click the app and choose **Open** to get past Gatekeeper.
 
 > 32-bit x86 desktop is intentionally not shipped; Flutter dropped support for it.
 
