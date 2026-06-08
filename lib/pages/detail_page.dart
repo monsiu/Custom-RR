@@ -11,7 +11,6 @@ import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
-import '../theme.dart';
 import '../util/breakpoints.dart';
 import '../util/xda_search.dart';
 import '../widgets/catalog_card.dart';
@@ -191,10 +190,11 @@ class DetailPage extends StatelessWidget {
 }
 
 /// Primary "get it" action area shown on every ROM, recovery, and root
-/// detail page: a full-width brand-green download button (the main call to
-/// action, with the destination host as a subtitle) over a full-width tonal
-/// "Find threads on XDA" button. Both stretch to the reading column width so
-/// the download reads as the obvious next step.
+/// detail page: a full-width filled download button (the main call to action,
+/// with the destination host as a subtitle) over a full-width tonal "Find
+/// threads on XDA" button. Both follow the Material You colour scheme and
+/// stretch to the reading column width so the download reads as the obvious
+/// next step.
 class _DownloadActions extends StatelessWidget {
   const _DownloadActions({
     required this.downloadLabel,
@@ -217,7 +217,7 @@ class _DownloadActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BrandColors brand = context.brand;
+    final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextTheme text = Theme.of(context).textTheme;
     final String host = _host;
 
@@ -226,8 +226,6 @@ class _DownloadActions extends StatelessWidget {
       children: <Widget>[
         FilledButton.icon(
           style: FilledButton.styleFrom(
-            backgroundColor: brand.seed,
-            foregroundColor: brand.onSeed,
             minimumSize: Size.fromHeight(host.isNotEmpty ? 60 : 52),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14),
@@ -244,7 +242,7 @@ class _DownloadActions extends StatelessWidget {
                 Text(
                   host,
                   style: text.bodySmall?.copyWith(
-                    color: brand.onSeed.withValues(alpha: 0.75),
+                    color: scheme.onPrimary.withValues(alpha: 0.75),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
