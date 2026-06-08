@@ -13,15 +13,17 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 > ## Help launch Custom RR on Google Play, become a tester
 >
 > Custom RR is in **closed testing** on Google Play, and Google needs a group of
-> testers before it can go live to everyone. **You can help it launch in two
-> taps**, and you get the app early:
+> testers before it can go live to everyone. **You can help it launch in three
+> quick steps**, and you get the app early:
 >
-> 1. **Join the testers group:** [groups.google.com/g/custom-rr-play-testers](https://groups.google.com/g/custom-rr-play-testers) (click **Join group**).
-> 2. **Opt in and install:** [play.google.com/apps/testing/io.github.monsiu.custom_rr](https://play.google.com/apps/testing/io.github.monsiu.custom_rr), then get it on the [Play Store](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr).
+> 1. **Sign in to your Google account**, the same one you use on your phone.
+> 2. **Join the testers group:** open [groups.google.com/g/custom-rr-play-testers](https://groups.google.com/g/custom-rr-play-testers) and click **Join group** (viewing the group does not make you a tester, you have to actually join).
+> 3. **Opt in and install:** open [play.google.com/apps/testing/io.github.monsiu.custom_rr](https://play.google.com/apps/testing/io.github.monsiu.custom_rr), accept the invite, then get it on the [Play Store](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr).
 >
-> You must join the group **first** (with the same Google account you use on your
-> phone), or the Play link will say you are not a tester. The more testers who
-> stay opted in, the sooner Custom RR reaches the public Play Store. Thank you!
+> Use the **same Google account** for all three steps, or Play will say you are
+> not a tester. Access can take a little while to propagate after you join. The
+> more testers who stay opted in, the sooner Custom RR reaches the public Play
+> Store. Thank you!
 >
 > Prefer not to use Google Play? Grab the APK straight from
 > [GitHub Releases](https://github.com/monsiu/Custom-RR/releases) or wait for
