@@ -481,24 +481,20 @@ class _CryptoAddressTile extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Row(
+                      // Symbol + network chip in a Wrap so the chip flows to a
+                      // second line instead of overflowing on very narrow
+                      // phones; both are short so they normally sit inline.
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 4,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: <Widget>[
                           Text(
                             symbol,
                             style: Theme.of(context).textTheme.titleSmall
                                 ?.copyWith(fontWeight: FontWeight.bold),
                           ),
-                          const SizedBox(width: 6),
-                          Flexible(
-                            child: Text(
-                              name,
-                              style: Theme.of(context).textTheme.bodySmall
-                                  ?.copyWith(color: scheme.onSurfaceVariant),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          if (networkChip != null) ...<Widget>[
-                            const SizedBox(width: 6),
+                          if (networkChip != null)
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 6,
@@ -513,6 +509,8 @@ class _CryptoAddressTile extends StatelessWidget {
                               ),
                               child: Text(
                                 networkChip!,
+                                maxLines: 1,
+                                softWrap: false,
                                 style: Theme.of(context)
                                     .textTheme
                                     .labelSmall
@@ -525,8 +523,17 @@ class _CryptoAddressTile extends StatelessWidget {
                                     ),
                               ),
                             ),
-                          ],
                         ],
+                      ),
+                      const SizedBox(height: 2),
+                      // Descriptive name on its own line so it can ellipsize
+                      // without ever pushing the chip off-screen.
+                      Text(
+                        name,
+                        style: Theme.of(context).textTheme.bodySmall
+                            ?.copyWith(color: scheme.onSurfaceVariant),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 2),
                       Text(
@@ -580,23 +587,47 @@ class _CryptoAddressTile extends StatelessWidget {
                 IconButton(
                   tooltip: 'Show QR',
                   icon: const Icon(Icons.qr_code_2),
+                  visualDensity: VisualDensity.compact,
+                  constraints: const BoxConstraints(
+                    minWidth: 36,
+                    minHeight: 36,
+                  ),
+                  padding: const EdgeInsets.all(6),
                   onPressed: () => _showQr(context),
                 ),
                 if (walletUri != null)
                   IconButton(
                     tooltip: 'Open in wallet app',
                     icon: const Icon(Icons.account_balance_wallet_outlined),
+                    visualDensity: VisualDensity.compact,
+                    constraints: const BoxConstraints(
+                      minWidth: 36,
+                      minHeight: 36,
+                    ),
+                    padding: const EdgeInsets.all(6),
                     onPressed: () => _openWallet(context),
                   ),
                 if (explorerUrl != null)
                   IconButton(
                     tooltip: 'Verify on explorer',
                     icon: const Icon(Icons.open_in_new),
+                    visualDensity: VisualDensity.compact,
+                    constraints: const BoxConstraints(
+                      minWidth: 36,
+                      minHeight: 36,
+                    ),
+                    padding: const EdgeInsets.all(6),
                     onPressed: () => _openExplorer(context),
                   ),
                 IconButton(
                   tooltip: 'Copy address',
                   icon: const Icon(Icons.copy),
+                  visualDensity: VisualDensity.compact,
+                  constraints: const BoxConstraints(
+                    minWidth: 36,
+                    minHeight: 36,
+                  ),
+                  padding: const EdgeInsets.all(6),
                   onPressed: () => _copy(context),
                 ),
               ],
