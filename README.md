@@ -16,7 +16,7 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 > testers before it can go live to everyone. **You can help it launch in two
 > taps**, and you get the app early:
 >
-> 1. **Join the testers group:** [groups.google.com/g/custom-rr-testers](https://groups.google.com/g/custom-rr-testers) (click **Join group**).
+> 1. **Join the testers group:** [groups.google.com/g/custom-rr-play-testers](https://groups.google.com/g/custom-rr-play-testers) (click **Join group**).
 > 2. **Opt in and install:** [play.google.com/apps/testing/io.github.monsiu.custom_rr](https://play.google.com/apps/testing/io.github.monsiu.custom_rr), then get it on the [Play Store](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr).
 >
 > You must join the group **first** (with the same Google account you use on your
