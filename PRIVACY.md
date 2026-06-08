@@ -21,6 +21,11 @@ The app does not collect or transmit:
 - Contacts, photos, microphone, or camera data.
 - Analytics, advertising IDs, crash telemetry, or behavioral tracking.
 
+> Note: the web page that hosts this policy (on `monsiu.github.io`) uses
+> Google Analytics for basic visitor statistics. That applies only to the
+> website. The Custom RR app itself contains no analytics, advertising, or
+> tracking of any kind and collects no data about you.
+
 ## Data stored locally on your device
 
 The app stores the following only on your device, never sent to us:
