@@ -6,8 +6,13 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [1.0.0] - 2026-06-07
 
-First stable release. The catalog, deep links, and data formats are now
-considered settled.
+> ## A major milestone: Custom RR reaches 1.0
+>
+> This is the big one. After a long 0.x series, Custom RR is now **stable**.
+> The catalog, deep links, and data formats are settled, so the links and
+> bookmarks you make today keep working tomorrow. It is one trustworthy home
+> for custom ROMs, recoveries, root solutions, and GSIs, now across Android,
+> Linux, Windows, and, new in this release, macOS.
 
 ### Added
 - **Detects your phone (Android).** Open the app and it spots your device by its
@@ -53,6 +58,8 @@ considered settled.
   periodically-refreshed estimate, Project Infinity X now shows a freshness
   badge at all, and a few entries that were showing as newer than they really
   are (such as RisingOS Revived) now reflect their actual last build.
+
+---
 
 ## [0.2.3] - 2026-06-05
 
