@@ -228,11 +228,11 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 
 ## Socials
 
-- [GitHub](https://github.com/monsiu)
-- [Discord](https://discord.gg/7yrGsBy46q)
-- [Telegram](https://t.me/monsiu)
-- [Twitter / X](https://twitter.com/MonsiuTech)
-- [YouTube](https://www.youtube.com/@monsiutech)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/monsiu)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/uWZR8vR855)
+[![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/monsiu)
+[![Twitter / X](https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/MonsiuTech)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@monsiutech)
 
 ## Contact
 

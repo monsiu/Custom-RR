@@ -170,7 +170,7 @@ class _AboutPageState extends State<AboutPage> {
                 subtitle: const Text('Hang out, ask questions, report bugs'),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => _open(
-                  Uri.parse('https://discord.gg/7yrGsBy46q'),
+                  Uri.parse('https://discord.gg/uWZR8vR855'),
                 ),
               ),
               if (kSelfUpdateEnabled)
