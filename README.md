@@ -10,6 +10,23 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 
 ![Custom RR banner](images/readme/banner.png)
 
+> ## Help launch Custom RR on Google Play, become a tester
+>
+> Custom RR is in **closed testing** on Google Play, and Google needs a group of
+> testers before it can go live to everyone. **You can help it launch in two
+> taps**, and you get the app early:
+>
+> 1. **Join the testers group:** [groups.google.com/g/custom-rr-testers](https://groups.google.com/g/custom-rr-testers) (click **Join group**).
+> 2. **Opt in and install:** [play.google.com/apps/testing/io.github.monsiu.custom_rr](https://play.google.com/apps/testing/io.github.monsiu.custom_rr), then get it on the [Play Store](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr).
+>
+> You must join the group **first** (with the same Google account you use on your
+> phone), or the Play link will say you are not a tester. The more testers who
+> stay opted in, the sooner Custom RR reaches the public Play Store. Thank you!
+>
+> Prefer not to use Google Play? Grab the APK straight from
+> [GitHub Releases](https://github.com/monsiu/Custom-RR/releases) or wait for
+> [F-Droid](https://f-droid.org/). Questions? [Join the Discord](https://discord.gg/uWZR8vR855).
+
 ## Features
 
 - **Curated Custom ROMs.** LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, AlphaDroid, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS, and more, each with description, features, screenshots, and a one-tap link to the official download page.
