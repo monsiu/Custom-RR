@@ -1,0 +1,7 @@
+- Custom RR now spots your Android phone and links straight to the ROMs and recoveries that support it. On-device, no permissions.
+- Request a ROM, recovery, GSI, or root solution for the catalog.
+- Back and swipe-back now keep you in the app, returning to Home instead of exiting.
+- ROM and recovery support chips now show each device codename.
+- More accurate freshness badges; several ROMs now update live.
+- New macOS desktop build.
+- Fixes and polish.
