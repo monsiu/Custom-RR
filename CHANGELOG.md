@@ -25,9 +25,10 @@ considered settled.
 - **Request a missing device.** If "Find my phone" turns up no match, you can now
   tap "Request this device" to ask for it to be added, with your search prefilled.
 - **macOS desktop build.** Custom RR now ships a macOS app alongside the Linux
-  and Windows builds, from the same Flutter source and catalog. It is currently
-  unsigned, so on first launch right-click the app and choose Open to get past
-  the macOS security prompt.
+  and Windows builds, from the same Flutter source and catalog. It needs macOS
+  10.15 (Catalina) or newer and runs natively on both Apple Silicon and Intel
+  Macs. It is currently unsigned, so on first launch right-click the app and
+  choose Open to get past the macOS security prompt.
 
 ### Changed
 - **Back always keeps you in the app.** The system back button and the
