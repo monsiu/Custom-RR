@@ -168,6 +168,16 @@ by the `build-windows` job.
 
 ## macOS desktop
 
+> **Help wanted: macOS testers.** The macOS build compiles from the same
+> Flutter source as the Linux and Windows apps, but it has **not yet been
+> verified on real Apple hardware**, and it ships **unsigned** (no code
+> signing or notarization, which need a paid Apple Developer account). If
+> you run it on an Apple Silicon or Intel Mac, please report back: does it
+> launch, does the catalog load, do screenshots and the update check work,
+> and which macOS version you're on. Open an issue on the
+> [tracker](https://github.com/monsiu/Custom-RR/issues) or ping the Discord.
+> Bug reports and signing/notarization help are very welcome.
+
 Custom RR builds and runs as a native macOS app (universal: Apple Silicon
 and Intel in one binary). It needs **macOS 10.15 (Catalina) or newer**.
 Prereqs: Xcode and its command-line tools. Then:

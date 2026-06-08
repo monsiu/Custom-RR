@@ -28,6 +28,8 @@ Built from the same Flutter source as the Android app, with the same catalog, fr
 - `custom_rr-v1.0.0-macos-universal.zip` for macOS (Apple Silicon and Intel in one build).
 
 > The macOS build needs macOS 10.15 (Catalina) or newer. It is unsigned for now, so Gatekeeper blocks it on first launch. On macOS 14 and earlier, right-click the app and choose **Open**. On macOS 15 (Sequoia) and newer, double-click it, then open **System Settings -> Privacy & Security** and click **Open Anyway**. You only need to do this once.
+>
+> **macOS testers wanted:** this build has not yet been verified on real Apple hardware. If you run it, please let us know on the [issue tracker](https://github.com/monsiu/Custom-RR/issues) whether it launches and works, and which macOS version you're on. Signing / notarization help is welcome too.
 
 > 32-bit x86 desktop is intentionally not shipped; Flutter dropped support for it.
 
