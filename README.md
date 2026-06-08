@@ -29,7 +29,7 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 - **Material 3 + dynamic color.** Light / dark / AMOLED themes, adaptive layouts (drawer on phones, NavigationRail on tablets, permanent side panel on desktop), theme + accent persisted across launches.
 - **In-app privacy policy page** rendered from the bundled [`PRIVACY.md`](PRIVACY.md).
 - **Zero tracking, zero ads, no Play Services, GPL-3.0**, source on GitHub.
-- **Cross-platform.** Android 5.0+ (target Android 16 / SDK 36), Linux desktop, and Windows desktop.
+- **Cross-platform.** Android 5.0+ (target Android 16 / SDK 36), Linux desktop, Windows desktop, and macOS desktop (10.15 Catalina or newer, universal Apple Silicon + Intel).
 
 ## Roadmap
 
@@ -37,7 +37,7 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 - Crash & analytics (Sentry or Firebase Crashlytics)
 - Unofficial / community-maintained build listings
 - Dedicated Magisk install section
-- Auto-update for the Linux + Windows desktop builds
+- Auto-update for the Linux, Windows, and macOS desktop builds
 
 ## Deep links
 
@@ -165,6 +165,33 @@ fully portable: zip the folder, drop it anywhere, and double-click
 `Custom_RR.exe`. No installer, no admin rights. Prebuilt Windows zips
 (`custom_rr-vX.Y.Z-windows-x64.zip`) are attached to every GitHub release
 by the `build-windows` job.
+
+## macOS desktop
+
+Custom RR builds and runs as a native macOS app (universal: Apple Silicon
+and Intel in one binary). It needs **macOS 10.15 (Catalina) or newer**.
+Prereqs: Xcode and its command-line tools. Then:
+
+```bash
+flutter config --enable-macos-desktop
+flutter build macos --release
+```
+
+The `.app` bundle ends up in `build/macos/Build/Products/Release/`. Drag it
+to your Applications folder to install. Prebuilt universal zips
+(`custom_rr-vX.Y.Z-macos-universal.zip`) are attached to every GitHub
+release by the `build-macos` job.
+
+The published build is **unsigned** for now (code signing + notarization
+need a paid Apple Developer account), so Gatekeeper blocks it on first
+launch. To open it:
+
+- **macOS 14 and earlier:** right-click (or Control-click) the app and
+  choose **Open**, then confirm once.
+- **macOS 15 (Sequoia) and newer:** double-click it, then go to **System
+  Settings -> Privacy & Security**, scroll down, and click **Open Anyway**.
+
+You only have to do this once per download.
 
 ## Support the project
 
