@@ -92,19 +92,34 @@ jobs:
         env:
           PLAY_BUILD: "true"
           REQUIRE_RELEASE_SIGNING: "true"
-      - name: Stage Play bundle
-        env:
-          REF_INPUT: ${{ inputs.ref }}
-          REL_TAG: ${{ github.event.release.tag_name }}
+      - name: Read app version
+        id: appver
+        # pubspec version looks like "version: 1.0.0+8":
+        # name = part before '+', code = part after '+' (the Play versionCode).
         run: |
           set -euo pipefail
-          label="${REF_INPUT:-${REL_TAG:-$GITHUB_REF_NAME}}"
+          raw=$(grep -E '^version:' pubspec.yaml | awk '{print $2}')
+          name="${raw%+*}"
+          code="${raw#*+}"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "App version: $name (versionCode $code)"
+      - name: Stage Play bundle
+        env:
+          VNAME: ${{ steps.appver.outputs.name }}
+          VCODE: ${{ steps.appver.outputs.code }}
+        run: |
+          set -euo pipefail
           mkdir -p dist
+          # Name the bundle with the version so each build self-identifies,
+          # e.g. custom_rr-v1.0.0-vc8-play-upload.aab.
           cp build/app/outputs/bundle/release/app-release.aab \
-            "dist/custom_rr-${label}-play-upload.aab"
+            "dist/custom_rr-v${VNAME}-vc${VCODE}-play-upload.aab"
       - uses: actions/upload-artifact@v4
         with:
-          name: play-appbundle
+          # Artifact (the downloadable zip) carries the versionCode too, so the
+          # Actions page shows e.g. "play-appbundle-vc8" at a glance.
+          name: play-appbundle-vc${{ steps.appver.outputs.code }}
           path: dist/custom_rr-*-play-upload.aab
           if-no-files-found: error
           retention-days: 90
