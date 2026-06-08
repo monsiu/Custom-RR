@@ -37,9 +37,9 @@ considered settled.
   out to your launcher. From Home, back still leaves the app as usual. On recent
   Android versions the swipe-back gesture also previews where you will land as
   you drag.
-- **Refreshed download buttons.** ROM, recovery, and root pages now lead with a
-  bold, brand-coloured download button that shows where the link points, with a
-  clearer "Find threads on XDA" button beneath it.
+- **Refreshed download buttons.** ROM, recovery, and root pages now lead with
+  a full-width download button as the clear main action, with a matching
+  "Find threads on XDA" button right beneath it.
 - **Treble & GSI safety notice moved up.** The flashing-risk disclaimer on the
   Treble & GSI page now sits at the top of the page, before the walkthrough,
   instead of at the very bottom.
