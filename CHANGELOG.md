@@ -38,8 +38,8 @@ considered settled.
   Android versions the swipe-back gesture also previews where you will land as
   you drag.
 - **Refreshed download buttons.** ROM, recovery, and root pages now lead with
-  a full-width download button as the clear main action, with a matching
-  "Find threads on XDA" button right beneath it.
+  a full-width green download button as the clear main action, showing where
+  the link points, with a matching "Find threads on XDA" button right beneath it.
 - **Treble & GSI safety notice moved up.** The flashing-risk disclaimer on the
   Treble & GSI page now sits at the top of the page, before the walkthrough,
   instead of at the very bottom.

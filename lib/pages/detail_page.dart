@@ -11,6 +11,7 @@ import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
+import '../theme.dart';
 import '../util/breakpoints.dart';
 import '../util/xda_search.dart';
 import '../widgets/catalog_card.dart';
@@ -168,6 +169,7 @@ class DetailPage extends StatelessWidget {
                       const SizedBox(height: 32),
                       _DownloadActions(
                         downloadLabel: entry.downloadLabel,
+                        downloadUrl: entry.downloadUrl,
                         onDownload: _openDownloads,
                         onXda: () => _openXdaSearch(context),
                       ),
@@ -189,44 +191,76 @@ class DetailPage extends StatelessWidget {
 }
 
 /// Primary "get it" action area shown on every ROM, recovery, and root
-/// detail page: a full-width filled download button (the main call to
-/// action) over a full-width tonal "Find threads on XDA" button. Both
-/// stretch to the reading column width so the download reads as the
-/// obvious next step.
+/// detail page: a full-width brand-green download button (the main call to
+/// action, with the destination host as a subtitle) over a full-width tonal
+/// "Find threads on XDA" button. Both stretch to the reading column width so
+/// the download reads as the obvious next step.
 class _DownloadActions extends StatelessWidget {
   const _DownloadActions({
     required this.downloadLabel,
+    required this.downloadUrl,
     required this.onDownload,
     required this.onXda,
   });
 
   final String downloadLabel;
+  final String downloadUrl;
   final VoidCallback onDownload;
   final VoidCallback onXda;
 
+  /// Host shown as the button subtitle (e.g. `lineageos.org`), so users can
+  /// see where the download link points before tapping.
+  String get _host {
+    final String h = Uri.tryParse(downloadUrl)?.host ?? '';
+    return h.startsWith('www.') ? h.substring(4) : h;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final BrandColors brand = context.brand;
     final TextTheme text = Theme.of(context).textTheme;
-    final ButtonStyle shared = FilledButton.styleFrom(
-      minimumSize: const Size.fromHeight(52),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14),
-      ),
-      textStyle: text.titleSmall?.copyWith(fontWeight: FontWeight.w700),
-    );
+    final String host = _host;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         FilledButton.icon(
-          style: shared,
+          style: FilledButton.styleFrom(
+            backgroundColor: brand.seed,
+            foregroundColor: brand.onSeed,
+            minimumSize: Size.fromHeight(host.isNotEmpty ? 60 : 52),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            textStyle: text.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+          ),
           icon: const Icon(Icons.download_rounded),
-          label: Text(downloadLabel),
+          label: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(downloadLabel),
+              if (host.isNotEmpty)
+                Text(
+                  host,
+                  style: text.bodySmall?.copyWith(
+                    color: brand.onSeed.withValues(alpha: 0.75),
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+            ],
+          ),
           onPressed: onDownload,
         ),
         const SizedBox(height: 12),
         FilledButton.tonalIcon(
-          style: shared,
+          style: FilledButton.styleFrom(
+            minimumSize: const Size.fromHeight(52),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            textStyle: text.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+          ),
           icon: const Icon(Icons.forum_outlined),
           label: const Text('Find threads on XDA'),
           onPressed: onXda,
