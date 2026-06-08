@@ -229,7 +229,7 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 ## Socials
 
 - [GitHub](https://github.com/monsiu)
-- [Discord](https://discord.gg/DqsAR42ATR)
+- [Discord](https://discord.gg/7yrGsBy46q)
 - [Telegram](https://t.me/monsiu)
 - [Twitter / X](https://twitter.com/MonsiuTech)
 - [YouTube](https://www.youtube.com/@monsiutech)
