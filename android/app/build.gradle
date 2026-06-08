@@ -56,7 +56,7 @@ android {
         // Literal values (kept in sync with pubspec.yaml) so F-Droid's
         // checkupdates can parse versionCode/versionName from the git tag.
         // Bump both here and in pubspec.yaml on every release.
-        versionCode 7
+        versionCode 8
         versionName "1.0.0"
     }
 
