@@ -1,20 +1,20 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-09T08:58:50.829263Z",
+  "_generatedAt": "2026-06-10T09:39:17.662418Z",
   "_netCount": 13,
   "_curatedCount": 16,
   "entries": {
     "lineage": {
       "status": "active",
       "lastBuild": "2026-06-08",
-      "daysAgo": 0,
+      "daysAgo": 1,
       "version": "LineageOS 23.2",
       "source": "https://download.lineageos.org/",
       "origin": "network"
     },
     "crdroid": {
       "status": "active",
-      "lastBuild": "2026-06-08",
+      "lastBuild": "2026-06-10",
       "daysAgo": 0,
       "version": "crDroid (latest)",
       "source": "https://github.com/crdroidandroid/android_vendor_crDroidOTA",
@@ -23,7 +23,7 @@
     "pixelexperience": {
       "status": "abandoned",
       "lastBuild": "2025-09-01",
-      "daysAgo": 281,
+      "daysAgo": 282,
       "version": "PE 14 Plus",
       "source": "https://download.pixelexperience.org/",
       "origin": "curated"
@@ -31,7 +31,7 @@
     "evolutionx": {
       "status": "active",
       "lastBuild": "2026-06-07",
-      "daysAgo": 1,
+      "daysAgo": 2,
       "version": "Evolution X (latest)",
       "source": "https://github.com/Evolution-X/OTA",
       "origin": "network"
@@ -39,7 +39,7 @@
     "paranoidandroid": {
       "status": "abandoned",
       "lastBuild": "2025-01-15",
-      "daysAgo": 510,
+      "daysAgo": 511,
       "version": "Topaz (Android 14 QPR2)",
       "source": "https://paranoidandroid.co/",
       "origin": "curated"
@@ -47,7 +47,7 @@
     "dotos": {
       "status": "abandoned",
       "lastBuild": "2023-08-01",
-      "daysAgo": 1043,
+      "daysAgo": 1044,
       "version": "DotOS 6.1 (Android 13)",
       "source": "https://www.droidontime.com/",
       "origin": "curated"
@@ -55,7 +55,7 @@
     "bliss": {
       "status": "stale",
       "lastBuild": "2026-03-18",
-      "daysAgo": 83,
+      "daysAgo": 84,
       "version": "Bliss 18 (Android 15)",
       "source": "https://blissroms.org/",
       "origin": "curated"
@@ -63,7 +63,7 @@
     "risingosrevived": {
       "status": "stale",
       "lastBuild": "2025-12-31",
-      "daysAgo": 160,
+      "daysAgo": 161,
       "version": "RisingOS Revived (latest)",
       "source": "https://sourceforge.net/projects/risingos-revived/files/",
       "origin": "network"
@@ -71,7 +71,7 @@
     "voltage": {
       "status": "active",
       "lastBuild": "2026-04-30",
-      "daysAgo": 40,
+      "daysAgo": 41,
       "version": "Voltage 4 (Android 15)",
       "source": "https://voltageos.com/",
       "origin": "curated"
@@ -79,7 +79,7 @@
     "projectelixir": {
       "status": "active",
       "lastBuild": "2026-05-10",
-      "daysAgo": 30,
+      "daysAgo": 31,
       "version": "Elixir 4 (Android 15)",
       "source": "https://projectelixiros.com/",
       "origin": "curated"
@@ -87,7 +87,7 @@
     "pixelos": {
       "status": "active",
       "lastBuild": "2026-05-12",
-      "daysAgo": 28,
+      "daysAgo": 29,
       "version": "PixelOS 15 (Android 15)",
       "source": "https://pixelos.net/",
       "origin": "curated"
@@ -95,7 +95,7 @@
     "grapheneos": {
       "status": "active",
       "lastBuild": "2026-06-06",
-      "daysAgo": 2,
+      "daysAgo": 3,
       "version": "2026060600",
       "source": "https://grapheneos.org/releases",
       "origin": "network"
@@ -103,7 +103,7 @@
     "calyxos": {
       "status": "active",
       "lastBuild": "2026-05-14",
-      "daysAgo": 26,
+      "daysAgo": 27,
       "version": "CalyxOS 6.x (Android 15)",
       "source": "https://calyxos.org/news/",
       "origin": "curated"
@@ -111,7 +111,7 @@
     "eos": {
       "status": "active",
       "lastBuild": "2026-05-06",
-      "daysAgo": 34,
+      "daysAgo": 35,
       "version": "/e/OS 2.9 (R/S/T/U branches)",
       "source": "https://doc.e.foundation/devices",
       "origin": "curated"
@@ -119,7 +119,7 @@
     "divestos": {
       "status": "active",
       "lastBuild": "2026-05-11",
-      "daysAgo": 29,
+      "daysAgo": 30,
       "version": "DivestOS 22.1 (Android 15)",
       "source": "https://divestos.org/pages/devices",
       "origin": "curated"
@@ -127,7 +127,7 @@
     "derpfest": {
       "status": "active",
       "lastBuild": "2026-05-09",
-      "daysAgo": 31,
+      "daysAgo": 32,
       "version": "DerpFest 15 (Android 15)",
       "source": "https://projectderp.in/",
       "origin": "curated"
@@ -143,7 +143,7 @@
     "un1ca": {
       "status": "active",
       "lastBuild": "2026-06-04",
-      "daysAgo": 4,
+      "daysAgo": 5,
       "version": "UN1CA 3.1.0",
       "source": "https://github.com/salvogiangri/UN1CA/releases",
       "origin": "network"
@@ -151,7 +151,7 @@
     "artisanrom": {
       "status": "active",
       "lastBuild": "2026-05-18",
-      "daysAgo": 22,
+      "daysAgo": 23,
       "version": "ArtisanROM Quant 3.1.1",
       "source": "https://github.com/ArtisanROM/ArtisanROM/releases",
       "origin": "network"
@@ -159,7 +159,7 @@
     "magisk": {
       "status": "stale",
       "lastBuild": "2026-02-23",
-      "daysAgo": 106,
+      "daysAgo": 107,
       "version": "Magisk 30.7",
       "source": "https://github.com/topjohnwu/Magisk/releases",
       "origin": "network"
@@ -167,7 +167,7 @@
     "kernelsu": {
       "status": "stale",
       "lastBuild": "2026-04-06",
-      "daysAgo": 64,
+      "daysAgo": 65,
       "version": "KernelSU 3.2.4",
       "source": "https://github.com/tiann/KernelSU/releases",
       "origin": "network"
@@ -175,7 +175,7 @@
     "kernelsu_next": {
       "status": "active",
       "lastBuild": "2026-04-15",
-      "daysAgo": 55,
+      "daysAgo": 56,
       "version": "KernelSU Next v3.2.0",
       "source": "https://github.com/KernelSU-Next/KernelSU-Next/releases",
       "origin": "curated"
@@ -183,7 +183,7 @@
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 208,
+      "daysAgo": 210,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"
@@ -191,7 +191,7 @@
     "sukisu": {
       "status": "active",
       "lastBuild": "2026-06-02",
-      "daysAgo": 7,
+      "daysAgo": 8,
       "version": "SukiSU Ultra 4.1.3",
       "source": "https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases",
       "origin": "network"
@@ -199,7 +199,7 @@
     "twrp": {
       "status": "abandoned",
       "lastBuild": "2024-11-02",
-      "daysAgo": 584,
+      "daysAgo": 585,
       "version": "TWRP 3.7.1",
       "source": "https://twrp.me/Devices/",
       "origin": "curated"
@@ -207,7 +207,7 @@
     "orangefox": {
       "status": "active",
       "lastBuild": "2026-06-04",
-      "daysAgo": 4,
+      "daysAgo": 5,
       "version": "OrangeFox R12.0_3",
       "source": "https://orangefox.download/",
       "origin": "network"
@@ -215,7 +215,7 @@
     "redwolf": {
       "status": "abandoned",
       "lastBuild": "2021-07-01",
-      "daysAgo": 1804,
+      "daysAgo": 1805,
       "version": "RedWolf 3.x",
       "source": "https://forum.xda-developers.com/c/redwolf-recovery.10018/",
       "origin": "curated"
@@ -223,7 +223,7 @@
     "pitchblack": {
       "status": "abandoned",
       "lastBuild": "2024-02-14",
-      "daysAgo": 846,
+      "daysAgo": 847,
       "version": "PBRP 3.7.x",
       "source": "https://pitchblack.tech/",
       "origin": "curated"
@@ -231,7 +231,7 @@
     "shrp": {
       "status": "abandoned",
       "lastBuild": "2023-10-01",
-      "daysAgo": 982,
+      "daysAgo": 983,
       "version": "SHRP 3.1",
       "source": "https://shrp.vercel.app/",
       "origin": "curated"
