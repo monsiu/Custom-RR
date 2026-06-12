@@ -131,12 +131,18 @@ class _DeviceTile extends StatelessWidget {
     final CatalogRepository repo = CatalogRepository.instance;
     final int romCount = repo.romsForDevice(device.name).length;
     final int recCount = repo.recoveriesForDevice(device.name).length;
+    final String romLabel = '$romCount ROM${romCount == 1 ? '' : 's'}';
+    final String recLabel =
+        '$recCount recover${recCount == 1 ? 'y' : 'ies'}';
+    // Recovery-only brands (no ROM targets them) show their recovery count
+    // instead of a dispiriting "0 ROMs".
+    final String cardLabel = romCount == 0 ? recLabel : romLabel;
 
     return Tooltip(
-      message: '${device.name}: $romCount ROMs, $recCount recoveries',
+      message: '${device.name}: $romLabel, $recLabel',
       child: Semantics(
         label:
-            '${device.name}. $romCount ROMs and $recCount recoveries available.',
+            '${device.name}. $romLabel and $recLabel available.',
         button: true,
         child: Card(
           margin: EdgeInsets.zero,
@@ -173,7 +179,7 @@ class _DeviceTile extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
                   child: Text(
-                    '$romCount ROMs',
+                    cardLabel,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: scheme.onSurfaceVariant,
                         ),

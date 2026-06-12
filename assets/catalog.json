@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-01T09:12:36.838752Z",
+  "_generatedAt": "2026-06-12T04:41:19.209221Z",
   "roms": [
     {
       "id": "lineage",
@@ -14077,7 +14077,7 @@
       ],
       "devices": [
         {
-          "brand": "10or",
+          "brand": "10.or",
           "model": "10.or G",
           "codename": "G"
         },
@@ -21344,11 +21344,6 @@
           "brand": "10.or",
           "model": "G",
           "codename": "G"
-        },
-        {
-          "brand": "ARK",
-          "model": "Benefit A3",
-          "codename": "peach"
         },
         {
           "brand": "Asus",
@@ -29175,14 +29170,6 @@
     {
       "name": "10.or",
       "imageAsset": "images/device_10or.png"
-    },
-    {
-      "name": "10or",
-      "imageAsset": "images/branding.png"
-    },
-    {
-      "name": "ARK",
-      "imageAsset": "images/device_ark.png"
     },
     {
       "name": "Asus",

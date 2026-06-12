@@ -356,6 +356,11 @@ String _infinityxVendor(String model) {
 }
 
 List<_Device> _parseAllDevices(Directory devicesDir) {
+  // Vendors excluded from the catalog entirely. ARK's only claim to fame is
+  // a single 2015 budget phone (Benefit A3, "peach") that falls inside
+  // TWRP's broad date-based matcher; no ROM in the catalog targets it, so
+  // it surfaced as a zero-ROM brand card on the Devices page.
+  const Set<String> excludedVendors = <String>{'ARK'};
   final List<_Device> out = <_Device>[];
   for (final FileSystemEntity e in devicesDir.listSync()) {
     if (e is! File || !e.path.endsWith('.yml')) continue;    try {
@@ -368,9 +373,11 @@ List<_Device> _parseAllDevices(Directory devicesDir) {
       final String release = (y['release']?.toString() ?? '').trim();
       final String type = (y['type'] as String?)?.trim() ?? 'phone';
       if (vendor.isEmpty || name.isEmpty || codename.isEmpty) continue;
+      final String normalizedVendor = _normalizeVendor(vendor);
+      if (excludedVendors.contains(normalizedVendor)) continue;
       out.add(
         _Device(
-          vendor: _normalizeVendor(vendor),
+          vendor: normalizedVendor,
           model: name,
           codename: codename,
           type: type,
@@ -403,6 +410,12 @@ String _normalizeVendor(String v) {
   switch (v.toLowerCase()) {
     case 'google':
       return 'Google';
+    // The LineageOS wiki spells the company "10.or"; the PixelOS device
+    // repo spells it "10or". Same vendor, keep the wiki spelling so the
+    // two sources do not produce duplicate brand cards.
+    case '10or':
+    case '10.or':
+      return '10.or';
     case 'xiaomi':
       return 'Xiaomi';
     case 'redmi':
@@ -2362,7 +2375,6 @@ List<Map<String, dynamic>> _buildDevices(List<String> vendors) {
   // ensure every shipped vendor has an entry here.
   const Map<String, String> assetMap = <String, String>{
     '10.or': 'images/device_10or.png',
-    'ARK': 'images/device_ark.png',
     'Asus': 'images/device_asus.png',
     'BQ': 'images/device_bq.png',
     'Banana Pi': 'images/device_banana_pi.png',
