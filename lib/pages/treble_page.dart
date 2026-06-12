@@ -176,6 +176,28 @@ class TreblePage extends StatelessWidget {
       ),
     ),
     _GsiProject(
+      name: 'LineageOS 21 pre-QPR2 (AndyYan)',
+      status: _GsiStatus.activeMonthly,
+      pitch:
+          'AndyYan\'s long-term Android 14 GSI: frozen on the pre-QPR2 '
+          'LineageOS 21 base and manually security-patched, so it keeps '
+          'the original Material 3 design and dodges the device breakages '
+          'newer quarterly releases brought. The `Light` variant targets '
+          'modern devices (his own daily driver); the TrebleDroid-based '
+          'variant in the sibling `lineage-21-pre-qpr2-td` folder carries '
+          'the full patchset for Samsung and legacy devices.',
+      primary: _GsiLink(
+        label: 'Downloads ("Light")',
+        url:
+            'https://sourceforge.net/projects/andyyan-gsi/files/lineage-21-pre-qpr2-light/',
+      ),
+      secondary: _GsiLink(
+        label: 'XDA thread',
+        url:
+            'https://xdaforums.com/t/gsi-14-lineageos-21-pre-qpr2-light-trebledroid-based.4752540/',
+      ),
+    ),
+    _GsiProject(
       name: 'TrebleDroid',
       status: _GsiStatus.activeDaily,
       pitch:

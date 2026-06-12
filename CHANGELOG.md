@@ -12,6 +12,10 @@ project uses [Semantic Versioning](https://semver.org/).
   group below the official projects, with a short explainer so you know to
   read the maintainer's thread before flashing. An info button next to the
   section title explains exactly what counts as official vs unofficial.
+- **AndyYan's LineageOS 21 pre-QPR2 GSI** on the Treble & GSI page: a
+  long-term Android 14 build that stays on the pre-QPR2 base with manual
+  security patches, in "Light" and TrebleDroid-based variants, with direct
+  download and XDA thread links.
 - **Galaxy S24 Ultra joins the catalog** with its first two community builds,
   added by user request:
   - **LineageOS for S24 Ultra (Unofficial)**: josip-k's community LineageOS
