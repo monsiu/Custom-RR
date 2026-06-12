@@ -148,6 +148,12 @@ class _CatalogPageState extends State<CatalogPage> {
           );
         break;
     }
+    final List<CatalogEntry> official = visible
+        .where((CatalogEntry e) => !e.unofficial)
+        .toList(growable: false);
+    final List<CatalogEntry> unofficial = visible
+        .where((CatalogEntry e) => e.unofficial)
+        .toList(growable: false);
     final ColorScheme scheme = Theme.of(context).colorScheme;
 
     return AppShell(
@@ -254,39 +260,49 @@ class _CatalogPageState extends State<CatalogPage> {
                         // browsing the full list (not searching).
                         final bool showDefunct =
                             q.isEmpty && widget.defunct.isNotEmpty;
+                        List<Widget> entrySlivers(List<CatalogEntry> items) =>
+                            <Widget>[
+                              if (columns == 1)
+                                SliverPadding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 8,
+                                    horizontal: 4,
+                                  ),
+                                  sliver: SliverList.builder(
+                                    itemCount: items.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) =>
+                                            _entryCard(context, items[index]),
+                                  ),
+                                )
+                              else
+                                SliverPadding(
+                                  padding: const EdgeInsets.all(12),
+                                  sliver: SliverGrid.builder(
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: columns,
+                                      crossAxisSpacing: 12,
+                                      mainAxisSpacing: 12,
+                                      childAspectRatio: 1.15,
+                                    ),
+                                    itemCount: items.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) =>
+                                            _entryCard(context, items[index]),
+                                  ),
+                                ),
+                            ];
                         return CustomScrollView(
                           physics: const AlwaysScrollableScrollPhysics(),
                           slivers: <Widget>[
-                            if (columns == 1)
-                              SliverPadding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 8,
-                                  horizontal: 4,
-                                ),
-                                sliver: SliverList.builder(
-                                  itemCount: visible.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) =>
-                                          _entryCard(context, visible[index]),
-                                ),
-                              )
-                            else
-                              SliverPadding(
-                                padding: const EdgeInsets.all(12),
-                                sliver: SliverGrid.builder(
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: columns,
-                                    crossAxisSpacing: 12,
-                                    mainAxisSpacing: 12,
-                                    childAspectRatio: 1.15,
-                                  ),
-                                  itemCount: visible.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) =>
-                                          _entryCard(context, visible[index]),
-                                ),
+                            ...entrySlivers(official),
+                            if (unofficial.isNotEmpty) ...<Widget>[
+                              const SliverToBoxAdapter(
+                                child: _UnofficialHeader(),
                               ),
+                              ...entrySlivers(unofficial),
+                            ],
                             if (showDefunct)
                               SliverToBoxAdapter(
                                 child: _DefunctSection(
@@ -423,6 +439,52 @@ int _freshnessRank(CatalogEntry e) {
     return 1 << 30;
   }
   return info.daysAgo;
+}
+
+/// Section header shown above community-maintained entries flagged as
+/// [CatalogEntry.unofficial]. These are real catalog entries with full
+/// detail pages; the header just sets expectations before the user taps.
+class _UnofficialHeader extends StatelessWidget {
+  const _UnofficialHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Divider(color: scheme.outlineVariant),
+          const SizedBox(height: 16),
+          Row(
+            children: <Widget>[
+              Icon(
+                Icons.science_outlined,
+                size: 20,
+                color: scheme.onSurfaceVariant,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                'Unofficial builds',
+                style: text.titleMedium?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Community-maintained builds for specific devices, published by '
+            'independent developers rather than an official project. Read '
+            "the maintainer's thread carefully before flashing.",
+            style: text.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _DefunctSection extends StatelessWidget {

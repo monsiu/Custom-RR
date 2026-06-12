@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-12T07:48:22.864102Z",
+  "_generatedAt": "2026-06-12T08:11:56.270083Z",
   "roms": [
     {
       "id": "lineage",
@@ -21354,6 +21354,7 @@
       "downloadUrl": "https://exynoobs.github.io/OTA/devices/e3q.html",
       "forumUrl": "https://xdaforums.com/t/rom-unofficial-lineageos-23-2-for-galaxy-s24-ultra.4779036/",
       "warning": "Unofficial community build by a single maintainer; not endorsed by the LineageOS project. VoLTE is currently not working, and flashing requires the stock S928BXXS4BYH2 firmware base. Read the install instructions carefully.",
+      "unofficial": true,
       "links": [
         {
           "label": "Install instructions",
@@ -21400,7 +21401,8 @@
       "downloadLabel": "XDA thread (downloads)",
       "downloadUrl": "https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/",
       "forumUrl": "https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/",
-      "warning": "Community build distributed and supported only through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model."
+      "warning": "Community build distributed and supported only through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model.",
+      "unofficial": true
     }
   ],
   "recoveries": [
