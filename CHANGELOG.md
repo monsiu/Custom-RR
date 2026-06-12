@@ -10,7 +10,8 @@ project uses [Semantic Versioning](https://semver.org/).
 - **New "Unofficial builds" section** on the Custom ROMs list. Community
   builds made by independent developers now sit in their own clearly labelled
   group below the official projects, with a short explainer so you know to
-  read the maintainer's thread before flashing.
+  read the maintainer's thread before flashing. An info button next to the
+  section title explains exactly what counts as official vs unofficial.
 - **Galaxy S24 Ultra joins the catalog** with its first two community builds,
   added by user request:
   - **LineageOS for S24 Ultra (Unofficial)**: josip-k's community LineageOS
