@@ -131,6 +131,17 @@ Future<void> main(List<String> args) async {
       version: 'ArtisanROM Quant v3.1.1',
       source: 'https://github.com/ArtisanROM/ArtisanROM/releases',
     ),
+    'lineagee3q': _Seed(
+      lastBuild: DateTime.utc(2026, 5, 22),
+      version: 'LineageOS 23.2 (unofficial, e3q)',
+      source: 'https://exynoobs.github.io/OTA/',
+    ),
+    'drketan': _Seed(
+      lastBuild: DateTime.utc(2026, 2, 12),
+      version: 'Dr.Ketan ROM (One UI 7.0 / 8.5)',
+      source:
+          'https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/',
+    ),
 
     // Root solutions
     'magisk': _Seed(
@@ -297,6 +308,14 @@ final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
         owner: 'ArtisanROM',
         repo: 'ArtisanROM',
         displayName: 'ArtisanROM Quant',
+      ),
+  // Unofficial LineageOS for the Galaxy S24 Ultra ships OTAs from the
+  // Exynoobs OTA repo; every new build lands as a commit.
+  'lineagee3q': (HttpClient c) => _fetchGitHubLatestCommit(
+        c,
+        owner: 'Exynoobs',
+        repo: 'OTA',
+        displayName: 'Unofficial LineageOS (e3q)',
       ),
   'magisk': (HttpClient c) => _fetchGitHubReleaseLatest(
         c,
