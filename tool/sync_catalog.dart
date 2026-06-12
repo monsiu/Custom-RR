@@ -1918,7 +1918,19 @@ List<Map<String, dynamic>> _buildRoms(
         'MindTheGapps support for Google apps.',
         'Active XDA thread with changelogs and developer support.',
       ],
-      screenshots: <String>[],
+      // Reuses the official lineageos.org press shots (the build ships the
+      // same stock LineageOS UI), shuffled so the gallery does not mirror
+      // the official LineageOS entry one-for-one.
+      screenshots: <String>[
+        'https://lineageos.org/images/2024-02-14/jelly.webp',
+        'https://lineageos.org/images/2024-12-31/twelve.webp',
+        'https://lineageos.org/images/2025-10-11/hero.webp',
+        'https://lineageos.org/images/2024-02-14/calculator.webp',
+        'https://lineageos.org/images/2022-12-31/aperture.webp',
+        'https://lineageos.org/images/2024-02-14/dialer.webp',
+        'https://lineageos.org/images/2025-10-11/catapult.webp',
+        'https://lineageos.org/images/2024-02-14/glimpse.webp',
+      ],
       downloadLabel: 'Builds & install guide',
       downloadUrl: 'https://exynoobs.github.io/OTA/devices/e3q.html',
       forumUrl:

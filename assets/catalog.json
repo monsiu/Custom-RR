@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-12T08:11:56.270083Z",
+  "_generatedAt": "2026-06-12T08:35:16.723360Z",
   "roms": [
     {
       "id": "lineage",
@@ -21341,7 +21341,16 @@
         "MindTheGapps support for Google apps.",
         "Active XDA thread with changelogs and developer support."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://lineageos.org/images/2024-02-14/jelly.webp",
+        "https://lineageos.org/images/2024-12-31/twelve.webp",
+        "https://lineageos.org/images/2025-10-11/hero.webp",
+        "https://lineageos.org/images/2024-02-14/calculator.webp",
+        "https://lineageos.org/images/2022-12-31/aperture.webp",
+        "https://lineageos.org/images/2024-02-14/dialer.webp",
+        "https://lineageos.org/images/2025-10-11/catapult.webp",
+        "https://lineageos.org/images/2024-02-14/glimpse.webp"
+      ],
       "devices": [
         {
           "brand": "Samsung",
