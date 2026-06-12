@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-12T07:37:51.759491Z",
+  "_generatedAt": "2026-06-12T07:48:22.864102Z",
   "roms": [
     {
       "id": "lineage",
@@ -4159,6 +4159,11 @@
           "brand": "Samsung",
           "model": "Samsung Galaxy S10e",
           "codename": "beyond0lte"
+        },
+        {
+          "brand": "Tecno",
+          "model": "Tecno Pova 5",
+          "codename": "LH7n"
         },
         {
           "brand": "Xiaomi",
@@ -29387,6 +29392,10 @@
     {
       "name": "Sony",
       "imageAsset": "images/sony.png"
+    },
+    {
+      "name": "Tecno",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Vsmart",
