@@ -16,14 +16,14 @@ project uses [Semantic Versioning](https://semver.org/).
   long-term Android 14 build that stays on the pre-QPR2 base with manual
   security patches, in "Light" and TrebleDroid-based variants, with direct
   download and XDA thread links.
-- **Galaxy S24 Ultra joins the catalog** with its first two community builds,
-  added by user request:
+- **Galaxy S24 Ultra joins the catalog** with its first two builds, added by
+  user request:
   - **LineageOS for S24 Ultra (Unofficial)**: josip-k's community LineageOS
     port, with links to builds, install instructions, and source code.
   - **Dr.Ketan ROM**: the long-running stock-based One UI ROM (One UI 7.0 and
     8.5 bases) for the SM-S928B/DS.
-  Both pages carry a clear notice that these are community builds, so you know
-  exactly what you are flashing.
+  Both pages carry a clear notice about where the builds come from, so you
+  know exactly what you are flashing.
 
 ### Changed
 - ROM and recovery cards now use proper wording for single-item counts
