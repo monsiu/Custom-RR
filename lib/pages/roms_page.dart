@@ -472,6 +472,14 @@ class _UnofficialHeader extends StatelessWidget {
                   color: scheme.onSurfaceVariant,
                 ),
               ),
+              const SizedBox(width: 4),
+              IconButton(
+                tooltip: 'What counts as unofficial?',
+                icon: const Icon(Icons.info_outline, size: 20),
+                color: scheme.onSurfaceVariant,
+                visualDensity: VisualDensity.compact,
+                onPressed: () => _showUnofficialInfo(context),
+              ),
             ],
           ),
           const SizedBox(height: 4),
@@ -485,6 +493,49 @@ class _UnofficialHeader extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Explains the official vs unofficial split used by the catalog. Opened
+/// from the info button next to the "Unofficial builds" section header.
+Future<void> _showUnofficialInfo(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      final ColorScheme scheme = Theme.of(context).colorScheme;
+      return AlertDialog(
+        icon: Icon(Icons.science_outlined, color: scheme.primary),
+        title: const Text('Official vs unofficial'),
+        content: const SingleChildScrollView(
+          child: Text(
+            'Official builds come from the ROM project itself: the team '
+            'maintains the device, publishes builds on its own site or '
+            'channels, and supports them under the project\u2019s name.\n\n'
+            'Unofficial builds are made by independent developers, usually '
+            'for one specific device. Custom RR lists a build as unofficial '
+            'when any of these apply:\n\n'
+            '\u2022 It is not published or endorsed by the project it is '
+            'based on (for example a LineageOS port the LineageOS team does '
+            'not ship).\n'
+            '\u2022 It is maintained by an individual or a small community, '
+            'typically distributed through an XDA thread.\n'
+            '\u2022 The device is not on the project\u2019s official '
+            'supported list.\n\n'
+            'Unofficial does not mean bad: many are excellent and fill gaps '
+            'the official projects leave. But quality, update cadence, and '
+            'support depend entirely on the maintainer, so always read the '
+            'thread, check the known issues, and keep a backup before '
+            'flashing.',
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Got it'),
+          ),
+        ],
+      );
+    },
+  );
 }
 
 class _DefunctSection extends StatelessWidget {
