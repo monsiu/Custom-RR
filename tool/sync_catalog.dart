@@ -679,6 +679,12 @@ _Policy _policyFor(String romId) {
       };
       return (_Device d) =>
           d.vendor == 'Samsung' && artisanCodenames.contains(d.codename);
+    case 'lineagee3q':
+    case 'drketan':
+      // Community builds for the Snapdragon Galaxy S24 Ultra. The device has
+      // no LineageOS wiki entry, so it is injected explicitly in [_buildRoms]
+      // and this policy matches nothing from the wiki pool.
+      return (_Device _) => false;
 
     // Recoveries follow approximate official device lists.
     case 'twrp':
@@ -848,6 +854,8 @@ const Map<String, String> _xdaDeviceForums = <String, String>{
   'a72q': 'https://xdaforums.com/f/samsung-galaxy-a72.12141/$_xdaDevFilter',
   'a73xq': 'https://xdaforums.com/f/samsung-galaxy-a73-5g.12667/$_xdaDevFilter',
   'dm1q': 'https://xdaforums.com/f/samsung-galaxy-s23.12707/$_xdaDevFilter',
+  'e3q':
+      'https://xdaforums.com/f/samsung-galaxy-s24-ultra.12819/$_xdaDevFilter',
   'f62': 'https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/$_xdaDevFilter',
   'm52xq': 'https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/$_xdaDevFilter',
 
@@ -941,6 +949,25 @@ List<_Device> get _un1caExtraDevices => <_Device>[
       type: 'phone',
       currentBranch: '',
       releaseYear: s.releaseYear ?? 2021,
+    ),
+];
+
+/// The Snapdragon Galaxy S24 Ultra has no LineageOS wiki entry, so the
+/// community builds that target it (unofficial LineageOS, Dr.Ketan ROM)
+/// must inject the device by hand.
+const List<_DeviceSeed> _e3qSeeds = <_DeviceSeed>[
+  _DeviceSeed('e3q', 'Galaxy S24 Ultra', 2024),
+];
+
+List<_Device> get _e3qExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _e3qSeeds)
+    _Device(
+      vendor: 'Samsung',
+      model: s.model,
+      codename: s.codename,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: s.releaseYear ?? 2024,
     ),
 ];
 
@@ -1873,6 +1900,74 @@ List<Map<String, dynamic>> _buildRoms(
         ),
       ],
     ),
+    _RomSpec(
+      id: 'lineagee3q',
+      name: 'LineageOS for S24 Ultra (Unofficial)',
+      headerAsset: 'images/lineageos.png',
+      shortTagline:
+          'Community-built unofficial LineageOS for the Snapdragon Galaxy S24 Ultra.',
+      description: <String>[
+        'Unofficial LineageOS builds for the Galaxy S24 Ultra (e3q), maintained by XDA developer josip-k under the Exynoobs project. The S24 Ultra has no official LineageOS support, so this community port is the way to run AOSP-style Android on the device.',
+        'Builds are published on the Exynoobs OTA page together with step-by-step install instructions, and the device tree, common tree, and kernel sources are developed in the open on GitHub. Current builds track LineageOS 23.2 and require the stock S928BXXS4BYH2 firmware as a base.',
+      ],
+      features: <String>[
+        'LineageOS 23.2 for a device with no official LineageOS support.',
+        'Dedicated OTA page with builds, changelogs, and install instructions.',
+        'Device, common, and kernel sources published on GitHub.',
+        'MindTheGapps support for Google apps.',
+        'Active XDA thread with changelogs and developer support.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'Builds & install guide',
+      downloadUrl: 'https://exynoobs.github.io/OTA/devices/e3q.html',
+      forumUrl:
+          'https://xdaforums.com/t/rom-unofficial-lineageos-23-2-for-galaxy-s24-ultra.4779036/',
+      warning:
+          'Unofficial community build by a single maintainer; not endorsed by the LineageOS project. VoLTE is currently not working, and flashing requires the stock S928BXXS4BYH2 firmware base. Read the install instructions carefully.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Install instructions',
+          url: 'https://exynoobs.github.io/OTA/devices/e3q-install.html',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Device sources',
+          url: 'https://github.com/Exynoobs/android_device_samsung_e3q',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Kernel sources',
+          url: 'https://github.com/Exynoobs/android_kernel_samsung_sm8650',
+          iconName: 'github',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'drketan',
+      name: 'Dr.Ketan ROM',
+      headerAsset: 'images/samsung.png',
+      shortTagline:
+          'Stock-based One UI custom ROM with root-friendly extras for the Galaxy S24 Ultra (S928B).',
+      description: <String>[
+        'Dr.Ketan ROM is a long-running stock-based custom ROM line by XDA Recognized Developer dr.ketan, here built for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS). It keeps the full One UI experience while adding root-friendly conveniences on top of Samsung firmware.',
+        'The ROM ships as an Odin-flashable full package with One UI 7.0 and One UI 8.5 bases, a system-RW F2FS layout, and the bundled ROM Tool app for applying tweaks like the S Health root patch, font installation, and navigation bar gesture-hint toggles.',
+      ],
+      features: <String>[
+        'Full stock One UI experience with One UI 7.0 and One UI 8.5 bases.',
+        'Odin-flashable full ROM packages.',
+        'System-RW with F2FS for a writable system partition.',
+        'ROM Tool app: S Health patch for rooted devices, font install, NavBar gesture hint toggle, and more.',
+        'Maintained by a veteran XDA Recognized Developer with a long history of Samsung flagship ROMs.',
+      ],
+      screenshots: <String>[],
+      downloadLabel: 'XDA thread (downloads)',
+      downloadUrl:
+          'https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/',
+      forumUrl:
+          'https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/',
+      warning:
+          'Community build distributed and supported only through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model.',
+    ),
   ];
 
   return specs.map((_RomSpec s) {
@@ -1907,6 +2002,10 @@ List<Map<String, dynamic>> _buildRoms(
         for (final _Device d in _un1caExtraDevices)
           if (!seen.contains(d.codename)) d,
       ];
+    } else if (s.id == 'lineagee3q' || s.id == 'drketan') {
+      // Community builds for the Galaxy S24 Ultra, which has no LineageOS
+      // wiki entry; the device is injected by hand.
+      matched = _e3qExtraDevices;
     } else {
       matched = all.where(policy).toList();
     }

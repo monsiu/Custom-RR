@@ -4,6 +4,27 @@ All notable changes to **Custom RR** are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **Galaxy S24 Ultra joins the catalog** with its first two community builds,
+  added by user request:
+  - **LineageOS for S24 Ultra (Unofficial)**: josip-k's community LineageOS
+    port, with links to builds, install instructions, and source code.
+  - **Dr.Ketan ROM**: the long-running stock-based One UI ROM (One UI 7.0 and
+    8.5 bases) for the SM-S928B/DS.
+  Both pages carry a clear notice that these are community builds, so you know
+  exactly what you are flashing.
+
+### Changed
+- ROM and recovery cards now use proper wording for single-item counts
+  ("1 ROM", not "1 ROMs"), and brands that only have recoveries say so instead
+  of showing "0 ROMs".
+
+### Removed
+- The ARK brand entry, which had no devices in the catalog. The 10.or brand is
+  now listed once instead of under two spellings.
+
 ## [1.0.0] - 2026-06-07
 
 > ## A major milestone: Custom RR reaches 1.0
