@@ -1959,7 +1959,6 @@ List<Map<String, dynamic>> _buildRoms(
       id: 'drketan',
       name: 'Dr.Ketan ROM',
       headerAsset: 'images/samsung.png',
-      unofficial: true,
       shortTagline:
           'Stock-based One UI custom ROM with root-friendly extras for the Galaxy S24 Ultra (S928B).',
       description: <String>[
@@ -1980,7 +1979,7 @@ List<Map<String, dynamic>> _buildRoms(
       forumUrl:
           'https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/',
       warning:
-          'Community build distributed and supported only through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model.',
+          'Distributed and supported through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model.',
     ),
   ];
 

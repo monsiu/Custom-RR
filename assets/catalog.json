@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-12T08:35:16.723360Z",
+  "_generatedAt": "2026-06-12T08:38:01.355614Z",
   "roms": [
     {
       "id": "lineage",
@@ -21410,8 +21410,7 @@
       "downloadLabel": "XDA thread (downloads)",
       "downloadUrl": "https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/",
       "forumUrl": "https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/",
-      "warning": "Community build distributed and supported only through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model.",
-      "unofficial": true
+      "warning": "Distributed and supported through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model."
     }
   ],
   "recoveries": [
