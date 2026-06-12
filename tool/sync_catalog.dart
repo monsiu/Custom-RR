@@ -1904,6 +1904,7 @@ List<Map<String, dynamic>> _buildRoms(
       id: 'lineagee3q',
       name: 'LineageOS for S24 Ultra (Unofficial)',
       headerAsset: 'images/lineageos.png',
+      unofficial: true,
       shortTagline:
           'Community-built unofficial LineageOS for the Snapdragon Galaxy S24 Ultra.',
       description: <String>[
@@ -1946,6 +1947,7 @@ List<Map<String, dynamic>> _buildRoms(
       id: 'drketan',
       name: 'Dr.Ketan ROM',
       headerAsset: 'images/samsung.png',
+      unofficial: true,
       shortTagline:
           'Stock-based One UI custom ROM with root-friendly extras for the Galaxy S24 Ultra (S928B).',
       description: <String>[
@@ -2022,6 +2024,7 @@ List<Map<String, dynamic>> _buildRoms(
       'downloadUrl': s.downloadUrl,
       'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
       if (s.warning != null) 'warning': s.warning,
+      if (s.unofficial) 'unofficial': true,
       if (s.links.isNotEmpty)
         'links': s.links.map((_RomLink l) => l.toJson()).toList(),
     };
@@ -2569,6 +2572,7 @@ class _RomSpec {
     this.forumUrl,
     this.warning,
     this.links = const <_RomLink>[],
+    this.unofficial = false,
   });
 
   final String id;
@@ -2595,6 +2599,11 @@ class _RomSpec {
   /// description and Key Features. Use for project Telegram channels,
   /// GitHub orgs, per-device builds pages, etc.
   final List<_RomLink> links;
+
+  /// True for community-maintained builds published by independent
+  /// developers (usually via XDA) rather than an official project. The
+  /// client groups these under a separate "Unofficial builds" section.
+  final bool unofficial;
 }
 
 class _RomLink {

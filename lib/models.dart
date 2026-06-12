@@ -17,6 +17,7 @@ class CatalogEntry {
     this.forumUrl = '',
     this.warning = '',
     this.links = const <CatalogLink>[],
+    this.unofficial = false,
   });
 
   final String id;
@@ -51,6 +52,11 @@ class CatalogEntry {
   /// project Telegram channels, GitHub orgs, devices pages, etc.
   final List<CatalogLink> links;
 
+  /// True for community-maintained builds published by independent
+  /// developers (usually via XDA) rather than an official project.
+  /// Grouped under a separate "Unofficial builds" section in the lists.
+  final bool unofficial;
+
   /// Distinct manufacturer names from [devices]. Used to filter ROMs/recoveries
   /// on the manufacturer-level Device page.
   List<String> get supportedManufacturers {
@@ -76,6 +82,7 @@ class CatalogEntry {
       forumUrl: (json['forumUrl'] as String?) ?? '',
       warning: (json['warning'] as String?) ?? '',
       links: _catalogLinks(json['links']),
+      unofficial: (json['unofficial'] as bool?) ?? false,
     );
   }
 }
