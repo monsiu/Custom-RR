@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-12T07:41:06.349903Z",
+  "_generatedAt": "2026-06-12T09:55:47.908041Z",
   "_netCount": 14,
   "_curatedCount": 17,
   "entries": {
@@ -175,7 +175,7 @@
     "magisk": {
       "status": "stale",
       "lastBuild": "2026-02-23",
-      "daysAgo": 108,
+      "daysAgo": 109,
       "version": "Magisk 30.7",
       "source": "https://github.com/topjohnwu/Magisk/releases",
       "origin": "network"
@@ -199,7 +199,7 @@
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 211,
+      "daysAgo": 212,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"
