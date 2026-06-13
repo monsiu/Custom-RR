@@ -7,36 +7,41 @@ project uses [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
-- **New "Unofficial builds" section** on the Custom ROMs list. Community
-  builds made by independent developers now sit in their own clearly labelled
-  group below the official projects, with a short explainer so you know to
-  read the maintainer's thread before flashing. An info button next to the
-  section title explains exactly what counts as official vs unofficial.
-- **AndyYan's LineageOS 21 pre-QPR2 GSI** on the Treble & GSI page: a
-  long-term Android 14 build that stays on the pre-QPR2 base with manual
-  security patches, in "Light" and TrebleDroid-based variants, with direct
-  download and XDA thread links.
-- **Galaxy S24 Ultra joins the catalog** with its first two builds, added by
-  user request:
-  - **LineageOS for S24 Ultra (Unofficial)**: josip-k's community LineageOS
-    port, with links to builds, install instructions, and source code.
-  - **Dr.Ketan ROM**: the long-running stock-based One UI ROM (One UI 7.0 and
-    8.5 bases) for the SM-S928B/DS.
-  Both pages carry a clear notice about where the builds come from, so you
-  know exactly what you are flashing.
+- Nothing yet.
+
+## [1.1.0] - 2026-06-13
+
+### Added
+- **New "Unofficial builds" section.** Community-maintained builds now sit in
+  their own clearly labelled group below official projects, with an explainer
+  and an info button that clarifies what counts as official vs unofficial.
+- **AndyYan's LineageOS 21 pre-QPR2 GSI.** Added to the Treble & GSI page with
+  direct download links and the XDA thread.
+- **Galaxy S24 Ultra support.** Added two requested entries:
+  - **LineageOS for S24 Ultra (Unofficial)** by josip-k, including builds,
+    install instructions, source links, and screenshots.
+  - **Dr.Ketan ROM**, the stock-based One UI ROM for the SM-S928B/DS.
 
 ### Changed
-- The GitHub self-updater is now **off by default** in source builds and is
-  enabled only for GitHub release artifacts. F-Droid and Play builds still rely
-  on their stores for updates, while GitHub releases keep their update button,
-  background update banner, and APK installer.
-- ROM and recovery cards now use proper wording for single-item counts
-  ("1 ROM", not "1 ROMs"), and brands that only have recoveries say so instead
-  of showing "0 ROMs".
+- **Channel-specific updater behavior.** Source builds keep the GitHub
+  self-updater off by default, while GitHub release builds keep in-app updater
+  support. F-Droid and Play builds rely on their store update channels.
+- **Cleaner card wording.** ROM and recovery cards now use proper
+  singular/plural labels (for example, "1 ROM" instead of "1 ROMs").
+- **Recovery-only brand labels.** Brands with no ROM entries now show their
+  recovery count instead of a "0 ROMs" label.
+- **Privacy wording clarified.** The policy now explicitly separates website
+  analytics from app behavior and confirms the app itself has no tracking.
+- **LineageOS coverage refreshed.** The device list was synced from the
+  upstream wiki, including newly supported devices.
+
+### Fixed
+- **Play manifest permissions.** Removed transitive media/storage permissions
+  pulled in by an updater dependency that is not used in Play builds.
 
 ### Removed
-- The ARK brand entry, which had no devices in the catalog. The 10.or brand is
-  now listed once instead of under two spellings.
+- **ARK brand entry.** Removed the empty brand listing with no devices.
+- **Duplicate 10.or/10or branding.** Consolidated into a single brand entry.
 
 ## [1.0.0] - 2026-06-07
 
