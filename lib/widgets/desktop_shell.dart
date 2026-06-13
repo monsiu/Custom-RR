@@ -426,6 +426,10 @@ class _DesktopRailState extends State<_DesktopRail> {
 class _ScrollEdgeFade extends StatelessWidget {
   const _ScrollEdgeFade({required this.top});
 
+  // Each rail item occupies 62 px including spacing; a 30 px fade
+  // gives a stronger edge mask that reaches about half an item.
+  static const double _fadeHeight = 30;
+
   final bool top;
 
   @override
@@ -433,7 +437,7 @@ class _ScrollEdgeFade extends StatelessWidget {
     final Color base = Theme.of(context).colorScheme.surfaceContainerLow;
     return IgnorePointer(
       child: Container(
-        height: 18,
+        height: _fadeHeight,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: top ? Alignment.topCenter : Alignment.bottomCenter,
@@ -509,9 +513,7 @@ class _RailButtonState extends State<_RailButton> {
                       child: Container(
                         width: 3,
                         decoration: BoxDecoration(
-                          color: selected
-                              ? scheme.primary
-                              : Colors.transparent,
+                          color: selected ? scheme.primary : Colors.transparent,
                           borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(2),
                             bottomRight: Radius.circular(2),
@@ -677,8 +679,7 @@ class _LinkTextState extends State<_LinkText> {
           widget.text,
           style: widget.style?.copyWith(
             color: color,
-            decoration:
-                _hover ? TextDecoration.underline : TextDecoration.none,
+            decoration: _hover ? TextDecoration.underline : TextDecoration.none,
           ),
         ),
       ),
@@ -709,10 +710,10 @@ class _VersionLabelState extends State<_VersionLabel> {
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextStyle? style = Theme.of(context).textTheme.bodySmall?.copyWith(
-          color: scheme.onSurfaceVariant,
-          fontSize: 11.5,
-          fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
-        );
+      color: scheme.onSurfaceVariant,
+      fontSize: 11.5,
+      fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
+    );
     if (_version.isEmpty) return const SizedBox.shrink();
     return Text(_version, style: style);
   }
