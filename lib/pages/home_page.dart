@@ -67,6 +67,12 @@ class _HomePageState extends State<HomePage> {
       description: 'Step-by-step guide',
       route: AppRoutes.instructions,
     ),
+    _Action(
+      icon: Icons.forum_outlined,
+      label: 'Community Forum',
+      description: 'Announcements, Q&A, ideas and polls',
+      route: AppRoutes.community,
+    ),
   ];
 
   final TextEditingController _searchController = TextEditingController();

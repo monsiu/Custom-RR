@@ -170,6 +170,12 @@ class _AppRail extends StatelessWidget {
       Icons.layers,
       'Treble',
     ),
+    _RailDest(
+      AppRoutes.community,
+      Icons.forum_outlined,
+      Icons.forum,
+      'Community',
+    ),
   ];
 
   @override
