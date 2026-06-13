@@ -14,7 +14,7 @@ class CommunityPage extends StatefulWidget {
 }
 
 class _CommunityPageState extends State<CommunityPage> {
-  Future<List<GitHubAnnouncement>>? _future;
+  Future<List<GitHubAnnouncement>>? _recent;
 
   static final Uri _allDiscussions = Uri.parse(
     'https://github.com/monsiu/Custom-RR/discussions',
@@ -41,17 +41,33 @@ class _CommunityPageState extends State<CommunityPage> {
   @override
   void initState() {
     super.initState();
-    _future = GitHubDiscussionsFeed.instance.fetchAnnouncements(limit: 6);
+    _recent = GitHubDiscussionsFeed.instance.fetchRecentDiscussions(limit: 6);
   }
 
-  void _reload() {
-    setState(() {
-      _future = GitHubDiscussionsFeed.instance.fetchAnnouncements(limit: 6);
-    });
+  Future<void> _refresh() async {
+    final Future<List<GitHubAnnouncement>> next = GitHubDiscussionsFeed.instance
+        .fetchRecentDiscussions(limit: 6, force: true);
+    setState(() => _recent = next);
+    try {
+      await next;
+    } catch (_) {
+      // The error is surfaced by the FutureBuilder below.
+    }
   }
 
   Future<void> _open(Uri uri) async {
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+    bool opened = false;
+    try {
+      opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } catch (_) {
+      opened = false;
+    }
+    if (!opened) {
+      messenger.showSnackBar(
+        const SnackBar(content: Text('Could not open the link.')),
+      );
+    }
   }
 
   @override
@@ -62,148 +78,178 @@ class _CommunityPageState extends State<CommunityPage> {
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 920),
-          child: ListView(
-            padding: const EdgeInsets.fromLTRB(24, 18, 24, 32),
-            children: <Widget>[
-              Text(
-                'Community forum',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 10),
-              Text(
-                'Join discussions, ask questions, propose ideas, and follow announcements for Custom RR.',
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              const SizedBox(height: 18),
-              _ForumLinksCard(
-                onOpen: _open,
-                allDiscussions: _allDiscussions,
-                announcements: _announcements,
-                qa: _qa,
-                ideas: _ideas,
-                polls: _polls,
-                showAndTell: _showAndTell,
-                issues: _issues,
-              ),
-              const SizedBox(height: 18),
-              Card(
-                margin: EdgeInsets.zero,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.campaign_outlined,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              'Latest announcements',
-                              style: Theme.of(context).textTheme.titleMedium,
+          child: RefreshIndicator(
+            onRefresh: _refresh,
+            child: ListView(
+              padding: const EdgeInsets.fromLTRB(24, 18, 24, 32),
+              physics: const AlwaysScrollableScrollPhysics(),
+              children: <Widget>[
+                Text(
+                  'Community forum',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'Join discussions, ask questions, propose ideas, and follow announcements for Custom RR.',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                const SizedBox(height: 18),
+                _ForumLinksCard(
+                  onOpen: _open,
+                  allDiscussions: _allDiscussions,
+                  announcements: _announcements,
+                  qa: _qa,
+                  ideas: _ideas,
+                  polls: _polls,
+                  showAndTell: _showAndTell,
+                  issues: _issues,
+                ),
+                const SizedBox(height: 18),
+                Card(
+                  margin: EdgeInsets.zero,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Icon(
+                              Icons.forum_outlined,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
-                          ),
-                          IconButton(
-                            tooltip: 'Refresh',
-                            onPressed: _reload,
-                            icon: const Icon(Icons.refresh),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      FutureBuilder<List<GitHubAnnouncement>>(
-                        future: _future,
-                        builder: (
-                          BuildContext context,
-                          AsyncSnapshot<List<GitHubAnnouncement>> snap,
-                        ) {
-                          if (snap.connectionState != ConnectionState.done) {
-                            return const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 12),
-                              child: Center(
-                                child: CircularProgressIndicator(),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                'Recent discussions',
+                                style: Theme.of(context).textTheme.titleMedium,
                               ),
-                            );
-                          }
-                          if (snap.hasError) {
-                            return Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 6, 0, 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    'Could not load announcements right now.',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .error,
-                                        ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  TextButton.icon(
-                                    onPressed: () => _open(_announcements),
-                                    icon: const Icon(Icons.open_in_new),
-                                    label: const Text(
-                                      'Open announcements in browser',
+                            ),
+                            IconButton(
+                              tooltip: 'Refresh',
+                              onPressed: _refresh,
+                              icon: const Icon(Icons.refresh),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        FutureBuilder<List<GitHubAnnouncement>>(
+                          future: _recent,
+                          builder: (
+                            BuildContext context,
+                            AsyncSnapshot<List<GitHubAnnouncement>> snap,
+                          ) {
+                            if (snap.connectionState != ConnectionState.done) {
+                              return const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 12),
+                                child: Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            }
+                            if (snap.hasError) {
+                              return Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 6, 0, 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      'Could not load discussions right now.',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .error,
+                                          ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    TextButton.icon(
+                                      onPressed: () => _open(_allDiscussions),
+                                      icon: const Icon(Icons.open_in_new),
+                                      label: const Text(
+                                        'Open the forum in browser',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                            final List<GitHubAnnouncement> items =
+                                snap.data ?? const <GitHubAnnouncement>[];
+                            if (items.isEmpty) {
+                              return Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 6, 0, 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      'No discussions yet. Be the first to '
+                                      'start one!',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    TextButton.icon(
+                                      onPressed: () => _open(_allDiscussions),
+                                      icon: const Icon(
+                                        Icons.add_comment_outlined,
+                                      ),
+                                      label: const Text('Start a discussion'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                            return Column(
+                              children: <Widget>[
+                                for (int i = 0;
+                                    i < items.length;
+                                    i++) ...<Widget>[
+                                  Tooltip(
+                                    message:
+                                        '${_formatDate(items[i].published)} · by ${items[i].author}',
+                                    child: ListTile(
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                        horizontal: 0,
+                                      ),
+                                      dense: Breakpoints.isCompact(context),
+                                      leading:
+                                          const Icon(Icons.article_outlined),
+                                      title: Text(items[i].title),
+                                      subtitle: Text(
+                                        '${_relativeTime(items[i].published)} · by ${items[i].author}',
+                                      ),
+                                      trailing: const Icon(Icons.open_in_new),
+                                      onTap: () =>
+                                          _open(Uri.parse(items[i].url)),
                                     ),
                                   ),
+                                  if (i < items.length - 1)
+                                    const Divider(height: 1),
                                 ],
-                              ),
-                            );
-                          }
-                          final List<GitHubAnnouncement> items =
-                              snap.data ?? const <GitHubAnnouncement>[];
-                          if (items.isEmpty) {
-                            return Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 6, 0, 10),
-                              child: Text(
-                                'No announcements yet.',
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            );
-                          }
-                          return Column(
-                            children: <Widget>[
-                              for (int i = 0; i < items.length; i++) ...<Widget>[
-                                ListTile(
-                                  contentPadding:
-                                      const EdgeInsets.symmetric(horizontal: 0),
-                                  dense: Breakpoints.isCompact(context),
-                                  leading: const Icon(Icons.article_outlined),
-                                  title: Text(items[i].title),
-                                  subtitle: Text(
-                                    '${_formatDate(items[i].published)} · by ${items[i].author}',
+                                const SizedBox(height: 2),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: TextButton.icon(
+                                    onPressed: () => _open(_allDiscussions),
+                                    icon: const Icon(Icons.forum_outlined),
+                                    label: const Text('View all discussions'),
                                   ),
-                                  trailing: const Icon(Icons.open_in_new),
-                                  onTap: () => _open(Uri.parse(items[i].url)),
                                 ),
-                                if (i < items.length - 1)
-                                  const Divider(height: 1),
                               ],
-                              const SizedBox(height: 2),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: TextButton.icon(
-                                  onPressed: () => _open(_announcements),
-                                  icon: const Icon(Icons.forum_outlined),
-                                  label: const Text('View all announcements'),
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    ],
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -334,4 +380,27 @@ String _formatDate(DateTime dt) {
   final DateTime local = dt.toLocal();
   final String month = months[local.month - 1];
   return '$month ${local.day}, ${local.year}';
+}
+
+String _relativeTime(DateTime dt) {
+  final Duration diff = DateTime.now().difference(dt);
+  if (diff.isNegative || diff.inSeconds < 60) return 'just now';
+  if (diff.inMinutes < 60) {
+    final int m = diff.inMinutes;
+    return '$m minute${m == 1 ? '' : 's'} ago';
+  }
+  if (diff.inHours < 24) {
+    final int h = diff.inHours;
+    return '$h hour${h == 1 ? '' : 's'} ago';
+  }
+  if (diff.inDays < 30) {
+    final int d = diff.inDays;
+    return '$d day${d == 1 ? '' : 's'} ago';
+  }
+  if (diff.inDays < 365) {
+    final int mo = diff.inDays ~/ 30;
+    return '$mo month${mo == 1 ? '' : 's'} ago';
+  }
+  final int y = diff.inDays ~/ 365;
+  return '$y year${y == 1 ? '' : 's'} ago';
 }
