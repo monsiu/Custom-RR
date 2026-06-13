@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'data/catalog_repository.dart';
 import 'models.dart';
 import 'pages/about_page.dart';
+import 'pages/community_page.dart';
 import 'pages/detail_page.dart';
 import 'pages/device_model_page.dart';
 import 'pages/device_page.dart';
@@ -37,6 +38,7 @@ class AppRoutes {
   static const String flashScript = '/flash-script';
   static const String instructions = '/instructions';
   static const String treble = '/treble';
+  static const String community = '/community';
   static const String about = '/about';
   static const String privacy = '/privacy';
 
@@ -189,6 +191,11 @@ GoRouter buildRouter() {
                 path: 'treble',
                 builder:
                     (BuildContext _, GoRouterState __) => const TreblePage(),
+              ),
+              GoRoute(
+                path: 'community',
+                builder:
+                    (BuildContext _, GoRouterState __) => const CommunityPage(),
               ),
               GoRoute(
                 path: 'find-my-phone',

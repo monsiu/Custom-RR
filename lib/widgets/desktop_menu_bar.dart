@@ -102,6 +102,14 @@ class DesktopMenuBar extends StatelessWidget {
               onSelected: () => router.go(AppRoutes.treble),
             ),
             PlatformMenuItem(
+              label: 'Community',
+              shortcut: const SingleActivator(
+                LogicalKeyboardKey.digit8,
+                control: true,
+              ),
+              onSelected: () => router.go(AppRoutes.community),
+            ),
+            PlatformMenuItem(
               label: 'Light theme',
               onSelected: () =>
                   ThemeController.instance.setMode(ThemeMode.light),

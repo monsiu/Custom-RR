@@ -7,7 +7,12 @@ project uses [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
-- Nothing yet.
+- **Community forum section in-app.** Added a new Community screen that links
+  to GitHub Discussions categories (All discussions, Announcements, Q&A,
+  Ideas, Polls, Show and tell) and keeps bug reporting separated in GitHub
+  Issues.
+- **Latest announcements block.** The Community screen now fetches and displays
+  recent posts from the public GitHub Discussions Announcements feed.
 
 ## [1.1.0] - 2026-06-13
 
