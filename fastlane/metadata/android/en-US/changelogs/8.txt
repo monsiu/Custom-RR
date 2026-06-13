@@ -1,0 +1,7 @@
+- Added a dedicated Unofficial builds section on the Custom ROMs list, with a clear explainer.
+- Added Galaxy S24 Ultra entries: LineageOS for S24 Ultra (Unofficial) and Dr.Ketan ROM.
+- Added AndyYan's LineageOS 21 pre-QPR2 GSI to the Treble & GSI page.
+- Improved catalog card wording: proper singular/plural labels and clearer recovery-only brand counts.
+- Refined updater behavior by release channel: GitHub release builds keep in-app updates, store builds use their own update channels.
+- Updated privacy wording to clearly separate website analytics from app behavior (the app itself has no analytics/tracking).
+- Removed empty/duplicate catalog branding entries (ARK, duplicate 10.or/10or).
