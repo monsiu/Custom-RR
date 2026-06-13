@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../util/build_flags.dart';
 import 'crypto_donate.dart';
+import 'donation_feedback.dart';
 
 /// Shows a friendly "Buy Me a Coffee" support dialog.
 Future<void> showSupportDialog(BuildContext context) {
@@ -60,13 +60,13 @@ Future<void> showSupportDialog(BuildContext context) {
                   icon: const Icon(Icons.coffee_rounded),
                   label: const Text('Buy us a coffee'),
                   onPressed: () async {
-                    Navigator.of(dialogCtx).pop();
-                    final Uri uri =
-                        Uri.parse('https://www.buymeacoffee.com/monsiutech');
-                    await launchUrl(
-                      uri,
-                      mode: LaunchMode.externalApplication,
+                    final NavigatorState rootNav = Navigator.of(
+                      dialogCtx,
+                      rootNavigator: true,
                     );
+                    final BuildContext rootCtx = rootNav.context;
+                    rootNav.pop();
+                    await openSupportWithFeedback(rootCtx);
                   },
                 ),
               ),

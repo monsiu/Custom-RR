@@ -10,6 +10,7 @@ import '../util/breakpoints.dart';
 import '../util/build_flags.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/crypto_donate.dart';
+import '../widgets/donation_feedback.dart';
 import '../widgets/donation_nudge.dart';
 import '../widgets/update_dialog.dart';
 import 'easter_egg_page.dart';
@@ -218,9 +219,7 @@ class _AboutPageState extends State<AboutPage> {
                 ListTile(
                   leading: const Icon(Icons.coffee_outlined),
                   title: const Text('Buy us a coffee'),
-                  onTap: () => _open(
-                    Uri.parse('https://www.buymeacoffee.com/monsiutech'),
-                  ),
+                  onTap: _openSupport,
                 ),
                 if (kShowCryptoDonate)
                   ListTile(
@@ -256,6 +255,10 @@ class _AboutPageState extends State<AboutPage> {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
+  Future<void> _openSupport() async {
+    await openSupportWithFeedback(context);
+  }
+
   Future<void> _showSupportChooser() async {
     await showModalBottomSheet<void>(
       context: context,
@@ -269,11 +272,9 @@ class _AboutPageState extends State<AboutPage> {
                 leading: const Icon(Icons.coffee_outlined),
                 title: const Text('Buy us a coffee'),
                 subtitle: const Text('One-off tip via Buy Me a Coffee'),
-                onTap: () {
+                onTap: () async {
                   Navigator.of(ctx).pop();
-                  _open(
-                    Uri.parse('https://www.buymeacoffee.com/monsiutech'),
-                  );
+                  await openSupportWithFeedback(context);
                 },
               ),
               if (kShowCryptoDonate)

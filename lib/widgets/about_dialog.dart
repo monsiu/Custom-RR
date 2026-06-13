@@ -8,6 +8,7 @@ import '../pages/easter_egg_page.dart';
 import '../util/build_flags.dart';
 import '../util/request_project.dart';
 import 'crypto_donate.dart';
+import 'donation_feedback.dart';
 import 'donation_nudge.dart';
 
 /// Public GitHub repository for Custom RR.
@@ -161,10 +162,15 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
         child: TextButton.icon(
           icon: const Icon(Icons.coffee_outlined),
           label: const Text('Buy us a coffee'),
-          onPressed: () => launchUrl(
-            Uri.parse('https://www.buymeacoffee.com/monsiutech'),
-            mode: LaunchMode.externalApplication,
-          ),
+          onPressed: () async {
+            final NavigatorState rootNav = Navigator.of(
+              context,
+              rootNavigator: true,
+            );
+            final BuildContext rootCtx = rootNav.context;
+            rootNav.pop();
+            await openSupportWithFeedback(rootCtx);
+          },
         ),
       ),
       if (kShowCryptoDonate)
