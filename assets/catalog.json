@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-12T08:38:01.355614Z",
+  "_generatedAt": "2026-06-13T10:24:19.752218Z",
   "roms": [
     {
       "id": "lineage",
@@ -1344,6 +1344,11 @@
           "brand": "SHIFT",
           "model": "SHIFT6mq",
           "codename": "axolotl"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8",
+          "codename": "otter"
         },
         {
           "brand": "Samsung",
@@ -16133,6 +16138,11 @@
           "codename": "axolotl"
         },
         {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8",
+          "codename": "otter"
+        },
+        {
           "brand": "Samsung",
           "model": "Galaxy A21s",
           "codename": "a21s"
@@ -18620,6 +18630,11 @@
           "brand": "SHIFT",
           "model": "SHIFT6mq",
           "codename": "axolotl"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8",
+          "codename": "otter"
         },
         {
           "brand": "Samsung",
@@ -23043,6 +23058,11 @@
           "brand": "SHIFT",
           "model": "SHIFT6mq",
           "codename": "axolotl"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8",
+          "codename": "otter"
         },
         {
           "brand": "Samsung",
