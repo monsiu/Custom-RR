@@ -15,6 +15,12 @@
 Categories:
   - System
 License: GPL-3.0-only
+AntiFeatures:
+  NonFreeNet:
+    en-US: The app can connect to GitHub and other third-party project websites
+      to refresh catalog and freshness data, load screenshots, and open ROM,
+      recovery, root, and GSI project pages. The bundled catalog remains usable
+      offline.
 AuthorName: monsiu
 AuthorWebSite: https://monsiu.github.io/
 SourceCode: https://github.com/monsiu/Custom-RR
@@ -119,11 +125,16 @@ MaintainerNotes: |-
   pubspec.yaml's +N build number (7 for 1.0.0), so the embedded codes are
   7001/7002/7003.
 
-  The --dart-define=FDROID_BUILD=true flag compiles out the app's self-update
-  machinery (see lib/util/build_flags.dart): no GitHub release polling, no
-  in-app APK download/install path, and no "Check for updates" UI. The
-  GitHub-release variant keeps it; the F-Droid variant does not, so there is
-  no UpdateCheck anti-feature and no APK side-loading.
+  The app's self-update machinery is disabled by default in upstream source
+  (see lib/util/build_flags.dart) and enabled only for GitHub release artifacts
+  via --dart-define=GITHUB_RELEASE_BUILD=true. The F-Droid build passes
+  --dart-define=FDROID_BUILD=true and does not pass the GitHub release flag, so
+  there is no GitHub release polling, no in-app APK download/install path, and
+  no "Check for updates" UI.
+
+  NonFreeNet is declared because the app can still connect to GitHub raw for
+  catalog/freshness refreshes and to third-party project sites for screenshots
+  and user-opened project links. The bundled catalog remains usable offline.
 
   Signing: android/app/build.gradle falls back to debug signing when
   android/key.properties is absent (it is not committed), so the build

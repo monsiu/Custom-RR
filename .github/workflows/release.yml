@@ -66,7 +66,7 @@ jobs:
       # REQUIRE_RELEASE_SIGNING makes build.gradle fail if the release keystore is
       # missing, so a published release is never silently debug-signed (which would
       # break in-place updates with "package appears to be invalid").
-      - run: flutter build apk --split-per-abi --release
+      - run: flutter build apk --split-per-abi --release --dart-define=GITHUB_RELEASE_BUILD=true
         env:
           REQUIRE_RELEASE_SIGNING: "true"
       - uses: actions/upload-artifact@v4
@@ -116,7 +116,7 @@ jobs:
           "$HOME/flutter/bin/flutter" precache --linux
       - run: flutter config --enable-linux-desktop
       - run: flutter pub get
-      - run: flutter build linux --release
+      - run: flutter build linux --release --dart-define=GITHUB_RELEASE_BUILD=true
       - name: Stage release bundle
         env:
           TAG: ${{ inputs.tag || github.ref_name }}
@@ -172,7 +172,7 @@ jobs:
           & (Join-Path $flutterDir 'bin\flutter.bat') precache --windows
       - run: flutter config --enable-windows-desktop
       - run: flutter pub get
-      - run: flutter build windows --release
+      - run: flutter build windows --release --dart-define=GITHUB_RELEASE_BUILD=true
       - name: Stage release zip
         shell: pwsh
         env:
@@ -230,7 +230,7 @@ jobs:
       # Unsigned build. macOS Gatekeeper will warn on first launch; users
       # right-click -> Open once to run it. Code signing + notarization can be
       # added later (needs a paid Apple Developer account).
-      - run: flutter build macos --release
+      - run: flutter build macos --release --dart-define=GITHUB_RELEASE_BUILD=true
       - name: Stage release bundle
         env:
           TAG: ${{ inputs.tag || github.ref_name }}

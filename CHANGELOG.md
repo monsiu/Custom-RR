@@ -26,6 +26,10 @@ project uses [Semantic Versioning](https://semver.org/).
   know exactly what you are flashing.
 
 ### Changed
+- The GitHub self-updater is now **off by default** in source builds and is
+  enabled only for GitHub release artifacts. F-Droid and Play builds still rely
+  on their stores for updates, while GitHub releases keep their update button,
+  background update banner, and APK installer.
 - ROM and recovery cards now use proper wording for single-item counts
   ("1 ROM", not "1 ROMs"), and brands that only have recoveries say so instead
   of showing "0 ROMs".

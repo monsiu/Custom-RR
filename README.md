@@ -43,7 +43,7 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 - **Clickable link chips on every detail page** (Telegram, GitHub, Discord, Matrix, forum, web) sourced from a curated `links` field in the catalog.
 - **"How to flash" guides** for ROMs and recoveries, embedded per category, no wiki digging.
 - **Deep links / shareable URLs** for every ROM, recovery, device, and brand (powered by `go_router`), easy to drop in XDA threads.
-- **In-app update check** against GitHub Releases, with one-tap APK download + install on Android.
+- **GitHub-release update check** against GitHub Releases, with one-tap APK download + install on Android in GitHub release builds. Store builds leave updates to the store.
 - **Bundled pinch-zoom image viewer** for screenshots.
 - **Material 3 + dynamic color.** Light / dark / AMOLED themes, adaptive layouts (drawer on phones, NavigationRail on tablets, permanent side panel on desktop), theme + accent persisted across launches.
 - **In-app privacy policy page** rendered from the bundled [`PRIVACY.md`](PRIVACY.md).
@@ -142,6 +142,15 @@ Release builds expect signing config in `android/key.properties` (see [`android/
 flutter build apk --release
 flutter build appbundle --release
 ```
+
+GitHub release artifacts opt into the bundled updater explicitly:
+
+```bash
+flutter build apk --release --dart-define=GITHUB_RELEASE_BUILD=true
+```
+
+Default source builds, F-Droid builds, and Google Play builds leave that flag
+off, so the GitHub release updater and "Check for updates" UI stay disabled.
 
 ## Linux desktop
 
