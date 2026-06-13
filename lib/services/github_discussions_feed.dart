@@ -43,27 +43,68 @@ class GitHubDiscussionsFeed {
   static const String announcementsFeedUrl =
       'https://github.com/monsiu/Custom-RR/discussions/categories/announcements.atom';
 
-  _CachedAnnouncements? _cache;
+  /// Repository-wide feed covering every discussion category, so the
+  /// Community screen has fresh content even when no announcement is posted.
+  static const String discussionsFeedUrl =
+      'https://github.com/monsiu/Custom-RR/discussions.atom';
 
-  /// Fetches the latest announcements from GitHub Discussions.
+  _CachedAnnouncements? _announcementsCache;
+  _CachedAnnouncements? _discussionsCache;
+
+  /// Latest posts from the Announcements category.
   ///
   /// Throws on hard failures when there is no cached data available.
-  Future<List<GitHubAnnouncement>> fetchAnnouncements({int limit = 5}) async {
-    final _CachedAnnouncements? cached = _cache;
-    if (cached != null && DateTime.now().difference(cached.fetchedAt) < _ttl) {
+  Future<List<GitHubAnnouncement>> fetchAnnouncements({
+    int limit = 5,
+    bool force = false,
+  }) {
+    return _fetchFeed(
+      url: announcementsFeedUrl,
+      limit: limit,
+      force: force,
+      read: () => _announcementsCache,
+      write: (_CachedAnnouncements c) => _announcementsCache = c,
+    );
+  }
+
+  /// Most recent posts across every discussion category.
+  ///
+  /// Throws on hard failures when there is no cached data available.
+  Future<List<GitHubAnnouncement>> fetchRecentDiscussions({
+    int limit = 6,
+    bool force = false,
+  }) {
+    return _fetchFeed(
+      url: discussionsFeedUrl,
+      limit: limit,
+      force: force,
+      read: () => _discussionsCache,
+      write: (_CachedAnnouncements c) => _discussionsCache = c,
+    );
+  }
+
+  Future<List<GitHubAnnouncement>> _fetchFeed({
+    required String url,
+    required int limit,
+    required bool force,
+    required _CachedAnnouncements? Function() read,
+    required void Function(_CachedAnnouncements) write,
+  }) async {
+    final _CachedAnnouncements? cached = read();
+    if (!force &&
+        cached != null &&
+        DateTime.now().difference(cached.fetchedAt) < _ttl) {
       return cached.items.take(limit).toList(growable: false);
     }
 
     try {
-      final http.Response res = await httpClient
-          .get(
-            Uri.parse(announcementsFeedUrl),
-            headers: const <String, String>{
-              'User-Agent': 'CustomRR/1.0 (+https://github.com/monsiu/Custom-RR)',
-              'Accept': 'application/atom+xml, application/xml, text/xml',
-            },
-          )
-          .timeout(_timeout);
+      final http.Response res = await httpClient.get(
+        Uri.parse(url),
+        headers: const <String, String>{
+          'User-Agent': 'CustomRR/1.0 (+https://github.com/monsiu/Custom-RR)',
+          'Accept': 'application/atom+xml, application/xml, text/xml',
+        },
+      ).timeout(_timeout);
       if (res.statusCode != 200) {
         throw GitHubDiscussionsFeedException(
           'GitHub responded with ${res.statusCode}',
@@ -71,14 +112,14 @@ class GitHubDiscussionsFeed {
       }
 
       final List<GitHubAnnouncement> items = parseAtom(res.body);
-      _cache = _CachedAnnouncements(DateTime.now(), items);
+      write(_CachedAnnouncements(DateTime.now(), items));
       return items.take(limit).toList(growable: false);
     } catch (err) {
       if (cached != null) {
         return cached.items.take(limit).toList(growable: false);
       }
       if (err is GitHubDiscussionsFeedException) rethrow;
-      throw GitHubDiscussionsFeedException('Could not load announcements');
+      throw GitHubDiscussionsFeedException('Could not load discussions');
     }
   }
 
