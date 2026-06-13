@@ -12,15 +12,14 @@
 # Lines marked "VERIFY" below should be double-checked against the actual
 # tagged release before submitting.
 
+AntiFeatures:
+  NonFreeNet:
+    en-US: The app can connect to GitHub and other third-party project websites to
+      refresh catalog and freshness data, load screenshots, and open ROM, recovery,
+      root, and GSI project pages. The bundled catalog remains usable offline.
 Categories:
   - System
 License: GPL-3.0-only
-AntiFeatures:
-  NonFreeNet:
-    en-US: The app can connect to GitHub and other third-party project websites
-      to refresh catalog and freshness data, load screenshots, and open ROM,
-      recovery, root, and GSI project pages. The bundled catalog remains usable
-      offline.
 AuthorName: monsiu
 AuthorWebSite: https://monsiu.github.io/
 SourceCode: https://github.com/monsiu/Custom-RR
