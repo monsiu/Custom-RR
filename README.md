@@ -39,7 +39,7 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 - **Brand pages.** Tap Xiaomi, OnePlus, Samsung, Google Pixel, Realme, POCO, Nothing, etc. and see every device + every ROM/recovery that targets that brand.
 - **Treble & GSI hub.** Per-project status badges, direct GSI downloads, the canonical TrebleDroid wiki index, an A-only vs A/B + arm64 vs arm32_binder64 cheat sheet, a 6-step flash flow, and a "GSI boots but camera is broken" FAQ.
 - **Freshness signals on every entry.** Active / monthly / discontinued labels plus last-build date, refreshed nightly by a GitHub Action that flags projects going quiet.
-- **Live catalog.** The bundled `assets/catalog.json` keeps the app fully offline, and on launch the app refreshes itself from `raw.githubusercontent.com` so new ROMs/devices appear without an app update.
+- **Always-current remote catalog.** The catalog lives on `raw.githubusercontent.com`, and the app refreshes from it on launch, so new ROMs, recoveries, devices, links, and freshness dates appear the moment they are published, with no app or store update required. The bundled `assets/catalog.json` is only a fallback that keeps the app fully usable offline.
 - **Clickable link chips on every detail page** (Telegram, GitHub, Discord, Matrix, forum, web) sourced from a curated `links` field in the catalog.
 - **"How to flash" guides** for ROMs and recoveries, embedded per category, no wiki digging.
 - **Deep links / shareable URLs** for every ROM, recovery, device, and brand (powered by `go_router`), easy to drop in XDA threads.
