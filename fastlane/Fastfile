@@ -1,0 +1,36 @@
+opt_out_usage
+
+default_platform(:android)
+
+platform :android do
+  private_lane :play_json_key do
+    ENV.fetch('PLAY_JSON_KEY') do
+      UI.user_error!(
+        'Set PLAY_JSON_KEY to your local Google Play service-account JSON path.',
+      )
+    end
+  end
+
+  desc 'Validate Google Play listing metadata without uploading app binaries'
+  lane :validate_play_metadata do
+    supply(
+      package_name: 'io.github.monsiu.custom_rr',
+      metadata_path: 'fastlane/metadata/android',
+      json_key: play_json_key,
+      skip_upload_apk: true,
+      skip_upload_aab: true,
+      validate_only: true,
+    )
+  end
+
+  desc 'Upload Google Play listing metadata without uploading app binaries'
+  lane :upload_play_metadata do
+    supply(
+      package_name: 'io.github.monsiu.custom_rr',
+      metadata_path: 'fastlane/metadata/android',
+      json_key: play_json_key,
+      skip_upload_apk: true,
+      skip_upload_aab: true,
+    )
+  end
+end

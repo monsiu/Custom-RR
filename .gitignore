@@ -47,6 +47,8 @@ app.*.map.json
 /android/key.properties
 *.jks
 *.keystore
+*play*service*account*.json
+*google*service*account*.json
 
 # Catalog sync cache (wiki tarball + extracted YAMLs)
 tool/.cache/
