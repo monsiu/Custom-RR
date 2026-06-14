@@ -2,7 +2,7 @@ Custom RR is a free, open-source companion app for the Android modding scene. It
 
 Features:
 
-18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, AlphaDroid, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS, and more), each with description, features, screenshots, and a one-tap link to the official download page.
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS, and more), each with description, features, screenshots, and a one-tap link to the official download page.
 
 500+ devices sourced live from the official LineageOS wiki and the PixelOS official_devices repo, refreshed nightly.
 
