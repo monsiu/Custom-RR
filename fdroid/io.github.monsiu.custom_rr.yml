@@ -15,8 +15,9 @@
 AntiFeatures:
   NonFreeNet:
     en-US: The app can connect to GitHub and other third-party project websites to
-      refresh catalog and freshness data, load screenshots, and open ROM, recovery,
-      root, and GSI project pages. The bundled catalog remains usable offline.
+      refresh catalog and freshness data, load screenshots, show community discussions,
+      and open ROM, recovery, root, and GSI project pages. The bundled catalog remains
+      usable offline.
 Categories:
   - System
 License: GPL-3.0-only
