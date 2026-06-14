@@ -1,0 +1,31 @@
+Custom RR, Android modlama topluluğu için ücretsiz ve açık kaynaklı bir yardımcı uygulamadır. Her şeyi tek bir yerde toplar: hangi özel ROM'ların ve recovery'lerin cihazınızı resmi olarak desteklediği, hangi Treble GSI'leri flaşlayabileceğiniz ve bunları nereden indireceğiniz. Artık LineageOS wiki'si, üç Telegram kanalı, bir SourceForge klasörü ve on dört tarayıcı sekmesi arasında gidip gelmek yok.
+
+Özellikler:
+
+Etkin olarak bakımı yapılan 18 ROM (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS ve daha fazlası), her biri açıklama, özellikler, ekran görüntüleri ve resmi indirme sayfasına tek dokunuşluk bir bağlantıyla.
+
+Resmi LineageOS wiki'sinden ve PixelOS official_devices deposundan canlı çekilen, her gece güncellenen 500'den fazla cihaz.
+
+Başlıca recovery'ler: TWRP, OrangeFox, PBRP, SHRP, cihaz bazlı destek ve doğrudan indirmelerle.
+
+Treble ve GSI merkezi: proje bazlı durum rozetleri, doğrudan GSI indirmeleri, standart TrebleDroid wiki dizini, A-only ve A/B ile arm64 ve arm32_binder64 karşılaştırma notu, 6 adımlı flaşlama akışı ve "GSI açılıyor ama kamera çalışmıyor" SSS'si.
+
+Telefonunuzu seçin, tüm uygulama onu resmi olarak destekleyen ROM'lara ve recovery'lere göre filtrelensin. Marka sayfaları Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing ve daha fazlasını hedefleyen her cihazı ve her ROM/recovery'yi gösterir.
+
+Sonlandırılmış projeler açıkça işaretlenir. Arşivlenmiş ROM'lar (ArrowOS, DotOS, Havoc-OS, orijinal RisingOS ve diğerleri) son derleme tarihini ve bir halef önerisini gösterir, böylece yıllardır yayınlanmayan kodu flaşlamazsınız.
+
+Resmi olmayan ve toplulukça bakımı yapılan derlemelerin kendi açıkça etiketlenmiş bölümü vardır, böylece neyin resmi neyin topluluk portu olduğunu her zaman bilirsiniz. Son eklemeler arasında Galaxy S24 Ultra desteği yer alıyor.
+
+Proje uyarı afişleri, flaşlamadan önce toplulukla ilgili önemli noktalara dikkat çeker.
+
+Her girdide tazelik sinyalleri (etkin / aylık / sonlandırıldı, son derleme tarihi), sessizleşen projeleri işaretleyen gecelik otomatik bir işle güncel tutulur.
+
+ROM'lar ve recovery'ler için adım adım flaşlama kılavuzları, her kategoriye gömülü.
+
+Yerleşik katalogla tamamen çevrimdışı çalışır, ardından açılışta GitHub'dan yenilenir, böylece yeni ROM'lar ve cihazlar uygulama güncellemesi olmadan görünür.
+
+Dinamik renkli Material 3, açık / koyu / AMOLED temalar ve telefon, tablet ve masaüstü için uyarlanabilir düzenler.
+
+Her ROM, recovery, cihaz ve markaya derin bağlantılar, başlıklarda paylaşması kolay.
+
+İzleme yok, analiz yok, reklam yok ve Google Play hizmetleri gerektirmez. GPL-3.0 ile lisanslanmıştır; kaynak kodu GitHub'da.

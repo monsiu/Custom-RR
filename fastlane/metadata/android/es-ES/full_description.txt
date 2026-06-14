@@ -1,0 +1,31 @@
+Custom RR es una aplicación complementaria gratuita y de código abierto para la comunidad de modding de Android. Lo reúne todo en un solo lugar: qué ROMs personalizadas y recoveries son compatibles oficialmente con tu dispositivo, qué GSIs Treble puedes flashear y dónde descargarlas. Se acabó saltar entre la wiki de LineageOS, tres canales de Telegram, una carpeta de SourceForge y catorce pestañas del navegador.
+
+Funciones:
+
+18 ROMs con mantenimiento activo (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS y más), cada una con descripción, características, capturas y un enlace directo a la página oficial de descarga con un toque.
+
+Más de 500 dispositivos obtenidos en directo de la wiki oficial de LineageOS y del repositorio PixelOS official_devices, actualizados cada noche.
+
+Recoveries principales: TWRP, OrangeFox, PBRP, SHRP, con soporte por dispositivo y descargas directas.
+
+Centro Treble y GSI: insignias de estado por proyecto, descargas directas de GSI, el índice canónico de la wiki de TrebleDroid, una chuleta de A-only vs A/B y arm64 vs arm32_binder64, un proceso de flasheo de 6 pasos y unas preguntas frecuentes sobre "la GSI arranca pero la cámara no funciona".
+
+Elige tu teléfono y toda la app se filtra a las ROMs y recoveries que lo soportan oficialmente. Las páginas de marcas muestran cada dispositivo y cada ROM/recovery dirigido a Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing y más.
+
+Los proyectos descontinuados están claramente marcados. Las ROMs archivadas (ArrowOS, DotOS, Havoc-OS, el RisingOS original y otras) muestran su fecha de última compilación y una sugerencia de sucesor, para que no flashees código que no se publica desde hace años.
+
+Las compilaciones no oficiales y mantenidas por la comunidad tienen su propia sección claramente etiquetada, así siempre sabes qué es oficial y qué es un port de la comunidad. Entre las incorporaciones recientes está el soporte para el Galaxy S24 Ultra.
+
+Los avisos de proyecto señalan cuestiones relevantes de la comunidad antes de flashear.
+
+Señales de actividad en cada entrada (activa / mensual / descontinuada, fecha de última compilación), mantenidas al día por un trabajo automatizado nocturno que marca los proyectos que se quedan inactivos.
+
+Guías de flasheo paso a paso para ROMs y recoveries, integradas por categoría.
+
+Funciona totalmente sin conexión con un catálogo incluido y luego se actualiza desde GitHub al iniciar, para que las nuevas ROMs y dispositivos aparezcan sin actualizar la app.
+
+Material 3 con color dinámico, temas claro / oscuro / AMOLED y diseños adaptables para teléfono, tablet y escritorio.
+
+Enlaces directos a cada ROM, recovery, dispositivo y marca, fáciles de compartir en los hilos.
+
+Sin seguimiento, sin analíticas, sin anuncios y sin necesidad de los Servicios de Google Play. Con licencia GPL-3.0; código fuente en GitHub.

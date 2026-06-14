@@ -1,0 +1,31 @@
+A Custom RR egy ingyenes, nyílt forráskódú kísérőalkalmazás az Android modder közösség számára. Mindent egy helyre gyűjt: mely egyéni ROM-ok és recoveryk támogatják hivatalosan a készülékedet, mely Treble GSI-ket flashelheted, és honnan töltheted le őket. Nincs többé ugrálás a LineageOS wiki, három Telegram-csatorna, egy SourceForge-mappa és tizennégy böngészőlap között.
+
+Funkciók:
+
+18 aktívan karbantartott ROM (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS és további), mindegyik leírással, funkciókkal, képernyőképekkel és egy érintéssel elérhető hivatalos letöltési hivatkozással.
+
+Több mint 500 készülék, élőben lekérve a hivatalos LineageOS wikiből és a PixelOS official_devices tárolóból, minden éjjel frissítve.
+
+Fő recoveryk: TWRP, OrangeFox, PBRP, SHRP, készülékenkénti támogatással és közvetlen letöltésekkel.
+
+Treble és GSI központ: projektenkénti állapotjelvények, közvetlen GSI-letöltések, a hivatalos TrebleDroid wiki index, egy puska az A-only vs A/B és arm64 vs arm32_binder64 összevetéséhez, egy 6 lépéses flashelési folyamat, és egy GYIK arról, hogy „a GSI elindul, de a kamera nem működik".
+
+Válaszd ki a telefonodat, és az egész alkalmazás azokra a ROM-okra és recoverykre szűr, amelyek hivatalosan támogatják. A márkaoldalak minden készüléket és minden Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing és más márkára szabott ROM-ot/recoveryt megmutatnak.
+
+A megszűnt projektek egyértelműen jelölve vannak. Az archivált ROM-ok (ArrowOS, DotOS, Havoc-OS, az eredeti RisingOS és mások) mutatják az utolsó build dátumát és egy utódjavaslatot, hogy ne flashelj olyan kódot, amely évek óta nem jelent meg.
+
+A nem hivatalos és közösség által karbantartott buildeknek saját, egyértelműen címkézett szakaszuk van, így mindig tudod, mi hivatalos és mi közösségi port. A legújabb kiegészítések közé tartozik a Galaxy S24 Ultra támogatása.
+
+A projekt-figyelmeztető bannerek flashelés előtt felhívják a figyelmet a közösség szempontjából fontos tudnivalókra.
+
+Frissességi jelzések minden bejegyzésnél (aktív / havi / megszűnt, utolsó build dátuma), naprakészen tartva egy éjszakai automatikus feladattal, amely megjelöli az elcsendesedő projekteket.
+
+Lépésről lépésre flashelési útmutatók ROM-okhoz és recoverykhez, kategóriánként beágyazva.
+
+Beépített katalógussal teljesen offline működik, majd indításkor frissül a GitHubról, így az új ROM-ok és készülékek alkalmazásfrissítés nélkül jelennek meg.
+
+Material 3 dinamikus színekkel, világos / sötét / AMOLED témák és adaptív elrendezések telefonra, tabletre és asztali gépre.
+
+Mélyhivatkozások minden ROM-hoz, recoveryhez, készülékhez és márkához, könnyen megoszthatók a fórumokon.
+
+Nincs követés, nincs analitika, nincsenek hirdetések, és nincs szükség Google Play-szolgáltatásokra. GPL-3.0 licenc alatt; forráskód a GitHubon.

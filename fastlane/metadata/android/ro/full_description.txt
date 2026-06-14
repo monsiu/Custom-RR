@@ -1,0 +1,31 @@
+Custom RR este o aplicație gratuită și open source pentru comunitatea de modding Android. Adună totul într-un singur loc: ce ROM-uri personalizate și recovery acceptă oficial dispozitivul tău, ce GSI Treble poți instala și de unde le descarci. Gata cu săriturile între wiki-ul LineageOS, trei canale Telegram, un folder SourceForge și paisprezece file de browser.
+
+Funcții:
+
+18 ROM-uri întreținute activ (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS și altele), fiecare cu descriere, funcții, capturi de ecran și un link direct către pagina oficială de descărcare, dintr-o atingere.
+
+Peste 500 de dispozitive preluate în timp real din wiki-ul oficial LineageOS și din depozitul PixelOS official_devices, actualizate în fiecare noapte.
+
+Principalele recovery: TWRP, OrangeFox, PBRP, SHRP, cu suport per dispozitiv și descărcări directe.
+
+Centru Treble și GSI: insigne de stare pentru fiecare proiect, descărcări GSI directe, indexul canonic al wiki-ului TrebleDroid, o fișă A-only vs A/B și arm64 vs arm32_binder64, un flux de instalare în 6 pași și o secțiune de întrebări frecvente despre „GSI pornește, dar camera nu funcționează".
+
+Alege-ți telefonul și întreaga aplicație se filtrează la ROM-urile și recovery care îl acceptă oficial. Paginile de mărci afișează fiecare dispozitiv și fiecare ROM/recovery destinat mărcilor Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing și altele.
+
+Proiectele încheiate sunt marcate clar. ROM-urile arhivate (ArrowOS, DotOS, Havoc-OS, RisingOS original și altele) afișează data ultimei compilări și o sugestie de succesor, ca să nu instalezi cod nelansat de ani de zile.
+
+Versiunile neoficiale și întreținute de comunitate au propria secțiune marcată clar, ca să știi mereu ce este oficial și ce este un port al comunității. Printre adăugirile recente se numără suportul pentru Galaxy S24 Ultra.
+
+Bannerele de avertizare ale proiectelor îți atrag atenția asupra aspectelor relevante pentru comunitate înainte de instalare.
+
+Semnale de prospețime la fiecare intrare (activ / lunar / întrerupt, data ultimei compilări), menținute la zi de o sarcină automată nocturnă care marchează proiectele care amuțesc.
+
+Ghiduri de instalare pas cu pas pentru ROM-uri și recovery, integrate pe categorii.
+
+Funcționează complet offline cu un catalog inclus, apoi se actualizează de pe GitHub la pornire, astfel încât ROM-urile și dispozitivele noi apar fără o actualizare a aplicației.
+
+Material 3 cu culoare dinamică, teme luminoasă / întunecată / AMOLED și aspecte adaptive pentru telefon, tabletă și desktop.
+
+Linkuri directe către fiecare ROM, recovery, dispozitiv și marcă, ușor de partajat în discuții.
+
+Fără urmărire, fără analize, fără reclame și fără servicii Google Play necesare. Licențiat sub GPL-3.0; cod sursă pe GitHub.

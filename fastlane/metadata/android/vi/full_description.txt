@@ -1,0 +1,31 @@
+Custom RR là ứng dụng đồng hành miễn phí, mã nguồn mở cho cộng đồng mod Android. Nó gom mọi thứ vào một nơi: ROM tùy chỉnh và recovery nào hỗ trợ chính thức thiết bị của bạn, Treble GSI nào bạn có thể flash và tải chúng ở đâu. Không còn phải nhảy qua lại giữa wiki LineageOS, ba kênh Telegram, một thư mục SourceForge và mười bốn thẻ trình duyệt.
+
+Tính năng:
+
+18 ROM được bảo trì tích cực (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS và nhiều hơn), mỗi ROM có mô tả, tính năng, ảnh chụp màn hình và liên kết một chạm đến trang tải xuống chính thức.
+
+Hơn 500 thiết bị được lấy trực tiếp từ wiki LineageOS chính thức và kho PixelOS official_devices, cập nhật mỗi đêm.
+
+Các recovery chính: TWRP, OrangeFox, PBRP, SHRP, với hỗ trợ theo từng thiết bị và tải xuống trực tiếp.
+
+Trung tâm Treble & GSI: huy hiệu trạng thái theo dự án, tải GSI trực tiếp, chỉ mục wiki TrebleDroid chuẩn, bảng tra A-only và A/B cùng arm64 và arm32_binder64, quy trình flash 6 bước và mục hỏi đáp "GSI khởi động nhưng camera không hoạt động".
+
+Chọn điện thoại của bạn và toàn bộ ứng dụng sẽ lọc theo các ROM và recovery hỗ trợ chính thức nó. Trang thương hiệu hiển thị mọi thiết bị và mọi ROM/recovery nhắm đến Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing và nhiều hãng khác.
+
+Các dự án đã ngừng được đánh dấu rõ ràng. ROM lưu trữ (ArrowOS, DotOS, Havoc-OS, RisingOS gốc và những ROM khác) hiển thị ngày bản dựng cuối và gợi ý dự án kế nhiệm, để bạn không flash mã đã nhiều năm không phát hành.
+
+Các bản dựng không chính thức và do cộng đồng bảo trì có mục riêng được gắn nhãn rõ ràng, nên bạn luôn biết đâu là chính thức và đâu là bản port của cộng đồng. Bổ sung gần đây có hỗ trợ Galaxy S24 Ultra.
+
+Biểu ngữ cảnh báo dự án nhắc bạn về các vấn đề quan trọng của cộng đồng trước khi flash.
+
+Tín hiệu cập nhật trên mỗi mục (đang hoạt động / hằng tháng / đã ngừng, ngày bản dựng cuối), được giữ mới bằng một tác vụ tự động chạy hằng đêm để đánh dấu các dự án đang im ắng.
+
+Hướng dẫn flash từng bước cho ROM và recovery, nhúng theo từng danh mục.
+
+Hoạt động hoàn toàn ngoại tuyến với danh mục tích hợp, rồi làm mới từ GitHub khi khởi động để ROM và thiết bị mới xuất hiện mà không cần cập nhật ứng dụng.
+
+Material 3 với màu động, giao diện sáng / tối / AMOLED và bố cục thích ứng cho điện thoại, máy tính bảng và máy tính để bàn.
+
+Liên kết sâu đến mọi ROM, recovery, thiết bị và thương hiệu, dễ chia sẻ trong các chủ đề.
+
+Không theo dõi, không phân tích, không quảng cáo và không cần dịch vụ Google Play. Cấp phép theo GPL-3.0; mã nguồn trên GitHub.
