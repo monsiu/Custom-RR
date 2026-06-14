@@ -1,0 +1,25 @@
+Custom RR ជា companion app ឥតគិតថ្លៃ និង open-source សម្រាប់សហគមន៍ Android modding។ វារួមបញ្ចូលអ្វីៗទាំងអស់នៅកន្លែងតែមួយ៖ custom ROM និង recovery មួយណា support ឧបករណ៍របស់អ្នកជាផ្លូវការ, Treble GSI មួយណាអ្នកអាច flash បាន, និងត្រូវ download ពីណា។ មិនចាំបាច់ប្ដូររវាង LineageOS wiki, Telegram channels, SourceForge folder និង browser tabs ច្រើនទៀតទេ។
+
+Features:
+
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS និងផ្សេងទៀត), មួយៗមាន description, features, screenshots និង one-tap link ទៅ official download page។
+
+500+ devices ត្រូវបានយក live ពី official LineageOS wiki និង PixelOS official_devices repo ហើយ refresh រៀងរាល់យប់។
+
+recoveries សំខាន់ៗ: TWRP, OrangeFox, PBRP, SHRP, មាន per-device support និង direct downloads។
+
+Treble & GSI hub: project status badges, direct GSI downloads, canonical TrebleDroid wiki index, A-only vs A/B និង arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, និង "GSI boots but camera is broken" FAQ។
+
+ជ្រើសរើស phone របស់អ្នក ហើយ app នឹង filter ទៅ ROMs និង recoveries ដែល support ជាផ្លូវការ។ Brand pages បង្ហាញ devices និង ROM/recovery សម្រាប់ Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing និងផ្សេងទៀត។
+
+Defunct projects ត្រូវបានសម្គាល់ច្បាស់។ Archived ROMs (ArrowOS, DotOS, Havoc-OS, original RisingOS និងផ្សេងទៀត) បង្ហាញ last-build date និង successor suggestion ដើម្បីឲ្យអ្នកមិន flash code ដែលមិនបាន release ជាច្រើនឆ្នាំ។
+
+Unofficial និង community-maintained builds ស្ថិតក្នុង section ផ្ទាល់ខ្លួនដែល label ច្បាស់ ដូច្នេះអ្នកដឹងថាអ្វី official និងអ្វី community port។ Recent additions រួមមាន Galaxy S24 Ultra support។
+
+Project warning banners បង្ហាញ community-relevant concerns មុនពេល flash។ Freshness signals នៅលើ entry នីមួយៗបង្ហាញ active / monthly / discontinued status និង last build date ហើយ nightly automated job រក្សាឲ្យ updated។
+
+Step-by-step flashing guides សម្រាប់ ROMs និង recoveries ត្រូវបាន embed តាម category។ Built-in catalog ធ្វើឲ្យ app ដំណើរការ offline ពេញលេញ ហើយ refresh ពី GitHub នៅពេល launch ដូច្នេះ ROMs និង devices ថ្មីបង្ហាញដោយមិនចាំបាច់ app update។
+
+Material 3 with dynamic color, light / dark / AMOLED themes និង adaptive layouts សម្រាប់ phone, tablet, desktop។ Deep links សម្រាប់ ROM, recovery, device និង brand ងាយស្រួល share ក្នុង threads។
+
+No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub។

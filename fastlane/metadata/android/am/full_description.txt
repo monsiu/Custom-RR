@@ -1,0 +1,31 @@
+Custom RR ለAndroid ማሻሻያ ማህበረሰብ የተሰራ ነፃ እና ክፍት ምንጭ የአጋር መተግበሪያ ነው። ሁሉንም በአንድ ቦታ ያቀርባል፣ የትኞቹ custom ROM እና recovery መሣሪያዎን በይፋ እንደሚደግፉ፣ የትኞቹ Treble GSI ማፍላሽ እንደሚችሉ፣ እና የት እንደሚያወርዱት። ከLineageOS wiki፣ ከብዙ Telegram ቻናሎች፣ ከSourceForge ፎልደር እና ከብዙ የአሳሽ ታቦች መዘዋወር አያስፈልግም።
+
+ባህሪዎች፦
+
+18 በቀጣይነት የሚጠበቁ ROMs (LineageOS፣ crDroid፣ PixelOS፣ Project Elixir፣ Evolution X፣ DerpFest፣ UN1CA፣ BlissROMs፣ /e/፣ GrapheneOS፣ CalyxOS፣ DivestOS፣ RisingOS Revived፣ VoltageOS እና ሌሎች)፣ እያንዳንዱ መግለጫ፣ ባህሪዎች፣ ስክሪንሾቶች እና ወደ ይፋዊ የማውረድ ገጽ የአንድ ንክኪ አገናኝ ያለው።
+
+ከ500 በላይ መሣሪያዎች ከይፋዊው LineageOS wiki እና ከPixelOS official_devices ማከማቻ በቀጥታ ይመጣሉ፣ በየሌሊቱም ይዘምናሉ።
+
+ዋና recoveryዎች፦ TWRP፣ OrangeFox፣ PBRP፣ SHRP፣ በመሣሪያ ደረጃ ድጋፍ እና ቀጥታ ማውረዶች ጋር።
+
+Treble እና GSI ማዕከል፦ የፕሮጀክት ሁኔታ ምልክቶች፣ ቀጥታ GSI ማውረዶች፣ የTrebleDroid wiki መደበኛ መጠቆሚያ፣ A-only vs A/B እና arm64 vs arm32_binder64 ፈጣን መመሪያ፣ 6 ደረጃ የፍላሽ ፍሰት፣ እና "GSI ይነሳል ግን ካሜራው አይሰራም" የሚለው የተደጋጋሚ ጥያቄ ክፍል።
+
+ስልክዎን ይምረጡ፣ መተግበሪያውም መሣሪያዎን በይፋ የሚደግፉ ROM እና recovery ብቻ ያሳያል። የብራንድ ገጾች Xiaomi፣ OnePlus፣ Samsung፣ Pixel፣ Realme፣ POCO፣ Nothing እና ሌሎችን የሚመለከቱ መሣሪያዎችን እና ROM/recoveryዎችን ያሳያሉ።
+
+የተቋረጡ ፕሮጀክቶች በግልጽ ይለያያሉ። የተመዘገቡ ROMs (ArrowOS፣ DotOS፣ Havoc-OS፣ የመጀመሪያው RisingOS እና ሌሎች) የመጨረሻ ግንባታ ቀንን እና የተተኪ ምክርን ያሳያሉ፣ ስለዚህ ከዓመታት በፊት ያልተለቀቀ ኮድ አታፍላሹም።
+
+ይፋዊ ያልሆኑ እና በማህበረሰብ የሚጠበቁ builds በተለየ ግልጽ ክፍል ውስጥ ይታያሉ፣ ስለዚህ ይፋዊ የሆነውን እና የማህበረሰብ port የሆነውን በቀላሉ ታውቃላችሁ። የቅርብ ጊዜ ጭማሪዎች ውስጥ Galaxy S24 Ultra ድጋፍ አለ።
+
+የፕሮጀክት ማስጠንቀቂያ ባነሮች ከመፍላሽዎ በፊት ለማህበረሰቡ አስፈላጊ የሆኑ ጉዳዮችን ያሳያሉ።
+
+በእያንዳንዱ ግቤት ላይ የእድሳት ምልክቶች (ንቁ / ወርሃዊ / የተቋረጠ፣ የመጨረሻ ግንባታ ቀን) አሉ፣ ፕሮጀክቶች ሲዝጉ የሚያመለክት የሌሊት ራስ-ሰር ስራ ያዘምናቸዋል።
+
+ለROM እና recovery የደረጃ በደረጃ የፍላሽ መመሪያዎች በእያንዳንዱ ምድብ ውስጥ ተካትተዋል።
+
+በተገነባ ካታሎግ ሙሉ በሙሉ ከመስመር ውጭ ይሰራል፣ ከዚያም ሲነሳ ከGitHub ይታደሳል፣ አዲስ ROM እና መሣሪያዎችም ያለ መተግበሪያ ዝመና ይታያሉ።
+
+Material 3 ከdynamic color ጋር፣ ብሩህ / ጨለማ / AMOLED ገጽታዎች፣ ለስልክ፣ ታብሌት እና ዴስክቶፕ የሚስማሙ አቀማመጦች።
+
+ለእያንዳንዱ ROM፣ recovery፣ መሣሪያ እና ብራንድ ጥልቅ አገናኞች አሉ፣ በውይይቶች ውስጥ ለማጋራት ቀላል ናቸው።
+
+መከታተያ የለም፣ analytics የለም፣ ማስታወቂያ የለም፣ Google Play Services አያስፈልግም። GPL-3.0 ፈቃድ አለው፣ ምንጭ ኮድም GitHub ላይ ነው።

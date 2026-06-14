@@ -1,0 +1,31 @@
+Custom RR er ókeypis fylgdarforrit með opnum kóða fyrir Android-fikt-samfélagið. Það safnar öllu á einn stað: hvaða sérsniðnu ROM og recovery styðja tækið þitt opinberlega, hvaða Treble GSI þú getur flassað og hvar á að sækja þau. Ekki meira stökk milli LineageOS-wiki, þriggja Telegram-rása, SourceForge-möppu og fjórtán vafraflipa.
+
+Eiginleikar:
+
+18 ROM í virkri umsjón (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS og fleiri), hvert með lýsingu, eiginleikum, skjámyndum og einnar-snertingar tengli á opinberu niðurhalssíðuna.
+
+Yfir 500 tæki sótt í rauntíma úr opinberu LineageOS-wiki og PixelOS official_devices-geymslunni, uppfærð á hverri nóttu.
+
+Helstu recovery: TWRP, OrangeFox, PBRP, SHRP, með stuðningi fyrir hvert tæki og beinu niðurhali.
+
+Treble- og GSI-miðstöð: stöðumerki fyrir hvert verkefni, beint GSI-niðurhal, hinn staðlaði TrebleDroid-wiki-listi, minnisblað um A-only á móti A/B og arm64 á móti arm32_binder64, 6 þrepa flössunarferli og algengar spurningar um "GSI ræsist en myndavélin virkar ekki".
+
+Veldu símann þinn og allt forritið síast niður á þau ROM og recovery sem styðja hann opinberlega. Vörumerkjasíður sýna hvert tæki og hvert ROM/recovery sem miðar að Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing og fleirum.
+
+Hætt verkefni eru greinilega merkt. Skjalfest ROM (ArrowOS, DotOS, Havoc-OS, upprunalega RisingOS og fleiri) sýna síðasta byggingardag og tillögu að arftaka, svo þú flassir ekki kóða sem hefur ekki komið út í mörg ár.
+
+Óopinberar og samfélagsreknar byggingar hafa sinn eigin greinilega merkta hluta, svo þú vitir alltaf hvað er opinbert og hvað er samfélagsígræðsla. Nýlegar viðbætur eru meðal annars stuðningur við Galaxy S24 Ultra.
+
+Viðvörunarborðar verkefna benda á atriði sem skipta samfélagið máli áður en þú flassar.
+
+Ferskleikamerki á hverri færslu (virkt / mánaðarlegt / hætt, síðasti byggingardagur), haldið uppfærðu af sjálfvirku næturverki sem merkir verkefni sem þagna.
+
+Skref-fyrir-skref flössunarleiðbeiningar fyrir ROM og recovery, innfelldar eftir flokkum.
+
+Virkar að fullu án nettengingar með innbyggðum lista og uppfærist svo frá GitHub við ræsingu, svo ný ROM og tæki birtast án þess að uppfæra forritið.
+
+Material 3 með breytilegum litum, ljós / dökk / AMOLED þemu og aðlögunarhæf útlit fyrir síma, spjaldtölvu og borðtölvu.
+
+Djúptenglar fyrir hvert ROM, recovery, tæki og vörumerki, auðvelt að deila í þráðum.
+
+Engin rakning, engin greining, engar auglýsingar og engin Google Play-þjónusta nauðsynleg. Gefið út undir GPL-3.0; frumkóði á GitHub.

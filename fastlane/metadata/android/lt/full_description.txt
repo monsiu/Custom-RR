@@ -1,0 +1,31 @@
+Custom RR yra nemokama atvirojo kodo papildoma programa Android moddingo bendruomenei. Ji surenka viską vienoje vietoje: kurie tinkinti ROM ir recovery oficialiai palaiko jūsų įrenginį, kuriuos Treble GSI galite įdiegti ir kur juos atsisiųsti. Nebereikia šokinėti tarp LineageOS wiki, trijų Telegram kanalų, SourceForge aplanko ir keturiolikos naršyklės kortelių.
+
+Funkcijos:
+
+18 aktyviai prižiūrimų ROM (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS ir kt.), kiekvienas su aprašymu, funkcijomis, ekrano nuotraukomis ir tiesiogine nuoroda į oficialų atsisiuntimo puslapį vienu palietimu.
+
+Daugiau nei 500 įrenginių, tiesiogiai gaunamų iš oficialaus LineageOS wiki ir PixelOS official_devices saugyklos ir atnaujinamų kiekvieną naktį.
+
+Pagrindiniai recovery: TWRP, OrangeFox, PBRP, SHRP, su palaikymu kiekvienam įrenginiui ir tiesioginiais atsisiuntimais.
+
+Treble ir GSI centras: kiekvieno projekto būsenos ženkleliai, tiesioginiai GSI atsisiuntimai, kanoninis TrebleDroid wiki indeksas, A-only ir A/B bei arm64 ir arm32_binder64 atmintinė, 6 žingsnių diegimo eiga ir DUK „GSI pasileidžia, bet neveikia kamera".
+
+Pasirinkite telefoną ir visa programa filtruojama į ROM ir recovery, kurie jį oficialiai palaiko. Prekės ženklų puslapiuose rodomas kiekvienas įrenginys ir kiekvienas ROM/recovery, skirtas Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing ir kitiems.
+
+Nutraukti projektai aiškiai pažymėti. Archyvuoti ROM (ArrowOS, DotOS, Havoc-OS, originalus RisingOS ir kt.) rodo paskutinės versijos datą ir įpėdinio pasiūlymą, kad nediegtumėte kodo, kuris nebuvo išleistas daugelį metų.
+
+Neoficialios ir bendruomenės prižiūrimos versijos turi savo aiškiai pažymėtą skiltį, todėl visada žinote, kas yra oficialu, o kas bendruomenės perkėlimas. Tarp naujausių papildymų yra Galaxy S24 Ultra palaikymas.
+
+Projektų įspėjimo reklamjuostės prieš diegimą atkreipia dėmesį į bendruomenei svarbius klausimus.
+
+Šviežumo signalai prie kiekvieno įrašo (aktyvus / mėnesinis / nutrauktas, paskutinės versijos data), atnaujinami naktinės automatizuotos užduoties, kuri pažymi nutylančius projektus.
+
+Žingsnis po žingsnio diegimo vadovai ROM ir recovery, įterpti pagal kategorijas.
+
+Visiškai veikia neprisijungus su integruotu katalogu, o paleidžiant atnaujinama iš GitHub, todėl nauji ROM ir įrenginiai pasirodo be programos atnaujinimo.
+
+Material 3 su dinamine spalva, šviesios / tamsios / AMOLED temos ir prisitaikantys išdėstymai telefonui, planšetei ir staliniam kompiuteriui.
+
+Gilios nuorodos kiekvienam ROM, recovery, įrenginiui ir prekės ženklui, lengva dalytis gijose.
+
+Jokio sekimo, jokios analitikos, jokių reklamų ir nereikia Google Play paslaugų. Licencijuota pagal GPL-3.0; pirminis kodas GitHub.

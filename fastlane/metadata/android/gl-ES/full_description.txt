@@ -1,0 +1,31 @@
+Custom RR é unha aplicación complementaria gratuíta e de código aberto para a comunidade de modding de Android. Reúneo todo nun só lugar: que ROMs personalizadas e recoveries admiten oficialmente o teu dispositivo, que GSI Treble podes flashear e onde descargalas. Acabouse saltar entre a wiki de LineageOS, tres canles de Telegram, un cartafol de SourceForge e catorce lapelas do navegador.
+
+Funcións:
+
+18 ROMs con mantemento activo (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS e máis), cada unha con descrición, características, capturas de pantalla e unha ligazón directa á páxina oficial de descarga cun toque.
+
+Máis de 500 dispositivos obtidos en directo da wiki oficial de LineageOS e do repositorio PixelOS official_devices, actualizados cada noite.
+
+Recoveries principais: TWRP, OrangeFox, PBRP, SHRP, con soporte por dispositivo e descargas directas.
+
+Centro Treble e GSI: insignias de estado por proxecto, descargas directas de GSI, o índice canónico da wiki de TrebleDroid, unha chuleta A-only vs A/B e arm64 vs arm32_binder64, un proceso de flasheo de 6 pasos e unhas preguntas frecuentes sobre "a GSI arranca pero a cámara non funciona".
+
+Escolle o teu teléfono e toda a aplicación fíltrase ás ROMs e recoveries que o admiten oficialmente. As páxinas de marcas amosan cada dispositivo e cada ROM/recovery dirixida a Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing e máis.
+
+Os proxectos descontinuados están claramente marcados. As ROMs arquivadas (ArrowOS, DotOS, Havoc-OS, o RisingOS orixinal e outras) amosan a data da última compilación e unha suxestión de sucesora, para que non flashees código que non se publica desde hai anos.
+
+As compilacións non oficiais e mantidas pola comunidade teñen a súa propia sección claramente etiquetada, así sempre sabes que é oficial e que é un port da comunidade. Entre as incorporacións recentes está o soporte para o Galaxy S24 Ultra.
+
+Os avisos de proxecto sinalan cuestións relevantes para a comunidade antes de flashear.
+
+Sinais de actividade en cada entrada (activo / mensual / descontinuado, data da última compilación), mantidos ao día por unha tarefa automatizada nocturna que marca os proxectos que quedan calados.
+
+Guías de flasheo paso a paso para ROMs e recoveries, integradas por categoría.
+
+Funciona totalmente sen conexión cun catálogo incluído e despois actualízase desde GitHub ao iniciar, para que as novas ROMs e dispositivos aparezan sen actualizar a aplicación.
+
+Material 3 con cor dinámica, temas claro / escuro / AMOLED e deseños adaptables para teléfono, tableta e escritorio.
+
+Ligazóns directas a cada ROM, recovery, dispositivo e marca, fáciles de compartir nos fíos.
+
+Sen seguimento, sen analíticas, sen anuncios e sen necesidade dos servizos de Google Play. Con licenza GPL-3.0; código fonte en GitHub.

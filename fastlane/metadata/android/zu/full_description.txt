@@ -1,0 +1,31 @@
+I-Custom RR iyi-app yokuhamba nayo yamahhala enomthombo ovulekile yomphakathi we-Android modding. Ihlanganisa konke endaweni eyodwa: ukuthi yimaphi ama-ROM angokwezifiso ne-recovery asekela idivayisi yakho ngokusemthethweni, yimaphi ama-Treble GSI ongawaflasha, nokuthi ungawalanda kuphi. Akusekho ukweqa phakathi kwe-wiki ye-LineageOS, iziteshi ezintathu ze-Telegram, ifolda ye-SourceForge, namathebhu esiphequluli ayishumi nane.
+
+Izici:
+
+Ama-ROM angu-18 alondolozwa ngokukhuthele (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS nokunye), ngalinye linencazelo, izici, izithombe-skrini, nesixhumanisi sokuthinta kanye ekhasini elisemthethweni lokulanda.
+
+Amadivayisi angaphezu kuka-500 alandwa bukhoma kusukela ku-wiki esemthethweni ye-LineageOS nasenqolobaneni ye-PixelOS official_devices, abuyekezwa njalo ebusuku.
+
+Ama-recovery amakhulu: TWRP, OrangeFox, PBRP, SHRP, anokusekelwa kwedivayisi ngayinye nokulanda okuqondile.
+
+Isikhungo se-Treble ne-GSI: amabheji esimo ngephrojekthi ngayinye, ukulanda kwe-GSI okuqondile, inkomba esemthethweni ye-wiki ye-TrebleDroid, ishidi lokusiza le-A-only vs A/B ne-arm64 vs arm32_binder64, ukugeleza kokuflasha kwezinyathelo eziyi-6, ne-FAQ ethi "i-GSI iyaqala kodwa ikhamera ayisebenzi".
+
+Khetha ifoni yakho bese yonke i-app ihlunga ibe ama-ROM ne-recovery akusekela ngokusemthethweni. Amakhasi ezimpawu abonisa idivayisi ngayinye nawo wonke ama-ROM/recovery aqondise ku-Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing nokunye.
+
+Amaphrojekthi amisiwe amakwe ngokucacile. Ama-ROM agciniwe (ArrowOS, DotOS, Havoc-OS, i-RisingOS yokuqala nokunye) abonisa usuku lokwakha lokugcina nesiphakamiso sozongena esikhundleni, ukuze ungaflashi ikhodi engakhishwanga iminyaka.
+
+Izakhiwo ezingekho emthethweni nezilondolozwa ngumphakathi zinesigaba sazo esibhalwe ngokucacile, ngakho uhlala wazi ukuthi yikuphi okusemthethweni nokuthi yikuphi i-port yomphakathi. Phakathi kokwengezwe kamuva kukhona ukusekelwa kwe-Galaxy S24 Ultra.
+
+Amabhena exwayiso ephrojekthi aveza izindaba ezibalulekile zomphakathi ngaphambi kokuthi uflashe.
+
+Izimpawu zokusha kungeniso ngayinye (kuyasebenza / kwanyanga zonke / kumisiwe, usuku lokwakha lokugcina), kugcinwa kuvuselelekile umsebenzi ozenzakalelayo wasebusuku omaka amaphrojekthi athulayo.
+
+Imihlahlandlela yokuflasha isinyathelo ngesinyathelo yama-ROM ne-recovery, efakwe ngesigaba.
+
+Isebenza ngokugcwele unganaki-inthanethi ngekhethelo elakhelwe ngaphakathi, bese ivuselela kusuka ku-GitHub lapho iqaliswa ukuze ama-ROM namadivayisi amasha avele ngaphandle kokubuyekezwa kwe-app.
+
+I-Material 3 enombala oshintshashintshayo, izindikimba ezikhanyayo / ezimnyama / ze-AMOLED, nezakhiwo ezilungelelanayo zefoni, ithebulethi ne-desktop.
+
+Izixhumanisi ezijulile zawo wonke ama-ROM, recovery, idivayisi nempawu, kulula ukwabelana ngazo ezintanjeni.
+
+Akukho kulandelela, akukho kuhlaziya, akukho zikhangiso, futhi akudingeki Izinsiza ze-Google Play. Inelayisensi ngaphansi kwe-GPL-3.0; ikhodi yomthombo iku-GitHub.

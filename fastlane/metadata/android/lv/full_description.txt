@@ -1,0 +1,31 @@
+Custom RR ir bezmaksas atvērtā pirmkoda pavadošā lietotne Android modošanas kopienai. Tā apkopo visu vienuviet: kuri pielāgotie ROM un recovery oficiāli atbalsta tavu ierīci, kurus Treble GSI vari ieflešot un kur tos lejupielādēt. Vairs nav jālēkā starp LineageOS wiki, trim Telegram kanāliem, SourceForge mapi un četrpadsmit pārlūka cilnēm.
+
+Funkcijas:
+
+18 aktīvi uzturēti ROM (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS un citi), katrs ar aprakstu, funkcijām, ekrānuzņēmumiem un tiešu saiti uz oficiālo lejupielādes lapu ar vienu pieskārienu.
+
+Vairāk nekā 500 ierīču, kas tiešsaistē tiek iegūtas no oficiālā LineageOS wiki un PixelOS official_devices repozitorija un atjauninātas katru nakti.
+
+Galvenie recovery: TWRP, OrangeFox, PBRP, SHRP, ar atbalstu katrai ierīcei un tiešām lejupielādēm.
+
+Treble un GSI centrs: statusa nozīmītes katram projektam, tiešas GSI lejupielādes, kanoniskais TrebleDroid wiki indekss, A-only pret A/B un arm64 pret arm32_binder64 atgādne, 6 soļu flešošanas process un BUJ "GSI ielādējas, bet kamera nedarbojas".
+
+Izvēlies savu tālruni, un visa lietotne tiek filtrēta uz ROM un recovery, kas to oficiāli atbalsta. Zīmolu lapas rāda katru ierīci un katru ROM/recovery, kas paredzēts zīmoliem Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing un citiem.
+
+Pārtrauktie projekti ir skaidri atzīmēti. Arhivētie ROM (ArrowOS, DotOS, Havoc-OS, sākotnējais RisingOS un citi) rāda pēdējā būvējuma datumu un pēcteča ieteikumu, lai tu neflešotu kodu, kas nav izlaists gadiem ilgi.
+
+Neoficiālajiem un kopienas uzturētajiem būvējumiem ir sava skaidri atzīmēta sadaļa, tāpēc tu vienmēr zini, kas ir oficiāls un kas ir kopienas ports. Starp nesenajiem papildinājumiem ir Galaxy S24 Ultra atbalsts.
+
+Projektu brīdinājuma baneri pirms flešošanas norāda uz kopienai svarīgiem jautājumiem.
+
+Svaiguma signāli pie katra ieraksta (aktīvs / ikmēneša / pārtraukts, pēdējā būvējuma datums), ko aktuālus uztur nakts automatizēts darbs, kas atzīmē projektus, kuri apklust.
+
+Soli pa solim flešošanas ceļveži ROM un recovery, iegulti katrā kategorijā.
+
+Pilnībā darbojas bezsaistē ar iebūvētu katalogu un pēc tam palaišanas brīdī atjauninās no GitHub, tāpēc jauni ROM un ierīces parādās bez lietotnes atjauninājuma.
+
+Material 3 ar dinamisku krāsu, gaišas / tumšas / AMOLED tēmas un pielāgojami izkārtojumi tālrunim, planšetdatoram un datoram.
+
+Dziļās saites katram ROM, recovery, ierīcei un zīmolam, viegli kopīgojamas pavedienos.
+
+Bez izsekošanas, bez analītikas, bez reklāmām un bez nepieciešamiem Google Play pakalpojumiem. Licencēts saskaņā ar GPL-3.0; pirmkods GitHub.

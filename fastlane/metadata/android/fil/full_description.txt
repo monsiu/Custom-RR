@@ -1,0 +1,31 @@
+Ang Custom RR ay isang libre at open-source na companion app para sa komunidad ng Android modding. Pinagsasama nito ang lahat sa isang lugar: kung anong mga custom ROM at recovery ang opisyal na sumusuporta sa device mo, kung anong Treble GSI ang puwede mong i-flash, at kung saan ito ide-download. Wala nang paglipat-lipat sa LineageOS wiki, tatlong Telegram channel, isang SourceForge folder, at labing-apat na browser tab.
+
+Mga feature:
+
+18 aktibong minementina na ROM (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS at iba pa), bawat isa ay may paglalarawan, mga feature, screenshot, at isang one-tap na link sa opisyal na download page.
+
+Mahigit 500 device na live na kinukuha mula sa opisyal na LineageOS wiki at sa PixelOS official_devices repo, ina-update gabi-gabi.
+
+Mga pangunahing recovery: TWRP, OrangeFox, PBRP, SHRP, na may suporta kada device at direktang download.
+
+Treble at GSI hub: status badge kada proyekto, direktang GSI download, ang kanonikal na TrebleDroid wiki index, isang cheat sheet ng A-only vs A/B at arm64 vs arm32_binder64, isang 6-hakbang na flash flow, at isang FAQ tungkol sa "nagbu-boot ang GSI pero sira ang camera".
+
+Piliin ang telepono mo at ang buong app ay sasala sa mga ROM at recovery na opisyal na sumusuporta rito. Ang mga brand page ay nagpapakita ng bawat device at bawat ROM/recovery para sa Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing at iba pa.
+
+Malinaw na namarkahan ang mga itinigil na proyekto. Ang mga naka-archive na ROM (ArrowOS, DotOS, Havoc-OS, orihinal na RisingOS at iba pa) ay nagpapakita ng petsa ng huling build at mungkahing kahalili, para hindi ka mag-flash ng code na hindi na nailabas sa loob ng maraming taon.
+
+Ang hindi opisyal at minementina ng komunidad na mga build ay may sariling malinaw na nakalabel na seksyon, kaya alam mo lagi kung ano ang opisyal at kung ano ang community port. Kabilang sa mga kamakailang dagdag ang suporta sa Galaxy S24 Ultra.
+
+Ang mga warning banner ng proyekto ay nagtatampok ng mahahalagang isyu para sa komunidad bago ka mag-flash.
+
+Mga freshness signal sa bawat entry (aktibo / buwanan / itinigil, petsa ng huling build), pinananatiling napapanahon ng gabing automated job na nagmamarka ng mga proyektong tumatahimik.
+
+Mga step-by-step na flash guide para sa ROM at recovery, naka-embed kada kategorya.
+
+Gumagana nang ganap na offline gamit ang nakapaloob na katalogo, pagkatapos ay nire-refresh mula sa GitHub kapag nag-launch kaya lumalabas ang bagong ROM at device nang walang app update.
+
+Material 3 na may dynamic color, light / dark / AMOLED na tema, at adaptive na layout para sa telepono, tablet at desktop.
+
+Deep link para sa bawat ROM, recovery, device at brand, madaling ibahagi sa mga thread.
+
+Walang tracking, walang analytics, walang ads, at hindi nangangailangan ng Google Play Services. Naka-lisensya sa ilalim ng GPL-3.0; source code sa GitHub.

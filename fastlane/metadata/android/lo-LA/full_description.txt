@@ -1,0 +1,25 @@
+Custom RR ແມ່ນ companion app ຟຣີ ແລະ open-source ສໍາລັບຊຸມຊົນ Android modding. ມັນຮວບຮວມທຸກຢ່າງໄວ້ບ່ອນດຽວ: custom ROM ແລະ recovery ໃດ support ອຸປະກອນຂອງທ່ານຢ່າງເປັນທາງການ, Treble GSI ໃດທີ່ທ່ານສາມາດ flash ໄດ້, ແລະ download ຈາກໃສ. ບໍ່ຕ້ອງສະຫຼັບລະຫວ່າງ LineageOS wiki, Telegram channels, SourceForge folder ແລະ browser tabs ຫຼາຍອີກ.
+
+Features:
+
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS ແລະອື່ນໆ), ແຕ່ລະອັນມີ description, features, screenshots ແລະ one-tap link ໄປ official download page.
+
+500+ devices ຖືກດຶງ live ຈາກ official LineageOS wiki ແລະ PixelOS official_devices repo ແລະ refresh ທຸກຄືນ.
+
+recoveries ຫຼັກ: TWRP, OrangeFox, PBRP, SHRP, ພ້ອມ per-device support ແລະ direct downloads.
+
+Treble & GSI hub: project status badges, direct GSI downloads, canonical TrebleDroid wiki index, A-only vs A/B ແລະ arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, ແລະ "GSI boots but camera is broken" FAQ.
+
+ເລືອກ phone ຂອງທ່ານ ແລ້ວ app ຈະ filter ໄປຫາ ROMs ແລະ recoveries ທີ່ support ຢ່າງເປັນທາງການ. Brand pages ສະແດງ devices ແລະ ROM/recovery ສໍາລັບ Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing ແລະອື່ນໆ.
+
+Defunct projects ຖືກກໍານົດໄວ້ຊັດເຈນ. Archived ROMs (ArrowOS, DotOS, Havoc-OS, original RisingOS ແລະອື່ນໆ) ສະແດງ last-build date ແລະ successor suggestion, ເພື່ອບໍ່ໃຫ້ flash code ທີ່ບໍ່ໄດ້ release ຫຼາຍປີ.
+
+Unofficial ແລະ community-maintained builds ຢູ່ໃນ section ທີ່ label ຊັດເຈນ, ເຮັດໃຫ້ແຍກ official ແລະ community port ໄດ້ງ່າຍ. Recent additions ມີ Galaxy S24 Ultra support.
+
+Project warning banners ສະແດງ community-relevant concerns ກ່ອນ flash. Freshness signals ໃນແຕ່ລະ entry ສະແດງ active / monthly / discontinued status ແລະ last build date, nightly automated job ຮັກສາໃຫ້ updated.
+
+Step-by-step flashing guides ສໍາລັບ ROMs ແລະ recoveries ຖືກ embed ຕາມ category. Built-in catalog ໃຫ້ app ເຮັດວຽກ offline ໄດ້ເຕັມຮູບແບບ ແລະ refresh ຈາກ GitHub ເມື່ອ launch, ດັ່ງນັ້ນ ROMs ແລະ devices ໃໝ່ຈະປາກົດໂດຍບໍ່ຕ້ອງ app update.
+
+Material 3 with dynamic color, light / dark / AMOLED themes ແລະ adaptive layouts ສໍາລັບ phone, tablet, desktop. Deep links ສໍາລັບ ROM, recovery, device ແລະ brand ແບ່ງປັນໄດ້ງ່າຍ.
+
+No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub.

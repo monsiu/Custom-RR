@@ -1,0 +1,31 @@
+Custom RR és una aplicació complementària gratuïta i de codi obert per a la comunitat de modding d'Android. Ho reuneix tot en un sol lloc: quines ROMs personalitzades i recoveries admeten oficialment el teu dispositiu, quines GSI Treble pots flashejar i on descarregar-les. S'ha acabat saltar entre la wiki de LineageOS, tres canals de Telegram, una carpeta de SourceForge i catorze pestanyes del navegador.
+
+Funcions:
+
+18 ROMs amb manteniment actiu (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS i més), cadascuna amb descripció, característiques, captures de pantalla i un enllaç directe a la pàgina oficial de descàrrega amb un toc.
+
+Més de 500 dispositius obtinguts en directe de la wiki oficial de LineageOS i del repositori PixelOS official_devices, actualitzats cada nit.
+
+Recoveries principals: TWRP, OrangeFox, PBRP, SHRP, amb suport per dispositiu i descàrregues directes.
+
+Centre Treble i GSI: distintius d'estat per projecte, descàrregues directes de GSI, l'índex canònic de la wiki de TrebleDroid, una xuleta A-only vs A/B i arm64 vs arm32_binder64, un procés de flashejat de 6 passos i unes preguntes freqüents sobre "la GSI arrenca però la càmera no funciona".
+
+Tria el teu telèfon i tota l'aplicació es filtra a les ROMs i recoveries que l'admeten oficialment. Les pàgines de marques mostren cada dispositiu i cada ROM/recovery dirigida a Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing i més.
+
+Els projectes descontinuats estan clarament marcats. Les ROMs arxivades (ArrowOS, DotOS, Havoc-OS, el RisingOS original i altres) mostren la data de l'última compilació i un suggeriment de successora, perquè no flashegis codi que fa anys que no es publica.
+
+Les compilacions no oficials i mantingudes per la comunitat tenen la seva pròpia secció clarament etiquetada, així sempre saps què és oficial i què és un port de la comunitat. Entre les incorporacions recents hi ha el suport per al Galaxy S24 Ultra.
+
+Els bàners d'avís de projecte assenyalen qüestions rellevants per a la comunitat abans de flashejar.
+
+Senyals d'activitat a cada entrada (actiu / mensual / descontinuat, data de l'última compilació), mantinguts al dia per una tasca automatitzada nocturna que marca els projectes que s'aturen.
+
+Guies de flashejat pas a pas per a ROMs i recoveries, integrades per categoria.
+
+Funciona totalment fora de línia amb un catàleg inclòs i després s'actualitza des de GitHub en iniciar-se, perquè les noves ROMs i dispositius apareguin sense actualitzar l'aplicació.
+
+Material 3 amb color dinàmic, temes clar / fosc / AMOLED i dissenys adaptatius per a telèfon, tauleta i escriptori.
+
+Enllaços directes a cada ROM, recovery, dispositiu i marca, fàcils de compartir als fils.
+
+Sense seguiment, sense analítiques, sense anuncis i sense necessitat dels serveis de Google Play. Amb llicència GPL-3.0; codi font a GitHub.

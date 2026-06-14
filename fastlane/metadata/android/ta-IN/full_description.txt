@@ -1,0 +1,25 @@
+Custom RR என்பது Android modding communityக்கான இலவச open-source companion app. உங்கள் deviceஐ officially support செய்யும் custom ROM மற்றும் recovery எவை, flash செய்யக்கூடிய Treble GSI எவை, அவற்றை எங்கு download செய்வது என்பதைக் ஒரே இடத்தில் காட்டுகிறது. LineageOS wiki, Telegram channels, SourceForge folder, பல browser tabs ஆகியவற்றுக்கிடையில் அலைவதை இது குறைக்கிறது.
+
+Features:
+
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS மற்றும் மேலும்), ஒவ்வொன்றிலும் description, features, screenshots, official download pageக்கு one-tap link உள்ளது.
+
+500+ devices official LineageOS wiki மற்றும் PixelOS official_devices repoஇலிருந்து live ஆக எடுக்கப்பட்டு ஒவ்வொரு இரவும் refresh செய்யப்படுகின்றன.
+
+முக்கிய recoveries: TWRP, OrangeFox, PBRP, SHRP, per-device support மற்றும் direct downloads உடன்.
+
+Treble & GSI hub: project status badges, direct GSI downloads, canonical TrebleDroid wiki index, A-only vs A/B மற்றும் arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, மற்றும் "GSI boots but camera is broken" FAQ.
+
+உங்கள் phoneஐ தேர்ந்தெடுக்கவும், app officially supported ROMs மற்றும் recoveriesக்கு filter ஆகும். Brand pages Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing மற்றும் பிற brandsக்கான devices மற்றும் ROM/recoveryயை காட்டும்.
+
+நிறுத்தப்பட்ட projects clearly marked. Archived ROMs (ArrowOS, DotOS, Havoc-OS, original RisingOS மற்றும் பிற) last-build date மற்றும் successor suggestion காட்டுகின்றன, பல ஆண்டுகளாக release ஆகாத codeஐ flash செய்ய வேண்டாம் என்பதற்காக.
+
+Unofficial மற்றும் community-maintained builds தனி clearly labelled sectionல் இருக்கும், எனவே official மற்றும் community port இடையேயான வித்தியாசம் தெளிவாக இருக்கும். Recent additionsல் Galaxy S24 Ultra support உள்ளது.
+
+Project warning banners flash செய்யும் முன் community-relevant concerns காட்டும். Freshness signals ஒவ்வொரு entryயிலும் active / monthly / discontinued status மற்றும் last build date காட்டும், nightly automated job மூலம் current ஆக இருக்கும்.
+
+ROMs மற்றும் recoveriesக்கு step-by-step flashing guides category அடிப்படையில் embedded. Built-in catalog மூலம் app முழுமையாக offline இயங்கும், launchல் GitHubஇலிருந்து refresh ஆகும், அதனால் புதிய ROMs மற்றும் devices app update இல்லாமல் தோன்றும்.
+
+Material 3 dynamic color, light / dark / AMOLED themes, phone, tablet, desktopக்கு adaptive layouts. ஒவ்வொரு ROM, recovery, device, brandக்கும் deep links share செய்ய எளிது.
+
+No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub.

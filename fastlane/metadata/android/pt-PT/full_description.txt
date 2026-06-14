@@ -1,0 +1,31 @@
+O Custom RR é uma aplicação complementar gratuita e de código aberto para a comunidade de modding do Android. Reúne tudo num só lugar: que ROMs personalizadas e recoveries suportam oficialmente o teu dispositivo, que GSIs Treble podes instalar e onde as descarregar. Acabou o saltar entre a wiki do LineageOS, três canais do Telegram, uma pasta do SourceForge e catorze separadores do navegador.
+
+Funcionalidades:
+
+18 ROMs com manutenção ativa (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS e mais), cada uma com descrição, funcionalidades, capturas de ecrã e uma ligação direta à página oficial de transferência com um toque.
+
+Mais de 500 dispositivos obtidos em direto da wiki oficial do LineageOS e do repositório PixelOS official_devices, atualizados todas as noites.
+
+Principais recoveries: TWRP, OrangeFox, PBRP, SHRP, com suporte por dispositivo e transferências diretas.
+
+Centro Treble e GSI: emblemas de estado por projeto, transferências diretas de GSI, o índice canónico da wiki do TrebleDroid, uma folha de consulta A-only vs A/B e arm64 vs arm32_binder64, um fluxo de instalação em 6 passos e umas perguntas frequentes sobre "a GSI arranca mas a câmara não funciona".
+
+Escolhe o teu telemóvel e toda a aplicação se filtra para as ROMs e recoveries que o suportam oficialmente. As páginas de marcas mostram cada dispositivo e cada ROM/recovery destinada a Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing e mais.
+
+Os projetos descontinuados estão claramente assinalados. As ROMs arquivadas (ArrowOS, DotOS, Havoc-OS, o RisingOS original e outras) mostram a data da última compilação e uma sugestão de sucessora, para não instalares código que não é lançado há anos.
+
+As compilações não oficiais e mantidas pela comunidade têm a sua própria secção claramente identificada, para saberes sempre o que é oficial e o que é um port da comunidade. Entre as adições recentes está o suporte ao Galaxy S24 Ultra.
+
+Os avisos de projeto assinalam questões relevantes da comunidade antes de instalares.
+
+Sinais de atividade em cada entrada (ativo / mensal / descontinuado, data da última compilação), mantidos atualizados por uma tarefa automática noturna que assinala os projetos que ficam quietos.
+
+Guias de instalação passo a passo para ROMs e recoveries, integrados por categoria.
+
+Funciona totalmente offline com um catálogo incluído e depois atualiza-se a partir do GitHub no arranque, para que novas ROMs e dispositivos apareçam sem atualizar a aplicação.
+
+Material 3 com cor dinâmica, temas claro / escuro / AMOLED e esquemas adaptáveis para telemóvel, tablet e computador.
+
+Ligações diretas para cada ROM, recovery, dispositivo e marca, fáceis de partilhar nos tópicos.
+
+Sem rastreio, sem análise, sem anúncios e sem necessidade dos serviços Google Play. Licenciado sob GPL-3.0; código-fonte no GitHub.

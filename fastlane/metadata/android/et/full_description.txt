@@ -1,0 +1,31 @@
+Custom RR on tasuta avatud lähtekoodiga kaaslasrakendus Androidi moddimiskogukonnale. See koondab kõik ühte kohta: millised kohandatud ROM-id ja recovery toetavad ametlikult sinu seadet, milliseid Treble GSI-sid saad flashida ja kust neid alla laadida. Lõpp hüplemisele LineageOS-i wiki, kolme Telegrami kanali, SourceForge'i kausta ja neljateistkümne brauseri vahekaardi vahel.
+
+Funktsioonid:
+
+18 aktiivselt hooldatud ROM-i (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS jt), igaüks koos kirjelduse, funktsioonide, ekraanipiltide ja ühe puudutusega lingiga ametlikule allalaadimislehele.
+
+Üle 500 seadme, mis tõmmatakse reaalajas ametlikust LineageOS-i wikist ja PixelOS official_devices hoidlast ning mida värskendatakse igal ööl.
+
+Peamised recovery: TWRP, OrangeFox, PBRP, SHRP, seadmepõhise toe ja otseste allalaadimistega.
+
+Treble ja GSI keskus: projektipõhised olekumärgid, otsesed GSI allalaadimised, kanooniline TrebleDroidi wiki indeks, A-only vs A/B ja arm64 vs arm32_binder64 spikker, 6-sammuline flashimisvoog ja KKK "GSI käivitub, aga kaamera ei tööta".
+
+Vali oma telefon ja kogu rakendus filtreeritakse ROM-idele ja recovery'tele, mis seda ametlikult toetavad. Brändilehed kuvavad iga seadme ja iga ROM-i/recovery, mis on suunatud brändidele Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing jt.
+
+Lõpetatud projektid on selgelt märgistatud. Arhiveeritud ROM-id (ArrowOS, DotOS, Havoc-OS, algne RisingOS jt) kuvavad oma viimase ehituse kuupäeva ja järglase soovituse, et sa ei flashiks koodi, mida pole aastaid välja antud.
+
+Mitteametlikel ja kogukonna hooldatud ehitustel on oma selgelt märgistatud jaotis, nii et tead alati, mis on ametlik ja mis kogukonna port. Hiljutiste lisanduste hulgas on Galaxy S24 Ultra tugi.
+
+Projekti hoiatusribad juhivad enne flashimist tähelepanu kogukonna jaoks olulistele küsimustele.
+
+Värskuse signaalid igal kirjel (aktiivne / igakuine / lõpetatud, viimase ehituse kuupäev), mida hoiab ajakohasena öine automaatne töö, mis märgistab vaikseks jäävad projektid.
+
+Sammhaaval flashimisjuhendid ROM-idele ja recovery'tele, kategooriate kaupa sisseehitatud.
+
+Töötab täielikult võrguühenduseta sisseehitatud kataloogiga ja seejärel värskendub käivitamisel GitHubist, nii et uued ROM-id ja seadmed ilmuvad ilma rakenduse uuenduseta.
+
+Material 3 dünaamilise värviga, heledad / tumedad / AMOLED teemad ja kohanduvad paigutused telefonile, tahvelarvutile ja lauaarvutile.
+
+Sügavlingid iga ROM-i, recovery, seadme ja brändi jaoks, lihtne teemades jagada.
+
+Ei jälgimist, ei analüütikat, ei reklaame ega Google Play teenuste vajadust. Litsentsitud GPL-3.0 alusel; lähtekood GitHubis.

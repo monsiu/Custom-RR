@@ -1,0 +1,31 @@
+Custom RR Android modding સમુદાય માટે મફત, open-source companion app છે. તે બધું એક જગ્યાએ મૂકે છે: કયા custom ROM અને recovery તમારા device ને સત્તાવાર રીતે support કરે છે, કયા Treble GSI તમે flash કરી શકો છો, અને તેને ક્યાંથી download કરવું. LineageOS wiki, Telegram channels, SourceForge folder અને અનેક browser tabs વચ્ચે ફરવાની જરૂર ઘટે છે.
+
+વિશેષતાઓ:
+
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS અને વધુ), દરેકમાં description, features, screenshots અને official download page માટે one-tap link છે.
+
+500+ devices official LineageOS wiki અને PixelOS official_devices repo માંથી live લેવામાં આવે છે અને દરરોજ રાત્રે refresh થાય છે.
+
+મુખ્ય recovery: TWRP, OrangeFox, PBRP, SHRP, per-device support અને direct downloads સાથે.
+
+Treble અને GSI hub: per-project status badges, direct GSI downloads, canonical TrebleDroid wiki index, A-only vs A/B અને arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, અને "GSI boots but camera is broken" FAQ.
+
+તમારો phone પસંદ કરો અને આખી app માત્ર તેને સત્તાવાર રીતે support કરતા ROM અને recovery પર filter થાય છે. Brand pages Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing અને વધુ માટે દરેક device અને ROM/recovery બતાવે છે.
+
+Defunct projects સ્પષ્ટ રીતે marked છે. Archived ROMs (ArrowOS, DotOS, Havoc-OS, original RisingOS અને અન્ય) last-build date અને successor suggestion બતાવે છે, જેથી વર્ષોથી release ન થયેલો code flash ન કરો.
+
+Unofficial અને community-maintained builds તેમની પોતાની સ્પષ્ટ labeled section માં હોય છે, જેથી official અને community port વચ્ચેનો ફરક તરત સમજાય. તાજેતરના additions માં Galaxy S24 Ultra support સામેલ છે.
+
+Project warning banners flash કરતા પહેલાં community-relevant concern બતાવે છે.
+
+દરેક entry પર freshness signals (active / monthly / discontinued, last build date) હોય છે, જે nightly automated job દ્વારા current રહે છે અને quiet થતા projects flag કરે છે.
+
+ROM અને recovery માટે step-by-step flashing guides category અનુસાર embedded છે.
+
+Built-in catalog સાથે સંપૂર્ણ offline કામ કરે છે, પછી launch પર GitHub માંથી refresh થાય છે, જેથી નવા ROM અને devices app update વિના દેખાય છે.
+
+Material 3 with dynamic color, light / dark / AMOLED themes, અને phone, tablet, desktop માટે adaptive layouts.
+
+દરેક ROM, recovery, device અને brand માટે deep links છે, threads માં share કરવું સરળ છે.
+
+No tracking, no analytics, no ads, અને Google Play Services જરૂરી નથી. GPL-3.0 licensed; source code GitHub પર છે.

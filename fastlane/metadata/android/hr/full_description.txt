@@ -1,0 +1,31 @@
+Custom RR je besplatna aplikacija otvorenog koda za zajednicu Android moddinga. Sve donosi na jedno mjesto: koji custom ROM-ovi i recovery službeno podržavaju tvoj uređaj, koje Treble GSI možeš flashati i gdje ih preuzeti. Nema više skakanja između LineageOS wikija, tri Telegram kanala, SourceForge mape i četrnaest kartica preglednika.
+
+Značajke:
+
+18 aktivno održavanih ROM-ova (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS i više), svaki s opisom, značajkama, snimkama zaslona i izravnom poveznicom na službenu stranicu za preuzimanje jednim dodirom.
+
+Više od 500 uređaja dohvaćenih uživo iz službenog LineageOS wikija i repozitorija PixelOS official_devices, osvježavanih svake noći.
+
+Glavni recovery: TWRP, OrangeFox, PBRP, SHRP, s podrškom po uređaju i izravnim preuzimanjima.
+
+Treble i GSI središte: statusne oznake po projektu, izravna GSI preuzimanja, kanonski indeks TrebleDroid wikija, podsjetnik A-only naspram A/B i arm64 naspram arm32_binder64, postupak flashanja u 6 koraka i česta pitanja "GSI se pokreće ali kamera ne radi".
+
+Odaberi telefon i cijela se aplikacija filtrira na ROM-ove i recovery koji ga službeno podržavaju. Stranice marki prikazuju svaki uređaj i svaki ROM/recovery namijenjen markama Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing i drugima.
+
+Ugašeni projekti jasno su označeni. Arhivirani ROM-ovi (ArrowOS, DotOS, Havoc-OS, izvorni RisingOS i drugi) prikazuju datum posljednje verzije i prijedlog nasljednika, kako ne bi flashao kod koji godinama nije izdan.
+
+Neslužbene i od zajednice održavane verzije imaju vlastiti jasno označen odjeljak, pa uvijek znaš što je službeno, a što port zajednice. Među nedavnim dodacima je podrška za Galaxy S24 Ultra.
+
+Upozoravajući baneri projekta ističu pitanja važna za zajednicu prije flashanja.
+
+Signali svježine na svakoj stavci (aktivno / mjesečno / ugašeno, datum posljednje verzije), održavani ažurnima noćnim automatiziranim poslom koji označava projekte koji utihnu.
+
+Vodiči za flashanje korak po korak za ROM-ove i recovery, ugrađeni po kategoriji.
+
+Radi potpuno izvanmrežno s ugrađenim katalogom, a zatim se osvježava s GitHuba pri pokretanju, pa se novi ROM-ovi i uređaji pojavljuju bez ažuriranja aplikacije.
+
+Material 3 s dinamičnom bojom, svijetle / tamne / AMOLED teme i prilagodljivi rasporedi za telefon, tablet i računalo.
+
+Duboke poveznice za svaki ROM, recovery, uređaj i marku, jednostavne za dijeljenje u temama.
+
+Bez praćenja, bez analitike, bez oglasa i bez potrebe za Google Play uslugama. Licencirano pod GPL-3.0; izvorni kod na GitHubu.
