@@ -37,9 +37,9 @@ RepoType: git
 Repo: https://github.com/monsiu/Custom-RR.git
 
 Builds:
-  - versionName: 1.0.0
-    versionCode: 7001
-    commit: 4f140887fc3d77487d62dd1c4ca0489ad3add6f0
+  - versionName: 1.1.0
+    versionCode: 8001
+    commit: a8442114bc1b8122ca8c3eb260038c62f75f5a7e
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@stable
@@ -62,9 +62,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.0.0
-    versionCode: 7002
-    commit: 4f140887fc3d77487d62dd1c4ca0489ad3add6f0
+  - versionName: 1.1.0
+    versionCode: 8002
+    commit: a8442114bc1b8122ca8c3eb260038c62f75f5a7e
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@stable
@@ -87,9 +87,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm64
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.0.0
-    versionCode: 7003
-    commit: 4f140887fc3d77487d62dd1c4ca0489ad3add6f0
+  - versionName: 1.1.0
+    versionCode: 8003
+    commit: a8442114bc1b8122ca8c3eb260038c62f75f5a7e
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@stable
@@ -122,8 +122,8 @@ MaintainerNotes: |-
   stock Flutter scheme base * 1000 + abiCode, which keeps the ABI in the
   low-order digits (armeabi-v7a -> x001, arm64-v8a -> x002, x86_64 -> x003) and
   matches the VercodeOperation below. The base versionCode comes from
-  pubspec.yaml's +N build number (7 for 1.0.0), so the embedded codes are
-  7001/7002/7003.
+  pubspec.yaml's +N build number (8 for 1.1.0), so the embedded codes are
+  8001/8002/8003.
 
   The app's self-update machinery is disabled by default in upstream source
   (see lib/util/build_flags.dart) and enabled only for GitHub release artifacts
@@ -147,5 +147,5 @@ VercodeOperation:
   - 1000 * %c + 2
   - 1000 * %c + 3
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.0.0
-CurrentVersionCode: 7003
+CurrentVersion: 1.1.0
+CurrentVersionCode: 8003
