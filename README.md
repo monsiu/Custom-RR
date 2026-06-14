@@ -152,6 +152,13 @@ flutter build apk --release --dart-define=GITHUB_RELEASE_BUILD=true
 Default source builds, F-Droid builds, and Google Play builds leave that flag
 off, so the GitHub release updater and "Check for updates" UI stay disabled.
 
+Google Play store listing metadata is mirrored under
+[`fastlane/metadata/android`](fastlane/metadata/android). For Play listing
+changes, validate and upload the metadata with the Fastlane lanes documented in
+[`fastlane/README.md`](fastlane/README.md), then review the pending changes in
+Play Console and send them for review manually. The metadata lanes do not upload
+APK/AAB files or changelogs.
+
 ## Linux desktop
 
 Custom RR also builds and runs as a native Linux app. Prereqs (Debian/Ubuntu):
