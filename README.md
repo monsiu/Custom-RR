@@ -2,11 +2,29 @@
 
 _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https://github.com/monsiu/Custom-RR)_
 
-[![CI](https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml/badge.svg)](https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml)
-[![License: GPL-3.0-only](https://img.shields.io/badge/License-GPL--3.0--only-blue.svg)](LICENSE)
-[![Flutter](https://img.shields.io/badge/Flutter-3.22+-02569B?logo=flutter)](https://flutter.dev)
+<p align="center">
+  <a href="https://github.com/monsiu/Custom-RR/releases/tag/v1.1.0"><img alt="Release" src="https://img.shields.io/github/v/release/monsiu/Custom-RR?style=flat-square&amp;label=Release&amp;color=7ed957"></a>
+  <a href="https://github.com/monsiu/Custom-RR/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/monsiu/Custom-RR/total?style=flat-square&amp;label=Downloads&amp;color=7ed957"></a>
+  <a href="https://github.com/monsiu/Custom-RR/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/monsiu/Custom-RR?style=flat-square&amp;label=Stars&amp;color=ffd43b"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-GPL--3.0--only-blue?style=flat-square"></a>
+  <a href="https://discord.gg/uWZR8vR855"><img alt="Discord" src="https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square&amp;logo=discord&amp;logoColor=white"></a>
+</p>
 
-A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, freshness signals, and step-by-step flashing instructions. **18 actively maintained ROMs**, **4 recoveries**, **700+ devices**, all sourced live from the LineageOS wiki + the PixelOS `official_devices` repo and refreshed nightly.
+<p align="center">
+  <a href="https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/monsiu/Custom-RR/ci.yml?branch=main&amp;style=flat-square&amp;label=CI&amp;logo=github"></a>
+  <a href="https://flutter.dev"><img alt="Flutter" src="https://img.shields.io/badge/Flutter-3.44.0-02569B?style=flat-square&amp;logo=flutter&amp;logoColor=white"></a>
+  <img alt="Android" src="https://img.shields.io/badge/Android-5.0%2B-3DDC84?style=flat-square&amp;logo=android&amp;logoColor=white">
+  <img alt="Platforms" src="https://img.shields.io/badge/Platforms-Android%20%7C%20Linux%20%7C%20Windows%20%7C%20macOS-444444?style=flat-square">
+</p>
+
+<p align="center">
+  <img alt="ROMs" src="https://img.shields.io/badge/ROMs-18-7ed957?style=flat-square">
+  <img alt="Recoveries" src="https://img.shields.io/badge/Recoveries-5-7ed957?style=flat-square">
+  <img alt="Devices" src="https://img.shields.io/badge/Devices-500%2B-7ed957?style=flat-square">
+  <img alt="Treble GSIs" src="https://img.shields.io/badge/Treble-GSIs-7ed957?style=flat-square">
+</p>
+
+A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, freshness signals, and step-by-step flashing instructions. **18 actively maintained ROMs**, **5 recoveries**, **500+ devices**, all sourced live from the LineageOS wiki + the PixelOS `official_devices` repo and refreshed nightly.
 
 ![Custom RR banner](images/readme/banner.png)
 
