@@ -1,4 +1,8 @@
 opt_out_usage
+skip_docs
+
+require 'fileutils'
+require 'tmpdir'
 
 default_platform(:android)
 
@@ -11,26 +15,54 @@ platform :android do
     end
   end
 
-  desc 'Validate Google Play listing metadata without uploading app binaries'
+  private_lane :play_metadata_path do
+    source = File.expand_path('metadata/android', __dir__)
+    destination_root = Dir.mktmpdir('custom-rr-play-metadata-')
+    destination = File.join(destination_root, 'android')
+
+    FileUtils.cp_r(source, destination)
+    Dir.glob(File.join(destination, '*', 'changelogs')).each do |path|
+      FileUtils.rm_rf(path)
+    end
+
+    destination
+  end
+
+  private_lane :play_track do
+    ENV.fetch('PLAY_TRACK', 'alpha')
+  end
+
+  private_lane :play_version_code do
+    Integer(ENV.fetch('PLAY_VERSION_CODE', '8'))
+  end
+
+  desc 'Validate Google Play listing metadata without uploading app binaries or changelogs'
   lane :validate_play_metadata do
     supply(
       package_name: 'io.github.monsiu.custom_rr',
-      metadata_path: 'fastlane/metadata/android',
+      metadata_path: play_metadata_path,
       json_key: play_json_key,
       skip_upload_apk: true,
       skip_upload_aab: true,
+      skip_upload_changelogs: true,
+      track: play_track,
+      version_code: play_version_code,
       validate_only: true,
     )
   end
 
-  desc 'Upload Google Play listing metadata without uploading app binaries'
+  desc 'Upload Google Play listing metadata without uploading app binaries or changelogs'
   lane :upload_play_metadata do
     supply(
       package_name: 'io.github.monsiu.custom_rr',
-      metadata_path: 'fastlane/metadata/android',
+      metadata_path: play_metadata_path,
       json_key: play_json_key,
       skip_upload_apk: true,
       skip_upload_aab: true,
+      skip_upload_changelogs: true,
+      track: play_track,
+      version_code: play_version_code,
+      changes_not_sent_for_review: true,
     )
   end
 end

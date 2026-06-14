@@ -49,6 +49,7 @@ app.*.map.json
 *.keystore
 *play*service*account*.json
 *google*service*account*.json
+fastlane/report.xml
 
 # Catalog sync cache (wiki tarball + extracted YAMLs)
 tool/.cache/
