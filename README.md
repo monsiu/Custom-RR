@@ -66,7 +66,7 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 - **Material 3 + dynamic color.** Light / dark / AMOLED themes, adaptive layouts (drawer on phones, NavigationRail on tablets, permanent side panel on desktop), theme + accent persisted across launches.
 - **In-app privacy policy page** rendered from the bundled [`PRIVACY.md`](PRIVACY.md).
 - **Zero tracking, zero ads, no Play Services, GPL-3.0**, source on GitHub.
-- **Cross-platform.** Android 5.0+ (target Android 16 / SDK 36), Linux desktop, Windows desktop, and macOS desktop (10.15 Catalina or newer, universal Apple Silicon + Intel).
+- **Cross-platform.** Android 7.0+ (minSdk 24, target Android 16 / SDK 36), Linux desktop, Windows desktop, and macOS desktop (10.15 Catalina or newer, universal Apple Silicon + Intel).
 
 ## Roadmap
 
@@ -148,7 +148,7 @@ flutter pub get
 flutter run
 ```
 
-**Requirements**: Flutter 3.22+, Dart 3.4+, Java 17, Android SDK 36 (compile/target), minSdk 21.
+**Requirements**: Flutter 3.22+, Dart 3.4+, Java 17, Android SDK 36 (compile/target), minSdk 24.
 
 For reproducible builds, this repo ships a [`.fvmrc`](.fvmrc); use [fvm](https://fvm.app) to pin the Flutter version automatically.
 
