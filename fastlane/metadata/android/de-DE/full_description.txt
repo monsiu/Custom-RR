@@ -28,4 +28,4 @@ Material 3 mit dynamischen Farben, helle / dunkle / AMOLED-Themes und adaptive L
 
 Deep Links für jedes ROM, Recovery, Gerät und jede Marke, leicht in Threads zu teilen.
 
-Kein Tracking, keine Analyse, keine Werbung und keine Google-Play-Dienste erforderlich. Lizenziert unter GPL-3.0; Quellcode auf GitHub.
+Kein Tracking, keine Analyse, keine Werbung und keine Google Play-Dienste erforderlich. Lizenziert unter GPL-3.0; Quellcode auf GitHub.
