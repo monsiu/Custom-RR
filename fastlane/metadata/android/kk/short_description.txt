@@ -1,0 +1,1 @@
+Android үшін арнаулы ROM, recovery және Treble GSI бір каталогта.

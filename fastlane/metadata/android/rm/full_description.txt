@@ -1,0 +1,31 @@
+Custom RR è ina applicaziun accumpagnanta gratuita e da code avert per la communitad da modding d'Android. Ella reunescha tut en in sulet lieu: tgeninas ROMs persunalisadas e recoveries che sustegnan uffizialmain tes apparat, tge Treble GSI che ti pos flashar e nua als telechargiar. Betg dapli sigliar tranter la wiki da LineageOS, trais chanals da Telegram, ina cartoteca da SourceForge e quitordesch tabs dal navigatur.
+
+Funcziuns:
+
+18 ROMs mantegnidas activamain (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS ed auter), mintgina cun descripziun, funcziuns, maletgs dal visur ed in link directa a la pagina da telechargiada uffiziala cun in tip.
+
+Dapli che 500 apparats retratgs en temp real da la wiki uffiziala da LineageOS e dal repositori PixelOS official_devices, actualisads mintga notg.
+
+Recoveries principalas: TWRP, OrangeFox, PBRP, SHRP, cun sustegn per mintga apparat e telechargiadas directas.
+
+Center Treble e GSI: simbols da status per project, telechargiadas GSI directas, l'index canonic da la wiki da TrebleDroid, in fegl d'agid A-only cunter A/B ed arm64 cunter arm32_binder64, in process da flashar en 6 pass ed ina dumonda frequenta davart "la GSI s'aviescha ma la camera na funcziuna betg".
+
+Tscherna tes telefon e l'entira app sa filtrescha a las ROMs e recoveries che al sustegnan uffizialmain. Las paginas da maccas mussan mintga apparat e mintga ROM/recovery che s'adressa a Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing ed auter.
+
+Projects serrads èn marcads cleramain. ROMs archivadas (ArrowOS, DotOS, Havoc-OS, l'oriund RisingOS ed auters) mussan lur ultima data da construcziun ed ina propostas da successur, uschia che ti na flasheschas betg code ch'è betg vegnì publitgà dapi onns.
+
+Construcziuns betg uffizialas e mantegnidas da la communitad han lur agen sectur marcà cleramain, uschia che ti sas adina tge ch'è uffizial e tge ch'è ina port da la communitad. Tranter las giuntas novas è il sustegn per Galaxy S24 Ultra.
+
+Bannieras d'avertiment dals projects fan attent sin chaussas relevantas per la communitad avant che ti flasheschas.
+
+Signals da frestgezza sin mintga endataziun (activ / mensil / serrà, ultima data da construcziun), tegnids actuals d'ina lavur automatica da notg che marchescha projects che daventan quiets.
+
+Guidas da flashar pass per pass per ROMs e recoveries, integradas per categoria.
+
+Funcziuna cumplettamain offline cun in catalog integrà e s'actualisescha lura da GitHub al lantschament, uschia che novas ROMs ed apparats cumparan senza ina actualisaziun da l'app.
+
+Material 3 cun colur dinamica, designs cler / stgir / AMOLED e layouts adattabels per telefon, tablet e computer.
+
+Links profunds per mintga ROM, recovery, apparat e macca, simpels da cundivider en ils fils.
+
+Nagina persecuziun, nagina analitica, naginas reclamas e nagins servetschs da Google Play necessari. Licenzià sut GPL-3.0; code da funtauna sin GitHub.

@@ -1,0 +1,31 @@
+Custom RR ni programu-rafiki isiyolipishwa ya chanzo huria kwa jamii ya kurekebisha Android. Inakusanya kila kitu mahali pamoja: ni ROM maalum na recovery zipi zinazounga mkono kifaa chako rasmi, ni Treble GSI zipi unazoweza kuflash, na wapi pa kuzipakua. Hakuna tena kuruka kati ya wiki ya LineageOS, chaneli tatu za Telegram, folda ya SourceForge, na vichupo kumi na vinne vya kivinjari.
+
+Vipengele:
+
+ROM 18 zinazodumishwa kikamilifu (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS na zaidi), kila moja ikiwa na maelezo, vipengele, picha za skrini, na kiungo cha mguso mmoja kwenye ukurasa rasmi wa kupakua.
+
+Vifaa zaidi ya 500 vinavyoletwa moja kwa moja kutoka wiki rasmi ya LineageOS na hazina ya PixelOS official_devices, vikisasishwa kila usiku.
+
+Recovery kuu: TWRP, OrangeFox, PBRP, SHRP, zikiwa na usaidizi kwa kila kifaa na upakuaji wa moja kwa moja.
+
+Kituo cha Treble na GSI: beji za hali kwa kila mradi, upakuaji wa GSI wa moja kwa moja, faharasa ya kawaida ya wiki ya TrebleDroid, karatasi ya marejeleo ya A-only dhidi ya A/B na arm64 dhidi ya arm32_binder64, mtiririko wa kuflash wa hatua 6, na maswali yanayoulizwa mara kwa mara kuhusu "GSI inawaka lakini kamera haifanyi kazi".
+
+Chagua simu yako na programu nzima itachuja hadi ROM na recovery zinazoiunga mkono rasmi. Kurasa za chapa zinaonyesha kila kifaa na kila ROM/recovery inayolenga Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing na zaidi.
+
+Miradi iliyokoma imewekwa alama waziwazi. ROM zilizohifadhiwa (ArrowOS, DotOS, Havoc-OS, RisingOS asili na nyingine) zinaonyesha tarehe ya ujenzi wa mwisho na pendekezo la mrithi, ili usiflash msimbo ambao haujatolewa kwa miaka mingi.
+
+Ujenzi usio rasmi na unaodumishwa na jamii una sehemu yake iliyowekwa alama waziwazi, hivyo unajua kila wakati kipi ni rasmi na kipi ni port ya jamii. Miongoni mwa nyongeza za hivi karibuni ni usaidizi wa Galaxy S24 Ultra.
+
+Mabango ya tahadhari ya mradi yanaangazia masuala muhimu kwa jamii kabla hujaflash.
+
+Ishara za upya kwenye kila kiingilio (hai / kila mwezi / kimekoma, tarehe ya ujenzi wa mwisho), zinazowekwa za sasa na kazi ya kiotomatiki ya usiku inayoweka alama miradi inayonyamaza.
+
+Miongozo ya kuflash hatua kwa hatua kwa ROM na recovery, iliyopachikwa kwa kila kategoria.
+
+Hufanya kazi nje ya mtandao kikamilifu kwa katalogi iliyojengwa ndani, kisha huonyeshwa upya kutoka GitHub wakati wa kuzindua ili ROM na vifaa vipya vionekane bila sasisho la programu.
+
+Material 3 yenye rangi badilifu, mandhari nyepesi / nyeusi / AMOLED, na mipangilio inayojirekebisha kwa simu, kompyuta kibao na eneo-kazi.
+
+Viungo vya kina kwa kila ROM, recovery, kifaa na chapa, rahisi kushiriki kwenye nyuzi.
+
+Hakuna ufuatiliaji, hakuna uchanganuzi, hakuna matangazo, na hakuna Huduma za Google Play zinazohitajika. Imeidhinishwa chini ya GPL-3.0; msimbo wa chanzo kwenye GitHub.

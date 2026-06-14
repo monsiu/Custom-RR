@@ -1,0 +1,25 @@
+Custom RR Android modding community का लागि निःशुल्क, open-source companion app हो। यसले सबै कुरा एउटै ठाउँमा राख्छ: कुन custom ROM र recovery ले तपाईंको device लाई officially support गर्छ, कुन Treble GSI flash गर्न सकिन्छ, र कहाँबाट download गर्ने। LineageOS wiki, Telegram channels, SourceForge folder र धेरै browser tabs बीच घुमिरहनु पर्दैन।
+
+Features:
+
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS र अरू), प्रत्येकमा description, features, screenshots र official download page का लागि one-tap link छ।
+
+500+ devices official LineageOS wiki र PixelOS official_devices repo बाट live ल्याइन्छ र प्रत्येक रात refresh हुन्छ।
+
+मुख्य recoveries: TWRP, OrangeFox, PBRP, SHRP, per-device support र direct downloads सहित।
+
+Treble & GSI hub: project status badges, direct GSI downloads, canonical TrebleDroid wiki index, A-only vs A/B र arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, र "GSI boots but camera is broken" FAQ।
+
+आफ्नो phone छान्नुहोस्, app officially supported ROMs र recoveries मा filter हुन्छ। Brand pages ले Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing र अरूका devices र ROM/recovery देखाउँछ।
+
+बन्द projects clearly marked छन्। Archived ROMs (ArrowOS, DotOS, Havoc-OS, original RisingOS र अरू) last-build date र successor suggestion देखाउँछन्, त्यसैले वर्षौंदेखि release नभएको code flash गर्नु पर्दैन।
+
+Unofficial र community-maintained builds clearly labelled section मा छन्, त्यसैले official र community port छुट्याउन सजिलो हुन्छ। Recent additions मा Galaxy S24 Ultra support छ।
+
+Project warning banners ले flash गर्नु अघि community-relevant concerns देखाउँछन्। Freshness signals प्रत्येक entry मा active / monthly / discontinued status र last build date देखाउँछन्, nightly automated job ले current राख्छ।
+
+ROMs र recoveries का step-by-step flashing guides category अनुसार embedded छन्। Built-in catalog ले app पूर्ण offline काम गर्छ, launch मा GitHub बाट refresh हुन्छ, त्यसैले नयाँ ROMs र devices app update बिना देखिन्छन्।
+
+Material 3 dynamic color, light / dark / AMOLED themes र phone, tablet, desktop का adaptive layouts सहित। प्रत्येक ROM, recovery, device र brand का deep links share गर्न सजिलो छन्।
+
+No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub.

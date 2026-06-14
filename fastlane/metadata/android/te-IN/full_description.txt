@@ -1,0 +1,25 @@
+Custom RR అనేది Android modding community కోసం ఉచిత open-source companion app. ఇది అన్నీ ఒకేచోట చూపిస్తుంది: మీ deviceని officially support చేసే custom ROM మరియు recovery ఏవి, flash చేయగల Treble GSI ఏవి, వాటిని ఎక్కడ download చేయాలి. LineageOS wiki, Telegram channels, SourceForge folder, అనేక browser tabs మధ్య తిరగాల్సిన అవసరం తగ్గుతుంది.
+
+Features:
+
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS మరియు మరిన్ని), ప్రతి దానిలో description, features, screenshots మరియు official download pageకు one-tap link ఉంటుంది.
+
+500+ devices official LineageOS wiki మరియు PixelOS official_devices repo నుంచి liveగా తీసుకుని ప్రతి రాత్రి refresh చేస్తారు.
+
+ప్రధాన recoveries: TWRP, OrangeFox, PBRP, SHRP, per-device support మరియు direct downloadsతో.
+
+Treble & GSI hub: project status badges, direct GSI downloads, canonical TrebleDroid wiki index, A-only vs A/B మరియు arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, మరియు "GSI boots but camera is broken" FAQ.
+
+మీ phoneని ఎంచుకోండి, app officially supported ROMs మరియు recoveriesకి filter అవుతుంది. Brand pages Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing మరియు ఇతర brands కోసం devices మరియు ROM/recovery చూపిస్తాయి.
+
+ఆగిపోయిన projects clearly marked. Archived ROMs (ArrowOS, DotOS, Havoc-OS, original RisingOS మరియు ఇతరులు) last-build date మరియు successor suggestion చూపిస్తాయి, కాబట్టి ఏళ్లుగా release కాని codeను flash చేయరు.
+
+Unofficial మరియు community-maintained builds తమ clearly labelled sectionలో ఉంటాయి, అందువల్ల official మరియు community port మధ్య తేడా స్పష్టంగా ఉంటుంది. Recent additionsలో Galaxy S24 Ultra support ఉంది.
+
+Project warning banners flash చేయడానికి ముందు community-relevant concerns చూపిస్తాయి. Freshness signals ప్రతి entryలో active / monthly / discontinued status మరియు last build date చూపిస్తాయి, nightly automated job వాటిని currentగా ఉంచుతుంది.
+
+ROMs మరియు recoveries కోసం step-by-step flashing guides category ప్రకారం embedded. Built-in catalogతో app పూర్తిగా offline పని చేస్తుంది, launch సమయంలో GitHub నుంచి refresh అవుతుంది, కాబట్టి కొత్త ROMs మరియు devices app update లేకుండానే కనిపిస్తాయి.
+
+Material 3 dynamic color, light / dark / AMOLED themes, phone, tablet, desktop కోసం adaptive layouts. ప్రతి ROM, recovery, device, brandకి deep links share చేయడం సులభం.
+
+No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub.

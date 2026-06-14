@@ -1,0 +1,31 @@
+Custom RR သည် Android modding အသိုင်းအဝိုင်းအတွက် အခမဲ့ open-source companion app ဖြစ်သည်။ သင့်စက်ကို တရားဝင် support လုပ်သော custom ROM နှင့် recovery များ၊ flash လုပ်နိုင်သော Treble GSI များ၊ နှင့် download link များကို တစ်နေရာတည်းတွင် စုစည်းပေးသည်။ LineageOS wiki, Telegram channel များ, SourceForge folder နှင့် browser tab အများကြီးကြား ပြောင်းလဲကြည့်ရသည့် အလုပ်ကို လျှော့ချပေးသည်။
+
+အင်္ဂါရပ်များ:
+
+တက်ကြွစွာ ထိန်းသိမ်းထားသော ROM 18 ခု (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS နှင့် အခြား)၊ တစ်ခုချင်းစီတွင် ဖော်ပြချက်၊ feature များ၊ screenshot များနှင့် official download page သို့ one-tap link ပါဝင်သည်။
+
+စက်ပေါင်း 500+ ကို official LineageOS wiki နှင့် PixelOS official_devices repo မှ live ရယူပြီး ညစဉ် refresh လုပ်သည်။
+
+အဓိက recovery များ: TWRP, OrangeFox, PBRP, SHRP, device အလိုက် support နှင့် direct download များ။
+
+Treble နှင့် GSI hub: project အလိုက် status badge, direct GSI download, TrebleDroid wiki index, A-only vs A/B နှင့် arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, နှင့် "GSI boot လုပ်ပေမယ့် camera မလုပ်" FAQ။
+
+သင့်ဖုန်းကို ရွေးချယ်လိုက်ပါက app တစ်ခုလုံးသည် ထိုစက်ကို တရားဝင် support လုပ်သော ROM နှင့် recovery များကိုသာ filter လုပ်ပြသည်။ Brand page များတွင် Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing နှင့် အခြား brand များအတွက် device နှင့် ROM/recovery အားလုံးကို ပြသည်။
+
+ရပ်နားသွားသော project များကို ရှင်းလင်းစွာ မှတ်သားထားသည်။ Archived ROM များ (ArrowOS, DotOS, Havoc-OS, original RisingOS နှင့် အခြား) တွင် နောက်ဆုံး build date နှင့် successor suggestion ပါဝင်သောကြောင့် နှစ်များကြာ release မရှိသည့် code ကို မဖလက်ရှ်ရပါ။
+
+Unofficial နှင့် community-maintained build များကို သီးခြား label ပြထားသော section တွင် ထည့်ထားသည်၊ ထို့ကြောင့် official နှင့် community port ကို ခွဲခြားသိနိုင်သည်။ နောက်ဆုံး ထည့်သွင်းထားသော support များတွင် Galaxy S24 Ultra ပါဝင်သည်။
+
+Project warning banner များသည် flash မလုပ်မီ community-relevant concern များကို ပြသသည်။
+
+Entry တိုင်းတွင် freshness signal (active / monthly / discontinued, last build date) ပါဝင်ပြီး nightly automated job က quiet ဖြစ်လာသော project များကို flag လုပ်ပေးသည်။
+
+ROM နှင့် recovery အတွက် step-by-step flashing guide များကို category အလိုက် ထည့်သွင်းထားသည်။
+
+Built-in catalog ဖြင့် offline အပြည့်အဝ အလုပ်လုပ်ပြီး launch တွင် GitHub မှ refresh လုပ်သည်၊ ထို့ကြောင့် ROM နှင့် device အသစ်များသည် app update မလိုဘဲ ပေါ်လာသည်။
+
+Material 3 with dynamic color, light / dark / AMOLED themes, phone, tablet, desktop အတွက် adaptive layouts။
+
+ROM, recovery, device နှင့် brand တိုင်းအတွက် deep link ပါပြီး thread များတွင် share လုပ်ရန် လွယ်ကူသည်။
+
+No tracking, no analytics, no ads, Google Play Services မလိုအပ်ပါ။ GPL-3.0 licensed; source code ကို GitHub တွင် ရရှိနိုင်သည်။

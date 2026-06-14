@@ -1,0 +1,31 @@
+Custom RR is 'n gratis, oopbron-metgesel-app vir die Android-modgemeenskap. Dit plaas alles op een plek: watter pasgemaakte ROM's en recoveries jou toestel amptelik ondersteun, watter Treble-GSI's jy kan flits, en waar om dit af te laai. Geen gespring meer tussen die LineageOS-wiki, drie Telegram-kanale, 'n SourceForge-vouer en veertien blaaier-oortjies nie.
+
+Kenmerke:
+
+18 aktief onderhoue ROM's (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS en meer), elk met beskrywing, kenmerke, skermkiekies en 'n een-tik-skakel na die amptelike aflaaibladsy.
+
+Meer as 500 toestelle wat regstreeks uit die amptelike LineageOS-wiki en die PixelOS official_devices-bewaarplek getrek word, elke nag opgedateer.
+
+Vernaamste recoveries: TWRP, OrangeFox, PBRP, SHRP, met ondersteuning per toestel en direkte aflaaie.
+
+Treble- en GSI-middelpunt: statuskentekens per projek, direkte GSI-aflaaie, die kanonieke TrebleDroid-wiki-indeks, 'n spiekbrief vir A-only teenoor A/B en arm64 teenoor arm32_binder64, 'n flits-vloei van 6 stappe, en 'n gereelde vrae oor "GSI laai maar die kamera werk nie".
+
+Kies jou foon en die hele app filter na die ROM's en recoveries wat dit amptelik ondersteun. Handelsmerkbladsye wys elke toestel en elke ROM/recovery wat op Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing en meer gemik is.
+
+Gestaakte projekte word duidelik gemerk. Geargiveerde ROM's (ArrowOS, DotOS, Havoc-OS, die oorspronklike RisingOS en ander) wys hul laaste boudatum en 'n opvolgervoorstel, sodat jy nie kode flits wat in jare nie uitgereik is nie.
+
+Nie-amptelike en gemeenskap-onderhoue bouwerk het hul eie duidelik gemerkte afdeling, sodat jy altyd weet wat amptelik is en wat 'n gemeenskapspoort is. Onlangse toevoegings sluit Galaxy S24 Ultra-ondersteuning in.
+
+Projek-waarskuwingsbanniere lig jou in oor relevante gemeenskapskwessies voor jy flits.
+
+Varsheidseine op elke inskrywing (aktief / maandeliks / gestaak, laaste boudatum), op datum gehou deur 'n nagtelike outomatiese taak wat projekte merk wat stil raak.
+
+Stap-vir-stap flitsgidse vir ROM's en recoveries, per kategorie ingebed.
+
+Werk heeltemal vanlyn met 'n ingeboude katalogus en verfris dan met aanvang vanaf GitHub, sodat nuwe ROM's en toestelle sonder 'n app-opdatering verskyn.
+
+Material 3 met dinamiese kleur, lig / donker / AMOLED-temas, en aanpasbare uitlegte vir foon, tablet en rekenaar.
+
+Diep skakels vir elke ROM, recovery, toestel en handelsmerk, maklik om in drade te deel.
+
+Geen dophouding, geen analise, geen advertensies nie, en geen Google Play-dienste nodig nie. Onder GPL-3.0 gelisensieer; bronkode op GitHub.

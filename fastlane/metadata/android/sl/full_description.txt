@@ -1,0 +1,31 @@
+Custom RR je brezplačna odprtokodna spremljevalna aplikacija za skupnost predelovanja Androida. Vse zbere na enem mestu: kateri ROM-i po meri in recovery uradno podpirajo tvojo napravo, katere Treble GSI lahko zapečeš in kje jih prenesti. Nič več skakanja med wikijem LineageOS, tremi kanali Telegram, mapo SourceForge in štirinajstimi zavihki brskalnika.
+
+Funkcije:
+
+18 dejavno vzdrževanih ROM-ov (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS in več), vsak z opisom, funkcijami, posnetki zaslona in neposredno povezavo do uradne strani za prenos z enim dotikom.
+
+Več kot 500 naprav, pridobljenih v živo iz uradnega wikija LineageOS in repozitorija PixelOS official_devices, osveženih vsako noč.
+
+Glavni recovery: TWRP, OrangeFox, PBRP, SHRP, s podporo za posamezno napravo in neposrednimi prenosi.
+
+Središče Treble in GSI: statusne značke po projektu, neposredni prenosi GSI, kanonični indeks wikija TrebleDroid, pregled A-only proti A/B in arm64 proti arm32_binder64, šeststopenjski postopek pečenja in pogosta vprašanja "GSI se zažene, a kamera ne deluje".
+
+Izberi telefon in celotna aplikacija se filtrira na ROM-e in recovery, ki ga uradno podpirajo. Strani znamk prikazujejo vsako napravo in vsak ROM/recovery, namenjen znamkam Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing in drugim.
+
+Opuščeni projekti so jasno označeni. Arhivirani ROM-i (ArrowOS, DotOS, Havoc-OS, izvirni RisingOS in drugi) prikazujejo datum zadnje gradnje in predlog naslednika, da ne zapečeš kode, ki ni izšla že leta.
+
+Neuradne in skupnostno vzdrževane gradnje imajo svoj jasno označen razdelek, tako da vedno veš, kaj je uradno in kaj je skupnostni prenos. Med nedavnimi dodatki je podpora za Galaxy S24 Ultra.
+
+Opozorilni transparenti projektov pred pečenjem opozarjajo na za skupnost pomembne zadeve.
+
+Signali svežine pri vsakem vnosu (dejavno / mesečno / opuščeno, datum zadnje gradnje), posodobljeni z nočnim samodejnim opravilom, ki označi projekte, ki utihnejo.
+
+Vodniki za pečenje po korakih za ROM-e in recovery, vgrajeni po kategorijah.
+
+Deluje povsem brez povezave z vgrajenim katalogom, nato pa se ob zagonu osveži z GitHuba, tako da se novi ROM-i in naprave pojavijo brez posodobitve aplikacije.
+
+Material 3 z dinamično barvo, svetle / temne / AMOLED teme in prilagodljive postavitve za telefon, tablico in namizje.
+
+Globoke povezave za vsak ROM, recovery, napravo in znamko, ki jih je preprosto deliti v temah.
+
+Brez sledenja, brez analitike, brez oglasov in brez potrebnih storitev Google Play. Licencirano pod GPL-3.0; izvorna koda na GitHubu.

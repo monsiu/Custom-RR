@@ -1,0 +1,31 @@
+Custom RR është një aplikacion shoqërues falas dhe me kod të hapur për komunitetin e modding-ut të Android. E sjell gjithçka në një vend: cilat ROM të personalizuara dhe recovery e mbështesin zyrtarisht pajisjen tënde, cilat Treble GSI mund të flashosh dhe ku t'i shkarkosh. Mjaft me kërcime mes wiki-t të LineageOS, tre kanaleve Telegram, një dosjeje SourceForge dhe katërmbëdhjetë skedave të shfletuesit.
+
+Veçoritë:
+
+18 ROM të mirëmbajtura në mënyrë aktive (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS e të tjera), secila me përshkrim, veçori, pamje ekrani dhe një lidhje me një prekje te faqja zyrtare e shkarkimit.
+
+Mbi 500 pajisje të marra drejtpërdrejt nga wiki zyrtar i LineageOS dhe depoja PixelOS official_devices, të përditësuara çdo natë.
+
+Recovery kryesore: TWRP, OrangeFox, PBRP, SHRP, me mbështetje për çdo pajisje dhe shkarkime të drejtpërdrejta.
+
+Qendra Treble dhe GSI: shenja statusi për çdo projekt, shkarkime GSI të drejtpërdrejta, indeksi kanonik i wiki-t TrebleDroid, një fletë ndihmëse A-only kundrejt A/B dhe arm64 kundrejt arm32_binder64, një rrjedhë flashimi me 6 hapa dhe një FAQ për "GSI niset por kamera nuk punon".
+
+Zgjidh telefonin tënd dhe i gjithë aplikacioni filtrohet te ROM-të dhe recovery që e mbështesin zyrtarisht. Faqet e markave shfaqin çdo pajisje dhe çdo ROM/recovery që synon Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing e të tjera.
+
+Projektet e ndërprera shënohen qartë. ROM-të e arkivuara (ArrowOS, DotOS, Havoc-OS, RisingOS origjinal e të tjera) shfaqin datën e ndërtimit të fundit dhe një sugjerim pasardhësi, që të mos flashosh kod që nuk është publikuar prej vitesh.
+
+Ndërtimet jozyrtare dhe të mirëmbajtura nga komuniteti kanë seksionin e tyre të etiketuar qartë, kështu që e di gjithmonë çfarë është zyrtare dhe çfarë është një port i komunitetit. Ndër shtesat e fundit përfshihet mbështetja për Galaxy S24 Ultra.
+
+Banderolat e paralajmërimit të projektit theksojnë çështje të rëndësishme për komunitetin përpara se të flashosh.
+
+Sinjale freskie në çdo zë (aktiv / mujor / i ndërprerë, data e ndërtimit të fundit), mbajtur të përditësuara nga një punë e automatizuar e natës që shënon projektet që po heshtin.
+
+Udhëzues flashimi hap pas hapi për ROM dhe recovery, të integruar sipas kategorisë.
+
+Punon plotësisht jashtë linje me një katalog të integruar dhe pastaj rifreskohet nga GitHub në nisje, kështu që ROM-të dhe pajisjet e reja shfaqen pa një përditësim të aplikacionit.
+
+Material 3 me ngjyrë dinamike, tema të çelëta / të errëta / AMOLED dhe paraqitje përshtatëse për telefon, tablet dhe desktop.
+
+Lidhje të thella për çdo ROM, recovery, pajisje dhe markë, të lehta për t'u ndarë në tema.
+
+Pa gjurmim, pa analitikë, pa reklama dhe pa nevojë për shërbimet e Google Play. I licencuar nën GPL-3.0; kodi burimor në GitHub.

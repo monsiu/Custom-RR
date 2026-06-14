@@ -1,0 +1,31 @@
+Custom RR ialah aplikasi pendamping percuma dan sumber terbuka untuk komuniti modding Android. Ia menghimpunkan segalanya di satu tempat: ROM tersuai dan recovery yang mana menyokong peranti anda secara rasmi, Treble GSI yang mana boleh anda flash, dan di mana untuk memuat turunnya. Tiada lagi melompat antara wiki LineageOS, tiga saluran Telegram, satu folder SourceForge, dan empat belas tab pelayar.
+
+Ciri-ciri:
+
+18 ROM yang diselenggara secara aktif (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS dan lagi), setiap satu dengan penerangan, ciri, tangkapan skrin dan pautan satu ketik ke halaman muat turun rasmi.
+
+Lebih 500 peranti yang diambil secara langsung daripada wiki LineageOS rasmi dan repositori PixelOS official_devices, dikemas kini setiap malam.
+
+Recovery utama: TWRP, OrangeFox, PBRP, SHRP, dengan sokongan setiap peranti dan muat turun terus.
+
+Hab Treble & GSI: lencana status setiap projek, muat turun GSI terus, indeks wiki TrebleDroid yang kanonik, helaian rujukan A-only lwn A/B dan arm64 lwn arm32_binder64, aliran flash 6 langkah, dan Soalan Lazim "GSI but tetapi kamera rosak".
+
+Pilih telefon anda dan keseluruhan aplikasi ditapis kepada ROM dan recovery yang menyokongnya secara rasmi. Halaman jenama memaparkan setiap peranti dan setiap ROM/recovery yang menyasarkan Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing dan lagi.
+
+Projek yang dihentikan ditanda dengan jelas. ROM yang diarkibkan (ArrowOS, DotOS, Havoc-OS, RisingOS asal dan lain-lain) memaparkan tarikh binaan terakhir dan cadangan pengganti, supaya anda tidak flash kod yang tidak dikeluarkan bertahun-tahun.
+
+Binaan tidak rasmi dan diselenggara komuniti mempunyai bahagian tersendiri yang dilabel dengan jelas, jadi anda sentiasa tahu yang mana rasmi dan yang mana port komuniti. Antara tambahan terbaru ialah sokongan Galaxy S24 Ultra.
+
+Sepanduk amaran projek menonjolkan isu penting untuk komuniti sebelum anda flash.
+
+Isyarat kesegaran pada setiap entri (aktif / bulanan / dihentikan, tarikh binaan terakhir), dikekalkan terkini oleh tugas automatik waktu malam yang menanda projek yang semakin senyap.
+
+Panduan flash langkah demi langkah untuk ROM dan recovery, dibenamkan setiap kategori.
+
+Berfungsi sepenuhnya luar talian dengan katalog terbina dalam, kemudian dimuat semula daripada GitHub semasa dilancarkan supaya ROM dan peranti baharu muncul tanpa kemas kini aplikasi.
+
+Material 3 dengan warna dinamik, tema cerah / gelap / AMOLED, dan susun atur mudah suai untuk telefon, tablet dan komputer meja.
+
+Pautan dalam untuk setiap ROM, recovery, peranti dan jenama, mudah dikongsi dalam benang.
+
+Tiada penjejakan, tiada analitik, tiada iklan, dan tidak memerlukan Perkhidmatan Google Play. Dilesenkan di bawah GPL-3.0; kod sumber di GitHub.

@@ -1,0 +1,31 @@
+Custom RR Android modinq icması üçün pulsuz, açıq mənbəli müşayiət tətbiqidir. Hər şeyi bir yerə toplayır: hansı xüsusi ROM və recovery cihazınızı rəsmi olaraq dəstəkləyir, hansı Treble GSI-ləri flaş edə bilərsiniz və onları haradan endirə bilərsiniz. LineageOS vikisi, üç Telegram kanalı, bir SourceForge qovluğu və on dörd brauzer tabı arasında atılıb-düşmək bitdi.
+
+Xüsusiyyətlər:
+
+Aktiv şəkildə saxlanılan 18 ROM (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS və daha çox), hər biri təsvir, xüsusiyyətlər, ekran görüntüləri və rəsmi endirmə səhifəsinə bir toxunuşla keçidlə.
+
+Rəsmi LineageOS vikisindən və PixelOS official_devices anbarından canlı çəkilən, hər gecə yenilənən 500-dən çox cihaz.
+
+Əsas recovery-lər: TWRP, OrangeFox, PBRP, SHRP, cihaz üzrə dəstək və birbaşa endirmələrlə.
+
+Treble və GSI mərkəzi: layihə üzrə status nişanları, birbaşa GSI endirmələri, kanonik TrebleDroid viki indeksi, A-only və A/B ilə arm64 və arm32_binder64 müqayisə vərəqi, 6 addımlı flaş prosesi və "GSI işə düşür, amma kamera işləmir" tez-tez verilən suallar.
+
+Telefonunuzu seçin və bütün tətbiq onu rəsmi dəstəkləyən ROM və recovery-lərə süzgəcdən keçirilir. Marka səhifələri Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing və daha çoxunu hədəfləyən hər cihazı və hər ROM/recovery-ni göstərir.
+
+Dayandırılmış layihələr aydın işarələnir. Arxivlənmiş ROM-lar (ArrowOS, DotOS, Havoc-OS, orijinal RisingOS və başqaları) son qurma tarixini və varis təklifini göstərir ki, illərdir buraxılmayan kodu flaş etməyəsiniz.
+
+Qeyri-rəsmi və icma tərəfindən saxlanılan qurmaların öz aydın etiketlənmiş bölməsi var, beləliklə həmişə bilirsiniz ki, nə rəsmidir, nə də icma portudur. Son əlavələr arasında Galaxy S24 Ultra dəstəyi var.
+
+Layihə xəbərdarlıq bannerləri flaş etməzdən əvvəl icma üçün vacib məsələləri vurğulayır.
+
+Hər qeyddə təzəlik siqnalları (aktiv / aylıq / dayandırılıb, son qurma tarixi), səssizləşən layihələri işarələyən gecə avtomatlaşdırılmış işlə güncəl saxlanılır.
+
+ROM və recovery üçün addım-addım flaş bələdçiləri, hər kateqoriyaya yerləşdirilib.
+
+Daxili kataloqla tamamilə oflayn işləyir, sonra işə salınanda GitHub-dan yenilənir ki, yeni ROM və cihazlar tətbiq yeniləməsi olmadan görünsün.
+
+Dinamik rəngli Material 3, açıq / tünd / AMOLED mövzular və telefon, planşet və masaüstü üçün uyğunlaşan tərtibatlar.
+
+Hər ROM, recovery, cihaz və marka üçün dərin keçidlər, mövzularda paylaşmaq asandır.
+
+İzləmə yoxdur, analitika yoxdur, reklam yoxdur və Google Play Xidmətləri tələb olunmur. GPL-3.0 altında lisenziyalıdır; mənbə kodu GitHub-da.

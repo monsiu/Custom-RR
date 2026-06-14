@@ -1,0 +1,31 @@
+Custom RR Android modding komunitatearentzako doako kode irekiko lagun-aplikazio bat da. Dena leku bakarrean biltzen du: zein ROM pertsonalizatu eta recovery-k onartzen duten ofizialki zure gailua, zein Treble GSI flashea ditzakezun eta non deskargatu. Ez duzu gehiago LineageOS wikiaren, hiru Telegram kanalen, SourceForge karpeta baten eta hamalau nabigatzaile-fitxaren artean salto egin beharko.
+
+Ezaugarriak:
+
+Aktiboki mantentzen diren 18 ROM (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS eta gehiago), bakoitza deskribapenarekin, ezaugarriekin, pantaila-argazkiekin eta deskarga-orri ofizialerako ukitu bakarreko esteka batekin.
+
+500 gailu baino gehiago, LineageOS wiki ofizialetik eta PixelOS official_devices biltegitik zuzenean hartuak eta gauero eguneratuak.
+
+Recovery nagusiak: TWRP, OrangeFox, PBRP, SHRP, gailuz gailuko euskarriarekin eta zuzeneko deskargekin.
+
+Treble eta GSI gunea: proiektuz proiektuko egoera-bereizgarriak, GSIen zuzeneko deskargak, TrebleDroid wikiaren aurkibide kanonikoa, A-only vs A/B eta arm64 vs arm32_binder64 alderatzeko laburpena, 6 urratseko flash-prozesua eta "GSIak abiarazten du baina kamerak ez du funtzionatzen" buruzko ohiko galderak.
+
+Aukeratu zure telefonoa eta aplikazio osoa ofizialki onartzen duten ROM eta recovery-etara iragazten da. Marka-orriek Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing eta gehiagori zuzendutako gailu eta ROM/recovery bakoitza erakusten dute.
+
+Etenda dauden proiektuak argi markatuta daude. Artxibatutako ROMek (ArrowOS, DotOS, Havoc-OS, jatorrizko RisingOS eta beste batzuk) azken konpilazioaren data eta oinordeko baten iradokizuna erakusten dute, urteetan kaleratu ez den koderik flashea ez dezazun.
+
+Komunitateak mantendutako konpilazio ez-ofizialek beren atal argi etiketatua dute, beti jakin dezazun zer den ofiziala eta zer den komunitatearen ataka. Azken gehikuntzen artean Galaxy S24 Ultra euskarria dago.
+
+Proiektuen abisu-bannerek komunitatearentzat garrantzitsuak diren gaiak nabarmentzen dituzte flasheatu aurretik.
+
+Freskotasun-seinaleak sarrera bakoitzean (aktiboa / hilekoa / etenda, azken konpilazioaren data), gauez isiltzen ari diren proiektuak markatzen dituen lan automatiko batek eguneratuta.
+
+ROM eta recovery-entzako urratsez urratseko flash-gidak, kategoriaka txertatuta.
+
+Erabat lineaz kanpo funtzionatzen du barneko katalogoarekin, eta gero GitHubetik eguneratzen da abiaraztean, ROM eta gailu berriak aplikazioa eguneratu gabe ager daitezen.
+
+Material 3 kolore dinamikoarekin, argia / iluna / AMOLED gaiak eta diseinu moldagarriak telefonorako, tabletarako eta mahaigainerako.
+
+Esteka sakonak ROM, recovery, gailu eta marka bakoitzerako, harietan partekatzeko errazak.
+
+Jarraipenik gabe, analitikarik gabe, iragarkirik gabe eta Google Play zerbitzurik behar gabe. GPL-3.0 lizentziapean; iturburu-kodea GitHuben.

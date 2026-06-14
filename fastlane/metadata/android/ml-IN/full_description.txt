@@ -1,0 +1,25 @@
+Custom RR Android modding communityക്കുള്ള ഒരു സൗജന്യ open-source companion app ആണ്. ഇത് എല്ലാം ഒരിടത്ത് കൂട്ടിച്ചേർക്കുന്നു: നിങ്ങളുടെ deviceനെ officially support ചെയ്യുന്ന custom ROM, recovery ഏതെല്ലാം, flash ചെയ്യാൻ കഴിയുന്ന Treble GSI ഏത്, download link എവിടെ. LineageOS wiki, Telegram channels, SourceForge folder, അനവധി browser tabs എന്നിവക്കിടയിൽ ചാടേണ്ടതില്ല.
+
+Features:
+
+18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS എന്നിവയും കൂടുതൽ), ഓരോന്നിലും description, features, screenshots, official download pageലേക്കുള്ള one-tap link എന്നിവ ഉണ്ട്.
+
+500+ devices official LineageOS wikiയിലും PixelOS official_devices repoയിലും നിന്ന് live ആയി എടുത്ത് ഓരോ രാത്രിയും refresh ചെയ്യുന്നു.
+
+പ്രധാന recoveries: TWRP, OrangeFox, PBRP, SHRP, per-device support, direct downloads എന്നിവയോടെ.
+
+Treble & GSI hub: project status badges, direct GSI downloads, canonical TrebleDroid wiki index, A-only vs A/B, arm64 vs arm32_binder64 cheat sheet, 6-step flash flow, "GSI boots but camera is broken" FAQ.
+
+നിങ്ങളുടെ phone തിരഞ്ഞെടുക്കുമ്പോൾ app officially supported ROMs, recoveries മാത്രം filter ചെയ്യുന്നു. Brand pages Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing തുടങ്ങിയ brandsക്കുള്ള devices, ROM/recovery എന്നിവ കാണിക്കുന്നു.
+
+നിർത്തിയ projects clearly marked ആണ്. Archived ROMs (ArrowOS, DotOS, Havoc-OS, original RisingOS തുടങ്ങിയവ) last-build date, successor suggestion എന്നിവ കാണിക്കുന്നു, വർഷങ്ങളായി release ഇല്ലാത്ത code flash ചെയ്യാതിരിക്കാൻ.
+
+Unofficial, community-maintained builds ഒരു clearly labelled sectionൽ വേർതിരിച്ചിരിക്കുന്നു, അതിനാൽ official ആണോ community port ആണോ എളുപ്പം മനസ്സിലാകും. Recent additionsൽ Galaxy S24 Ultra support ഉണ്ട്.
+
+Project warning banners flash ചെയ്യുന്നതിന് മുമ്പ് community-relevant concerns കാണിക്കുന്നു. Freshness signals ഓരോ entryയിലും active / monthly / discontinued status, last build date എന്നിവ കാണിക്കുന്നു, nightly automated job current ആക്കുന്നു.
+
+ROMs, recoveriesക്കുള്ള step-by-step flashing guides categoryപ്രകാരം embedded ആണ്. Built-in catalog ഉപയോഗിച്ച് app പൂർണമായും offline പ്രവർത്തിക്കുന്നു, പിന്നെ launch സമയത്ത് GitHubൽ നിന്ന് refresh ചെയ്യുന്നു, അതിനാൽ പുതിയ ROMs, devices app update ഇല്ലാതെ കാണാം.
+
+Material 3 dynamic color, light / dark / AMOLED themes, phone, tablet, desktop adaptive layouts എന്നിവയോടെ. ഓരോ ROM, recovery, device, brand എന്നിവയ്ക്കും deep links share ചെയ്യാൻ എളുപ്പമാണ്.
+
+No tracking, no analytics, no ads, no Play Services required. GPL-3.0 licensed; source on GitHub.
