@@ -4,7 +4,7 @@ Features:
 
 18 actively-maintained ROMs (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, AlphaDroid, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS, and more), each with description, features, screenshots, and a one-tap link to the official download page.
 
-700+ devices sourced live from the official LineageOS wiki and the PixelOS official_devices repo, refreshed nightly.
+500+ devices sourced live from the official LineageOS wiki and the PixelOS official_devices repo, refreshed nightly.
 
 Major recoveries: TWRP, OrangeFox, PBRP, SHRP, with per-device support and direct downloads.
 
@@ -13,6 +13,8 @@ Treble & GSI hub: per-project status badges, direct GSI downloads, the canonical
 Pick your phone and the whole app filters to ROMs and recoveries that officially support it. Brand pages list every device and every ROM/recovery targeting Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing, and more.
 
 Defunct projects clearly marked. Archived ROMs (ArrowOS, DotOS, Havoc-OS, RisingOS original, and others) show their last-build date and a successor suggestion, so you don't flash code that hasn't shipped in years.
+
+Unofficial and community-maintained builds sit in their own clearly labelled section, so you always know what is official and what is a community port. Recent additions include Galaxy S24 Ultra support.
 
 Project warning banners flag community-relevant concerns before you flash.
 
