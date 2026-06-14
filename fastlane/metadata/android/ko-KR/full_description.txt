@@ -1,0 +1,31 @@
+Custom RR은 안드로이드 모딩 커뮤니티를 위한 무료 오픈소스 동반 앱입니다. 모든 것을 한곳에 모았습니다. 어떤 커스텀 롬과 리커버리가 내 기기를 공식 지원하는지, 어떤 Treble GSI를 플래시할 수 있는지, 그리고 어디서 내려받는지. 더 이상 LineageOS 위키, 세 개의 Telegram 채널, SourceForge 폴더, 열네 개의 브라우저 탭 사이를 오갈 필요가 없습니다.
+
+기능:
+
+활발히 유지되는 18개 롬(LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS 등), 각각 설명, 기능, 스크린샷, 공식 다운로드 페이지로 가는 원터치 링크 포함.
+
+공식 LineageOS 위키와 PixelOS official_devices 저장소에서 실시간으로 가져와 매일 밤 갱신되는 500개 이상의 기기.
+
+주요 리커버리: TWRP, OrangeFox, PBRP, SHRP. 기기별 지원과 직접 다운로드 제공.
+
+Treble & GSI 허브: 프로젝트별 상태 배지, GSI 직접 다운로드, 표준 TrebleDroid 위키 색인, A-only 대 A/B 및 arm64 대 arm32_binder64 요약표, 6단계 플래시 절차, "GSI는 부팅되지만 카메라가 작동하지 않음" FAQ.
+
+휴대폰을 선택하면 앱 전체가 이를 공식 지원하는 롬과 리커버리로 필터링됩니다. 브랜드 페이지는 Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing 등을 대상으로 하는 모든 기기와 모든 롬/리커버리를 보여줍니다.
+
+중단된 프로젝트는 명확히 표시됩니다. 보관된 롬(ArrowOS, DotOS, Havoc-OS, 원조 RisingOS 등)은 마지막 빌드 날짜와 후속 프로젝트 제안을 표시하여 수년간 출시되지 않은 코드를 플래시하지 않도록 합니다.
+
+비공식 및 커뮤니티 유지 빌드는 명확히 표시된 별도 섹션에 있어 무엇이 공식이고 무엇이 커뮤니티 포팅인지 항상 알 수 있습니다. 최근 추가 항목에는 Galaxy S24 Ultra 지원이 포함됩니다.
+
+프로젝트 경고 배너는 플래시 전에 커뮤니티 관련 중요 사항을 알려줍니다.
+
+각 항목의 최신성 신호(활성 / 월간 / 중단, 마지막 빌드 날짜)는 조용해지는 프로젝트를 표시하는 야간 자동 작업으로 최신 상태를 유지합니다.
+
+롬과 리커버리를 위한 단계별 플래시 가이드를 카테고리별로 내장.
+
+내장 카탈로그로 완전히 오프라인에서 작동하며, 실행 시 GitHub에서 갱신되어 새 롬과 기기가 앱 업데이트 없이 표시됩니다.
+
+다이내믹 컬러를 적용한 Material 3, 라이트 / 다크 / AMOLED 테마, 휴대폰·태블릿·데스크톱용 적응형 레이아웃.
+
+모든 롬, 리커버리, 기기, 브랜드에 대한 딥 링크로 스레드에서 쉽게 공유.
+
+추적 없음, 분석 없음, 광고 없음, Google Play 서비스 불필요. GPL-3.0 라이선스, 소스 코드는 GitHub에 공개.

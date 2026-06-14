@@ -1,0 +1,1 @@
+Anpassade ROM:ar, recoveries och Treble-GSI:er för Android i en katalog.

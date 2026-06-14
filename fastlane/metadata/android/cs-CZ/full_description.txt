@@ -1,0 +1,31 @@
+Custom RR je bezplatná aplikace s otevřeným zdrojovým kódem pro komunitu modderů Androidu. Vše máte na jednom místě: které custom ROMy a recovery oficiálně podporují vaše zařízení, jaké Treble GSI můžete nainstalovat a kde si je stáhnout. Konec přeskakování mezi wiki LineageOS, několika kanály na Telegramu, složkou na SourceForge a desítkami panelů prohlížeče.
+
+Funkce:
+
+18 aktivně udržovaných ROMů (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS a další), každý s popisem, funkcemi, snímky obrazovky a odkazem na oficiální stránku ke stažení jedním klepnutím.
+
+Více než 500 zařízení načítaných živě z oficiální wiki LineageOS a repozitáře PixelOS official_devices, aktualizovaných každou noc.
+
+Hlavní recovery: TWRP, OrangeFox, PBRP, SHRP, s podporou jednotlivých zařízení a přímými odkazy ke stažení.
+
+Centrum Treble & GSI: stavové odznaky jednotlivých projektů, přímé stahování GSI, kanonický rejstřík wiki TrebleDroid, přehled A-only vs A/B a arm64 vs arm32_binder64, šestikrokový postup instalace a sekce častých dotazů „GSI naběhne, ale nefunguje fotoaparát".
+
+Vyberte svůj telefon a celá aplikace se vyfiltruje na ROMy a recovery, které ho oficiálně podporují. Stránky značek zobrazují všechna zařízení a každý ROM/recovery pro značky jako Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing a další.
+
+Ukončené projekty jsou jasně označeny. Archivované ROMy (ArrowOS, DotOS, Havoc-OS, původní RisingOS a další) zobrazují datum posledního sestavení a návrh nástupce, abyste neinstalovali kód, který se roky neaktualizoval.
+
+Neoficiální a komunitně udržovaná sestavení mají vlastní jasně označenou sekci, takže vždy víte, co je oficiální a co je komunitní port. Mezi nedávné přírůstky patří podpora Galaxy S24 Ultra.
+
+Varovné bannery projektů vás upozorní na důležité komunitní problémy ještě před instalací.
+
+Signály aktuálnosti u každé položky (aktivní / měsíční / ukončeno, datum posledního sestavení), průběžně aktualizované noční automatickou úlohou, která označí projekty, jež utichají.
+
+Podrobné návody k instalaci ROMů a recovery, vložené u každé kategorie.
+
+Funguje plně offline díky vestavěnému katalogu a při spuštění se aktualizuje z GitHubu, takže se nové ROMy a zařízení objeví bez aktualizace aplikace.
+
+Material 3 s dynamickými barvami, světlé / tmavé / AMOLED motivy a adaptivní rozvržení pro telefon, tablet i počítač.
+
+Hluboké odkazy na každý ROM, recovery, zařízení a značku, snadno sdílitelné ve vláknech.
+
+Žádné sledování, žádná analytika, žádné reklamy a nevyžaduje služby Google Play. Licencováno pod GPL-3.0; zdrojový kód na GitHubu.

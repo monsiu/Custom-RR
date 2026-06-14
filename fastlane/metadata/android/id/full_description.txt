@@ -1,0 +1,31 @@
+Custom RR adalah aplikasi pendamping gratis dan sumber terbuka untuk komunitas modding Android. Semuanya ada di satu tempat: ROM kustom dan recovery mana yang secara resmi mendukung perangkat Anda, Treble GSI apa yang bisa Anda flash, dan di mana mengunduhnya. Tak perlu lagi berpindah antara wiki LineageOS, tiga kanal Telegram, satu folder SourceForge, dan empat belas tab browser.
+
+Fitur:
+
+18 ROM yang aktif dirawat (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS, dan lainnya), masing-masing dengan deskripsi, fitur, tangkapan layar, dan tautan satu ketukan ke halaman unduhan resmi.
+
+500+ perangkat yang diambil langsung dari wiki resmi LineageOS dan repositori PixelOS official_devices, diperbarui setiap malam.
+
+Recovery utama: TWRP, OrangeFox, PBRP, SHRP, dengan dukungan per-perangkat dan unduhan langsung.
+
+Pusat Treble & GSI: lencana status per proyek, unduhan GSI langsung, indeks wiki TrebleDroid yang kanonik, contekan A-only vs A/B dan arm64 vs arm32_binder64, alur flash 6 langkah, dan FAQ "GSI boot tetapi kamera rusak".
+
+Pilih ponsel Anda dan seluruh aplikasi memfilter ke ROM dan recovery yang secara resmi mendukungnya. Halaman merek menampilkan setiap perangkat dan setiap ROM/recovery yang menyasar Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing, dan lainnya.
+
+Proyek yang sudah tidak aktif ditandai dengan jelas. ROM yang diarsipkan (ArrowOS, DotOS, Havoc-OS, RisingOS asli, dan lainnya) menampilkan tanggal build terakhir dan saran penerus, agar Anda tidak mem-flash kode yang sudah bertahun-tahun tidak dirilis.
+
+Build tidak resmi dan yang dirawat komunitas memiliki bagian tersendiri yang diberi label jelas, jadi Anda selalu tahu mana yang resmi dan mana port komunitas. Tambahan terbaru mencakup dukungan Galaxy S24 Ultra.
+
+Spanduk peringatan proyek menandai isu penting bagi komunitas sebelum Anda mem-flash.
+
+Sinyal kesegaran di setiap entri (aktif / bulanan / dihentikan, tanggal build terakhir), tetap mutakhir berkat tugas otomatis malam hari yang menandai proyek yang mulai sepi.
+
+Panduan flash langkah demi langkah untuk ROM dan recovery, tertanam per kategori.
+
+Bekerja sepenuhnya offline dengan katalog bawaan, lalu menyegarkan dari GitHub saat diluncurkan sehingga ROM dan perangkat baru muncul tanpa pembaruan aplikasi.
+
+Material 3 dengan warna dinamis, tema terang / gelap / AMOLED, dan tata letak adaptif untuk ponsel, tablet, dan desktop.
+
+Tautan dalam untuk setiap ROM, recovery, perangkat, dan merek, mudah dibagikan di utas.
+
+Tanpa pelacakan, tanpa analitik, tanpa iklan, dan tanpa memerlukan layanan Google Play. Berlisensi GPL-3.0; kode sumber di GitHub.

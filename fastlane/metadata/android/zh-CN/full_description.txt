@@ -1,0 +1,31 @@
+Custom RR 是一款面向 Android 改机社区的免费开源辅助应用。它把一切汇集到一处：哪些自定义 ROM 和 Recovery 官方支持你的设备、你可以刷哪些 Treble GSI，以及从哪里下载。不必再在 LineageOS wiki、三个 Telegram 频道、一个 SourceForge 文件夹和十四个浏览器标签页之间来回切换。
+
+功能：
+
+18 个持续积极维护的 ROM（LineageOS、crDroid、PixelOS、Project Elixir、Evolution X、DerpFest、UN1CA、BlissROMs、/e/、GrapheneOS、CalyxOS、DivestOS、RisingOS Revived、VoltageOS 等），每个都附带说明、特性、截图，以及一键直达官方下载页的链接。
+
+超过 500 款设备，实时取自官方 LineageOS wiki 和 PixelOS official_devices 仓库，每晚更新。
+
+主要 Recovery：TWRP、OrangeFox、PBRP、SHRP，提供逐设备支持和直接下载。
+
+Treble 与 GSI 中心：各项目状态徽章、GSI 直接下载、权威的 TrebleDroid wiki 索引、A-only 与 A/B 及 arm64 与 arm32_binder64 对照速查表、6 步刷写流程，以及“GSI 能开机但相机不工作”的常见问题解答。
+
+选择你的手机，整个应用即筛选为官方支持它的 ROM 和 Recovery。品牌页面展示面向 Xiaomi、OnePlus、Samsung、Pixel、Realme、POCO、Nothing 等的每款设备和每个 ROM/Recovery。
+
+已停止的项目会被清晰标注。已归档的 ROM（ArrowOS、DotOS、Havoc-OS、初代 RisingOS 等）会显示最后构建日期和继任者建议，让你不会刷入多年未发布的代码。
+
+非官方和社区维护的版本有自己清晰标注的分区，让你始终知道哪些是官方、哪些是社区移植。近期新增包括对 Galaxy S24 Ultra 的支持。
+
+项目警告横幅会在刷写前提醒你与社区相关的重要事项。
+
+每个条目上的新鲜度信号（活跃 / 每月 / 已停止，最后构建日期），由每晚自动任务保持更新，并标记出趋于沉寂的项目。
+
+针对 ROM 和 Recovery 的分步刷写指南，按类别内嵌。
+
+凭借内置目录完全离线工作，并在启动时从 GitHub 刷新，因此新的 ROM 和设备无需更新应用即可出现。
+
+Material 3 配动态取色，浅色 / 深色 / AMOLED 主题，以及适配手机、平板和桌面的自适应布局。
+
+为每个 ROM、Recovery、设备和品牌提供深层链接，便于在帖子中分享。
+
+无跟踪、无分析、无广告，且无需 Google Play 服务。采用 GPL-3.0 许可；源代码在 GitHub 上。

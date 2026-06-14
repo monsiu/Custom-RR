@@ -1,0 +1,31 @@
+Custom RR on ilmainen avoimen lähdekoodin oheissovellus Androidin modaajayhteisölle. Se kokoaa kaiken yhteen paikkaan: mitkä custom-ROMit ja recoveryt tukevat virallisesti laitettasi, mitä Treble-GSI:tä voit flashata ja mistä ladata ne. Ei enää pomppimista LineageOS-wikin, kolmen Telegram-kanavan, SourceForge-kansion ja neljäntoista selainvälilehden välillä.
+
+Ominaisuudet:
+
+18 aktiivisesti ylläpidettyä ROMia (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS ja muita), jokaisessa kuvaus, ominaisuudet, kuvakaappaukset ja yhden napautuksen linkki viralliselle lataussivulle.
+
+Yli 500 laitetta, jotka haetaan suoraan virallisesta LineageOS-wikistä ja PixelOS official_devices -repositoriosta ja päivitetään joka yö.
+
+Tärkeimmät recoveryt: TWRP, OrangeFox, PBRP, SHRP, laitekohtaisella tuella ja suorilla latauksilla.
+
+Treble- ja GSI-keskus: projektikohtaiset tilamerkit, suorat GSI-lataukset, kanoninen TrebleDroid-wikihakemisto, lunttilappu A-only vs A/B ja arm64 vs arm32_binder64 -vertailuun, kuusivaiheinen flashausohje ja UKK aiheesta "GSI käynnistyy, mutta kamera ei toimi".
+
+Valitse puhelimesi, ja koko sovellus suodattuu ROMeihin ja recoveryihin, jotka tukevat sitä virallisesti. Merkkisivut näyttävät jokaisen laitteen ja jokaisen ROMin/recoveryn merkeille kuten Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing ja muut.
+
+Lopetetut projektit on merkitty selkeästi. Arkistoidut ROMit (ArrowOS, DotOS, Havoc-OS, alkuperäinen RisingOS ja muut) näyttävät viimeisen käännöksen päivämäärän ja seuraajaehdotuksen, jotta et flashaa koodia, jota ei ole julkaistu vuosiin.
+
+Epävirallisilla ja yhteisön ylläpitämillä käännöksillä on oma selkeästi merkitty osionsa, joten tiedät aina, mikä on virallista ja mikä yhteisön portti. Viimeaikaisiin lisäyksiin kuuluu Galaxy S24 Ultran tuki.
+
+Projektien varoitusbannerit nostavat esiin yhteisön kannalta olennaiset huomiot ennen flashausta.
+
+Tuoreussignaalit jokaisessa kohteessa (aktiivinen / kuukausittainen / lopetettu, viimeisen käännöksen päivämäärä), ajan tasalla öisellä automaattisella tehtävällä, joka merkitsee hiljenevät projektit.
+
+Vaiheittaiset flashausohjeet ROMeille ja recoveryille, upotettuna kategorioittain.
+
+Toimii täysin offline-tilassa sisäänrakennetulla luettelolla ja päivittyy sitten GitHubista käynnistyksessä, joten uudet ROMit ja laitteet ilmestyvät ilman sovelluspäivitystä.
+
+Material 3 dynaamisilla väreillä, vaalea / tumma / AMOLED-teemat ja mukautuvat asettelut puhelimelle, tabletille ja työpöydälle.
+
+Syvälinkit jokaiseen ROMiin, recoveryyn, laitteeseen ja merkkiin, helppo jakaa ketjuissa.
+
+Ei seurantaa, ei analytiikkaa, ei mainoksia eikä Google Play -palveluita vaadita. Lisensoitu GPL-3.0; lähdekoodi GitHubissa.

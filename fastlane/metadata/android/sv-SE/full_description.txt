@@ -1,0 +1,31 @@
+Custom RR är en gratis öppen källkods-följeslagarapp för Androids moddningsscen. Den samlar allt på ett ställe: vilka anpassade ROM:ar och recoveries som officiellt stöder din enhet, vilka Treble-GSI:er du kan flasha och var du laddar ner dem. Slut på att hoppa mellan LineageOS-wikin, tre Telegram-kanaler, en SourceForge-mapp och fjorton webbläsarflikar.
+
+Funktioner:
+
+18 aktivt underhållna ROM:ar (LineageOS, crDroid, PixelOS, Project Elixir, Evolution X, DerpFest, UN1CA, BlissROMs, /e/, GrapheneOS, CalyxOS, DivestOS, RisingOS Revived, VoltageOS med flera), var och en med beskrivning, funktioner, skärmbilder och en direktlänk till den officiella nedladdningssidan.
+
+Över 500 enheter som hämtas live från den officiella LineageOS-wikin och PixelOS official_devices-förvaret, uppdaterade varje natt.
+
+Viktiga recoveries: TWRP, OrangeFox, PBRP, SHRP, med stöd per enhet och direkta nedladdningar.
+
+Treble- och GSI-nav: statusmärken per projekt, direkta GSI-nedladdningar, det kanoniska TrebleDroid-wiki-indexet, ett fusklapp för A-only vs A/B och arm64 vs arm32_binder64, ett flöde i 6 steg och en FAQ om "GSI startar men kameran fungerar inte".
+
+Välj din telefon så filtreras hela appen till de ROM:ar och recoveries som officiellt stöder den. Märkessidor visar varje enhet och varje ROM/recovery som riktar sig till Xiaomi, OnePlus, Samsung, Pixel, Realme, POCO, Nothing med flera.
+
+Nedlagda projekt är tydligt markerade. Arkiverade ROM:ar (ArrowOS, DotOS, Havoc-OS, ursprungliga RisingOS med flera) visar sitt senaste byggdatum och ett efterträdarförslag, så att du inte flashar kod som inte släppts på flera år.
+
+Inofficiella och community-underhållna byggen har sin egen tydligt märkta sektion, så att du alltid vet vad som är officiellt och vad som är en community-port. Bland de senaste tilläggen finns stöd för Galaxy S24 Ultra.
+
+Projektvarningsbanderoller uppmärksammar dig på relevanta frågor i communityn innan du flashar.
+
+Färskhetssignaler på varje post (aktiv / månatlig / nedlagd, senaste byggdatum), hålls aktuella av ett nattligt automatiserat jobb som flaggar projekt som tystnar.
+
+Steg-för-steg-flashguider för ROM:ar och recoveries, inbäddade per kategori.
+
+Fungerar helt offline med en inbyggd katalog och uppdateras sedan från GitHub vid start, så att nya ROM:ar och enheter dyker upp utan en appuppdatering.
+
+Material 3 med dynamisk färg, ljusa / mörka / AMOLED-teman och adaptiva layouter för telefon, surfplatta och dator.
+
+Djuplänkar till varje ROM, recovery, enhet och märke, lätta att dela i trådar.
+
+Ingen spårning, ingen analys, inga annonser och inga Google Play-tjänster krävs. Licensierad under GPL-3.0; källkod på GitHub.
