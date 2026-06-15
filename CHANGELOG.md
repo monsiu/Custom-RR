@@ -8,8 +8,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 - **Expanded official screenshots.** PixelOS now shows its official screenshot
-  gallery, and Paranoid Android now uses a cleaner official archived device
-  image.
+  gallery, and Paranoid Android now uses a cleaner set of official archived
+  project visuals.
 - **Community forum section in-app.** Added a new Community screen that links
   to GitHub Discussions categories (All discussions, Announcements, Q&A,
   Ideas, Polls, Show and tell) and keeps bug reporting separated in GitHub
