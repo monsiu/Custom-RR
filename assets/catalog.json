@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-15T14:39:30.200252Z",
+  "_generatedAt": "2026-06-15T15:08:37.132664Z",
   "roms": [
     {
       "id": "lineage",
@@ -14080,7 +14080,26 @@
         "Monthly security patches, fast adoption of new Android versions."
       ],
       "screenshots": [
-        "https://pixelos.net/_next/static/media/PixelFrame.02i1k7gtdjxrn.webp"
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/1.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/2.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/3.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/4.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/5.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/6.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/7.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/8.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/9.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/10.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/11.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/12.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/13.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/14.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/15.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/16.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/17.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/18.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/19.webp",
+        "https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/20.webp"
       ],
       "devices": [
         {
