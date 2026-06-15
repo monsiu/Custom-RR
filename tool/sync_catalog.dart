@@ -1541,10 +1541,30 @@ List<Map<String, dynamic>> _buildRoms(
         'GApps and Pixel feature drops bundled.',
         'Monthly security patches, fast adoption of new Android versions.',
       ],
-      // Official PixelOS homepage phone-frame screenshot. The old
+      // Official PixelOS docs screenshots, pinned to the blog_assets commit
+      // used by the current resources page. The old
       // /assets/img/screenshots/*.png gallery URLs now return 404.
       screenshots: <String>[
-        'https://pixelos.net/_next/static/media/PixelFrame.02i1k7gtdjxrn.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/1.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/2.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/3.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/4.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/5.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/6.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/7.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/8.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/9.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/10.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/11.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/12.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/13.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/14.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/15.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/16.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/17.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/18.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/19.webp',
+        'https://raw.githubusercontent.com/PixelOS-CI/blog_assets/aac63355b18c0e46dfd60bd1b45964c1bfc477b3/assets/screenshots/latest/20.webp',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://pixelos.net/download',
