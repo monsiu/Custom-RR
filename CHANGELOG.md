@@ -7,15 +7,41 @@ project uses [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
-- **Expanded official screenshots.** PixelOS now shows its official screenshot
-  gallery, and Paranoid Android now includes phone screenshots alongside its
-  official archived device image.
+
 - **Community forum section in-app.** Added a new Community screen that links
   to GitHub Discussions categories (All discussions, Announcements, Q&A,
   Ideas, Polls, Show and tell) and keeps bug reporting separated in GitHub
   Issues.
-- **Latest announcements block.** The Community screen now fetches and displays
-  recent posts from the public GitHub Discussions Announcements feed.
+- **Recent discussions and announcements.** The Community screen now fetches
+  recent public GitHub Discussions, shows relative times, supports
+  pull-to-refresh, and gives feedback if a discussion link cannot open.
+- **Desktop donation thank-you feedback.** Linux, Windows, and macOS now show
+  the same thank-you snackbar as Android after someone opens a donation option.
+- **Expanded ROM screenshots.** PixelOS now shows its official screenshot
+  gallery, and Paranoid Android now includes full-size phone screenshots
+  alongside its official archived device image.
+- **Localized Google Play listing.** The Play listing now has localized title,
+  short description, full description, and feature graphic coverage for all
+  configured Play Console languages.
+
+### Changed
+
+- **Community entry points.** Community is now reachable from app navigation,
+  home actions, and desktop menu surfaces.
+- **Desktop navigation polish.** The side rail scroll fade is longer, making
+  overflow navigation feel less abrupt on desktop screens.
+- **Store and project copy refreshed.** README, Play, and F-Droid-facing copy
+  now match the current catalog more accurately: 18 maintained ROMs, 5
+  recoveries, 500+ devices, UN1CA in place of AlphaDroid, and a remote catalog
+  that can stay current without requiring an app update.
+
+### Fixed
+
+- **Android support wording.** README badges and requirements now correctly say
+  Android 7.0+ / minSdk 24.
+- **Screenshot quality and reliability.** PixelOS no longer relies on dead
+  screenshot links, and Paranoid Android no longer uses dated feature slides or
+  low-resolution thumbnails.
 
 ## [1.1.0] - 2026-06-13
 
