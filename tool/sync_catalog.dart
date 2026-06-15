@@ -1541,10 +1541,11 @@ List<Map<String, dynamic>> _buildRoms(
         'GApps and Pixel feature drops bundled.',
         'Monthly security patches, fast adoption of new Android versions.',
       ],
-      // pixelos.net used to publish marketing screenshots, but those URLs now
-      // return 404. Keep the entry screenshot-free until a stable, official
-      // gallery is available again.
-      screenshots: <String>[],
+      // Official PixelOS homepage phone-frame screenshot. The old
+      // /assets/img/screenshots/*.png gallery URLs now return 404.
+      screenshots: <String>[
+        'https://pixelos.net/_next/static/media/PixelFrame.02i1k7gtdjxrn.webp',
+      ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://pixelos.net/download',
       links: <_RomLink>[
