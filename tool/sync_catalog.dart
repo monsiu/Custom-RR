@@ -1230,14 +1230,14 @@ List<Map<String, dynamic>> _buildRoms(
         'Active community, slow but careful release cadence.',
       ],
       // The current paranoidandroid.co landing is a JS bundle with no
-      // static UI screenshot gallery. Use a compact set of official archived
-      // PA visuals: a Quartz-era device render plus current-site wallpaper
-      // art. Older 2017 AOSPA feature slides exist, but read as dated.
+      // static UI screenshot gallery. Keep the official archived device
+      // render first, then use AlternativeTo-hosted phone screenshots through
+      // a WebP proxy because AlternativeTo serves the originals as AVIF.
       screenshots: <String>[
         'https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png',
-        'https://web.archive.org/web/20240821052111if_/https://paranoidandroid.co/img/liquid_quartz.e51b602f.jpg',
-        'https://web.archive.org/web/20240821052111if_/https://paranoidandroid.co/img/crystal_canyons.7c8359a3.jpg',
-        'https://web.archive.org/web/20240821052111if_/https://paranoidandroid.co/img/refract.53b2ce35.jpg',
+        'https://images.weserv.nl/?url=https%3A%2F%2Fimg.alternativeto.net%2Fs%2F309x197%2Favif%2Fparanoid-android_308205_full.webp&output=webp',
+        'https://images.weserv.nl/?url=https%3A%2F%2Fimg.alternativeto.net%2Fs%2F309x197%2Favif%2Fparanoid-android_356655_full.jpg&output=webp',
+        'https://images.weserv.nl/?url=https%3A%2F%2Fimg.alternativeto.net%2Fs%2F309x197%2Favif%2Fparanoid-android_184005_full.webp&output=webp',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://paranoidandroid.co/',
