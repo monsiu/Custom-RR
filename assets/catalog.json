@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-15T14:06:19.348974Z",
+  "_generatedAt": "2026-06-15T14:39:30.200252Z",
   "roms": [
     {
       "id": "lineage",
@@ -14079,7 +14079,9 @@
         "GApps and Pixel feature drops bundled.",
         "Monthly security patches, fast adoption of new Android versions."
       ],
-      "screenshots": [],
+      "screenshots": [
+        "https://pixelos.net/_next/static/media/PixelFrame.02i1k7gtdjxrn.webp"
+      ],
       "devices": [
         {
           "brand": "10.or",
