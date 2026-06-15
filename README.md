@@ -13,7 +13,7 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
 <p align="left">
   <a href="https://github.com/monsiu/Custom-RR/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/monsiu/Custom-RR/ci.yml?branch=main&amp;style=flat-square&amp;label=CI&amp;logo=github"></a>
   <a href="https://flutter.dev"><img alt="Flutter" src="https://img.shields.io/badge/Flutter-3.44.0-02569B?style=flat-square&amp;logo=flutter&amp;logoColor=white"></a>
-  <img alt="Android" src="https://img.shields.io/badge/Android-5.0%2B-3DDC84?style=flat-square&amp;logo=android&amp;logoColor=white">
+  <img alt="Android" src="https://img.shields.io/badge/Android-7.0%2B-3DDC84?style=flat-square&amp;logo=android&amp;logoColor=white">
   <img alt="Platforms" src="https://img.shields.io/badge/Platforms-Android%20%7C%20Linux%20%7C%20Windows%20%7C%20macOS-444444?style=flat-square">
 </p>
 
