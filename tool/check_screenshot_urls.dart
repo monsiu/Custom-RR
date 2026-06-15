@@ -5,6 +5,10 @@
 //   - returns a non-image Content-Type, or
 //   - times out.
 //
+// HTTP 429 is treated as a warning rather than link rot. Some image hosts,
+// especially Wikimedia Commons, rate-limit GitHub-hosted runners even when the
+// image is still valid for normal users.
+//
 // Catches link rot before users do. Not wired into CI by default because
 // it makes ~50 outbound requests per run; invoke it manually or from a
 // scheduled workflow:
@@ -111,6 +115,9 @@ Future<_Result> _check(HttpClient client, _Job job) async {
     final int code = res.statusCode;
     final String? ctype = res.headers.value(HttpHeaders.contentTypeHeader);
     await res.drain<void>();
+    if (code == 429) {
+      return _Result(job, true, 'HTTP 429 rate limited (treated as warning)');
+    }
     if (code < 200 || code >= 400) {
       return _Result(job, false, 'HTTP $code');
     }
