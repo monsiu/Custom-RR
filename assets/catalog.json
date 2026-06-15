@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-15T15:58:32.330624Z",
+  "_generatedAt": "2026-06-15T16:20:54.324917Z",
   "roms": [
     {
       "id": "lineage",
@@ -6853,7 +6853,10 @@
         "Active community, slow but careful release cadence."
       ],
       "screenshots": [
-        "https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png"
+        "https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png",
+        "https://web.archive.org/web/20240821052111if_/https://paranoidandroid.co/img/liquid_quartz.e51b602f.jpg",
+        "https://web.archive.org/web/20240821052111if_/https://paranoidandroid.co/img/crystal_canyons.7c8359a3.jpg",
+        "https://web.archive.org/web/20240821052111if_/https://paranoidandroid.co/img/refract.53b2ce35.jpg"
       ],
       "devices": [
         {
