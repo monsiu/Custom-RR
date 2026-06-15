@@ -1230,13 +1230,12 @@ List<Map<String, dynamic>> _buildRoms(
         'Active community, slow but careful release cadence.',
       ],
       // The current paranoidandroid.co landing is a JS bundle with no
-      // static screenshots. Use the official AOSPA marketing sliders
-      // from the pre-SPA aospa.co site (preserved on the Internet
-      // Archive): device photos with the OS rendered on-screen showing
-      // PA's signature features (Dynamic Status Bar, Peek notifications,
-      // Pie controls). Late-2018 Wayback captures only have HTML stubs;
-      // pin the request to a 2017 snapshot which holds the real JPEGs.
+      // static screenshots. Use official archived PA/AOSPA imagery: a
+      // Quartz-era device render from paranoidandroid.co plus the
+      // pre-SPA aospa.co marketing sliders showing PA's signature
+      // features (Dynamic Status Bar, Peek notifications, Pie controls).
       screenshots: <String>[
+        'https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png',
         'https://web.archive.org/web/2017if_/http://aospa.co/sliders/PADSB.jpg',
         'https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPeek.jpg',
         'https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPie.jpg',

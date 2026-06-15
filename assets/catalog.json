@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-15T15:08:37.132664Z",
+  "_generatedAt": "2026-06-15T15:39:49.609052Z",
   "roms": [
     {
       "id": "lineage",
@@ -6853,6 +6853,7 @@
         "Active community, slow but careful release cadence."
       ],
       "screenshots": [
+        "https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png",
         "https://web.archive.org/web/2017if_/http://aospa.co/sliders/PADSB.jpg",
         "https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPeek.jpg",
         "https://web.archive.org/web/2017if_/http://aospa.co/sliders/PAPie.jpg"
