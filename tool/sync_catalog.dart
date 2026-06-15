@@ -1231,13 +1231,19 @@ List<Map<String, dynamic>> _buildRoms(
       ],
       // The current paranoidandroid.co landing is a JS bundle with no
       // static UI screenshot gallery. Keep the official archived device
-      // render first, then use AlternativeTo-hosted phone screenshots through
-      // a WebP proxy because AlternativeTo serves the originals as AVIF.
+      // render first, then use full-size Sapphire screenshots from Xiaomiui's
+      // Paranoid Android review. Older 2017 AOSPA feature slides and tiny
+      // AlternativeTo thumbnails exist, but read as dated or low quality.
       screenshots: <String>[
         'https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png',
-        'https://images.weserv.nl/?url=https%3A%2F%2Fimg.alternativeto.net%2Fs%2F309x197%2Favif%2Fparanoid-android_308205_full.webp&output=webp',
-        'https://images.weserv.nl/?url=https%3A%2F%2Fimg.alternativeto.net%2Fs%2F309x197%2Favif%2Fparanoid-android_356655_full.jpg&output=webp',
-        'https://images.weserv.nl/?url=https%3A%2F%2Fimg.alternativeto.net%2Fs%2F309x197%2Favif%2Fparanoid-android_184005_full.webp&output=webp',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Lockscreen.jpg',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Homescreen.jpg',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-App-Drawer.jpg',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Notification-Panel-1.png',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Quick-Settings.png',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Sound-Panel.jpg',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Sound-Settings.jpg',
+        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Android-Version.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://paranoidandroid.co/',
