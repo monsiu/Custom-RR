@@ -1,0 +1,6 @@
+- Nieuw Community-gedeelte met een link naar GitHub Discussions (aankondigingen, vragen, ideeën, polls).
+- Het Community-scherm toont recente discussies en een Discord-uitnodiging voor direct contact en updates.
+- Nieuwe Socials-optie in «Over» voor Twitter/X en Telegram.
+- Rijkere ROM-schermafbeeldingen: PixelOS-galerij en Paranoid Android op volledige grootte.
+- Desktopversies tonen nu het bedankbericht voor donaties.
+- Teksten vernieuwd en onbetrouwbare schermafbeeldingen hersteld.

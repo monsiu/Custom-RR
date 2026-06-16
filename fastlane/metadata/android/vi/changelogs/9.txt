@@ -1,0 +1,6 @@
+- Mục Community mới liên kết tới GitHub Discussions (thông báo, hỏi đáp, ý tưởng, thăm dò).
+- Màn hình Community hiển thị các thảo luận gần đây và lời mời Discord để liên hệ trực tiếp và nhận cập nhật.
+- Tùy chọn Socials mới trong «Giới thiệu» cho Twitter/X và Telegram.
+- Ảnh chụp ROM phong phú hơn: thư viện PixelOS và ảnh Paranoid Android kích thước đầy đủ.
+- Bản dành cho máy tính nay hiển thị thông điệp cảm ơn quyên góp.
+- Làm mới nội dung và sửa các ảnh chụp màn hình không ổn định.

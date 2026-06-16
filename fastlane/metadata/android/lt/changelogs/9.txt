@@ -1,0 +1,6 @@
+- Naujas Community skyrius, susietas su GitHub Discussions (skelbimai, klausimai, idėjos, apklausos).
+- Community ekranas rodo naujausias diskusijas ir Discord kvietimą tiesioginiam ryšiui bei naujienoms.
+- Nauja Socials parinktis skiltyje «Apie» Twitter/X ir Telegram.
+- Turtingesnės ROM ekrano nuotraukos: PixelOS galerija ir viso dydžio Paranoid Android.
+- Kompiuterio versijos dabar rodo padėkos už auką pranešimą.
+- Atnaujinti tekstai ir pataisytos nepatikimos ekrano nuotraukos.

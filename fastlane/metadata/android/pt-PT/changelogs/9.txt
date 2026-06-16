@@ -1,0 +1,6 @@
+- Nova secção Community com ligação às GitHub Discussions (anúncios, perguntas, ideias, sondagens).
+- O ecrã Community mostra discussões recentes e um convite do Discord para contacto direto e novidades.
+- Nova opção Socials em «Acerca» para Twitter/X e Telegram.
+- Capturas de ROM mais ricas: galeria PixelOS e imagens do Paranoid Android em tamanho real.
+- As versões para computador mostram agora a mensagem de agradecimento pelo donativo.
+- Textos renovados e capturas pouco fiáveis corrigidas.

@@ -1,0 +1,6 @@
+- Ny Community-seksjon som lenker til GitHub Discussions (kunngjøringer, spørsmål, idéer, avstemninger).
+- Community-skjermen viser nylige diskusjoner og en Discord-invitasjon for direkte kontakt og oppdateringer.
+- Nytt Socials-valg i «Om» for Twitter/X og Telegram.
+- Rikere ROM-skjermbilder: PixelOS-galleri og Paranoid Android i full størrelse.
+- Skrivebordsversjoner viser nå takkemeldingen for donasjon.
+- Oppfrisket tekst og rettet upålitelige skjermbilder.

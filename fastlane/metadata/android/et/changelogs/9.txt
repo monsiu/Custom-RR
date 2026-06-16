@@ -1,0 +1,6 @@
+- Uus Community jaotis, mis viib GitHub Discussionsisse (teated, küsimused-vastused, ideed, küsitlused).
+- Community ekraan näitab hiljutisi arutelusid ja Discordi kutset otsekontaktiks ja uudisteks.
+- Uus Socials valik jaotises «Teave» Twitter/X ja Telegram jaoks.
+- Rikkalikumad ROM ekraanipildid: PixelOS galerii ja täismõõdus Paranoid Android.
+- Lauaarvuti versioonid näitavad nüüd annetuse tänusõnumit.
+- Värskendatud tekst ja parandatud ebausaldusväärsed ekraanipildid.

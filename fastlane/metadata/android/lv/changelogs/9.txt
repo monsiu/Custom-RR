@@ -1,0 +1,6 @@
+- Jauna Community sadaļa, kas saistīta ar GitHub Discussions (paziņojumi, jautājumi, idejas, aptaujas).
+- Community ekrāns rāda nesenās diskusijas un Discord ielūgumu tiešam kontaktam un jaunumiem.
+- Jauna Socials iespēja sadaļā «Par» Twitter/X un Telegram.
+- Bagātīgāki ROM ekrānuzņēmumi: PixelOS galerija un pilna izmēra Paranoid Android.
+- Datora versijas tagad rāda pateicības ziņojumu par ziedojumu.
+- Atsvaidzināts teksts un izlaboti neuzticami ekrānuzņēmumi.

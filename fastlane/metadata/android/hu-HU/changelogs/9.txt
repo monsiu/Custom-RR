@@ -1,0 +1,6 @@
+- Új Community szakasz, amely a GitHub Discussionsra hivatkozik (bejelentések, kérdések, ötletek, szavazások).
+- A Community képernyő friss beszélgetéseket és Discord-meghívót mutat kapcsolathoz és hírekhez.
+- Új Socials lehetőség a «Névjegy» alatt a Twitter/X és Telegram számára.
+- Gazdagabb ROM képernyőképek: PixelOS galéria és teljes méretű Paranoid Android.
+- Az asztali változatok már megjelenítik az adományért járó köszönetet.
+- Frissített szövegek és javított megbízhatatlan képernyőképek.

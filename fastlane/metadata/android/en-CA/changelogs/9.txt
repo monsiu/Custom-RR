@@ -1,0 +1,6 @@
+- Added a Community section that links to the project's GitHub Discussions (announcements, Q&A, ideas, polls, and more).
+- The Community screen shows recent discussions and a Discord invite to reach out directly and get updates.
+- Added a Socials option in About for Twitter/X and Telegram.
+- Added richer ROM screenshots: PixelOS gallery and full-size Paranoid Android shots.
+- Desktop builds now show the donation thank-you message.
+- Refreshed copy and fixed unreliable screenshots.

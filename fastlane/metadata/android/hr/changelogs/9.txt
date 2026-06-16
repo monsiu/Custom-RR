@@ -1,0 +1,6 @@
+- Novi odjeljak Community s poveznicom na GitHub Discussions (objave, pitanja, ideje, ankete).
+- Zaslon Community prikazuje nedavne rasprave i Discord pozivnicu za izravan kontakt i novosti.
+- Nova opcija Socials u «O aplikaciji» za Twitter/X i Telegram.
+- Bogatije ROM snimke zaslona: PixelOS galerija i Paranoid Android u punoj veličini.
+- Verzije za računalo sada prikazuju poruku zahvale za donaciju.
+- Osvježen tekst i ispravljene nepouzdane snimke zaslona.

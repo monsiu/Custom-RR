@@ -1,0 +1,6 @@
+- Bagian Community baru yang menautkan ke GitHub Discussions (pengumuman, tanya jawab, ide, jajak pendapat).
+- Layar Community menampilkan diskusi terbaru dan undangan Discord untuk kontak langsung dan pembaruan.
+- Opsi Socials baru di «Tentang» untuk Twitter/X dan Telegram.
+- Tangkapan layar ROM lebih kaya: galeri PixelOS dan Paranoid Android ukuran penuh.
+- Versi desktop kini menampilkan pesan terima kasih donasi.
+- Teks disegarkan dan tangkapan layar yang tidak andal diperbaiki.

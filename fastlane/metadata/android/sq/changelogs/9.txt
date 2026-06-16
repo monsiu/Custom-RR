@@ -1,0 +1,6 @@
+- Seksion i ri Community që lidhet me GitHub Discussions (njoftime, pyetje-përgjigje, ide, sondazhe).
+- Ekrani Community shfaq diskutimet e fundit dhe një ftesë Discord për kontakt e përditësime.
+- Opsion i ri Socials te «Rreth» për Twitter/X dhe Telegram.
+- Pamje ekrani ROM më të pasura: galeria PixelOS dhe Paranoid Android në madhësi të plotë.
+- Versionet për kompjuter tani shfaqin mesazhin e falënderimit për donacionin.
+- Teksti i rifreskuar dhe pamjet e ekranit jo të besueshme u rregulluan.

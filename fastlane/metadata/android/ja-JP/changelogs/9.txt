@@ -1,0 +1,6 @@
+- プロジェクトの GitHub Discussions にリンクする新しい Community セクション（お知らせ、Q&A、アイデア、投票など）。
+- Community 画面に最近の議論と、直接連絡して更新を受け取れる Discord 招待を表示。
+- 「情報」に Twitter/X と Telegram 向けの Socials オプションを追加。
+- より充実した ROM のスクリーンショット: PixelOS ギャラリーとフルサイズの Paranoid Android。
+- デスクトップ版で寄付へのお礼メッセージを表示するようになりました。
+- 文言を刷新し、不安定なスクリーンショットを修正。
