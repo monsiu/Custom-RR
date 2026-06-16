@@ -33,6 +33,12 @@ name: Play bundle
 #   * Variable PLAY_TRACK: target track, defaults to "alpha" (closed testing).
 #   * Variable PLAY_RELEASE_STATUS: "draft" (default) just uploads the bundle;
 #     set "completed" to push it to the track for your testers automatically.
+#   * Variable PLAY_RELEASE_NAME: overrides the Play "Release name" field. When
+#     unset it is built as "v<version> (<code>) <track label>", e.g.
+#     "v1.2.0 (9) closed test".
+#   * The draft's "Release notes" (What's new) are prefilled from the matching
+#     changelog at fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt
+#     (e.g. 9.txt). Keep that file in sync with the release for each version.
 on:
   release:
     types: [created]
@@ -152,6 +158,9 @@ jobs:
           # file. Defaults: alpha (closed testing) track, draft release.
           PLAY_TRACK: ${{ vars.PLAY_TRACK || 'alpha' }}
           PLAY_RELEASE_STATUS: ${{ vars.PLAY_RELEASE_STATUS || 'draft' }}
+          # Optional override for the Play "Release name" field. When empty it
+          # is built below as "v<version> (<code>) <track label>".
+          PLAY_RELEASE_NAME: ${{ vars.PLAY_RELEASE_NAME || '' }}
           VNAME: ${{ steps.appver.outputs.name }}
           VCODE: ${{ steps.appver.outputs.code }}
         run: |
@@ -161,19 +170,38 @@ jobs:
           trap 'rm -f "$key"' EXIT
           export PLAY_JSON_KEY="$key"
           export PLAY_AAB_PATH="dist/custom_rr-v${VNAME}-vc${VCODE}-play-upload.aab"
+          # Build a friendly release name unless one was supplied. The label
+          # mirrors how Google describes each track in the Play Console.
+          if [ -z "$PLAY_RELEASE_NAME" ]; then
+            case "$PLAY_TRACK" in
+              internal)   label="internal test" ;;
+              alpha)      label="closed test" ;;
+              beta)       label="open test" ;;
+              production) label="production" ;;
+              *)          label="$PLAY_TRACK" ;;
+            esac
+            PLAY_RELEASE_NAME="v${VNAME} (${VCODE}) ${label}"
+          fi
+          echo "Release name: $PLAY_RELEASE_NAME"
           gem install fastlane --no-document
           # Call the supply action directly instead of a Fastfile lane so the
           # upload works no matter which ref was checked out (release tags cut
           # before this lane existed would otherwise fail "could not find lane").
+          # version_name sets the Play "Release name"; pointing supply at the
+          # metadata dir with skip_upload_changelogs:false prefills "Release
+          # notes" from fastlane/metadata/android/<locale>/changelogs/<code>.txt
+          # (e.g. 9.txt). Listing metadata, images and screenshots stay skipped.
           fastlane run upload_to_play_store \
             package_name:io.github.monsiu.custom_rr \
             aab:"$PLAY_AAB_PATH" \
             json_key:"$PLAY_JSON_KEY" \
             track:"$PLAY_TRACK" \
             release_status:"$PLAY_RELEASE_STATUS" \
+            version_name:"$PLAY_RELEASE_NAME" \
+            metadata_path:fastlane/metadata/android \
             skip_upload_apk:true \
             skip_upload_metadata:true \
             skip_upload_images:true \
             skip_upload_screenshots:true \
-            skip_upload_changelogs:true \
+            skip_upload_changelogs:false \
             changes_not_sent_for_review:true
