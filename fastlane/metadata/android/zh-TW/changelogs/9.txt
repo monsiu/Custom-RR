@@ -1,0 +1,6 @@
+- 新增 Community 區塊，連結到專案的 GitHub Discussions（公告、問答、點子、投票等）。
+- Community 畫面顯示近期討論，以及可直接聯絡並取得更新的 Discord 邀請。
+- 在「關於」中為 Twitter/X 和 Telegram 新增 Socials 選項。
+- 更豐富的 ROM 螢幕截圖：PixelOS 圖庫與全尺寸 Paranoid Android。
+- 桌面版現在會顯示捐款感謝訊息。
+- 更新文案並修正了不穩定的螢幕截圖。

@@ -1,0 +1,6 @@
+- Nova secció Community que enllaça amb GitHub Discussions (anuncis, preguntes, idees, enquestes).
+- La pantalla Community mostra debats recents i una invitació a Discord per contactar i rebre novetats.
+- Nova opció Socials a «Quant a» per a Twitter/X i Telegram.
+- Captures de ROM més riques: galeria PixelOS i imatges de Paranoid Android a mida completa.
+- Les versions d'escriptori ara mostren el missatge d'agraïment per la donació.
+- Textos renovats i captures poc fiables corregides.

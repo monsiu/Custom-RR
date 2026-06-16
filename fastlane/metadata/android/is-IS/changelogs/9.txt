@@ -1,0 +1,6 @@
+- Nýr Community hluti sem tengist GitHub Discussions (tilkynningar, spurningar, hugmyndir, kannanir).
+- Community skjárinn sýnir nýlegar umræður og Discord boð fyrir beint samband og uppfærslur.
+- Nýr Socials valkostur í «Um» fyrir Twitter/X og Telegram.
+- Ríkari ROM skjámyndir: PixelOS safn og Paranoid Android í fullri stærð.
+- Skjáborðsútgáfur sýna nú þakkarskilaboð fyrir framlag.
+- Endurnýjaður texti og lagaðar óáreiðanlegar skjámyndir.

@@ -1,0 +1,6 @@
+- Uusi Community-osio, joka linkittää GitHub Discussionsiin (ilmoitukset, kysymykset, ideat, äänestykset).
+- Community-näyttö esittää tuoreet keskustelut ja Discord-kutsun yhteydenpitoon ja päivityksiin.
+- Uusi Socials-valinta kohdassa «Tietoja» Twitter/X:lle ja Telegramille.
+- Rikkaammat ROM-kuvakaappaukset: PixelOS-galleria ja täysikokoinen Paranoid Android.
+- Työpöytäversiot näyttävät nyt lahjoituksen kiitosviestin.
+- Tekstit päivitetty ja epäluotettavat kuvakaappaukset korjattu.

@@ -1,0 +1,6 @@
+- Community atal berria, GitHub Discussions-era estekatua (iragarpenak, galde-erantzunak, ideiak, inkestak).
+- Community pantailak azken eztabaidak eta Discord gonbidapena erakusten ditu, berrietarako.
+- Socials aukera berria «Honi buruz» atalean Twitter/X eta Telegram-erako.
+- ROM pantaila-argazki aberatsagoak: PixelOS galeria eta Paranoid Android tamaina osoan.
+- Mahaigainekoek orain dohaintzaren esker-mezua erakusten dute.
+- Testua freskatu eta pantaila-argazki ezegonkorrak konpondu dira.

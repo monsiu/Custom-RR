@@ -1,0 +1,6 @@
+- Nová sekce Community s odkazem na GitHub Discussions (oznámení, dotazy, nápady, ankety).
+- Obrazovka Community zobrazuje nedávné diskuze a pozvánku na Discord pro přímý kontakt a novinky.
+- Nová volba Socials v sekci «O aplikaci» pro Twitter/X a Telegram.
+- Bohatší snímky ROM: galerie PixelOS a snímky Paranoid Android v plné velikosti.
+- Sestavení pro počítač nyní zobrazují děkovnou zprávu za dar.
+- Aktualizované texty a opravené nespolehlivé snímky obrazovky.

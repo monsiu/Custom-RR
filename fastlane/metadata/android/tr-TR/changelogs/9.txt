@@ -1,0 +1,6 @@
+- GitHub Discussions'a bağlanan yeni Community bölümü (duyurular, soru-cevap, fikirler, anketler).
+- Community ekranı son tartışmaları ve doğrudan iletişim ile güncellemeler için bir Discord davetini gösterir.
+- «Hakkında» bölümünde Twitter/X ve Telegram için yeni Socials seçeneği.
+- Daha zengin ROM ekran görüntüleri: PixelOS galerisi ve tam boyutlu Paranoid Android.
+- Masaüstü sürümleri artık bağış teşekkür mesajını gösteriyor.
+- Metinler tazelendi ve güvenilmez ekran görüntüleri düzeltildi.

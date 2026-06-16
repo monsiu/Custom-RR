@@ -1,0 +1,6 @@
+- 프로젝트의 GitHub Discussions로 연결되는 새 Community 섹션(공지, Q&A, 아이디어, 투표 등).
+- Community 화면에 최근 토론과 직접 연락해 업데이트를 받을 수 있는 Discord 초대가 표시됩니다.
+- 「정보」에 Twitter/X 및 Telegram용 Socials 옵션 추가.
+- 더 풍부한 ROM 스크린샷: PixelOS 갤러리와 전체 크기 Paranoid Android.
+- 데스크톱 빌드에서 이제 기부 감사 메시지를 표시합니다.
+- 문구를 새로 다듬고 불안정한 스크린샷을 수정했습니다.

@@ -1,0 +1,6 @@
+- Bagong Community section na naka-link sa GitHub Discussions (mga anunsyo, Q&A, ideya, poll).
+- Ipinapakita ng Community screen ang mga kamakailang talakayan at isang Discord invite para sa direktang updates.
+- Bagong Socials option sa «About» para sa Twitter/X at Telegram.
+- Mas mayamang ROM screenshots: PixelOS gallery at full-size na Paranoid Android.
+- Ipinapakita na ng desktop builds ang mensahe ng pasasalamat sa donasyon.
+- Na-refresh na teksto at naayos na hindi maaasahang screenshots.

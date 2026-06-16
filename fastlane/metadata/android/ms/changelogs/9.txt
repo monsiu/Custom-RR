@@ -1,0 +1,6 @@
+- Bahagian Community baharu yang memaut ke GitHub Discussions (pengumuman, soal jawab, idea, undian).
+- Skrin Community memaparkan perbincangan terkini dan jemputan Discord untuk hubungan terus dan kemas kini.
+- Pilihan Socials baharu dalam «Perihal» untuk Twitter/X dan Telegram.
+- Tangkapan skrin ROM lebih kaya: galeri PixelOS dan Paranoid Android saiz penuh.
+- Binaan desktop kini memaparkan mesej terima kasih derma.
+- Teks disegarkan dan tangkapan skrin tidak boleh dipercayai dibaiki.

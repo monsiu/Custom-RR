@@ -1,0 +1,6 @@
+- Nuwe Gemeenskap-afdeling wat na die projek se GitHub Discussions skakel (aankondigings, V&A, idees, peilings en meer).
+- Die Gemeenskap-skerm wys onlangse besprekings en 'n Discord-uitnodiging vir direkte opdaterings.
+- Nuwe Sosiale-opsie in Aangaande vir Twitter/X en Telegram.
+- Ryker ROM-skermkiekies: PixelOS-galery en volgrootte Paranoid Android.
+- Rekenaarbouwerke wys nou die skenkingsdankie-boodskap.
+- Teks opgefris en onbetroubare skermkiekies reggemaak.
