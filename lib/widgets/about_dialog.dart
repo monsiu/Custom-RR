@@ -19,6 +19,9 @@ const String kMonsiuTwitterUrl = 'https://twitter.com/MonsiuTech';
 /// Telegram profile for the developer.
 const String kMonsiuTelegramUrl = 'https://t.me/monsiu';
 
+/// YouTube channel for the developer.
+const String kMonsiuYouTubeUrl = 'https://youtube.com/@monsiutech';
+
 /// Shows the standard about dialog (uses package_info_plus for version).
 Future<void> showCustomAboutDialog(BuildContext context) async {
   final PackageInfo info = await PackageInfo.fromPlatform();
@@ -285,6 +288,18 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
                   Navigator.of(sheetCtx).pop();
                   launchUrl(
                     Uri.parse(kMonsiuTelegramUrl),
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.play_circle_outline),
+                title: const Text('YouTube'),
+                subtitle: const Text('@monsiutech'),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  launchUrl(
+                    Uri.parse(kMonsiuYouTubeUrl),
                     mode: LaunchMode.externalApplication,
                   );
                 },
