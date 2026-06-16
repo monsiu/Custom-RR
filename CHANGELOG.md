@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-06-16
+
 ### Added
 
 - **Community forum section in-app.** Added a new Community screen that links
@@ -15,6 +17,12 @@ project uses [Semantic Versioning](https://semver.org/).
 - **Recent discussions and announcements.** The Community screen now fetches
   recent public GitHub Discussions, shows relative times, supports
   pull-to-refresh, and gives feedback if a discussion link cannot open.
+- **Discord call-to-action on Community.** A new card at the bottom of the
+  Community screen invites people to join the Discord for direct contact,
+  release pings, flashing tips, and general community chat.
+- **Socials in the About dialog.** The About dialog now has a Socials button
+  that opens the project's Twitter / X and Telegram, replacing the old
+  "Request a ROM or recovery" shortcut there.
 - **Desktop donation thank-you feedback.** Linux, Windows, and macOS now show
   the same thank-you snackbar as Android after someone opens a donation option.
 - **Expanded ROM screenshots.** PixelOS now shows its official screenshot

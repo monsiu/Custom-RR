@@ -3,7 +3,7 @@
 _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https://github.com/monsiu/Custom-RR)_
 
 <p align="left">
-  <a href="https://github.com/monsiu/Custom-RR/releases/tag/v1.1.0"><img alt="Release" src="https://img.shields.io/github/v/release/monsiu/Custom-RR?style=flat-square&amp;label=Release&amp;color=7ed957"></a>
+  <a href="https://github.com/monsiu/Custom-RR/releases/tag/v1.2.0"><img alt="Release" src="https://img.shields.io/github/v/release/monsiu/Custom-RR?style=flat-square&amp;label=Release&amp;color=7ed957"></a>
   <a href="https://github.com/monsiu/Custom-RR/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/monsiu/Custom-RR/total?style=flat-square&amp;label=Downloads&amp;color=7ed957"></a>
   <a href="https://github.com/monsiu/Custom-RR/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/monsiu/Custom-RR?style=flat-square&amp;label=Stars&amp;color=ffd43b"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-GPL--3.0--only-blue?style=flat-square"></a>
