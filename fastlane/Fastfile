@@ -36,6 +36,21 @@ platform :android do
     Integer(ENV.fetch('PLAY_VERSION_CODE', '8'))
   end
 
+  private_lane :play_aab_path do
+    ENV.fetch('PLAY_AAB_PATH') do
+      UI.user_error!(
+        'Set PLAY_AAB_PATH to the built Play App Bundle (.aab) file path.',
+      )
+    end
+  end
+
+  private_lane :play_release_status do
+    # 'draft' (default) uploads the bundle but leaves promoting it to you in
+    # the Play Console. Set PLAY_RELEASE_STATUS=completed to push it straight
+    # to the configured track (e.g. closed testing) for your testers.
+    ENV.fetch('PLAY_RELEASE_STATUS', 'draft')
+  end
+
   desc 'Validate Google Play listing metadata without uploading app binaries or changelogs'
   lane :validate_play_metadata do
     supply(
@@ -62,6 +77,23 @@ platform :android do
       skip_upload_changelogs: true,
       track: play_track,
       version_code: play_version_code,
+      changes_not_sent_for_review: true,
+    )
+  end
+
+  desc 'Upload a built Play App Bundle (.aab) to the configured track'
+  lane :upload_play_bundle do
+    supply(
+      package_name: 'io.github.monsiu.custom_rr',
+      aab: play_aab_path,
+      json_key: play_json_key,
+      track: play_track,
+      release_status: play_release_status,
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: true,
       changes_not_sent_for_review: true,
     )
   end
