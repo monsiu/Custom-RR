@@ -1,39 +1,38 @@
-## Custom RR v1.1.0
+## Custom RR v1.2.0
 
-This release expands the catalog and makes browsing clearer, especially for
-community-maintained builds and Samsung Galaxy S24 Ultra users.
+This release brings an in-app Community space, easier ways to reach out, and
+polish across phones and desktop.
 
 ### Highlights
 
-- **Unofficial builds are now clearly grouped.** Community-maintained builds now
-  appear in a dedicated section on the Custom ROMs list, with an explainer and
-  a quick info button.
-- **Galaxy S24 Ultra support lands.** Two requested entries are now in the
-  catalog:
-  - **LineageOS for S24 Ultra (Unofficial)** with builds, install links,
-    source, and screenshots.
-  - **Dr.Ketan ROM** for SM-S928B/DS.
-- **AndyYan's LineageOS 21 pre-QPR2 GSI** was added to Treble & GSI with direct
-  download links and the XDA thread.
-- **Catalog cards read better.** Counts now use proper wording, and brands that
-  only have recoveries no longer show a confusing "0 ROMs" label.
-- **GitHub updater behavior is now explicit by channel.** Source builds keep
-  updater code disabled by default; GitHub release builds keep in-app update
-  support, while store builds rely on their own update channels.
+- **Community section in the app.** A new Community screen links you straight to
+  the project's GitHub Discussions: all discussions, announcements, Q&A, ideas,
+  polls, and show and tell. Bug reports stay separate in GitHub Issues.
+- **See the latest at a glance.** The Community screen pulls in recent public
+  discussions with relative timestamps, supports pull-to-refresh, and tells you
+  if a link cannot open.
+- **Join the Discord in a tap.** A new card on the Community screen invites you
+  to reach out directly, get release pings, swap flashing tips, and hang out
+  with the rest of the community.
+- **Socials in About.** The About dialog now has a Socials button linking to
+  Twitter / X and Telegram.
+- **Richer ROM screenshots.** PixelOS now shows its official screenshot gallery,
+  and Paranoid Android now includes full-size phone screenshots.
+- **Desktop thank-you feedback.** Linux, Windows, and macOS now show the same
+  donation thank-you message that Android already had.
 
-### Privacy and policy
+### Refinements
 
-- The privacy policy now explicitly separates website analytics from app
-  behavior. The app itself still has no analytics or tracking.
+- Community is reachable from app navigation, the home actions, and the desktop
+  menu, so you can jump to discussions without backtracking.
+- The desktop side rail has a smoother scroll edge fade.
+- Project and store copy now match the catalog more accurately: 18 maintained
+  ROMs, 5 recoveries, 500+ devices, and UN1CA in place of AlphaDroid.
 
-### Android distribution note
+### Fixes
 
-- The Play build manifest now removes transitive media/storage permissions from
-  an updater dependency that is not used in Play builds.
-
-### Cleanup
-
-- Removed the empty ARK brand entry.
-- Merged duplicate 10.or/10or branding.
+- Corrected the documented Android support to Android 7.0+ (minSdk 24).
+- Replaced dead or low-quality ROM screenshots with reliable, higher-quality
+  ones.
 
 See the full diff and commit log via the **Full Changelog** link below.
