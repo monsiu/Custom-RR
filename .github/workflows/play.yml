@@ -22,9 +22,10 @@ name: Play bundle
 #     differently from the GitHub APKs, so it must not be offered to end users
 #     for sideloading.
 #   * If the PLAY_SERVICE_ACCOUNT_JSON repo secret is set, it then uploads the
-#     bundle straight to Google Play via Fastlane supply (the upload_play_bundle
-#     lane). Without that secret the upload steps are skipped and the bundle is
-#     only kept as a private artifact for manual upload.
+#     bundle straight to Google Play via Fastlane supply (the
+#     upload_to_play_store action, called directly so it works for any checked
+#     out ref). Without that secret the upload steps are skipped and the bundle
+#     is only kept as a private artifact for manual upload.
 #
 # Auto-upload configuration:
 #   * Secret PLAY_SERVICE_ACCOUNT_JSON: the Google Play service-account JSON
@@ -161,4 +162,18 @@ jobs:
           export PLAY_JSON_KEY="$key"
           export PLAY_AAB_PATH="dist/custom_rr-v${VNAME}-vc${VCODE}-play-upload.aab"
           gem install fastlane --no-document
-          fastlane android upload_play_bundle
+          # Call the supply action directly instead of a Fastfile lane so the
+          # upload works no matter which ref was checked out (release tags cut
+          # before this lane existed would otherwise fail "could not find lane").
+          fastlane run upload_to_play_store \
+            package_name:io.github.monsiu.custom_rr \
+            aab:"$PLAY_AAB_PATH" \
+            json_key:"$PLAY_JSON_KEY" \
+            track:"$PLAY_TRACK" \
+            release_status:"$PLAY_RELEASE_STATUS" \
+            skip_upload_apk:true \
+            skip_upload_metadata:true \
+            skip_upload_images:true \
+            skip_upload_screenshots:true \
+            skip_upload_changelogs:true \
+            changes_not_sent_for_review:true
