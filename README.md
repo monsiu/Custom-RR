@@ -34,6 +34,12 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 > testers before it can go live to everyone. **You can help it launch in three
 > quick steps**, and you get the app early:
 >
+> **This is urgent:** Play testing is the blocker before Custom RR can reach the
+> public Play Store. The Play version is the same app release as the GitHub
+> release, with the same catalog and features. The only difference is updates:
+> Play installs future updates through the Play Store, while GitHub release
+> builds update from GitHub Releases.
+>
 > 1. **Sign in to your Google account**, the same one you use on your phone.
 > 2. **Join the testers group:** open [groups.google.com/g/custom-rr-play-testers](https://groups.google.com/g/custom-rr-play-testers) and click **Join group** (viewing the group does not make you a tester, you have to actually join).
 > 3. **Opt in and install:** open [play.google.com/apps/testing/io.github.monsiu.custom_rr](https://play.google.com/apps/testing/io.github.monsiu.custom_rr), accept the invite, then get it on the [Play Store](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr).
