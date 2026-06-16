@@ -37,6 +37,7 @@ class _CommunityPageState extends State<CommunityPage> {
   static final Uri _issues = Uri.parse(
     'https://github.com/monsiu/Custom-RR/issues',
   );
+  static final Uri _discord = Uri.parse('https://discord.gg/uWZR8vR855');
 
   @override
   void initState() {
@@ -248,9 +249,68 @@ class _CommunityPageState extends State<CommunityPage> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 18),
+                _DiscordCard(onOpen: () => _open(_discord)),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _DiscordCard extends StatelessWidget {
+  const _DiscordCard({required this.onOpen});
+
+  final VoidCallback onOpen;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Card(
+      margin: EdgeInsets.zero,
+      color: scheme.primaryContainer,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(18, 16, 18, 18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icon(Icons.discord, color: scheme.onPrimaryContainer),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'Prefer to chat in real time?',
+                    style: text.titleMedium?.copyWith(
+                      color: scheme.onPrimaryContainer,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Hop into the Discord to reach out directly, get the latest '
+              'updates and release pings, swap flashing tips, and hang out '
+              'with the rest of the Custom RR community.',
+              style: text.bodyMedium?.copyWith(
+                color: scheme.onPrimaryContainer,
+              ),
+            ),
+            const SizedBox(height: 14),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: FilledButton.icon(
+                onPressed: onOpen,
+                icon: const Icon(Icons.discord),
+                label: const Text('Join the Discord'),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -267,9 +327,7 @@ class _ForumLinksCard extends StatelessWidget {
     required this.polls,
     required this.showAndTell,
     required this.issues,
-  });
-
-  final Future<void> Function(Uri uri) onOpen;
+  });  final Future<void> Function(Uri uri) onOpen;
   final Uri allDiscussions;
   final Uri announcements;
   final Uri qa;
