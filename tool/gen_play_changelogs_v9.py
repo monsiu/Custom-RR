@@ -656,10 +656,14 @@ def main():
             continue
         os.makedirs(d, exist_ok=True)
         text = EN if lang is None else LANG[lang]
+        # Write WITHOUT a trailing newline. supply uploads the file verbatim and
+        # the Play Console wraps each locale as <loc>\n{note}\n</loc>; a trailing
+        # newline in the file would show as a blank line before the closing tag.
+        text = text.rstrip("\n")
         path = os.path.join(d, "9.txt")
         with open(path, "w", encoding="utf-8") as f:
             f.write(text)
-        n = len(text.rstrip("\n"))
+        n = len(text)
         if n > 500:
             over.append((locale, n))
         written += 1
