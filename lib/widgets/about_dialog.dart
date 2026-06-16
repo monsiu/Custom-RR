@@ -6,13 +6,18 @@ import 'package:url_launcher/url_launcher.dart';
 import '../data/update_notifier.dart';
 import '../pages/easter_egg_page.dart';
 import '../util/build_flags.dart';
-import '../util/request_project.dart';
 import 'crypto_donate.dart';
 import 'donation_feedback.dart';
 import 'donation_nudge.dart';
 
 /// Public GitHub repository for Custom RR.
 const String kCustomRrRepoUrl = 'https://github.com/monsiu/Custom-RR';
+
+/// Twitter / X profile for the developer.
+const String kMonsiuTwitterUrl = 'https://twitter.com/MonsiuTech';
+
+/// Telegram profile for the developer.
+const String kMonsiuTelegramUrl = 'https://t.me/monsiu';
 
 /// Shows the standard about dialog (uses package_info_plus for version).
 Future<void> showCustomAboutDialog(BuildContext context) async {
@@ -152,9 +157,9 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
       Align(
         alignment: Alignment.centerLeft,
         child: TextButton.icon(
-          icon: const Icon(Icons.playlist_add),
-          label: const Text('Request a ROM or recovery'),
-          onPressed: () => openProjectRequest(kind: 'ROM or recovery'),
+          icon: const Icon(Icons.alternate_email),
+          label: const Text('Socials'),
+          onPressed: () => _showSocials(context),
         ),
       ),
       Align(
@@ -248,6 +253,47 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
           child: const Text('Close'),
         ),
       ],
+    );
+  }
+
+  Future<void> _showSocials(BuildContext context) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (BuildContext sheetCtx) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.alternate_email),
+                title: const Text('Twitter / X'),
+                subtitle: const Text('@MonsiuTech'),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  launchUrl(
+                    Uri.parse(kMonsiuTwitterUrl),
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.send),
+                title: const Text('Telegram'),
+                subtitle: const Text('@monsiu'),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  launchUrl(
+                    Uri.parse(kMonsiuTelegramUrl),
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        );
+      },
     );
   }
 }
