@@ -37,9 +37,9 @@ RepoType: git
 Repo: https://github.com/monsiu/Custom-RR.git
 
 Builds:
-  - versionName: 1.1.0
-    versionCode: 8001
-    commit: a8442114bc1b8122ca8c3eb260038c62f75f5a7e
+  - versionName: 1.2.0
+    versionCode: 9001
+    commit: 9dd999b98fdd49db6e58dd64a1d4ed28491c1268
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@stable
@@ -62,9 +62,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.1.0
-    versionCode: 8002
-    commit: a8442114bc1b8122ca8c3eb260038c62f75f5a7e
+  - versionName: 1.2.0
+    versionCode: 9002
+    commit: 9dd999b98fdd49db6e58dd64a1d4ed28491c1268
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@stable
@@ -87,9 +87,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm64
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.1.0
-    versionCode: 8003
-    commit: a8442114bc1b8122ca8c3eb260038c62f75f5a7e
+  - versionName: 1.2.0
+    versionCode: 9003
+    commit: 9dd999b98fdd49db6e58dd64a1d4ed28491c1268
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@stable
@@ -147,5 +147,5 @@ VercodeOperation:
   - 1000 * %c + 2
   - 1000 * %c + 3
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.1.0
-CurrentVersionCode: 8003
+CurrentVersion: 1.2.0
+CurrentVersionCode: 9003
