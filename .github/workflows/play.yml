@@ -21,9 +21,17 @@ name: Play bundle
 #     attached to the public release. With Play App Signing it is signed
 #     differently from the GitHub APKs, so it must not be offered to end users
 #     for sideloading.
+#   * If the PLAY_SERVICE_ACCOUNT_JSON repo secret is set, it then uploads the
+#     bundle straight to Google Play via Fastlane supply (the upload_play_bundle
+#     lane). Without that secret the upload steps are skipped and the bundle is
+#     only kept as a private artifact for manual upload.
 #
-# Download the artifact from the workflow run page, then upload it to the
-# Play Console manually. This workflow does not auto-publish to Google Play.
+# Auto-upload configuration:
+#   * Secret PLAY_SERVICE_ACCOUNT_JSON: the Google Play service-account JSON
+#     file CONTENTS (required to enable auto-upload).
+#   * Variable PLAY_TRACK: target track, defaults to "alpha" (closed testing).
+#   * Variable PLAY_RELEASE_STATUS: "draft" (default) just uploads the bundle;
+#     set "completed" to push it to the track for your testers automatically.
 on:
   release:
     types: [created]
@@ -41,6 +49,11 @@ jobs:
   build-aab:
     name: Build Play App Bundle
     runs-on: ubuntu-latest
+    env:
+      # Set this repo secret to the Google Play service-account JSON file
+      # contents to enable automatic upload. When empty the upload steps are
+      # skipped and the bundle is only kept as a private artifact.
+      PLAY_SA_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -123,3 +136,29 @@ jobs:
           path: dist/custom_rr-*-play-upload.aab
           if-no-files-found: error
           retention-days: 90
+      # Auto-upload to Google Play via Fastlane. Skipped unless the
+      # PLAY_SERVICE_ACCOUNT_JSON secret is configured.
+      - name: Set up Ruby for Fastlane
+        if: ${{ env.PLAY_SA_JSON != '' }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: false
+      - name: Upload bundle to Google Play
+        if: ${{ env.PLAY_SA_JSON != '' }}
+        env:
+          # Repo variables let you change the destination without editing this
+          # file. Defaults: alpha (closed testing) track, draft release.
+          PLAY_TRACK: ${{ vars.PLAY_TRACK || 'alpha' }}
+          PLAY_RELEASE_STATUS: ${{ vars.PLAY_RELEASE_STATUS || 'draft' }}
+          VNAME: ${{ steps.appver.outputs.name }}
+          VCODE: ${{ steps.appver.outputs.code }}
+        run: |
+          set -euo pipefail
+          key="$RUNNER_TEMP/play-service-account.json"
+          printf '%s' "$PLAY_SA_JSON" > "$key"
+          trap 'rm -f "$key"' EXIT
+          export PLAY_JSON_KEY="$key"
+          export PLAY_AAB_PATH="dist/custom_rr-v${VNAME}-vc${VCODE}-play-upload.aab"
+          gem install fastlane --no-document
+          fastlane android upload_play_bundle
