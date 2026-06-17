@@ -31,6 +31,12 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      overwrite:
+        description: 'Re-publish even if the release is unchanged (use to push metadata-only edits like description/screenshots between releases).'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -74,10 +80,18 @@ jobs:
           # The signing key. Its npub is committed in zapstore.yaml, so the
           # relay's auto-whitelist passes.
           SIGN_WITH: ${{ env.ZAPSTORE_NSEC }}
+          # On manual dispatch with overwrite=true, force a re-publish so edits
+          # to zapstore.yaml metadata (description, screenshots, tags) reach the
+          # relay even though the underlying release version is unchanged.
+          OVERWRITE: ${{ github.event.inputs.overwrite }}
         run: |
           set -euo pipefail
           # --quiet: no prompts/spinners, auto-confirm (required for CI).
           # --skip-preview: never try to open a browser preview.
           # --skip-certificate-linking: the cert<->identity proof is a one-time
           #   step already done locally; CI has no keystore and does not redo it.
-          zsp publish --quiet --skip-preview --skip-certificate-linking zapstore.yaml
+          overwrite_flag=""
+          if [ "${OVERWRITE:-false}" = "true" ]; then
+            overwrite_flag="--overwrite-release"
+          fi
+          zsp publish --quiet --skip-preview --skip-certificate-linking $overwrite_flag zapstore.yaml
