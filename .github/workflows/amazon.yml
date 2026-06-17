@@ -1,0 +1,128 @@
+name: Amazon Appstore
+
+# Publishes a new version to the Amazon Appstore automatically when a GitHub
+# release is PUBLISHED - the same single action that already fans out to
+# Zapstore. This completes the "one central push" goal: publish the release and
+# Play (draft, via play.yml), Zapstore and Amazon all ship from it.
+#
+# Why a fresh APK build (not the Play AAB or the GitHub APKs):
+#   * Amazon's App Submission API is APK-ONLY - it does NOT accept AAB, so the
+#     Play bundle cannot be pushed through the API (only by hand in the Console).
+#   * The GitHub release APKs have the in-app updater compiled IN
+#     (GITHUB_RELEASE_BUILD=true); a store build must have it OUT.
+#   So this builds a universal STORE APK: PLAY_BUILD=true gives the store
+#   manifest (no REQUEST_INSTALL_PACKAGES) and drops the updater + crypto UI,
+#   just emitted as an APK instead of an AAB. Amazon re-signs for distribution,
+#   so update continuity is handled by Amazon.
+#
+# Opt-in + non-breaking: every step is gated on the Amazon secrets, so until you
+# add them the job is a clean no-op (same pattern as play.yml / zapstore.yml).
+#
+# One-time setup (Developer Console > Tools & Services > API Access, admin only):
+#   1. Create a Security Profile for the App Submission API, attach it, and copy
+#      its client id + client secret.
+#   2. Copy the app's App ID key (the app's Upload App File screen).
+#   3. Add repo secrets (never paste them anywhere public):
+#        gh secret set AMAZON_CLIENT_ID
+#        gh secret set AMAZON_CLIENT_SECRET
+#        gh secret set AMAZON_APP_ID
+#   Optional repo variable AMAZON_SUBMIT: "true" (default) commits/submits to
+#   review; set "false" for a dry run that prepares + validates the Edit only.
+#
+# Note: commit = submit to Amazon review; it publishes in a few hours, like Play.
+# An app still in review cannot be updated (the API returns 412) - the uploader
+# detects this and exits cleanly so the run is not a hard failure.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Tag, branch, or commit to build (defaults to the branch this runs from).'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to Amazon Appstore
+    runs-on: ubuntu-latest
+    env:
+      # Surfaced as job env so steps can gate on it (secrets are not allowed in
+      # `if:`). When unset, every step below is skipped and the job is a no-op.
+      AMAZON_CLIENT_ID: ${{ secrets.AMAZON_CLIENT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.event.release.tag_name || github.ref }}
+
+      - uses: actions/setup-java@v4
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - id: flutter_version
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        run: echo "version=$(cat .flutter-version)" >> "$GITHUB_OUTPUT"
+
+      - uses: subosito/flutter-action@v2
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        with:
+          flutter-version: ${{ steps.flutter_version.outputs.version }}
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+
+      - name: Set up Android signing
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD:  ${{ secrets.ANDROID_STORE_PASSWORD }}
+          KEY_PASSWORD:    ${{ secrets.ANDROID_KEY_PASSWORD }}
+          KEY_ALIAS:       ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          set -euo pipefail
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::No ANDROID_KEYSTORE_BASE64 secret set. The Amazon APK must be signed with the release key."
+            exit 1
+          fi
+          printf '%s' "$KEYSTORE_BASE64" | tr -d ' \t\r\n' | base64 -d > android/app/release.jks
+          if [ ! -s android/app/release.jks ]; then
+            echo "::error::Decoded keystore is empty - check ANDROID_KEYSTORE_BASE64 secret."
+            exit 1
+          fi
+          cat > android/key.properties <<EOF
+          storePassword=$STORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=release.jks
+          EOF
+
+      # Universal store APK. PLAY_BUILD=true swaps in the store manifest (no
+      # REQUEST_INSTALL_PACKAGES / installer / crypto intents) and the matching
+      # --dart-define drops the in-app updater + crypto UI. No --split-per-abi,
+      # so the gradle ABI versionCode override is skipped and the APK keeps the
+      # base versionCode from pubspec (must exceed the live Amazon version).
+      # REQUIRE_RELEASE_SIGNING fails the build if the key is missing.
+      - name: Build universal store APK
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        run: flutter build apk --release --dart-define=PLAY_BUILD=true
+        env:
+          PLAY_BUILD: "true"
+          REQUIRE_RELEASE_SIGNING: "true"
+
+      - name: Upload to Amazon Appstore
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        env:
+          AMAZON_CLIENT_ID: ${{ secrets.AMAZON_CLIENT_ID }}
+          AMAZON_CLIENT_SECRET: ${{ secrets.AMAZON_CLIENT_SECRET }}
+          AMAZON_APP_ID: ${{ secrets.AMAZON_APP_ID }}
+          AMAZON_APK_PATH: build/app/outputs/flutter-apk/app-release.apk
+          # "true" (default) submits to review; set repo var to "false" for a dry run.
+          AMAZON_SUBMIT: ${{ vars.AMAZON_SUBMIT || 'true' }}
+        run: python3 tool/amazon_upload.py
