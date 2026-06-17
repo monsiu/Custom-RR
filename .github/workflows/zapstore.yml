@@ -1,0 +1,83 @@
+name: Zapstore
+
+# Publishes the app to Zapstore (the Nostr app store) automatically when a
+# GitHub release is PUBLISHED.
+#
+# Why this trigger: Zapstore pulls the APKs straight from the GitHub release
+# assets, so it has to run once the release is public. release.yml creates the
+# release as a DRAFT; the moment you click "Publish release" the
+# `release: [published]` event fires (that is a real user action, so unlike the
+# GITHUB_TOKEN-created draft it DOES trigger this workflow). At that point the
+# per-ABI APKs are attached and Zapstore can fetch them.
+#
+# Opt-in + non-breaking: every step is gated on the ZAPSTORE_NSEC secret, so
+# until you add that secret the job just skips cleanly (same pattern play.yml
+# uses for PLAY_SERVICE_ACCOUNT_JSON).
+#
+# One-time setup:
+#   1. zapstore.yaml at the repo root must carry the matching `pubkey:` and be
+#      committed on the default branch (already done) - the relay fetches it to
+#      auto-whitelist the signing key.
+#   2. Add the signing key as a repo secret WITHOUT pasting it anywhere public:
+#        gh secret set ZAPSTORE_NSEC
+#      then paste the nsec1... at the prompt. It must be the private key whose
+#      npub is in zapstore.yaml.
+#
+# Security note: the nsec is held as a GitHub Actions secret (masked in logs,
+# single-tenant ephemeral runner, only trusted steps run here). If you would
+# rather not keep a raw key in CI, set SIGN_WITH to a NIP-46 `bunker://` URL
+# secret instead - see https://zapstore.dev/docs/publish.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to Zapstore
+    runs-on: ubuntu-latest
+    env:
+      # Mirrors play.yml: surfacing the secret as a job env lets the steps gate
+      # on it (secrets cannot be used directly in `if:` conditions). When unset
+      # every step below is skipped and the job is a clean no-op.
+      ZAPSTORE_NSEC: ${{ secrets.ZAPSTORE_NSEC }}
+    steps:
+      # Check out the default branch so zapstore.yaml (repository + pubkey +
+      # listing metadata) is always present, regardless of which tag/ref the
+      # release points at.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Install zsp
+        if: ${{ env.ZAPSTORE_NSEC != '' }}
+        env:
+          ZSP_VERSION: '0.4.11'
+          # sha256 of zsp-0.4.11-linux-amd64 (verify on upgrade).
+          ZSP_SHA256: 'e17923e9436d6cac374e6ea012ba39aa1ca247751c47f8074ba005c654d4a241'
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/zsp \
+            "https://github.com/zapstore/zsp/releases/download/v${ZSP_VERSION}/zsp-${ZSP_VERSION}-linux-amd64"
+          echo "${ZSP_SHA256}  /tmp/zsp" | sha256sum -c -
+          install -m 0755 /tmp/zsp /usr/local/bin/zsp
+          zsp --version
+
+      - name: Publish release to Zapstore
+        if: ${{ env.ZAPSTORE_NSEC != '' }}
+        env:
+          # Read token avoids GitHub API rate limits when fetching release assets.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The signing key. Its npub is committed in zapstore.yaml, so the
+          # relay's auto-whitelist passes.
+          SIGN_WITH: ${{ env.ZAPSTORE_NSEC }}
+        run: |
+          set -euo pipefail
+          # --quiet: no prompts/spinners, auto-confirm (required for CI).
+          # --skip-preview: never try to open a browser preview.
+          # --skip-certificate-linking: the cert<->identity proof is a one-time
+          #   step already done locally; CI has no keystore and does not redo it.
+          zsp publish --quiet --skip-preview --skip-certificate-linking zapstore.yaml
