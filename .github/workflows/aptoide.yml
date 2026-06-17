@@ -1,0 +1,123 @@
+name: Aptoide
+
+# Publishes a new version to Aptoide (via Aptoide Connect's Uploader API)
+# automatically when a GitHub release is PUBLISHED - the same single action that
+# already fans out to Zapstore and Amazon.
+#
+# Why a fresh APK build: Aptoide's Uploader API takes an APK (multipart upload);
+# like Amazon it is not fed the Play AAB, and the GitHub-release APKs have the
+# in-app updater compiled IN. So this builds the universal STORE APK
+# (PLAY_BUILD=true: store manifest, no REQUEST_INSTALL_PACKAGES, no updater /
+# crypto UI), just as the Amazon job does.
+#
+# Opt-in + non-breaking: every step is gated on the APTOIDE_API_KEY secret, so
+# until you add it the job is a clean no-op (same pattern as the other stores).
+#
+# One-time setup:
+#   1. Create an Aptoide Connect account (https://connect.aptoide.com), set the
+#      account type to Developer, and submit the FIRST version of Custom RR via
+#      the App Submission Form in the console (the API can only UPDATE an app
+#      that already exists / is on Google Play - see SUBMISSION-NOT-ALLOWED).
+#   2. Generate an API key (Aptoide Connect > API keys) and add it as a secret:
+#        gh secret set APTOIDE_API_KEY
+#
+# Signature note: Aptoide compares the APK signature with the existing/market
+# version. Because Google Play uses Play App Signing (Google re-signs for
+# distribution), the upload-key-signed APK may trip APK-SIGNATURE-MISMATCH-*.
+# If that happens, either submit through the console once to establish the
+# Aptoide signature, or let Aptoide auto-mirror the Play version instead.
+#
+# Optional repo variables:
+#   APTOIDE_RELEASE_MODE          IMMEDIATE (default) | MANUAL | SCHEDULED
+#   APTOIDE_REQUIRES_DEV_APPROVAL false (default) | true (hold in console first)
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Tag, branch, or commit to build (defaults to the branch this runs from).'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to Aptoide
+    runs-on: ubuntu-latest
+    env:
+      # Surfaced as job env so steps can gate on it (secrets are not allowed in
+      # `if:`). When unset, every step below is skipped and the job is a no-op.
+      APTOIDE_API_KEY: ${{ secrets.APTOIDE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.event.release.tag_name || github.ref }}
+
+      - uses: actions/setup-java@v4
+        if: ${{ env.APTOIDE_API_KEY != '' }}
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - id: flutter_version
+        if: ${{ env.APTOIDE_API_KEY != '' }}
+        run: echo "version=$(cat .flutter-version)" >> "$GITHUB_OUTPUT"
+
+      - uses: subosito/flutter-action@v2
+        if: ${{ env.APTOIDE_API_KEY != '' }}
+        with:
+          flutter-version: ${{ steps.flutter_version.outputs.version }}
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+        if: ${{ env.APTOIDE_API_KEY != '' }}
+
+      - name: Set up Android signing
+        if: ${{ env.APTOIDE_API_KEY != '' }}
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD:  ${{ secrets.ANDROID_STORE_PASSWORD }}
+          KEY_PASSWORD:    ${{ secrets.ANDROID_KEY_PASSWORD }}
+          KEY_ALIAS:       ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          set -euo pipefail
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::No ANDROID_KEYSTORE_BASE64 secret set. The Aptoide APK must be signed with the release key."
+            exit 1
+          fi
+          printf '%s' "$KEYSTORE_BASE64" | tr -d ' \t\r\n' | base64 -d > android/app/release.jks
+          if [ ! -s android/app/release.jks ]; then
+            echo "::error::Decoded keystore is empty - check ANDROID_KEYSTORE_BASE64 secret."
+            exit 1
+          fi
+          cat > android/key.properties <<EOF
+          storePassword=$STORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=release.jks
+          EOF
+
+      # Universal store APK. PLAY_BUILD=true swaps in the store manifest and the
+      # matching --dart-define drops the in-app updater + crypto UI. No
+      # --split-per-abi, so the APK keeps the base versionCode from pubspec
+      # (must be >= the live Aptoide/Play version). REQUIRE_RELEASE_SIGNING
+      # fails the build if the key is missing.
+      - name: Build universal store APK
+        if: ${{ env.APTOIDE_API_KEY != '' }}
+        run: flutter build apk --release --dart-define=PLAY_BUILD=true
+        env:
+          PLAY_BUILD: "true"
+          REQUIRE_RELEASE_SIGNING: "true"
+
+      - name: Submit to Aptoide
+        if: ${{ env.APTOIDE_API_KEY != '' }}
+        env:
+          APTOIDE_API_KEY: ${{ secrets.APTOIDE_API_KEY }}
+          APTOIDE_APK_PATH: build/app/outputs/flutter-apk/app-release.apk
+          APTOIDE_RELEASE_MODE: ${{ vars.APTOIDE_RELEASE_MODE || 'IMMEDIATE' }}
+          APTOIDE_REQUIRES_DEV_APPROVAL: ${{ vars.APTOIDE_REQUIRES_DEV_APPROVAL || 'false' }}
+        run: python3 tool/aptoide_upload.py
