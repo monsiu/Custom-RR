@@ -115,42 +115,32 @@ def app_url(app_id: str, suffix: str = "") -> str:
     return f"{BASE_URL}/{API_VERSION}/applications/{app_id}/edits{suffix}"
 
 
-def get_or_create_edit(token: str, app_id: str) -> str:
-    # getActiveEdit: an open Edit may already exist (e.g. a prior partial run).
-    status, _headers, body = _request("GET", app_url(app_id), token=token)
+def get_clean_edit(token: str, app_id: str) -> str:
+    """Discard any stale open Edit, then create a fresh one.
+
+    An app may have only one open Edit at a time, so a leftover Edit (from a
+    failed run, or a half-finished Developer Console session) would make
+    createEdit fail. A release publisher should own the Edit lifecycle, so we
+    discard whatever is open and start from a clean copy of the live version.
+    Amazon explicitly recommends not mixing API and Console edits on one Edit.
+    """
+    _status, _headers, body = _request("GET", app_url(app_id), token=token)
     if isinstance(body, dict) and body.get("id"):
-        edit_id = body["id"]
-        log(f"Reusing open Edit {edit_id}.")
-        return edit_id
-    # None open: create a fresh Edit (copies the live version's listing + APKs).
+        stale_id = body["id"]
+        _s, headers, _b = _request(
+            "GET", app_url(app_id, f"/{stale_id}"), token=token)
+        etag = headers.get("ETag")
+        _request("DELETE", app_url(app_id, f"/{stale_id}"),
+                 token=token, etag=etag, want_json=False)
+        log(f"Discarded stale open Edit {stale_id}.")
     _status, _headers, body = _request("POST", app_url(app_id), token=token)
     if not isinstance(body, dict) or "id" not in body:
         fail(f"createEdit response missing id: {body!r}")
-    log(f"Created Edit {body['id']}.")
+    log(f"Created Edit {body['id']} (copy of the live version).")
     return body["id"]
 
 
-def clear_existing_apks(token: str, app_id: str, edit_id: str) -> None:
-    status, _headers, body = _request(
-        "GET", app_url(app_id, f"/{edit_id}/apks"), token=token)
-    apks = body if isinstance(body, list) else []
-    if not apks:
-        log("No existing APKs in the Edit.")
-        return
-    for apk in apks:
-        apk_id = apk.get("id")
-        if apk_id is None:
-            continue
-        # Need the per-APK ETag for the conditional DELETE.
-        _s, headers, _b = _request(
-            "GET", app_url(app_id, f"/{edit_id}/apks/{apk_id}"), token=token)
-        etag = headers.get("ETag")
-        _request("DELETE", app_url(app_id, f"/{edit_id}/apks/{apk_id}"),
-                 token=token, etag=etag, want_json=False)
-        log(f"Deleted existing APK {apk_id}.")
-
-
-def upload_apk(token: str, app_id: str, edit_id: str, apk_path: str) -> None:
+def upload_apk(token: str, app_id: str, edit_id: str, apk_path: str) -> str:
     with open(apk_path, "rb") as fh:
         apk_bytes = fh.read()
     size_mb = len(apk_bytes) / (1024 * 1024)
@@ -160,6 +150,30 @@ def upload_apk(token: str, app_id: str, edit_id: str, apk_path: str) -> None:
         token=token, data=apk_bytes, content_type=APK_CONTENT_TYPE)
     new_id = body.get("id") if isinstance(body, dict) else None
     log(f"Uploaded APK (id {new_id}).")
+    return new_id
+
+
+def delete_other_apks(token: str, app_id: str, edit_id: str, keep_id: str) -> None:
+    """Delete every APK in the Edit except the one we just uploaded.
+
+    The live version was published from an AAB, which Amazon expanded into
+    several per-device APKs. We replace that whole set with our single universal
+    APK, so the old ones must go. Runs AFTER the upload so a rejected upload
+    never leaves the Edit binary-less.
+    """
+    _status, _headers, body = _request(
+        "GET", app_url(app_id, f"/{edit_id}/apks"), token=token)
+    apks = body if isinstance(body, list) else []
+    for apk in apks:
+        apk_id = apk.get("id")
+        if apk_id is None or apk_id == keep_id:
+            continue
+        _s, headers, _b = _request(
+            "GET", app_url(app_id, f"/{edit_id}/apks/{apk_id}"), token=token)
+        etag = headers.get("ETag")
+        _request("DELETE", app_url(app_id, f"/{edit_id}/apks/{apk_id}"),
+                 token=token, etag=etag, want_json=False)
+        log(f"Deleted old APK {apk_id}.")
 
 
 def validate_edit(token: str, app_id: str, edit_id: str) -> None:
@@ -197,9 +211,11 @@ def main() -> None:
         fail(f"APK not found at {apk_path}")
 
     token = get_token(client_id, client_secret)
-    edit_id = get_or_create_edit(token, app_id)
-    clear_existing_apks(token, app_id, edit_id)
-    upload_apk(token, app_id, edit_id, apk_path)
+    edit_id = get_clean_edit(token, app_id)
+    # Upload BEFORE deleting the old APKs, so a rejected upload (e.g. a duplicate
+    # version code) never leaves the Edit without a binary.
+    new_apk_id = upload_apk(token, app_id, edit_id, apk_path)
+    delete_other_apks(token, app_id, edit_id, new_apk_id)
     validate_edit(token, app_id, edit_id)
 
     if submit:
