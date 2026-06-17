@@ -1,0 +1,28 @@
+# Zapstore publishing config for Custom RR
+# Published with the `zsp` CLI:  zsp publish --wizard   (first time)
+#                                zsp publish            (subsequent releases)
+#
+# The `pubkey` below enables auto-whitelisting: when your app event reaches the
+# relay, it fetches THIS file from the repo and checks the pubkey matches, then
+# whitelists you. It must match the key you sign with (SIGN_WITH=nsec1...).
+#
+# APKs are fetched from the latest GitHub release (per-ABI: arm64-v8a,
+# armeabi-v7a, x86_64). Zapstore serves the right one per device automatically.
+
+repository: https://github.com/monsiu/Custom-RR
+pubkey: npub1gheed9qq8gs2dz72tatzz9vgfdpdhvhl5ff2adjukxm3zat6aussk5ylum
+
+name: Custom RR
+summary: Custom ROMs, recoveries & Treble GSIs for your Android, all in one catalog.
+
+icon: ./fastlane/metadata/android/en-US/images/icon.png
+
+images:
+  - ./fastlane/metadata/android/en-US/images/phoneScreenshots/01.png
+  - ./fastlane/metadata/android/en-US/images/phoneScreenshots/02.png
+  - ./fastlane/metadata/android/en-US/images/phoneScreenshots/03.png
+  - ./fastlane/metadata/android/en-US/images/phoneScreenshots/04.png
+  - ./fastlane/metadata/android/en-US/images/phoneScreenshots/05.png
+  - ./fastlane/metadata/android/en-US/images/phoneScreenshots/06.png
+
+tags: [android, custom-rom, recovery, treble, gsi, lineageos]
