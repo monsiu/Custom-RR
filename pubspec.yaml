@@ -33,7 +33,7 @@ dependencies:
   dio: ^5.7.0
   device_info_plus: ^13.1.0
   open_filex: ^4.5.0
-  path_provider: ^2.1.4
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
