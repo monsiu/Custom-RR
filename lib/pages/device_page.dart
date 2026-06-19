@@ -291,13 +291,17 @@ class _ModelShowcaseState extends State<_ModelShowcase> {
                     Tooltip(
                       message: m.codename.isEmpty
                           ? m.model
-                          : 'Codename: ${m.codename}',
+                          : '${m.model}\nCodename: ${m.codename}',
                       child: ActionChip(
                         avatar: const Icon(
                           Icons.smartphone_outlined,
                           size: 18,
                         ),
-                        label: Text(m.model),
+                        label: Text(
+                          m.model,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                         onPressed: () => context.push(
                           AppRoutes.deviceModelDetail(
                             widget.deviceSlug,
