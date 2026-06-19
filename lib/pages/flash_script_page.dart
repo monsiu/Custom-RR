@@ -95,6 +95,54 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
+  /// Explains when GSI / Treble mode is the right choice: it is the universal
+  /// fallback for devices that are not in the catalog. Users whose device is
+  /// already catalogued are pointed at the device-specific ROM instead.
+  Future<void> _showGsiHelp() async {
+    final TextTheme text = Theme.of(context).textTheme;
+    final bool? browse = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext ctx) => AlertDialog(
+        icon: const Icon(Icons.help_outline),
+        title: const Text('When to use GSI / Treble mode'),
+        scrollable: true,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'This mode is the universal fallback for any device that is not '
+              'in the catalog. A Generic System Image (GSI) boots on almost '
+              'any Treble-compatible device (Android 9 or newer), so you do '
+              'not need a build made for your exact model.',
+              style: text.bodyMedium,
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'First check whether your device is already in the catalog. If '
+              'it is, a device-specific ROM is usually the better fit, so '
+              'flash that instead of a GSI.',
+              style: text.bodyMedium,
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Got it'),
+          ),
+          FilledButton.icon(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            icon: const Icon(Icons.smartphone_outlined, size: 18),
+            label: const Text('Browse devices'),
+          ),
+        ],
+      ),
+    );
+    if (!mounted) return;
+    if (browse ?? false) context.push(AppRoutes.devices);
+  }
+
   List<DeviceRef> _devicesForBrand(String? brand) {
     if (brand == null) return const <DeviceRef>[];
     final CatalogRepository repo = CatalogRepository.instance;
@@ -488,7 +536,20 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
                 const SizedBox(height: 12),
               ],
               SwitchListTile(
-                title: const Text('GSI / Treble mode'),
+                title: Row(
+                  children: <Widget>[
+                    const Flexible(child: Text('GSI / Treble mode')),
+                    const SizedBox(width: 4),
+                    IconButton(
+                      icon: const Icon(Icons.help_outline, size: 18),
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
+                      tooltip: 'When to use GSI / Treble mode',
+                      onPressed: _showGsiHelp,
+                    ),
+                  ],
+                ),
                 subtitle: const Text(
                   'Flash a generic system image (system.img) instead of a '
                   'recovery-installable ROM zip. Suits most Treble devices, '
