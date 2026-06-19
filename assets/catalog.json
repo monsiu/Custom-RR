@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-15T16:52:35.074479Z",
+  "_generatedAt": "2026-06-19T21:21:59.193347Z",
   "roms": [
     {
       "id": "lineage",
@@ -21470,2855 +21470,4509 @@
       ],
       "devices": [
         {
-          "brand": "10.or",
-          "model": "G",
-          "codename": "G"
+          "brand": "Alcatel",
+          "model": "Alcatel Idol 5",
+          "codename": "simba6_cricket"
+        },
+        {
+          "brand": "Alcatel",
+          "model": "Alcatel Pop C2",
+          "codename": "Yaris_M_GSM"
+        },
+        {
+          "brand": "Alcatel",
+          "model": "Alcatel Pop D3",
+          "codename": "dl750"
+        },
+        {
+          "brand": "Alcatel",
+          "model": "Alcatel Tetra",
+          "codename": "U50A_ATT"
+        },
+        {
+          "brand": "Alcatel",
+          "model": "Telekom Puls",
+          "codename": "ttab"
+        },
+        {
+          "brand": "Allview",
+          "model": "Allview X2 Soul Xtreme",
+          "codename": "x2xtreme"
+        },
+        {
+          "brand": "Amazon",
+          "model": "Amazon Kindle Fire (1st Gen)",
+          "codename": "otter"
+        },
+        {
+          "brand": "Amazon",
+          "model": "Amazon Kindle Fire HD (3rd Generation)",
+          "codename": "soho"
+        },
+        {
+          "brand": "Amlogic",
+          "model": "AMLogic k200 based TV sticks",
+          "codename": "amlogick200"
+        },
+        {
+          "brand": "Amlogic",
+          "model": "AMLogic X96 Max",
+          "codename": "amlogicu212"
+        },
+        {
+          "brand": "Archos",
+          "model": "Archos 50 Diamond",
+          "codename": "ac50da"
+        },
+        {
+          "brand": "Archos",
+          "model": "Archos 55 Diamond Selfie",
+          "codename": "ac55diselfie"
+        },
+        {
+          "brand": "Archos",
+          "model": "Archos 80c Xenon",
+          "codename": "ac80cxe"
         },
         {
           "brand": "Asus",
-          "model": "ROG Phone 2 (ZS660KL)",
+          "model": "Asus Nexus 7 2012 3G",
+          "codename": "tilapia"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus Nexus 7 2012 Wi-Fi",
+          "codename": "grouper"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus Nexus 7 2013 LTE",
+          "codename": "deb"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus Nexus 7 2013 Wi-Fi",
+          "codename": "flo"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus Nexus Player",
+          "codename": "fugu"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus PadFone 1",
+          "codename": "A66"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus PadFone 2",
+          "codename": "A68"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ROG Phone 3",
+          "codename": "I003D"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ROG Phone 5/5S",
+          "codename": "I005D"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ROG Phone 6/6 Pro (Qualcomm ONLY)",
+          "codename": "AI2201"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ROG Phone II",
           "codename": "I001D"
         },
         {
           "brand": "Asus",
-          "model": "ROG Phone 3",
-          "codename": "obiwan"
+          "model": "Asus Transformer Infinity TF700T",
+          "codename": "tf700t"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 2 (1080p)",
+          "model": "Asus Transformer Prime TF201",
+          "codename": "tf201"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus Transformer TF101",
+          "codename": "tf101"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus Transformer TF300T",
+          "codename": "tf300t"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus ZenFone 2 1080p",
           "codename": "Z00A"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 2 (720p)",
+          "model": "Asus ZenFone 2 720p",
           "codename": "Z008"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 2 (ZE500CL)",
-          "codename": "Z00D"
-        },
-        {
-          "brand": "Asus",
-          "model": "Zenfone 2 Laser (1080p)",
+          "model": "Asus ZenFone 2 Laser 1080p",
           "codename": "Z00T"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 2 Laser (720p)",
+          "model": "Asus ZenFone 2 Laser 720p",
           "codename": "Z00L"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 2 Selfie (1080p)",
-          "codename": "Z00T"
+          "model": "ASUS ZenFone 4 (2017)",
+          "codename": "Z01K"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 3",
-          "codename": "zenfone3"
+          "model": "Asus ZenFone 4 Max",
+          "codename": "X00I"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 5Z (ZS620KL)",
-          "codename": "Z01R"
+          "model": "ASUS ZenFone 4 Pro",
+          "codename": "Z01G"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone 6 (ZS630KL)",
+          "model": "ASUS ZenFone 4 Selfie Pro",
+          "codename": "Z01M/ZD552KL/Phoenix"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ZenFone 5z 2018",
+          "codename": "Z01RD"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ZenFone 6/6Z 2019",
           "codename": "I01WD"
         },
         {
           "brand": "Asus",
-          "model": "ZenFone 8",
-          "codename": "sake",
-          "forumUrl": "https://xdaforums.com/f/asus-zenfone-8.12291/?prefix_id=33"
+          "model": "ASUS ZenFone 7/7 Pro",
+          "codename": "I002D"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone Max M1",
+          "model": "ASUS ZenFone 8",
+          "codename": "I006D"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ZenFone 9",
+          "codename": "AI2202"
+        },
+        {
+          "brand": "Asus",
+          "model": "ASUS ZenFone Max M1",
           "codename": "X00P"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone Max M2",
+          "model": "ASUS ZenFone Max M2",
           "codename": "X01AD"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone Max Pro M1",
-          "codename": "X00TD"
+          "model": "ASUS ZenFone Max Pro M1",
+          "codename": "X00T, X00TD"
         },
         {
           "brand": "Asus",
-          "model": "Zenfone Max Pro M2",
+          "model": "ASUS ZenFone Max Pro M2",
           "codename": "X01BD"
         },
         {
+          "brand": "Barnes & Noble",
+          "model": "Barnes & Noble Nook Color",
+          "codename": "encore"
+        },
+        {
+          "brand": "Barnes & Noble",
+          "model": "Barnes & Noble Nook HD",
+          "codename": "hummingbird"
+        },
+        {
+          "brand": "Barnes & Noble",
+          "model": "Barnes & Noble Nook HD+",
+          "codename": "ovation"
+        },
+        {
+          "brand": "Barnes & Noble",
+          "model": "Barnes & Noble Nook Tablet",
+          "codename": "acclaim"
+        },
+        {
           "brand": "BQ",
-          "model": "Aquaris E5 4G",
+          "model": "BQ Aquaris A4.5",
+          "codename": "dendeone"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris E10",
+          "codename": "kaito_wifi"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris E4",
+          "codename": "puar"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris E4.5",
+          "codename": "krillin"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris E5 4G",
           "codename": "vegetalte"
         },
         {
           "brand": "BQ",
-          "model": "Aquaris E5s",
-          "codename": "vegetalte"
+          "model": "BQ Aquaris E5FHD",
+          "codename": "vegetafhd"
         },
         {
           "brand": "BQ",
-          "model": "Aquaris M5",
+          "model": "BQ Aquaris E5HD",
+          "codename": "vegetahd"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris E6",
+          "codename": "bulma"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris M10",
+          "codename": "freezerhd"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris M10 4G",
+          "codename": "freezerlte"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris M10 FHD",
+          "codename": "freezerfhd"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris M4.5",
+          "codename": "dende"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris M5",
           "codename": "piccolo"
         },
         {
           "brand": "BQ",
-          "model": "Aquaris U",
+          "model": "BQ Aquaris M5.5",
+          "codename": "namek"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris M8",
+          "codename": "Aquaris_M8"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris U (chaozu)",
           "codename": "chaozu"
         },
         {
           "brand": "BQ",
-          "model": "Aquaris U Plus",
+          "model": "BQ Aquaris U Lite (chaozulite)",
+          "codename": "chaozulite"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris U Plus (tenshi)",
           "codename": "tenshi"
         },
         {
           "brand": "BQ",
-          "model": "Aquaris X",
+          "model": "BQ Aquaris U2 (yamcha)",
+          "codename": "yamcha"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris U2 Lite (yamchalite)",
+          "codename": "yamchalite"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris V (nappa)",
+          "codename": "nappa"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris V Plus (raditz)",
+          "codename": "raditz"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris VS (nappa_s)",
+          "codename": "nappa_s"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris VS Plus (raditz_s)",
+          "codename": "raditz_s"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Aquaris X (bardock)",
           "codename": "bardock"
         },
         {
           "brand": "BQ",
-          "model": "Aquaris X Pro",
-          "codename": "bardockpro"
+          "model": "BQ Aquaris X5 (piccolometal/paella)",
+          "codename": "piccolometal"
         },
         {
           "brand": "BQ",
-          "model": "Aquaris X2",
-          "codename": "zangya"
-        },
-        {
-          "brand": "BQ",
-          "model": "Aquaris X2 Pro",
-          "codename": "zangyapro"
-        },
-        {
-          "brand": "BQ",
-          "model": "Aquaris X5",
-          "codename": "paella"
-        },
-        {
-          "brand": "BQ",
-          "model": "Aquaris X5 Plus",
+          "model": "BQ Aquaris X5 Plus (gohan)",
           "codename": "gohan"
         },
         {
+          "brand": "BQ",
+          "model": "BQ Curie 2 QC",
+          "codename": "curie2qc"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Edison 2 QC",
+          "codename": "edison2qc"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Edison 3 Mini",
+          "codename": "edison3mini"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Maxwell 2",
+          "codename": "maxwell2"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Maxwell 2 Lite",
+          "codename": "maxwell2lite"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Maxwell 2 Plus",
+          "codename": "maxwell2plus"
+        },
+        {
+          "brand": "BQ",
+          "model": "BQ Maxwell 2 QC",
+          "codename": "maxwell2qc"
+        },
+        {
+          "brand": "Cat",
+          "model": "Cat B15q",
+          "codename": "b15q"
+        },
+        {
+          "brand": "Dell",
+          "model": "Dell Streak 7",
+          "codename": "streak7"
+        },
+        {
+          "brand": "Elephone",
+          "model": "Elephone P9000",
+          "codename": "p9000"
+        },
+        {
+          "brand": "Ergo",
+          "model": "Ergo Force F500",
+          "codename": "F500"
+        },
+        {
           "brand": "Essential",
-          "model": "PH-1",
+          "model": "Essential PH-1",
           "codename": "mata"
         },
         {
           "brand": "Fairphone",
-          "model": "2",
+          "model": "Fairphone 2",
           "codename": "FP2",
           "forumUrl": "https://xdaforums.com/f/fairphone-2.4281/?prefix_id=33"
         },
         {
           "brand": "Fairphone",
-          "model": "3",
+          "model": "Fairphone 3",
           "codename": "FP3",
           "forumUrl": "https://xdaforums.com/f/fairphone-3-3.12787/?prefix_id=33"
         },
         {
           "brand": "Fairphone",
-          "model": "3+",
-          "codename": "FP3",
-          "forumUrl": "https://xdaforums.com/f/fairphone-3-3.12787/?prefix_id=33"
-        },
-        {
-          "brand": "Fairphone",
-          "model": "4",
+          "model": "Fairphone 4",
           "codename": "FP4",
           "forumUrl": "https://xdaforums.com/f/fairphone-4.12789/?prefix_id=33"
         },
         {
           "brand": "Fairphone",
-          "model": "5",
+          "model": "Fairphone 5",
           "codename": "FP5",
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
+          "brand": "Gigaset",
+          "model": "Gigaset GS4",
+          "codename": "Gigaset_GS4"
+        },
+        {
           "brand": "Google",
-          "model": "Android One 2nd Gen",
+          "model": "ADT-1 Android TV",
+          "codename": "molly"
+        },
+        {
+          "brand": "Google",
+          "model": "Android One",
+          "codename": "sprout"
+        },
+        {
+          "brand": "Google",
+          "model": "Android One Fifth Generation",
+          "codename": "gm9pro_sprout"
+        },
+        {
+          "brand": "Google",
+          "model": "Android One Fourth Generation",
+          "codename": "GM6_s_sprout"
+        },
+        {
+          "brand": "Google",
+          "model": "Android One Second Generation MTK",
+          "codename": "seedmtk"
+        },
+        {
+          "brand": "Google",
+          "model": "Android One Second Generation Qualcomm",
           "codename": "seed"
         },
         {
           "brand": "Google",
-          "model": "Nexus 5X",
-          "codename": "bullhead"
+          "model": "Android One Third Generation",
+          "codename": "shamrock"
         },
         {
           "brand": "Google",
-          "model": "Nexus 6",
-          "codename": "shamu"
-        },
-        {
-          "brand": "Google",
-          "model": "Nexus 6P",
-          "codename": "angler"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel",
+          "model": "Google Pixel",
           "codename": "sailfish"
         },
         {
           "brand": "Google",
-          "model": "Pixel 2",
+          "model": "Google Pixel 2",
           "codename": "walleye"
         },
         {
           "brand": "Google",
-          "model": "Pixel 2 XL",
+          "model": "Google Pixel 2 XL",
           "codename": "taimen"
         },
         {
           "brand": "Google",
-          "model": "Pixel 3",
+          "model": "Google Pixel 3",
           "codename": "blueline"
         },
         {
           "brand": "Google",
-          "model": "Pixel 3 XL",
+          "model": "Google Pixel 3 XL",
           "codename": "crosshatch"
         },
         {
           "brand": "Google",
-          "model": "Pixel 3a",
+          "model": "Google Pixel 3a",
           "codename": "sargo"
         },
         {
           "brand": "Google",
-          "model": "Pixel 3a XL",
+          "model": "Google Pixel 3a XL",
           "codename": "bonito"
         },
         {
           "brand": "Google",
-          "model": "Pixel 4",
+          "model": "Google Pixel 4",
           "codename": "flame"
         },
         {
           "brand": "Google",
-          "model": "Pixel 4 XL",
+          "model": "Google Pixel 4 XL",
           "codename": "coral"
         },
         {
           "brand": "Google",
-          "model": "Pixel 4a",
-          "codename": "sunfish"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 4a 5G",
-          "codename": "bramble"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 5",
+          "model": "Google Pixel 5",
           "codename": "redfin"
         },
         {
           "brand": "Google",
-          "model": "Pixel 5a",
-          "codename": "barbet",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-5a.12359/?prefix_id=33"
+          "model": "Google Pixel C",
+          "codename": "dragon"
         },
         {
           "brand": "Google",
-          "model": "Pixel 6",
-          "codename": "oriole",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-6.12311/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 6 Pro",
-          "codename": "raven",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-6-pro.12313/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 6a",
-          "codename": "bluejay",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-6a.12605/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 7",
-          "codename": "panther",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-7.12607/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 7 Pro",
-          "codename": "cheetah",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-7-pro.12609/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 7a",
-          "codename": "lynx",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-7a.12743/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 8",
-          "codename": "shiba",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-8.12799/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 8 Pro",
-          "codename": "husky",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-8-pro.12801/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 8a",
-          "codename": "akita",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-8a.12851/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9",
-          "codename": "tokay",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9.12879/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9 Pro",
-          "codename": "caiman",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9 Pro XL",
-          "codename": "komodo",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9a",
-          "codename": "tegu",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9a.12927/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel XL",
+          "model": "Google Pixel XL",
           "codename": "marlin"
         },
         {
+          "brand": "HP",
+          "model": "HP TouchPad",
+          "codename": "tenderloin"
+        },
+        {
           "brand": "HTC",
-          "model": "10",
+          "model": "HTC 10",
           "codename": "pme"
         },
         {
           "brand": "HTC",
-          "model": "One (M8)",
-          "codename": "m8"
+          "model": "HTC Amaze 4G",
+          "codename": "ruby"
         },
         {
           "brand": "HTC",
-          "model": "One (M8) Dual SIM",
-          "codename": "m8d"
+          "model": "HTC Bolt/10 Evo",
+          "codename": "aca"
         },
         {
           "brand": "HTC",
-          "model": "One A9",
+          "model": "HTC Butterfly 2",
+          "codename": "b2ul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Butterfly X9202",
+          "codename": "dlxub1"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Butterfly X920d",
+          "codename": "dlxu"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 10 lifestyle",
+          "codename": "a56dj"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 12+",
+          "codename": "brepdugl"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 510 EU",
+          "codename": "a11ul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 510 USA 32bit",
+          "codename": "a11"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 601 CDMA",
+          "codename": "zaracl"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 601 GSM",
+          "codename": "zara"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 610",
+          "codename": "a3ul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 620",
+          "codename": "a31ul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 626s",
+          "codename": "a32e"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 816",
+          "codename": "a5"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire 830",
+          "codename": "a51cml_tuhl"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire C",
+          "codename": "golfu"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire HD",
+          "codename": "ace"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire S",
+          "codename": "saga"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Desire X",
+          "codename": "protou"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Droid DNA",
+          "codename": "dlx"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Droid Incredible",
+          "codename": "inc"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Droid Incredible 2",
+          "codename": "vivow"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Droid Incredible 4G",
+          "codename": "fireball"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC E9+",
+          "codename": "a55ml_dtul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC EVO 3D CDMA 4G WiMAX",
+          "codename": "shooter"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC EVO 3D GSM",
+          "codename": "shooteru"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC EVO 4G",
+          "codename": "supersonic"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC EVO 4G LTE",
+          "codename": "jewel"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC EVO Shift 4G",
+          "codename": "speedy"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Explorer",
+          "codename": "pico"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC First",
+          "codename": "mystul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC HD2",
+          "codename": "leo"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Hero CDMA",
+          "codename": "heroc"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Incredible S",
+          "codename": "vivo"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Merge",
+          "codename": "lexicon"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Nexus 9",
+          "codename": "flounder"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Nexus One",
+          "codename": "passion"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One A9",
           "codename": "hiae"
         },
         {
           "brand": "HTC",
-          "model": "One M9 (GSM)",
-          "codename": "himaul"
+          "model": "HTC One E8",
+          "codename": "e8"
         },
         {
           "brand": "HTC",
-          "model": "One M9 (Verizon)",
-          "codename": "himawl"
+          "model": "HTC One m7 Dual SIM",
+          "codename": "m7cd"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One m7 GSM",
+          "codename": "m7"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One m7 Sprint",
+          "codename": "m7wls"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One m7 Verizon",
+          "codename": "m7wlv"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One M8 All Variants",
+          "codename": "m8"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One M9",
+          "codename": "hima"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One Max Universal",
+          "codename": "t6univ"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One Mini",
+          "codename": "m4ul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One Remix",
+          "codename": "memwl"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One S (S3 processor)",
+          "codename": "villec"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One S (S4 processor)",
+          "codename": "ville"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One S (S4 processor) Special Edition 64GB",
+          "codename": "ville_u"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One SV Boost USA",
+          "codename": "k2_cl"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One SV Cricket USA",
+          "codename": "k2_plc_cl"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One SV GSM",
+          "codename": "k2_u"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One SV LTE",
+          "codename": "k2_ul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One V GSM",
+          "codename": "primou"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One V Virgin Mobile",
+          "codename": "primoc"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One VX",
+          "codename": "totemc2"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One X AT&T",
+          "codename": "evita"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One X International Tegra",
+          "codename": "endeavoru"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One X+ AT&T",
+          "codename": "evitareul"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One X+ International",
+          "codename": "enrc2b"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC One X10 Dual Sim",
+          "codename": "e66_dugl"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Sensation",
+          "codename": "pyramid"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Sensation XL",
+          "codename": "runnymede"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Thunderbolt",
+          "codename": "mecha"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC U Ultra",
+          "codename": "oce"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC U11",
+          "codename": "ocn"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC U11 EYEs",
+          "codename": "hay"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC U12+",
+          "codename": "ime"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Vivid",
+          "codename": "holiday"
+        },
+        {
+          "brand": "HTC",
+          "model": "HTC Wildfire S GSM",
+          "codename": "marvel"
+        },
+        {
+          "brand": "Huami",
+          "model": "Amazfit Pace",
+          "codename": "huanghe"
         },
         {
           "brand": "Huawei",
-          "model": "Ascend Mate 2 4G",
-          "codename": "mt2"
+          "model": "Huawei Ascend Mate 2",
+          "codename": "mt2l03"
         },
         {
           "brand": "Huawei",
-          "model": "Honor 4",
+          "model": "Huawei Ascend Y550",
+          "codename": "y550"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei G510",
+          "codename": "u8951"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei G8",
+          "codename": "rio"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Honor 4X",
           "codename": "cherry"
         },
         {
           "brand": "Huawei",
-          "model": "Honor 4X",
-          "codename": "cherry"
+          "model": "Huawei Honor 5C",
+          "codename": "nemo"
         },
         {
           "brand": "Huawei",
-          "model": "Honor 4x (China Telecom)",
-          "codename": "che10"
-        },
-        {
-          "brand": "Huawei",
-          "model": "Honor 5X",
+          "model": "Huawei Honor 5X",
           "codename": "kiwi"
         },
         {
           "brand": "Huawei",
-          "model": "Honor View 10",
+          "model": "Huawei Honor 6",
+          "codename": "mogolia"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Honor 6 Plus",
+          "codename": "pine"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Honor 6X",
+          "codename": "berlin",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-20.12419/?prefix_id=33"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Honor 7",
+          "codename": "plank"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Honor 8",
+          "codename": "frd"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Honor View 10",
           "codename": "berkeley"
         },
         {
           "brand": "Huawei",
-          "model": "P Smart",
-          "codename": "figo"
+          "model": "Huawei Mate 10 Pro",
+          "codename": "blanc"
         },
         {
           "brand": "Huawei",
-          "model": "P20 Lite",
+          "model": "Huawei Mate 8",
+          "codename": "next"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Mate S",
+          "codename": "carrera"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Mediapad M2 8.0",
+          "codename": "mozart"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Nexus 6P",
+          "codename": "angler"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei P20 Lite",
           "codename": "anne"
         },
         {
           "brand": "Huawei",
-          "model": "P20 Pro",
+          "model": "Huawei P20 Pro",
           "codename": "charlotte"
         },
         {
-          "brand": "LG",
-          "model": "G2 Mini",
-          "codename": "g2m"
+          "brand": "Huawei",
+          "model": "Huawei P8",
+          "codename": "grace"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei P8 Lite 2017",
+          "codename": "prague"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei P9",
+          "codename": "eva"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei P9 Plus",
+          "codename": "vienna"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei U8815",
+          "codename": "u8815"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Y3 2017",
+          "codename": "CRO_U00"
+        },
+        {
+          "brand": "Huawei",
+          "model": "Huawei Y300",
+          "codename": "u8833"
+        },
+        {
+          "brand": "Hyundai",
+          "model": "Hyundai Titan LTE",
+          "codename": "titanlte"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix Hot 12 Play",
+          "codename": "lion"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix Hot 2",
+          "codename": "d5110"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix HOT 40 PRO",
+          "codename": "X6837"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix Hot 50I (X6531/X6531B)",
+          "codename": "X6531"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix Smart 3 Plus",
+          "codename": "spinel"
+        },
+        {
+          "brand": "Infinix",
+          "model": "Infinix Smart 9",
+          "codename": "X6532"
+        },
+        {
+          "brand": "IUNI",
+          "model": "IUNI U3",
+          "codename": "u3"
+        },
+        {
+          "brand": "Kazam",
+          "model": "Kazam Thunder Q4.5",
+          "codename": "thunder_q45"
+        },
+        {
+          "brand": "Kazam",
+          "model": "Kazam Tornado 348",
+          "codename": "tornado_348"
+        },
+        {
+          "brand": "Kyocera",
+          "model": "Kyocera KY41C",
+          "codename": "KY41C"
+        },
+        {
+          "brand": "LeEco",
+          "model": "LeEco Le 2",
+          "codename": "s2"
+        },
+        {
+          "brand": "LeEco",
+          "model": "LeEco Le Max 2",
+          "codename": "x2"
+        },
+        {
+          "brand": "LeEco",
+          "model": "LeEco Le Max Pro",
+          "codename": "max_plus"
+        },
+        {
+          "brand": "LeEco",
+          "model": "LeEco Le Pro3",
+          "codename": "zl1"
+        },
+        {
+          "brand": "LeEco",
+          "model": "LeEco Le Pro3 Elite",
+          "codename": "zl0"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo A7000-a",
+          "codename": "aio_row"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo K10 Note",
+          "codename": "kunlun2"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo K30-T",
+          "codename": "wt86518"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo K33",
+          "codename": "karate"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo K4 Note",
+          "codename": "k5fpr"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo K53",
+          "codename": "karatep"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo K8 Note",
+          "codename": "manning"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo M10 wifi (TB-X605F)",
+          "codename": "X605F"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo P2a42",
+          "codename": "kuntao"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Tab4 10 Plus",
+          "codename": "X704F"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Vibe K5/K5 Plus",
+          "codename": "A6020"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Xiaoxin Pad Pro 2021 (TB-J716F)",
+          "codename": "p11_pro_plus"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Yoga HD 10+ Wi-Fi",
+          "codename": "b8080f"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Yoga Tab 3 Plus LTE",
+          "codename": "yt_x703l"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Yoga Tab 3 Plus Wifi",
+          "codename": "yt_x703f"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Z5 Pro GT",
+          "codename": "heart"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Z5S",
+          "codename": "jd2019"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Lenovo Z6 Pro",
+          "codename": "zippo"
+        },
+        {
+          "brand": "Letv",
+          "model": "Letv Le 1 Pro",
+          "codename": "x1"
+        },
+        {
+          "brand": "Letv",
+          "model": "Letv/LeEco Le 1S",
+          "codename": "x3"
         },
         {
           "brand": "LG",
-          "model": "G3 (AT&T)",
+          "model": "LG G Flex Korean",
+          "codename": "f340k"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G Pad 10.1",
+          "codename": "e9wifi"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G Pad 8.3 (v500, v510, awifi, palman)",
+          "codename": "v500"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G Watch",
+          "codename": "dory"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G Watch",
+          "codename": "lenok"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G2",
+          "codename": "G2"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G3 AT&T",
           "codename": "d850",
           "forumUrl": "https://xdaforums.com/f/at-t-lg-g3.3381/?prefix_id=33"
         },
         {
           "brand": "LG",
-          "model": "G3 (Canada)",
+          "model": "LG G3 Canada Bell Rogers",
           "codename": "d852"
         },
         {
           "brand": "LG",
-          "model": "G3 (International)",
+          "model": "LG G3 Canada Wind, Videotron, Sasktel",
+          "codename": "d852g"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G3 Europe",
           "codename": "d855"
         },
         {
           "brand": "LG",
-          "model": "G3 (Korea)",
+          "model": "LG G3 Korea",
           "codename": "f400"
         },
         {
           "brand": "LG",
-          "model": "G3 (Sprint)",
+          "model": "LG G3 Sprint",
           "codename": "ls990",
           "forumUrl": "https://xdaforums.com/f/sprint-lg-g3.3374/?prefix_id=33"
         },
         {
           "brand": "LG",
-          "model": "G3 (T-Mobile)",
+          "model": "LG G3 T-Mobile",
           "codename": "d851",
           "forumUrl": "https://xdaforums.com/f/t-mobile-lg-g3.3388/?prefix_id=33"
         },
         {
           "brand": "LG",
-          "model": "G3 (Verizon)",
+          "model": "LG G3 US Cellular",
+          "codename": "us990"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G3 Verizon",
           "codename": "vs985",
           "forumUrl": "https://xdaforums.com/f/verizon-lg-g3.3367/?prefix_id=33"
         },
         {
           "brand": "LG",
-          "model": "G3 Beat",
-          "codename": "jagnm"
+          "model": "LG G4",
+          "codename": "h812"
         },
         {
           "brand": "LG",
-          "model": "G3 S",
-          "codename": "jag3gds"
-        },
-        {
-          "brand": "LG",
-          "model": "G4 (International)",
+          "model": "LG G4",
           "codename": "h815"
         },
         {
           "brand": "LG",
-          "model": "G4 (T-Mobile)",
+          "model": "LG G4",
+          "codename": "h819"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G4",
+          "codename": "us991"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G4",
+          "codename": "vs986"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G4",
+          "codename": "G4, F500, LS991, H810, H811, H812, H815, H819, US991, VS986"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G4",
+          "codename": "h810"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G4",
           "codename": "h811"
         },
         {
           "brand": "LG",
-          "model": "G5 (International)",
+          "model": "LG G4",
+          "codename": "f500"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G4",
+          "codename": "ls991"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G4c",
+          "codename": "c90"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G5 International",
           "codename": "h850"
         },
         {
           "brand": "LG",
-          "model": "G5 (T-Mobile)",
+          "model": "LG G5 SE International",
+          "codename": "h840"
+        },
+        {
+          "brand": "LG",
+          "model": "LG G5 T-Mobile",
           "codename": "h830"
         },
         {
           "brand": "LG",
-          "model": "G5 (US Unlocked)",
+          "model": "LG G5 US Carrier-Unlocked",
           "codename": "rs988"
         },
         {
           "brand": "LG",
-          "model": "G6 (EU Unlocked)",
+          "model": "LG G6 International",
           "codename": "h870"
         },
         {
           "brand": "LG",
-          "model": "G6 (T-Mobile)",
-          "codename": "h872"
-        },
-        {
-          "brand": "LG",
-          "model": "G6 (US Unlocked)",
-          "codename": "us997"
-        },
-        {
-          "brand": "LG",
-          "model": "G7 ThinQ (G710AWM/EM/EMW)",
-          "codename": "judyln"
-        },
-        {
-          "brand": "LG",
-          "model": "G7 ThinQ (G710N)",
-          "codename": "g710n"
-        },
-        {
-          "brand": "LG",
-          "model": "G7 ThinQ (G710ULM/VMX)",
-          "codename": "g710ulm"
-        },
-        {
-          "brand": "LG",
-          "model": "G7+ ThinQ",
-          "codename": "judyln"
-        },
-        {
-          "brand": "LG",
-          "model": "G8 ThinQ",
-          "codename": "alphaplus"
-        },
-        {
-          "brand": "LG",
-          "model": "G8 ThinQ (Korea)",
-          "codename": "alphaplus"
-        },
-        {
-          "brand": "LG",
-          "model": "G8s ThinQ",
-          "codename": "betalm"
-        },
-        {
-          "brand": "LG",
-          "model": "G8X ThinQ (G850EM/EMW)",
-          "codename": "mh2lm"
-        },
-        {
-          "brand": "LG",
-          "model": "G8X ThinQ (G850QM/UM)",
-          "codename": "mh2lm"
-        },
-        {
-          "brand": "LG",
-          "model": "K10",
+          "model": "LG K10",
           "codename": "m216"
         },
         {
           "brand": "LG",
-          "model": "L90",
-          "codename": "w7"
+          "model": "LG K7",
+          "codename": "m1"
         },
         {
           "brand": "LG",
-          "model": "Optimus L70",
-          "codename": "w5"
+          "model": "LG L90",
+          "codename": "w7,w7ds,w7n"
         },
         {
           "brand": "LG",
-          "model": "Style3",
-          "codename": "style3lm"
+          "model": "LG Leon LTE",
+          "codename": "c50"
         },
         {
           "brand": "LG",
-          "model": "V20 (AT&T)",
+          "model": "LG Nexus 4",
+          "codename": "mako"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Nexus 5",
+          "codename": "hammerhead"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Nexus 5X",
+          "codename": "bullhead"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Nitro HD",
+          "codename": "p930"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus 2x",
+          "codename": "p990"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus 4x HD",
+          "codename": "p880"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus Black",
+          "codename": "p970"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus Fuel",
+          "codename": "l34c"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus G AT&T",
+          "codename": "geeb"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus G Pro GSM",
+          "codename": "e980"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus G Sprint",
+          "codename": "geehrc4g"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus LTE",
+          "codename": "su640"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus One",
+          "codename": "p500"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Optimus Slider",
+          "codename": "gelato"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Spirit LTE (H440N)",
+          "codename": "c70n"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Stylo 2 Plus",
+          "codename": "ph2n"
+        },
+        {
+          "brand": "LG",
+          "model": "LG Stylo 3 Plus",
+          "codename": "sf340n"
+        },
+        {
+          "brand": "LG",
+          "model": "LG T-Mobile G2x",
+          "codename": "p999"
+        },
+        {
+          "brand": "LG",
+          "model": "LG V20 AT&T",
           "codename": "h910"
         },
         {
           "brand": "LG",
-          "model": "V20 (Global)",
+          "model": "LG V20 Global",
           "codename": "h990"
         },
         {
           "brand": "LG",
-          "model": "V20 (GSM Unlocked - DirtySanta)",
-          "codename": "us996d"
-        },
-        {
-          "brand": "LG",
-          "model": "V20 (GSM Unlocked)",
-          "codename": "us996"
-        },
-        {
-          "brand": "LG",
-          "model": "V20 (Sprint)",
+          "model": "LG V20 Sprint",
           "codename": "ls997"
         },
         {
           "brand": "LG",
-          "model": "V20 (T-Mobile)",
+          "model": "LG V20 T-Mobile",
           "codename": "h918"
         },
         {
           "brand": "LG",
-          "model": "V20 (Verizon)",
+          "model": "LG V20 US Unlocked",
+          "codename": "us996"
+        },
+        {
+          "brand": "LG",
+          "model": "LG V20 Verizon",
           "codename": "vs995"
         },
         {
           "brand": "LG",
-          "model": "V30 (Japan)",
-          "codename": "l01k"
+          "model": "LG Watch Urbane",
+          "codename": "bass"
         },
         {
-          "brand": "LG",
-          "model": "V30 (Other)",
-          "codename": "joan"
+          "brand": "Lyf",
+          "model": "LYF Water 8",
+          "codename": "mobee01a"
         },
         {
-          "brand": "LG",
-          "model": "V30 (T-Mobile)",
-          "codename": "h932"
+          "brand": "Lyf",
+          "model": "LYF Water F1s",
+          "codename": "panda01a"
         },
         {
-          "brand": "LG",
-          "model": "V30 (T-Mobile)",
-          "codename": "joan"
+          "brand": "Marshall",
+          "model": "Marshall London",
+          "codename": "KB-1501"
         },
         {
-          "brand": "LG",
-          "model": "V30 (Unlocked)",
-          "codename": "joan"
+          "brand": "Mattel",
+          "model": "Nabi SE",
+          "codename": "NabiSE"
         },
         {
-          "brand": "LG",
-          "model": "V35 ThinQ",
-          "codename": "judyp"
+          "brand": "Meizu",
+          "model": "Meizu M6 Note",
+          "codename": "m1721"
         },
         {
-          "brand": "LG",
-          "model": "V40 ThinQ",
-          "codename": "judypn"
+          "brand": "Micromax",
+          "model": "Micromax Canvas Magnus",
+          "codename": "a117"
         },
         {
-          "brand": "LG",
-          "model": "V50 ThinQ",
-          "codename": "flashlmdd"
+          "brand": "Micromax",
+          "model": "Micromax Canvas Pace 4G",
+          "codename": "pace"
         },
         {
-          "brand": "LG",
-          "model": "V50S ThinQ",
-          "codename": "mh2lm"
+          "brand": "Minix",
+          "model": "Minix NEO U1",
+          "codename": "p200_2G"
         },
         {
-          "brand": "LG",
-          "model": "V60 ThinQ",
-          "codename": "timelm"
+          "brand": "Minix",
+          "model": "Minix Z64 Android",
+          "codename": "byt_t_crv2"
         },
         {
-          "brand": "LG",
-          "model": "Velvet",
-          "codename": "caymanslm"
+          "brand": "Mobvoi",
+          "model": "Mobvoi TicWatch C2",
+          "codename": "skipjack"
         },
         {
-          "brand": "LeEco",
-          "model": "Le 2",
-          "codename": "s2"
+          "brand": "Mobvoi",
+          "model": "Mobvoi TicWatch Pro",
+          "codename": "catfish"
         },
         {
-          "brand": "LeEco",
-          "model": "Le Max2",
-          "codename": "x2"
+          "brand": "Mobvoi",
+          "model": "Mobvoi TicWatch Pro 4G/LTE",
+          "codename": "catshark"
         },
         {
-          "brand": "LeEco",
-          "model": "Le Pro3",
-          "codename": "zl1"
+          "brand": "Motorola",
+          "model": "Motorola Atrix 4G",
+          "codename": "olympus"
         },
         {
-          "brand": "LeEco",
-          "model": "Le Pro3 Elite",
-          "codename": "zl1"
+          "brand": "Motorola",
+          "model": "Motorola Defy",
+          "codename": "jordan"
         },
         {
-          "brand": "Lenovo",
-          "model": "K12",
-          "codename": "guam"
+          "brand": "Motorola",
+          "model": "Motorola G60/G40 Fusion",
+          "codename": "hanoip"
         },
         {
-          "brand": "Lenovo",
-          "model": "K12 Note",
+          "brand": "Motorola",
+          "model": "Motorola G9",
           "codename": "guamp"
         },
         {
-          "brand": "Lenovo",
-          "model": "K12 Pro",
-          "codename": "cebu"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "K13 Note",
-          "codename": "capri"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "K13 Pro",
-          "codename": "caprip"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "P2",
-          "codename": "kuntao"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "Vibe K5",
-          "codename": "A6020"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "Vibe K5 Plus",
-          "codename": "A6020"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "Vibe Z2 Pro",
-          "codename": "kingdom"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "Z5 Pro GT",
-          "codename": "heart"
-        },
-        {
-          "brand": "Lenovo",
-          "model": "Z6 Pro",
-          "codename": "zippo"
+          "brand": "Motorola",
+          "model": "Motorola Moto 360",
+          "codename": "minnow"
         },
         {
           "brand": "Motorola",
-          "model": "defy 2021",
-          "codename": "bathena",
-          "forumUrl": "https://xdaforums.com/f/motorola-defy-2021.12369/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge",
-          "codename": "racer"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 20",
-          "codename": "berlin",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-20.12419/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 20 pro",
-          "codename": "pstar",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-20-pro.12421/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 2021",
-          "codename": "berlna",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-2021.12441/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 2024",
-          "codename": "avatrn"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 30",
-          "codename": "dubai",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-30.12697/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 30 fusion",
-          "codename": "tundra"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 30 neo",
-          "codename": "miami"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 30 ultra",
-          "codename": "eqs",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-30-ultra-motorola-moto-x30-pro.12663/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge 40 pro",
-          "codename": "rtwo",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge s",
-          "codename": "nio",
-          "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "Edge S30",
-          "codename": "xpeng"
-        },
-        {
-          "brand": "Motorola",
-          "model": "edge+ (2023)",
-          "codename": "rtwo",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto e",
+          "model": "Motorola Moto E",
           "codename": "condor"
         },
         {
           "brand": "Motorola",
-          "model": "moto e (2015)",
-          "codename": "otus"
+          "model": "Motorola Moto E 2016",
+          "codename": "taido"
         },
         {
           "brand": "Motorola",
-          "model": "moto e LTE (2015)",
+          "model": "Motorola Moto E 2020",
+          "codename": "ginna"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto E LTE",
           "codename": "surnia"
         },
         {
           "brand": "Motorola",
-          "model": "moto e5 plus (XT1924-1/2/4/5)",
-          "codename": "rhannah"
+          "model": "Motorola Moto E4",
+          "codename": "woods"
         },
         {
           "brand": "Motorola",
-          "model": "moto e5 plus (XT1924-3/9)",
-          "codename": "ahannah"
+          "model": "Motorola Moto E4 Plus",
+          "codename": "nicklaus"
         },
         {
           "brand": "Motorola",
-          "model": "moto e5 plus (XT1924-6/7/8)",
+          "model": "Motorola Moto E4 Snapdragon",
+          "codename": "perry"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto E5",
+          "codename": "nora"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto E5 Play",
+          "codename": "james"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto E5 Plus",
           "codename": "hannah"
         },
         {
           "brand": "Motorola",
-          "model": "moto e7 plus",
-          "codename": "guam"
+          "model": "Motorola Moto Edge",
+          "codename": "racer"
         },
         {
           "brand": "Motorola",
-          "model": "moto g (2014)",
-          "codename": "titan"
+          "model": "Motorola Moto G 2013",
+          "codename": "falcon"
         },
         {
           "brand": "Motorola",
-          "model": "moto g (2015)",
-          "codename": "osprey"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g 4G",
+          "model": "Motorola Moto G 2013 LTE",
           "codename": "peregrine"
         },
         {
           "brand": "Motorola",
-          "model": "moto g 5G",
-          "codename": "kiev"
+          "model": "Motorola Moto G 2014",
+          "codename": "titan"
         },
         {
           "brand": "Motorola",
-          "model": "moto g 5G - 2024",
-          "codename": "fogo"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g 5G plus",
-          "codename": "nairo"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g LTE (2014)",
+          "model": "Motorola Moto G 2014 LTE",
           "codename": "thea"
         },
         {
           "brand": "Motorola",
-          "model": "moto g power 2021",
-          "codename": "borneo",
-          "forumUrl": "https://xdaforums.com/f/moto-g-power-2021.12069/?prefix_id=33"
+          "model": "Motorola Moto G 2015",
+          "codename": "osprey"
         },
         {
           "brand": "Motorola",
-          "model": "moto g stylus 5G",
-          "codename": "denver",
-          "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33"
+          "model": "Motorola Moto G Stylus 5G (2023)",
+          "codename": "genevn"
         },
         {
           "brand": "Motorola",
-          "model": "moto g stylus 5G (2022)",
-          "codename": "milanf",
-          "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g10",
-          "codename": "capri"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g10 power",
-          "codename": "capri"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g100",
-          "codename": "nio",
-          "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g200 5G",
-          "codename": "xpeng"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g3 turbo",
+          "model": "Motorola Moto G Turbo",
           "codename": "merlin"
         },
         {
           "brand": "Motorola",
-          "model": "moto g30",
+          "model": "Motorola Moto G30",
           "codename": "caprip"
         },
         {
           "brand": "Motorola",
-          "model": "moto g32",
-          "codename": "devon",
-          "forumUrl": "https://xdaforums.com/f/motorola-moto-g32.12803/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g34 5G",
+          "model": "Motorola Moto G34 5G",
           "codename": "fogos"
         },
         {
           "brand": "Motorola",
-          "model": "moto g4",
-          "codename": "athene"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g4 play",
+          "model": "Motorola Moto G4 Play",
           "codename": "harpia"
         },
         {
           "brand": "Motorola",
-          "model": "moto g42",
-          "codename": "hawao",
-          "forumUrl": "https://xdaforums.com/f/moto-g42.12629/?prefix_id=33"
+          "model": "Motorola Moto G4/G4 Plus",
+          "codename": "athene"
         },
         {
           "brand": "Motorola",
-          "model": "moto g45 5G",
-          "codename": "fogos"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g5",
+          "model": "Motorola Moto G5",
           "codename": "cedric"
         },
         {
           "brand": "Motorola",
-          "model": "moto g52",
+          "model": "Motorola Moto G5 Plus",
+          "codename": "potter"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto G52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
         },
         {
           "brand": "Motorola",
-          "model": "moto g5s",
+          "model": "Motorola Moto G5S",
           "codename": "montana"
         },
         {
           "brand": "Motorola",
-          "model": "moto g6 plus",
+          "model": "Motorola Moto G5s plus",
+          "codename": "sanders"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto G6",
+          "codename": "ali"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto G6 Plus",
           "codename": "evert"
         },
         {
           "brand": "Motorola",
-          "model": "moto g7",
+          "model": "Motorola Moto G7",
           "codename": "river"
         },
         {
           "brand": "Motorola",
-          "model": "moto g7 play",
+          "model": "Motorola Moto G7 Play",
           "codename": "channel"
         },
         {
           "brand": "Motorola",
-          "model": "moto g7 plus",
+          "model": "Motorola Moto G7 Plus",
           "codename": "lake"
         },
         {
           "brand": "Motorola",
-          "model": "moto g7 power",
+          "model": "Motorola Moto G7 Power",
           "codename": "ocean"
         },
         {
           "brand": "Motorola",
-          "model": "moto g82 5G",
+          "model": "Motorola Moto G82 5G",
           "codename": "rhodep"
         },
         {
           "brand": "Motorola",
-          "model": "moto g84 5G",
+          "model": "Motorola Moto G84 5G",
           "codename": "bangkk",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g84-5g.12932/?prefix_id=33"
         },
         {
           "brand": "Motorola",
-          "model": "moto g9",
-          "codename": "guamp"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g9 play",
-          "codename": "guamp"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g9 power",
+          "model": "Motorola Moto G9 Power",
           "codename": "cebu"
         },
         {
           "brand": "Motorola",
-          "model": "moto one 5G",
-          "codename": "nairo"
+          "model": "Motorola Moto MAXX",
+          "codename": "quark"
         },
         {
           "brand": "Motorola",
-          "model": "moto one 5G ace",
-          "codename": "kiev"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto S30 Pro",
-          "codename": "tundra"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto x (2014)",
-          "codename": "victara"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto x play",
-          "codename": "lux"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto x pure edition (2015)",
-          "codename": "clark"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto x style (2015)",
-          "codename": "clark"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto x4",
-          "codename": "payton"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto X40",
-          "codename": "rtwo",
-          "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto z",
-          "codename": "griffin"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto z (2018)",
-          "codename": "nash"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto z play",
-          "codename": "addison"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto z2 force",
-          "codename": "nash"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto z2 play",
-          "codename": "albus"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto z3",
-          "codename": "messi"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto z3 play",
-          "codename": "beckham"
-        },
-        {
-          "brand": "Motorola",
-          "model": "one action",
-          "codename": "troika"
-        },
-        {
-          "brand": "Motorola",
-          "model": "one fusion+",
+          "model": "Motorola Moto One Fusion +",
           "codename": "liber"
         },
         {
           "brand": "Motorola",
-          "model": "one fusion+ (India)",
-          "codename": "liber"
-        },
-        {
-          "brand": "Motorola",
-          "model": "one power",
+          "model": "Motorola Moto One Power",
           "codename": "chef"
         },
         {
           "brand": "Motorola",
-          "model": "one vision",
+          "model": "Motorola Moto X 2013",
+          "codename": "ghost"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto X 2014",
+          "codename": "victara"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto X 2015 Pure",
+          "codename": "clark"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto X Force",
+          "codename": "kinzie"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto X Play",
+          "codename": "lux"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto X4",
+          "codename": "payton"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto Z 2016",
+          "codename": "griffin"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto Z Play 2016",
+          "codename": "addison"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto Z2 Force",
+          "codename": "nash"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto Z2 Play",
+          "codename": "albus"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto Z3",
+          "codename": "messi"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Moto Z3 Play",
+          "codename": "beckham"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Nexus 6",
+          "codename": "shamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola One Action",
+          "codename": "troika"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola One Vision",
           "codename": "kane"
         },
         {
           "brand": "Motorola",
-          "model": "one zoom",
+          "model": "Motorola One Zoom",
           "codename": "parker"
         },
         {
           "brand": "Motorola",
-          "model": "p50",
-          "codename": "kane"
+          "model": "Motorola Photon 4G",
+          "codename": "sunfire"
         },
         {
           "brand": "Motorola",
-          "model": "ThinkPhone by motorola",
-          "codename": "bronco"
+          "model": "Motorola Photon Q",
+          "codename": "asanti_c"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Motorola Xoom",
+          "codename": "wingray"
         },
         {
           "brand": "Nextbit",
-          "model": "Robin",
+          "model": "Nextbit Robin",
           "codename": "ether"
         },
         {
           "brand": "Nokia",
-          "model": "6.1 (2018)",
+          "model": "Nokia 2.2",
+          "codename": "WSP_sprout"
+        },
+        {
+          "brand": "Nokia",
+          "model": "Nokia 5",
+          "codename": "ND1"
+        },
+        {
+          "brand": "Nokia",
+          "model": "Nokia 5.3",
+          "codename": "cap_sprout"
+        },
+        {
+          "brand": "Nokia",
+          "model": "Nokia 6 (2017)",
+          "codename": "PLE"
+        },
+        {
+          "brand": "Nokia",
+          "model": "Nokia 6.1",
           "codename": "PL2"
         },
         {
           "brand": "Nokia",
-          "model": "6.1 Plus",
-          "codename": "DRG"
+          "model": "Nokia 6.1 Plus",
+          "codename": "DRG_sprout"
         },
         {
           "brand": "Nokia",
-          "model": "7 plus",
-          "codename": "B2N"
+          "model": "Nokia 6.2",
+          "codename": "SLD_sprout"
         },
         {
           "brand": "Nokia",
-          "model": "8",
+          "model": "Nokia 7 Plus",
+          "codename": "B2N_sprout"
+        },
+        {
+          "brand": "Nokia",
+          "model": "Nokia 7.1",
+          "codename": "CTL_sprout"
+        },
+        {
+          "brand": "Nokia",
+          "model": "Nokia 7.2",
+          "codename": "DDV_sprout"
+        },
+        {
+          "brand": "Nokia",
+          "model": "Nokia 8",
           "codename": "NB1"
         },
         {
           "brand": "Nothing",
-          "model": "Phone (1)",
-          "codename": "Spacewar",
-          "forumUrl": "https://xdaforums.com/f/nothing-phone-1.12585/?prefix_id=33"
-        },
-        {
-          "brand": "Nothing",
-          "model": "Phone (2)",
-          "codename": "Pong",
-          "forumUrl": "https://xdaforums.com/f/nothing-phone-2.12739/?prefix_id=33"
+          "model": "Nothing Phone 2A",
+          "codename": "Pacman"
         },
         {
           "brand": "Nubia",
-          "model": "Mini 5G",
-          "codename": "TP1803"
+          "model": "Nubia M2",
+          "codename": "NX551J"
         },
         {
           "brand": "Nubia",
-          "model": "Play 5G",
-          "codename": "nx651j"
+          "model": "Nubia Z17 Mini S",
+          "codename": "nx589j"
         },
         {
           "brand": "Nubia",
-          "model": "Red Magic",
-          "codename": "nx609j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Red Magic 5G (China)",
-          "codename": "nx659j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Red Magic 5G (Global)",
-          "codename": "nx659j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Red Magic 5G Lite",
-          "codename": "nx651j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Red Magic 5S (China)",
-          "codename": "nx659j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Red Magic 5S (Global)",
-          "codename": "nx659j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Red Magic Mars",
-          "codename": "nx619j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "X",
-          "codename": "nx616j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Z17",
+          "model": "Nubia ZTE Z17",
           "codename": "nx563j"
         },
         {
           "brand": "Nubia",
-          "model": "Z18",
-          "codename": "nx606j"
+          "model": "Nubia ZTE Z9 mini",
+          "codename": "nx511j"
         },
         {
           "brand": "Nubia",
-          "model": "Z18 Mini",
-          "codename": "nx611j"
-        },
-        {
-          "brand": "Nubia",
-          "model": "Z9 Max",
+          "model": "Nubia ZTE Z9Max",
           "codename": "nx512j"
         },
         {
-          "brand": "OSOM",
-          "model": "OV1",
-          "codename": "pyrite",
-          "forumUrl": "https://xdaforums.com/f/osom-ov1.12561/?prefix_id=33"
+          "brand": "Nubia",
+          "model": "Nubia ZTE 红魔电竞游戏手机 (Red Magic)",
+          "codename": "nx609j"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "NVidia Jetson AGX Xavier",
+          "codename": "galen"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "NVidia Jetson TX2",
+          "codename": "quill"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "NVidia Shield Android TV",
+          "codename": "foster"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "NVidia Shield Android TV 2019",
+          "codename": "mdarcy"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "NVidia Shield Portable",
+          "codename": "roth"
+        },
+        {
+          "brand": "NVIDIA",
+          "model": "NVidia Shield Tablet",
+          "codename": "shieldtablet"
+        },
+        {
+          "brand": "Omate",
+          "model": "Omate TrueSmart",
+          "codename": "x201"
         },
         {
           "brand": "OnePlus",
-          "model": "11 5G",
-          "codename": "salami",
-          "forumUrl": "https://xdaforums.com/f/oneplus-11r-ace-2.12717/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "12",
-          "codename": "waffle",
-          "forumUrl": "https://xdaforums.com/f/oneplus-12.12820/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "12R",
-          "codename": "aston",
-          "forumUrl": "https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "13",
-          "codename": "dodge",
-          "forumUrl": "https://xdaforums.com/f/oneplus-13.12893/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "13R",
-          "codename": "giulia",
-          "forumUrl": "https://xdaforums.com/f/oneplus-13r-ace-5.12915/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "2",
-          "codename": "oneplus2"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "3",
+          "model": "OnePlus 3/3T",
           "codename": "oneplus3"
         },
         {
           "brand": "OnePlus",
-          "model": "3T",
-          "codename": "oneplus3"
+          "model": "OnePlus 5/5T",
+          "codename": "cheeseburger/dumpling"
         },
         {
           "brand": "OnePlus",
-          "model": "5",
-          "codename": "cheeseburger"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "5T",
-          "codename": "dumpling"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "6",
+          "model": "OnePlus 6 (enchilada)",
           "codename": "enchilada"
         },
         {
           "brand": "OnePlus",
-          "model": "6T",
+          "model": "OnePlus 6T (fajita)",
           "codename": "fajita"
         },
         {
           "brand": "OnePlus",
-          "model": "6T (T-Mobile)",
-          "codename": "fajita"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7",
+          "model": "OnePlus 7 (guacamoleb)",
           "codename": "guacamoleb"
         },
         {
           "brand": "OnePlus",
-          "model": "7 Pro",
+          "model": "OnePlus 7 Pro (guacamole)",
           "codename": "guacamole"
         },
         {
           "brand": "OnePlus",
-          "model": "7 Pro (T-Mobile)",
-          "codename": "guacamole"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7T",
+          "model": "OnePlus 7T (hotdogb)",
           "codename": "hotdogb"
         },
         {
           "brand": "OnePlus",
-          "model": "7T (T-Mobile)",
-          "codename": "hotdogb"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7T Pro",
+          "model": "OnePlus 7T Pro (hotdog)",
           "codename": "hotdog"
         },
         {
           "brand": "OnePlus",
-          "model": "8",
-          "codename": "instantnoodle"
+          "model": "OnePlus 8 and 8 Pro",
+          "codename": "instantnoodle & instantnoodlep"
         },
         {
           "brand": "OnePlus",
-          "model": "8 (T-Mobile)",
-          "codename": "instantnoodle"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "8 Pro",
-          "codename": "instantnoodlep"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "8T",
+          "model": "OnePlus 8T (kebab)",
           "codename": "kebab"
         },
         {
           "brand": "OnePlus",
-          "model": "8T (T-Mobile)",
-          "codename": "kebab"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9",
+          "model": "OnePlus 9 (lemonade)",
           "codename": "lemonade",
           "forumUrl": "https://xdaforums.com/f/oneplus-11.12687/?prefix_id=33"
         },
         {
           "brand": "OnePlus",
-          "model": "9 (T-Mobile)",
-          "codename": "lemonade",
-          "forumUrl": "https://xdaforums.com/f/oneplus-11.12687/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9 Pro",
+          "model": "OnePlus 9 Pro (lemonadep)",
           "codename": "lemonadep",
           "forumUrl": "https://xdaforums.com/f/oneplus-9-pro.12153/?prefix_id=33"
         },
         {
           "brand": "OnePlus",
-          "model": "9 Pro (T-Mobile)",
-          "codename": "lemonadep",
-          "forumUrl": "https://xdaforums.com/f/oneplus-9-pro.12153/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9R",
-          "codename": "lemonades",
-          "forumUrl": "https://xdaforums.com/f/oneplus-9r.12183/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9RT",
-          "codename": "martini",
-          "forumUrl": "https://xdaforums.com/f/oneplus-9rt.12505/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 3",
-          "codename": "astonc",
-          "forumUrl": "https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 3 Pro",
-          "codename": "corvette",
-          "forumUrl": "https://xdaforums.com/f/oneplus-ace-3-pro.12865/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 3V",
-          "codename": "audi",
-          "forumUrl": "https://xdaforums.com/f/oneplus-nord-4-ace-3v.12866/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 5",
-          "codename": "giuliac",
-          "forumUrl": "https://xdaforums.com/f/oneplus-13r-ace-5.12915/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord",
+          "model": "OnePlus Nord (avicii)",
           "codename": "avicii"
         },
         {
           "brand": "OnePlus",
-          "model": "Nord 4",
+          "model": "OnePlus Nord 2 5G",
+          "codename": "denniz"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Oneplus Nord 4",
           "codename": "avalon",
           "forumUrl": "https://xdaforums.com/f/oneplus-nord-4-ace-3v.12866/?prefix_id=33"
         },
         {
           "brand": "OnePlus",
-          "model": "Nord 5",
+          "model": "Oneplus Nord 5",
           "codename": "lexus",
           "forumUrl": "https://xdaforums.com/f/oneplus-nord-5.12937/?prefix_id=33"
         },
         {
           "brand": "OnePlus",
-          "model": "Nord CE 2 Lite 5G",
-          "codename": "oscaro"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord CE 3 Lite 5G",
-          "codename": "larry"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord CE4",
-          "codename": "benz"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N10",
-          "codename": "billie"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N20",
-          "codename": "gunnar"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N200",
-          "codename": "dre"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N30 5G",
-          "codename": "larry"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "One",
+          "model": "OnePlus One",
           "codename": "bacon"
         },
         {
           "brand": "OnePlus",
-          "model": "X",
+          "model": "OnePlus Two",
+          "codename": "oneplus2"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus X",
           "codename": "onyx"
         },
         {
           "brand": "Oppo",
-          "model": "F1 (International)",
+          "model": "Oppo A37f",
+          "codename": "A37f"
+        },
+        {
+          "brand": "Oppo",
+          "model": "Oppo F1",
           "codename": "f1f"
         },
         {
           "brand": "Oppo",
-          "model": "Find 7a",
+          "model": "Oppo Find 5",
+          "codename": "find5"
+        },
+        {
+          "brand": "Oppo",
+          "model": "Oppo Find 7",
           "codename": "find7"
         },
         {
           "brand": "Oppo",
-          "model": "Find 7s",
-          "codename": "find7"
+          "model": "Oppo N1",
+          "codename": "N1"
         },
         {
           "brand": "Oppo",
-          "model": "N3",
+          "model": "Oppo N3",
           "codename": "n3"
         },
         {
           "brand": "Oppo",
-          "model": "R5 (International)",
+          "model": "OPPO R11",
+          "codename": "R11"
+        },
+        {
+          "brand": "Oppo",
+          "model": "OPPO R11s",
+          "codename": "R11s"
+        },
+        {
+          "brand": "Oppo",
+          "model": "Oppo R5",
           "codename": "r5"
         },
         {
           "brand": "Oppo",
-          "model": "R5s (International)",
-          "codename": "r5"
+          "model": "Oppo R7 Plus f",
+          "codename": "r7plusf"
         },
         {
           "brand": "Oppo",
-          "model": "R7 Plus (International)",
-          "codename": "r7plus"
+          "model": "Oppo R7f",
+          "codename": "r7f"
         },
         {
           "brand": "Oppo",
-          "model": "R7s (International)",
+          "model": "Oppo R7sf",
           "codename": "r7sf"
         },
         {
-          "brand": "Razer",
-          "model": "Phone",
-          "codename": "cheryl"
+          "brand": "Oppo",
+          "model": "Oppo R819",
+          "codename": "R819"
         },
         {
-          "brand": "Razer",
-          "model": "Phone 2",
-          "codename": "aura"
+          "brand": "Oppo",
+          "model": "Oppo Reno 2F",
+          "codename": "CPH1989"
         },
         {
-          "brand": "Realme",
-          "model": "10 Pro 5G",
-          "codename": "luigi"
-        },
-        {
-          "brand": "Realme",
-          "model": "2 Pro",
+          "brand": "Oppo",
+          "model": "Realme 2 Pro",
           "codename": "RMX1801"
         },
         {
-          "brand": "Realme",
-          "model": "3 Pro",
+          "brand": "Oppo",
+          "model": "Realme 3 Pro",
           "codename": "RMX1851"
         },
         {
-          "brand": "Realme",
-          "model": "9 5G",
-          "codename": "oscar"
+          "brand": "Oukitel",
+          "model": "OUKITEL K10",
+          "codename": "k10"
+        },
+        {
+          "brand": "Oukitel",
+          "model": "OUKITEL MIX 2",
+          "codename": "mix2"
+        },
+        {
+          "brand": "Oukitel",
+          "model": "OUKITEL WP1",
+          "codename": "wp1"
+        },
+        {
+          "brand": "Oukitel",
+          "model": "Oukitel WP5",
+          "codename": "WP5"
+        },
+        {
+          "brand": "Pantech",
+          "model": "Pantech VEGA Iron 2",
+          "codename": "ef63"
+        },
+        {
+          "brand": "Pantech",
+          "model": "Pantech VEGA LTE-A",
+          "codename": "ef56"
+        },
+        {
+          "brand": "Pantech",
+          "model": "Pantech VEGA Screct Note",
+          "codename": "ef59"
+        },
+        {
+          "brand": "Pantech",
+          "model": "Pantech VEGA Screct UP",
+          "codename": "ef60"
+        },
+        {
+          "brand": "Planet",
+          "model": "Planet Gemini PDA",
+          "codename": "geminipda"
+        },
+        {
+          "brand": "Qualcomm",
+          "model": "QRD8350",
+          "codename": "lahaina"
+        },
+        {
+          "brand": "Quanta",
+          "model": "Verizon Wear24",
+          "codename": "dorado"
+        },
+        {
+          "brand": "Razer",
+          "model": "Razer Forge TV (pearlyn)",
+          "codename": "pearlyn"
+        },
+        {
+          "brand": "Razer",
+          "model": "Razer Phone (cheryl)",
+          "codename": "cheryl"
         },
         {
           "brand": "Realme",
-          "model": "9 Pro 5G",
-          "codename": "oscar"
+          "model": "Realme 3",
+          "codename": "spartan"
         },
         {
           "brand": "Realme",
-          "model": "GT Neo6",
-          "codename": "bale"
+          "model": "Realme 6/7",
+          "codename": "RMX2001/RMX2151"
         },
         {
           "brand": "Realme",
-          "model": "Q5",
-          "codename": "oscar"
+          "model": "Realme 8 5G / Narzo 30 5G",
+          "codename": "RMX3241/RMX3242"
         },
         {
-          "brand": "SHIFT",
-          "model": "SHIFT6mq",
-          "codename": "axolotl"
+          "brand": "Realme",
+          "model": "Realme 8i / Narzo 50",
+          "codename": "spaced"
         },
         {
-          "brand": "SHIFT",
-          "model": "SHIFTphone 8",
-          "codename": "otter"
+          "brand": "Realme",
+          "model": "Realme C1",
+          "codename": "RMX1811"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme C2",
+          "codename": "RMX1941"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme X2",
+          "codename": "RMX1991/RMX1992/RMX1993"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme X2 Pro",
+          "codename": "RMX1931"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme X7 Max",
+          "codename": "RMX3031"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme XT",
+          "codename": "RMX1921"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A21s",
+          "model": "Samsung A300H",
+          "codename": "a33g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Epic 4g",
+          "codename": "epicmtd"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A04e",
+          "codename": "a04e"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy a04s 4G",
+          "codename": "a04s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A05s 4G",
+          "codename": "a05s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A06",
+          "codename": "a06"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A10",
+          "codename": "a10"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A12",
+          "codename": "a12nseea"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A12s 4G",
+          "codename": "a12s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A13 4G (Exynos)",
+          "codename": "a13"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A13 4G (Mediatek)",
+          "codename": "a13ve"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A14 5G (Exynos 1330)",
+          "codename": "a14x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A15 4G",
+          "codename": "a15"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A16 5G (Exynos)",
+          "codename": "a16x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A17 (Exynos)",
+          "codename": "a17x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A20",
+          "codename": "a20"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A20e",
+          "codename": "a20e"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A20s",
+          "codename": "a20s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A21s",
           "codename": "a21s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A3 (2016)",
+          "model": "Samsung Galaxy A23 4G",
+          "codename": "a23"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A23 5G",
+          "codename": "a23xq"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A25 5G (Japan)",
+          "codename": "a25ex"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A26 5G",
+          "codename": "a26x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A3 2016 (Exynos)",
           "codename": "a3xelte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A5 (2016)",
+          "model": "Samsung Galaxy A3 2017",
+          "codename": "a3y17lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A30",
+          "codename": "a30"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A30s",
+          "codename": "a30s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A31",
+          "codename": "a31"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A33 5G",
+          "codename": "a33x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A34 5G",
+          "codename": "a34x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A35 5G",
+          "codename": "a35x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A40",
+          "codename": "a40"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A5 2016 (Exynos)",
           "codename": "a5xelte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A5 (2017)",
+          "model": "Samsung Galaxy A5 2017",
           "codename": "a5y17lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A52 4G",
+          "model": "Samsung Galaxy A505F",
+          "codename": "a505f"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A51 4G",
+          "codename": "a51"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A52 4G",
           "codename": "a52q",
           "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52-4g.12131/?prefix_id=33"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A52s 5G",
+          "model": "Samsung Galaxy A52s 5G",
           "codename": "a52sxq",
           "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A7 (2016)",
+          "model": "Samsung Galaxy A53 5G",
+          "codename": "a53x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A60",
+          "codename": "a60q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy A7 2016 (Exynos)",
           "codename": "a7xelte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A7 (2017)",
+          "model": "Samsung Galaxy A7 2017",
           "codename": "a7y17lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A71",
-          "codename": "a71"
+          "model": "Samsung Galaxy A70",
+          "codename": "a70q"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A72",
+          "model": "Samsung Galaxy A72 4G",
           "codename": "a72q",
           "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a72.12141/?prefix_id=33"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy A73 5G",
-          "codename": "a73xq",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a73-5g.12667/?prefix_id=33"
+          "model": "Samsung Galaxy A8 2018",
+          "codename": "jackpotlte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy F62",
-          "codename": "f62",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+          "model": "Samsung Galaxy A8+ 2018",
+          "codename": "jackpot2lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy J7 (2015)",
+          "model": "Samsung Galaxy A80",
+          "codename": "r1q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Ace 3",
+          "codename": "loganreltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Ace 4 (SM-G316HU)",
+          "codename": "vivalto5mve3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Alpha",
+          "codename": "slte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy C9 Pro (C900F/Y)",
+          "codename": "c9lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy C9 Pro (China)",
+          "codename": "c9ltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Core 2 SM-G355HN",
+          "codename": "kanas3gnfc"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Core Plus",
+          "codename": "cs02"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Core Prime 3G SM-G360H",
+          "codename": "core33g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Core Prime Qualcomm",
+          "codename": "coreprimelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Core Prime Qualcomm CDMA",
+          "codename": "cprimeltemtr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Express",
+          "codename": "expressltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Express 2",
+          "codename": "wilcoxltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy F41",
+          "codename": "f41"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Duos",
+          "codename": "i9082"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Neo VE/Plus 3G (GT-I9060I)",
+          "codename": "grandneove3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime",
+          "codename": "fortuna3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime (SM-G530FZ)",
+          "codename": "gprimeltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime (SM-G530MU)",
+          "codename": "gprimeltezt"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime (SM-G530P)",
+          "codename": "gprimeltespr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime (SM-G530T/T1/W)",
+          "codename": "gprimelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime (SM-S920L)",
+          "codename": "gprimeltetfnvzw"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime VE",
+          "codename": "grandprimevelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Grand Prime VE 3G",
+          "codename": "grandprimeve3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J1 2016 (SM-J120H)",
+          "codename": "j1x3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J1 Ace (SM-J110)",
+          "codename": "j1acelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J1 ace DUOS",
+          "codename": "j1pop3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J2 (2016) (SM-J210F)",
+          "codename": "j2xlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J2 (SM-J200)",
+          "codename": "j2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J2 2018 SM-J250G",
+          "codename": "j2y18lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J3 2016 Qualcomm (SM-J320YZ)",
+          "codename": "j3lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J4",
+          "codename": "j4lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J4+",
+          "codename": "j4primelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J5 3G (SM-J500H)",
+          "codename": "j53gxx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J5 LTE (2015) (SM-J500F/G/M/NO/Y)",
+          "codename": "j5lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J5 LTE (2016) (SM-J510F/FN/MN/GN)",
+          "codename": "j5xnlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J5 LTE China (SM-J5008)",
+          "codename": "j5ltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J5 LTE China CMCC (SM-J5108)",
+          "codename": "j5xltecmcc"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J5 Prime",
+          "codename": "on5xelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J5N LTE (SM-J500FN)",
+          "codename": "j5nlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J7 (2015 Qualcomm Sprint)",
+          "codename": "j7ltespr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J7 (2016 Exynos)",
+          "codename": "j7xelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J7 (2017 Qualcomm Sprint)",
+          "codename": "j7popltespr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy J7 Exynos SM-J700",
           "codename": "j7elte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy M20",
+          "model": "Samsung Galaxy M02s",
+          "codename": "m02s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M14 4G",
+          "codename": "m14"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M14 5G and F14 5G (Exynos 1330)",
+          "codename": "m14x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M20",
           "codename": "m20lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy M52 5G",
-          "codename": "m52xq",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/?prefix_id=33"
+          "model": "Samsung Galaxy M21",
+          "codename": "m21"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy M62",
-          "codename": "f62",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/?prefix_id=33"
+          "model": "Samsung Galaxy M23/F23",
+          "codename": "m23xq"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note 9",
-          "codename": "crownlte"
+          "model": "Samsung Galaxy M30",
+          "codename": "m30lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note10",
+          "model": "Samsung Galaxy M30s",
+          "codename": "m30s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M31",
+          "codename": "m31"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M31s",
+          "codename": "m31s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M35 5G",
+          "codename": "m35x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M55/F55/C55 5G (Snapdragon)",
+          "codename": "m55xq"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy M56",
+          "codename": "m56x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Mega 5.8",
+          "codename": "crater"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Mega 6.3",
+          "codename": "melius"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Nexus (GSM)",
+          "codename": "maguro"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Nexus (Sprint)",
+          "codename": "toroplus"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Nexus (Verizon)",
+          "codename": "toro"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 1 AT&T",
+          "codename": "quincyatt"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 1 N7000",
+          "codename": "n7000"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 1 T-Mobile",
+          "codename": "quincytmo"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 10 (Exynos)",
           "codename": "d1"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note10 5G",
+          "model": "Samsung Galaxy Note 10 5G (Exynos)",
           "codename": "d1x"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note10+",
+          "model": "Samsung Galaxy Note 10 Snapdragon",
+          "codename": "d1q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 10 Snapdragon",
+          "codename": "d2q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 10+ (Exynos)",
           "codename": "d2s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy Note10+ 5G",
+          "model": "Samsung Galaxy Note 10+ 5G (Exynos)",
           "codename": "d2x"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S III Neo (Dual SIM)",
-          "codename": "s3ve3gds"
+          "model": "Samsung Galaxy Note 10.1",
+          "codename": "p4noterf"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S III Neo (Samsung Camera)",
-          "codename": "s3ve3gjv"
+          "model": "Samsung Galaxy Note 10.1 (2014) Exynos Wi-Fi",
+          "codename": "lt03wifiue"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S III Neo (Sony Camera)",
-          "codename": "s3ve3gxx"
+          "model": "Samsung Galaxy Note 10.1 (2014) Qualcomm LTE",
+          "codename": "lt03ltexx"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S10",
+          "model": "Samsung Galaxy Note 2",
+          "codename": "t03g & t0lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 2 Sprint",
+          "codename": "l900"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 20 (Exynos)",
+          "codename": "c1s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 20 Ultra (Exynos)",
+          "codename": "c2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 3 (Americas, China, Europe & Korea)",
+          "codename": "hlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 3 International Exynos",
+          "codename": "ha3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 3 Neo",
+          "codename": "hllte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 3 Neo N750",
+          "codename": "hl3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 (Qualcomm)",
+          "codename": "trlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Edge (Canada)",
+          "codename": "tbltecan"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Edge (International)",
+          "codename": "tblte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Edge (Korea)",
+          "codename": "tbltedt"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Edge (Sprint)",
+          "codename": "tbltespr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Edge (T-Mobile)",
+          "codename": "tbltetmo"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Edge (US Celluar)",
+          "codename": "tblteusc"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Edge (Verizon)",
+          "codename": "tbltevzw"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Exynos 3g",
+          "codename": "tre3gxx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 4 Exynos LTE (treltexx)",
+          "codename": "treltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 5",
+          "codename": "noblelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 7 (China Qualcomm)",
+          "codename": "graceqltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 7 (Exynos)",
+          "codename": "gracelte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 8 (Exynos)",
+          "codename": "greatlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 8 (Snapdragon)",
+          "codename": "greatqlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 8.0",
+          "codename": "kona3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 9 (Exynos)",
+          "codename": "crownlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note 9 (Snapdragon)",
+          "codename": "crownqltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note Pro 12.2 Exynos 3G",
+          "codename": "v1a3gxx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note Pro 12.2 Qualcomm LTE SM-P905",
+          "codename": "viennaltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Note Pro 12.2 Wi-Fi",
+          "codename": "v1awifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy On5 (T-Mobile/MetroPCS)",
+          "codename": "on5ltetmo"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy On7 Pro (SM-G600FY)",
+          "codename": "o7prolte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Prevail",
+          "codename": "prevail2spr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Reverb",
+          "codename": "iconvmu"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Rugby Pro SGH-i547",
+          "codename": "comanche"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S Blaze 4G",
+          "codename": "SGH-T769"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S Fascinate",
+          "codename": "fascinatemtd"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S II (International)",
+          "codename": "i9100"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S III (International Exynos)",
+          "codename": "m0"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10 (Exynos)",
           "codename": "beyond1lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S10 5G",
+          "model": "Samsung Galaxy S10 5G (Exynos)",
           "codename": "beyondx"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S10+",
+          "model": "Samsung Galaxy S10 Snapdragon",
+          "codename": "beyond1qlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10+ (Exynos)",
           "codename": "beyond2lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S10e",
+          "model": "Samsung Galaxy S10+ 5g Sprint",
+          "codename": "beyondxq"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10+ Snapdragon",
+          "codename": "beyond2qlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S10e (Exynos)",
           "codename": "beyond0lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S20 (4G/5G)",
+          "model": "Samsung Galaxy S10e Snapdragon",
+          "codename": "beyond0qlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S2 AT&T Skyrocket SGH-i727",
+          "codename": "skyrocket"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S2 Exhilarate SGH-i577",
+          "codename": "exhilarate"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S2 Hercules T-Mobile SGH-t989",
+          "codename": "hercules"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S2 Plus",
+          "codename": "s2ve"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S20 (Exynos)",
           "codename": "x1s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S20 FE (Exynos)",
-          "codename": "r8s"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 FE (Snapdragon)",
+          "model": "Samsung Galaxy S20 FE",
           "codename": "r8q"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S20 FE 5G",
-          "codename": "r8q"
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S20 Ultra (5G)",
+          "model": "Samsung Galaxy S20 Ultra (Exynos)",
           "codename": "z3s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S20+ (4G/5G)",
+          "model": "Samsung Galaxy S20+ (Exynos)",
           "codename": "y2s"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S23",
-          "codename": "dm1q",
-          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-s23.12707/?prefix_id=33"
+          "model": "Samsung Galaxy S23FE 5G (Snapdragon)",
+          "codename": "r11q"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S4 Value Edition (GT-I9515/L)",
+          "model": "Samsung Galaxy S25",
+          "codename": "pa1q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S25 Edge",
+          "codename": "psq"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S25 Plus",
+          "codename": "pa2q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S25 Ultra",
+          "codename": "pa3q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 AT&T",
+          "codename": "d2att"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 Canada",
+          "codename": "d2can"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 Cricket",
+          "codename": "d2cri"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 Metro PCS",
+          "codename": "d2mtr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 Mini",
+          "codename": "golden"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 Neo i9301i",
+          "codename": "s3ve3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 Sprint",
+          "codename": "d2spr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 T-Mobile",
+          "codename": "d2tmo"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 US Cellular",
+          "codename": "d2usc"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S3 Verizon",
+          "codename": "d2vzw"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S4 (Qualcomm)",
+          "codename": "jflte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S4 (Value Edition)",
           "codename": "jfvelte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 (International 3G)",
-          "codename": "k3gxx"
+          "model": "Samsung Galaxy S4 Active",
+          "codename": "jactivelte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 Active (G870F)",
-          "codename": "klteactivexx"
+          "model": "Samsung Galaxy S4 C-Spire",
+          "codename": "jfltespi"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 LTE (G900AZ/S902L)",
-          "codename": "klteaio"
+          "model": "Samsung Galaxy S4 Exynos (ja3g)",
+          "codename": "i9500"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 LTE (G900F/M/R4/R7/T/T3/V/W8)",
-          "codename": "klte"
+          "model": "Samsung Galaxy S4 Google Edition",
+          "codename": "jgedlte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 LTE (G900I/P)",
-          "codename": "kltedv"
+          "model": "Samsung Galaxy S4 LTE Advanced i9506",
+          "codename": "ks01lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 LTE (G900K/L/S)",
-          "codename": "kltekor"
+          "model": "Samsung Galaxy S4 Mini (International 3G)",
+          "codename": "serrano3gxx"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 LTE (SC-04F/SCL23)",
-          "codename": "kltekdi"
+          "model": "Samsung Galaxy S4 Mini (International Dual SIM)",
+          "codename": "serranodsdd"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 LTE-A",
+          "model": "Samsung Galaxy S4 Mini (International LTE)",
+          "codename": "serranoltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S4 Mini 64 bit ONLY",
+          "codename": "serranoveltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S4 Mini Sprint",
+          "codename": "serranoltespr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S4 Mini US Cellular",
+          "codename": "serranolteusc"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S5 Exynos",
+          "codename": "k3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S5 LTE-A",
           "codename": "lentislte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 Neo",
+          "model": "Samsung Galaxy S5 Mini (Qualcomm)",
+          "codename": "kmini3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S5 Mini Exynos",
+          "codename": "kminilte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S5 Neo Exynos",
           "codename": "s5neolte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 Plus",
+          "model": "Samsung Galaxy S5 Plus",
           "codename": "kccat6"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S5 Sport",
-          "codename": "kltesprsports"
+          "model": "Samsung Galaxy S5 Qualcomm",
+          "codename": "klte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S6",
-          "codename": "zerofltexx"
+          "model": "Samsung Galaxy S6",
+          "codename": "zeroflte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S6 Edge",
-          "codename": "zeroltexx"
+          "model": "Samsung Galaxy S6 edge",
+          "codename": "zerolte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S7",
+          "model": "Samsung Galaxy S6 edge+",
+          "codename": "zenlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S7 (China Qualcomm)",
+          "codename": "heroqltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S7 (Exynos)",
           "codename": "herolte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S7 Edge",
+          "model": "Samsung Galaxy S7 edge (China Qualcomm)",
+          "codename": "hero2qltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S7 edge (Exynos)",
           "codename": "hero2lte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S9",
+          "model": "Samsung Galaxy S8 (Exynos)",
+          "codename": "dreamlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S8 (Snapdragon)",
+          "codename": "dreamqlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S8+ (Exynos)",
+          "codename": "dream2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S8+ (Snapdragon)",
+          "codename": "dream2qlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S9 (Exynos)",
           "codename": "starlte"
         },
         {
           "brand": "Samsung",
-          "model": "Galaxy S9+",
+          "model": "Samsung Galaxy S9 (Snapdragon)",
+          "codename": "starqltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S9+ (Exynos)",
           "codename": "star2lte"
         },
         {
-          "brand": "Smartisan",
-          "model": "R1",
-          "codename": "trident"
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S9+ (Snapdragon)",
+          "codename": "star2qltechn"
         },
         {
-          "brand": "Solana",
-          "model": "Saga",
-          "codename": "ingot"
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Star Pro",
+          "codename": "logan2g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Stellar 4G (SCH-i200 Verizon)",
+          "codename": "jaspervzw"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 2 (GSM - unified)",
+          "codename": "espresso3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 2 (Wi-Fi - unified)",
+          "codename": "espressowifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 2 10.1 (GSM)",
+          "codename": "p5100"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 2 10.1 (Wi-Fi)",
+          "codename": "p5110"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 2 7.0 (GSM)",
+          "codename": "p3100"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 2 7.0 (Wi-Fi)",
+          "codename": "p3110"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 3 7.0",
+          "codename": "lt02"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 3 7.0 LTE",
+          "codename": "lt02ltetmo"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 3 Lite 7.0",
+          "codename": "goya"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 3 Lite 7.0 Value Edition",
+          "codename": "goyave"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 4 7.0",
+          "codename": "degas"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab 7.7",
+          "codename": "p6810"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab A 10.1 LTE (2016)",
+          "codename": "gtaxllte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab A 10.1 LTE (2016) with S-Pen",
+          "codename": "gtanotexllte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab A 10.1 WiFi (2016)",
+          "codename": "gtaxlwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab A 10.1 WiFi (2016) with S-Pen",
+          "codename": "gtanotexlwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab A 8.0 LTE SM-A800i",
+          "codename": "a8hplte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab A 9.7 WiFi",
+          "codename": "gt510wifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab E (SM-T377P)",
+          "codename": "gtesqltespr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab E (SM-T560NU)",
+          "codename": "gtelwifiue"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab E 8.0 Exynos",
+          "codename": "gteslte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab E 9.6 3G/Wi-Fi (SM-T561/60)",
+          "codename": "gtel3g"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab Pro 10.1 LTE",
+          "codename": "picassoltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab Pro 10.1 Wi-Fi",
+          "codename": "picassowifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab Pro 12.2 Wi-Fi",
+          "codename": "v2awifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab Pro 8.4 LTE",
+          "codename": "mondrianlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab Pro 8.4 Wi-Fi",
+          "codename": "mondrianwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S 10.5 LTE",
+          "codename": "chagalllte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S 10.5 WiFi",
+          "codename": "chagallwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S 8.4 LTE",
+          "codename": "klimtlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S 8.4 WiFi",
+          "codename": "klimtwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 8.0 2015 (LTE)",
+          "codename": "gts28ltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 8.0 2015 (Wi-Fi)",
+          "codename": "gts28wifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 8.0 LTE (2016)",
+          "codename": "gts28velte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 8.0 WiFi (2016)",
+          "codename": "gts28vewifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 9.7 2015 (LTE)",
+          "codename": "gts210ltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 9.7 2015 (Wi-Fi)",
+          "codename": "gts210wifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 9.7 LTE (2016)",
+          "codename": "gts210velte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S2 9.7 WiFi (2016)",
+          "codename": "gts210vewifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S4",
+          "codename": "gts4lwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S5e LTE",
+          "codename": "gts4lv"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S5e WiFi",
+          "codename": "gts4lvwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S6 LTE",
+          "codename": "gts6l"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S6 WiFi",
+          "codename": "gts6lwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Trend",
+          "codename": "kyleve"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Trend Lite",
+          "codename": "kylevess"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Trend Plus GT-S7580",
+          "codename": "kylepro"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy V SM-G313HZ",
+          "codename": "vivalto3gvn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Victory 4G LTE",
+          "codename": "goghspr"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Xcover 3",
+          "codename": "xcover3ltexx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Xcover 3 VE (SM-G389F)",
+          "codename": "xcover3velte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Gear Live",
+          "codename": "sprat"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Nexus 10",
+          "codename": "manta"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Nexus S",
+          "codename": "crespo"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Nexus S 4G",
+          "codename": "crespo4g"
+        },
+        {
+          "brand": "Silentcircle",
+          "model": "Silent Circle Blackphone 2",
+          "codename": "bp2"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 1 II",
-          "codename": "pdx203"
-        },
-        {
-          "brand": "Sony",
-          "model": "Xperia 1 III",
-          "codename": "pdx215",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-1-iii.12227/?prefix_id=33"
-        },
-        {
-          "brand": "Sony",
-          "model": "Xperia 1 IV",
-          "codename": "pdx223",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-1-iv.12633/?prefix_id=33"
-        },
-        {
-          "brand": "Sony",
-          "model": "Xperia 1 V",
-          "codename": "pdx234",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-1-v.12749/?prefix_id=33"
-        },
-        {
-          "brand": "Sony",
-          "model": "Xperia 1 VI",
-          "codename": "pdx245",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-1-vi.12858/?prefix_id=33"
-        },
-        {
-          "brand": "Sony",
-          "model": "Xperia 10",
+          "model": "Sony Xperia 10",
           "codename": "kirin"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 10 IV",
-          "codename": "pdx225",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-10-iv.12727/?prefix_id=33"
-        },
-        {
-          "brand": "Sony",
-          "model": "Xperia 10 Plus",
+          "model": "Sony Xperia 10 Plus",
           "codename": "mermaid"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 10 V",
-          "codename": "pdx235",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-10-v.12751/?prefix_id=33"
+          "model": "Sony Xperia L",
+          "codename": "taoshan"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 10 VII",
-          "codename": "pdx257",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-10-vii.12986/?prefix_id=33"
+          "model": "Sony Xperia M",
+          "codename": "nicki"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 5 II",
-          "codename": "pdx206"
+          "model": "Sony Xperia S",
+          "codename": "nozomi"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 5 III",
-          "codename": "pdx214",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-5-iii.12229/?prefix_id=33"
+          "model": "Sony Xperia SP",
+          "codename": "huashan"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 5 IV",
-          "codename": "pdx224",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-5-iv.12677/?prefix_id=33"
+          "model": "Sony Xperia T",
+          "codename": "mint"
         },
         {
           "brand": "Sony",
-          "model": "Xperia 5 V",
-          "codename": "pdx237",
-          "forumUrl": "https://xdaforums.com/f/sony-xperia-5-v.12795/?prefix_id=33"
+          "model": "Sony Xperia Tablet Z LTE",
+          "codename": "pollux"
         },
         {
           "brand": "Sony",
-          "model": "Xperia X",
+          "model": "Sony Xperia Tablet Z Wi-Fi",
+          "codename": "pollux_windy"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia TX",
+          "codename": "hayabusa"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia V",
+          "codename": "tsubasa"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia X",
           "codename": "suzu"
         },
         {
           "brand": "Sony",
-          "model": "Xperia X Compact",
+          "model": "Sony Xperia X Compact",
           "codename": "kugo"
         },
         {
           "brand": "Sony",
-          "model": "Xperia XA2",
+          "model": "Sony Xperia X Performance",
+          "codename": "dora"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia XA2",
           "codename": "pioneer"
         },
         {
           "brand": "Sony",
-          "model": "Xperia XA2 Plus",
+          "model": "Sony Xperia XA2 Plus",
           "codename": "voyager"
         },
         {
           "brand": "Sony",
-          "model": "Xperia XA2 Ultra",
+          "model": "Sony Xperia XA2 Ultra",
           "codename": "discovery"
         },
         {
           "brand": "Sony",
-          "model": "Xperia XZ2",
-          "codename": "akari"
+          "model": "Sony Xperia XZ",
+          "codename": "kagura"
         },
         {
           "brand": "Sony",
-          "model": "Xperia XZ2 Compact",
-          "codename": "xz2c"
+          "model": "Sony Xperia XZ Premium",
+          "codename": "maple"
         },
         {
           "brand": "Sony",
-          "model": "Xperia XZ2 Premium",
-          "codename": "aurora"
+          "model": "Sony Xperia XZ Premium DSDS",
+          "codename": "maple_dsds"
         },
         {
           "brand": "Sony",
-          "model": "Xperia XZ3",
-          "codename": "akatsuki"
+          "model": "Sony Xperia XZ1",
+          "codename": "poplar"
         },
         {
           "brand": "Sony",
-          "model": "Xperia Z2",
+          "model": "Sony Xperia XZ1 Canada",
+          "codename": "poplar_canada"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia XZ1 Compact",
+          "codename": "lilac"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia XZ1 DSDS",
+          "codename": "poplar_dsds"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia XZ1 KDDI",
+          "codename": "poplar_kddi"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia Z",
+          "codename": "yuga"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia Z Ultra",
+          "codename": "togari"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia Z1",
+          "codename": "honami"
+        },
+        {
+          "brand": "Sony",
+          "model": "Sony Xperia Z2",
           "codename": "sirius"
         },
         {
           "brand": "Sony",
-          "model": "Xperia Z3",
-          "codename": "z3"
-        },
-        {
-          "brand": "Sony",
-          "model": "Xperia Z3 Compact",
+          "model": "Sony Xperia Z3 Compact",
           "codename": "z3c"
         },
         {
           "brand": "Sony",
-          "model": "Xperia Z3+",
-          "codename": "ivy"
+          "model": "Sony Xperia Z3 Tablet Compact Wi-Fi",
+          "codename": "scorpion_windy"
         },
         {
           "brand": "Sony",
-          "model": "Xperia Z5",
-          "codename": "sumire"
+          "model": "Sony Xperia ZL",
+          "codename": "odin"
         },
         {
           "brand": "Sony",
-          "model": "Xperia Z5 Compact",
-          "codename": "suzuran"
+          "model": "Sony Xperia ZR",
+          "codename": "dogo"
         },
         {
-          "brand": "Vsmart",
-          "model": "Joy 3",
-          "codename": "casuarina"
+          "brand": "Tecno",
+          "model": "Tecno Pova 5 Pro (LH8n)",
+          "codename": "LH8n"
         },
         {
-          "brand": "Vsmart",
-          "model": "Joy 3+",
-          "codename": "casuarina"
+          "brand": "Tecno",
+          "model": "Tecno Spark 30C",
+          "codename": "KL5/KL5n"
+        },
+        {
+          "brand": "Tecno",
+          "model": "Tecno Spark 8C KG5j",
+          "codename": "kelly"
+        },
+        {
+          "brand": "TWRP",
+          "model": "Android Emulator",
+          "codename": "twrp"
+        },
+        {
+          "brand": "Ulefone",
+          "model": "Ulefone Armor 6",
+          "codename": "Armor_6"
+        },
+        {
+          "brand": "Umidigi",
+          "model": "UMIDIGI F1 Play",
+          "codename": "f1_play"
+        },
+        {
+          "brand": "Umidigi",
+          "model": "UMIDIGI One Max",
+          "codename": "One_Max"
+        },
+        {
+          "brand": "Umidigi",
+          "model": "UMIDIGI S3 Pro",
+          "codename": "aubrey"
+        },
+        {
+          "brand": "Unihertz",
+          "model": "Unihertz Jelly Pro (MT6737T)",
+          "codename": "jellypro"
+        },
+        {
+          "brand": "Vanzo",
+          "model": "Vanzo A315",
+          "codename": "a315"
+        },
+        {
+          "brand": "Vestel",
+          "model": "Vestel Venus V4",
+          "codename": "orka"
+        },
+        {
+          "brand": "Vivo",
+          "model": "Vivo Y51L",
+          "codename": "pd1510"
         },
         {
           "brand": "Wileyfox",
-          "model": "Storm",
-          "codename": "kipper"
+          "model": "Wileyfox Spark and Spark+",
+          "codename": "porridge"
         },
         {
           "brand": "Wileyfox",
-          "model": "Swift",
+          "model": "Wileyfox Spark X",
+          "codename": "porridgek3"
+        },
+        {
+          "brand": "Wileyfox",
+          "model": "Wileyfox Swift",
           "codename": "crackling",
           "forumUrl": "https://xdaforums.com/f/wileyfox-swift.4960/?prefix_id=33"
         },
         {
+          "brand": "Wileyfox",
+          "model": "Wileyfox Swift 2, 2 Plus, and 2 X",
+          "codename": "marmite"
+        },
+        {
           "brand": "Wingtech",
-          "model": "Redmi 2",
+          "model": "Wingtech Redmi 2",
           "codename": "wt88047"
         },
         {
           "brand": "Xiaomi",
-          "model": "11 Lite 5G NE",
-          "codename": "lisa",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-11-lite-5g-ne.12519/?prefix_id=33"
+          "model": "POCO F4 / Redmi k40s",
+          "codename": "munch, munchin"
         },
         {
           "brand": "Xiaomi",
-          "model": "11 Lite NE 5G",
-          "codename": "lisa",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-11-lite-5g-ne.12519/?prefix_id=33"
+          "model": "POCO X2 / Redmi K30",
+          "codename": "phoenixin, phoenix"
         },
         {
           "brand": "Xiaomi",
-          "model": "12",
-          "codename": "cupid"
+          "model": "Redmi 9A unified",
+          "codename": "blossom"
         },
         {
           "brand": "Xiaomi",
-          "model": "12 Pro",
-          "codename": "zeus",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12-pro.12493/?prefix_id=33"
+          "model": "Redmi Note 10 Pro 5G/Poco X3 Gt",
+          "codename": "chopin"
         },
         {
           "brand": "Xiaomi",
-          "model": "12S",
-          "codename": "mayfly",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12s.12647/?prefix_id=33"
+          "model": "Xiaomi 12 lite 5G",
+          "codename": "taoyao"
         },
         {
           "brand": "Xiaomi",
-          "model": "12S Pro",
-          "codename": "unicorn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12s-pro.12645/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "12S Ultra",
-          "codename": "thor",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12s-ultra.12643/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "12T Pro",
-          "codename": "diting",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12t-pro-redmi-k50-ultra.12673/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "13",
-          "codename": "fuxi",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-13.12681/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "13 Pro",
-          "codename": "nuwa",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-13-pro.12683/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Black Shark",
-          "codename": "shark"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10",
+          "model": "Xiaomi Mi 10",
           "codename": "umi"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 10 Lite 5G",
+          "model": "Xiaomi Mi 10 Lite",
           "codename": "monet"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 10 Pro",
-          "codename": "cmi"
+          "model": "Xiaomi Mi 10i / Mi 10T Lite / Redmi Note 9 Pro 5G",
+          "codename": "gauguin/gauguinpro/gauguininpro"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 10i 5G",
-          "codename": "gauguin"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10S",
-          "codename": "thyme"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10T",
-          "codename": "apollon"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10T Lite 5G",
-          "codename": "gauguin"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10T Pro",
-          "codename": "apollon"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 11",
+          "model": "Xiaomi Mi 11",
           "codename": "venus",
           "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11.12057/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 11 LE",
-          "codename": "lisa",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-11-lite-5g-ne.12519/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 11 Lite 5G",
+          "model": "Xiaomi Mi 11 lite 5G",
           "codename": "renoir",
           "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11-lite-5g.12189/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 11 Pro",
+          "model": "Xiaomi Mi 11 Pro",
           "codename": "mars"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 11i",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
+          "model": "Xiaomi Mi 11 Ultra",
+          "codename": "star"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 11X",
-          "codename": "alioth",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/?prefix_id=33"
+          "model": "Xiaomi Mi 2/2S",
+          "codename": "aries"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 11X Pro",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 4",
+          "model": "Xiaomi Mi 3",
           "codename": "cancro"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 4c",
+          "model": "Xiaomi Mi 4c",
           "codename": "libra"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 5",
+          "model": "Xiaomi Mi 4i",
+          "codename": "ferrari"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Mi 5",
           "codename": "gemini"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 5s",
+          "model": "Xiaomi Mi 5s",
           "codename": "capricorn"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 5s Plus",
+          "model": "Xiaomi Mi 5s Plus",
           "codename": "natrium"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 6",
+          "model": "Xiaomi Mi 6",
           "codename": "sagit"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 6X",
+          "model": "Xiaomi MI 6X",
           "codename": "wayne"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 8",
+          "model": "Xiaomi Mi 8",
           "codename": "dipper"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 8 Explorer Edition",
+          "model": "Xiaomi Mi 8 EE",
           "codename": "ursa"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 8 Lite",
-          "codename": "platina"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 8 Pro",
+          "model": "Xiaomi Mi 8 Pro",
           "codename": "equuleus"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 8 SE",
+          "model": "Xiaomi MI 8SE",
           "codename": "xmsirius"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 9 Lite",
-          "codename": "pyxis"
+          "model": "Xiaomi Mi 9",
+          "codename": "cepheus"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 9 SE",
+          "model": "Xiaomi Mi 9 Lite/CC9",
+          "codename": "pyxis/vela"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Mi 9 SE",
           "codename": "grus"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 9T",
-          "codename": "davinci"
+          "model": "Xiaomi Mi 9T / Redmi K20",
+          "codename": "davinci/davinciin"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi A1",
+          "model": "Xiaomi Mi 9T Pro / Redmi K20 Pro",
+          "codename": "raphael/raphaelin"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Mi A1",
           "codename": "tissot"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi A2",
+          "model": "Xiaomi Mi A2",
           "codename": "jasmine_sprout"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi A3",
+          "model": "Xiaomi Mi A2 Lite",
+          "codename": "daisy"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Mi A3",
           "codename": "laurel_sprout"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi CC9",
-          "codename": "pyxis"
+          "model": "Xiaomi Mi Max",
+          "codename": "hydrogen/helium"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi CC9 Meitu Edition",
-          "codename": "vela"
+          "model": "Xiaomi Mi Max 2",
+          "codename": "oxygen"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi CC9 Pro",
-          "codename": "tucana"
+          "model": "Xiaomi Mi Max 3",
+          "codename": "nitrogen"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi Max",
-          "codename": "hydrogen"
+          "model": "Xiaomi Mi Max Pro",
+          "codename": "helium"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi MIX",
+          "model": "Xiaomi Mi MIX",
           "codename": "lithium"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi MIX 2",
+          "model": "Xiaomi Mi Mix 2",
           "codename": "chiron"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi MIX 2S",
+          "model": "Xiaomi Mi Mix 2S",
           "codename": "polaris"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi MIX 3",
+          "model": "Xiaomi Mi MIX 3",
           "codename": "perseus"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi Note 10",
+          "model": "Xiaomi Mi MIX 3 5G",
+          "codename": "andromeda"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Mi Mix 4",
+          "codename": "odin"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Mi Note 10",
           "codename": "tucana"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi Note 10 Pro",
-          "codename": "tucana"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi Note 2",
+          "model": "Xiaomi Mi Note 2",
           "codename": "scorpio"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi Note 3",
+          "model": "Xiaomi Mi Note 3",
           "codename": "jason"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO C55",
-          "codename": "earth"
+          "model": "Xiaomi Mi Pad",
+          "codename": "mocha"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO F1",
-          "codename": "beryllium"
+          "model": "Xiaomi Mi Pad 4/4 Plus",
+          "codename": "clover"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO F2 Pro",
-          "codename": "lmi"
+          "model": "Xiaomi Mi Translator",
+          "codename": "FYJ01QP"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO F3",
-          "codename": "alioth",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/?prefix_id=33"
+          "model": "Xiaomi MSM8917/MSM8937/MSM8940 Devices (Excluding Redmi Go)",
+          "codename": "mi8937"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO F4",
-          "codename": "munch",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f4-munch-redmi-k40s.12661/?prefix_id=33"
+          "model": "Xiaomi Poco C75 5G & Redmi A4 5G",
+          "codename": "warm"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO F5 (Global)",
-          "codename": "marble",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f5-redmi-note-12-turbo-china.12733/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F5 (India)",
-          "codename": "marble",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f5-redmi-note-12-turbo-china.12733/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F5 Pro",
-          "codename": "mondrian",
-          "forumUrl": "https://xdaforums.com/f/poco-f5-pro-redmi-k60-china.12741/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F6",
-          "codename": "peridot",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-redmi-turbo-3.12852/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F6 Pro",
-          "codename": "vermeer",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-pro-redmi-k70.12853/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO M2 Pro",
-          "codename": "miatoll"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO M5s",
-          "codename": "rosemary"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO X3 NFC",
-          "codename": "surya"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO X3 Pro",
+          "model": "Xiaomi Poco X3 Pro",
           "codename": "vayu",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-x3-pro.12163/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO X6 5G",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
+          "model": "Xiaomi Poco X5 5G & Redmi Note 12 5G",
+          "codename": "moonstone/sunstone"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO X6 5G (India)",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
+          "model": "Xiaomi Pocophone F1",
+          "codename": "beryllium"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 12C",
-          "codename": "earth"
+          "model": "Xiaomi Redmi 12",
+          "codename": "fire"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 12C NFC",
-          "codename": "earth"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 1S",
+          "model": "Xiaomi Redmi 1S",
           "codename": "armani"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 3",
+          "model": "Xiaomi Redmi 3",
           "codename": "ido"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 3 Prime",
-          "codename": "ido"
+          "model": "Xiaomi Redmi 5",
+          "codename": "rosy"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 3S",
-          "codename": "Mi8937"
+          "model": "Xiaomi Redmi 5 Plus",
+          "codename": "vince"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 3S / 3X",
-          "codename": "land"
+          "model": "Xiaomi Redmi 6",
+          "codename": "cereus"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 3X",
-          "codename": "Mi8937"
+          "model": "Xiaomi Redmi 6 Pro",
+          "codename": "sakura"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 4 (India)",
-          "codename": "Mi8937"
+          "model": "Xiaomi Redmi 6a",
+          "codename": "cactus"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 4(X)",
-          "codename": "santoni"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 4A",
-          "codename": "Mi8917"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 4X",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 5A",
-          "codename": "Mi8917"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 7",
+          "model": "Xiaomi Redmi 7",
           "codename": "onclite"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 7A",
-          "codename": "Mi439"
+          "model": "Xiaomi Redmi K40 Pro",
+          "codename": "haydn",
+          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi 8",
-          "codename": "Mi439"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 8A",
-          "codename": "Mi439"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 8A Dual",
-          "codename": "Mi439"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 9",
-          "codename": "lancelot"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K20 (China)",
-          "codename": "davinci"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K20 (India)",
-          "codename": "davinci"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K30 Pro",
-          "codename": "lmi"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K30 Pro Zoom Edition",
-          "codename": "lmi"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K30S Ultra",
-          "codename": "apollon"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K40",
+          "model": "Xiaomi Redmi K40/POCO F3/Mi 11X",
           "codename": "alioth",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi K40 Pro",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
+          "model": "Xiaomi Redmi Note 10",
+          "codename": "mojito"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi K40 Pro+",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K40S",
-          "codename": "munch",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f4-munch-redmi-k40s.12661/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K50 Ultra",
-          "codename": "diting",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12t-pro-redmi-k50-ultra.12673/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K60",
-          "codename": "mondrian",
-          "forumUrl": "https://xdaforums.com/f/poco-f5-pro-redmi-k60-china.12741/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K60 Pro",
-          "codename": "socrates"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K70",
-          "codename": "vermeer",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-pro-redmi-k70.12853/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 10 Lite",
-          "codename": "miatoll"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 10 Pro",
+          "model": "Xiaomi Redmi Note 10 Pro",
           "codename": "sweet",
           "forumUrl": "https://xdaforums.com/f/redmi-note-10-pro.12117/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 10 Pro (India)",
-          "codename": "sweet",
-          "forumUrl": "https://xdaforums.com/f/redmi-note-10-pro.12117/?prefix_id=33"
+          "model": "Xiaomi Redmi Note 11 Pro/Pro+ 5G / Mi 11i/ 11i Hypercharge",
+          "codename": "pissarro/pissarropro/pissarroin/pissarroinpro"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 10 Pro Max (India)",
-          "codename": "sweet",
-          "forumUrl": "https://xdaforums.com/f/redmi-note-10-pro.12117/?prefix_id=33"
+          "model": "Xiaomi Redmi Note 11s / Poco M4 Pro",
+          "codename": "fleur"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 10S",
-          "codename": "rosemary"
+          "model": "Xiaomi Redmi Note 12 4G",
+          "codename": "tapas"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 10S Latin America",
-          "codename": "rosemary"
+          "model": "Xiaomi Redmi Note 2",
+          "codename": "hermes"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 10S NFC",
-          "codename": "rosemary"
+          "model": "Xiaomi Redmi Note 3",
+          "codename": "kenzo/kate"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 12 Turbo",
-          "codename": "marble",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f5-redmi-note-12-turbo-china.12733/?prefix_id=33"
+          "model": "Xiaomi Redmi Note 3 MTK",
+          "codename": "hennessy"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 13 Pro 5G",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 13 Pro 5G (China)",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 13 Pro 5G (India)",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 3",
-          "codename": "kenzo"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 4",
+          "model": "Xiaomi Redmi Note 4(x)",
           "codename": "mido"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 5 Pro",
+          "model": "Xiaomi Redmi Note 4G (Single SIM)",
+          "codename": "dior"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Redmi Note 5 Pro",
           "codename": "whyred"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 5A Lite",
-          "codename": "Mi8917"
+          "model": "Xiaomi Redmi Note 6",
+          "codename": "tulip"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 5A Prime",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 6 Pro",
-          "codename": "twolip"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 7",
+          "model": "Xiaomi Redmi Note 7",
           "codename": "lavender"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 7 Pro",
+          "model": "Xiaomi Redmi Note 7 Pro",
           "codename": "violet"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 8",
-          "codename": "ginkgo"
+          "model": "Xiaomi Redmi note 8 Pro",
+          "codename": "begonia"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 8T",
-          "codename": "ginkgo"
+          "model": "Xiaomi Redmi note 8/8T",
+          "codename": "ginkgo/willow"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 9",
-          "codename": "merlinx"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 9 Pro (Global)",
-          "codename": "miatoll"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 9 Pro (India)",
-          "codename": "miatoll"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 9 Pro 5G",
-          "codename": "gauguin"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 9 Pro Max",
-          "codename": "miatoll"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 9S",
-          "codename": "miatoll"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Turbo 3",
-          "codename": "peridot",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-redmi-turbo-3.12852/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Y1 Lite",
-          "codename": "Mi8917"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Y1 Prime",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Y3",
-          "codename": "onclite"
+          "model": "Xiaomi SDM439 Devices",
+          "codename": "mi439"
         },
         {
           "brand": "YU",
-          "model": "Yunique",
+          "model": "Yu Yunique",
           "codename": "jalebi"
         },
         {
           "brand": "YU",
-          "model": "Yuphoria",
-          "codename": "lettuce"
-        },
-        {
-          "brand": "YU",
-          "model": "Yureka",
+          "model": "Yu Yureka",
           "codename": "tomato"
         },
         {
           "brand": "YU",
-          "model": "Yureka Plus",
-          "codename": "tomato"
+          "model": "Yu Yureka Black",
+          "codename": "garlic"
         },
         {
-          "brand": "Yandex",
-          "model": "Phone",
-          "codename": "Amber"
-        },
-        {
-          "brand": "ZTE",
-          "model": "Axon 7",
-          "codename": "axon7"
+          "brand": "YU",
+          "model": "Yu Yutopia",
+          "codename": "sambar"
         },
         {
           "brand": "ZTE",
-          "model": "Axon 7 Mini",
-          "codename": "tulip"
+          "model": "ZTE Axon 7",
+          "codename": "ailsa_ii"
         },
         {
           "brand": "ZTE",
-          "model": "Axon 9 Pro",
-          "codename": "akershus"
+          "model": "ZTE Blade Apex 2",
+          "codename": "P892E10"
+        },
+        {
+          "brand": "ZTE",
+          "model": "ZTE Quartz",
+          "codename": "platy"
         },
         {
           "brand": "ZUK",
-          "model": "Z1",
+          "model": "ZUK Edge",
+          "codename": "z2x"
+        },
+        {
+          "brand": "ZUK",
+          "model": "Zuk Z1",
           "codename": "ham"
         },
         {
           "brand": "ZUK",
-          "model": "Z2 Plus",
+          "model": "ZUK Z2 / Lenovo Z2 Plus",
           "codename": "z2_plus"
         },
         {
-          "brand": "Zinwa",
-          "model": "Q25 Pro",
-          "codename": "Q25"
+          "brand": "ZUK",
+          "model": "ZUK Z2 Pro",
+          "codename": "z2_row"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -29306,6 +30960,26 @@
       "imageAsset": "images/device_10or.png"
     },
     {
+      "name": "Alcatel",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Allview",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Amazon",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Amlogic",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Archos",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Asus",
       "imageAsset": "images/device_asus.png"
     },
@@ -29318,8 +30992,28 @@
       "imageAsset": "images/device_banana_pi.png"
     },
     {
+      "name": "Barnes & Noble",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Cat",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Dell",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Dynalink",
       "imageAsset": "images/device_dynalink.png"
+    },
+    {
+      "name": "Elephone",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Ergo",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Essential",
@@ -29334,8 +31028,16 @@
       "imageAsset": "images/device_fairphone.png"
     },
     {
+      "name": "Gigaset",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Google",
       "imageAsset": "images/google.png"
+    },
+    {
+      "name": "HP",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "HTC",
@@ -29346,8 +31048,20 @@
       "imageAsset": "images/device_hardkernel.png"
     },
     {
+      "name": "Huami",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Huawei",
       "imageAsset": "images/huawei.png"
+    },
+    {
+      "name": "Hyundai",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "IUNI",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Infinix",
@@ -29355,6 +31069,14 @@
     },
     {
       "name": "Itel",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Kazam",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Kyocera",
       "imageAsset": "images/branding.png"
     },
     {
@@ -29370,7 +31092,35 @@
       "imageAsset": "images/lenovo.png"
     },
     {
+      "name": "Letv",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Lyf",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Marshall",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Mattel",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Meizu",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Micromax",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Minix",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Mobvoi",
       "imageAsset": "images/branding.png"
     },
     {
@@ -29406,12 +31156,36 @@
       "imageAsset": "images/device_osom.png"
     },
     {
+      "name": "Omate",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "OnePlus",
       "imageAsset": "images/oneplus.png"
     },
     {
       "name": "Oppo",
       "imageAsset": "images/device_oppo.png"
+    },
+    {
+      "name": "Oukitel",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Pantech",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Planet",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Qualcomm",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Quanta",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Radxa",
@@ -29434,6 +31208,10 @@
       "imageAsset": "images/samsung.png"
     },
     {
+      "name": "Silentcircle",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Smartisan",
       "imageAsset": "images/device_smartisan.png"
     },
@@ -29446,7 +31224,35 @@
       "imageAsset": "images/sony.png"
     },
     {
+      "name": "TWRP",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Tecno",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Ulefone",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Umidigi",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Unihertz",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Vanzo",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Vestel",
+      "imageAsset": "images/branding.png"
+    },
+    {
+      "name": "Vivo",
       "imageAsset": "images/branding.png"
     },
     {
