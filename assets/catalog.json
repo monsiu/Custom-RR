@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-19T21:21:59.193347Z",
+  "_generatedAt": "2026-06-19T22:06:41.886206Z",
   "roms": [
     {
       "id": "lineage",
@@ -30961,23 +30961,23 @@
     },
     {
       "name": "Alcatel",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_alcatel.png"
     },
     {
       "name": "Allview",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_allview.png"
     },
     {
       "name": "Amazon",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_amazon.png"
     },
     {
       "name": "Amlogic",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_amlogic.png"
     },
     {
       "name": "Archos",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_archos.png"
     },
     {
       "name": "Asus",
@@ -30993,15 +30993,15 @@
     },
     {
       "name": "Barnes & Noble",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_barnes_noble.png"
     },
     {
       "name": "Cat",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_cat.png"
     },
     {
       "name": "Dell",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_dell.png"
     },
     {
       "name": "Dynalink",
@@ -31029,7 +31029,7 @@
     },
     {
       "name": "Gigaset",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_gigaset.png"
     },
     {
       "name": "Google",
@@ -31037,7 +31037,7 @@
     },
     {
       "name": "HP",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_hp.png"
     },
     {
       "name": "HTC",
@@ -31049,7 +31049,7 @@
     },
     {
       "name": "Huami",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_huami.png"
     },
     {
       "name": "Huawei",
@@ -31065,19 +31065,19 @@
     },
     {
       "name": "Infinix",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_infinix.png"
     },
     {
       "name": "Itel",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_itel.png"
     },
     {
       "name": "Kazam",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_kazam.png"
     },
     {
       "name": "Kyocera",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_kyocera.png"
     },
     {
       "name": "LG",
@@ -31093,27 +31093,27 @@
     },
     {
       "name": "Letv",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_letv.png"
     },
     {
       "name": "Lyf",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_lyf.png"
     },
     {
       "name": "Marshall",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_marshall.png"
     },
     {
       "name": "Mattel",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_mattel.png"
     },
     {
       "name": "Meizu",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_meizu.png"
     },
     {
       "name": "Micromax",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_micromax.png"
     },
     {
       "name": "Minix",
@@ -31169,11 +31169,11 @@
     },
     {
       "name": "Oukitel",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_oukitel.png"
     },
     {
       "name": "Pantech",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_pantech.png"
     },
     {
       "name": "Planet",
@@ -31181,11 +31181,11 @@
     },
     {
       "name": "Qualcomm",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_qualcomm.png"
     },
     {
       "name": "Quanta",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_quanta.png"
     },
     {
       "name": "Radxa",
@@ -31209,7 +31209,7 @@
     },
     {
       "name": "Silentcircle",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_silentcircle.png"
     },
     {
       "name": "Smartisan",
@@ -31229,19 +31229,19 @@
     },
     {
       "name": "Tecno",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_tecno.png"
     },
     {
       "name": "Ulefone",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_ulefone.png"
     },
     {
       "name": "Umidigi",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_umidigi.png"
     },
     {
       "name": "Unihertz",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_unihertz.png"
     },
     {
       "name": "Vanzo",
@@ -31249,11 +31249,11 @@
     },
     {
       "name": "Vestel",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_vestel.png"
     },
     {
       "name": "Vivo",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_vivo.png"
     },
     {
       "name": "Vsmart",
