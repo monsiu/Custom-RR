@@ -58,16 +58,37 @@ flutter:
     - images/crdroid_hori.png
     - images/derpfest.png
     - images/device_10or.png
+    - images/device_alcatel.png
+    - images/device_allview.png
+    - images/device_amazon.png
+    - images/device_amlogic.png
+    - images/device_archos.png
     - images/device_asus.png
     - images/device_banana_pi.png
+    - images/device_barnes_noble.png
     - images/device_bq.png
+    - images/device_cat.png
+    - images/device_dell.png
     - images/device_dynalink.png
     - images/device_essential.png
     - images/device_fairphone.png
     - images/device_fxtec.png
+    - images/device_gigaset.png
     - images/device_hardkernel.png
+    - images/device_hp.png
     - images/device_htc.png
+    - images/device_huami.png
+    - images/device_infinix.png
+    - images/device_itel.png
+    - images/device_kazam.png
+    - images/device_kyocera.png
     - images/device_leeco.png
+    - images/device_letv.png
+    - images/device_lyf.png
+    - images/device_marshall.png
+    - images/device_mattel.png
+    - images/device_meizu.png
+    - images/device_micromax.png
     - images/device_nextbit.png
     - images/device_nintendo.png
     - images/device_nothing.png
@@ -75,12 +96,23 @@ flutter:
     - images/device_nvidia.png
     - images/device_oppo.png
     - images/device_osom.png
+    - images/device_oukitel.png
+    - images/device_pantech.png
+    - images/device_qualcomm.png
+    - images/device_quanta.png
     - images/device_radxa.png
     - images/device_razer.png
     - images/device_realme.png
     - images/device_shift.png
+    - images/device_silentcircle.png
     - images/device_smartisan.png
     - images/device_solana.png
+    - images/device_tecno.png
+    - images/device_ulefone.png
+    - images/device_umidigi.png
+    - images/device_unihertz.png
+    - images/device_vestel.png
+    - images/device_vivo.png
     - images/device_vsmart.png
     - images/device_walmart.png
     - images/device_wileyfox.png
