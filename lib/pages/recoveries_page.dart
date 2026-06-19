@@ -17,6 +17,7 @@ class RecoveriesPage extends StatelessWidget {
       detailPathBuilder: AppRoutes.recoveryDetail,
       entryKind: 'recovery',
       requestKind: 'recovery',
+      filterByDevice: true,
     );
   }
 }

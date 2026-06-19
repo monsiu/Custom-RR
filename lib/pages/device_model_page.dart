@@ -10,6 +10,7 @@ import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/home_on_back.dart';
+import '../widgets/select_device_button.dart';
 import '../widgets/star_button.dart';
 import '../widgets/xda_threads_section.dart';
 
@@ -159,22 +160,33 @@ class DeviceModelPage extends StatelessWidget {
                       const SizedBox(height: 16),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: FilledButton.tonalIcon(
-                          icon: const Icon(Icons.terminal),
-                          label: const Text('Generate flash script'),
-                          onPressed: () {
-                            final Uri uri = Uri(
-                              path: AppRoutes.flashScript,
-                              queryParameters: <String, String>{
-                                'brand': brand,
-                                'codename': codename,
-                                if (roms.isNotEmpty) 'rom': roms.first.id,
-                                if (recoveries.isNotEmpty)
-                                  'recovery': recoveries.first.id,
+                        child: Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: <Widget>[
+                            SelectDeviceButton(
+                              brand: brand,
+                              codename: codename,
+                              model: modelLabel,
+                            ),
+                            FilledButton.tonalIcon(
+                              icon: const Icon(Icons.terminal),
+                              label: const Text('Generate flash script'),
+                              onPressed: () {
+                                final Uri uri = Uri(
+                                  path: AppRoutes.flashScript,
+                                  queryParameters: <String, String>{
+                                    'brand': brand,
+                                    'codename': codename,
+                                    if (roms.isNotEmpty) 'rom': roms.first.id,
+                                    if (recoveries.isNotEmpty)
+                                      'recovery': recoveries.first.id,
+                                  },
+                                );
+                                context.push(uri.toString());
                               },
-                            );
-                            context.push(uri.toString());
-                          },
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 24),

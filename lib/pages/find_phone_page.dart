@@ -10,6 +10,7 @@ import '../util/request_project.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/device_suggestion.dart';
 import '../widgets/freshness_badge.dart';
+import '../widgets/select_device_button.dart';
 import '../widgets/star_button.dart';
 
 /// "What can I flash on my phone?" reverse lookup.
@@ -288,21 +289,33 @@ class _DeviceMatchCard extends StatelessWidget {
             const SizedBox(height: 12),
             Align(
               alignment: Alignment.centerRight,
-              child: FilledButton.tonalIcon(
-                icon: const Icon(Icons.terminal),
-                label: const Text('Build a flash script'),
-                onPressed: () {
-                  final Uri uri = Uri(
-                    path: AppRoutes.flashScript,
-                    queryParameters: <String, String>{
-                      'brand': ref.brand,
-                      'codename': ref.codename,
-                      if (roms.isNotEmpty) 'rom': roms.first.id,
-                      if (recs.isNotEmpty) 'recovery': recs.first.id,
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                alignment: WrapAlignment.end,
+                children: <Widget>[
+                  SelectDeviceButton(
+                    brand: ref.brand,
+                    codename: ref.codename,
+                    model: ref.model,
+                  ),
+                  FilledButton.tonalIcon(
+                    icon: const Icon(Icons.terminal),
+                    label: const Text('Build a flash script'),
+                    onPressed: () {
+                      final Uri uri = Uri(
+                        path: AppRoutes.flashScript,
+                        queryParameters: <String, String>{
+                          'brand': ref.brand,
+                          'codename': ref.codename,
+                          if (roms.isNotEmpty) 'rom': roms.first.id,
+                          if (recs.isNotEmpty) 'recovery': recs.first.id,
+                        },
+                      );
+                      context.push(uri.toString());
                     },
-                  );
-                  context.push(uri.toString());
-                },
+                  ),
+                ],
               ),
             ),
           ],
