@@ -149,6 +149,12 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     b.writeln('#');
     b.writeln('# REVIEW EVERY STEP BEFORE RUNNING. Flashing the wrong file');
     b.writeln('# WILL BRICK YOUR PHONE. Make a full backup first.');
+    b.writeln('#');
+    b.writeln('# This is a STEP-BY-STEP CHECKLIST, not an unattended');
+    b.writeln('# installer. The phone reboots and switches USB modes between');
+    b.writeln('# steps, so running the whole file at once will fail. Run one');
+    b.writeln('# block at a time and confirm the phone is in the expected mode');
+    b.writeln('# (bootloader / recovery) before continuing.');
     b.writeln('set -euo pipefail');
     b.writeln();
     b.writeln('# 1. Prereqs (host machine):');
@@ -209,7 +215,7 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     if (_wipeData) {
       b.writeln('#   ${step++}) Wipe -> Format Data (yes/erase encryption)');
       b.writeln(
-        '#   ${step++}) Wipe -> Advanced Wipe -> Dalvik, Cache, System, Data',
+        '#   ${step++}) Wipe -> Advanced Wipe -> Dalvik / ART Cache + Cache',
       );
     } else {
       b.writeln(
@@ -272,6 +278,12 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     b.writeln('#');
     b.writeln('# REVIEW EVERY STEP. Unlocking the bootloader WILL ERASE the');
     b.writeln('# device, and a wrong image can brick it. Back up first.');
+    b.writeln('#');
+    b.writeln('# This is a STEP-BY-STEP CHECKLIST, not an unattended');
+    b.writeln('# installer. The phone reboots and switches USB modes between');
+    b.writeln('# steps (bootloader, recovery, fastbootd), so running the whole');
+    b.writeln('# file at once will fail. Run one block at a time and confirm');
+    b.writeln('# the phone is in the expected mode before continuing.');
     b.writeln('set -euo pipefail');
     b.writeln();
     b.writeln('# 1. Host prereqs: platform-tools (adb + fastboot) on PATH.');
@@ -371,12 +383,27 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     b.writeln('fastboot reboot');
     b.writeln();
     if (_wantsGapps || _wantsMagisk) {
-      b.writeln('# 7. Optional extras (boot back into recovery to flash):');
-      if (_wantsGapps) {
-        b.writeln('#    - gapps.zip   (skip if you used a GApps/GMS GSI build)');
-      }
-      if (_wantsMagisk) {
-        b.writeln('#    - magisk.zip  (flash LAST so it patches the new system)');
+      if (samsung) {
+        b.writeln('# 7. Optional extras (boot back into your recovery):');
+        if (_wantsGapps) {
+          b.writeln('#    - gapps.zip   (skip if you used a GApps/GMS GSI build)');
+        }
+        if (_wantsMagisk) {
+          b.writeln('#    - magisk.zip  (flash LAST so it patches the new system)');
+        }
+      } else {
+        b.writeln('# 7. Optional extras. This flow installs NO custom recovery,');
+        b.writeln('#    so you cannot just flash a zip:');
+        if (_wantsGapps) {
+          b.writeln('#    - GApps: use a GApps/GMS GSI build instead of flashing');
+          b.writeln('#      gapps.zip, or flash a custom recovery first.');
+        }
+        if (_wantsMagisk) {
+          b.writeln('#    - Magisk: boot the GSI once, install the Magisk app,');
+          b.writeln('#      use "Install > Select and Patch a File" on your stock');
+          b.writeln('#      boot.img, then from fastboot:');
+          b.writeln('#      fastboot flash boot magisk_patched.img');
+        }
       }
       b.writeln();
     }
