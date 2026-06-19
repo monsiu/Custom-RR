@@ -6,6 +6,13 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **GSI / Treble mode in the flash script generator.** A new toggle generates a
+  generic system image (GSI) flashing script for Treble devices, with the right
+  steps for Samsung (Download mode, TWRP, then fastbootd) and other phones and
+  tablets, instead of the recovery + ROM zip flow.
+
 ## [1.2.0] - 2026-06-16
 
 ### Added
