@@ -51,6 +51,63 @@ const Map<String, String> _infinityxBranchTarUrls = <String, String>{
 };
 const String _infinityxCacheDir = 'tool/.cache/infinityx';
 
+// The official TWRP device roster, scraped from https://twrp.me/Devices/ into
+// a committed snapshot by tool/scrape_twrp.dart. We read the snapshot (not the
+// live site) so the generated catalog stays deterministic for the CI drift
+// check. Refresh it with: dart run tool/scrape_twrp.dart.
+const String _twrpDevicesPath = 'tool/data/twrp_devices.json';
+
+// Maps a few TWRP brand spellings onto the catalog's canonical vendor names so
+// the same manufacturer never shows up twice (e.g. as both "Nvidia" and the
+// LineageOS-sourced "NVIDIA").
+const Map<String, String> _twrpBrandAliases = <String, String>{
+  'Nvidia': 'NVIDIA',
+  'Yu': 'YU',
+  'qcom': 'Qualcomm',
+};
+
+String _normalizeTwrpBrand(String brand) =>
+    _twrpBrandAliases[brand] ?? brand;
+
+/// Reads the committed TWRP snapshot. Returns an empty list (with a warning)
+/// when the snapshot is missing so a fresh checkout without it falls back to
+/// the old LineageOS-derived approximation instead of failing.
+List<Map<String, String>> _loadTwrpDevices() {
+  final File f = File(_twrpDevicesPath);
+  if (!f.existsSync()) {
+    stderr.writeln(
+      '[sync] WARN $_twrpDevicesPath missing; run tool/scrape_twrp.dart. '
+      'Falling back to the LineageOS-derived TWRP list.',
+    );
+    return const <Map<String, String>>[];
+  }
+  final dynamic raw = jsonDecode(f.readAsStringSync());
+  final Map<String, Map<String, String>> seen =
+      <String, Map<String, String>>{};
+  for (final dynamic e in raw as List<dynamic>) {
+    final Map<String, dynamic> m = e as Map<String, dynamic>;
+    final String brand = _normalizeTwrpBrand((m['brand'] as String).trim());
+    final String model = (m['model'] as String).trim();
+    final String codename = (m['codename'] as String).trim();
+    if (brand.isEmpty || codename.isEmpty) continue;
+    seen.putIfAbsent('$brand|$codename'.toLowerCase(), () {
+      return <String, String>{
+        'brand': brand,
+        'model': model.isEmpty ? codename : model,
+        'codename': codename,
+      };
+    });
+  }
+  final List<Map<String, String>> out = seen.values.toList()
+    ..sort((Map<String, String> a, Map<String, String> b) {
+      final int byBrand =
+          a['brand']!.toLowerCase().compareTo(b['brand']!.toLowerCase());
+      if (byBrand != 0) return byBrand;
+      return a['model']!.toLowerCase().compareTo(b['model']!.toLowerCase());
+    });
+  return out;
+}
+
 Future<void> main(List<String> args) async {
   final bool refresh = args.contains('--refresh');
   final Directory cache = Directory('$_cacheDir/devices');
@@ -87,10 +144,14 @@ Future<void> main(List<String> args) async {
   // Manufacturers shown in the Devices section must cover every vendor
   // referenced by any ROM, including PixelOS-only ones (e.g. 10or) that
   // never appear in the LineageOS wiki.
+  final List<Map<String, String>> twrpDevices = _loadTwrpDevices();
+  stdout.writeln('[sync] loaded ${twrpDevices.length} TWRP devices');
+
   final Set<String> allVendors = <String>{
     ...vendors,
     ...pixelosDevices.map((_Device d) => d.vendor),
     ...infinityxDevices.map((_Device d) => d.vendor),
+    ...twrpDevices.map((Map<String, String> d) => d['brand']!),
   };
   final List<String> mergedVendors = allVendors.toList()..sort();
 
@@ -103,7 +164,7 @@ Future<void> main(List<String> args) async {
       pixelosDevices: pixelosDevices,
       infinityxDevices: infinityxDevices,
     ),
-    'recoveries': _buildRecoveries(devices),
+    'recoveries': _buildRecoveries(devices, twrpDevices),
     'roots': _buildRoots(),
     'devices': _buildDevices(mergedVendors),
   };
@@ -2064,7 +2125,10 @@ List<Map<String, dynamic>> _buildRoms(
   }).toList();
 }
 
-List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
+List<Map<String, dynamic>> _buildRecoveries(
+  List<_Device> all,
+  List<Map<String, String>> twrpDevices,
+) {
   final List<_RomSpec> specs = <_RomSpec>[
     _RomSpec(
       id: 'twrp',
@@ -2255,6 +2319,13 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
   return specs.map((_RomSpec s) {
     final _Policy policy = _policyFor(s.id);
     final List<_Device> matched = all.where(policy).toList();
+    // TWRP ships the real twrp.me roster from the committed snapshot. Every
+    // other recovery keeps its LineageOS-derived approximation. If the
+    // snapshot is missing, TWRP falls back to the policy match too.
+    final List<Map<String, dynamic>> deviceList =
+        (s.id == 'twrp' && twrpDevices.isNotEmpty)
+            ? _twrpDeviceList(twrpDevices)
+            : _toDeviceList(matched);
     return <String, dynamic>{
       'id': s.id,
       'name': s.name,
@@ -2263,12 +2334,27 @@ List<Map<String, dynamic>> _buildRecoveries(List<_Device> all) {
       'description': s.description,
       'features': s.features,
       'screenshots': s.screenshots,
-      'devices': _toDeviceList(matched),
+      'devices': deviceList,
       'downloadLabel': s.downloadLabel,
       'downloadUrl': s.downloadUrl,
       'forumUrl': s.forumUrl ?? _xdaSearchUrl(s.name),
       if (s.links.isNotEmpty)
         'links': s.links.map((_RomLink l) => l.toJson()).toList(),
+    };
+  }).toList();
+}
+
+/// Converts the TWRP snapshot rows into catalog device refs, attaching a
+/// curated per-codename XDA forum link when we have one.
+List<Map<String, dynamic>> _twrpDeviceList(List<Map<String, String>> rows) {
+  return rows.map((Map<String, String> d) {
+    final String codename = d['codename']!;
+    final String? forum = _xdaDeviceForums[codename];
+    return <String, dynamic>{
+      'brand': d['brand'],
+      'model': d['model'],
+      'codename': codename,
+      if (forum != null) 'forumUrl': forum,
     };
   }).toList();
 }
