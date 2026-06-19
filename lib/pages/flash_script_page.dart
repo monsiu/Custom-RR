@@ -1,6 +1,11 @@
+import 'dart:io' show Directory, File, Platform;
+
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,6 +14,11 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
+
+/// Stable upstream download link for Magisk, surfaced as a chip and inside
+/// the generated script so users do not have to copy a URL out of a comment.
+const String kMagiskReleasesUrl =
+    'https://github.com/topjohnwu/Magisk/releases';
 
 /// Generates a copy-pasteable shell script for flashing a chosen
 /// ROM + recovery onto a chosen (brand, codename) device.
@@ -93,6 +103,20 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
       },
     );
     await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  /// Clears every selection and option back to defaults.
+  void _reset() {
+    setState(() {
+      _brand = null;
+      _codename = null;
+      _romId = null;
+      _recoveryId = null;
+      _wantsGapps = true;
+      _wantsMagisk = false;
+      _wipeData = true;
+      _gsiMode = false;
+    });
   }
 
   /// Explains when GSI / Treble mode is the right choice: it is the universal
@@ -205,6 +229,13 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     b.writeln('# (bootloader / recovery) before continuing.');
     b.writeln('set -euo pipefail');
     b.writeln();
+    b.writeln('# Helper: block until the phone is back in fastboot (bootloader');
+    b.writeln('# or fastbootd) instead of a fixed sleep, so slow and fast');
+    b.writeln('# devices both work.');
+    b.writeln(
+      'wait_fastboot() { until fastboot devices | grep -q .; do sleep 1; done; }',
+    );
+    b.writeln();
     b.writeln('# 1. Prereqs (host machine):');
     b.writeln('#    - platform-tools (adb + fastboot) installed and on PATH');
     b.writeln(
@@ -232,13 +263,13 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     }
     if (_wantsMagisk) {
       b.writeln(
-        '#    - magisk.zip         (from https://github.com/topjohnwu/Magisk/releases)',
+        '#    - magisk.zip         (from $kMagiskReleasesUrl)',
       );
     }
     b.writeln();
     b.writeln('echo "==> Reboot to bootloader"');
     b.writeln('adb reboot bootloader');
-    b.writeln('sleep 8');
+    b.writeln('wait_fastboot');
     b.writeln();
     if (rec != null) {
       b.writeln('echo "==> Flash custom recovery (${rec.name})"');
@@ -334,6 +365,18 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     b.writeln('# the phone is in the expected mode before continuing.');
     b.writeln('set -euo pipefail');
     b.writeln();
+    b.writeln('# Helper: block until the phone is back in fastboot instead of a');
+    b.writeln('# fixed sleep, so slow and fast devices both work.');
+    b.writeln(
+      'wait_fastboot() { until fastboot devices | grep -q .; do sleep 1; done; }',
+    );
+    if (samsung) {
+      b.writeln('# Samsung: wait for Download mode the same way.');
+      b.writeln(
+        'wait_download() { until heimdall detect >/dev/null 2>&1; do sleep 1; done; }',
+      );
+    }
+    b.writeln();
     b.writeln('# 1. Host prereqs: platform-tools (adb + fastboot) on PATH.');
     if (samsung) {
       b.writeln('#    Samsung also needs Heimdall (Linux/macOS) or Odin');
@@ -376,7 +419,7 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
       b.writeln();
       b.writeln('echo "==> Reboot to Download mode"');
       b.writeln('adb reboot download');
-      b.writeln('sleep 8');
+      b.writeln('wait_download');
       if (rec != null) {
         b.writeln('echo "==> Flash recovery (${rec.name}); do NOT auto-reboot"');
         b.writeln('heimdall flash --RECOVERY recovery.img --no-reboot');
@@ -405,7 +448,7 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
       b.writeln('# 4. Unlock the bootloader (ERASES the device):');
       b.writeln('echo "==> Reboot to bootloader"');
       b.writeln('adb reboot bootloader');
-      b.writeln('sleep 8');
+      b.writeln('wait_fastboot');
       b.writeln('echo "==> Unlock (confirm on-device with Volume + Power)"');
       b.writeln('fastboot flashing unlock || fastboot oem unlock');
       b.writeln();
@@ -419,8 +462,7 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
       b.writeln('echo "==> Reboot to fastbootd"');
       b.writeln('adb reboot fastboot   # fastbootD (userspace), NOT bootloader');
     }
-    b.writeln('sleep 8');
-    b.writeln('fastboot devices');
+    b.writeln('wait_fastboot');
     b.writeln('echo "==> Flash the GSI to the system partition"');
     b.writeln('fastboot flash system system.img');
     if (_wipeData) {
@@ -486,10 +528,21 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
             _codename != null &&
             _romId != null &&
             _recoveryId != null);
+    final CatalogEntry? selectedRom =
+        _romId == null ? null : repo.romById(_romId!);
+    final CatalogEntry? selectedRec =
+        _recoveryId == null ? null : repo.recoveryById(_recoveryId!);
 
     return AppShell(
       title: 'Flash script generator',
       selectedRoute: AppRoutes.flashScript,
+      actions: <Widget>[
+        IconButton(
+          tooltip: 'Reset selections',
+          icon: const Icon(Icons.restart_alt),
+          onPressed: _reset,
+        ),
+      ],
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(
@@ -499,9 +552,9 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
             padding: const EdgeInsets.all(20),
             children: <Widget>[
               Text(
-                'Pick your phone and the projects you want to flash. '
-                'A copy-pasteable shell script appears below. '
-                'review each step before running it.',
+                'Pick your phone and the projects you want to flash. A shell '
+                'script appears below as a step-by-step checklist. Review and '
+                'run each block yourself; it is not a one-tap installer.',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 16),
@@ -533,7 +586,19 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
                       ? null
                       : (String? v) => setState(() => _codename = v),
                 ),
-                const SizedBox(height: 12),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    onPressed: () => context.push(AppRoutes.findPhone),
+                    icon: const Icon(Icons.help_outline, size: 16),
+                    label: const Text("Don't know your codename?"),
+                    style: TextButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 4),
               ],
               SwitchListTile(
                 title: Row(
@@ -605,20 +670,16 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
               ),
               const SizedBox(height: 16),
               if (!ready)
-                Card(
-                  color: Theme.of(context).colorScheme.surfaceContainerHigh,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      _gsiMode
-                          ? 'Pick a brand to generate the GSI script.'
-                          : 'Pick a brand, codename, ROM, and recovery to '
-                              'generate the script.',
-                    ),
-                  ),
-                )
-              else
+                _NotReadyHint(gsiMode: _gsiMode)
+              else ...<Widget>[
+                _DownloadChips(
+                  rom: _gsiMode ? null : selectedRom,
+                  recovery: selectedRec,
+                  wantsMagisk: _wantsMagisk,
+                  gsiMode: _gsiMode,
+                ),
                 _ScriptOutput(text: _gsiMode ? _generateGsi() : _generate()),
+              ],
             ],
           ),
         ),
@@ -682,6 +743,56 @@ class _ScriptOutput extends StatelessWidget {
     );
   }
 
+  /// Saves or shares the script as a real `flash.sh` file. On phones it opens
+  /// the system share sheet; on desktop it writes the file to the Downloads
+  /// folder; on web (no filesystem) it falls back to sharing the text.
+  Future<void> _saveOrShare(BuildContext context) async {
+    if (kIsWeb) {
+      await SharePlus.instance.share(
+        ShareParams(text: text, subject: 'flash.sh'),
+      );
+      return;
+    }
+    final bool isMobile = Platform.isAndroid || Platform.isIOS;
+    try {
+      if (isMobile) {
+        final Directory dir = await getTemporaryDirectory();
+        final File file = File('${dir.path}/flash.sh');
+        await file.writeAsString(text);
+        await SharePlus.instance.share(
+          ShareParams(
+            files: <XFile>[
+              XFile(file.path, mimeType: 'application/x-sh'),
+            ],
+            subject: 'flash.sh',
+          ),
+        );
+      } else {
+        Directory? dir = await getDownloadsDirectory();
+        dir ??= await getApplicationDocumentsDirectory();
+        final File file = File('${dir.path}/flash.sh');
+        await file.writeAsString(text);
+        if (!context.mounted) return;
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Saved to ${file.path}'),
+            behavior: SnackBarBehavior.floating,
+            action: SnackBarAction(
+              label: 'Copy path',
+              onPressed: () => Clipboard.setData(ClipboardData(text: file.path)),
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not save the script: $e')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;
@@ -708,6 +819,11 @@ class _ScriptOutput extends StatelessWidget {
                   icon: const Icon(Icons.copy),
                   onPressed: () => _copy(context),
                 ),
+                IconButton(
+                  tooltip: 'Save / share flash.sh',
+                  icon: const Icon(Icons.ios_share),
+                  onPressed: () => _saveOrShare(context),
+                ),
               ],
             ),
           ),
@@ -726,6 +842,157 @@ class _ScriptOutput extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+/// Shown when the user has not picked enough to generate a script. Carries
+/// quick links so an empty form still has a path forward.
+class _NotReadyHint extends StatelessWidget {
+  const _NotReadyHint({required this.gsiMode});
+
+  final bool gsiMode;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    return Card(
+      color: scheme.surfaceContainerHigh,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              gsiMode
+                  ? 'Pick a brand to generate the GSI script.'
+                  : 'Pick a brand, codename, ROM, and recovery to generate '
+                      'the script.',
+            ),
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: gsiMode
+                  ? <Widget>[
+                      OutlinedButton.icon(
+                        onPressed: () => context.push(AppRoutes.treble),
+                        icon: const Icon(Icons.layers_outlined, size: 18),
+                        label: const Text('Browse Treble & GSI'),
+                      ),
+                    ]
+                  : <Widget>[
+                      OutlinedButton.icon(
+                        onPressed: () => context.push(AppRoutes.roms),
+                        icon: const Icon(Icons.android_outlined, size: 18),
+                        label: const Text('Browse ROMs'),
+                      ),
+                      OutlinedButton.icon(
+                        onPressed: () => context.push(AppRoutes.recoveries),
+                        icon: const Icon(Icons.restore, size: 18),
+                        label: const Text('Browse recoveries'),
+                      ),
+                    ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Tappable download links for the files the chosen script needs, so the user
+/// does not have to copy URLs out of the script comments.
+class _DownloadChips extends StatelessWidget {
+  const _DownloadChips({
+    required this.rom,
+    required this.recovery,
+    required this.wantsMagisk,
+    required this.gsiMode,
+  });
+
+  final CatalogEntry? rom;
+  final CatalogEntry? recovery;
+  final bool wantsMagisk;
+  final bool gsiMode;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> chips = <Widget>[];
+    if (rom != null && rom!.downloadUrl.isNotEmpty) {
+      chips.add(
+        _chip(
+          context,
+          Icons.download_outlined,
+          'ROM download',
+          () => _open(context, rom!.downloadUrl),
+        ),
+      );
+    }
+    if (recovery != null && recovery!.downloadUrl.isNotEmpty) {
+      chips.add(
+        _chip(
+          context,
+          Icons.download_outlined,
+          'Recovery download',
+          () => _open(context, recovery!.downloadUrl),
+        ),
+      );
+    }
+    if (gsiMode) {
+      chips.add(
+        _chip(
+          context,
+          Icons.layers_outlined,
+          'GSI builds',
+          () => context.push(AppRoutes.treble),
+        ),
+      );
+    }
+    if (wantsMagisk) {
+      chips.add(
+        _chip(
+          context,
+          Icons.download_outlined,
+          'Magisk',
+          () => _open(context, kMagiskReleasesUrl),
+        ),
+      );
+    }
+    if (chips.isEmpty) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('Get the files', style: Theme.of(context).textTheme.labelLarge),
+          const SizedBox(height: 8),
+          Wrap(spacing: 8, runSpacing: 8, children: chips),
+        ],
+      ),
+    );
+  }
+
+  Widget _chip(
+    BuildContext context,
+    IconData icon,
+    String label,
+    VoidCallback onTap,
+  ) {
+    return ActionChip(
+      avatar: Icon(icon, size: 18),
+      label: Text(label),
+      onPressed: onTap,
+    );
+  }
+
+  Future<void> _open(BuildContext context, String url) async {
+    final Uri uri = Uri.parse(url);
+    final bool ok = await launchUrl(uri, mode: LaunchMode.externalApplication);
+    if (!ok && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not open $url')),
+      );
+    }
   }
 }
 
