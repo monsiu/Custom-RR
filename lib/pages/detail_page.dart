@@ -1315,7 +1315,8 @@ class _ModelPill extends StatelessWidget {
     return Tooltip(
       message: device.codename.isEmpty
           ? device.model
-          : 'Codename: ${device.codename} (long-press to copy)',
+          : '${device.model}\nCodename: ${device.codename} '
+              '(long-press to copy)',
       child: Material(
         color: background,
         shape: StadiumBorder(side: BorderSide(color: border)),
@@ -1323,49 +1324,57 @@ class _ModelPill extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            InkWell(
-              onTap: canOpen
-                  ? () => context.push(
-                        AppRoutes.deviceModelDetail(
-                          brandEntry!.slug,
-                          device.codename,
-                        ),
-                      )
-                  : null,
-              onLongPress: device.codename.isEmpty
-                  ? null
-                  : () => _copyCodename(context, device.codename),
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  12,
-                  8,
-                  hasForum ? 10 : 14,
-                  8,
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Icon(
-                      Icons.smartphone_outlined,
-                      size: 16,
-                      color: foreground,
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      device.model,
-                      style: text.labelLarge?.copyWith(color: foreground),
-                    ),
-                    if (device.codename.isNotEmpty) ...<Widget>[
+            Flexible(
+              child: InkWell(
+                onTap: canOpen
+                    ? () => context.push(
+                          AppRoutes.deviceModelDetail(
+                            brandEntry!.slug,
+                            device.codename,
+                          ),
+                        )
+                    : null,
+                onLongPress: device.codename.isEmpty
+                    ? null
+                    : () => _copyCodename(context, device.codename),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    12,
+                    8,
+                    hasForum ? 10 : 14,
+                    8,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(
+                        Icons.smartphone_outlined,
+                        size: 16,
+                        color: foreground,
+                      ),
                       const SizedBox(width: 6),
-                      Text(
-                        device.codename,
-                        style: text.labelSmall?.copyWith(
-                          color: foreground.withValues(alpha: 0.7),
-                          fontFamily: 'monospace',
+                      Flexible(
+                        child: Text(
+                          device.model,
+                          maxLines: 1,
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                              text.labelLarge?.copyWith(color: foreground),
                         ),
                       ),
+                      if (device.codename.isNotEmpty) ...<Widget>[
+                        const SizedBox(width: 6),
+                        Text(
+                          device.codename,
+                          style: text.labelSmall?.copyWith(
+                            color: foreground.withValues(alpha: 0.7),
+                            fontFamily: 'monospace',
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
             ),
