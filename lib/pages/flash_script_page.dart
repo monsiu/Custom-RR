@@ -116,6 +116,18 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     return out;
   }
 
+  /// Recoveries catalogued for any device of [brand]. Used by GSI mode, which
+  /// has no codename to filter on, to keep the optional recovery list scoped
+  /// to the brand instead of listing the whole catalog.
+  List<CatalogEntry> _recoveriesForBrand(String brand) {
+    return CatalogRepository.instance.recoveries
+        .where(
+          (CatalogEntry e) =>
+              e.devices.any((DeviceRef d) => d.brand == brand),
+        )
+        .toList();
+  }
+
   String _generate() {
     final CatalogRepository repo = CatalogRepository.instance;
     final CatalogEntry? rom = _romId == null ? null : repo.romById(_romId!);
@@ -193,25 +205,28 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     b.writeln(
       'echo "==> Inside ${rec?.name ?? 'recovery'}, perform these steps"',
     );
+    int step = 1;
     if (_wipeData) {
-      b.writeln('#   1) Wipe -> Format Data (yes/erase encryption)');
-      b.writeln('#   2) Wipe -> Advanced Wipe -> Dalvik, Cache, System, Data');
+      b.writeln('#   ${step++}) Wipe -> Format Data (yes/erase encryption)');
+      b.writeln(
+        '#   ${step++}) Wipe -> Advanced Wipe -> Dalvik, Cache, System, Data',
+      );
     } else {
       b.writeln(
-        '#   1) (Optional) Wipe -> Dalvik / Cache to clear stale runtime data',
+        '#   ${step++}) (Optional) Wipe -> Dalvik / Cache to clear stale runtime data',
       );
     }
-    b.writeln('#   2) Reboot to recovery again if asked');
-    b.writeln('#   3) Install -> rom.zip');
+    b.writeln('#   ${step++}) Reboot to recovery again if asked');
+    b.writeln('#   ${step++}) Install -> rom.zip');
     if (_wantsGapps) {
-      b.writeln('#   4) Install -> gapps.zip (do not reboot in between)');
+      b.writeln('#   ${step++}) Install -> gapps.zip (do not reboot in between)');
     }
     if (_wantsMagisk) {
       b.writeln(
-        '#   5) Install -> magisk.zip (last, so it patches the freshly-flashed boot image)',
+        '#   ${step++}) Install -> magisk.zip (last, so it patches the freshly-flashed boot image)',
       );
     }
-    b.writeln('#   6) Reboot system');
+    b.writeln('#   ${step++}) Reboot system');
     b.writeln();
     b.writeln('# 3. Alternative ADB sideload (if you prefer):');
     b.writeln('#    adb sideload rom.zip');
@@ -383,9 +398,13 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
     final List<CatalogEntry> roms = _brand == null || _codename == null
         ? repo.roms
         : repo.romsForCodename(_brand!, _codename!);
-    final List<CatalogEntry> recs = _brand == null || _codename == null
-        ? repo.recoveries
-        : repo.recoveriesForCodename(_brand!, _codename!);
+    // GSI mode has no codename, so scope recoveries to the brand rather than
+    // listing every recovery in the catalog.
+    final List<CatalogEntry> recs = _gsiMode
+        ? (_brand == null ? repo.recoveries : _recoveriesForBrand(_brand!))
+        : (_brand == null || _codename == null
+            ? repo.recoveries
+            : repo.recoveriesForCodename(_brand!, _codename!));
     final bool ready = _gsiMode
         ? (_brand != null)
         : (_brand != null &&
@@ -666,20 +685,18 @@ class _FlashGuideWarningDialogState extends State<_FlashGuideWarningDialog> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'This generator only gives you a starting-point script, and '
-            'flashing the wrong file can brick a device. The Guide walks '
-            'through the whole process in more detail and is the safer, more '
-            'suitable place to start.',
+            'This only generates a starting-point script, and flashing the '
+            'wrong file can brick a device. The Guide covers the full process '
+            'in more detail and is the safer place to start.',
             style: text.bodyMedium,
           ),
           const SizedBox(height: 12),
           Text(
-            'This feature is new and needs testers. If a step is off for your '
-            'device or anything does not work, please open a GitHub issue so '
-            'it can be fixed.',
+            'This feature is new and needs testers. If a step is wrong for '
+            'your device, please open a GitHub issue so it can be fixed.',
             style: text.bodyMedium,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 4),
           CheckboxListTile(
             value: _dontShowAgain,
             onChanged: (bool? v) =>
@@ -695,7 +712,7 @@ class _FlashGuideWarningDialogState extends State<_FlashGuideWarningDialog> {
         TextButton.icon(
           onPressed: () => _pop(_FlashGuideAction.reportIssue),
           icon: const Icon(Icons.bug_report_outlined, size: 18),
-          label: const Text('Report an issue'),
+          label: const Text('Report issue'),
         ),
         TextButton(
           onPressed: () => _pop(_FlashGuideAction.dismiss),
