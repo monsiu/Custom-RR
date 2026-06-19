@@ -1248,6 +1248,8 @@ class _BrandGroup extends StatelessWidget {
           : CircleAvatar(
               backgroundColor: scheme.surfaceContainerHighest,
               foregroundImage: AssetImage(brandEntry.imageAsset),
+              onForegroundImageError: (Object _, StackTrace? __) {},
+              child: const Icon(Icons.smartphone_outlined, size: 18),
             ),
       title: Text(brand),
       subtitle: Text(
