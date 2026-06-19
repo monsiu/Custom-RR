@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'app.dart';
 import 'data/catalog_repository.dart';
 import 'data/freshness_repository.dart';
+import 'data/selected_device_controller.dart';
 import 'data/update_notifier.dart';
 import 'data/wishlist_repository.dart';
 import 'theme_controller.dart';
@@ -39,6 +40,7 @@ Future<void> main() async {
   // once the data lands. This shaves cold-start time on Linux/desktop.
   unawaited(FreshnessRepository.instance.load());
   unawaited(WishlistRepository.instance.load());
+  unawaited(SelectedDeviceController.instance.load());
   unawaited(DonationNudge.registerLaunch());
   unawaited(DonationNudge.loadHiddenState());
   UpdateNotifier.instance.start();

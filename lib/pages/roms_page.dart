@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
+import '../data/selected_device_controller.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/request_project.dart';
@@ -25,6 +26,7 @@ class CatalogPage extends StatefulWidget {
     this.defunct = const <DefunctEntry>[],
     this.entryKind = 'build',
     this.requestKind,
+    this.filterByDevice = false,
   });
 
   final String title;
@@ -49,6 +51,12 @@ class CatalogPage extends StatefulWidget {
   /// is a short label such as 'ROM' or 'recovery'. Left null (e.g. for Roots)
   /// to hide the footer entirely.
   final String? requestKind;
+
+  /// When true, the list is narrowed to entries that support the user's
+  /// selected device (see [SelectedDeviceController]). A dismissible banner
+  /// lets the user fall back to the full list. Off for catalogs without
+  /// per-device builds (e.g. Roots).
+  final bool filterByDevice;
 
   @override
   State<CatalogPage> createState() => _CatalogPageState();
@@ -87,8 +95,27 @@ class _CatalogPageState extends State<CatalogPage> {
   String _query = '';
   _SortMode _sort = _SortMode.defaultOrder;
 
+  /// When true, the device filter is temporarily ignored on this page so the
+  /// user can browse every build without forgetting their selected device.
+  bool _ignoreDeviceFilter = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.filterByDevice) {
+      SelectedDeviceController.instance.addListener(_onDeviceChanged);
+    }
+  }
+
+  void _onDeviceChanged() {
+    if (mounted) setState(() {});
+  }
+
   @override
   void dispose() {
+    if (widget.filterByDevice) {
+      SelectedDeviceController.instance.removeListener(_onDeviceChanged);
+    }
     _controller.dispose();
     super.dispose();
   }
@@ -110,10 +137,26 @@ class _CatalogPageState extends State<CatalogPage> {
 
   @override
   Widget build(BuildContext context) {
+    final SelectedDeviceController dev = SelectedDeviceController.instance;
+    final bool deviceFilterActive =
+        widget.filterByDevice && dev.hasSelection && !_ignoreDeviceFilter;
+    // Narrow to entries that list the selected (brand, codename) before any
+    // search or sort is applied.
+    final List<CatalogEntry> baseEntries = deviceFilterActive
+        ? widget.entries
+            .where(
+              (CatalogEntry e) => e.devices.any(
+                (DeviceRef d) =>
+                    d.brand == dev.brand && d.codename == dev.codename,
+              ),
+            )
+            .toList(growable: false)
+        : widget.entries;
+
     final String q = _query.trim().toLowerCase();
     List<CatalogEntry> visible = q.isEmpty
-        ? List<CatalogEntry>.from(widget.entries)
-        : widget.entries
+        ? List<CatalogEntry>.from(baseEntries)
+        : baseEntries
             .where((CatalogEntry e) => _matches(e, q))
             .toList(growable: false);
     switch (_sort) {
@@ -161,6 +204,14 @@ class _CatalogPageState extends State<CatalogPage> {
       selectedRoute: widget.selectedRoute,
       body: Column(
         children: <Widget>[
+          if (widget.filterByDevice && dev.hasSelection)
+            _DeviceFilterBanner(
+              label: dev.label,
+              active: deviceFilterActive,
+              onShowAll: () => setState(() => _ignoreDeviceFilter = true),
+              onApply: () => setState(() => _ignoreDeviceFilter = false),
+              onChange: () => context.push(AppRoutes.findPhone),
+            ),
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
             child: Row(
@@ -236,15 +287,50 @@ class _CatalogPageState extends State<CatalogPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Text(
-                          'No ${widget.title.toLowerCase()} match "$_query".',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium
-                              ?.copyWith(color: scheme.onSurfaceVariant),
-                          textAlign: TextAlign.center,
-                        ),
-                        if (widget.requestKind != null)
+                        if (deviceFilterActive && q.isEmpty) ...<Widget>[
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24),
+                            child: Text(
+                              'No catalogued '
+                              '${widget.entryKind == 'recovery' ? 'recovery' : 'ROM'}'
+                              ' lists ${dev.label} as supported.',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: scheme.onSurfaceVariant),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
+                            alignment: WrapAlignment.center,
+                            children: <Widget>[
+                              FilledButton.tonalIcon(
+                                icon: const Icon(Icons.clear_all),
+                                label: const Text('Show all'),
+                                onPressed: () =>
+                                    setState(() => _ignoreDeviceFilter = true),
+                              ),
+                              OutlinedButton.icon(
+                                icon: const Icon(Icons.smartphone_outlined),
+                                label: const Text('Pick a different device'),
+                                onPressed: () =>
+                                    context.push(AppRoutes.findPhone),
+                              ),
+                            ],
+                          ),
+                        ] else
+                          Text(
+                            'No ${widget.title.toLowerCase()} match "$_query".',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(color: scheme.onSurfaceVariant),
+                            textAlign: TextAlign.center,
+                          ),
+                        if (widget.requestKind != null && !deviceFilterActive)
                           _RequestProjectFooter(kind: widget.requestKind!),
                       ],
                     ),
@@ -346,6 +432,70 @@ class _CatalogPageState extends State<CatalogPage> {
         precacheImage(AssetImage(entry.headerAsset), context);
         context.push(widget.detailPathBuilder(entry.id));
       },
+    );
+  }
+}
+
+/// Dismissible banner shown above the ROMs/Recoveries list when a device is
+/// selected. Explains the active filter and offers escape hatches: browse
+/// everything ("Show all") or switch device ("Change"). When the filter has
+/// been turned off for this page it flips to an affordance to re-apply it.
+class _DeviceFilterBanner extends StatelessWidget {
+  const _DeviceFilterBanner({
+    required this.label,
+    required this.active,
+    required this.onShowAll,
+    required this.onApply,
+    required this.onChange,
+  });
+
+  final String label;
+  final bool active;
+  final VoidCallback onShowAll;
+  final VoidCallback onApply;
+  final VoidCallback onChange;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Container(
+      width: double.infinity,
+      color: scheme.secondaryContainer,
+      padding: const EdgeInsets.fromLTRB(16, 10, 8, 10),
+      child: Row(
+        children: <Widget>[
+          Icon(
+            active ? Icons.filter_alt : Icons.filter_alt_off,
+            size: 18,
+            color: scheme.onSecondaryContainer,
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              active ? 'Showing builds for $label' : 'Showing all builds',
+              style: text.bodyMedium?.copyWith(
+                color: scheme.onSecondaryContainer,
+              ),
+            ),
+          ),
+          if (active) ...<Widget>[
+            TextButton(
+              onPressed: onChange,
+              child: const Text('Change'),
+            ),
+            TextButton(
+              onPressed: onShowAll,
+              child: const Text('Show all'),
+            ),
+          ] else
+            TextButton.icon(
+              onPressed: onApply,
+              icon: const Icon(Icons.filter_alt, size: 16),
+              label: const Text('Filter'),
+            ),
+        ],
+      ),
     );
   }
 }
@@ -861,6 +1011,7 @@ class RomsPage extends StatelessWidget {
       defunct: _defunct,
       entryKind: 'custom ROM',
       requestKind: 'ROM',
+      filterByDevice: true,
     );
   }
 }
