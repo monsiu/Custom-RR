@@ -5,6 +5,7 @@ import '../data/catalog_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../widgets/brand_image.dart';
 import '../widgets/home_on_back.dart';
 import '../widgets/treble_hint.dart';
 
@@ -42,10 +43,8 @@ class DevicePage extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(40, 40 + topInset, 40, 40),
                   child: Hero(
                     tag: 'device-${device.slug}',
-                    child: Image.asset(
-                      device.imageAsset,
-                      fit: BoxFit.contain,
-                      filterQuality: FilterQuality.medium,
+                    child: BrandImage(
+                      asset: device.imageAsset,
                       semanticLabel: device.name,
                     ),
                   ),

@@ -8,6 +8,7 @@ import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../widgets/brand_image.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/home_on_back.dart';
 import '../widgets/select_device_button.dart';
@@ -94,10 +95,8 @@ class DeviceModelPage extends StatelessWidget {
                                   )
                                 : Padding(
                                     padding: const EdgeInsets.all(12),
-                                    child: Image.asset(
-                                      brandEntry.imageAsset,
-                                      fit: BoxFit.contain,
-                                      filterQuality: FilterQuality.medium,
+                                    child: BrandImage(
+                                      asset: brandEntry.imageAsset,
                                     ),
                                   ),
                   ),
