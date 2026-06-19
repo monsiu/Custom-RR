@@ -207,40 +207,38 @@ class _StarredDeviceCard extends StatelessWidget {
               ),
             ],
             const SizedBox(height: 12),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: OutlinedButton.icon(
-                    icon: const Icon(Icons.list_alt),
-                    label: const Text('All compatibility'),
-                    onPressed: () => context.push(
-                      AppRoutes.deviceModelDetail(
-                        _slugFor(brand),
-                        codename,
-                      ),
-                    ),
-                  ),
+            OutlinedButton.icon(
+              icon: const Icon(Icons.list_alt),
+              label: const Text('All compatibility'),
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size.fromHeight(44),
+              ),
+              onPressed: () => context.push(
+                AppRoutes.deviceModelDetail(
+                  _slugFor(brand),
+                  codename,
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: FilledButton.tonalIcon(
-                    icon: const Icon(Icons.terminal),
-                    label: const Text('Flash script'),
-                    onPressed: () {
-                      final Uri uri = Uri(
-                        path: AppRoutes.flashScript,
-                        queryParameters: <String, String>{
-                          'brand': brand,
-                          'codename': codename,
-                          if (sortedRoms.isNotEmpty) 'rom': sortedRoms.first.id,
-                          if (recs.isNotEmpty) 'recovery': recs.first.id,
-                        },
-                      );
-                      context.push(uri.toString());
-                    },
-                  ),
-                ),
-              ],
+              ),
+            ),
+            const SizedBox(height: 8),
+            FilledButton.tonalIcon(
+              icon: const Icon(Icons.terminal),
+              label: const Text('Flash script'),
+              style: FilledButton.styleFrom(
+                minimumSize: const Size.fromHeight(44),
+              ),
+              onPressed: () {
+                final Uri uri = Uri(
+                  path: AppRoutes.flashScript,
+                  queryParameters: <String, String>{
+                    'brand': brand,
+                    'codename': codename,
+                    if (sortedRoms.isNotEmpty) 'rom': sortedRoms.first.id,
+                    if (recs.isNotEmpty) 'recovery': recs.first.id,
+                  },
+                );
+                context.push(uri.toString());
+              },
             ),
           ],
         ),
