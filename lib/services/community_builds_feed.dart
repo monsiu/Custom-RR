@@ -189,33 +189,34 @@ class CommunityBuildsFeed {
     }
   }
 
-  /// Fetches community builds that target a specific device [codename]
-  /// (e.g. `beryllium` for the Poco F1). Searches the API by codename, then
-  /// keeps only builds that genuinely reference it (the API search is fuzzy
-  /// and can return loosely-related uploads). Returns at most [limit] sorted
-  /// by downloads. Throws [CommunityBuildsException] only on a hard failure
-  /// with nothing cached.
-  Future<List<CommunityBuild>> fetchForDevice(
-    String codename, {
+  /// Fetches community builds that match a device [term] (a codename like
+  /// `beryllium`, or a vendor/brand like `Xiaomi`). Searches the API by the
+  /// term, then keeps only builds that genuinely reference it (the API search
+  /// is fuzzy and can return loosely-related uploads). Returns at most [limit]
+  /// sorted by downloads. Throws [CommunityBuildsException] only on a hard
+  /// failure with nothing cached.
+  Future<List<CommunityBuild>> fetchMatching(
+    String term, {
     int limit = 8,
     bool force = false,
   }) async {
-    final String cn = codename.trim();
-    if (cn.isEmpty) return const <CommunityBuild>[];
+    final String t = term.trim();
+    if (t.isEmpty) return const <CommunityBuild>[];
     final CommunityBuildsResult res = await fetch(
-      search: cn,
+      search: t,
       pageSize: 30,
       force: force,
     );
     final List<CommunityBuild> matched = res.builds
-        .where((CommunityBuild b) => buildMatchesCodename(b, cn))
+        .where((CommunityBuild b) => buildMatchesCodename(b, t))
         .toList();
     return matched.length > limit ? matched.sublist(0, limit) : matched;
   }
 
-  /// Whether [build] genuinely targets device [codename], used to tighten the
-  /// API's fuzzy search. Matches when the codename appears as an exact device
-  /// tag, or as a whole word in the name or summary.
+  /// Whether [build] genuinely references device [codename] (a codename or a
+  /// vendor/brand token), used to tighten the API's fuzzy search. Matches when
+  /// the token appears as an exact device tag, or as a whole word in the name
+  /// or summary.
   ///
   /// Visible for testing.
   @visibleForTesting
