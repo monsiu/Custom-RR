@@ -7,8 +7,10 @@ import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
+import '../services/community_builds_feed.dart';
 import '../util/breakpoints.dart';
 import '../widgets/brand_image.dart';
+import '../widgets/community_build_card.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/home_on_back.dart';
 import '../widgets/select_device_button.dart';
@@ -212,6 +214,12 @@ class DeviceModelPage extends StatelessWidget {
                         onTap: (CatalogEntry e) =>
                             context.push(AppRoutes.recoveryDetail(e.id)),
                       ),
+                      const SizedBox(height: 32),
+                      _DeviceCommunityBuilds(
+                        brand: brand,
+                        codename: codename,
+                        modelLabel: modelLabel,
+                      ),
                     ],
                   ),
                 ),
@@ -298,6 +306,135 @@ class _ModelSection extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+/// Unofficial, community-uploaded builds that target this exact device,
+/// fetched live from the OpenDesktop "Phone ROMS" community. Rendered below
+/// the catalogued ROMs/recoveries with a clear "not vetted" disclaimer. The
+/// section hides itself entirely when there are no matches (or while loading),
+/// so devices with no community uploads stay clean.
+class _DeviceCommunityBuilds extends StatefulWidget {
+  const _DeviceCommunityBuilds({
+    required this.brand,
+    required this.codename,
+    required this.modelLabel,
+  });
+
+  final String brand;
+  final String codename;
+  final String modelLabel;
+
+  @override
+  State<_DeviceCommunityBuilds> createState() => _DeviceCommunityBuildsState();
+}
+
+class _DeviceCommunityBuildsState extends State<_DeviceCommunityBuilds> {
+  late Future<List<CommunityBuild>> _future;
+
+  @override
+  void initState() {
+    super.initState();
+    _future = CommunityBuildsFeed.instance.fetchForDevice(
+      widget.codename,
+      limit: 6,
+    );
+  }
+
+  Future<void> _open(String url) async {
+    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+    bool ok = false;
+    try {
+      ok = await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } catch (_) {
+      ok = false;
+    }
+    if (!ok) {
+      messenger.showSnackBar(
+        const SnackBar(content: Text('Could not open the link.')),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<CommunityBuild>>(
+      future: _future,
+      builder: (BuildContext context, AsyncSnapshot<List<CommunityBuild>> snap) {
+        final List<CommunityBuild> builds = snap.data ?? const <CommunityBuild>[];
+        // Stay invisible while loading and whenever there is nothing to show,
+        // so this secondary section never adds noise to a device page.
+        if (builds.isEmpty) return const SizedBox.shrink();
+
+        final ColorScheme scheme = Theme.of(context).colorScheme;
+        final TextTheme text = Theme.of(context).textTheme;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icon(Icons.science_outlined, color: scheme.onSurfaceVariant),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text('Unofficial community builds', style: text.titleLarge),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Card(
+              margin: EdgeInsets.zero,
+              elevation: 0,
+              color: scheme.errorContainer,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(14),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(
+                      Icons.warning_amber_rounded,
+                      color: scheme.onErrorContainer,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'These are unvetted, third-party uploads for '
+                        '${widget.codename}, not part of the Custom RR catalog '
+                        'and not reviewed by us. Flash at your own risk and '
+                        'confirm the build really matches your device. Links '
+                        'open on OpenDesktop.',
+                        style: text.bodyMedium?.copyWith(
+                          color: scheme.onErrorContainer,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            for (final CommunityBuild b in builds)
+              CommunityBuildCard(
+                item: b,
+                onOpen: () => _open(b.detailPage),
+              ),
+            const SizedBox(height: 4),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => context.push(
+                  '${AppRoutes.communityBuilds}?q=${Uri.encodeQueryComponent(widget.codename)}',
+                ),
+                icon: const Icon(Icons.travel_explore, size: 18),
+                label: Text('Browse all builds for ${widget.codename}'),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

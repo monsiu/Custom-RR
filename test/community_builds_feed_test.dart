@@ -339,4 +339,88 @@ void main() {
       expect(res.builds.single.deviceTags, <String>['redmi', 'lavender']);
     });
   });
+
+  group('buildMatchesCodename', () {
+    CommunityBuild make({
+      String name = '',
+      String summary = '',
+      List<String> tags = const <String>[],
+    }) {
+      return CommunityBuild(
+        id: 1,
+        name: name,
+        maintainer: '',
+        summary: summary,
+        downloads: 0,
+        score: 0,
+        updated: DateTime.utc(2026),
+        detailPage: '',
+        deviceTags: tags,
+      );
+    }
+
+    test('matches when codename is an exact device tag', () {
+      expect(
+        CommunityBuildsFeed.buildMatchesCodename(
+          make(name: 'NusantaraROM', tags: <String>['redmi', 'whyred']),
+          'whyred',
+        ),
+        isTrue,
+      );
+    });
+
+    test('matches a whole word in the name or summary', () {
+      expect(
+        CommunityBuildsFeed.buildMatchesCodename(
+          make(name: 'Corvus OS for Poco F1 (beryllium)'),
+          'beryllium',
+        ),
+        isTrue,
+      );
+      expect(
+        CommunityBuildsFeed.buildMatchesCodename(
+          make(summary: 'Built for lavender devices'),
+          'lavender',
+        ),
+        isTrue,
+      );
+    });
+
+    test('is case-insensitive', () {
+      expect(
+        CommunityBuildsFeed.buildMatchesCodename(
+          make(name: 'ROM for BERYLLIUM'),
+          'beryllium',
+        ),
+        isTrue,
+      );
+    });
+
+    test('does not match a codename embedded in a larger token', () {
+      expect(
+        CommunityBuildsFeed.buildMatchesCodename(
+          make(name: 'Some whyreduxx build'),
+          'whyred',
+        ),
+        isFalse,
+      );
+    });
+
+    test('does not match an unrelated build', () {
+      expect(
+        CommunityBuildsFeed.buildMatchesCodename(
+          make(name: 'Pixel ROM', tags: <String>['oriole']),
+          'beryllium',
+        ),
+        isFalse,
+      );
+    });
+
+    test('empty codename never matches', () {
+      expect(
+        CommunityBuildsFeed.buildMatchesCodename(make(name: 'anything'), ''),
+        isFalse,
+      );
+    });
+  });
 }

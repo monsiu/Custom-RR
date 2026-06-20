@@ -1,19 +1,22 @@
 import 'dart:async';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
 import '../services/community_builds_feed.dart';
 import '../widgets/app_shell.dart';
-import '../widgets/shimmer_box.dart';
+import '../widgets/community_build_card.dart';
 
 /// Live browser for the community ROM uploads on OpenDesktop's "Phone ROMS"
 /// category (Pling OCS API). These are unvetted, third-party builds shown
 /// behind a disclaimer and kept entirely separate from the curated catalog.
 class CommunityBuildsPage extends StatefulWidget {
-  const CommunityBuildsPage({super.key});
+  const CommunityBuildsPage({super.key, this.initialSearch = ''});
+
+  /// Optional initial search term, e.g. a device codename deep-linked from a
+  /// device page (`/community-builds?q=beryllium`).
+  final String initialSearch;
 
   @override
   State<CommunityBuildsPage> createState() => _CommunityBuildsPageState();
@@ -35,6 +38,8 @@ class _CommunityBuildsPageState extends State<CommunityBuildsPage> {
   @override
   void initState() {
     super.initState();
+    _query = widget.initialSearch.trim();
+    _searchController.text = _query;
     _scrollController.addListener(_onScroll);
     _loadFirstPage();
   }
@@ -124,6 +129,14 @@ class _CommunityBuildsPageState extends State<CommunityBuildsPage> {
   void _changeSort(CommunityBuildSort sort) {
     if (sort == _sort) return;
     setState(() => _sort = sort);
+    _loadFirstPage();
+  }
+
+  void _onDeviceChipTap(String tag) {
+    _debounce?.cancel();
+    _searchController.text = tag;
+    _query = tag;
+    if (_scrollController.hasClients) _scrollController.jumpTo(0);
     _loadFirstPage();
   }
 
@@ -258,9 +271,10 @@ class _CommunityBuildsPageState extends State<CommunityBuildsPage> {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       sliver: SliverList.builder(
         itemCount: _builds.length,
-        itemBuilder: (BuildContext context, int index) => _BuildCard(
+        itemBuilder: (BuildContext context, int index) => CommunityBuildCard(
           item: _builds[index],
           onOpen: () => _open(_builds[index].detailPage),
+          onDeviceTap: _onDeviceChipTap,
         ),
       ),
     );
@@ -333,169 +347,6 @@ class _DisclaimerCard extends StatelessWidget {
   }
 }
 
-class _BuildCard extends StatelessWidget {
-  const _BuildCard({required this.item, required this.onOpen});
-
-  final CommunityBuild item;
-  final VoidCallback onOpen;
-
-  @override
-  Widget build(BuildContext context) {
-    final ColorScheme scheme = Theme.of(context).colorScheme;
-    final TextTheme text = Theme.of(context).textTheme;
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onOpen,
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: SizedBox(
-                  width: 64,
-                  height: 64,
-                  child: item.previewImage == null
-                      ? _thumbFallback(scheme)
-                      : CachedNetworkImage(
-                          imageUrl: item.previewImage!,
-                          fit: BoxFit.cover,
-                          memCacheWidth: 192,
-                          placeholder: (_, __) => const ShimmerBox(),
-                          errorWidget: (_, __, ___) => _thumbFallback(scheme),
-                        ),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      item.name,
-                      style: text.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    if (item.maintainer.isNotEmpty)
-                      Text(
-                        'by ${item.maintainer}',
-                        style: text.bodySmall?.copyWith(
-                          color: scheme.onSurfaceVariant,
-                        ),
-                      ),
-                    if (item.summary.isNotEmpty) ...<Widget>[
-                      const SizedBox(height: 4),
-                      Text(
-                        item.summary,
-                        style: text.bodyMedium,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                    if (item.deviceTags.isNotEmpty) ...<Widget>[
-                      const SizedBox(height: 8),
-                      Wrap(
-                        spacing: 6,
-                        runSpacing: 6,
-                        children: <Widget>[
-                          for (final String tag in item.deviceTags)
-                            _DeviceChip(label: tag),
-                        ],
-                      ),
-                    ],
-                    const SizedBox(height: 8),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 4,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: <Widget>[
-                        _meta(
-                          context,
-                          Icons.download_rounded,
-                          _compactCount(item.downloads),
-                        ),
-                        if (item.score > 0)
-                          _meta(
-                            context,
-                            Icons.star_rounded,
-                            item.rating.toStringAsFixed(1),
-                          ),
-                        _meta(
-                          context,
-                          Icons.schedule,
-                          _relativeTime(item.updated),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 4),
-              Icon(Icons.open_in_new, size: 18, color: scheme.onSurfaceVariant),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _thumbFallback(ColorScheme scheme) {
-    return ColoredBox(
-      color: scheme.surfaceContainerHighest,
-      child: Icon(Icons.android, color: scheme.onSurfaceVariant),
-    );
-  }
-
-  Widget _meta(BuildContext context, IconData icon, String label) {
-    final ColorScheme scheme = Theme.of(context).colorScheme;
-    final TextTheme text = Theme.of(context).textTheme;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Icon(icon, size: 15, color: scheme.onSurfaceVariant),
-        const SizedBox(width: 4),
-        Text(
-          label,
-          style: text.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
-        ),
-      ],
-    );
-  }
-}
-
-/// Small pill showing a device codename or vendor parsed from a build's tags.
-class _DeviceChip extends StatelessWidget {
-  const _DeviceChip({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final ColorScheme scheme = Theme.of(context).colorScheme;
-    final TextTheme text = Theme.of(context).textTheme;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: scheme.secondaryContainer,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Text(
-        label,
-        style: text.labelSmall?.copyWith(
-          color: scheme.onSecondaryContainer,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    );
-  }
-}
-
 class _EmptyState extends StatelessWidget {
   const _EmptyState();
   @override
@@ -552,30 +403,4 @@ class _ErrorState extends StatelessWidget {
       ),
     );
   }
-}
-
-/// Formats a download count compactly, e.g. 238756 -> "238.8K".
-String _compactCount(int n) {
-  if (n >= 1000000) return '${(n / 1000000).toStringAsFixed(1)}M';
-  if (n >= 1000) return '${(n / 1000).toStringAsFixed(1)}K';
-  return '$n';
-}
-
-String _relativeTime(DateTime dt) {
-  final Duration diff = DateTime.now().toUtc().difference(dt);
-  if (diff.inDays >= 365) {
-    final int y = diff.inDays ~/ 365;
-    return '$y year${y == 1 ? '' : 's'} ago';
-  }
-  if (diff.inDays >= 30) {
-    final int mo = diff.inDays ~/ 30;
-    return '$mo month${mo == 1 ? '' : 's'} ago';
-  }
-  if (diff.inDays >= 1) {
-    return '${diff.inDays} day${diff.inDays == 1 ? '' : 's'} ago';
-  }
-  if (diff.inHours >= 1) {
-    return '${diff.inHours} hour${diff.inHours == 1 ? '' : 's'} ago';
-  }
-  return 'recently';
 }
