@@ -66,7 +66,7 @@ jobs:
       # announcement step is skipped.
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # Manual dispatch: the chosen ref. Release draft: the draft's tag
           # (which already exists in the tag-driven pipeline). Otherwise the

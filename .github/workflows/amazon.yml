@@ -54,7 +54,7 @@ jobs:
       # `if:`). When unset, every step below is skipped and the job is a no-op.
       AMAZON_CLIENT_ID: ${{ secrets.AMAZON_CLIENT_ID }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.ref || github.event.release.tag_name || github.ref }}
 

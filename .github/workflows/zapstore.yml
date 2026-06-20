@@ -54,7 +54,7 @@ jobs:
       # Check out the default branch so zapstore.yaml (repository + pubkey +
       # listing metadata) is always present, regardless of which tag/ref the
       # release points at.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.repository.default_branch }}
 
