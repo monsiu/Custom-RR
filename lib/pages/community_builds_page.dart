@@ -398,6 +398,17 @@ class _BuildCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ],
+                    if (item.deviceTags.isNotEmpty) ...<Widget>[
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: <Widget>[
+                          for (final String tag in item.deviceTags)
+                            _DeviceChip(label: tag),
+                        ],
+                      ),
+                    ],
                     const SizedBox(height: 8),
                     Wrap(
                       spacing: 12,
@@ -458,9 +469,35 @@ class _BuildCard extends StatelessWidget {
   }
 }
 
+/// Small pill showing a device codename or vendor parsed from a build's tags.
+class _DeviceChip extends StatelessWidget {
+  const _DeviceChip({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(
+        color: scheme.secondaryContainer,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: Text(
+        label,
+        style: text.labelSmall?.copyWith(
+          color: scheme.onSecondaryContainer,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+}
+
 class _EmptyState extends StatelessWidget {
   const _EmptyState();
-
   @override
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;

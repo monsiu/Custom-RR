@@ -19,20 +19,23 @@ void main() {
 
   group('parseResponse', () {
     test('maps the core fields of a ROM listing', () {
-      final String json = body(<Map<String, dynamic>>[
-        <String, dynamic>{
-          'id': 1422395,
-          'name': 'NusantaraROM - Lavender',
-          'personid': 'andrraarp',
-          'summary': 'NusantaraProject ROM for Redmi Note 7  (lavender)',
-          'downloads': '214233',
-          'score': 87,
-          'changed': '2023-05-16T02:15:50+00:00',
-          'detailpage': 'https://www.pling.com/p/1422395',
-          'previewpic1': 'https://images.pling.com/x.png',
-          'smallpreviewpic1': 'https://images.pling.com/small.png',
-        },
-      ], total: 3461);
+      final String json = body(
+        <Map<String, dynamic>>[
+          <String, dynamic>{
+            'id': 1422395,
+            'name': 'NusantaraROM - Lavender',
+            'personid': 'andrraarp',
+            'summary': 'NusantaraProject ROM for Redmi Note 7  (lavender)',
+            'downloads': '214233',
+            'score': 87,
+            'changed': '2023-05-16T02:15:50+00:00',
+            'detailpage': 'https://www.pling.com/p/1422395',
+            'previewpic1': 'https://images.pling.com/x.png',
+            'smallpreviewpic1': 'https://images.pling.com/small.png',
+          },
+        ],
+        total: 3461,
+      );
 
       final CommunityBuildsResult res = CommunityBuildsFeed.parseResponse(
         json,
@@ -119,9 +122,12 @@ void main() {
       expect(res.hasMore, isTrue);
 
       final CommunityBuildsResult last = CommunityBuildsFeed.parseResponse(
-        body(<Map<String, dynamic>>[
-          <String, dynamic>{'id': 1, 'name': 'A ROM'},
-        ], total: 10),
+        body(
+          <Map<String, dynamic>>[
+            <String, dynamic>{'id': 1, 'name': 'A ROM'},
+          ],
+          total: 10,
+        ),
         page: 0,
         pageSize: 20,
       );
@@ -157,6 +163,69 @@ void main() {
       expect(CommunityBuildSort.downloads.apiValue, 'down');
       expect(CommunityBuildSort.latest.apiValue, 'new');
       expect(CommunityBuildSort.rating.apiValue, 'high');
+    });
+  });
+
+  group('extractDeviceTags', () {
+    test('keeps device codenames and vendors, drops license/build noise', () {
+      // From a real listing: NusantaraROM - X00T.
+      final List<String> tags = CommunityBuildsFeed.extractDeviceTags(
+        'apache-license,nusantara,official,original-product,asus,x00t',
+        maintainer: 'andrraarp',
+      );
+      expect(tags, containsAll(<String>['asus', 'x00t']));
+      expect(tags, isNot(contains('apache-license')));
+      expect(tags, isNot(contains('official')));
+      expect(tags, isNot(contains('original-product')));
+    });
+
+    test('drops the maintainer username', () {
+      final List<String> tags = CommunityBuildsFeed.extractDeviceTags(
+        'sonicbsv,crdroid,xiaomi,asus,x00td,gplv2-later,markw',
+        maintainer: 'sonicbsv',
+      );
+      expect(tags, isNot(contains('sonicbsv')));
+      expect(tags, isNot(contains('gplv2-later')));
+      expect(tags, containsAll(<String>['xiaomi', 'asus', 'x00td', 'markw']));
+    });
+
+    test('returns empty when all tags are noise', () {
+      expect(
+        CommunityBuildsFeed.extractDeviceTags('apache-license,original-product'),
+        isEmpty,
+      );
+      expect(CommunityBuildsFeed.extractDeviceTags(''), isEmpty);
+    });
+
+    test('de-duplicates and caps at six', () {
+      final List<String> tags = CommunityBuildsFeed.extractDeviceTags(
+        'redmi,redmi,a,b,c,d,e,f,g',
+      );
+      expect(tags.length, 6);
+      expect(tags.where((String t) => t == 'redmi').length, 1);
+    });
+
+    test('parseResponse populates deviceTags', () {
+      final String json = jsonEncode(<String, dynamic>{
+        'totalitems': 1,
+        'data': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'id': 1,
+            'name': 'NusantaraROM - Whyred',
+            'personid': 'andrraarp',
+            'tags': 'apache-license,redmi,xiaomi,whyred,official',
+          },
+        ],
+      });
+      final CommunityBuildsResult res = CommunityBuildsFeed.parseResponse(
+        json,
+        page: 0,
+        pageSize: 20,
+      );
+      expect(
+        res.builds.single.deviceTags,
+        containsAll(<String>['redmi', 'xiaomi', 'whyred']),
+      );
     });
   });
 }
