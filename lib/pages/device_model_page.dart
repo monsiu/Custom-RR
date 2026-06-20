@@ -12,6 +12,7 @@ import '../widgets/brand_image.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/home_on_back.dart';
 import '../widgets/select_device_button.dart';
+import '../widgets/shimmer_box.dart';
 import '../widgets/star_button.dart';
 import '../widgets/xda_threads_section.dart';
 
@@ -75,16 +76,8 @@ class DeviceModelPage extends StatelessWidget {
                     fit: BoxFit.contain,
                     filterQuality: FilterQuality.medium,
                     fadeInDuration: const Duration(milliseconds: 200),
-                    placeholder: (BuildContext context, String url) => Center(
-                      child: SizedBox(
-                        width: 28,
-                        height: 28,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: scheme.primary,
-                        ),
-                      ),
-                    ),
+                    placeholder: (BuildContext context, String url) =>
+                        const ShimmerBox(),
                     errorWidget:
                         (BuildContext context, String url, Object error) =>
                             brandEntry == null

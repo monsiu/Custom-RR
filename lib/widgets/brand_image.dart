@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-/// Generic placeholder that ships in every build. Shown while a catalog logo
-/// loads and whenever it is unavailable (offline before first fetch, or not
-/// yet pushed to the repo).
+import 'shimmer_box.dart';
+
+/// Generic placeholder that ships in every build. Shown whenever a catalog
+/// logo is unavailable (offline before first fetch, or not yet pushed to the
+/// repo). While a logo is actively downloading a [ShimmerBox] is shown instead.
 const String kBrandFallbackAsset = 'images/branding.png';
 
 /// Base URL for repo-hosted images. Mirrors the remote catalog source in
@@ -19,9 +21,9 @@ const String kRemoteImageBase =
 /// folder and are loaded over the network via [CachedNetworkImage] (cached to
 /// disk after first load). Because both the catalog data and the artwork it
 /// points at are fetched from the repo, adding or correcting a logo only needs
-/// a push to the repo, not an app update. The bundled generic placeholder
-/// ([kBrandFallbackAsset]) shows while loading and when offline before the
-/// image has been cached.
+/// a push to the repo, not an app update. A [ShimmerBox] shows while the image
+/// downloads; the bundled generic placeholder ([kBrandFallbackAsset]) shows
+/// when offline before the image has been cached.
 class BrandImage extends StatelessWidget {
   const BrandImage({
     super.key,
@@ -51,7 +53,9 @@ class BrandImage extends StatelessWidget {
       filterQuality: FilterQuality.medium,
       memCacheWidth: cacheWidth,
       fadeInDuration: const Duration(milliseconds: 150),
-      placeholder: (BuildContext context, String _) => _fallback(context),
+      placeholder: (BuildContext context, String _) => const ShimmerBox(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
       errorWidget: (BuildContext context, String _, Object __) =>
           _fallback(context),
     );

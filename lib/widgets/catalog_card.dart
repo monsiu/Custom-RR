@@ -5,6 +5,7 @@ import '../models.dart';
 import '../util/xda_search.dart';
 import 'brand_image.dart';
 import 'freshness_badge.dart';
+import 'shimmer_box.dart';
 
 /// Placeholder text appended to XDA search queries so users immediately see
 /// what they need to replace with their own device model.
@@ -91,12 +92,7 @@ class _CatalogCardState extends State<CatalogCard> {
             fit: BoxFit.contain,
             filterQuality: FilterQuality.medium,
             memCacheWidth: 720,
-            placeholder: (BuildContext _, String __) => ColoredBox(
-              color: scheme.surfaceContainerHighest,
-              child: const Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
-            ),
+            placeholder: (BuildContext _, String __) => const ShimmerBox(),
             errorWidget: (BuildContext _, String __, Object ___) => ColoredBox(
               color: scheme.surfaceContainerHighest,
               child: const Icon(Icons.broken_image_outlined, size: 48),

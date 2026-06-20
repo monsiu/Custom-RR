@@ -17,6 +17,7 @@ import '../widgets/brand_image.dart';
 import '../widgets/catalog_card.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/home_on_back.dart';
+import '../widgets/shimmer_box.dart';
 import '../widgets/xda_threads_section.dart';
 import '../widgets/zoomable_image_viewer.dart';
 
@@ -660,12 +661,7 @@ class _ScreenshotsState extends State<_Screenshots> {
             filterQuality: FilterQuality.medium,
             memCacheWidth: cacheWidth,
             maxWidthDiskCache: cacheWidth,
-            placeholder: (BuildContext _, String __) => ColoredBox(
-              color: scheme.surfaceContainerHighest,
-              child: const Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
-            ),
+            placeholder: (BuildContext _, String __) => const ShimmerBox(),
             // Fall back to the entry's bundled hero instead of a
             // broken-image placeholder when a screenshot URL 404s.
             errorWidget:
