@@ -61,6 +61,10 @@ jobs:
       # contents to enable automatic upload. When empty the upload steps are
       # skipped and the bundle is only kept as a private artifact.
       PLAY_SA_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+      # Optional: a Discord channel webhook URL. When set (and the Play upload
+      # ran), a release announcement is posted to that channel. When empty the
+      # announcement step is skipped.
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -205,3 +209,66 @@ jobs:
             skip_upload_screenshots:true \
             skip_upload_changelogs:false \
             changes_not_sent_for_review:true
+      # Announce the release in a Discord channel via webhook. Gated on the
+      # DISCORD_WEBHOOK secret AND on PLAY_SA_JSON, so it only fires when a
+      # bundle was actually uploaded to Play. Create a webhook in your channel
+      # (Channel settings > Integrations > Webhooks > New Webhook > Copy URL)
+      # and add it as the DISCORD_WEBHOOK repo secret; without it this is a
+      # no-op. A failed post is a warning, never a build failure.
+      - name: Announce release on Discord
+        if: ${{ env.DISCORD_WEBHOOK != '' && env.PLAY_SA_JSON != '' }}
+        env:
+          PLAY_TRACK: ${{ vars.PLAY_TRACK || 'alpha' }}
+          VNAME: ${{ steps.appver.outputs.name }}
+          VCODE: ${{ steps.appver.outputs.code }}
+        run: |
+          set -uo pipefail
+          case "$PLAY_TRACK" in
+            internal)   label="internal testing" ;;
+            alpha)      label="closed testing" ;;
+            beta)       label="open testing" ;;
+            production) label="production" ;;
+            *)          label="$PLAY_TRACK" ;;
+          esac
+          notes_file="fastlane/metadata/android/en-US/changelogs/${VCODE}.txt"
+          if [ -f "$notes_file" ]; then
+            notes="$(cat "$notes_file")"
+          else
+            notes="A new version is rolling out. See the in-app changelog for what's new."
+          fi
+          testing_url="https://play.google.com/apps/testing/io.github.monsiu.custom_rr"
+          store_url="https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr"
+          if [ "$PLAY_TRACK" = "production" ]; then
+            link="$store_url"
+            cta="Update from the Play Store"
+          else
+            link="$testing_url"
+            cta="Testers: opt in / update on Google Play"
+          fi
+          # Build the JSON with jq (preinstalled on the runner) so newlines and
+          # quotes in the notes are escaped safely. Brand green = 0x7ED957.
+          payload="$(jq -n \
+            --arg title "Custom RR v${VNAME} is live on Google Play ($label)" \
+            --arg desc "$notes" \
+            --arg cta "$cta" \
+            --arg link "$link" \
+            --arg vc "versionCode ${VCODE}" \
+            '{
+              username: "Custom RR Releases",
+              embeds: [{
+                title: $title,
+                description: $desc,
+                url: $link,
+                color: 8313175,
+                fields: [{ name: "How to get it", value: "[\($cta)](\($link))" }],
+                footer: { text: $vc }
+              }]
+            }')"
+          code="$(curl -s -o /tmp/discord_resp -w '%{http_code}' \
+            -H 'Content-Type: application/json' \
+            -d "$payload" "$DISCORD_WEBHOOK")" || code="000"
+          echo "Discord responded HTTP $code"
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "::warning::Discord webhook returned HTTP $code (announcement not posted)"
+            cat /tmp/discord_resp 2>/dev/null || true
+          fi
