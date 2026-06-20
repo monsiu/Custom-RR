@@ -2,10 +2,10 @@
 
 ## Supported versions
 
-Custom RR is pre-1.0 and ships from a single active line. Only the latest
-release on the [Releases page](https://github.com/monsiu/Custom-RR/releases)
-receives security fixes. Please reproduce any issue on the newest version
-before reporting.
+Custom RR ships from a single active release line. Only the latest release on
+the [Releases page](https://github.com/monsiu/Custom-RR/releases) receives
+security fixes. Please reproduce any issue on the newest version before
+reporting.
 
 ## Reporting a vulnerability
 
@@ -18,7 +18,8 @@ Use one of these private channels instead:
 - **Email:** contactmonsiu@gmail.com with the subject `Custom RR security`.
 
 Include what you need to demonstrate the issue: affected version, platform
-(Android / Linux / Windows), steps to reproduce, and the impact you observed.
+(Android / Linux / Windows / macOS), steps to reproduce, and the impact you
+observed.
 
 ## What to expect
 
@@ -29,12 +30,17 @@ Include what you need to demonstrate the issue: affected version, platform
 
 ## Scope
 
-Custom RR is an offline-first catalog app: it bundles data, refreshes a JSON
-catalog from this GitHub repository, and opens official download links in your
-browser. It collects no analytics and runs no backend. The most relevant
-concerns are therefore things like the in-app update flow (GitHub builds),
-handling of catalog data fetched at launch, and deep-link parsing.
+Custom RR is a catalog app with no backend of its own and no analytics. It
+bundles a fallback catalog, refreshes a JSON catalog and freshness data from
+this GitHub repository, loads catalog images from a public CDN (jsDelivr), shows
+live community content fetched from third parties (community ROM uploads from
+OpenDesktop and project discussions), and opens official project and download
+links in your browser. The most relevant concerns are therefore things like the
+in-app update flow (GitHub builds only), handling of the catalog, image, and
+community data fetched at runtime, and deep-link parsing.
 
-Flashing custom ROMs, recoveries, GSIs, or root solutions is inherently risky
-and is done at your own discretion; problems caused by third-party firmware
-linked from the catalog are not vulnerabilities in Custom RR.
+Third-party content surfaced in the app (community builds, project pages, and
+download links) is shown as-is and is not vetted by Custom RR. Flashing custom
+ROMs, recoveries, GSIs, or root solutions is inherently risky and is done at
+your own discretion; problems caused by third-party firmware or uploads linked
+from the catalog are not vulnerabilities in Custom RR.
