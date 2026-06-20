@@ -1,0 +1,6 @@
+- Cəmiyyət versiyaları: OpenDesktop-dan minlərlə ROM-a axtarış və çeşidləmə ilə baxın.
+- Məxfilik və təhlükəsizliyi gücləndirilmiş AXP.OS (DivestOS-un davamçısı) əlavə edildi.
+- Flaş skript generatorunda yeni GSI / Treble rejimi.
+- Tam rəsmi TWRP cihaz siyahısı və daha çox brend logosu əlavə edildi.
+- ROM və bərpa vasitələrini seçdiyiniz cihaza görə süzün.
+- Loqolar artıq kataloqdan yüklənir və yenilənir, daha hamar şəkil yüklənməsi ilə.

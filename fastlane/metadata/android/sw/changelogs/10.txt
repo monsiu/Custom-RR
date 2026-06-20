@@ -1,0 +1,6 @@
+- Miundo ya jamii: vinjari maelfu ya ROM kutoka OpenDesktop kwa utafutaji na upangaji.
+- Imeongezwa AXP.OS, ROM iliyoimarishwa faragha na usalama (mrithi wa DivestOS).
+- Hali mpya ya GSI / Treble katika kitengeneza skripti za flash.
+- Imeongezwa orodha kamili rasmi ya vifaa vya TWRP na nembo zaidi za chapa.
+- Chuja ROM na recovery kulingana na kifaa ulichochagua.
+- Nembo sasa hupakiwa na kusasishwa kutoka katalogi, kwa upakiaji laini wa picha.

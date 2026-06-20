@@ -1,0 +1,6 @@
+- Versiuns da communitad: dasguard millis da ROM da OpenDesktop cun tschertgar e zavrar.
+- Agiuntà AXP.OS, ina ROM rinforzada per protecziun da datas e segirezza (successur da DivestOS).
+- Nov modus GSI / Treble en il generatur da scripts flash.
+- Agiuntà la glista uffiziala cumpletta d'apparats TWRP e dapli logos da marcas.
+- Filtrar ROM e recovery tenor tes apparat tschernì.
+- Ils logos vegnan ussa chargiads ed actualisads dal catalog, pli flot.

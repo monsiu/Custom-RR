@@ -1,0 +1,6 @@
+- Bendruomenės darymai: naršykite tūkstančius ROM iš OpenDesktop su paieška ir rūšiavimu.
+- Pridėta AXP.OS, privatumo ir saugumo požiūriu sustiprinta ROM (DivestOS įpėdinė).
+- Naujas GSI / Treble režimas flash skripto generatoriuje.
+- Pridėtas visas oficialus TWRP įrenginių sąrašas ir daugiau prekių ženklų logotipų.
+- Filtruokite ROM ir recovery pagal pasirinktą įrenginį.
+- Logotipai dabar įkeliami ir atnaujinami iš katalogo, sklandžiau įkeliant vaizdus.

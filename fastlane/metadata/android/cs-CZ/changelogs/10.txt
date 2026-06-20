@@ -1,0 +1,6 @@
+- Komunitní sestavení: procházejte tisíce ROM z OpenDesktopu s hledáním a řazením.
+- Přidán AXP.OS, ROM se zesíleným soukromím a zabezpečením (nástupce DivestOS).
+- Nový režim GSI / Treble v generátoru flash skriptů.
+- Přidán úplný oficiální seznam zařízení TWRP a další loga značek.
+- Filtrujte ROM a recovery podle vybraného zařízení.
+- Loga se nyní načítají a aktualizují z katalogu, s plynulejším načítáním obrázků.

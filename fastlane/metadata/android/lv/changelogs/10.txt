@@ -1,0 +1,6 @@
+- Kopienas būvējumi: pārlūkojiet tūkstošiem ROM no OpenDesktop ar meklēšanu un kārtošanu.
+- Pievienots AXP.OS, privātumam un drošībai nostiprināta ROM (DivestOS pēctece).
+- Jauns GSI / Treble režīms zibatmiņas skriptu ģeneratorā.
+- Pievienots pilns oficiālais TWRP ierīču saraksts un vairāk zīmolu logotipu.
+- Filtrējiet ROM un atkopšanas pēc izvēlētās ierīces.
+- Logotipi tagad tiek ielādēti un atjaunināti no kataloga, ar plūstošāku ielādi.

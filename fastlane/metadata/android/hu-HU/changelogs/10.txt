@@ -1,0 +1,6 @@
+- Közösségi build-ek: böngéssz több ezer ROM-ot az OpenDesktopról kereséssel és rendezéssel.
+- Új AXP.OS, adatvédelmi és biztonsági szempontból megerősített ROM (a DivestOS utódja).
+- Új GSI / Treble mód a flash-szkript generátorban.
+- Hozzáadtuk a teljes hivatalos TWRP eszközlistát és több márkalogót.
+- Szűrd a ROM-okat és recovery-ket a kiválasztott eszköz szerint.
+- A logók most a katalógusból töltődnek és frissülnek, simább képbetöltéssel.

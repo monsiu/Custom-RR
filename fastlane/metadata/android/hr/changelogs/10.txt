@@ -1,0 +1,6 @@
+- Zajednička izdanja: pregledajte tisuće ROM-ova s OpenDesktopa uz pretraživanje i razvrstavanje.
+- Dodan AXP.OS, ROM ojačan za privatnost i sigurnost (nasljednik DivestOS-a).
+- Novi GSI / Treble način u generatoru flash skripti.
+- Dodan potpuni službeni popis TWRP uređaja i više logotipa marki.
+- Filtrirajte ROM-ove i recovery prema odabranom uređaju.
+- Logotipi se sada učitavaju i ažuriraju iz kataloga, uz glatkije učitavanje slika.

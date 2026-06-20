@@ -1,0 +1,6 @@
+- Komunitatearen konpilazioak: arakatu OpenDesktop-eko milaka ROM bilaketa eta ordenarekin.
+- AXP.OS gehitu da, pribatutasun eta segurtasun sendotuko ROM bat (DivestOS-en oinordekoa).
+- GSI / Treble modu berria flash-script sortzailean.
+- TWRP gailuen zerrenda ofizial osoa eta marka-logotipo gehiago gehitu dira.
+- Iragazi ROMak eta berreskuratzeak hautatutako gailuaren arabera.
+- Logotipoak katalogotik kargatzen eta eguneratzen dira orain, irudi-karga leunagoarekin.
