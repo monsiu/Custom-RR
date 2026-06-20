@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-20T02:00:37.017578Z",
+  "_generatedAt": "2026-06-20T10:36:06.567672Z",
   "roms": [
     {
       "id": "lineage",
@@ -19815,6 +19815,182 @@
         {
           "label": "Website (Wayback)",
           "url": "https://web.archive.org/web/2024/https://divestos.org/",
+          "iconName": "web"
+        }
+      ]
+    },
+    {
+      "id": "axpos",
+      "name": "AXP.OS",
+      "headerAsset": "images/axpos.png",
+      "shortTagline": "Privacy and security hardened AOSP / LineageOS, the successor to DivestOS.",
+      "description": [
+        "AXP.OS (Advanced eXPerience OS) is a privacy and security focused mobile operating system based on AOSP and LineageOS, continuing the work of the discontinued DivestOS on its final code base.",
+        "It aims to keep older devices that no longer receive Android or kernel updates as secure as possible, closing the gaps it can on a best-effort basis with backported patches and a hardened kernel."
+      ],
+      "features": [
+        "Two flavors: Slim (maximum deblobbing, security and privacy) and Pro (pre-rooted, microG and Play Store ready, best usability).",
+        "Backported Android security bulletin and CVE kernel patches for long-unsupported devices.",
+        "GrapheneOS hardened malloc, SELinux enforced, signed builds with increased key sizes, and bootloader re-lock on supported devices.",
+        "Signed OTA updates, reproducible builds, and on-device testing before every release."
+      ],
+      "screenshots": [],
+      "devices": [
+        {
+          "brand": "Fairphone",
+          "model": "3",
+          "codename": "FP3",
+          "forumUrl": "https://xdaforums.com/f/fairphone-3-3.12787/?prefix_id=33"
+        },
+        {
+          "brand": "Fairphone",
+          "model": "3+",
+          "codename": "FP3",
+          "forumUrl": "https://xdaforums.com/f/fairphone-3-3.12787/?prefix_id=33"
+        },
+        {
+          "brand": "Fairphone",
+          "model": "4",
+          "codename": "FP4",
+          "forumUrl": "https://xdaforums.com/f/fairphone-4.12789/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 3",
+          "codename": "blueline"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 3a",
+          "codename": "sargo"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 4a",
+          "codename": "sunfish"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 6",
+          "codename": "oriole",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-6.12311/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 6a",
+          "codename": "bluejay",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-6a.12605/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7 Pro",
+          "codename": "cheetah",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7-pro.12609/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7a",
+          "codename": "lynx",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7a.12743/?prefix_id=33"
+        },
+        {
+          "brand": "LG",
+          "model": "G4 (International)",
+          "codename": "h815"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "5",
+          "codename": "cheeseburger"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "5T",
+          "codename": "dumpling"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "6",
+          "codename": "enchilada"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "6T",
+          "codename": "fajita"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "6T (T-Mobile)",
+          "codename": "fajita"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "7 Pro",
+          "codename": "guacamole"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "7 Pro (T-Mobile)",
+          "codename": "guacamole"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "7T",
+          "codename": "hotdogb"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "7T (T-Mobile)",
+          "codename": "hotdogb"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "7T Pro",
+          "codename": "hotdog"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "8 Pro",
+          "codename": "instantnoodlep"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "8T",
+          "codename": "kebab"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "8T (T-Mobile)",
+          "codename": "kebab"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S5 LTE (G900F/M/R4/R7/T/T3/V/W8)",
+          "codename": "klte"
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia 10",
+          "codename": "kirin"
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia XZ2 Compact",
+          "codename": "xz2c"
+        }
+      ],
+      "downloadLabel": "Supported devices",
+      "downloadUrl": "https://axpos.org/devices",
+      "forumUrl": "https://forum.xda-developers.com/search/?q=AXP.OS&o=date&c[content]=thread",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://axpos.org/",
+          "iconName": "web"
+        },
+        {
+          "label": "Documentation",
+          "url": "https://axpos.org/documentation",
           "iconName": "web"
         }
       ]

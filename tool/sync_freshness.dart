@@ -111,6 +111,11 @@ Future<void> main(List<String> args) async {
       version: 'DivestOS 22.1 (Android 15)',
       source: 'https://divestos.org/pages/devices',
     ),
+    'axpos': _Seed(
+      lastBuild: DateTime.utc(2026, 5, 27),
+      version: 'AXP.OS (Slim / Pro flavors)',
+      source: 'https://axpos.org/devices',
+    ),
     'derpfest': _Seed(
       lastBuild: DateTime.utc(2026, 5, 9),
       version: 'DerpFest 15 (Android 15)',

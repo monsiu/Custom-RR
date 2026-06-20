@@ -680,6 +680,39 @@ _Policy _policyFor(String romId) {
     case 'divestos':
       // Security-hardened LineageOS fork; ships builds for older devices too.
       return (_Device d) => d.type == 'phone' && _branchAtLeast(d, 17);
+    case 'axpos':
+      // AXP.OS (the successor to DivestOS) supports only a small, maintainer
+      // confirmed subset of LineageOS devices, with hand-written hardening per
+      // device. Pin to the explicit codename allowlist from axpos.org/devices
+      // instead of a vendor/year heuristic that would sweep in unsupported
+      // phones. Devices not present in the wiki pool simply do not appear.
+      const Set<String> axposCodenames = <String>{
+        'FP3', // Fairphone 3
+        'FP4', // Fairphone 4
+        'blueline', // Pixel 3
+        'sargo', // Pixel 3a
+        'sunfish', // Pixel 4a
+        'oriole', // Pixel 6
+        'bluejay', // Pixel 6a
+        'cheetah', // Pixel 7 Pro
+        'lynx', // Pixel 7a
+        'h812_usu', // LG G4
+        'h815', // LG G4
+        'cheeseburger', // OnePlus 5
+        'dumpling', // OnePlus 5T
+        'enchilada', // OnePlus 6
+        'fajita', // OnePlus 6T
+        'guacamole', // OnePlus 7 Pro
+        'hotdogb', // OnePlus 7T
+        'hotdog', // OnePlus 7T Pro
+        'instantnoodlep', // OnePlus 8 Pro
+        'kebab', // OnePlus 8T
+        'j5y17lte', // Galaxy J5 (2017)
+        'klte', // Galaxy S5
+        'kirin', // Sony Xperia 10
+        'xz2c', // Sony Xperia XZ2 Compact
+      };
+      return (_Device d) => axposCodenames.contains(d.codename);
     case 'derpfest':
       return (_Device d) =>
           d.type == 'phone' &&
@@ -1822,6 +1855,40 @@ List<Map<String, dynamic>> _buildRoms(
         _RomLink(
           label: 'Website (Wayback)',
           url: 'https://web.archive.org/web/2024/https://divestos.org/',
+          iconName: 'web',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'axpos',
+      name: 'AXP.OS',
+      headerAsset: 'images/axpos.png',
+      shortTagline:
+          'Privacy and security hardened AOSP / LineageOS, the successor to DivestOS.',
+      description: <String>[
+        'AXP.OS (Advanced eXPerience OS) is a privacy and security focused mobile operating system based on AOSP and LineageOS, continuing the work of the discontinued DivestOS on its final code base.',
+        'It aims to keep older devices that no longer receive Android or kernel updates as secure as possible, closing the gaps it can on a best-effort basis with backported patches and a hardened kernel.',
+      ],
+      features: <String>[
+        'Two flavors: Slim (maximum deblobbing, security and privacy) and Pro (pre-rooted, microG and Play Store ready, best usability).',
+        'Backported Android security bulletin and CVE kernel patches for long-unsupported devices.',
+        'GrapheneOS hardened malloc, SELinux enforced, signed builds with increased key sizes, and bootloader re-lock on supported devices.',
+        'Signed OTA updates, reproducible builds, and on-device testing before every release.',
+      ],
+      // AXP.OS is a docs-first project without a marketing screenshot
+      // gallery, so the detail page falls back to the project logo.
+      screenshots: <String>[],
+      downloadLabel: 'Supported devices',
+      downloadUrl: 'https://axpos.org/devices',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://axpos.org/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Documentation',
+          url: 'https://axpos.org/documentation',
           iconName: 'web',
         ),
       ],
