@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-06-20
+
 ### Added
 
 - **Community builds (OpenDesktop integration).** A new Community builds screen
