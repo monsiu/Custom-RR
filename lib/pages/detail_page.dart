@@ -73,11 +73,7 @@ class DetailPage extends StatelessWidget {
                     tag: heroTag,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(16, 16 + topInset, 16, 16),
-                      child: Image.asset(
-                        entry.headerAsset,
-                        fit: BoxFit.contain,
-                        filterQuality: FilterQuality.medium,
-                      ),
+                      child: BrandImage(asset: entry.headerAsset),
                     ),
                   ),
                   // Scrim so the AppBar title and back arrow remain legible
@@ -560,11 +556,7 @@ class _ScreenshotsState extends State<_Screenshots> {
             height: height,
             child: Padding(
               padding: const EdgeInsets.all(48),
-              child: Image.asset(
-                widget.fallbackAsset,
-                fit: BoxFit.contain,
-                filterQuality: FilterQuality.medium,
-              ),
+              child: BrandImage(asset: widget.fallbackAsset),
             ),
           ),
         ),
@@ -681,11 +673,7 @@ class _ScreenshotsState extends State<_Screenshots> {
               color: scheme.surfaceContainerHighest,
               child: Padding(
                 padding: const EdgeInsets.all(32),
-                child: Image.asset(
-                  widget.fallbackAsset,
-                  fit: BoxFit.contain,
-                  filterQuality: FilterQuality.medium,
-                ),
+                child: BrandImage(asset: widget.fallbackAsset),
               ),
             ),
           )
@@ -699,11 +687,7 @@ class _ScreenshotsState extends State<_Screenshots> {
               color: scheme.surfaceContainerHighest,
               child: Padding(
                 padding: const EdgeInsets.all(32),
-                child: Image.asset(
-                  widget.fallbackAsset,
-                  fit: BoxFit.contain,
-                  filterQuality: FilterQuality.medium,
-                ),
+                child: BrandImage(asset: widget.fallbackAsset),
               ),
             ),
           );

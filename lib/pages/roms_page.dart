@@ -426,12 +426,7 @@ class _CatalogPageState extends State<CatalogPage> {
       freshness: FreshnessRepository.instance.forId(entry.id),
       xdaSearchName: entry.name,
       xdaSearchKind: widget.entryKind,
-      onTap: () {
-        // Preload the full-size header so the detail page doesn't briefly
-        // show an empty hero target during the route transition.
-        precacheImage(AssetImage(entry.headerAsset), context);
-        context.push(widget.detailPathBuilder(entry.id));
-      },
+      onTap: () => context.push(widget.detailPathBuilder(entry.id)),
     );
   }
 }

@@ -7,6 +7,7 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/brand_image.dart';
 import '../widgets/device_suggestion.dart';
 import '../widgets/donation_nudge.dart';
 
@@ -421,14 +422,7 @@ class _SearchResults extends StatelessWidget {
                     color: scheme.surfaceContainerHighest,
                     child: Padding(
                       padding: const EdgeInsets.all(4),
-                      child: Image.asset(
-                        h.asset,
-                        fit: BoxFit.contain,
-                        filterQuality: FilterQuality.medium,
-                        errorBuilder:
-                            (BuildContext _, Object __, StackTrace? ___) =>
-                                Icon(h.icon),
-                      ),
+                      child: BrandImage(asset: h.asset),
                     ),
                   ),
                 ),

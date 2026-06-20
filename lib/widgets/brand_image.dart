@@ -1,55 +1,74 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-/// Generic placeholder that ships in every build. Used as the fallback when a
-/// brand's specific asset is unavailable.
+/// Generic placeholder that ships in every build. Shown while a catalog logo
+/// loads and whenever it is unavailable (offline before first fetch, or not
+/// yet pushed to the repo).
 const String kBrandFallbackAsset = 'images/branding.png';
 
-/// Renders a manufacturer's bundled brand image, gracefully falling back to
-/// the generic placeholder (and then a smartphone icon) if the asset is
-/// missing from the current build.
+/// Base URL for repo-hosted images. Mirrors the remote catalog source in
+/// [CatalogRepository] so logo artwork is served alongside the catalog data
+/// that references it.
+const String kRemoteImageBase =
+    'https://raw.githubusercontent.com/monsiu/Custom-RR/main/';
+
+/// Renders any catalog logo (a device/brand `imageAsset` or a ROM/recovery
+/// `headerAsset`) from the network, exactly like the catalog screenshots.
 ///
-/// Brand image paths come from the catalog, which is refreshed remotely. A
-/// newer remote catalog can therefore reference a brand asset that an older,
-/// not-yet-updated app bundle does not ship. Without a guard that renders a
-/// broken image; this keeps it tidy until the user updates the app.
+/// These images are NOT bundled in the app; they live in the repo's `images/`
+/// folder and are loaded over the network via [CachedNetworkImage] (cached to
+/// disk after first load). Because both the catalog data and the artwork it
+/// points at are fetched from the repo, adding or correcting a logo only needs
+/// a push to the repo, not an app update. The bundled generic placeholder
+/// ([kBrandFallbackAsset]) shows while loading and when offline before the
+/// image has been cached.
 class BrandImage extends StatelessWidget {
   const BrandImage({
     super.key,
     required this.asset,
     this.fit = BoxFit.contain,
     this.semanticLabel,
+    this.cacheWidth,
   });
 
+  /// Repo-relative image path from the catalog, e.g. `images/device_x.png`.
   final String asset;
   final BoxFit fit;
   final String? semanticLabel;
 
+  /// Optional decode width cap (logical px * DPR) to avoid decoding full-res
+  /// PNGs into the image cache on dense grids.
+  final int? cacheWidth;
+
   @override
   Widget build(BuildContext context) {
+    // The generic placeholder is bundled, so it never needs the network.
+    if (asset == kBrandFallbackAsset) return _fallback(context);
+
+    return CachedNetworkImage(
+      imageUrl: '$kRemoteImageBase$asset',
+      fit: fit,
+      filterQuality: FilterQuality.medium,
+      memCacheWidth: cacheWidth,
+      fadeInDuration: const Duration(milliseconds: 150),
+      placeholder: (BuildContext context, String _) => _fallback(context),
+      errorWidget: (BuildContext context, String _, Object __) =>
+          _fallback(context),
+    );
+  }
+
+  /// The generic placeholder (always bundled), then a neutral icon.
+  Widget _fallback(BuildContext context) {
     return Image.asset(
-      asset,
+      kBrandFallbackAsset,
       fit: fit,
       filterQuality: FilterQuality.medium,
       semanticLabel: semanticLabel,
-      errorBuilder: (BuildContext context, Object error, StackTrace? stack) {
-        if (asset == kBrandFallbackAsset) {
-          return Icon(
-            Icons.smartphone_outlined,
-            color: Theme.of(context).colorScheme.primary,
-          );
-        }
-        return Image.asset(
-          kBrandFallbackAsset,
-          fit: fit,
-          filterQuality: FilterQuality.medium,
-          semanticLabel: semanticLabel,
-          errorBuilder:
-              (BuildContext context, Object error, StackTrace? stack) => Icon(
-            Icons.smartphone_outlined,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        );
-      },
+      errorBuilder: (BuildContext context, Object error, StackTrace? stack) =>
+          Icon(
+        Icons.smartphone_outlined,
+        color: Theme.of(context).colorScheme.primary,
+      ),
     );
   }
 }

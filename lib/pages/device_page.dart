@@ -161,11 +161,7 @@ class _Section extends StatelessWidget {
                       color: scheme.surfaceContainerHighest,
                       child: Padding(
                         padding: const EdgeInsets.all(4),
-                        child: Image.asset(
-                          e.headerAsset,
-                          fit: BoxFit.contain,
-                          filterQuality: FilterQuality.medium,
-                        ),
+                        child: BrandImage(asset: e.headerAsset),
                       ),
                     ),
                   ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../models.dart';
 import '../util/xda_search.dart';
+import 'brand_image.dart';
 import 'freshness_badge.dart';
 
 /// Placeholder text appended to XDA search queries so users immediately see
@@ -77,10 +78,8 @@ class _CatalogCardState extends State<CatalogCard> {
     final TextTheme text = Theme.of(context).textTheme;
 
     final Widget rawImage = widget.assetImage != null
-        ? Image.asset(
-            widget.assetImage!,
-            fit: BoxFit.contain,
-            filterQuality: FilterQuality.medium,
+        ? BrandImage(
+            asset: widget.assetImage!,
             // Decode at roughly the displayed pixel size (cards top out
             // around ~300 logical px; 720 covers 2x DPR). This avoids
             // decoding full-resolution PNGs into the image cache, which

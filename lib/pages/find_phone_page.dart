@@ -8,6 +8,7 @@ import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../util/request_project.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/brand_image.dart';
 import '../widgets/device_suggestion.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/select_device_button.dart';
@@ -379,10 +380,7 @@ class _EntryRow extends StatelessWidget {
                     color: scheme.surfaceContainerHighest,
                     child: Padding(
                       padding: const EdgeInsets.all(3),
-                      child: Image.asset(
-                        entry.headerAsset,
-                        fit: BoxFit.contain,
-                      ),
+                      child: BrandImage(asset: entry.headerAsset),
                     ),
                   ),
                 ),
