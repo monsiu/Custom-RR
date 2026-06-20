@@ -13,6 +13,7 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../util/xda_search.dart';
+import '../widgets/brand_image.dart';
 import '../widgets/catalog_card.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/home_on_back.dart';
@@ -1245,11 +1246,16 @@ class _BrandGroup extends StatelessWidget {
               backgroundColor: scheme.surfaceContainerHighest,
               child: const Icon(Icons.smartphone_outlined, size: 18),
             )
-          : CircleAvatar(
-              backgroundColor: scheme.surfaceContainerHighest,
-              foregroundImage: AssetImage(brandEntry.imageAsset),
-              onForegroundImageError: (Object _, StackTrace? __) {},
-              child: const Icon(Icons.smartphone_outlined, size: 18),
+          : Container(
+              width: 40,
+              height: 40,
+              padding: const EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                color: scheme.surfaceContainerHighest,
+                shape: BoxShape.circle,
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: BrandImage(asset: brandEntry.imageAsset),
             ),
       title: Text(brand),
       subtitle: Text(
