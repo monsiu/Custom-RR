@@ -161,7 +161,7 @@ class _CommunityBuildsPageState extends State<CommunityBuildsPage> {
   @override
   Widget build(BuildContext context) {
     return AppShell(
-      title: 'Community builds',
+      title: 'Community ROMs',
       selectedRoute: AppRoutes.communityBuilds,
       body: Center(
         child: ConstrainedBox(
@@ -190,7 +190,7 @@ class _CommunityBuildsPageState extends State<CommunityBuildsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Community builds', style: text.headlineSmall),
+          Text('Community ROMs', style: text.headlineSmall),
           const SizedBox(height: 8),
           Text(
             'Live listings from the OpenDesktop "Phone ROMS" community, mostly '

@@ -494,7 +494,7 @@ class _CommunityBuildsCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Browse community builds',
+                      'Browse community ROMs',
                       style: text.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
