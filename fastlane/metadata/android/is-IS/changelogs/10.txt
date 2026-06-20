@@ -1,0 +1,6 @@
+- Samfélagsútgáfur: skoðaðu þúsundir ROM frá OpenDesktop með leit og röðun.
+- Bætt við AXP.OS, ROM með aukinni persónuvernd og öryggi (arftaki DivestOS).
+- Nýr GSI / Treble hamur í flash-skriftugerðinni.
+- Bætt við fullum opinberum TWRP tækjalista og fleiri vörumerkjamerkjum.
+- Síaðu ROM og recovery eftir völdu tæki.
+- Merki hlaðast nú og uppfærast úr safninu, með mýkri myndahleðslu.

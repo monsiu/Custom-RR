@@ -1,0 +1,6 @@
+- Yhteisön koonnit: selaa tuhansia ROM-latauksia OpenDesktopista haulla ja lajittelulla.
+- Lisätty AXP.OS, yksityisyyttä ja tietoturvaa vahvistettu ROM (DivestOSin seuraaja).
+- Uusi GSI / Treble -tila flash-skriptien generaattorissa.
+- Lisätty täydellinen virallinen TWRP-laiteluettelo ja lisää merkkilogoja.
+- Suodata ROMit ja recoveryt valitsemasi laitteen mukaan.
+- Logot ladataan ja päivitetään nyt luettelosta, sujuvammalla kuvien latauksella.

@@ -1,0 +1,6 @@
+- Communitybyggen: bläddra bland tusentals ROM-uppladdningar från OpenDesktop med sök och sortering.
+- Lade till AXP.OS, en integritets- och säkerhetshärdad ROM (efterföljaren till DivestOS).
+- Nytt GSI / Treble-läge i flash-skriptgeneratorn.
+- Lade till den fullständiga officiella TWRP-enhetslistan och fler varumärkesloggor.
+- Filtrera ROM och recovery efter din valda enhet.
+- Loggor laddas och uppdateras nu från katalogen, med jämnare bildladdning.

@@ -1,0 +1,6 @@
+- Gemeenskapbouwerke: blaai deur duisende ROM-oplaaie van OpenDesktop, met soek en sorteer.
+- AXP.OS bygevoeg, 'n privaatheid- en sekuriteitsgeharde ROM (opvolger van DivestOS).
+- Nuwe GSI / Treble-modus in die flits-skripgenerator.
+- Volledige amptelike TWRP-toestellys en meer handelsmerklogo's bygevoeg.
+- Filtreer ROM's en herstelware volgens jou gekose toestel.
+- Logo's laai en werk nou by vanaf die katalogus, met gladder beeldlaai.

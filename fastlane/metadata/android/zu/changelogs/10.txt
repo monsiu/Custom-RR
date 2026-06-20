@@ -1,0 +1,6 @@
+- Ukwakhiwa komphakathi: phequlula izinkulungwane ze-ROM ezivela ku-OpenDesktop ngosesho nokuhlunga.
+- Kungezwe i-AXP.OS, i-ROM eqiniswe ubumfihlo nokuvikeleka (ozolandela i-DivestOS).
+- Imodi entsha ye-GSI / Treble kumdali wescript se-flash.
+- Kungezwe uhlu olugcwele olusemthethweni lwamadivayisi e-TWRP namalogo amaningi ebhrendi.
+- Hlunga ama-ROM ne-recovery ngedivayisi oyikhethile.
+- Amalogo manje alayisha futhi abuyekezwe ekhethelogini, ngokulayisha izithombe okushelelayo.

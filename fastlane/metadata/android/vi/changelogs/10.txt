@@ -1,0 +1,6 @@
+- Bản dựng cộng đồng: duyệt hàng nghìn ROM từ OpenDesktop với tìm kiếm và sắp xếp.
+- Thêm AXP.OS, một ROM tăng cường quyền riêng tư và bảo mật (kế nhiệm DivestOS).
+- Chế độ GSI / Treble mới trong trình tạo tập lệnh flash.
+- Thêm danh sách thiết bị TWRP chính thức đầy đủ và nhiều logo thương hiệu hơn.
+- Lọc ROM và recovery theo thiết bị bạn đã chọn.
+- Logo nay được tải và cập nhật từ danh mục, với việc tải hình ảnh mượt hơn.

@@ -1,0 +1,6 @@
+- Ndërtime të komunitetit: shfletoni mijëra ROM nga OpenDesktop me kërkim dhe renditje.
+- U shtua AXP.OS, një ROM e forcuar për privatësi dhe siguri (pasardhësja e DivestOS).
+- Modalitet i ri GSI / Treble në gjeneratorin e skripteve të flash.
+- U shtua lista zyrtare e plotë e pajisjeve TWRP dhe më shumë logo markash.
+- Filtroni ROM dhe recovery sipas pajisjes së zgjedhur.
+- Logot tani ngarkohen dhe përditësohen nga katalogu, me ngarkim më të qetë.

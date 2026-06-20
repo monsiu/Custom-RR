@@ -1,0 +1,6 @@
+- Build komunitas: jelajahi ribuan unggahan ROM dari OpenDesktop dengan pencarian dan pengurutan.
+- Menambahkan AXP.OS, ROM dengan privasi dan keamanan yang diperkuat (penerus DivestOS).
+- Mode GSI / Treble baru di generator skrip flash.
+- Menambahkan daftar perangkat resmi TWRP lengkap dan lebih banyak logo merek.
+- Saring ROM dan recovery berdasarkan perangkat yang Anda pilih.
+- Logo kini dimuat dan diperbarui dari katalog, dengan pemuatan gambar lebih mulus.

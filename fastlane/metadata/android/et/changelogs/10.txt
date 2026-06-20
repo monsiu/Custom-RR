@@ -1,0 +1,6 @@
+- Kogukonna järgud: sirvi tuhandeid OpenDesktopi ROM-e otsingu ja sortimisega.
+- Lisatud AXP.OS, privaatsuse ja turvalisusega tugevdatud ROM (DivestOS-i järglane).
+- Uus GSI / Treble režiim välkkirja generaatoris.
+- Lisatud täielik ametlik TWRP seadmete loend ja rohkem brändilogosid.
+- Filtreeri ROM-e ja taasteid valitud seadme järgi.
+- Logod laaditakse ja uuendatakse nüüd kataloogist, sujuvama pildilaadimisega.

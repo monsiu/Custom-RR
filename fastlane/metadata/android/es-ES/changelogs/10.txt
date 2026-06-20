@@ -1,0 +1,6 @@
+- Compilaciones de la comunidad: explora miles de ROM de OpenDesktop con búsqueda y orden.
+- Se añadió AXP.OS, una ROM con privacidad y seguridad reforzadas (sucesora de DivestOS).
+- Nuevo modo GSI / Treble en el generador de scripts de flasheo.
+- Se añadió la lista oficial completa de dispositivos TWRP y más logotipos de marca.
+- Filtra ROM y recuperaciones según el dispositivo seleccionado.
+- Los logotipos ahora se cargan y actualizan desde el catálogo, con carga más fluida.

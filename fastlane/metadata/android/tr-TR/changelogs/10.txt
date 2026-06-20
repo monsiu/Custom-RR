@@ -1,0 +1,6 @@
+- Topluluk yapıları: OpenDesktop'tan binlerce ROM'u arama ve sıralamayla göz atın.
+- Gizlilik ve güvenliği güçlendirilmiş AXP.OS eklendi (DivestOS'un halefi).
+- Flash betiği oluşturucuda yeni GSI / Treble modu.
+- Tam resmi TWRP cihaz listesi ve daha fazla marka logosu eklendi.
+- ROM ve recovery'leri seçtiğiniz cihaza göre süzün.
+- Logolar artık katalogdan yüklenip güncelleniyor, daha akıcı görsel yüklemeyle.

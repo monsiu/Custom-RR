@@ -1,0 +1,6 @@
+- Community-builds: blader door duizenden ROM-uploads van OpenDesktop met zoeken en sorteren.
+- AXP.OS toegevoegd, een ROM met versterkte privacy en beveiliging (opvolger van DivestOS).
+- Nieuwe GSI / Treble-modus in de flash-scriptgenerator.
+- Volledige officiële TWRP-apparaatlijst en meer merklogo's toegevoegd.
+- Filter ROM's en recoveries op je gekozen apparaat.
+- Logo's worden nu uit de catalogus geladen en bijgewerkt, met soepeler laden.
