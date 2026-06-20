@@ -29,6 +29,7 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
   <a href="https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr"><img alt="Get it on the Amazon Appstore" src="https://img.shields.io/badge/Amazon_Appstore-Download-FF9900?style=for-the-badge&amp;logo=amazon&amp;logoColor=white"></a>
   <a href="#help-launch-custom-rr-on-google-play-become-a-tester"><img alt="Join the Google Play beta" src="https://img.shields.io/badge/Google_Play-Join_the_beta-414141?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white"></a>
   <a href="https://gitlab.com/fdroid/fdroiddata/-/merge_requests/39380"><img alt="F-Droid merge request in review" src="https://img.shields.io/badge/F--Droid-In_review-1976D2?style=for-the-badge&amp;logo=fdroid&amp;logoColor=white"></a>
+  <a href="#macos-desktop"><img alt="Help test on macOS" src="https://img.shields.io/badge/macOS-Help_test-000000?style=for-the-badge&amp;logo=apple&amp;logoColor=white"></a>
 </p>
 
 A single home for popular **custom ROMs** and **custom recoveries**, with direct links to the official builders, screenshots, freshness signals, and step-by-step flashing instructions. **18 actively maintained ROMs**, **5 recoveries**, **500+ devices**, all sourced live from the LineageOS wiki + the PixelOS `official_devices` repo and refreshed nightly.
