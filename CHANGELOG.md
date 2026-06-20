@@ -8,18 +8,19 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- **Community builds (OpenDesktop integration).** A new Community builds screen
+  brings in thousands of community ROM uploads from OpenDesktop's Phone ROMs
+  catalog, with search and sorting by downloads, newest, or rating. Each build
+  shows the device codenames it targets, and listings are clearly marked as
+  unvetted, third-party uploads that open on their original page.
+- **Community builds on device and brand pages.** Every device page now shows
+  the matching unofficial community builds for that exact model in their own
+  section, with a clear "not vetted" warning and a shortcut to browse them all.
+  Brand pages (for example Xiaomi) show the same section for the whole
+  manufacturer.
 - **AXP.OS added to the catalog.** Added AXP.OS, a privacy and security hardened
   AOSP / LineageOS ROM (the successor to DivestOS) with Slim and Pro flavors,
   covering Fairphone, Pixel, OnePlus, LG, Samsung, and Sony devices.
-- **Community builds browser.** A new Community builds screen lists thousands of
-  per-device ROM uploads shared by the wider community, with search and sorting
-  by downloads, newest, or rating. Listings are clearly marked as unvetted,
-  third-party uploads and open on their original page. Each build shows the
-  device codenames it targets where the uploader provided them.
-- **Community builds on device pages.** Each device page now shows matching
-  unofficial community builds for that exact model in their own section, with a
-  clear "not vetted" warning, plus a shortcut to browse every community build
-  for that device. Brand pages show the same section for that manufacturer.
 - **GSI / Treble mode in the flash script generator.** A new toggle generates a
   generic system image (GSI) flashing script for Treble devices, with the right
   steps for Samsung (Download mode, TWRP, then fastbootd) and other phones and
