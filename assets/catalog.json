@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-19T22:06:41.886206Z",
+  "_generatedAt": "2026-06-20T02:00:37.017578Z",
   "roms": [
     {
       "id": "lineage",
@@ -31009,7 +31009,7 @@
     },
     {
       "name": "Elephone",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_elephone.png"
     },
     {
       "name": "Ergo",
@@ -31057,7 +31057,7 @@
     },
     {
       "name": "Hyundai",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_hyundai.png"
     },
     {
       "name": "IUNI",
@@ -31117,11 +31117,11 @@
     },
     {
       "name": "Minix",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_minix.png"
     },
     {
       "name": "Mobvoi",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_mobvoi.png"
     },
     {
       "name": "Motorola",
@@ -31177,7 +31177,7 @@
     },
     {
       "name": "Planet",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_planet.png"
     },
     {
       "name": "Qualcomm",
@@ -31293,7 +31293,7 @@
     },
     {
       "name": "Zinwa",
-      "imageAsset": "images/branding.png"
+      "imageAsset": "images/device_zinwa.png"
     }
   ]
 }

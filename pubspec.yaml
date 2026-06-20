@@ -70,6 +70,7 @@ flutter:
     - images/device_cat.png
     - images/device_dell.png
     - images/device_dynalink.png
+    - images/device_elephone.png
     - images/device_essential.png
     - images/device_fairphone.png
     - images/device_fxtec.png
@@ -78,6 +79,7 @@ flutter:
     - images/device_hp.png
     - images/device_htc.png
     - images/device_huami.png
+    - images/device_hyundai.png
     - images/device_infinix.png
     - images/device_itel.png
     - images/device_kazam.png
@@ -89,6 +91,8 @@ flutter:
     - images/device_mattel.png
     - images/device_meizu.png
     - images/device_micromax.png
+    - images/device_minix.png
+    - images/device_mobvoi.png
     - images/device_nextbit.png
     - images/device_nintendo.png
     - images/device_nothing.png
@@ -98,6 +102,7 @@ flutter:
     - images/device_osom.png
     - images/device_oukitel.png
     - images/device_pantech.png
+    - images/device_planet.png
     - images/device_qualcomm.png
     - images/device_quanta.png
     - images/device_radxa.png
@@ -120,6 +125,7 @@ flutter:
     - images/device_yandex.png
     - images/device_yu.png
     - images/device_zte.png
+    - images/device_zinwa.png
     - images/device_zuk.png
     - images/divestos.png
     - images/dotos.png
