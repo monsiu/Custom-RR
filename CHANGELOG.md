@@ -6,6 +6,21 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **Easier Play beta sign-ups.** The Join the Play beta page now has a QR code
+  and copy / share buttons so you can invite others to test in one tap, and a
+  clear reminder that staying installed for about two weeks is what lets Custom
+  RR reach the public Play Store.
+- **Beta testers credit.** A new Beta testers section on the About page thanks
+  the people helping bring Custom RR to Google Play; their names are shown there
+  after launch.
+
+### Changed
+
+- Play beta testers now see a short thank-you on the home screen with a reminder
+  to keep the app installed while testing.
+
 ## [1.3.0] - 2026-06-20
 
 ### Added
