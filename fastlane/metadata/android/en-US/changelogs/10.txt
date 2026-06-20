@@ -1,0 +1,6 @@
+- Community builds: browse thousands of community ROM uploads from OpenDesktop, with search and sorting, plus matching builds shown on each device and brand page.
+- Added AXP.OS, a privacy and security hardened ROM (the successor to DivestOS).
+- New GSI / Treble mode in the flash script generator.
+- Added the full official TWRP device list and more brand logos.
+- Filter ROMs and recoveries by your selected device.
+- Logos now load and update from the catalog, with smoother image loading.
