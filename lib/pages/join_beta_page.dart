@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/beta_invite.dart';
@@ -29,6 +32,23 @@ class JoinBetaPage extends StatelessWidget {
 
   void _snack(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  Future<void> _copyOptInLink(BuildContext context) async {
+    await Clipboard.setData(const ClipboardData(text: kBetaOptInUrl));
+    if (context.mounted) {
+      _snack(context, 'Opt-in link copied to clipboard');
+    }
+  }
+
+  Future<void> _shareInvite() async {
+    await SharePlus.instance.share(
+      ShareParams(
+        text: 'Help bring Custom RR to the Google Play Store, become a free '
+            'tester (same app, faster updates): $kBetaOptInUrl',
+        subject: 'Test Custom RR on Google Play',
+      ),
+    );
   }
 
   @override
@@ -154,6 +174,13 @@ class JoinBetaPage extends StatelessWidget {
                           onAction: () => _open(context, kPlayStoreUrl),
                           isLast: true,
                         ),
+                        const SizedBox(height: 24),
+                        const _KeepInstalledCard(),
+                        const SizedBox(height: 16),
+                        _InviteCard(
+                          onCopy: () => _copyOptInLink(context),
+                          onShare: _shareInvite,
+                        ),
                         const SizedBox(height: 20),
                         Card(
                           margin: EdgeInsets.zero,
@@ -177,10 +204,7 @@ class JoinBetaPage extends StatelessWidget {
                                     'The Play version is the same release as '
                                     'every other channel, with the same catalog '
                                     'and features. The only difference is that '
-                                    'updates come through the Play Store. The '
-                                    'more testers who stay opted in, the sooner '
-                                    'Custom RR reaches the public Play Store. '
-                                    'Thank you!',
+                                    'updates come through the Play Store.',
                                     style: text.bodyMedium?.copyWith(
                                       color: scheme.onSurfaceVariant,
                                     ),
@@ -195,6 +219,139 @@ class JoinBetaPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Prominent reminder that staying installed for ~2 weeks is what unlocks the
+/// public launch, the most common reason closed tests stall.
+class _KeepInstalledCard extends StatelessWidget {
+  const _KeepInstalledCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Card(
+      margin: EdgeInsets.zero,
+      elevation: 0,
+      color: scheme.secondaryContainer,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Icon(
+              Icons.event_available_outlined,
+              color: scheme.onSecondaryContainer,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Please keep it installed for about two weeks',
+                    style: text.titleMedium?.copyWith(
+                      color: scheme.onSecondaryContainer,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Google only lets the app go public once enough testers '
+                    'stay opted in for 14 days in a row. Uninstalling early '
+                    'resets that countdown, so simply keeping Custom RR '
+                    'installed is the single most helpful thing you can do.',
+                    style: text.bodyMedium?.copyWith(
+                      color: scheme.onSecondaryContainer,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A QR code (and copy / share buttons) for the opt-in page, so an existing
+/// tester can recruit others: show the code for someone to scan, or share the
+/// link directly.
+class _InviteCard extends StatelessWidget {
+  const _InviteCard({required this.onCopy, required this.onShare});
+
+  final VoidCallback onCopy;
+  final VoidCallback onShare;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Card(
+      margin: EdgeInsets.zero,
+      elevation: 0,
+      color: scheme.surfaceContainerHighest,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Invite others to test',
+              style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Every extra tester gets Custom RR to the public Play Store '
+              'sooner. Let someone scan this code to open the opt-in page, or '
+              'share the link.',
+              style: text.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: QrImageView(
+                  data: kBetaOptInUrl,
+                  version: QrVersions.auto,
+                  size: 180,
+                  backgroundColor: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: <Widget>[
+                OutlinedButton.icon(
+                  onPressed: onCopy,
+                  icon: const Icon(Icons.link, size: 18),
+                  label: const Text('Copy link'),
+                ),
+                FilledButton.tonalIcon(
+                  onPressed: onShare,
+                  icon: const Icon(Icons.ios_share, size: 18),
+                  label: const Text('Share invite'),
+                ),
+              ],
             ),
           ],
         ),

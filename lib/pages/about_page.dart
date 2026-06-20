@@ -254,6 +254,64 @@ class _AboutPageState extends State<AboutPage> {
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => context.go(AppRoutes.privacy),
               ),
+              const SizedBox(height: 24),
+              Text('Beta testers', style: text.titleLarge),
+              const SizedBox(height: 8),
+              if (kPublicLaunchDone && kBetaTesters.isNotEmpty) ...<Widget>[
+                Text(
+                  'Custom RR reached the Play Store thanks to the people who '
+                  'tested the closed beta. Thank you.',
+                  style: text.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: <Widget>[
+                    for (final String name in kBetaTesters)
+                      Chip(
+                        avatar: const Icon(Icons.person_outline, size: 18),
+                        label: Text(name),
+                      ),
+                  ],
+                ),
+              ] else
+                Card(
+                  margin: EdgeInsets.zero,
+                  elevation: 0,
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Icon(
+                          Icons.volunteer_activism_outlined,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            'Helping test the Google Play closed beta? The '
+                            'testers who get Custom RR to the public Play Store '
+                            'will be credited here after launch. Thank you for '
+                            'helping it get there.',
+                            style: text.bodyMedium?.copyWith(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurfaceVariant,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               if (kDebugMode) ...<Widget>[
                 const SizedBox(height: 16),
                 OutlinedButton.icon(
