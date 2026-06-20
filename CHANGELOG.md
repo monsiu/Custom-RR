@@ -31,8 +31,8 @@ project uses [Semantic Versioning](https://semver.org/).
   real logo on the Devices grid instead of a generic placeholder.
 - **Filter by your selected device.** The ROMs and Recoveries lists can now be
   narrowed to just the entries that match the device you have selected.
-- **YouTube in About socials.** The Socials button in the About dialog now also
-  links to the project's YouTube channel.
+- **Socials in About.** The About page now has a Socials option that links to
+  the project's Twitter / X, Telegram, and YouTube.
 - **Join the Play beta from the app.** A new home-screen invite, plus a
   step-by-step "Join the beta" page, explain how to become a Google Play tester,
   get early builds, and help Custom RR reach the Play Store. The invite can be
