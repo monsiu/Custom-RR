@@ -12,6 +12,36 @@ project uses [Semantic Versioning](https://semver.org/).
   generic system image (GSI) flashing script for Treble devices, with the right
   steps for Samsung (Download mode, TWRP, then fastbootd) and other phones and
   tablets, instead of the recovery + ROM zip flow.
+- **Full official TWRP device list.** The TWRP recovery page now lists the
+  complete official TWRP device roster across dozens of brands, instead of an
+  approximated list.
+- **Brand logos on more device cards.** Many more device brands now show their
+  real logo on the Devices grid instead of a generic placeholder.
+- **Filter by your selected device.** The ROMs and Recoveries lists can now be
+  narrowed to just the entries that match the device you have selected.
+- **YouTube in About socials.** The Socials button in the About dialog now also
+  links to the project's YouTube channel.
+
+### Changed
+
+- **Brand and ROM logos load from the online catalog.** Logos are now fetched
+  from the project's online catalog and cached on your device, so new or
+  corrected logos appear without an app update, and the app is a smaller
+  download.
+- **Faster, more reliable logo loading.** Logos are delivered through a content
+  delivery network, so they load quicker and also reach networks that could not
+  load them before, and updated logos are picked up automatically.
+- **Smoother image loading.** A subtle shimmer placeholder now appears while
+  logos and screenshots load, in place of a spinner or blank space.
+
+### Fixed
+
+- **Brand logo display.** A placeholder phone icon no longer shows through
+  transparent brand logos on detail pages, and a missing logo now falls back
+  cleanly to the generic placeholder.
+- **Device chip layout.** Long device names no longer overflow their chips on
+  the detail and device pages.
+- **My Devices buttons.** Fixed cramped action buttons on the My Devices cards.
 
 ## [1.2.0] - 2026-06-16
 
