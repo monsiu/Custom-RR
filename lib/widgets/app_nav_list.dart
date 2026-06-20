@@ -164,6 +164,14 @@ class AppNavList extends StatelessWidget {
                 currentRoute: currentRoute,
                 onTap: () => _go(context, AppRoutes.community),
               ),
+              _NavTile(
+                icon: Icons.download_outlined,
+                selectedIcon: Icons.download,
+                label: 'Community builds',
+                route: AppRoutes.communityBuilds,
+                currentRoute: currentRoute,
+                onTap: () => _go(context, AppRoutes.communityBuilds),
+              ),
               const Divider(),
               ValueListenableBuilder<ThemeMode>(
                 valueListenable: ThemeController.instance,

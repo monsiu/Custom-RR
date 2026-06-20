@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'data/catalog_repository.dart';
 import 'models.dart';
 import 'pages/about_page.dart';
+import 'pages/community_builds_page.dart';
 import 'pages/community_page.dart';
 import 'pages/detail_page.dart';
 import 'pages/device_model_page.dart';
@@ -40,6 +41,7 @@ class AppRoutes {
   static const String instructions = '/instructions';
   static const String treble = '/treble';
   static const String community = '/community';
+  static const String communityBuilds = '/community-builds';
   static const String about = '/about';
   static const String privacy = '/privacy';
   static const String joinBeta = '/join-beta';
@@ -198,6 +200,11 @@ GoRouter buildRouter() {
                 path: 'community',
                 builder:
                     (BuildContext _, GoRouterState __) => const CommunityPage(),
+              ),
+              GoRoute(
+                path: 'community-builds',
+                builder: (BuildContext _, GoRouterState __) =>
+                    const CommunityBuildsPage(),
               ),
               GoRoute(
                 path: 'find-my-phone',
