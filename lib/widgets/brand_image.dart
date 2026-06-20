@@ -8,11 +8,24 @@ import 'shimmer_box.dart';
 /// repo). While a logo is actively downloading a [ShimmerBox] is shown instead.
 const String kBrandFallbackAsset = 'images/branding.png';
 
-/// Base URL for repo-hosted images. Mirrors the remote catalog source in
-/// [CatalogRepository] so logo artwork is served alongside the catalog data
-/// that references it.
+/// Base URL for repo-hosted images. Served through the jsDelivr CDN, which
+/// mirrors the GitHub repo at the `@main` branch. jsDelivr gives proper cache
+/// headers and global edge delivery (and works on networks that block
+/// raw.githubusercontent.com), while still serving the latest pushed art, so
+/// adding or correcting a logo only needs a push to the repo, not an app
+/// update.
 const String kRemoteImageBase =
-    'https://raw.githubusercontent.com/monsiu/Custom-RR/main/';
+    'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/';
+
+/// Cache-busting version appended to every remote image URL as `?v=N`.
+///
+/// [CachedNetworkImage] keys its on-disk cache on the full URL, so a logo that
+/// is OVERWRITTEN in place (same path, e.g. a corrected `images/lineageos.png`)
+/// would keep showing the old cached copy for existing users. Bump this number
+/// whenever you replace existing art in place and push: the changed `?v=`
+/// makes every client refetch once (also a fresh cache key on the CDN). Adding
+/// a NEW image under a new path does not need a bump.
+const int kRemoteImageVersion = 1;
 
 /// Renders any catalog logo (a device/brand `imageAsset` or a ROM/recovery
 /// `headerAsset`) from the network, exactly like the catalog screenshots.
@@ -48,7 +61,7 @@ class BrandImage extends StatelessWidget {
     if (asset == kBrandFallbackAsset) return _fallback(context);
 
     return CachedNetworkImage(
-      imageUrl: '$kRemoteImageBase$asset',
+      imageUrl: '$kRemoteImageBase$asset?v=$kRemoteImageVersion',
       fit: fit,
       filterQuality: FilterQuality.medium,
       memCacheWidth: cacheWidth,
