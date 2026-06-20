@@ -14,9 +14,10 @@
 
 AntiFeatures:
   NonFreeNet:
-    en-US: The app can connect to GitHub and other third-party project websites to
-      refresh catalog and freshness data, load screenshots, and open ROM, recovery,
-      root, and GSI project pages. The bundled catalog remains usable offline.
+    en-US: The app can connect to GitHub and other third-party services to refresh
+      catalog and freshness data, load images, browse community ROM uploads from OpenDesktop,
+      show community discussions, and open ROM, recovery, root, and GSI project pages.
+      The bundled catalog remains usable offline.
 Categories:
   - System
 License: GPL-3.0-only
@@ -37,9 +38,9 @@ RepoType: git
 Repo: https://github.com/monsiu/Custom-RR.git
 
 Builds:
-  - versionName: 1.2.0
-    versionCode: 9001
-    commit: 9dd999b98fdd49db6e58dd64a1d4ed28491c1268
+  - versionName: 1.3.0
+    versionCode: 10001
+    commit: 55697fb34d044c62b25d53ccabcfda3041f71409
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@stable
@@ -62,9 +63,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.2.0
-    versionCode: 9002
-    commit: 9dd999b98fdd49db6e58dd64a1d4ed28491c1268
+  - versionName: 1.3.0
+    versionCode: 10002
+    commit: 55697fb34d044c62b25d53ccabcfda3041f71409
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@stable
@@ -87,9 +88,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm64
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.2.0
-    versionCode: 9003
-    commit: 9dd999b98fdd49db6e58dd64a1d4ed28491c1268
+  - versionName: 1.3.0
+    versionCode: 10003
+    commit: 55697fb34d044c62b25d53ccabcfda3041f71409
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@stable
@@ -133,8 +134,9 @@ MaintainerNotes: |-
   no "Check for updates" UI.
 
   NonFreeNet is declared because the app can still connect to GitHub raw for
-  catalog/freshness refreshes and to third-party project sites for screenshots
-  and user-opened project links. The bundled catalog remains usable offline.
+  catalog/freshness refreshes, to third-party project sites for images and
+  user-opened project links, and to OpenDesktop to browse community ROM uploads
+  and show community discussions. The bundled catalog remains usable offline.
 
   Signing: android/app/build.gradle falls back to debug signing when
   android/key.properties is absent (it is not committed), so the build
@@ -147,5 +149,5 @@ VercodeOperation:
   - 1000 * %c + 2
   - 1000 * %c + 3
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.2.0
-CurrentVersionCode: 9003
+CurrentVersion: 1.3.0
+CurrentVersionCode: 10003
