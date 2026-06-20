@@ -93,6 +93,14 @@ class AppNavList extends StatelessWidget {
                 onTap: () => _go(context, AppRoutes.roms),
               ),
               _NavTile(
+                icon: Icons.download_outlined,
+                selectedIcon: Icons.download,
+                label: 'Community ROMs',
+                route: AppRoutes.communityBuilds,
+                currentRoute: currentRoute,
+                onTap: () => _go(context, AppRoutes.communityBuilds),
+              ),
+              _NavTile(
                 icon: Icons.restore,
                 selectedIcon: Icons.restore,
                 label: 'Custom Recoveries',
@@ -163,14 +171,6 @@ class AppNavList extends StatelessWidget {
                 route: AppRoutes.community,
                 currentRoute: currentRoute,
                 onTap: () => _go(context, AppRoutes.community),
-              ),
-              _NavTile(
-                icon: Icons.download_outlined,
-                selectedIcon: Icons.download,
-                label: 'Community builds',
-                route: AppRoutes.communityBuilds,
-                currentRoute: currentRoute,
-                onTap: () => _go(context, AppRoutes.communityBuilds),
               ),
               const Divider(),
               ValueListenableBuilder<ThemeMode>(

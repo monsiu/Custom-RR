@@ -395,6 +395,11 @@ class _CatalogPageState extends State<CatalogPage> {
                                   entries: widget.defunct,
                                 ),
                               ),
+                            if (widget.entryKind == 'custom ROM' &&
+                                q.isEmpty)
+                              const SliverToBoxAdapter(
+                                child: _CommunityRomsCard(),
+                              ),
                             if (widget.entryKind == 'custom ROM')
                               const SliverToBoxAdapter(
                                 child: TrebleHintBanner(kind: 'ROM'),
@@ -584,6 +589,69 @@ int _freshnessRank(CatalogEntry e) {
     return 1 << 30;
   }
   return info.daysAgo;
+}
+
+/// Bridge to the live OpenDesktop community-builds browser, shown at the
+/// bottom of the Custom ROMs list (full-list view only). Kept visually
+/// distinct and clearly labelled "unvetted" so it never reads as part of the
+/// curated catalog above it, while still giving ROM browsers an obvious way
+/// to discover it.
+class _CommunityRomsCard extends StatelessWidget {
+  const _CommunityRomsCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+      child: Card(
+        margin: EdgeInsets.zero,
+        elevation: 0,
+        color: scheme.surfaceContainerHighest,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () => context.push(AppRoutes.communityBuilds),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 12, 16),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.download_outlined, color: scheme.primary),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Looking for more?',
+                        style: text.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Browse thousands of community ROM uploads from '
+                        'OpenDesktop. These are unvetted, third-party builds, '
+                        'flash at your own risk.',
+                        style: text.bodySmall?.copyWith(
+                          color: scheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Icon(Icons.chevron_right, color: scheme.onSurfaceVariant),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 /// Section header shown above community-maintained entries flagged as

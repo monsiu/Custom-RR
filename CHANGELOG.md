@@ -20,6 +20,10 @@ project uses [Semantic Versioning](https://semver.org/).
 
 - Play beta testers now see a short thank-you on the home screen with a reminder
   to keep the app installed while testing.
+- **Community ROMs are easier to find.** The OpenDesktop community builds browser
+  is now called "Community ROMs" and sits right under Custom ROMs in the menu, and
+  the Custom ROMs screen has a clear shortcut to it at the bottom (still marked as
+  unvetted, third-party builds, separate from the curated catalog).
 - The Play beta invite now spells out the perk: testers get new builds about
   five days before the other channels (important fixes still go out everywhere
   at once).
