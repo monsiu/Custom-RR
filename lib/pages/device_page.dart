@@ -6,6 +6,7 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/brand_image.dart';
+import '../widgets/community_builds_section.dart';
 import '../widgets/home_on_back.dart';
 import '../widgets/treble_hint.dart';
 
@@ -96,6 +97,12 @@ class DevicePage extends StatelessWidget {
                             'No catalogued recovery lists ${device.name} as supported.',
                         onTap: (CatalogEntry e) =>
                             context.push(AppRoutes.recoveryDetail(e.id)),
+                      ),
+                      const SizedBox(height: 32),
+                      CommunityBuildsSection(
+                        term: device.name,
+                        label: device.name,
+                        isBrand: true,
                       ),
                       const SizedBox(height: 16),
                       TrebleHintBanner(

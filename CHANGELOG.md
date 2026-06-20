@@ -19,7 +19,7 @@ project uses [Semantic Versioning](https://semver.org/).
 - **Community builds on device pages.** Each device page now shows matching
   unofficial community builds for that exact model in their own section, with a
   clear "not vetted" warning, plus a shortcut to browse every community build
-  for that device.
+  for that device. Brand pages show the same section for that manufacturer.
 - **GSI / Treble mode in the flash script generator.** A new toggle generates a
   generic system image (GSI) flashing script for Treble devices, with the right
   steps for Samsung (Download mode, TWRP, then fastbootd) and other phones and
