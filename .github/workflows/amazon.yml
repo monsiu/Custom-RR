@@ -116,6 +116,14 @@ jobs:
           PLAY_BUILD: "true"
           REQUIRE_RELEASE_SIGNING: "true"
 
+      # versionCode (the +N in pubspec) so the uploader can pick the matching
+      # per-locale changelogs/<code>.txt for the "recent changes" notes.
+      - id: vinfo
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        run: |
+          v=$(grep -E '^version:' pubspec.yaml | head -1 | sed -E 's/version:[[:space:]]*//')
+          echo "code=${v##*+}" >> "$GITHUB_OUTPUT"
+
       - name: Upload to Amazon Appstore
         if: ${{ env.AMAZON_CLIENT_ID != '' }}
         env:
@@ -123,6 +131,8 @@ jobs:
           AMAZON_CLIENT_SECRET: ${{ secrets.AMAZON_CLIENT_SECRET }}
           AMAZON_APP_ID: ${{ secrets.AMAZON_APP_ID }}
           AMAZON_APK_PATH: build/app/outputs/flutter-apk/app-release.apk
+          AMAZON_VERSION_CODE: ${{ steps.vinfo.outputs.code }}
+          AMAZON_METADATA_DIR: fastlane/metadata/android
           # "true" (default) submits to review; set repo var to "false" for a dry run.
           AMAZON_SUBMIT: ${{ vars.AMAZON_SUBMIT || 'true' }}
         run: python3 tool/amazon_upload.py
