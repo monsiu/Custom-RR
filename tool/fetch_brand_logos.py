@@ -38,11 +38,13 @@ THUMB_WIDTH = 512
 # set explicit tokens when the best logo file is named after a sub-brand
 # (e.g. Huami ships under "Amazfit", Cat phones under "Caterpillar").
 #
-# TWRP is intentionally omitted: twrp.me lists its own internal test devices
-# under /Devices/TWRP/, but it is not a phone manufacturer. IUNI, Minix and
-# Hyundai are omitted too: Commons has no clean logo for the phone brand (the
-# searches only surface a university, the MINIX 3 OS mascot, and Hyundai's
-# auto-parts/rail subsidiaries), so they keep the generic placeholder.
+# This script only covers brands whose logo lives on Wikimedia Commons. A few
+# brands have NO usable Commons logo and were instead sourced by hand from
+# their official site / web archive (see images/device_*.png): Elephone,
+# Hyundai (Hyundai Technology), Minix, Mobvoi, Planet (Planet Computers), and
+# Zinwa. TWRP is intentionally skipped (it lists its own test devices under
+# /Devices/TWRP/ but is not a phone manufacturer). The remaining placeholders
+# (Ergo, IUNI, Omate, Vanzo) have no cleanly-sourced logo anywhere.
 BRANDS = {
     "Alcatel": ("alcatel", "Alcatel logo"),
     "Allview": ("allview", "Allview logo"),

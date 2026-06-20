@@ -2608,6 +2608,7 @@ List<Map<String, dynamic>> _buildDevices(List<String> vendors) {
     'Cat': 'images/device_cat.png',
     'Dell': 'images/device_dell.png',
     'Dynalink': 'images/device_dynalink.png',
+    'Elephone': 'images/device_elephone.png',
     'Essential': 'images/device_essential.png',
     'F(x)tec': 'images/device_fxtec.png',
     'Fairphone': 'images/device_fairphone.png',
@@ -2618,6 +2619,7 @@ List<Map<String, dynamic>> _buildDevices(List<String> vendors) {
     'HardKernel': 'images/device_hardkernel.png',
     'Huami': 'images/device_huami.png',
     'Huawei': 'images/huawei.png',
+    'Hyundai': 'images/device_hyundai.png',
     'Infinix': 'images/device_infinix.png',
     'Itel': 'images/device_itel.png',
     'Kazam': 'images/device_kazam.png',
@@ -2631,6 +2633,8 @@ List<Map<String, dynamic>> _buildDevices(List<String> vendors) {
     'Mattel': 'images/device_mattel.png',
     'Meizu': 'images/device_meizu.png',
     'Micromax': 'images/device_micromax.png',
+    'Minix': 'images/device_minix.png',
+    'Mobvoi': 'images/device_mobvoi.png',
     'Motorola': 'images/motorola.png',
     'NVIDIA': 'images/device_nvidia.png',
     'Nextbit': 'images/device_nextbit.png',
@@ -2643,6 +2647,7 @@ List<Map<String, dynamic>> _buildDevices(List<String> vendors) {
     'Oppo': 'images/device_oppo.png',
     'Oukitel': 'images/device_oukitel.png',
     'Pantech': 'images/device_pantech.png',
+    'Planet': 'images/device_planet.png',
     'Qualcomm': 'images/device_qualcomm.png',
     'Quanta': 'images/device_quanta.png',
     'Radxa': 'images/device_radxa.png',
@@ -2669,6 +2674,7 @@ List<Map<String, dynamic>> _buildDevices(List<String> vendors) {
     'Yandex': 'images/device_yandex.png',
     'ZTE': 'images/device_zte.png',
     'ZUK': 'images/device_zuk.png',
+    'Zinwa': 'images/device_zinwa.png',
   };
   const String fallback = 'images/branding.png';
   return vendors
