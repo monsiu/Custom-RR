@@ -1,4 +1,4 @@
-# Custom RR
+# Custom RR: ROMs and Recovery
 
 _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https://github.com/monsiu/Custom-RR)_
 
