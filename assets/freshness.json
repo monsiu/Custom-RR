@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-20T08:39:43.471140Z",
+  "_generatedAt": "2026-06-20T10:37:07.010718Z",
   "_netCount": 14,
-  "_curatedCount": 17,
+  "_curatedCount": 18,
   "entries": {
     "lineage": {
       "status": "active",
@@ -124,6 +124,14 @@
       "source": "https://divestos.org/pages/devices",
       "origin": "curated"
     },
+    "axpos": {
+      "status": "active",
+      "lastBuild": "2026-05-27",
+      "daysAgo": 24,
+      "version": "AXP.OS (Slim / Pro flavors)",
+      "source": "https://axpos.org/devices",
+      "origin": "curated"
+    },
     "derpfest": {
       "status": "active",
       "lastBuild": "2026-05-09",
@@ -134,7 +142,7 @@
     },
     "infinityx": {
       "status": "active",
-      "lastBuild": "2026-06-19",
+      "lastBuild": "2026-06-20",
       "daysAgo": 0,
       "version": "Project Infinity X (latest)",
       "source": "https://github.com/ProjectInfinity-X/official_devices",
@@ -199,7 +207,7 @@
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 219,
+      "daysAgo": 220,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"
