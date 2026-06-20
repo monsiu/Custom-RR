@@ -41,6 +41,14 @@ on:
         description: 'Tag, branch, or commit to build (defaults to the branch this runs from).'
         required: false
         type: string
+      submit:
+        description: 'Submit to Amazon review, or dry-run (prepare + validate only).'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 permissions:
   contents: read
@@ -133,6 +141,7 @@ jobs:
           AMAZON_APK_PATH: build/app/outputs/flutter-apk/app-release.apk
           AMAZON_VERSION_CODE: ${{ steps.vinfo.outputs.code }}
           AMAZON_METADATA_DIR: fastlane/metadata/android
-          # "true" (default) submits to review; set repo var to "false" for a dry run.
-          AMAZON_SUBMIT: ${{ vars.AMAZON_SUBMIT || 'true' }}
+          # "true" (default) submits to review; the dispatch input or repo var can
+          # set "false" for a dry run that prepares + validates the Edit only.
+          AMAZON_SUBMIT: ${{ inputs.submit || vars.AMAZON_SUBMIT || 'true' }}
         run: python3 tool/amazon_upload.py
