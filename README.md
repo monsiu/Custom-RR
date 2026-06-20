@@ -49,6 +49,8 @@ A single home for popular **custom ROMs** and **custom recoveries**, with direct
 > Play installs future updates through the Play Store, while GitHub release
 > builds update from GitHub Releases.
 >
+> **Fastest way:** go to [monsiu.github.io/custom-rr/beta](https://monsiu.github.io/custom-rr/beta) and tap **Become a tester**. The steps below are the same thing, spelled out.
+>
 > 1. **Sign in to your Google account**, the same one you use on your phone.
 > 2. **Join the testers group:** open [groups.google.com/g/custom-rr-play-testers](https://groups.google.com/g/custom-rr-play-testers) and click **Join group** (viewing the group does not make you a tester, you have to actually join).
 > 3. **Opt in and install:** open [play.google.com/apps/testing/io.github.monsiu.custom_rr](https://play.google.com/apps/testing/io.github.monsiu.custom_rr), accept the invite, then get it on the [Play Store](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr).
