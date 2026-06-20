@@ -236,6 +236,7 @@ class _HomePageState extends State<HomePage> {
                     else ...<Widget>[
                       const DeviceSuggestion(),
                       const BetaInviteNudge(),
+                      const BetaTesterThanks(),
                       const DonationNudge(),
                       Center(
                         child: Hero(
