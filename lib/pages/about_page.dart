@@ -8,6 +8,7 @@ import '../data/update_checker.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../util/build_flags.dart';
+import '../widgets/about_dialog.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/beta_invite.dart';
 import '../widgets/crypto_donate.dart';
@@ -175,6 +176,13 @@ class _AboutPageState extends State<AboutPage> {
                   Uri.parse('https://discord.gg/uWZR8vR855'),
                 ),
               ),
+              ListTile(
+                leading: const Icon(Icons.alternate_email),
+                title: const Text('Socials'),
+                subtitle: const Text('Twitter / X, Telegram, YouTube'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: _showSocials,
+              ),
               if (kBetaInviteApplicable)
                 ListTile(
                   leading: const Icon(Icons.rocket_launch_outlined),
@@ -264,6 +272,51 @@ class _AboutPageState extends State<AboutPage> {
 
   Future<void> _open(Uri uri) async {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> _showSocials() async {
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      constraints: const BoxConstraints(maxWidth: 640),
+      builder: (BuildContext sheetCtx) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.alternate_email),
+                title: const Text('Twitter / X'),
+                subtitle: const Text('@MonsiuTech'),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  _open(Uri.parse(kMonsiuTwitterUrl));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.send),
+                title: const Text('Telegram'),
+                subtitle: const Text('@monsiu'),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  _open(Uri.parse(kMonsiuTelegramUrl));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.play_circle_outline),
+                title: const Text('YouTube'),
+                subtitle: const Text('@monsiutech'),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  _open(Uri.parse(kMonsiuYouTubeUrl));
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   Future<void> _openSupport() async {
