@@ -20,6 +20,9 @@ project uses [Semantic Versioning](https://semver.org/).
 
 - Play beta testers now see a short thank-you on the home screen with a reminder
   to keep the app installed while testing.
+- The Play beta invite now spells out the perk: testers get new builds about
+  five days before the other channels (important fixes still go out everywhere
+  at once).
 
 ## [1.3.0] - 2026-06-20
 

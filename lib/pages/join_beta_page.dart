@@ -45,7 +45,8 @@ class JoinBetaPage extends StatelessWidget {
     await SharePlus.instance.share(
       ShareParams(
         text: 'Help bring Custom RR to the Google Play Store, become a free '
-            'tester (same app, faster updates): $kBetaOptInUrl',
+            'tester (same app, and you get new builds about 5 days '
+            'before everyone else): $kBetaOptInUrl',
         subject: 'Test Custom RR on Google Play',
       ),
     );
@@ -120,7 +121,9 @@ class JoinBetaPage extends StatelessWidget {
                           'Custom RR is in closed testing on Google Play, and '
                           'Google needs a group of testers before it can go '
                           'live to everyone. You can help it launch in a few '
-                          'quick steps, and you get the app early.',
+                          'quick steps, and as a tester you get new features '
+                          'first, about 5 days before the other channels '
+                          '(important fixes still go to everyone at once).',
                           style: text.bodyLarge,
                         ),
                         const SizedBox(height: 20),
@@ -371,7 +374,7 @@ class _Benefits extends StatelessWidget {
       runSpacing: 10,
       children: <Widget>[
         _BenefitChip(icon: Icons.check_circle_outline, label: 'Same app & releases'),
-        _BenefitChip(icon: Icons.bolt_outlined, label: 'Faster updates'),
+        _BenefitChip(icon: Icons.bolt_outlined, label: 'New builds ~5 days first'),
         _BenefitChip(icon: Icons.favorite_outline, label: 'Helps it launch'),
       ],
     );
