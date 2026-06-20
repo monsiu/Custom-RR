@@ -21,6 +21,10 @@ project uses [Semantic Versioning](https://semver.org/).
   narrowed to just the entries that match the device you have selected.
 - **YouTube in About socials.** The Socials button in the About dialog now also
   links to the project's YouTube channel.
+- **Join the Play beta from the app.** A new home-screen invite, plus a
+  step-by-step "Join the beta" page, explain how to become a Google Play tester,
+  get early builds, and help Custom RR reach the Play Store. The invite can be
+  dismissed and stays available any time from the About page.
 
 ### Changed
 
@@ -42,6 +46,8 @@ project uses [Semantic Versioning](https://semver.org/).
 - **Device chip layout.** Long device names no longer overflow their chips on
   the detail and device pages.
 - **My Devices buttons.** Fixed cramped action buttons on the My Devices cards.
+- **About in the menu.** Tapping About in the navigation menu now opens the
+  full About page instead of a small popup.
 
 ## [1.2.0] - 2026-06-16
 

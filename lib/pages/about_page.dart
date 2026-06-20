@@ -9,6 +9,7 @@ import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../util/build_flags.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/beta_invite.dart';
 import '../widgets/crypto_donate.dart';
 import '../widgets/donation_feedback.dart';
 import '../widgets/donation_nudge.dart';
@@ -174,6 +175,16 @@ class _AboutPageState extends State<AboutPage> {
                   Uri.parse('https://discord.gg/uWZR8vR855'),
                 ),
               ),
+              if (kBetaInviteApplicable)
+                ListTile(
+                  leading: const Icon(Icons.rocket_launch_outlined),
+                  title: const Text('Join the Play beta'),
+                  subtitle: const Text(
+                    'Get early builds and help it reach the Play Store',
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => context.push(AppRoutes.joinBeta),
+                ),
               if (kSelfUpdateEnabled)
                 ListTile(
                   leading: const Icon(Icons.system_update_alt),

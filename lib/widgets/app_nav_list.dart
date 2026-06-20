@@ -5,7 +5,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
 import '../theme_controller.dart';
-import 'about_dialog.dart';
 import 'support_dialog.dart';
 import 'theme_picker.dart';
 import 'update_nav_tile.dart';
@@ -219,10 +218,7 @@ class AppNavList extends StatelessWidget {
               ListTile(
                 leading: const Icon(Icons.info_outline),
                 title: const Text('About'),
-                onTap: () {
-                  onNavigate?.call();
-                  showCustomAboutDialog(context);
-                },
+                onTap: () => _go(context, AppRoutes.about),
               ),
               UpdateNavTile(onNavigate: onNavigate),
               const SizedBox(height: 12),
