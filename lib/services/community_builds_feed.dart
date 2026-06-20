@@ -235,6 +235,15 @@ class CommunityBuildsFeed {
       m['smallpreviewpic1'] as String?,
       m['previewpic1'] as String?,
     ]);
+    // Prefer the structured tags; when they carry no device hints, fall back
+    // to codenames parsed from the freeform description.
+    List<String> devices = extractDeviceTags(
+      '${m['tags'] ?? ''}',
+      maintainer: '${m['personid'] ?? ''}',
+    );
+    if (devices.isEmpty) {
+      devices = extractDeviceTagsFromDescription('${m['description'] ?? ''}');
+    }
     return CommunityBuild(
       id: id,
       name: name,
@@ -246,10 +255,7 @@ class CommunityBuildsFeed {
           DateTime.fromMillisecondsSinceEpoch(0, isUtc: true),
       detailPage: detail,
       previewImage: (preview != null && preview.isNotEmpty) ? preview : null,
-      deviceTags: extractDeviceTags(
-        '${m['tags'] ?? ''}',
-        maintainer: '${m['personid'] ?? ''}',
-      ),
+      deviceTags: devices,
     );
   }
 
@@ -294,7 +300,8 @@ class CommunityBuildsFeed {
     'firmware', 'gapps', 'microg', 'vanilla', 'gms', 'official', 'unofficial',
     'stable', 'beta', 'alpha', 'testing', 'nightly', 'weekly', 'port',
     'ported', 'oss', 'source', 'opensource', 'open-source', 'custom', 'build',
-    'builds', 'os', 'launcher',
+    'builds', 'os', 'launcher', 'gsi', 'generic', 'system', 'image', 'efi',
+    'treble', 'arm64', 'arm', 'a-only', 'ab', 'vndklite', 'rooting', 'noobrom',
   };
 
   /// Extracts device codenames and vendor names from a listing's raw
@@ -318,6 +325,51 @@ class CommunityBuildsFeed {
       if (!seen.add(tag)) continue;
       out.add(tag);
       if (out.length >= 6) break;
+    }
+    return out;
+  }
+
+  /// A plausible device codename: starts with a letter, then 2-19 more
+  /// alphanumeric/underscore characters, no spaces (e.g. `beryllium`, `x00t`).
+  static final RegExp _codenameLike = RegExp(r'^[A-Za-z][A-Za-z0-9_]{2,19}$');
+
+  /// Generic words that can appear parenthetically in a description but are
+  /// not device codenames. Checked alongside [_noiseTags].
+  static const Set<String> _descStopwords = <String>{
+    'treble', 'gsi', 'arm64', 'arm', 'a-only', 'ab', 'vndklite', 'lite',
+    'recommended', 'experimental', 'note', 'pro', 'plus', 'max', 'mini',
+    'global', 'eea', 'china', 'indian', 'india', 'global-version', 'tap',
+    'quick', 'support', 'group', 'unified', 'version', 'edition', 'series',
+  };
+
+  /// Fallback device extraction from a listing's freeform [descriptionHtml],
+  /// used when its tags carry no device hints. Pulls codenames out of
+  /// parenthetical groups (e.g. "Corvus OS for Poco F1 (beryllium)" or
+  /// "... ( ginkgo / willow )"), the most reliable device signal in the
+  /// description text. Returns at most six, de-duplicated and lowercased.
+  ///
+  /// Visible for testing.
+  @visibleForTesting
+  static List<String> extractDeviceTagsFromDescription(String descriptionHtml) {
+    if (descriptionHtml.trim().isEmpty) return const <String>[];
+    final String text = descriptionHtml
+        .replaceAll(RegExp(r'<[^>]+>'), ' ')
+        .replaceAll(RegExp(r'\s+'), ' ');
+    final List<String> out = <String>[];
+    final Set<String> seen = <String>{};
+    for (final Match m in RegExp(r'\(([^)]{1,60})\)').allMatches(text)) {
+      final String group = m.group(1) ?? '';
+      for (final String piece in group.split(RegExp(r'[/,]'))) {
+        final String token = piece.trim();
+        if (!_codenameLike.hasMatch(token)) continue;
+        final String lower = token.toLowerCase();
+        if (_noiseTags.contains(lower) || _descStopwords.contains(lower)) {
+          continue;
+        }
+        if (!seen.add(lower)) continue;
+        out.add(lower);
+        if (out.length >= 6) return out;
+      }
     }
     return out;
   }

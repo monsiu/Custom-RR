@@ -228,4 +228,115 @@ void main() {
       );
     });
   });
+
+  group('extractDeviceTagsFromDescription', () {
+    test('pulls a single parenthetical codename', () {
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          'Corvus OS for Poco F1 (beryllium)',
+        ),
+        <String>['beryllium'],
+      );
+    });
+
+    test('pulls slash-separated codenames and lowercases them', () {
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          'NusantaraProject ROM for Redmi Note 8 /8T Unified ( ginkgo / willow )',
+        ),
+        <String>['ginkgo', 'willow'],
+      );
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          'Corvus OS Official for Asus ZenFone Max Pro M1 (X00TD)',
+        ),
+        <String>['x00td'],
+      );
+    });
+
+    test('strips HTML before parsing', () {
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          '<p>Custom ROM for Redmi Note 7 ( lavender )</p>',
+        ),
+        <String>['lavender'],
+      );
+    });
+
+    test('rejects multi-word and feature parentheticals', () {
+      // "Quick Tap" has a space -> not a codename.
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          'Awaken OS brings (Quick Tap) and more',
+        ),
+        isEmpty,
+      );
+      // "Redmi Note 7/7s": "Redmi Note 7" has spaces, "7s" is too short.
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          'Custom Rom For Lavender ( Redmi Note 7/7s )',
+        ),
+        isEmpty,
+      );
+      // Build-type words in parens are filtered.
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          'My ROM (Vanilla) (GApps) (Official)',
+        ),
+        isEmpty,
+      );
+    });
+
+    test('returns empty for descriptions with no parentheticals', () {
+      expect(
+        CommunityBuildsFeed.extractDeviceTagsFromDescription(
+          'A custom rom based on aosp',
+        ),
+        isEmpty,
+      );
+      expect(CommunityBuildsFeed.extractDeviceTagsFromDescription(''), isEmpty);
+    });
+
+    test('parseResponse falls back to description when tags are noise', () {
+      final String json = jsonEncode(<String, dynamic>{
+        'totalitems': 1,
+        'data': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'id': 1,
+            'name': 'corvus_whyred',
+            'personid': 'corvusos',
+            'tags': 'original-product,apache-license',
+            'description': 'Corvus OS for Redmi Note 5 Pro (whyred)',
+          },
+        ],
+      });
+      final CommunityBuildsResult res = CommunityBuildsFeed.parseResponse(
+        json,
+        page: 0,
+        pageSize: 20,
+      );
+      expect(res.builds.single.deviceTags, <String>['whyred']);
+    });
+
+    test('parseResponse prefers tags over description when tags have devices',
+        () {
+      final String json = jsonEncode(<String, dynamic>{
+        'totalitems': 1,
+        'data': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'id': 1,
+            'name': 'Some ROM',
+            'tags': 'redmi,lavender',
+            'description': 'Some ROM for device (whyred)',
+          },
+        ],
+      });
+      final CommunityBuildsResult res = CommunityBuildsFeed.parseResponse(
+        json,
+        page: 0,
+        pageSize: 20,
+      );
+      expect(res.builds.single.deviceTags, <String>['redmi', 'lavender']);
+    });
+  });
 }
