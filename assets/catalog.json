@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-20T10:36:06.567672Z",
+  "_generatedAt": "2026-06-20T13:39:39.065427Z",
   "roms": [
     {
       "id": "lineage",
@@ -4247,6 +4247,11 @@
           "brand": "Xiaomi",
           "model": "POCO X5 Pro 5G",
           "codename": "redwood"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X8 Pro 5G",
+          "codename": "klee"
         },
         {
           "brand": "Xiaomi",
