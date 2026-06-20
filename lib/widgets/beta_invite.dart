@@ -196,9 +196,9 @@ class _BetaInviteNudgeState extends State<BetaInviteNudge> {
                           const SizedBox(height: 2),
                           Text(
                             'Join the Google Play beta. It is the exact same '
-                            'app and releases, you just get them faster, and '
-                            'every tester helps Custom RR reach the public '
-                            'Play Store and more users.',
+                            'app and releases, you just get new builds about 5 '
+                            'days before everyone else, and every tester helps '
+                            'Custom RR reach the public Play Store.',
                             style: text.bodyMedium?.copyWith(
                               color: scheme.onTertiaryContainer,
                             ),
