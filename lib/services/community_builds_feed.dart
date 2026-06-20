@@ -35,6 +35,7 @@ class CommunityBuild {
     required this.updated,
     required this.detailPage,
     this.previewImage,
+    this.deviceTags = const <String>[],
   });
 
   final int id;
@@ -61,6 +62,11 @@ class CommunityBuild {
 
   /// Optional preview thumbnail URL.
   final String? previewImage;
+
+  /// Device codenames and vendor names parsed from the listing's tags
+  /// (license, build-type and maintainer noise removed). May be empty when
+  /// the uploader provided no useful tags.
+  final List<String> deviceTags;
 
   /// Rating on a 0-10 scale, derived from [score].
   double get rating => score / 10.0;
@@ -240,6 +246,10 @@ class CommunityBuildsFeed {
           DateTime.fromMillisecondsSinceEpoch(0, isUtc: true),
       detailPage: detail,
       previewImage: (preview != null && preview.isNotEmpty) ? preview : null,
+      deviceTags: extractDeviceTags(
+        '${m['tags'] ?? ''}',
+        maintainer: '${m['personid'] ?? ''}',
+      ),
     );
   }
 
@@ -265,6 +275,51 @@ class CommunityBuildsFeed {
       if (t.contains(n)) return true;
     }
     return false;
+  }
+
+  /// Tags that are licenses, build types, or generic status words rather than
+  /// devices. Removed when deriving the device-tag chips.
+  static const Set<String> _noiseTags = <String>{
+    // Licenses
+    'apache-license', 'apache', 'apache2', 'gpl', 'gplv2', 'gplv2-later',
+    'gplv3', 'gplv3-later', 'lgpl', 'agpl', 'agplv3', 'mit', 'bsd', 'isc',
+    'zlib', 'mpl', 'mpl-2.0', 'cc-by', 'cc-by-sa', 'cc-by-nc', 'cc0',
+    'public-domain', 'unlicense', 'proprietary', 'custom-license', 'wtfpl',
+    'boost', 'original-product',
+    // Build type / status / generic
+    'app', 'application', 'rom', 'roms', 'custom-rom', 'customrom', 'android',
+    'aosp', 'los', 'lineage', 'lineageos', 'root', 'rooted', 'magisk',
+    'kernel', 'kernels', 'recovery', 'twrp', 'orangefox', 'ofox',
+    'pitchblack', 'pbrp', 'shrp', 'theme', 'themes', 'mod', 'mods', 'module',
+    'firmware', 'gapps', 'microg', 'vanilla', 'gms', 'official', 'unofficial',
+    'stable', 'beta', 'alpha', 'testing', 'nightly', 'weekly', 'port',
+    'ported', 'oss', 'source', 'opensource', 'open-source', 'custom', 'build',
+    'builds', 'os', 'launcher',
+  };
+
+  /// Extracts device codenames and vendor names from a listing's raw
+  /// comma-separated [rawTags], dropping license, build-type, and maintainer
+  /// noise. Returns at most six, de-duplicated, in their original order.
+  ///
+  /// Visible for testing.
+  @visibleForTesting
+  static List<String> extractDeviceTags(
+    String rawTags, {
+    String maintainer = '',
+  }) {
+    if (rawTags.trim().isEmpty) return const <String>[];
+    final String maint = maintainer.trim().toLowerCase();
+    final List<String> out = <String>[];
+    final Set<String> seen = <String>{};
+    for (final String part in rawTags.split(',')) {
+      final String tag = part.trim().toLowerCase();
+      if (tag.isEmpty || tag == maint) continue;
+      if (_noiseTags.contains(tag)) continue;
+      if (!seen.add(tag)) continue;
+      out.add(tag);
+      if (out.length >= 6) break;
+    }
+    return out;
   }
 
   static String? _firstNonEmpty(List<String?> values) {
