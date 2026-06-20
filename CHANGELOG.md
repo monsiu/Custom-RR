@@ -11,6 +11,10 @@ project uses [Semantic Versioning](https://semver.org/).
 - **AXP.OS added to the catalog.** Added AXP.OS, a privacy and security hardened
   AOSP / LineageOS ROM (the successor to DivestOS) with Slim and Pro flavors,
   covering Fairphone, Pixel, OnePlus, LG, Samsung, and Sony devices.
+- **Community builds browser.** A new Community builds screen lists thousands of
+  per-device ROM uploads shared by the wider community, with search and sorting
+  by downloads, newest, or rating. Listings are clearly marked as unvetted,
+  third-party uploads and open on their original page.
 - **GSI / Treble mode in the flash script generator.** A new toggle generates a
   generic system image (GSI) flashing script for Treble devices, with the right
   steps for Samsung (Download mode, TWRP, then fastbootd) and other phones and

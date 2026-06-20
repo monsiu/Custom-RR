@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
@@ -104,6 +105,10 @@ class _CommunityPageState extends State<CommunityPage> {
                   polls: _polls,
                   showAndTell: _showAndTell,
                   issues: _issues,
+                ),
+                const SizedBox(height: 18),
+                _CommunityBuildsCard(
+                  onOpen: () => context.push(AppRoutes.communityBuilds),
                 ),
                 const SizedBox(height: 18),
                 Card(
@@ -462,3 +467,56 @@ String _relativeTime(DateTime dt) {
   final int y = diff.inDays ~/ 365;
   return '$y year${y == 1 ? '' : 's'} ago';
 }
+
+/// Promo card linking to the live "Community builds" browser.
+class _CommunityBuildsCard extends StatelessWidget {
+  const _CommunityBuildsCard({required this.onOpen});
+
+  final VoidCallback onOpen;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Card(
+      margin: EdgeInsets.zero,
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onOpen,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 12, 16),
+          child: Row(
+            children: <Widget>[
+              Icon(Icons.download_rounded, color: scheme.primary),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Browse community builds',
+                      style: text.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Thousands of per-device ROM uploads shared by the '
+                      'community. Unvetted, browse with care.',
+                      style: text.bodyMedium?.copyWith(
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              const Icon(Icons.chevron_right),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
