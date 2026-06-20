@@ -234,25 +234,6 @@ class CatalogRepository extends ChangeNotifier {
     return out;
   }
 
-  /// ROMs that explicitly list the given (brand, model) combination.
-  List<CatalogEntry> romsForModel(String brand, String model) => _roms
-      .where(
-        (CatalogEntry e) => e.devices.any(
-          (DeviceRef d) => d.brand == brand && d.model == model,
-        ),
-      )
-      .toList();
-
-  /// Recoveries that explicitly list the given (brand, model) combination.
-  List<CatalogEntry> recoveriesForModel(String brand, String model) =>
-      _recoveries
-          .where(
-            (CatalogEntry e) => e.devices.any(
-              (DeviceRef d) => d.brand == brand && d.model == model,
-            ),
-          )
-          .toList();
-
   /// ROMs that list the given (brand, codename) combination.
   List<CatalogEntry> romsForCodename(String brand, String codename) => _roms
       .where(
