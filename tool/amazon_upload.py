@@ -16,13 +16,19 @@ Flow (per https://developer.amazon.com/docs/app-submission-api/flows.html):
 Why replaceApk and not upload-new + delete-old:
   Amazon's docs are explicit that deleting an APK "also deletes all of the
   device-targeting information for that APK", while replaceApk "preserves the
-  targeting information". The live version was published from an AAB that Amazon
-  expanded with broad device coverage (all the Fire tablets). Deleting it and
-  uploading a fresh universal APK threw that coverage away (the Console then
-  warns "Reduced Device Support") AND left the new APK with no DRM value set
-  (validate fails with error_apk_drm_value_missing). Replacing in place keeps
-  both, so the new version covers the same devices and carries the same DRM
-  choice as the live one.
+  targeting information". replaceApk also keeps the APK's DRM choice, which the
+  API has NO endpoint to set (the ApkInjectionChoice/allowDRM field exists in
+  the API model but no path consumes it). Uploading a fresh APK instead leaves
+  it with no DRM value, so validate fails with error_apk_drm_value_missing.
+
+One-time bootstrap (only matters while the live version came from an AAB):
+  If the live version was published from an AAB (as the first Custom RR upload
+  was), its APKs are Amazon-generated assets that replaceApk cannot touch
+  (error_invalid_asset_id), and a plain upload can't have its DRM set. So the
+  FIRST APK update must be done by hand in the Developer Console (upload a
+  universal store APK as a new version, set "Apply DRM?" = No). After that the
+  live version is APK-based and this script updates every future release on its
+  own via replaceApk.
 
 commitEdit submits to review; publishing then takes a few hours, exactly like
 Play. Set AMAZON_SUBMIT=false to prepare + validate the Edit WITHOUT committing
@@ -215,9 +221,25 @@ def replace_apk(token: str, app_id: str, edit_id: str, apk_path: str) -> None:
     etag = headers.get("ETag")
     log(f"Replacing APK {primary_id} in place ({size_mb:.1f} MB), "
         f"preserving device targeting + DRM...")
-    _request("PUT", app_url(app_id, f"/{edit_id}/apks/{primary_id}/replace"),
-             token=token, data=apk_bytes, content_type=APK_CONTENT_TYPE,
-             etag=etag, want_json=False)
+    status, _h, body = _request(
+        "PUT", app_url(app_id, f"/{edit_id}/apks/{primary_id}/replace"),
+        token=token, data=apk_bytes, content_type=APK_CONTENT_TYPE,
+        etag=etag, want_json=False, allow_errors=True)
+    if status not in (200, 204):
+        detail = body.decode("utf-8", "replace")[:400] if isinstance(body, bytes) else str(body)
+        if "error_invalid_asset_id" in detail:
+            fail(
+                "replaceApk was rejected with error_invalid_asset_id. The live "
+                "Amazon version was published from an AAB, so its APKs are "
+                "Amazon-generated assets that the API cannot replace, and the "
+                "API has no way to set the DRM value on a freshly uploaded APK "
+                "(so a plain upload fails validation with "
+                "error_apk_drm_value_missing). Bootstrap this ONCE by hand: in "
+                "the Developer Console upload a universal store APK as a new "
+                "version and set 'Apply DRM?' = No. After that the live version "
+                "is APK-based and this automation (replaceApk) will update every "
+                "future release on its own.")
+        fail(f"replaceApk failed -> HTTP {status}: {detail}")
     log(f"Replaced APK {primary_id}.")
 
     for extra in apks[1:]:
