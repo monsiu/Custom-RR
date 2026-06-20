@@ -1,7 +1,7 @@
 # Privacy Policy for Custom RR
 
 **Effective date:** May 26, 2026
-**Last updated:** June 8, 2026
+**Last updated:** June 21, 2026
 
 Custom RR ("the app") is an open-source Android app that catalogs custom ROMs
 and recoveries, with links, screenshots, and flashing instructions. The app is
@@ -84,8 +84,6 @@ package dependencies:
 
 - `INTERNET`: to fetch the catalog, images, RSS feeds, and the Trocador
   swap URL.
-- `ACCESS_NETWORK_STATE`: to detect whether you are online before retrying
-  network calls.
 
 The app does not request location, contacts, camera, microphone, SMS, or
 phone permissions.
