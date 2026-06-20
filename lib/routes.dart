@@ -203,8 +203,10 @@ GoRouter buildRouter() {
               ),
               GoRoute(
                 path: 'community-builds',
-                builder: (BuildContext _, GoRouterState __) =>
-                    const CommunityBuildsPage(),
+                builder: (BuildContext _, GoRouterState state) =>
+                    CommunityBuildsPage(
+                  initialSearch: state.uri.queryParameters['q'] ?? '',
+                ),
               ),
               GoRoute(
                 path: 'find-my-phone',

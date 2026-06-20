@@ -189,6 +189,47 @@ class CommunityBuildsFeed {
     }
   }
 
+  /// Fetches community builds that target a specific device [codename]
+  /// (e.g. `beryllium` for the Poco F1). Searches the API by codename, then
+  /// keeps only builds that genuinely reference it (the API search is fuzzy
+  /// and can return loosely-related uploads). Returns at most [limit] sorted
+  /// by downloads. Throws [CommunityBuildsException] only on a hard failure
+  /// with nothing cached.
+  Future<List<CommunityBuild>> fetchForDevice(
+    String codename, {
+    int limit = 8,
+    bool force = false,
+  }) async {
+    final String cn = codename.trim();
+    if (cn.isEmpty) return const <CommunityBuild>[];
+    final CommunityBuildsResult res = await fetch(
+      search: cn,
+      pageSize: 30,
+      force: force,
+    );
+    final List<CommunityBuild> matched = res.builds
+        .where((CommunityBuild b) => buildMatchesCodename(b, cn))
+        .toList();
+    return matched.length > limit ? matched.sublist(0, limit) : matched;
+  }
+
+  /// Whether [build] genuinely targets device [codename], used to tighten the
+  /// API's fuzzy search. Matches when the codename appears as an exact device
+  /// tag, or as a whole word in the name or summary.
+  ///
+  /// Visible for testing.
+  @visibleForTesting
+  static bool buildMatchesCodename(CommunityBuild build, String codename) {
+    final String cn = codename.trim().toLowerCase();
+    if (cn.isEmpty) return false;
+    if (build.deviceTags.contains(cn)) return true;
+    final RegExp word = RegExp(
+      '(?<![a-z0-9])${RegExp.escape(cn)}(?![a-z0-9])',
+      caseSensitive: false,
+    );
+    return word.hasMatch(build.name) || word.hasMatch(build.summary);
+  }
+
   /// Parses an OCS JSON body into a filtered [CommunityBuildsResult].
   ///
   /// Visible for testing so the parsing and junk-filtering logic can be
