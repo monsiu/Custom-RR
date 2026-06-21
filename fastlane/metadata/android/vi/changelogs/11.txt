@@ -1,0 +1,2 @@
+- ROM cộng đồng dễ tìm hơn, với lối tắt từ danh sách ROM.
+- Tham gia bản beta của Play nhanh hơn, với mã QR và nút chia sẻ.

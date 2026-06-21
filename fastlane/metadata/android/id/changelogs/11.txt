@@ -1,0 +1,2 @@
+- ROM komunitas lebih mudah ditemukan, dengan pintasan dari daftar ROM.
+- Bergabung ke beta Play lebih cepat, dengan kode QR dan tombol bagikan.

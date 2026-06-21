@@ -14,13 +14,13 @@ jobs:
     steps:
       - name: Post release to Discord
         env:
-          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           NAME: ${{ github.event.release.name }}
           TAG: ${{ github.event.release.tag_name }}
           URL: ${{ github.event.release.html_url }}
         run: |
           if [ -z "$WEBHOOK" ]; then
-            echo "::warning::DISCORD_WEBHOOK_URL is not set; skipping."
+            echo "::warning::DISCORD_WEBHOOK is not set; skipping."
             exit 0
           fi
           jq -nc \

@@ -1,0 +1,2 @@
+- Kogukonna ROM-e on lihtsam leida, otsetee abil ROM-ide loendist.
+- Play beetaga liitumine on kiirem, QR-koodi ja jagamisnupuga.

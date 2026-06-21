@@ -1,0 +1,2 @@
+- Yhteisön ROMit on helpompi löytää ROM-luettelon pikakuvakkeella.
+- Play-betaan liittyminen on nopeampaa QR-koodin ja jakopainikkeen avulla.

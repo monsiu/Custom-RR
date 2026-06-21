@@ -1,0 +1,2 @@
+- Skupnostne ROM-e je lažje najti z bližnjico s seznama ROM-ov.
+- Pridružitev beti Play je hitrejša, s kodo QR in gumbom za deljenje.

@@ -1,0 +1,2 @@
+- Community-ROMs sind leichter zu finden, mit einer Verknüpfung aus der ROM-Liste.
+- Der Beitritt zur Play-Beta geht schneller, mit QR-Code und Teilen-Schaltfläche.

@@ -1,0 +1,2 @@
+- Bendruomenės ROM lengviau rasti naudojant nuorodą iš ROM sąrašo.
+- Prisijungti prie Play beta versijos greičiau, su QR kodu ir bendrinimo mygtuku.

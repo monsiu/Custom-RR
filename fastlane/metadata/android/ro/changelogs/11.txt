@@ -1,0 +1,2 @@
+- ROM-urile comunității sunt mai ușor de găsit, cu o scurtătură din lista de ROM-uri.
+- Înscrierea în beta Play este mai rapidă, cu un cod QR și un buton de partajare.

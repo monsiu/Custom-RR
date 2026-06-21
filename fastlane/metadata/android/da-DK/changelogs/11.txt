@@ -1,0 +1,2 @@
+- Fællesskabs-ROM'er er nemmere at finde med en genvej fra ROM-listen.
+- Det er hurtigere at tilmelde sig Play-betaen, med en QR-kode og en deleknap.

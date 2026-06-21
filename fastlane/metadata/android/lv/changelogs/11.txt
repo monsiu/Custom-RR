@@ -1,0 +1,2 @@
+- Kopienas ROM ir vieglāk atrast, izmantojot saīsni no ROM saraksta.
+- Pievienoties Play beta versijai ir ātrāk, ar QR kodu un kopīgošanas pogu.

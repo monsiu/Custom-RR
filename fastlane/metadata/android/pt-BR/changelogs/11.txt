@@ -1,0 +1,2 @@
+- As ROMs da comunidade ficam mais fáceis de encontrar, com um atalho na lista de ROMs.
+- Entrar no beta do Play ficou mais rápido, com um código QR e um botão de compartilhar.
