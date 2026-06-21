@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-21T09:34:46.230019Z",
-  "_netCount": 14,
-  "_curatedCount": 18,
+  "_generatedAt": "2026-06-21T13:56:43.392625Z",
+  "_netCount": 10,
+  "_curatedCount": 22,
   "entries": {
     "lineage": {
       "status": "active",
@@ -14,11 +14,11 @@
     },
     "crdroid": {
       "status": "active",
-      "lastBuild": "2026-06-21",
-      "daysAgo": 0,
-      "version": "crDroid (latest)",
-      "source": "https://github.com/crdroidandroid/android_vendor_crDroidOTA",
-      "origin": "network"
+      "lastBuild": "2026-05-07",
+      "daysAgo": 45,
+      "version": "crDroid 11.5 (Android 15)",
+      "source": "https://crdroid.net/",
+      "origin": "curated"
     },
     "pixelexperience": {
       "status": "abandoned",
@@ -31,7 +31,7 @@
     "evolutionx": {
       "status": "active",
       "lastBuild": "2026-06-20",
-      "daysAgo": 0,
+      "daysAgo": 1,
       "version": "Evolution X (latest)",
       "source": "https://github.com/Evolution-X/OTA",
       "origin": "network"
@@ -151,26 +151,26 @@
     "un1ca": {
       "status": "active",
       "lastBuild": "2026-06-04",
-      "daysAgo": 16,
+      "daysAgo": 17,
       "version": "UN1CA 3.1.0",
       "source": "https://github.com/salvogiangri/UN1CA/releases",
       "origin": "network"
     },
     "artisanrom": {
       "status": "active",
-      "lastBuild": "2026-05-18",
-      "daysAgo": 34,
-      "version": "ArtisanROM Quant 3.1.1",
+      "lastBuild": "2026-06-21",
+      "daysAgo": 0,
+      "version": "ArtisanROM Quant 3.5.0",
       "source": "https://github.com/ArtisanROM/ArtisanROM/releases",
       "origin": "network"
     },
     "lineagee3q": {
       "status": "active",
       "lastBuild": "2026-05-22",
-      "daysAgo": 29,
-      "version": "Unofficial LineageOS (e3q) (latest)",
-      "source": "https://github.com/Exynoobs/OTA",
-      "origin": "network"
+      "daysAgo": 30,
+      "version": "LineageOS 23.2 (unofficial, e3q)",
+      "source": "https://exynoobs.github.io/OTA/",
+      "origin": "curated"
     },
     "drketan": {
       "status": "stale",
@@ -184,17 +184,17 @@
       "status": "stale",
       "lastBuild": "2026-02-23",
       "daysAgo": 118,
-      "version": "Magisk 30.7",
+      "version": "Magisk v30.7",
       "source": "https://github.com/topjohnwu/Magisk/releases",
-      "origin": "network"
+      "origin": "curated"
     },
     "kernelsu": {
       "status": "stale",
       "lastBuild": "2026-04-06",
       "daysAgo": 76,
-      "version": "KernelSU 3.2.4",
+      "version": "KernelSU v3.2.4",
       "source": "https://github.com/tiann/KernelSU/releases",
-      "origin": "network"
+      "origin": "curated"
     },
     "kernelsu_next": {
       "status": "stale",
@@ -207,7 +207,7 @@
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 220,
+      "daysAgo": 221,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"

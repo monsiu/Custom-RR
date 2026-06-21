@@ -751,17 +751,12 @@ _Policy _policyFor(String romId) {
           d.vendor == 'Samsung' && un1caCodenames.contains(d.codename);
     case 'artisanrom':
       // ArtisanROM Quant targets a specific, maintainer-confirmed set of
-      // Exynos Samsung Galaxy devices: the Exynos 990 S20 / Note20 series
-      // and the Exynos 9820 S10 series. The Note10 series and the various
-      // A / M / F mid-rangers that a year-based heuristic would sweep in are
-      // NOT supported, and neither is the Snapdragon S20 FE (r8q), so we pin
-      // the device list to an explicit codename allowlist instead.
+      // Exynos 990 Samsung Galaxy devices: the Galaxy S20 and Note20 series.
+      // The Note10 / S10 series and the various A / M / F mid-rangers that a
+      // year-based heuristic would sweep in are NOT supported, and neither is
+      // the Snapdragon S20 FE (r8q), so we pin the device list to an explicit
+      // codename allowlist instead.
       const Set<String> artisanCodenames = <String>{
-        // Exynos 9820 - Galaxy S10 series
-        'beyond0lte', // S10e
-        'beyond1lte', // S10
-        'beyond2lte', // S10+
-        'beyondx', // S10 5G
         // Exynos 990 - Galaxy S20 series
         'x1s', // S20 (4G/5G)
         'y2s', // S20+ (4G/5G)
@@ -1992,14 +1987,14 @@ List<Map<String, dynamic>> _buildRoms(
       name: 'ArtisanROM Quant',
       headerAsset: 'images/artisanrom.png',
       shortTagline:
-          'OneUI 8 custom firmware for Exynos Galaxy S10, S20 and Note20 devices.',
+          'OneUI 8 custom firmware for Exynos Galaxy S20 and Note20 devices.',
       description: <String>[
-        'ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S25 FE firmware. It targets older Exynos hardware: the Exynos 990 (S20 / Note20 series) and Exynos 9820 (S10 series), bringing modern Samsung software to phones that Samsung itself has stopped updating.',
+        'ArtisanROM Quant is a work-in-progress custom firmware for Samsung Galaxy devices, built on the latest stable One UI 8 Galaxy S22 firmware. It targets the Exynos 990 Galaxy S20 and Note20 series, bringing modern Samsung software to phones that Samsung itself has stopped updating.',
         'It is built on top of the ExtremeROM and UN1CA build system, automating firmware download, extraction, patching, and flashable zip generation. The project is GPL-3.0, maintained by Android-Artisan with a long list of contributors, and ships fully upstreamed kernels for every officially supported device.',
       ],
       features: <String>[
-        'Based on the latest stable One UI 8 Galaxy S25 FE firmware.',
-        'S25 Ultra CSC, ringtones, and most S25 FE software features ported over.',
+        'Based on the latest stable One UI 8 Galaxy S22 firmware.',
+        'Galaxy S25 wallpapers and sounds bundled, with flagship software features ported over.',
         'Full Galaxy AI support including Now Brief, Super HDR, and adaptive color tone.',
         'Fully upstreamed kernels for every officially supported device.',
         'Moderately debloated and heavily DeKnoxed while keeping full SELinux enforcing.',
