@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-06-21T13:56:43.392625Z",
-  "_netCount": 10,
-  "_curatedCount": 22,
+  "_generatedAt": "2026-06-21T14:00:33.907005Z",
+  "_netCount": 6,
+  "_curatedCount": 26,
   "entries": {
     "lineage": {
       "status": "active",
@@ -30,11 +30,11 @@
     },
     "evolutionx": {
       "status": "active",
-      "lastBuild": "2026-06-20",
-      "daysAgo": 1,
-      "version": "Evolution X (latest)",
-      "source": "https://github.com/Evolution-X/OTA",
-      "origin": "network"
+      "lastBuild": "2026-04-28",
+      "daysAgo": 54,
+      "version": "Evolution X 10 (Android 15)",
+      "source": "https://evolution-x.org/",
+      "origin": "curated"
     },
     "paranoidandroid": {
       "status": "abandoned",
@@ -142,11 +142,11 @@
     },
     "infinityx": {
       "status": "active",
-      "lastBuild": "2026-06-20",
-      "daysAgo": 0,
-      "version": "Project Infinity X (latest)",
-      "source": "https://github.com/ProjectInfinity-X/official_devices",
-      "origin": "network"
+      "lastBuild": "2026-06-01",
+      "daysAgo": 20,
+      "version": "Project Infinity X (Android 16)",
+      "source": "https://projectinfinity-x.com/downloads",
+      "origin": "curated"
     },
     "un1ca": {
       "status": "active",
@@ -160,17 +160,17 @@
       "status": "active",
       "lastBuild": "2026-06-21",
       "daysAgo": 0,
-      "version": "ArtisanROM Quant 3.5.0",
+      "version": "ArtisanROM Quant v3.5.0",
       "source": "https://github.com/ArtisanROM/ArtisanROM/releases",
-      "origin": "network"
+      "origin": "curated"
     },
     "lineagee3q": {
       "status": "active",
       "lastBuild": "2026-05-22",
       "daysAgo": 30,
-      "version": "LineageOS 23.2 (unofficial, e3q)",
-      "source": "https://exynoobs.github.io/OTA/",
-      "origin": "curated"
+      "version": "Unofficial LineageOS (e3q) (latest)",
+      "source": "https://github.com/Exynoobs/OTA",
+      "origin": "network"
     },
     "drketan": {
       "status": "stale",
@@ -210,15 +210,15 @@
       "daysAgo": 221,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
-      "origin": "network"
+      "origin": "curated"
     },
     "sukisu": {
       "status": "active",
-      "lastBuild": "2026-06-02",
-      "daysAgo": 19,
-      "version": "SukiSU Ultra 4.1.3",
+      "lastBuild": "2026-05-28",
+      "daysAgo": 24,
+      "version": "SukiSU Ultra v4.1.3",
       "source": "https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases",
-      "origin": "network"
+      "origin": "curated"
     },
     "twrp": {
       "status": "abandoned",
