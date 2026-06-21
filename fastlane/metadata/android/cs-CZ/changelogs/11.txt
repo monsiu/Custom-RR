@@ -1,0 +1,2 @@
+- Komunitní ROM se snáze hledají díky zkratce ze seznamu ROM.
+- Připojení k beta verzi Play je rychlejší, s QR kódem a tlačítkem sdílení.

@@ -1,0 +1,2 @@
+- Les ROM de la communauté sont plus faciles à trouver, avec un raccourci depuis la liste des ROM.
+- Rejoindre la bêta Play est plus rapide, avec un code QR et un bouton de partage.

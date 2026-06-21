@@ -1,0 +1,2 @@
+- Komunitateko ROMak errazago aurkitzen dira, ROM zerrendako lasterbide batekin.
+- Play betarekin bat egitea azkarragoa da, QR kode eta partekatze botoi batekin.

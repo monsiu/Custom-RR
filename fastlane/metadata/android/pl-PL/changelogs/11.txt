@@ -1,0 +1,2 @@
+- Społecznościowe ROM-y łatwiej znaleźć dzięki skrótowi z listy ROM-ów.
+- Dołączanie do bety Play jest szybsze, z kodem QR i przyciskiem udostępniania.

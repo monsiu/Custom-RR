@@ -1,0 +1,2 @@
+- Auðveldara er að finna samfélags-ROM með flýtileið úr ROM-listanum.
+- Það er fljótlegra að ganga í Play-betuna, með QR-kóða og deilihnappi.

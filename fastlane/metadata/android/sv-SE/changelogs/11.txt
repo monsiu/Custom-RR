@@ -1,0 +1,2 @@
+- Community-ROM:ar är lättare att hitta, med en genväg från ROM-listan.
+- Att gå med i Play-betan går snabbare, med en QR-kod och en delningsknapp.

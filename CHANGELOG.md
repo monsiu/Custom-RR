@@ -6,27 +6,22 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-### Added
-
-- **Easier Play beta sign-ups.** The Join the Play beta page now has a QR code
-  and copy / share buttons so you can invite others to test in one tap, and a
-  clear reminder that staying installed for about two weeks is what lets Custom
-  RR reach the public Play Store.
-- **Beta testers credit.** A new Beta testers section on the About page thanks
-  the people helping bring Custom RR to Google Play; their names are shown there
-  after launch.
+## [1.3.1] - 2026-06-21
 
 ### Changed
 
-- Play beta testers now see a short thank-you on the home screen with a reminder
-  to keep the app installed while testing.
 - **Community ROMs are easier to find.** The OpenDesktop community builds browser
   is now called "Community ROMs" and sits right under Custom ROMs in the menu, and
   the Custom ROMs screen has a clear shortcut to it at the bottom (still marked as
   unvetted, third-party builds, separate from the curated catalog).
-- The Play beta invite now spells out the perk: testers get new builds about
-  five days before the other channels (important fixes still go out everywhere
-  at once).
+- **Smoother Play beta sign-up.** The Join the Play beta page now has a QR code and
+  copy / share buttons so you can invite others in one tap, plus a clear reminder
+  that staying installed for about two weeks is what lets Custom RR reach the
+  public Play Store.
+- **Play beta extras.** Beta testers now see a short thank-you on the home screen,
+  a new Beta testers section on the About page (names shown after launch), and a
+  note that testers get new builds about five days before the other channels
+  (important fixes still go out everywhere at once).
 
 ## [1.3.0] - 2026-06-20
 

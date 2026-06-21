@@ -1,0 +1,2 @@
+- ROM-ove zajednice lakše je pronaći, uz prečac s popisa ROM-ova.
+- Pridruživanje Play beti brže je, uz QR kod i gumb za dijeljenje.

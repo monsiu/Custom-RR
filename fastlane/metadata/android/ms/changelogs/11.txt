@@ -1,0 +1,2 @@
+- ROM komuniti lebih mudah dicari, dengan pintasan daripada senarai ROM.
+- Menyertai beta Play lebih pantas, dengan kod QR dan butang kongsi.

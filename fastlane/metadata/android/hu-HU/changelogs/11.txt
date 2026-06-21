@@ -1,0 +1,2 @@
+- A közösségi ROM-okat könnyebb megtalálni a ROM-listából elérhető parancsikonnal.
+- A Play bétához csatlakozás gyorsabb, QR-kóddal és megosztás gombbal.

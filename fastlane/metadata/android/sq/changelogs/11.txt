@@ -1,0 +1,2 @@
+- ROM-et e komunitetit gjenden më lehtë, me një shkurtore nga lista e ROM-eve.
+- Bashkimi në beta-n e Play është më i shpejtë, me një kod QR dhe një buton ndarjeje.

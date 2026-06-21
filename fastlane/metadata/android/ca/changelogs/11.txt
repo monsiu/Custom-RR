@@ -1,0 +1,2 @@
+- Les ROM de la comunitat són més fàcils de trobar, amb una drecera des de la llista de ROM.
+- Unir-se a la beta de Play és més ràpid, amb un codi QR i un botó de compartir.
