@@ -64,9 +64,10 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
 ## Help bring Custom RR to Google Play
 
 Custom RR is in **closed testing** on Google Play, and Google needs a group of
-testers before it can go live to everyone. **You can help it launch**, and you
-get the app early. It is the same release as every other channel, just delivered
-through the Play Store.
+testers before it can go live to everyone. **You can help it launch**, and as a
+tester you get **new builds about 5 days before the other channels** (important
+fixes still go to everyone at once). It is the same app as every other channel,
+just delivered through the Play Store.
 
 **Join in two steps:** open
 **[monsiu.github.io/custom-rr/beta](https://monsiu.github.io/custom-rr/beta)**,
