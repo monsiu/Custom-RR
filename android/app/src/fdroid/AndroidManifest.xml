@@ -1,0 +1,110 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<!-- F-Droid variant manifest. -->
+<!-- -->
+<!-- Used ONLY when the build is invoked with FDROID_BUILD=true (see -->
+<!-- android/app/build.gradle, which swaps the main manifest for this one). -->
+<!-- The default `flutter build apk` and the GitHub release workflow keep -->
+<!-- src/main/AndroidManifest.xml untouched. -->
+<!-- -->
+<!-- Differences from the main manifest: -->
+<!--  * No REQUEST_INSTALL_PACKAGES. The F-Droid build ships without the -->
+<!--    in-app APK updater (compiled out via the FDROID_BUILD dart-define); -->
+<!--    F-Droid distributes and updates the app itself. -->
+<!--  * No package-archive query intent (the installer is gone). -->
+<!--  * READ_MEDIA_IMAGES / READ_MEDIA_VIDEO / READ_MEDIA_AUDIO and -->
+<!--    READ_EXTERNAL_STORAGE are removed. They are merged in transitively by -->
+<!--    the open_filex plugin (used only by the in-app updater, which the -->
+<!--    F-Droid build compiles out), and the app never reads photos, videos, -->
+<!--    or audio. -->
+<!--  * The crypto wallet URI query intents are KEPT: unlike the Play build, -->
+<!--    the F-Droid build keeps the crypto donation UI, so it still needs to -->
+<!--    resolve installed wallet apps. -->
+
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
+    tools:node="remove" />
+<uses-permission android:name="android.permission.READ_MEDIA_VIDEO"
+    tools:node="remove" />
+<uses-permission android:name="android.permission.READ_MEDIA_AUDIO"
+    tools:node="remove" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    tools:node="remove" />
+
+    <!-- Provide required visibility configuration for API level 30 and above -->
+<queries>
+
+    <!-- to open https URLs -->
+    <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="https" />
+    </intent>
+  <!-- If your app checks for call support -->
+  <intent>
+    <action android:name="android.intent.action.DIAL" />
+    <data android:scheme="tel" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.SEND" />
+    <data android:mimeType="*/*" />
+  </intent>
+
+  <!-- Wallet deep-link URI schemes used by the crypto donation sheet. -->
+  <!-- Without these, Android 11+ (API 30+) blocks launchUrl from -->
+  <!-- resolving installed wallet apps. -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="bitcoin" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="lightning" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="ethereum" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="solana" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="monero" />
+  </intent>
+</queries>
+   <application
+        android:label="Custom RR"
+        android:name="${applicationName}"
+        android:enableOnBackInvokedCallback="true"
+        android:icon="@mipmap/launcher_icon">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    
+</manifest>

@@ -28,17 +28,28 @@ android {
         main.java.srcDirs += "src/main/kotlin"
     }
 
-    // Google Play variant: swap in a manifest WITHOUT the
-    // REQUEST_INSTALL_PACKAGES permission (and without the APK-installer and
-    // crypto-wallet query intents). This only happens when the build is run
-    // with PLAY_BUILD=true; every other build (default `flutter build apk`,
-    // the GitHub release workflow, and the F-Droid recipe) keeps the stock
-    // src/main/AndroidManifest.xml untouched. Pair it with
-    // `--dart-define=PLAY_BUILD=true` so the Dart side also drops the in-app
-    // updater and the crypto donation UI.
+    // Store-variant manifest swaps. The default `flutter build apk` and the
+    // GitHub release workflow keep the stock src/main/AndroidManifest.xml.
+    //
+    // Google Play (PLAY_BUILD=true): swap in a manifest WITHOUT the
+    // REQUEST_INSTALL_PACKAGES permission, the APK-installer query intent, the
+    // crypto-wallet query intents, and the updater-only media/storage perms.
+    // Pair it with `--dart-define=PLAY_BUILD=true` so the Dart side also drops
+    // the in-app updater and the crypto donation UI.
+    //
+    // F-Droid (FDROID_BUILD=true): swap in a manifest WITHOUT
+    // REQUEST_INSTALL_PACKAGES, the APK-installer query intent, and the
+    // updater-only media/storage perms, but KEEPING the crypto-wallet query
+    // intents (the F-Droid build keeps the donation UI). Pair it with
+    // `--dart-define=FDROID_BUILD=true` so the Dart side drops the in-app
+    // updater. The recipe must export FDROID_BUILD=true so this swap fires.
     if (System.getenv("PLAY_BUILD") == "true") {
         sourceSets {
             main.manifest.srcFile "src/play/AndroidManifest.xml"
+        }
+    } else if (System.getenv("FDROID_BUILD") == "true") {
+        sourceSets {
+            main.manifest.srcFile "src/fdroid/AndroidManifest.xml"
         }
     }
 
