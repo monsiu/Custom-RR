@@ -236,31 +236,42 @@ jobs:
           else
             notes="A new version is rolling out. See the in-app changelog for what's new."
           fi
-          testing_url="https://play.google.com/apps/testing/io.github.monsiu.custom_rr"
+          beta_url="https://monsiu.github.io/custom-rr/beta/"
           store_url="https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr"
+          # Two audiences: enrolled testers update straight from the Play app
+          # page, and anyone not yet enrolled gets the join-the-beta page.
+          # On the production track there is no beta, so just point at the store.
           if [ "$PLAY_TRACK" = "production" ]; then
-            link="$store_url"
-            cta="Update from the Play Store"
+            content="@everyone Custom RR v${VNAME} is now live on Google Play."
+            fields="$(jq -nc --arg store "$store_url" \
+              '[{ name: "Get it", value: "[Update from the Play Store](\($store))" }]')"
           else
-            link="$testing_url"
-            cta="Testers: opt in / update on Google Play"
+            content="@everyone Custom RR v${VNAME} just landed for Play testers ($label). Testers get new builds about 5 days before any other channel."
+            fields="$(jq -nc --arg store "$store_url" --arg beta "$beta_url" \
+              '[
+                { name: "Already a tester?", value: "[Update on Google Play](\($store))" },
+                { name: "Not a tester yet?", value: "[Join the beta](\($beta))" }
+              ]')"
           fi
           # Build the JSON with jq (preinstalled on the runner) so newlines and
           # quotes in the notes are escaped safely. Brand green = 0x7ED957.
           payload="$(jq -n \
+            --arg content "$content" \
             --arg title "Custom RR v${VNAME} is live on Google Play ($label)" \
             --arg desc "$notes" \
-            --arg cta "$cta" \
-            --arg link "$link" \
+            --arg url "$store_url" \
             --arg vc "versionCode ${VCODE}" \
+            --argjson fields "$fields" \
             '{
               username: "Custom RR Releases",
+              content: $content,
+              allowed_mentions: { parse: ["everyone"] },
               embeds: [{
                 title: $title,
                 description: $desc,
-                url: $link,
+                url: $url,
                 color: 8313175,
-                fields: [{ name: "How to get it", value: "[\($cta)](\($link))" }],
+                fields: $fields,
                 footer: { text: $vc }
               }]
             }')"
