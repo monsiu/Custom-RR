@@ -38,9 +38,9 @@ RepoType: git
 Repo: https://github.com/monsiu/Custom-RR.git
 
 Builds:
-  - versionName: 1.3.0
-    versionCode: 10001
-    commit: 55697fb34d044c62b25d53ccabcfda3041f71409
+  - versionName: 1.3.1
+    versionCode: 11001
+    commit: c520163254e1be74592907ff3451873337083434
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@stable
@@ -60,12 +60,13 @@ Builds:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
+      - export FDROID_BUILD=true
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.3.0
-    versionCode: 10002
-    commit: 55697fb34d044c62b25d53ccabcfda3041f71409
+  - versionName: 1.3.1
+    versionCode: 11002
+    commit: c520163254e1be74592907ff3451873337083434
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@stable
@@ -85,12 +86,13 @@ Builds:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
+      - export FDROID_BUILD=true
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm64
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.3.0
-    versionCode: 10003
-    commit: 55697fb34d044c62b25d53ccabcfda3041f71409
+  - versionName: 1.3.1
+    versionCode: 11003
+    commit: c520163254e1be74592907ff3451873337083434
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@stable
@@ -110,6 +112,7 @@ Builds:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
+      - export FDROID_BUILD=true
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-x64
         --release --dart-define=FDROID_BUILD=true
 
@@ -123,15 +126,21 @@ MaintainerNotes: |-
   stock Flutter scheme base * 1000 + abiCode, which keeps the ABI in the
   low-order digits (armeabi-v7a -> x001, arm64-v8a -> x002, x86_64 -> x003) and
   matches the VercodeOperation below. The base versionCode comes from
-  pubspec.yaml's +N build number (8 for 1.1.0), so the embedded codes are
-  8001/8002/8003.
+  pubspec.yaml's +N build number (11 for 1.3.1), so the embedded codes are
+  11001/11002/11003.
 
   The app's self-update machinery is disabled by default in upstream source
   (see lib/util/build_flags.dart) and enabled only for GitHub release artifacts
   via --dart-define=GITHUB_RELEASE_BUILD=true. The F-Droid build passes
   --dart-define=FDROID_BUILD=true and does not pass the GitHub release flag, so
   there is no GitHub release polling, no in-app APK download/install path, and
-  no "Check for updates" UI.
+  no "Check for updates" UI. The build also exports FDROID_BUILD=true as an
+  environment variable, which makes android/app/build.gradle swap in
+  android/app/src/fdroid/AndroidManifest.xml: a manifest without
+  REQUEST_INSTALL_PACKAGES, without the package-installer query intent, and
+  without the updater-only media/storage permissions (READ_MEDIA_* and
+  READ_EXTERNAL_STORAGE, which the open_filex plugin merges in transitively but
+  the app never uses). The result declares only INTERNET.
 
   NonFreeNet is declared because the app can still connect to GitHub raw for
   catalog/freshness refreshes, to third-party project sites for images and
@@ -149,5 +158,5 @@ VercodeOperation:
   - 1000 * %c + 2
   - 1000 * %c + 3
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.3.0
-CurrentVersionCode: 10003
+CurrentVersion: 1.3.1
+CurrentVersionCode: 11003
