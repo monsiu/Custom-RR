@@ -132,8 +132,8 @@ Future<void> main(List<String> args) async {
       source: 'https://github.com/salvogiangri/UN1CA/releases',
     ),
     'artisanrom': _Seed(
-      lastBuild: DateTime.utc(2026, 5, 15),
-      version: 'ArtisanROM Quant v3.1.1',
+      lastBuild: DateTime.utc(2026, 6, 21),
+      version: 'ArtisanROM Quant v3.5.0',
       source: 'https://github.com/ArtisanROM/ArtisanROM/releases',
     ),
     'lineagee3q': _Seed(
