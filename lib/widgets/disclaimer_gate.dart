@@ -124,6 +124,13 @@ class _DisclaimerDialog extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
+                'Custom RR collects no personal data. Tap "Privacy policy" '
+                'below to see exactly what the app accesses and which '
+                'third-party sites it contacts.',
+                style: text.bodyMedium,
+              ),
+              const SizedBox(height: 12),
+              Text(
                 'If something goes wrong, the right place to ask is your '
                 'device community, not this app:',
                 style: text.bodyMedium?.copyWith(
@@ -148,6 +155,11 @@ class _DisclaimerDialog extends StatelessWidget {
         ),
       ),
       actions: <Widget>[
+        TextButton(
+          onPressed: () =>
+              _open(context, 'https://monsiu.github.io/custom-rr/privacy/'),
+          child: const Text('Privacy policy'),
+        ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(),
           child: const Text('OK, I understand'),
