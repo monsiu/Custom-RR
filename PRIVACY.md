@@ -1,13 +1,13 @@
 # Privacy Policy for Custom RR
 
 **App name:** Custom RR (also listed in some stores as "Custom RR: ROMs & Recovery")
-**Developer:** Monsiu Tech Solutions (Martin Nzau)
+**Developer:** Monsiu
 **Contact:** contactmonsiu@gmail.com
 **Effective date:** May 26, 2026
 **Last updated:** June 22, 2026
 
 This is the privacy policy for the Custom RR app, developed and published by
-Monsiu Tech Solutions ("we", "us"). Custom RR ("the app") is an open-source
+Monsiu ("we", "us"). Custom RR ("the app") is an open-source
 Android app that catalogs custom ROMs and recoveries, with links, screenshots,
 and flashing instructions.
 
