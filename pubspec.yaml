@@ -31,7 +31,7 @@ dependencies:
   # In-app updater: download the matching split APK from the latest
   # GitHub release and hand it to the system installer.
   dio: ^5.7.0
-  device_info_plus: ^13.1.0
+  device_info_plus: ^13.2.0
   open_filex: ^4.5.0
   path_provider: ^2.1.4
 
