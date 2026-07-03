@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-22T12:54:39.231627Z",
+  "_generatedAt": "2026-06-29T12:04:27.802075Z",
   "roms": [
     {
       "id": "lineage",
@@ -122,6 +122,11 @@
           "model": "5",
           "codename": "FP5",
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
+        },
+        {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
         },
         {
           "brand": "Google",
@@ -331,6 +336,11 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
+        },
+        {
+          "brand": "LG",
+          "model": "G6 (EU Unlocked - ENG BL)",
+          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -686,6 +696,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -2693,6 +2708,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -5761,6 +5781,11 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
@@ -8212,6 +8237,11 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
@@ -9591,6 +9621,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -10985,6 +11020,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -14729,6 +14769,11 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
+        },
+        {
           "brand": "Google",
           "model": "Pixel 3a",
           "codename": "sargo"
@@ -14987,6 +15032,11 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
+        },
+        {
           "brand": "Google",
           "model": "Nexus 6",
           "codename": "shamu"
@@ -15215,6 +15265,11 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
+        },
+        {
+          "brand": "LG",
+          "model": "G6 (EU Unlocked - ENG BL)",
+          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -15610,6 +15665,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -17426,6 +17486,11 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
+        },
+        {
           "brand": "Google",
           "model": "Nexus 6",
           "codename": "shamu"
@@ -17669,6 +17734,11 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
+        },
+        {
+          "brand": "LG",
+          "model": "G6 (EU Unlocked - ENG BL)",
+          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -18089,6 +18159,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -20350,6 +20425,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -26404,6 +26484,11 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
@@ -28709,6 +28794,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
