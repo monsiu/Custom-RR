@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-06-29T12:04:27.802075Z",
+  "_generatedAt": "2026-07-06T11:42:17.019362Z",
   "roms": [
     {
       "id": "lineage",
@@ -1354,6 +1354,11 @@
           "brand": "Realme",
           "model": "Q5",
           "codename": "oscar"
+        },
+        {
+          "brand": "Retroid Pocket",
+          "model": "6",
+          "codename": "RP6"
         },
         {
           "brand": "SHIFT",
@@ -31449,6 +31454,10 @@
     {
       "name": "Realme",
       "imageAsset": "images/device_realme.png"
+    },
+    {
+      "name": "Retroid Pocket",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "SHIFT",
