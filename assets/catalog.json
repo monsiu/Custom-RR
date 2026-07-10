@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-06T11:42:17.019362Z",
+  "_generatedAt": "2026-07-10T15:31:30.264587Z",
   "roms": [
     {
       "id": "lineage",
@@ -127,6 +127,11 @@
           "brand": "Fairphone",
           "model": "The Fairphone (Gen. 6)",
           "codename": "FP6"
+        },
+        {
+          "brand": "Freebox",
+          "model": "Pop / TV",
+          "codename": "nicepool"
         },
         {
           "brand": "Google",
@@ -31282,6 +31287,10 @@
     {
       "name": "Fairphone",
       "imageAsset": "images/device_fairphone.png"
+    },
+    {
+      "name": "Freebox",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Gigaset",
