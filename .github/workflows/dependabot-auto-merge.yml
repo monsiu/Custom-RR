@@ -1,0 +1,41 @@
+# Auto-merges low-risk Dependabot updates after CI passes, to cut PR churn.
+#
+# Safety model:
+#   - Only Dependabot-authored PRs are touched.
+#   - PATCH and MINOR updates auto-merge for every ecosystem here (pub, gradle,
+#     GitHub Actions) because CI runs the full pipeline on PRs: analyze, tests,
+#     catalog drift check, a signed release APK build, and a Linux desktop
+#     build. A bump that breaks any of those never lands.
+#   - MAJOR updates always require a human.
+#   - `gh pr merge --auto` only merges once required status checks are green.
+#
+# Repo prerequisites (one-time): "Allow auto-merge" enabled, plus a main-branch
+# ruleset requiring the CI checks with a bypass for the GitHub Actions app (the
+# nightly freshness sync pushes directly to main).
+name: Dependabot auto-merge
+
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Fetch Dependabot metadata
+        id: meta
+        uses: dependabot/fetch-metadata@v2
+
+      - name: Approve and enable auto-merge for low-risk updates
+        if: >
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.update-type == 'version-update:semver-minor'
+        run: |
+          gh pr review --approve "$PR_URL"
+          gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -7,6 +7,13 @@ updates:
     open-pull-requests-limit: 5
     commit-message:
       prefix: "deps"
+    groups:
+      # Batch low-risk minor/patch bumps into one PR to cut noise; majors
+      # stay individual and are never auto-merged.
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
 
   - package-ecosystem: gradle
     directory: "/android"
@@ -15,6 +22,11 @@ updates:
     open-pull-requests-limit: 3
     commit-message:
       prefix: "android"
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
 
   - package-ecosystem: github-actions
     directory: "/"
@@ -22,3 +34,8 @@ updates:
       interval: weekly
     commit-message:
       prefix: "ci"
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
