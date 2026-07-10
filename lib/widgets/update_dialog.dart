@@ -218,7 +218,7 @@ String humanizeUpdateError(Object error) {
         return 'Server returned HTTP $code from $host.';
       case DioExceptionType.cancel:
         return 'Download cancelled.';
-      case DioExceptionType.unknown:
+      default:
         final Object? inner = error.error;
         if (inner is SocketException) {
           return 'Network error: ${inner.osError?.message ?? inner.message}.';
