@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-07-10T09:01:08.873573Z",
+  "_generatedAt": "2026-07-10T14:45:26.074195Z",
   "_netCount": 15,
   "_curatedCount": 17,
   "entries": {
@@ -151,7 +151,7 @@
     "un1ca": {
       "status": "active",
       "lastBuild": "2026-06-04",
-      "daysAgo": 35,
+      "daysAgo": 36,
       "version": "UN1CA 3.1.0",
       "source": "https://github.com/salvogiangri/UN1CA/releases",
       "origin": "network"
@@ -167,7 +167,7 @@
     "lineagee3q": {
       "status": "active",
       "lastBuild": "2026-06-26",
-      "daysAgo": 13,
+      "daysAgo": 14,
       "version": "Unofficial LineageOS (e3q) (latest)",
       "source": "https://github.com/Exynoobs/OTA",
       "origin": "network"
@@ -191,7 +191,7 @@
     "kernelsu": {
       "status": "active",
       "lastBuild": "2026-06-23",
-      "daysAgo": 16,
+      "daysAgo": 17,
       "version": "KernelSU 3.2.5",
       "source": "https://github.com/tiann/KernelSU/releases",
       "origin": "network"
@@ -199,7 +199,7 @@
     "kernelsu_next": {
       "status": "active",
       "lastBuild": "2026-07-03",
-      "daysAgo": 6,
+      "daysAgo": 7,
       "version": "KernelSU Next 3.3.0",
       "source": "https://github.com/KernelSU-Next/KernelSU-Next/releases",
       "origin": "network"
@@ -207,7 +207,7 @@
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 239,
+      "daysAgo": 240,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"
@@ -231,7 +231,7 @@
     "orangefox": {
       "status": "active",
       "lastBuild": "2026-07-07",
-      "daysAgo": 2,
+      "daysAgo": 3,
       "version": "OrangeFox R12.0_1",
       "source": "https://orangefox.download/",
       "origin": "network"
