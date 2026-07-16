@@ -384,6 +384,22 @@ final Map<String, _NetFetcher> _netFetchers = <String, _NetFetcher>{
         repo: 'official_devices',
         displayName: 'Project Infinity X',
       ),
+  // VoltageOS ships per-device OTAs from its vendor repo; each build lands as
+  // a commit on the current Android-version default branch.
+  'voltage': (HttpClient c) => _fetchGitHubLatestCommit(
+        c,
+        owner: 'VoltageOS',
+        repo: 'android_vendor_voltageota',
+        displayName: 'VoltageOS',
+      ),
+  // PixelOS publishes per-device OTA metadata to its official_devices repo;
+  // the default branch tracks the newest Android version.
+  'pixelos': (HttpClient c) => _fetchGitHubLatestCommit(
+        c,
+        owner: 'PixelOS-AOSP',
+        repo: 'official_devices',
+        displayName: 'PixelOS',
+      ),
 };
 
 /// GrapheneOS publishes a one-line stable-channel manifest per device at
