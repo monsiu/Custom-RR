@@ -774,6 +774,11 @@ _Policy _policyFor(String romId) {
       // no LineageOS wiki entry, so it is injected explicitly in [_buildRoms]
       // and this policy matches nothing from the wiki pool.
       return (_Device _) => false;
+    case 'lineagegta4xl':
+      // Unofficial LineageOS for the Galaxy Tab S6 Lite 2022. The tablet has
+      // no LineageOS wiki entry, so it is injected explicitly in [_buildRoms]
+      // and this policy matches nothing from the wiki pool.
+      return (_Device _) => false;
 
     // Recoveries follow approximate official device lists.
     case 'twrp':
@@ -946,6 +951,8 @@ const Map<String, String> _xdaDeviceForums = <String, String>{
   'e3q':
       'https://xdaforums.com/f/samsung-galaxy-s24-ultra.12819/$_xdaDevFilter',
   'f62': 'https://xdaforums.com/f/samsung-galaxy-f62-m62.12127/$_xdaDevFilter',
+  'gta4xlveu':
+      'https://xdaforums.com/f/samsung-galaxy-tab-s6-lite-roms-kernels-recoveri.10977/$_xdaDevFilter',
   'm52xq': 'https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/$_xdaDevFilter',
 
   // Sony
@@ -1057,6 +1064,25 @@ List<_Device> get _e3qExtraDevices => <_Device>[
       type: 'phone',
       currentBranch: '',
       releaseYear: s.releaseYear ?? 2024,
+    ),
+];
+
+/// The 2022 Qualcomm Galaxy Tab S6 Lite (gta4xlveu, SM-P613 Wi-Fi and SM-P619
+/// LTE) has no LineageOS wiki entry, so the community builds that target it
+/// (official DerpFest, unofficial LineageOS) must inject the device by hand.
+const List<_DeviceSeed> _gta4xlveuSeeds = <_DeviceSeed>[
+  _DeviceSeed('gta4xlveu', 'Galaxy Tab S6 Lite 2022 (Qualcomm)', 2022),
+];
+
+List<_Device> get _gta4xlveuExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _gta4xlveuSeeds)
+    _Device(
+      vendor: 'Samsung',
+      model: s.model,
+      codename: s.codename,
+      type: 'tablet',
+      currentBranch: '',
+      releaseYear: s.releaseYear ?? 2022,
     ),
 ];
 
@@ -2126,6 +2152,62 @@ List<Map<String, dynamic>> _buildRoms(
       warning:
           'Distributed and supported through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model.',
     ),
+    _RomSpec(
+      id: 'lineagegta4xl',
+      name: 'LineageOS for Tab S6 Lite 2022 (Unofficial)',
+      headerAsset: 'images/lineageos.png',
+      unofficial: true,
+      shortTagline:
+          'Community-built unofficial LineageOS 23.2 for the Galaxy Tab S6 Lite 2022 (Qualcomm).',
+      description: <String>[
+        'Unofficial LineageOS builds for the 2022 Qualcomm Galaxy Tab S6 Lite (gta4xlveu, SM-P613 Wi-Fi and SM-P619 LTE), maintained by XDA developer daniml3. The Tab S6 Lite 2022 has no official LineageOS support, so this community port is the way to run stock AOSP-style Android on it, and the same ROM zip covers both the Wi-Fi and LTE variants.',
+        'Current builds track LineageOS 23.2 (Android 16) with the LineageOS recovery, and the device and kernel sources are developed in the open on GitHub. Audio, Bluetooth, Wi-Fi, LTE, camera, and the S-Pen are reported working, and OTA updates are available for existing users.',
+      ],
+      features: <String>[
+        'LineageOS 23.2 (Android 16) for a device with no official LineageOS support.',
+        'One ROM zip covers both the Wi-Fi (SM-P613) and LTE (SM-P619) 2022 models.',
+        'S-Pen support with a custom circle cursor.',
+        'MindTheGapps support for Google apps.',
+        'Device and kernel sources on GitHub, with an active XDA thread and Telegram group.',
+      ],
+      // Reuses the official lineageos.org press shots (the build ships the
+      // same stock LineageOS UI), ordered differently from the S24 Ultra
+      // entry so the galleries do not mirror one another.
+      screenshots: <String>[
+        'https://lineageos.org/images/2025-10-11/hero.webp',
+        'https://lineageos.org/images/2024-02-14/dialer.webp',
+        'https://lineageos.org/images/2024-02-14/jelly.webp',
+        'https://lineageos.org/images/2022-12-31/aperture.webp',
+        'https://lineageos.org/images/2024-02-14/glimpse.webp',
+        'https://lineageos.org/images/2024-12-31/twelve.webp',
+        'https://lineageos.org/images/2024-02-14/calculator.webp',
+        'https://lineageos.org/images/2025-10-11/catapult.webp',
+      ],
+      downloadLabel: 'Builds & recovery (GitHub)',
+      downloadUrl: 'https://github.com/danielml3/releases/releases?q=gta4xlveu',
+      forumUrl:
+          'https://xdaforums.com/t/rom-unofficial-2022-model-lineageos-23-for-galaxy-tab-s6-lite-2022-qualcomm.4752160/',
+      warning:
+          'Unofficial community build by a single maintainer; not endorsed by the LineageOS project. Unlocking the bootloader trips Knox and may void the warranty. Only for the 2022 Qualcomm models (SM-P613 / SM-P619); do not flash it on the 2020 Exynos models. Read the install instructions carefully.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Telegram support',
+          url: 'https://t.me/lineagegta4xlve',
+          iconName: 'telegram',
+        ),
+        _RomLink(
+          label: 'Device sources',
+          url:
+              'https://github.com/gta4xlve-dev/android_device_samsung_gta4xlveu',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Kernel sources',
+          url: 'https://github.com/gta4xlve-dev/android_kernel_samsung_gta4xlve',
+          iconName: 'github',
+        ),
+      ],
+    ),
   ];
 
   return specs.map((_RomSpec s) {
@@ -2164,6 +2246,22 @@ List<Map<String, dynamic>> _buildRoms(
       // Community builds for the Galaxy S24 Ultra, which has no LineageOS
       // wiki entry; the device is injected by hand.
       matched = _e3qExtraDevices;
+    } else if (s.id == 'lineagegta4xl') {
+      // Unofficial LineageOS for the Galaxy Tab S6 Lite 2022, which has no
+      // LineageOS wiki entry; the device is injected by hand.
+      matched = _gta4xlveuExtraDevices;
+    } else if (s.id == 'derpfest') {
+      // DerpFest officially supports the Galaxy Tab S6 Lite 2022 (gta4xlveu),
+      // a tablet that the phone-only policy and the LineageOS wiki pool do not
+      // cover. Union the injected device with whatever the policy matches.
+      final List<_Device> policyMatched = all.where(policy).toList();
+      final Set<String> seen =
+          policyMatched.map((_Device d) => d.codename).toSet();
+      matched = <_Device>[
+        ...policyMatched,
+        for (final _Device d in _gta4xlveuExtraDevices)
+          if (!seen.contains(d.codename)) d,
+      ];
     } else {
       matched = all.where(policy).toList();
     }

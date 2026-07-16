@@ -147,6 +147,11 @@ Future<void> main(List<String> args) async {
       source:
           'https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/',
     ),
+    'lineagegta4xl': _Seed(
+      lastBuild: DateTime.utc(2026, 3, 28),
+      version: 'LineageOS 23.2 (unofficial, gta4xlveu)',
+      source: 'https://github.com/danielml3/releases/releases',
+    ),
 
     // Root solutions
     'magisk': _Seed(

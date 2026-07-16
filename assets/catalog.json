@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-10T15:31:30.264587Z",
+  "_generatedAt": "2026-07-16T09:20:31.701282Z",
   "roms": [
     {
       "id": "lineage",
@@ -122,16 +122,6 @@
           "model": "5",
           "codename": "FP5",
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
-        },
-        {
-          "brand": "Fairphone",
-          "model": "The Fairphone (Gen. 6)",
-          "codename": "FP6"
-        },
-        {
-          "brand": "Freebox",
-          "model": "Pop / TV",
-          "codename": "nicepool"
         },
         {
           "brand": "Google",
@@ -341,11 +331,6 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
-        },
-        {
-          "brand": "LG",
-          "model": "G6 (EU Unlocked - ENG BL)",
-          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -701,11 +686,6 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -1359,11 +1339,6 @@
           "brand": "Realme",
           "model": "Q5",
           "codename": "oscar"
-        },
-        {
-          "brand": "Retroid Pocket",
-          "model": "6",
-          "codename": "RP6"
         },
         {
           "brand": "SHIFT",
@@ -2718,11 +2693,6 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -5791,11 +5761,6 @@
         },
         {
           "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
-        },
-        {
-          "brand": "Motorola",
           "model": "moto g52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
@@ -8247,11 +8212,6 @@
         },
         {
           "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
-        },
-        {
-          "brand": "Motorola",
           "model": "moto g52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
@@ -9631,11 +9591,6 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -11030,11 +10985,6 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -14779,11 +14729,6 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
-          "brand": "Fairphone",
-          "model": "The Fairphone (Gen. 6)",
-          "codename": "FP6"
-        },
-        {
           "brand": "Google",
           "model": "Pixel 3a",
           "codename": "sargo"
@@ -15042,11 +14987,6 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
-          "brand": "Fairphone",
-          "model": "The Fairphone (Gen. 6)",
-          "codename": "FP6"
-        },
-        {
           "brand": "Google",
           "model": "Nexus 6",
           "codename": "shamu"
@@ -15275,11 +15215,6 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
-        },
-        {
-          "brand": "LG",
-          "model": "G6 (EU Unlocked - ENG BL)",
-          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -15675,11 +15610,6 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -17496,11 +17426,6 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
-          "brand": "Fairphone",
-          "model": "The Fairphone (Gen. 6)",
-          "codename": "FP6"
-        },
-        {
           "brand": "Google",
           "model": "Nexus 6",
           "codename": "shamu"
@@ -17744,11 +17669,6 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
-        },
-        {
-          "brand": "LG",
-          "model": "G6 (EU Unlocked - ENG BL)",
-          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -18169,11 +18089,6 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -20438,11 +20353,6 @@
         },
         {
           "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
-        },
-        {
-          "brand": "Motorola",
           "model": "moto g52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
@@ -21417,6 +21327,12 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S6 Lite 2022 (Qualcomm)",
+          "codename": "gta4xlveu",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-tab-s6-lite-roms-kernels-recoveri.10977/?prefix_id=33"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -21699,6 +21615,63 @@
       "downloadUrl": "https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/",
       "forumUrl": "https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/",
       "warning": "Distributed and supported through its XDA thread. Built strictly for the Snapdragon Galaxy S24 Ultra (SM-S928B/DS); do not flash it on any other model."
+    },
+    {
+      "id": "lineagegta4xl",
+      "name": "LineageOS for Tab S6 Lite 2022 (Unofficial)",
+      "headerAsset": "images/lineageos.png",
+      "shortTagline": "Community-built unofficial LineageOS 23.2 for the Galaxy Tab S6 Lite 2022 (Qualcomm).",
+      "description": [
+        "Unofficial LineageOS builds for the 2022 Qualcomm Galaxy Tab S6 Lite (gta4xlveu, SM-P613 Wi-Fi and SM-P619 LTE), maintained by XDA developer daniml3. The Tab S6 Lite 2022 has no official LineageOS support, so this community port is the way to run stock AOSP-style Android on it, and the same ROM zip covers both the Wi-Fi and LTE variants.",
+        "Current builds track LineageOS 23.2 (Android 16) with the LineageOS recovery, and the device and kernel sources are developed in the open on GitHub. Audio, Bluetooth, Wi-Fi, LTE, camera, and the S-Pen are reported working, and OTA updates are available for existing users."
+      ],
+      "features": [
+        "LineageOS 23.2 (Android 16) for a device with no official LineageOS support.",
+        "One ROM zip covers both the Wi-Fi (SM-P613) and LTE (SM-P619) 2022 models.",
+        "S-Pen support with a custom circle cursor.",
+        "MindTheGapps support for Google apps.",
+        "Device and kernel sources on GitHub, with an active XDA thread and Telegram group."
+      ],
+      "screenshots": [
+        "https://lineageos.org/images/2025-10-11/hero.webp",
+        "https://lineageos.org/images/2024-02-14/dialer.webp",
+        "https://lineageos.org/images/2024-02-14/jelly.webp",
+        "https://lineageos.org/images/2022-12-31/aperture.webp",
+        "https://lineageos.org/images/2024-02-14/glimpse.webp",
+        "https://lineageos.org/images/2024-12-31/twelve.webp",
+        "https://lineageos.org/images/2024-02-14/calculator.webp",
+        "https://lineageos.org/images/2025-10-11/catapult.webp"
+      ],
+      "devices": [
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S6 Lite 2022 (Qualcomm)",
+          "codename": "gta4xlveu",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-tab-s6-lite-roms-kernels-recoveri.10977/?prefix_id=33"
+        }
+      ],
+      "downloadLabel": "Builds & recovery (GitHub)",
+      "downloadUrl": "https://github.com/danielml3/releases/releases?q=gta4xlveu",
+      "forumUrl": "https://xdaforums.com/t/rom-unofficial-2022-model-lineageos-23-for-galaxy-tab-s6-lite-2022-qualcomm.4752160/",
+      "warning": "Unofficial community build by a single maintainer; not endorsed by the LineageOS project. Unlocking the bootloader trips Knox and may void the warranty. Only for the 2022 Qualcomm models (SM-P613 / SM-P619); do not flash it on the 2020 Exynos models. Read the install instructions carefully.",
+      "unofficial": true,
+      "links": [
+        {
+          "label": "Telegram support",
+          "url": "https://t.me/lineagegta4xlve",
+          "iconName": "telegram"
+        },
+        {
+          "label": "Device sources",
+          "url": "https://github.com/gta4xlve-dev/android_device_samsung_gta4xlveu",
+          "iconName": "github"
+        },
+        {
+          "label": "Kernel sources",
+          "url": "https://github.com/gta4xlve-dev/android_kernel_samsung_gta4xlve",
+          "iconName": "github"
+        }
+      ]
     }
   ],
   "recoveries": [
@@ -26494,11 +26467,6 @@
         },
         {
           "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
-        },
-        {
-          "brand": "Motorola",
           "model": "moto g52",
           "codename": "rhode",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
@@ -28804,11 +28772,6 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
-        },
-        {
-          "brand": "Motorola",
-          "model": "moto g50",
-          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -31289,10 +31252,6 @@
       "imageAsset": "images/device_fairphone.png"
     },
     {
-      "name": "Freebox",
-      "imageAsset": "images/branding.png"
-    },
-    {
       "name": "Gigaset",
       "imageAsset": "images/device_gigaset.png"
     },
@@ -31463,10 +31422,6 @@
     {
       "name": "Realme",
       "imageAsset": "images/device_realme.png"
-    },
-    {
-      "name": "Retroid Pocket",
-      "imageAsset": "images/branding.png"
     },
     {
       "name": "SHIFT",

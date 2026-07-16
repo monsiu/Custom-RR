@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-07-16T07:54:12.082721Z",
+  "_generatedAt": "2026-07-16T09:20:32.569344Z",
   "_netCount": 15,
-  "_curatedCount": 17,
+  "_curatedCount": 18,
   "entries": {
     "lineage": {
       "status": "active",
@@ -143,7 +143,7 @@
     "infinityx": {
       "status": "active",
       "lastBuild": "2026-07-15",
-      "daysAgo": 0,
+      "daysAgo": 1,
       "version": "Project Infinity X (latest)",
       "source": "https://github.com/ProjectInfinity-X/official_devices",
       "origin": "network"
@@ -159,7 +159,7 @@
     "artisanrom": {
       "status": "active",
       "lastBuild": "2026-06-22",
-      "daysAgo": 23,
+      "daysAgo": 24,
       "version": "ArtisanROM Quant 3.5.0",
       "source": "https://github.com/ArtisanROM/ArtisanROM/releases",
       "origin": "network"
@@ -180,10 +180,18 @@
       "source": "https://xdaforums.com/t/12-02-26-dr-ketan-rom-i-oneui-7-0-i-oneui-8-5-i-full-rom-system-rw-f2fs-for-s928b.4652891/",
       "origin": "curated"
     },
+    "lineagegta4xl": {
+      "status": "stale",
+      "lastBuild": "2026-03-28",
+      "daysAgo": 110,
+      "version": "LineageOS 23.2 (unofficial, gta4xlveu)",
+      "source": "https://github.com/danielml3/releases/releases",
+      "origin": "curated"
+    },
     "magisk": {
       "status": "stale",
       "lastBuild": "2026-02-23",
-      "daysAgo": 142,
+      "daysAgo": 143,
       "version": "Magisk 30.7",
       "source": "https://github.com/topjohnwu/Magisk/releases",
       "origin": "network"
