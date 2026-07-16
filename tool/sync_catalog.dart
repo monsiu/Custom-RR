@@ -1393,13 +1393,15 @@ List<Map<String, dynamic>> _buildRoms(
       // Real device UI shots from the official DotOS v5.2 release blog
       // (showing MonetWannabe theming, redesigned Settings, Gaming Mode,
       // Battery Manager and the new clock widgets running on devices).
+      // Self-hosted in this repo (served via jsDelivr) so the gallery does not
+      // depend on the DotOS server staying reachable from CI runners.
       screenshots: <String>[
-        'https://blog.droidontime.com/static/images/MonetWannabeTwoPoint.png',
-        'https://blog.droidontime.com/static/images/settings_dashboard_fivetwo.png',
-        'https://blog.droidontime.com/static/images/gaming_fivetwo.png',
-        'https://blog.droidontime.com/static/images/battery_manager-fiveTwo.png',
-        'https://blog.droidontime.com/static/images/widgets_fivetwo.png',
-        'https://blog.droidontime.com/static/images/banner_five_dotTwo.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/MonetWannabeTwoPoint.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/settings_dashboard_fivetwo.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/gaming_fivetwo.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/battery_manager-fiveTwo.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/widgets_fivetwo.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/banner_five_dotTwo.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://www.droidontime.com/devices',
@@ -2450,14 +2452,14 @@ List<Map<String, dynamic>> _buildRecoveries(
         'Polished TWRP-derived UI.',
         'Builds for popular Xiaomi/OnePlus/Realme models.',
       ],
-      // The official SHRP recovery UI screenshots, served straight from the
-      // SourceForge project page (sourceforge.net/projects/shrp). The earlier
-      // shrp.dev URL was an unrelated personal site.
+      // The official SHRP recovery UI screenshots (from the SourceForge project
+      // page, sourceforge.net/projects/shrp), self-hosted in this repo and
+      // served via jsDelivr so the gallery does not depend on a.fsdn.com.
       screenshots: <String>[
-        'https://a.fsdn.com/con/app/proj/shrp/screenshots/1.jpg/max/max/1',
-        'https://a.fsdn.com/con/app/proj/shrp/screenshots/2.jpg/max/max/1',
-        'https://a.fsdn.com/con/app/proj/shrp/screenshots/3.jpg/max/max/1',
-        'https://a.fsdn.com/con/app/proj/shrp/screenshots/4.jpg/max/max/1',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/1.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/2.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/3.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/4.jpg',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://shrp.github.io/',
