@@ -1344,21 +1344,21 @@ List<Map<String, dynamic>> _buildRoms(
         'Pixel-like baseline with subtle customisation.',
         'Active community, slow but careful release cadence.',
       ],
-      // The current paranoidandroid.co landing is a JS bundle with no
-      // static UI screenshot gallery. Keep the official archived device
-      // render first, then use full-size Sapphire screenshots from Xiaomiui's
-      // Paranoid Android review. Older 2017 AOSPA feature slides and tiny
-      // AlternativeTo thumbnails exist, but read as dated or low quality.
+      // The current paranoidandroid.co landing is a JS bundle with no static
+      // UI screenshot gallery, and the Xiaomiui review that hosted these shots
+      // IP-blocks CI runners (it serves an HTML page instead of the image), so
+      // the eight UI screenshots are self-hosted in this repo and served via
+      // jsDelivr. The first entry is the official archived device render.
       screenshots: <String>[
         'https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Lockscreen.jpg',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Homescreen.jpg',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-App-Drawer.jpg',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Notification-Panel-1.png',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Quick-Settings.png',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Sound-Panel.jpg',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Sound-Settings.jpg',
-        'https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Android-Version.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Lockscreen.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Homescreen.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-App-Drawer.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Notification-Panel-1.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Quick-Settings.png',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Sound-Panel.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Sound-Settings.jpg',
+        'https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Android-Version.png',
       ],
       downloadLabel: 'Official downloads',
       downloadUrl: 'https://paranoidandroid.co/',

@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-16T09:25:52.684065Z",
+  "_generatedAt": "2026-07-16T10:14:54.521739Z",
   "roms": [
     {
       "id": "lineage",
@@ -6974,14 +6974,14 @@
       ],
       "screenshots": [
         "https://web.archive.org/web/20200714130039if_/https://paranoidandroid.co/assets/screens/devices.png",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Lockscreen.jpg",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Homescreen.jpg",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-App-Drawer.jpg",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Notification-Panel-1.png",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Quick-Settings.png",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Sound-Panel.jpg",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Sound-Settings.jpg",
-        "https://xiaomiui.net/wp-content/uploads/2022/04/Paranoid-Android-Android-Version.png"
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Lockscreen.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Homescreen.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-App-Drawer.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Notification-Panel-1.png",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Quick-Settings.png",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Sound-Panel.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Sound-Settings.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/paranoidandroid/Paranoid-Android-Android-Version.png"
       ],
       "devices": [
         {
