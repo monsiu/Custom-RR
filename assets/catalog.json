@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-16T10:14:54.521739Z",
+  "_generatedAt": "2026-07-16T11:20:38.152901Z",
   "roms": [
     {
       "id": "lineage",
@@ -7998,12 +7998,12 @@
         "Smooth animations and lean install."
       ],
       "screenshots": [
-        "https://blog.droidontime.com/static/images/MonetWannabeTwoPoint.png",
-        "https://blog.droidontime.com/static/images/settings_dashboard_fivetwo.png",
-        "https://blog.droidontime.com/static/images/gaming_fivetwo.png",
-        "https://blog.droidontime.com/static/images/battery_manager-fiveTwo.png",
-        "https://blog.droidontime.com/static/images/widgets_fivetwo.png",
-        "https://blog.droidontime.com/static/images/banner_five_dotTwo.png"
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/MonetWannabeTwoPoint.png",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/settings_dashboard_fivetwo.png",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/gaming_fivetwo.png",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/battery_manager-fiveTwo.png",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/widgets_fivetwo.png",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/dotos/banner_five_dotTwo.png"
       ],
       "devices": [
         {
@@ -30467,10 +30467,10 @@
         "Builds for popular Xiaomi/OnePlus/Realme models."
       ],
       "screenshots": [
-        "https://a.fsdn.com/con/app/proj/shrp/screenshots/1.jpg/max/max/1",
-        "https://a.fsdn.com/con/app/proj/shrp/screenshots/2.jpg/max/max/1",
-        "https://a.fsdn.com/con/app/proj/shrp/screenshots/3.jpg/max/max/1",
-        "https://a.fsdn.com/con/app/proj/shrp/screenshots/4.jpg/max/max/1"
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/1.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/2.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/3.jpg",
+        "https://cdn.jsdelivr.net/gh/monsiu/Custom-RR@main/images/screenshots/shrp/4.jpg"
       ],
       "devices": [
         {
