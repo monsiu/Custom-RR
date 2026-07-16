@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-16T09:20:31.701282Z",
+  "_generatedAt": "2026-07-16T09:25:52.684065Z",
   "roms": [
     {
       "id": "lineage",
@@ -122,6 +122,16 @@
           "model": "5",
           "codename": "FP5",
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
+        },
+        {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
+        },
+        {
+          "brand": "Freebox",
+          "model": "Pop / TV",
+          "codename": "nicepool"
         },
         {
           "brand": "Google",
@@ -331,6 +341,11 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
+        },
+        {
+          "brand": "LG",
+          "model": "G6 (EU Unlocked - ENG BL)",
+          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -641,6 +656,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -654,6 +679,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -686,6 +721,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -1341,6 +1381,11 @@
           "codename": "oscar"
         },
         {
+          "brand": "Retroid Pocket",
+          "model": "6",
+          "codename": "RP6"
+        },
+        {
           "brand": "SHIFT",
           "model": "SHIFT6mq",
           "codename": "axolotl"
@@ -1761,6 +1806,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -2648,6 +2698,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -2661,6 +2721,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -2693,6 +2763,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -3282,6 +3357,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -4879,6 +4959,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Mi 10i 5G",
           "codename": "gauguin"
         },
@@ -5713,6 +5798,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -5726,6 +5821,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -5758,6 +5863,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -6310,6 +6420,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -7333,6 +7448,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Mi 10i 5G",
           "codename": "gauguin"
         },
@@ -8159,6 +8279,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -8172,6 +8302,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -8209,6 +8349,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -8663,6 +8808,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -9546,6 +9696,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -9559,6 +9719,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -9591,6 +9761,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -10042,6 +10217,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -10940,6 +11120,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -10953,6 +11143,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -10985,6 +11185,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -11446,6 +11651,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -12498,6 +12708,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Mi 10i 5G",
           "codename": "gauguin"
         },
@@ -13546,6 +13761,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -14729,6 +14949,11 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
+        },
+        {
           "brand": "Google",
           "model": "Pixel 3a",
           "codename": "sargo"
@@ -14987,6 +15212,11 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
+        },
+        {
           "brand": "Google",
           "model": "Nexus 6",
           "codename": "shamu"
@@ -15215,6 +15445,11 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
+        },
+        {
+          "brand": "LG",
+          "model": "G6 (EU Unlocked - ENG BL)",
+          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -15560,6 +15795,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -15573,6 +15818,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -15610,6 +15865,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -16678,6 +16938,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Mi 10i 5G",
           "codename": "gauguin"
         },
@@ -17426,6 +17691,11 @@
           "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
         },
         {
+          "brand": "Fairphone",
+          "model": "The Fairphone (Gen. 6)",
+          "codename": "FP6"
+        },
+        {
           "brand": "Google",
           "model": "Nexus 6",
           "codename": "shamu"
@@ -17669,6 +17939,11 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
+        },
+        {
+          "brand": "LG",
+          "model": "G6 (EU Unlocked - ENG BL)",
+          "codename": "h870d"
         },
         {
           "brand": "LG",
@@ -18029,6 +18304,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -18042,6 +18327,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -18089,6 +18384,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -19208,6 +19508,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Mi 10i 5G",
           "codename": "gauguin"
         },
@@ -20305,6 +20610,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -20318,6 +20633,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -20350,6 +20675,11 @@
           "brand": "Motorola",
           "model": "moto g45 5G",
           "codename": "fogos"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -20811,6 +21141,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -26414,6 +26749,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -26427,6 +26772,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -26464,6 +26819,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -26965,6 +27325,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -27875,6 +28240,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Mi 10i 5G",
           "codename": "gauguin"
         },
@@ -28712,6 +29082,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g stylus 5G (2023)",
+          "codename": "genevn"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g05",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g10",
           "codename": "capri"
         },
@@ -28725,6 +29105,16 @@
           "model": "moto g100",
           "codename": "nio",
           "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15",
+          "codename": "lamu"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g15 power",
+          "codename": "lamu"
         },
         {
           "brand": "Motorola",
@@ -28772,6 +29162,11 @@
           "brand": "Motorola",
           "model": "moto g5",
           "codename": "cedric"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g50",
+          "codename": "ibiza"
         },
         {
           "brand": "Motorola",
@@ -29414,6 +29809,11 @@
           "brand": "Xiaomi",
           "model": "Mi 10 Pro",
           "codename": "cmi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
         },
         {
           "brand": "Xiaomi",
@@ -30411,6 +30811,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Mi 10 Ultra",
+          "codename": "cas"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Mi 10i 5G",
           "codename": "gauguin"
         },
@@ -31252,6 +31657,10 @@
       "imageAsset": "images/device_fairphone.png"
     },
     {
+      "name": "Freebox",
+      "imageAsset": "images/branding.png"
+    },
+    {
       "name": "Gigaset",
       "imageAsset": "images/device_gigaset.png"
     },
@@ -31422,6 +31831,10 @@
     {
       "name": "Realme",
       "imageAsset": "images/device_realme.png"
+    },
+    {
+      "name": "Retroid Pocket",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "SHIFT",
