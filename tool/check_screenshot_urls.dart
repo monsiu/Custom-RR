@@ -9,6 +9,10 @@
 // especially Wikimedia Commons, rate-limit GitHub-hosted runners even when the
 // image is still valid for normal users.
 //
+// Transient failures (timeouts, connection errors, HTTP 5xx or 403) are retried
+// a few times before being reported, so a momentary blip or a runner-IP block
+// does not fail the whole sweep. Hard failures (404, 410, non-image) fail fast.
+//
 // Catches link rot before users do. Not wired into CI by default because
 // it makes ~50 outbound requests per run; invoke it manually or from a
 // scheduled workflow:
@@ -26,6 +30,8 @@ import 'dart:io';
 
 const Duration _timeout = Duration(seconds: 15);
 const int _concurrency = 8;
+const int _maxAttempts = 3;
+const Duration _retryDelay = Duration(seconds: 3);
 
 Future<void> main(List<String> args) async {
   final File catalog = File('assets/catalog.json');
@@ -73,7 +79,7 @@ Future<void> main(List<String> args) async {
     while (true) {
       final int i = idx++;
       if (i >= jobs.length) return;
-      results.add(await _check(client, jobs[i]));
+      results.add(await _checkWithRetry(client, jobs[i]));
     }
   }
 
@@ -100,6 +106,21 @@ Future<void> main(List<String> args) async {
   exit(1);
 }
 
+// Retries transient failures (timeouts, connection errors, HTTP 5xx/403) a few
+// times before giving up, so a single flaky host or a momentary GitHub-runner
+// IP block does not fail the whole scheduled sweep. Hard failures (404, 410,
+// non-image content) are reported on the first attempt.
+Future<_Result> _checkWithRetry(HttpClient client, _Job job) async {
+  _Result result = await _check(client, job);
+  int attempt = 1;
+  while (!result.ok && result.retryable && attempt < _maxAttempts) {
+    await Future<void>.delayed(_retryDelay * attempt);
+    result = await _check(client, job);
+    attempt++;
+  }
+  return result;
+}
+
 Future<_Result> _check(HttpClient client, _Job job) async {
   try {
     final Uri uri = Uri.parse(job.url);
@@ -118,6 +139,11 @@ Future<_Result> _check(HttpClient client, _Job job) async {
     if (code == 429) {
       return _Result(job, true, 'HTTP 429 rate limited (treated as warning)');
     }
+    // 5xx and 403 are usually transient or a GitHub-runner-IP block rather than
+    // real link rot, so let these be retried before failing.
+    if (code >= 500 || code == 403) {
+      return _Result(job, false, 'HTTP $code', retryable: true);
+    }
     if (code < 200 || code >= 400) {
       return _Result(job, false, 'HTTP $code');
     }
@@ -126,9 +152,9 @@ Future<_Result> _check(HttpClient client, _Job job) async {
     }
     return _Result(job, true, 'HTTP $code ${ctype ?? '(no type)'}');
   } on TimeoutException {
-    return _Result(job, false, 'timeout');
+    return _Result(job, false, 'timeout', retryable: true);
   } on Object catch (e) {
-    return _Result(job, false, '$e');
+    return _Result(job, false, '$e', retryable: true);
   }
 }
 
@@ -140,8 +166,12 @@ class _Job {
 }
 
 class _Result {
-  _Result(this.job, this.ok, this.reason);
+  _Result(this.job, this.ok, this.reason, {this.retryable = false});
   final _Job job;
   final bool ok;
   final String reason;
+
+  /// True when the failure looks transient (timeout, connection error, HTTP
+  /// 5xx/403) and is worth retrying before being reported as link rot.
+  final bool retryable;
 }
