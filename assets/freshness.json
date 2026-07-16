@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-07-16T09:22:20.230502Z",
-  "_netCount": 15,
-  "_curatedCount": 18,
+  "_generatedAt": "2026-07-16T11:20:38.912857Z",
+  "_netCount": 17,
+  "_curatedCount": 16,
   "entries": {
     "lineage": {
       "status": "active",
@@ -14,7 +14,7 @@
     },
     "crdroid": {
       "status": "active",
-      "lastBuild": "2026-07-15",
+      "lastBuild": "2026-07-16",
       "daysAgo": 0,
       "version": "crDroid (latest)",
       "source": "https://github.com/crdroidandroid/android_vendor_crDroidOTA",
@@ -69,12 +69,12 @@
       "origin": "network"
     },
     "voltage": {
-      "status": "stale",
-      "lastBuild": "2026-04-30",
-      "daysAgo": 77,
-      "version": "Voltage 4 (Android 15)",
-      "source": "https://voltageos.com/",
-      "origin": "curated"
+      "status": "active",
+      "lastBuild": "2026-07-09",
+      "daysAgo": 7,
+      "version": "VoltageOS (latest)",
+      "source": "https://github.com/VoltageOS/android_vendor_voltageota",
+      "origin": "network"
     },
     "projectelixir": {
       "status": "stale",
@@ -85,12 +85,12 @@
       "origin": "curated"
     },
     "pixelos": {
-      "status": "stale",
-      "lastBuild": "2026-05-12",
-      "daysAgo": 65,
-      "version": "PixelOS 15 (Android 15)",
-      "source": "https://pixelos.net/",
-      "origin": "curated"
+      "status": "active",
+      "lastBuild": "2026-07-12",
+      "daysAgo": 4,
+      "version": "PixelOS (latest)",
+      "source": "https://github.com/PixelOS-AOSP/official_devices",
+      "origin": "network"
     },
     "grapheneos": {
       "status": "active",
@@ -215,7 +215,7 @@
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 245,
+      "daysAgo": 246,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"
