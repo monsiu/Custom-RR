@@ -169,9 +169,37 @@ Future<void> main(List<String> args) async {
     'devices': _buildDevices(mergedVendors),
   };
 
+  final File catalogFile = File(_catalogPath);
+  if (writeCatalogIfChanged(catalogFile, root)) {
+    stdout.writeln('[sync] wrote $_catalogPath');
+  } else {
+    stdout.writeln('[sync] no semantic changes; kept $_catalogPath');
+  }
+}
+
+bool writeCatalogIfChanged(
+  File catalogFile,
+  Map<String, dynamic> root,
+) {
+  if (catalogFile.existsSync()) {
+    try {
+      final Map<String, dynamic> existing =
+          jsonDecode(catalogFile.readAsStringSync()) as Map<String, dynamic>;
+      final Map<String, dynamic> existingComparable =
+          Map<String, dynamic>.from(existing)..remove('_generatedAt');
+      final Map<String, dynamic> nextComparable =
+          Map<String, dynamic>.from(root)..remove('_generatedAt');
+      if (jsonEncode(existingComparable) == jsonEncode(nextComparable)) {
+        return false;
+      }
+    } on Object {
+      // Rewrite malformed or outdated catalog files below.
+    }
+  }
+
   const JsonEncoder pretty = JsonEncoder.withIndent('  ');
-  File(_catalogPath).writeAsStringSync('${pretty.convert(root)}\n');
-  stdout.writeln('[sync] wrote $_catalogPath');
+  catalogFile.writeAsStringSync('${pretty.convert(root)}\n');
+  return true;
 }
 
 Future<void> _downloadWiki() async {
@@ -838,7 +866,7 @@ List<Map<String, dynamic>> _toDeviceList(Iterable<_Device> devices) {
       'brand': d.vendor,
       'model': d.model,
       'codename': d.codename,
-      if (forum != null) 'forumUrl': forum,
+      'forumUrl': ?forum,
     };
   }).toList();
 }
@@ -2516,7 +2544,7 @@ List<Map<String, dynamic>> _twrpDeviceList(List<Map<String, String>> rows) {
       'brand': d['brand'],
       'model': d['model'],
       'codename': codename,
-      if (forum != null) 'forumUrl': forum,
+      'forumUrl': ?forum,
     };
   }).toList();
 }
