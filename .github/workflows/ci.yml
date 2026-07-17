@@ -68,6 +68,46 @@ jobs:
           name: app-release-apks
           path: build/app/outputs/flutter-apk/app-*-release.apk
           if-no-files-found: error
+      - name: Build Play-variant verification APK
+        env:
+          PLAY_BUILD: 'true'
+        run: >-
+          flutter build apk --release
+          --dart-define=PLAY_BUILD=true
+      - name: Verify Play-variant permissions
+        run: |
+          apk='build/app/outputs/flutter-apk/app-release.apk'
+          sdk_root="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+          aapt2="$(find "$sdk_root/build-tools" -type f -name aapt2 | sort -V | tail -1)"
+
+          if [ ! -f "$apk" ]; then
+            echo "::error::Play-variant APK not found at $apk"
+            exit 1
+          fi
+          if [ ! -x "$aapt2" ]; then
+            echo "::error::aapt2 not found under $sdk_root/build-tools"
+            exit 1
+          fi
+
+          "$aapt2" dump permissions "$apk" | tee /tmp/play-permissions.txt
+          if ! grep -Fq "name='android.permission.INTERNET'" /tmp/play-permissions.txt; then
+            echo '::error::Play artifact is missing INTERNET permission.'
+            exit 1
+          fi
+
+          forbidden_permissions=(
+            android.permission.REQUEST_INSTALL_PACKAGES
+            android.permission.READ_EXTERNAL_STORAGE
+            android.permission.READ_MEDIA_IMAGES
+            android.permission.READ_MEDIA_VIDEO
+            android.permission.READ_MEDIA_AUDIO
+          )
+          for permission in "${forbidden_permissions[@]}"; do
+            if grep -Fq "name='$permission'" /tmp/play-permissions.txt; then
+              echo "::error::Forbidden Play permission leaked into artifact: $permission"
+              exit 1
+            fi
+          done
 
   build-linux:
     name: Build Linux desktop
