@@ -9,8 +9,8 @@ repository: https://github.com/monsiu/Custom-RR
 issue_tracker: https://github.com/monsiu/Custom-RR/issues
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
-  flutter: '>=3.22.0'
+  sdk: '>=3.11.0 <4.0.0'
+  flutter: '>=3.38.4'
 
 dependencies:
   flutter:
@@ -23,10 +23,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   carousel_slider: ^5.0.0
   shared_preferences: ^2.3.2
-  go_router: ^14.6.2
+  go_router: ^17.3.0
   http: ^1.2.2
   dynamic_color: ^1.7.0
-  xml: ^6.5.0
+  xml: ^7.0.1
   qr_flutter: ^4.1.0
   # In-app updater: download the matching split APK from the latest
   # GitHub release and hand it to the system installer.
