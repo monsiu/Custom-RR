@@ -69,7 +69,7 @@ class BrandImage extends StatelessWidget {
       placeholder: (BuildContext context, String _) => const ShimmerBox(
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      errorWidget: (BuildContext context, String _, Object __) =>
+      errorWidget: (BuildContext context, String _, Object _) =>
           _fallback(context),
     );
   }

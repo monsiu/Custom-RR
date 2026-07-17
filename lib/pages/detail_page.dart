@@ -661,11 +661,11 @@ class _ScreenshotsState extends State<_Screenshots> {
             filterQuality: FilterQuality.medium,
             memCacheWidth: cacheWidth,
             maxWidthDiskCache: cacheWidth,
-            placeholder: (BuildContext _, String __) => const ShimmerBox(),
+            placeholder: (BuildContext _, String _) => const ShimmerBox(),
             // Fall back to the entry's bundled hero instead of a
             // broken-image placeholder when a screenshot URL 404s.
             errorWidget:
-                (BuildContext _, String __, Object ___) => ColoredBox(
+                (BuildContext _, String _, Object _) => ColoredBox(
               color: scheme.surfaceContainerHighest,
               child: Padding(
                 padding: const EdgeInsets.all(32),
@@ -679,7 +679,7 @@ class _ScreenshotsState extends State<_Screenshots> {
             filterQuality: FilterQuality.medium,
             cacheWidth: cacheWidth,
             errorBuilder:
-                (BuildContext _, Object __, StackTrace? ___) => ColoredBox(
+                (BuildContext _, Object _, StackTrace? _) => ColoredBox(
               color: scheme.surfaceContainerHighest,
               child: Padding(
                 padding: const EdgeInsets.all(32),
@@ -805,7 +805,7 @@ class _ScreenshotsState extends State<_Screenshots> {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.only(bottom: 18),
                     itemCount: urls.length,
-                    separatorBuilder: (_, __) =>
+                    separatorBuilder: (_, _) =>
                         const SizedBox(width: _tileSpacing),
                     itemBuilder: (BuildContext context, int index) {
                       return SizedBox(

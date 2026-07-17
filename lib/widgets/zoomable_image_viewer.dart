@@ -59,12 +59,12 @@ Future<void> _push(
     PageRouteBuilder<void>(
       opaque: false,
       barrierColor: Colors.black87,
-      pageBuilder: (BuildContext _, __, ___) => _ZoomableImagePage(
+      pageBuilder: (BuildContext _, _, _) => _ZoomableImagePage(
         images: images,
         heroTags: heroTags,
         initialIndex: initialIndex,
       ),
-      transitionsBuilder: (_, Animation<double> a, __, Widget child) =>
+      transitionsBuilder: (_, Animation<double> a, _, Widget child) =>
           FadeTransition(opacity: a, child: child),
     ),
   );
@@ -149,10 +149,10 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
             // leaving a broken-image placeholder in the full-screen viewer.
             httpHeaders: _kScreenshotHeaders,
             fit: BoxFit.contain,
-            placeholder: (_, __) => const Center(
+            placeholder: (_, _) => const Center(
               child: CircularProgressIndicator(color: Colors.white),
             ),
-            errorWidget: (_, __, ___) => const Center(
+            errorWidget: (_, _, _) => const Center(
               child: Icon(
                 Icons.broken_image_outlined,
                 color: Colors.white70,
@@ -163,7 +163,7 @@ class _ZoomableImagePageState extends State<_ZoomableImagePage> {
         : Image.asset(
             url,
             fit: BoxFit.contain,
-            errorBuilder: (_, __, ___) => const Center(
+            errorBuilder: (_, _, _) => const Center(
               child: Icon(
                 Icons.broken_image_outlined,
                 color: Colors.white70,

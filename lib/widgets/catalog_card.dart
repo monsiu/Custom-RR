@@ -92,8 +92,8 @@ class _CatalogCardState extends State<CatalogCard> {
             fit: BoxFit.contain,
             filterQuality: FilterQuality.medium,
             memCacheWidth: 720,
-            placeholder: (BuildContext _, String __) => const ShimmerBox(),
-            errorWidget: (BuildContext _, String __, Object ___) => ColoredBox(
+            placeholder: (BuildContext _, String _) => const ShimmerBox(),
+            errorWidget: (BuildContext _, String _, Object _) => ColoredBox(
               color: scheme.surfaceContainerHighest,
               child: const Icon(Icons.broken_image_outlined, size: 48),
             ),

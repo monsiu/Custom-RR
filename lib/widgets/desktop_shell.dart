@@ -69,7 +69,7 @@ class DesktopShell extends StatelessWidget {
           ),
         ),
         actions: <Widget>[
-          if (actions != null) ...actions!,
+          ...?actions,
           const SizedBox(width: 4),
         ],
       ),
