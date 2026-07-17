@@ -80,7 +80,8 @@ GoRouter buildRouter() {
         routes: <RouteBase>[
           GoRoute(
             path: AppRoutes.home,
-            builder: (BuildContext _, GoRouterState __) => const HomePage(),
+            caseSensitive: false,
+            builder: (BuildContext _, GoRouterState _) => const HomePage(),
             // Every other destination is nested under Home so that Home is
             // always at the bottom of the navigation stack. The system back
             // button and swipe-back gesture then pop natively toward Home
@@ -90,11 +91,13 @@ GoRouter buildRouter() {
             routes: <RouteBase>[
               GoRoute(
                 path: 'roms',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const RomsPage(),
+                    (BuildContext _, GoRouterState _) => const RomsPage(),
                 routes: <RouteBase>[
                   GoRoute(
                     path: ':id',
+                    caseSensitive: false,
                     builder: (BuildContext context, GoRouterState state) {
                       final String id = state.pathParameters['id']!;
                       final CatalogEntry? entry =
@@ -109,12 +112,14 @@ GoRouter buildRouter() {
               ),
               GoRoute(
                 path: 'recoveries',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) =>
+                    (BuildContext _, GoRouterState _) =>
                         const RecoveriesPage(),
                 routes: <RouteBase>[
                   GoRoute(
                     path: ':id',
+                    caseSensitive: false,
                     builder: (BuildContext context, GoRouterState state) {
                       final String id = state.pathParameters['id']!;
                       final CatalogEntry? entry =
@@ -129,11 +134,13 @@ GoRouter buildRouter() {
               ),
               GoRoute(
                 path: 'roots',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const RootsPage(),
+                    (BuildContext _, GoRouterState _) => const RootsPage(),
                 routes: <RouteBase>[
                   GoRoute(
                     path: ':id',
+                    caseSensitive: false,
                     builder: (BuildContext context, GoRouterState state) {
                       final String id = state.pathParameters['id']!;
                       final CatalogEntry? entry =
@@ -148,11 +155,13 @@ GoRouter buildRouter() {
               ),
               GoRoute(
                 path: 'devices',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const DevicesPage(),
+                    (BuildContext _, GoRouterState _) => const DevicesPage(),
                 routes: <RouteBase>[
                   GoRoute(
                     path: ':slug',
+                    caseSensitive: false,
                     builder: (BuildContext context, GoRouterState state) {
                       final String slug = state.pathParameters['slug']!;
                       final DeviceEntry? device =
@@ -165,6 +174,7 @@ GoRouter buildRouter() {
                     routes: <RouteBase>[
                       GoRoute(
                         path: 'models/:codename',
+                        caseSensitive: false,
                         builder: (BuildContext context, GoRouterState state) {
                           final String slug = state.pathParameters['slug']!;
                           final String codename = Uri.decodeComponent(
@@ -187,22 +197,26 @@ GoRouter buildRouter() {
               ),
               GoRoute(
                 path: 'instructions',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) =>
+                    (BuildContext _, GoRouterState _) =>
                         const InstructionsPage(),
               ),
               GoRoute(
                 path: 'treble',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const TreblePage(),
+                    (BuildContext _, GoRouterState _) => const TreblePage(),
               ),
               GoRoute(
                 path: 'community',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const CommunityPage(),
+                    (BuildContext _, GoRouterState _) => const CommunityPage(),
               ),
               GoRoute(
                 path: 'community-builds',
+                caseSensitive: false,
                 builder: (BuildContext _, GoRouterState state) =>
                     CommunityBuildsPage(
                   initialSearch: state.uri.queryParameters['q'] ?? '',
@@ -210,16 +224,19 @@ GoRouter buildRouter() {
               ),
               GoRoute(
                 path: 'find-my-phone',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const FindPhonePage(),
+                    (BuildContext _, GoRouterState _) => const FindPhonePage(),
               ),
               GoRoute(
                 path: 'my-devices',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const WishlistPage(),
+                    (BuildContext _, GoRouterState _) => const WishlistPage(),
               ),
               GoRoute(
                 path: 'flash-script',
+                caseSensitive: false,
                 builder: (BuildContext context, GoRouterState state) {
                   final String? brand = state.uri.queryParameters['brand'];
                   final String? codename =
@@ -237,19 +254,22 @@ GoRouter buildRouter() {
               ),
               GoRoute(
                 path: 'about',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const AboutPage(),
+                    (BuildContext _, GoRouterState _) => const AboutPage(),
               ),
               GoRoute(
                 path: 'privacy',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) =>
+                    (BuildContext _, GoRouterState _) =>
                         const PrivacyPolicyPage(),
               ),
               GoRoute(
                 path: 'join-beta',
+                caseSensitive: false,
                 builder:
-                    (BuildContext _, GoRouterState __) => const JoinBetaPage(),
+                    (BuildContext _, GoRouterState _) => const JoinBetaPage(),
               ),
             ],
           ),
