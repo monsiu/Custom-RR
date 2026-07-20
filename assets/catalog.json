@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-16T11:20:38.152901Z",
+  "_generatedAt": "2026-07-20T10:18:09.678691Z",
   "roms": [
     {
       "id": "lineage",
@@ -32,6 +32,16 @@
           "brand": "10.or",
           "model": "G",
           "codename": "G"
+        },
+        {
+          "brand": "AYN",
+          "model": "Odin (M0)",
+          "codename": "odin_m0"
+        },
+        {
+          "brand": "AYN",
+          "model": "Odin (M2)",
+          "codename": "odin_m2"
         },
         {
           "brand": "Asus",
@@ -1392,7 +1402,12 @@
         },
         {
           "brand": "SHIFT",
-          "model": "SHIFTphone 8",
+          "model": "SHIFTphone 8.0",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.1",
           "codename": "otter"
         },
         {
@@ -16426,7 +16441,12 @@
         },
         {
           "brand": "SHIFT",
-          "model": "SHIFTphone 8",
+          "model": "SHIFTphone 8.0",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.1",
           "codename": "otter"
         },
         {
@@ -18960,7 +18980,12 @@
         },
         {
           "brand": "SHIFT",
-          "model": "SHIFTphone 8",
+          "model": "SHIFTphone 8.0",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.1",
           "codename": "otter"
         },
         {
@@ -31587,6 +31612,10 @@
     {
       "name": "10.or",
       "imageAsset": "images/device_10or.png"
+    },
+    {
+      "name": "AYN",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Alcatel",
