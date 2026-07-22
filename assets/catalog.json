@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-16T11:20:38.152901Z",
+  "_generatedAt": "2026-07-22T03:37:43.416893Z",
   "roms": [
     {
       "id": "lineage",
@@ -32,6 +32,16 @@
           "brand": "10.or",
           "model": "G",
           "codename": "G"
+        },
+        {
+          "brand": "AYN",
+          "model": "Odin (M0)",
+          "codename": "odin_m0"
+        },
+        {
+          "brand": "AYN",
+          "model": "Odin (M2)",
+          "codename": "odin_m2"
         },
         {
           "brand": "Asus",
@@ -341,6 +351,11 @@
           "brand": "LG",
           "model": "G5 (US Unlocked)",
           "codename": "rs988"
+        },
+        {
+          "brand": "LG",
+          "model": "G6 (Canada - ENG BL)",
+          "codename": "h873"
         },
         {
           "brand": "LG",
@@ -1393,6 +1408,16 @@
         {
           "brand": "SHIFT",
           "model": "SHIFTphone 8",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.0",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.1",
           "codename": "otter"
         },
         {
@@ -15448,6 +15473,11 @@
         },
         {
           "brand": "LG",
+          "model": "G6 (Canada - ENG BL)",
+          "codename": "h873"
+        },
+        {
+          "brand": "LG",
           "model": "G6 (EU Unlocked - ENG BL)",
           "codename": "h870d"
         },
@@ -16427,6 +16457,16 @@
         {
           "brand": "SHIFT",
           "model": "SHIFTphone 8",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.0",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.1",
           "codename": "otter"
         },
         {
@@ -17942,6 +17982,11 @@
         },
         {
           "brand": "LG",
+          "model": "G6 (Canada - ENG BL)",
+          "codename": "h873"
+        },
+        {
+          "brand": "LG",
           "model": "G6 (EU Unlocked - ENG BL)",
           "codename": "h870d"
         },
@@ -18961,6 +19006,16 @@
         {
           "brand": "SHIFT",
           "model": "SHIFTphone 8",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.0",
+          "codename": "otter"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFTphone 8.1",
           "codename": "otter"
         },
         {
@@ -31587,6 +31642,10 @@
     {
       "name": "10.or",
       "imageAsset": "images/device_10or.png"
+    },
+    {
+      "name": "AYN",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Alcatel",
