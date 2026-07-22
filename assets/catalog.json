@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-22T03:37:43.416893Z",
+  "_generatedAt": "2026-07-22T03:44:17.259970Z",
   "roms": [
     {
       "id": "lineage",
@@ -1404,11 +1404,6 @@
           "brand": "SHIFT",
           "model": "SHIFT6mq",
           "codename": "axolotl"
-        },
-        {
-          "brand": "SHIFT",
-          "model": "SHIFTphone 8",
-          "codename": "otter"
         },
         {
           "brand": "SHIFT",
@@ -16456,11 +16451,6 @@
         },
         {
           "brand": "SHIFT",
-          "model": "SHIFTphone 8",
-          "codename": "otter"
-        },
-        {
-          "brand": "SHIFT",
           "model": "SHIFTphone 8.0",
           "codename": "otter"
         },
@@ -19002,11 +18992,6 @@
           "brand": "SHIFT",
           "model": "SHIFT6mq",
           "codename": "axolotl"
-        },
-        {
-          "brand": "SHIFT",
-          "model": "SHIFTphone 8",
-          "codename": "otter"
         },
         {
           "brand": "SHIFT",
