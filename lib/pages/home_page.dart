@@ -10,6 +10,7 @@ import '../widgets/app_shell.dart';
 import '../widgets/brand_image.dart';
 import '../widgets/device_suggestion.dart';
 import '../widgets/donation_nudge.dart';
+import '../widgets/rating_nudge.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -235,6 +236,7 @@ class _HomePageState extends State<HomePage> {
                     else ...<Widget>[
                       const DeviceSuggestion(),
                       const DonationNudge(),
+                      const RatingNudge(),
                       Center(
                         child: Hero(
                           tag: 'splash',

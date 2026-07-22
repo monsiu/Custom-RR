@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
 import '../theme_controller.dart';
+import 'about_dialog.dart';
 import 'support_dialog.dart';
 import 'theme_picker.dart';
 import 'update_nav_tile.dart';
@@ -204,7 +205,7 @@ class AppNavList extends StatelessWidget {
                     ShareParams(
                       text:
                           'Check out Custom RR: discover Android custom ROMs and recoveries! '
-                          'Open source on GitHub: https://github.com/monsiu/Custom-RR',
+                          'Get it on Google Play: $kPlayStoreUrl',
                       subject: 'Custom RR',
                     ),
                   );

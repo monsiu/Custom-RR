@@ -6,11 +6,20 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **Rate the app.** A gentle, dismissible prompt on Google Play builds invites
+  you to leave a rating, and a "Rate Custom RR" option is always available on
+  the About page.
+
 ### Changed
 
+- **Sharing points to Google Play.** "Share the app" now sends people to the
+  Google Play listing instead of the GitHub repo.
+- **About page tidied.** Removed the redundant Google Play status card and added
+  a one-tap "Check for updates" that opens the Play listing.
 - **Production-only Play messaging.** About now states the app is live on
-  Google Play production, with install and update wording focused on the Play
-  Store.
+  Google Play, with install and update wording focused on the Play Store.
 - **Discord release post cleanup.** The Play workflow announcement no longer
   contains beta-join or tester-only prompt text.
 
