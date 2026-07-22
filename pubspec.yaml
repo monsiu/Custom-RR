@@ -1,7 +1,7 @@
 name: custom_rr
 description: A single home for popular Android custom ROMs and recoveries, with links, screenshots, and flashing instructions.
 publish_to: 'none'
-version: 1.3.1+11
+version: 1.3.2+12
 
 # SPDX-License-Identifier: GPL-3.0-only
 homepage: https://github.com/monsiu/Custom-RR
