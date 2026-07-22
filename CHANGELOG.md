@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.2] - 2026-07-22
+
 ### Changed
 
 - **Play beta campaign retired in-app.** The home beta invite and beta tester
