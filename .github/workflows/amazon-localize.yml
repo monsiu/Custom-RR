@@ -54,6 +54,9 @@ jobs:
           AMAZON_APP_ID: ${{ secrets.AMAZON_APP_ID }}
           # Default false (dry run). Choose true on dispatch to submit to review.
           AMAZON_SUBMIT: ${{ inputs.submit }}
+          # Text only in CI: the localized screenshot sets are gitignored (only
+          # en-US is committed), so screenshots are pushed from a local run.
+          AMAZON_LOCALIZE_SCREENSHOTS: 'false'
         run: python3 tool/amazon_localize_listings.py
 
       - name: No Amazon secrets configured

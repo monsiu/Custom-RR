@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Localize the Custom RR Amazon Appstore listing (title, description, short
-description, feature bullets) for the languages Amazon supports.
+description, feature bullets, and screenshots) for the languages Amazon supports.
 
 This is DELIBERATELY separate from tool/amazon_upload.py (the per-release APK
 publisher) so it can never break an APK release: listing text changes rarely,
@@ -20,6 +20,11 @@ listing language:
   * recentChanges is only set on a language listing that does not have one yet
     (a newly created localization), copied from the live en-US notes so it never
     bumps release notes to a version that is not on Amazon yet.
+  * screenshots are replaced per language from the localized set in
+    fastlane/metadata/android/<locale>/images/phoneScreenshots/ and uploaded in
+    order. Those localized sets are gitignored, so screenshots upload only on a
+    LOCAL run where the files exist (a CI checkout has en-US only), which is why
+    the workflow runs text-only.
 
 Amazon supports listings for a fixed, small set of languages (see
 AMAZON_LANG_TO_LOCALE in amazon_upload.py), not Play's 87 locales.
@@ -31,6 +36,9 @@ Console edit you have open first, or its unsaved changes are lost.
 Config (env):
   AMAZON_CLIENT_ID / AMAZON_CLIENT_SECRET / AMAZON_APP_ID   (required)
   AMAZON_METADATA_DIR   fastlane metadata root (default fastlane/metadata/android)
+  AMAZON_LOCALIZE_TEXT         "true" (default) localizes title/description/short/bullets
+  AMAZON_LOCALIZE_SCREENSHOTS  "true" (default) replaces screenshots per language
+                               (needs the localized files present: a LOCAL run)
   AMAZON_SUBMIT         "true" (default) validates + commits (= review submission);
                         "false" prepares + validates only (dry run, nothing sent)
 
@@ -39,6 +47,7 @@ Exit codes: 0 ok; 2 app is in review (retry later); 1 any other error.
 
 from __future__ import annotations
 
+import glob
 import json
 import os
 import sys
@@ -156,6 +165,47 @@ def get_listing(token, app_id, edit_id, lang):
     return None, None
 
 
+SCREENSHOT_TYPE = "screenshots"
+
+
+def screenshot_files(metadata_dir: str, locale: str) -> list:
+    """Sorted phone screenshots for a locale, or [] if the folder is absent
+    (e.g. in CI, where the localized sets are gitignored)."""
+    folder = os.path.join(metadata_dir, locale, "images", "phoneScreenshots")
+    return sorted(glob.glob(os.path.join(folder, "*.png"))) if os.path.isdir(folder) else []
+
+
+def upload_screenshots(token, app_id, edit_id, lang, locale, metadata_dir) -> int:
+    """Replace a language's Amazon screenshots with the localized set, in order.
+
+    Amazon adds each uploaded image to the set, so display order follows upload
+    order; existing screenshots are deleted first so the new set fully replaces
+    them. Returns how many were uploaded (0 when this locale has no files, e.g.
+    the gitignored localized sets are absent in a CI checkout).
+    """
+    files = screenshot_files(metadata_dir, locale)
+    if not files:
+        return 0
+    base = app_url(app_id, f"/{edit_id}/listings/{lang}/{SCREENSHOT_TYPE}")
+    # Clear the existing screenshots first (DELETE needs the current ETag).
+    status, headers, _b = _request("GET", base, token=token, allow_errors=True)
+    if status == 200:
+        _request("DELETE", base, token=token, etag=headers.get("ETag"),
+                 want_json=False, allow_errors=True)
+    uploaded = 0
+    for path in files:
+        with open(path, "rb") as fh:
+            data = fh.read()
+        up, _h, _b = _request(
+            "POST", f"{base}/upload", token=token, data=data,
+            content_type="image/png", want_json=False, allow_errors=True)
+        if up in (200, 201, 204):
+            uploaded += 1
+        else:
+            log(f"::warning::uploadImage failed for {lang} {os.path.basename(path)} (HTTP {up}).")
+    return uploaded
+
+
 def main() -> None:
     client_id = os.environ.get("AMAZON_CLIENT_ID", "").strip()
     client_secret = os.environ.get("AMAZON_CLIENT_SECRET", "").strip()
@@ -163,6 +213,8 @@ def main() -> None:
     metadata_dir = os.environ.get(
         "AMAZON_METADATA_DIR", "fastlane/metadata/android").strip()
     submit = os.environ.get("AMAZON_SUBMIT", "true").strip().lower() != "false"
+    do_text = os.environ.get("AMAZON_LOCALIZE_TEXT", "true").strip().lower() != "false"
+    do_shots = os.environ.get("AMAZON_LOCALIZE_SCREENSHOTS", "true").strip().lower() != "false"
 
     missing = [n for n, v in (
         ("AMAZON_CLIENT_ID", client_id),
@@ -186,56 +238,68 @@ def main() -> None:
     log(f"Source en-US: shortDescription {len(src_short)} chars, "
         f"{len(src_bullets)} feature bullets.")
 
-    written = 0
+    changed = 0
     for lang, locale in AMAZON_LANG_TO_LOCALE.items():
-        if lang == "en_US":
-            continue  # en-US is the curated source of truth; never overwrite it.
         tlang = LANG_TO_TRANSLATE.get(lang)
 
-        listing, etag = get_listing(token, app_id, edit_id, lang)
-        payload = dict(listing) if listing else {"language": lang}
+        # Listing text. en-US is the curated source of truth, never overwritten.
+        if do_text and lang != "en_US":
+            listing, etag = get_listing(token, app_id, edit_id, lang)
+            payload = dict(listing) if listing else {"language": lang}
 
-        # Title + full description: reuse the already-localized Play copy.
-        title = read_play_meta(metadata_dir, locale, "title.txt")
-        full = read_play_meta(metadata_dir, locale, "full_description.txt")
-        if title:
-            payload["title"] = clamp(title, MAX_TITLE)
-        if full:
-            payload["fullDescription"] = clamp(full, MAX_FULL)
+            # Title + full description: reuse the already-localized Play copy.
+            title = read_play_meta(metadata_dir, locale, "title.txt")
+            full = read_play_meta(metadata_dir, locale, "full_description.txt")
+            if title:
+                payload["title"] = clamp(title, MAX_TITLE)
+            if full:
+                payload["fullDescription"] = clamp(full, MAX_FULL)
 
-        # Short description + bullets: translate the bespoke Amazon en-US copy.
-        try:
-            if src_short:
-                payload["shortDescription"] = clamp(translate(src_short, tlang), MAX_SHORT)
-            if src_bullets:
-                payload["featureBullets"] = [translate(b, tlang) for b in src_bullets]
-        except Exception as err:  # noqa: BLE001
-            log(f"::warning::translation failed for {lang} ({err}); "
-                f"keeping its existing short description and bullets.")
-
-        # A brand-new language listing needs recentChanges to pass validate.
-        # Copy the live en-US notes (translated) so we never post notes for a
-        # version that is not on Amazon yet. Existing listings keep their own.
-        if not payload.get("recentChanges") and src_recent:
+            # Short description + bullets: translate the bespoke Amazon en-US copy.
             try:
-                payload["recentChanges"] = translate(src_recent, tlang)
-            except Exception:  # noqa: BLE001
-                payload["recentChanges"] = src_recent
+                if src_short:
+                    payload["shortDescription"] = clamp(translate(src_short, tlang), MAX_SHORT)
+                if src_bullets:
+                    payload["featureBullets"] = [translate(b, tlang) for b in src_bullets]
+            except Exception as err:  # noqa: BLE001
+                log(f"::warning::translation failed for {lang} ({err}); "
+                    f"keeping its existing short description and bullets.")
 
-        status, _h, body = _request(
-            "PUT", app_url(app_id, f"/{edit_id}/listings/{lang}"),
-            token=token, data=json.dumps(payload).encode("utf-8"),
-            content_type="application/json", etag=etag,
-            want_json=False, allow_errors=True)
-        if status not in (200, 204):
-            detail = body.decode("utf-8", "replace")[:200] if isinstance(body, bytes) else str(body)
-            log(f"::warning::Could not write listing for {lang} (HTTP {status}): {detail}")
-            continue
-        written += 1
-        log(f"Localized listing for {lang} ({locale}).")
+            # A brand-new language listing needs recentChanges to pass validate.
+            # Copy the live en-US notes (translated) so we never post notes for a
+            # version that is not on Amazon yet. Existing listings keep their own.
+            if not payload.get("recentChanges") and src_recent:
+                try:
+                    payload["recentChanges"] = translate(src_recent, tlang)
+                except Exception:  # noqa: BLE001
+                    payload["recentChanges"] = src_recent
 
-    if written == 0:
-        fail("No listings were localized; leaving the Edit for inspection.")
+            status, _h, body = _request(
+                "PUT", app_url(app_id, f"/{edit_id}/listings/{lang}"),
+                token=token, data=json.dumps(payload).encode("utf-8"),
+                content_type="application/json", etag=etag,
+                want_json=False, allow_errors=True)
+            if status in (200, 204):
+                changed += 1
+                log(f"Localized text for {lang} ({locale}).")
+            else:
+                detail = body.decode("utf-8", "replace")[:200] if isinstance(body, bytes) else str(body)
+                log(f"::warning::Could not write listing text for {lang} (HTTP {status}): {detail}")
+
+        # Screenshots, for every language. Skipped automatically when this locale
+        # has no screenshot files (the gitignored localized sets are absent in a
+        # CI checkout), so run this LOCALLY to push the full localized set.
+        if do_shots:
+            try:
+                n = upload_screenshots(token, app_id, edit_id, lang, locale, metadata_dir)
+                if n:
+                    changed += 1
+                    log(f"Uploaded {n} screenshots for {lang} ({locale}).")
+            except Exception as err:  # noqa: BLE001
+                log(f"::warning::screenshot upload failed for {lang}: {err}")
+
+    if changed == 0:
+        fail("Nothing was localized (no text changes and no screenshot files found).")
 
     validate_edit(token, app_id, edit_id)
     if submit:
