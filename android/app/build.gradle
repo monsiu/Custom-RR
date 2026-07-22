@@ -67,8 +67,8 @@ android {
         // Literal values (kept in sync with pubspec.yaml) so F-Droid's
         // checkupdates can parse versionCode/versionName from the git tag.
         // Bump both here and in pubspec.yaml on every release.
-        versionCode 11
-        versionName "1.3.1"
+        versionCode 12
+        versionName "1.3.2"
     }
 
     signingConfigs {
