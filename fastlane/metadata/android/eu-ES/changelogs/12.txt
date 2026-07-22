@@ -1,2 +1,2 @@
-- Play beta barneratzea aplikaziotik kendu da.
+- Onboarding zaharra kendu da aplikaziotik.
 - About eta dendako mezuek orain Google Play produkziorako sarbidea islatzen dute.

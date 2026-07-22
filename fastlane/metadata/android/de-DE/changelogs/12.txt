@@ -1,2 +1,2 @@
-- Das Play beta-Onboarding wurde aus der App entfernt.
+- Das alte Onboarding wurde aus der App entfernt.
 - About und Store-Messaging spiegeln jetzt den Produktionszugriff von Google Play wider.

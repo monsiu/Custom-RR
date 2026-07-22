@@ -1,2 +1,2 @@
-- A Play beta onboarding eltávolítva az alkalmazásból.
+- A régi bevezetést eltávolítottuk az alkalmazásból.
 - A About és a bolti üzenetek mostantól a Google Play termelési hozzáférését tükrözik.

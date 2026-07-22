@@ -1,2 +1,2 @@
-- L'onboarding da Play beta è vegnì allontanà da l'app.
+- L'onboarding vegl è vegnì allontanà da l'app.
 - Ils texts en About e sin la pagina dal Store reflectan ussa l'access da producziun da Google Play.

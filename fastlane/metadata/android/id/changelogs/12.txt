@@ -1,2 +1,2 @@
-- Orientasi Play beta telah dihapus dari aplikasi.
+- Orientasi lama telah dihapus dari aplikasi.
 - About dan pesan toko sekarang mencerminkan akses produksi Google Play.

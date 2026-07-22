@@ -1,2 +1,2 @@
 - Topluluk ROM'larını bulmak artık daha kolay, ROM listesinden bir kısayolla.
-- Play betasına katılmak daha hızlı, QR kodu ve paylaş düğmesiyle.
+- Google Play'e katılmak daha hızlı, QR kodu ve paylaş düğmesiyle.

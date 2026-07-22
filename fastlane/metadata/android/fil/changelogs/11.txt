@@ -1,2 +1,2 @@
 - Mas madaling hanapin ang mga community ROM, may shortcut mula sa listahan ng ROM.
-- Mas mabilis sumali sa Play beta, may QR code at share button.
+- Mas mabilis sumali sa Google Play early access, may QR code at share button.

@@ -1,2 +1,2 @@
-- Eliminouse a incorporación de Play beta da aplicación.
+- Eliminouse a incorporación antiga da aplicación.
 - About e a mensaxería da tenda agora reflicten o acceso á produción Google Play.

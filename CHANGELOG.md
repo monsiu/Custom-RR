@@ -18,9 +18,9 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- **Play beta campaign retired in-app.** The home beta invite and beta tester
+- **Play onboarding campaign retired in-app.** The home invite and tester
   thank-you cards are removed, and About now shows Google Play production status
-  instead of closed-testing prompts.
+  instead of testing prompts.
 - **Google Play messaging updated.** Project docs now reflect production access
   status and point to the Play listing instead of beta opt-in instructions.
 
@@ -32,14 +32,14 @@ project uses [Semantic Versioning](https://semver.org/).
   is now called "Community ROMs" and sits right under Custom ROMs in the menu, and
   the Custom ROMs screen has a clear shortcut to it at the bottom (still marked as
   unvetted, third-party builds, separate from the curated catalog).
-- **Smoother Play beta sign-up.** The Join the Play beta page now has a QR code and
+- **Smoother Google Play sign-up.** The join page now has a QR code and
   copy / share buttons so you can invite others in one tap, plus a clear reminder
-  that staying installed for about two weeks is what lets Custom RR reach the
+  that staying installed for about two weeks helps Custom RR reach the
   public Play Store.
-- **Play beta extras.** Beta testers now see a short thank-you on the home screen,
-  a new Beta testers section on the About page (names shown after launch), and a
-  note that testers get new builds about five days before the other channels
-  (important fixes still go out everywhere at once).
+- **Google Play early-access extras.** Early-access users see a short thank-you
+  on the home screen, a new testers section on the About page (names shown after
+  launch), and a note that this channel gets new builds about five days before
+  the other channels (important fixes still go out everywhere at once).
 
 ## [1.3.0] - 2026-06-20
 
@@ -71,8 +71,8 @@ project uses [Semantic Versioning](https://semver.org/).
   narrowed to just the entries that match the device you have selected.
 - **Socials in About.** The About page now has a Socials option that links to
   the project's Twitter / X, Telegram, and YouTube.
-- **Join the Play beta from the app.** A new home-screen invite, plus a
-  step-by-step "Join the beta" page, explain how to become a Google Play tester,
+- **Join Google Play from the app.** A new home-screen invite, plus a
+  step-by-step join page, explain how to enable early access on Google Play,
   get early builds, and help Custom RR reach the Play Store. The invite can be
   dismissed and stays available any time from the About page.
 

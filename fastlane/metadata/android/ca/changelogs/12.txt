@@ -1,2 +1,2 @@
-- La incorporació de Play beta s'ha eliminat de l'aplicació.
+- La incorporació antiga s'ha eliminat de l'aplicació.
 - About i la missatgeria de la botiga ara reflecteixen l'accés a la producció de Google Play.

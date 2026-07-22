@@ -47,14 +47,14 @@ platform :android do
   private_lane :play_release_status do
     # 'draft' (default) uploads the bundle but leaves promoting it to you in
     # the Play Console. Set PLAY_RELEASE_STATUS=completed to push it straight
-    # to the configured track (e.g. closed testing) for your testers.
+    # to the configured track (for example production) for your users.
     ENV.fetch('PLAY_RELEASE_STATUS', 'draft')
   end
 
   private_lane :play_release_name do
     # Optional override for the Play 'Release name' field. When unset, supply
     # falls back to the bundle's versionName. Set PLAY_RELEASE_NAME to e.g.
-    # 'v1.2.0 (9) closed test' to control how the release is labelled.
+    # 'v1.2.0 (9) production' to control how the release is labelled.
     ENV.fetch('PLAY_RELEASE_NAME', nil)
   end
 

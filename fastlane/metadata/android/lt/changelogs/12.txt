@@ -1,2 +1,2 @@
-- Play beta prisijungimas buvo pašalintas iš programos.
+- Senas prisijungimas pašalintas iš programos.
 - About ir parduotuvės pranešimai dabar atspindi Google Play gamybos prieigą.
