@@ -3,6 +3,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../util/request_project.dart';
+import 'about_dialog.dart';
 
 /// Standard AppBar share/contact menu used across all pages.
 class AppShareMenu extends StatelessWidget {
@@ -19,7 +20,7 @@ class AppShareMenu extends StatelessWidget {
               ShareParams(
                 text:
                     'Check out Custom RR: discover Android custom ROMs and recoveries! '
-                    'Open source on GitHub: https://github.com/monsiu/Custom-RR',
+                    'Get it on Google Play: $kPlayStoreUrl',
                 subject: 'Custom RR',
               ),
             );

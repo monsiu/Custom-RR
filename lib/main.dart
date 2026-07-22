@@ -12,6 +12,7 @@ import 'data/wishlist_repository.dart';
 import 'theme_controller.dart';
 import 'util/platform_shell.dart';
 import 'widgets/donation_nudge.dart';
+import 'widgets/rating_nudge.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +44,7 @@ Future<void> main() async {
   unawaited(SelectedDeviceController.instance.load());
   unawaited(DonationNudge.registerLaunch());
   unawaited(DonationNudge.loadHiddenState());
+  unawaited(RatingNudge.registerLaunch());
   UpdateNotifier.instance.start();
   await Future.wait<void>(<Future<void>>[
     ThemeController.instance.load(),

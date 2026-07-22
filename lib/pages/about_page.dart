@@ -13,6 +13,7 @@ import '../widgets/app_shell.dart';
 import '../widgets/crypto_donate.dart';
 import '../widgets/donation_feedback.dart';
 import '../widgets/donation_nudge.dart';
+import '../widgets/rating_nudge.dart';
 import '../widgets/update_dialog.dart';
 import 'easter_egg_page.dart';
 
@@ -182,19 +183,6 @@ class _AboutPageState extends State<AboutPage> {
                 trailing: const Icon(Icons.chevron_right),
                 onTap: _showSocials,
               ),
-              ListTile(
-                leading: const Icon(Icons.shop_outlined),
-                title: const Text('Google Play listing'),
-                subtitle: const Text(
-                  'Install and updates are available on Google Play',
-                ),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () => _open(
-                  Uri.parse(
-                    'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr',
-                  ),
-                ),
-              ),
               if (kSelfUpdateEnabled)
                 ListTile(
                   leading: const Icon(Icons.system_update_alt),
@@ -212,6 +200,26 @@ class _AboutPageState extends State<AboutPage> {
                         )
                       : const Icon(Icons.chevron_right),
                   onTap: _checking ? null : _checkForUpdates,
+                )
+              else if (kPlayBuild)
+                ListTile(
+                  leading: const Icon(Icons.system_update_alt),
+                  title: const Text('Check for updates'),
+                  subtitle: Text(
+                    _version.isEmpty
+                        ? 'Opens the Google Play listing'
+                        : 'Current: $_version',
+                  ),
+                  trailing: const Icon(Icons.open_in_new),
+                  onTap: () => _open(Uri.parse(kPlayStoreUrl)),
+                ),
+              if (kRatingApplicable)
+                ListTile(
+                  leading: const Icon(Icons.star_rounded),
+                  title: const Text('Rate Custom RR'),
+                  subtitle: const Text('Leave a rating on Google Play'),
+                  trailing: const Icon(Icons.open_in_new),
+                  onTap: openPlayRating,
                 ),
               ListTile(
                 leading: const Icon(Icons.mail_outline),
@@ -257,47 +265,17 @@ class _AboutPageState extends State<AboutPage> {
                 onTap: () => context.go(AppRoutes.privacy),
               ),
               const SizedBox(height: 24),
-              Text('Google Play status', style: text.titleLarge),
-              const SizedBox(height: 8),
-              Card(
-                margin: EdgeInsets.zero,
-                elevation: 0,
-                color: Theme.of(context).colorScheme.surfaceContainerHighest,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Icon(
-                        Icons.info_outline,
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          'Custom RR is live on Google Play production. '
-                          'Install and updates are available through the '
-                          'Play Store.',
-                          style: text.bodyMedium?.copyWith(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSurfaceVariant,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               if (kDebugMode) ...<Widget>[
                 const SizedBox(height: 16),
                 OutlinedButton.icon(
                   onPressed: _resetDonationPrompt,
                   icon: const Icon(Icons.refresh),
                   label: const Text('Reset donation prompt (debug)'),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () => RatingNudge.debugReset(),
+                  icon: const Icon(Icons.star_outline),
+                  label: const Text('Reset rating prompt (debug)'),
                 ),
               ],
               const SizedBox(height: 24),

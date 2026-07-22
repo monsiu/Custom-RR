@@ -24,9 +24,9 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
 
 <p align="left">
   <strong>Get the app</strong><br>
+  <a href="https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr"><img alt="Get it on Google Play" src="https://img.shields.io/badge/Google_Play-Get_it_now-34A853?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white"></a>
   <a href="https://github.com/monsiu/Custom-RR/releases"><img alt="Download from GitHub Releases" src="https://img.shields.io/badge/GitHub-Download_APK-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white"></a>
   <a href="https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr"><img alt="Get it on the Amazon Appstore" src="https://img.shields.io/badge/Amazon_Appstore-Download-FF9900?style=for-the-badge&amp;logo=amazon&amp;logoColor=white"></a>
-  <a href="https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr"><img alt="Get it on Google Play" src="https://img.shields.io/badge/Google_Play-Available_now-34A853?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white"></a>
   <a href="https://gitlab.com/fdroid/fdroiddata/-/merge_requests/39380"><img alt="F-Droid merge request in review" src="https://img.shields.io/badge/F--Droid-In_review-1976D2?style=for-the-badge&amp;logo=fdroid&amp;logoColor=white"></a>
 </p>
 
