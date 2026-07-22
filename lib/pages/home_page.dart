@@ -7,7 +7,6 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
-import '../widgets/beta_invite.dart';
 import '../widgets/brand_image.dart';
 import '../widgets/device_suggestion.dart';
 import '../widgets/donation_nudge.dart';
@@ -235,8 +234,6 @@ class _HomePageState extends State<HomePage> {
                       _SearchResults(hits: hits, query: q)
                     else ...<Widget>[
                       const DeviceSuggestion(),
-                      const BetaInviteNudge(),
-                      const BetaTesterThanks(),
                       const DonationNudge(),
                       Center(
                         child: Hero(

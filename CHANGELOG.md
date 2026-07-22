@@ -6,6 +6,14 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **Play beta campaign retired in-app.** The home beta invite and beta tester
+  thank-you cards are removed, and About now shows Google Play production status
+  instead of closed-testing prompts.
+- **Google Play messaging updated.** Project docs now reflect production access
+  status and point to the Play listing instead of beta opt-in instructions.
+
 ## [1.3.1] - 2026-06-21
 
 ### Changed

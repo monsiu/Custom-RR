@@ -10,7 +10,6 @@ import '../util/breakpoints.dart';
 import '../util/build_flags.dart';
 import '../widgets/about_dialog.dart';
 import '../widgets/app_shell.dart';
-import '../widgets/beta_invite.dart';
 import '../widgets/crypto_donate.dart';
 import '../widgets/donation_feedback.dart';
 import '../widgets/donation_nudge.dart';
@@ -183,16 +182,19 @@ class _AboutPageState extends State<AboutPage> {
                 trailing: const Icon(Icons.chevron_right),
                 onTap: _showSocials,
               ),
-              if (kBetaInviteApplicable)
-                ListTile(
-                  leading: const Icon(Icons.rocket_launch_outlined),
-                  title: const Text('Join the Play beta'),
-                  subtitle: const Text(
-                    'Get early builds and help it reach the Play Store',
-                  ),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => context.push(AppRoutes.joinBeta),
+              ListTile(
+                leading: const Icon(Icons.shop_outlined),
+                title: const Text('Google Play listing'),
+                subtitle: const Text(
+                  'Public install appears after the first production rollout',
                 ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => _open(
+                  Uri.parse(
+                    'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr',
+                  ),
+                ),
+              ),
               if (kSelfUpdateEnabled)
                 ListTile(
                   leading: const Icon(Icons.system_update_alt),
@@ -255,63 +257,42 @@ class _AboutPageState extends State<AboutPage> {
                 onTap: () => context.go(AppRoutes.privacy),
               ),
               const SizedBox(height: 24),
-              Text('Beta testers', style: text.titleLarge),
+              Text('Google Play status', style: text.titleLarge),
               const SizedBox(height: 8),
-              if (kPublicLaunchDone && kBetaTesters.isNotEmpty) ...<Widget>[
-                Text(
-                  'Custom RR reached the Play Store thanks to the people who '
-                  'tested the closed beta. Thank you.',
-                  style: text.bodyMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
+              Card(
+                margin: EdgeInsets.zero,
+                elevation: 0,
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                const SizedBox(height: 12),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: <Widget>[
-                    for (final String name in kBetaTesters)
-                      Chip(
-                        avatar: const Icon(Icons.person_outline, size: 18),
-                        label: Text(name),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Icon(
+                        Icons.info_outline,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
-                  ],
-                ),
-              ] else
-                Card(
-                  margin: EdgeInsets.zero,
-                  elevation: 0,
-                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Icon(
-                          Icons.volunteer_activism_outlined,
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Text(
-                            'Helping test the Google Play closed beta? The '
-                            'testers who get Custom RR to the public Play Store '
-                            'will be credited here after launch. Thank you for '
-                            'helping it get there.',
-                            style: text.bodyMedium?.copyWith(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSurfaceVariant,
-                            ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          'Custom RR has Google Play production access. '
+                          'Public install and updates through Google Play '
+                          'will appear after the first production rollout is '
+                          'published.',
+                          style: text.bodyMedium?.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurfaceVariant,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
+              ),
               if (kDebugMode) ...<Widget>[
                 const SizedBox(height: 16),
                 OutlinedButton.icon(

@@ -14,7 +14,6 @@ import 'pages/find_phone_page.dart';
 import 'pages/flash_script_page.dart';
 import 'pages/home_page.dart';
 import 'pages/instructions_page.dart';
-import 'pages/join_beta_page.dart';
 import 'pages/not_found_page.dart';
 import 'pages/privacy_policy_page.dart';
 import 'pages/recoveries_page.dart';
@@ -44,7 +43,6 @@ class AppRoutes {
   static const String communityBuilds = '/community-builds';
   static const String about = '/about';
   static const String privacy = '/privacy';
-  static const String joinBeta = '/join-beta';
 
   static String romDetail(String id) => '/roms/$id';
   static String recoveryDetail(String id) => '/recoveries/$id';
@@ -264,12 +262,6 @@ GoRouter buildRouter() {
                 builder:
                     (BuildContext _, GoRouterState _) =>
                         const PrivacyPolicyPage(),
-              ),
-              GoRoute(
-                path: 'join-beta',
-                caseSensitive: false,
-                builder:
-                    (BuildContext _, GoRouterState _) => const JoinBetaPage(),
               ),
             ],
           ),

@@ -11,7 +11,6 @@ import 'data/update_notifier.dart';
 import 'data/wishlist_repository.dart';
 import 'theme_controller.dart';
 import 'util/platform_shell.dart';
-import 'widgets/beta_invite.dart';
 import 'widgets/donation_nudge.dart';
 
 Future<void> main() async {
@@ -44,7 +43,6 @@ Future<void> main() async {
   unawaited(SelectedDeviceController.instance.load());
   unawaited(DonationNudge.registerLaunch());
   unawaited(DonationNudge.loadHiddenState());
-  unawaited(BetaInviteNudge.loadDismissedState());
   UpdateNotifier.instance.start();
   await Future.wait<void>(<Future<void>>[
     ThemeController.instance.load(),

@@ -26,7 +26,7 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
   <strong>Get the app</strong><br>
   <a href="https://github.com/monsiu/Custom-RR/releases"><img alt="Download from GitHub Releases" src="https://img.shields.io/badge/GitHub-Download_APK-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white"></a>
   <a href="https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr"><img alt="Get it on the Amazon Appstore" src="https://img.shields.io/badge/Amazon_Appstore-Download-FF9900?style=for-the-badge&amp;logo=amazon&amp;logoColor=white"></a>
-  <a href="https://monsiu.github.io/custom-rr/beta"><img alt="Join the Google Play beta" src="https://img.shields.io/badge/Google_Play-Join_the_beta-414141?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white"></a>
+  <a href="https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr"><img alt="Google Play production access approved" src="https://img.shields.io/badge/Google_Play-Production_access_approved-414141?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white"></a>
   <a href="https://gitlab.com/fdroid/fdroiddata/-/merge_requests/39380"><img alt="F-Droid merge request in review" src="https://img.shields.io/badge/F--Droid-In_review-1976D2?style=for-the-badge&amp;logo=fdroid&amp;logoColor=white"></a>
 </p>
 
@@ -52,7 +52,7 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
 
 ## Contents
 
-- [Help bring Custom RR to Google Play](#help-bring-custom-rr-to-google-play)
+- [Google Play status](#google-play-status)
 - [Features](#features)
 - [Roadmap](#roadmap)
 - [Deep links](#deep-links)
@@ -61,25 +61,17 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
 - [Support the project](#support-the-project)
 - [Catalog sources](#catalog-sources)
 
-## Help bring Custom RR to Google Play
+## Google Play status
 
-Custom RR is in **closed testing** on Google Play, and Google needs a group of
-testers before it can go live to everyone. **You can help it launch**, and as a
-tester you get **new builds about 5 days before the other channels** (important
-fixes still go to everyone at once). It is the same app as every other channel,
-just delivered through the Play Store.
+Custom RR now has **Google Play production access**. The first public rollout
+has not been published yet, so the listing may appear as unavailable until that
+release is live.
 
-**Join in two steps:** open
-**[monsiu.github.io/custom-rr/beta](https://monsiu.github.io/custom-rr/beta)**,
-join the testers group, then opt in. Use the same Google account for both, and
-please keep it installed for about two weeks, that 14-day window is exactly what
-unlocks the public launch.
-
-Prefer not to use Google Play? Grab the APK from
-[GitHub Releases](https://github.com/monsiu/Custom-RR/releases) or the
-[Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr),
-or wait for [F-Droid](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/39380).
-Questions? [Join the Discord](https://discord.gg/uWZR8vR855).
+Until then, install from
+[GitHub Releases](https://github.com/monsiu/Custom-RR/releases/latest) or the
+[Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr).
+The [F-Droid listing](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/39380)
+is still under review.
 
 ## Features
 
@@ -135,7 +127,7 @@ Every channel ships the **same release**. Prebuilt binaries are attached to the
 
 | Platform | Where to get it |
 | --- | --- |
-| **Android** (7.0+, APK) | [GitHub Releases](https://github.com/monsiu/Custom-RR/releases/latest) (per-ABI), the [Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr), or [join the Play beta](https://monsiu.github.io/custom-rr/beta). [F-Droid](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/39380) pending review. |
+| **Android** (7.0+, APK) | [GitHub Releases](https://github.com/monsiu/Custom-RR/releases/latest) (per-ABI), the [Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr), or the [Google Play listing](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr) once the first production rollout is published. [F-Droid](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/39380) pending review. |
 | **Linux** | `custom_rr-vX.Y.Z-linux-x64.tar.gz` |
 | **Windows** | `custom_rr-vX.Y.Z-windows-x64.zip` (portable, no installer) |
 | **macOS** (10.15+) | `custom_rr-vX.Y.Z-macos-universal.zip` (universal, unsigned, see the [macOS notes](CONTRIBUTING.md#macos-desktop)) |
