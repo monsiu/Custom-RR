@@ -25,6 +25,17 @@ body:
       label: Codename
       description: "The device codename (e.g. a52xq, oriole, alioth). Check Settings, the LineageOS wiki, or a Treble info app."
       placeholder: "e.g. a52xq"
+  - type: dropdown
+    id: us_variant
+    attributes:
+      label: Is this a US model or carrier variant?
+      description: "US carrier phones (Samsung model numbers ending in U or U1, or anything bought from Verizon, AT&T, T-Mobile, etc.) usually ship with a locked bootloader that can't be unlocked, so no recovery or custom ROM can be flashed. Telling us up front lets us give you a straight answer about your exact unit."
+      options:
+        - "No, it's an international / global / factory-unlocked model"
+        - "Yes, it's a US model or bought from a US carrier"
+        - "Not sure"
+    validations:
+      required: true
   - type: textarea
     id: support
     attributes:
