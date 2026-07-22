@@ -1,0 +1,2 @@
+- Registrace Play beta byla z aplikace odstraněna.
+- About a ukládání zpráv nyní odrážejí přístup k produkci Google Play.

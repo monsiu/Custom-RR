@@ -1,0 +1,2 @@
+- Play beta'ye katılım uygulamadan kaldırıldı.
+- About ve mağaza mesajları artık Google Play üretim erişimini yansıtıyor.

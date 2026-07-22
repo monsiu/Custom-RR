@@ -72,6 +72,8 @@ jobs:
           # (which already exists in the tag-driven pipeline). Otherwise the
           # branch this ran from.
           ref: ${{ inputs.ref || github.event.release.tag_name || github.ref }}
+      - name: Verify localized Play release notes
+        run: python3 tool/check_play_release_notes.py
       - uses: actions/setup-java@v4
         with:
           distribution: temurin

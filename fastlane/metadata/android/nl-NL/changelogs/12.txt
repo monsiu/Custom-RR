@@ -1,0 +1,2 @@
+- Play beta onboarding is verwijderd uit de app.
+- About en winkelberichten weerspiegelen nu Google Play-productietoegang.

@@ -67,6 +67,18 @@ changes, validate and upload the metadata with the Fastlane lanes documented in
 Play Console and send them for review manually. The metadata lanes do not upload
 APK/AAB files or changelogs.
 
+Release-note gate (required): before tagging a release, every locale must have
+`fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` for the
+current `pubspec.yaml` build number. Validate with:
+
+```bash
+python3 tool/check_play_release_notes.py
+```
+
+This check is enforced by [`auto-tag.yml`](.github/workflows/auto-tag.yml) and
+[`play.yml`](.github/workflows/play.yml), so missing or malformed notes block
+tagging and Play uploads.
+
 ## Updating the catalog
 
 The shipped `assets/catalog.json` is generated from the upstream

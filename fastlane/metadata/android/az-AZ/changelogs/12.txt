@@ -1,0 +1,2 @@
+- Play beta onboarding tətbiqdən silindi.
+- About və mağaza mesajlaşması indi Google Play istehsal girişini əks etdirir.

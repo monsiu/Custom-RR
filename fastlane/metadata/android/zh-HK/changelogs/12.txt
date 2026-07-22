@@ -1,0 +1,2 @@
+- Play beta 入門已從應用程式中刪除。
+- About 和商店訊息現在反映 Google Play 生產訪問。
