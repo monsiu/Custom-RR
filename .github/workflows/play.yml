@@ -30,12 +30,12 @@ name: Play bundle
 # Auto-upload configuration:
 #   * Secret PLAY_SERVICE_ACCOUNT_JSON: the Google Play service-account JSON
 #     file CONTENTS (required to enable auto-upload).
-#   * Variable PLAY_TRACK: target track, defaults to "alpha" (closed testing).
+#   * Variable PLAY_TRACK: target track, defaults to "production".
 #   * Variable PLAY_RELEASE_STATUS: "draft" (default) just uploads the bundle;
-#     set "completed" to push it to the track for your testers automatically.
+#     set "completed" to push it to the selected track automatically.
 #   * Variable PLAY_RELEASE_NAME: overrides the Play "Release name" field. When
 #     unset it is built as "v<version> (<code>) <track label>", e.g.
-#     "v1.2.0 (9) closed test".
+#     "v1.2.0 (9) production".
 #   * The draft's "Release notes" (What's new) are prefilled from the matching
 #     changelog at fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt
 #     (e.g. 9.txt). Keep that file in sync with the release for each version.
@@ -161,8 +161,8 @@ jobs:
         if: ${{ env.PLAY_SA_JSON != '' }}
         env:
           # Repo variables let you change the destination without editing this
-          # file. Defaults: alpha (closed testing) track, draft release.
-          PLAY_TRACK: ${{ vars.PLAY_TRACK || 'alpha' }}
+          # file. Defaults: production track, draft release.
+          PLAY_TRACK: ${{ vars.PLAY_TRACK || 'production' }}
           PLAY_RELEASE_STATUS: ${{ vars.PLAY_RELEASE_STATUS || 'draft' }}
           # Optional override for the Play "Release name" field. When empty it
           # is built below as "v<version> (<code>) <track label>".
@@ -220,7 +220,7 @@ jobs:
       - name: Announce release on Discord
         if: ${{ env.DISCORD_WEBHOOK != '' && env.PLAY_SA_JSON != '' }}
         env:
-          PLAY_TRACK: ${{ vars.PLAY_TRACK || 'alpha' }}
+          PLAY_TRACK: ${{ vars.PLAY_TRACK || 'production' }}
           VNAME: ${{ steps.appver.outputs.name }}
           VCODE: ${{ steps.appver.outputs.code }}
         run: |
@@ -238,23 +238,10 @@ jobs:
           else
             notes="A new version is rolling out. See the in-app changelog for what's new."
           fi
-          beta_url="https://monsiu.github.io/custom-rr/beta/"
           store_url="https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr"
-          # Two audiences: enrolled testers update straight from the Play app
-          # page, and anyone not yet enrolled gets the join-the-beta page.
-          # On the production track there is no beta, so just point at the store.
-          if [ "$PLAY_TRACK" = "production" ]; then
-            content="@everyone Custom RR v${VNAME} is now live on Google Play."
-            fields="$(jq -nc --arg store "$store_url" \
-              '[{ name: "Get it", value: "[Update from the Play Store](\($store))" }]')"
-          else
-            content="@everyone Custom RR v${VNAME} just landed for Play testers ($label). Testers get new builds about 5 days before any other channel."
-            fields="$(jq -nc --arg store "$store_url" --arg beta "$beta_url" \
-              '[
-                { name: "Already a tester?", value: "[Update on Google Play](\($store))" },
-                { name: "Not a tester yet?", value: "[Join the beta](\($beta))" }
-              ]')"
-          fi
+          content="@everyone Custom RR v${VNAME} is now live on Google Play."
+          fields="$(jq -nc --arg store "$store_url" \
+            '[{ name: "Get it", value: "[Update from the Play Store](\($store))" }]')"
           # Build the JSON with jq (preinstalled on the runner) so newlines and
           # quotes in the notes are escaped safely. Brand green = 0x7ED957.
           payload="$(jq -n \

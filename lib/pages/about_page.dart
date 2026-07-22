@@ -186,7 +186,7 @@ class _AboutPageState extends State<AboutPage> {
                 leading: const Icon(Icons.shop_outlined),
                 title: const Text('Google Play listing'),
                 subtitle: const Text(
-                  'Public install appears after the first production rollout',
+                  'Install and updates are available on Google Play',
                 ),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => _open(
@@ -278,10 +278,9 @@ class _AboutPageState extends State<AboutPage> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
-                          'Custom RR has Google Play production access. '
-                          'Public install and updates through Google Play '
-                          'will appear after the first production rollout is '
-                          'published.',
+                          'Custom RR is live on Google Play production. '
+                          'Install and updates are available through the '
+                          'Play Store.',
                           style: text.bodyMedium?.copyWith(
                             color: Theme.of(context)
                                 .colorScheme
