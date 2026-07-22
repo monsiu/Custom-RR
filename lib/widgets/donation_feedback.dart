@@ -3,10 +3,22 @@ import 'package:url_launcher/url_launcher.dart';
 
 const String kSupportUrl = 'https://www.buymeacoffee.com/monsiutech';
 
-/// Opens the support URL and shows a donation snackbar when the external
-/// browser/app launch succeeds.
+/// GitHub Sponsors profile for the developer.
+const String kSponsorsUrl = 'https://github.com/sponsors/monsiu';
+
+/// Opens the Buy Me a Coffee support URL and shows a thank-you snackbar when
+/// the external browser/app launch succeeds.
 Future<void> openSupportWithFeedback(BuildContext context) async {
-  final Uri uri = Uri.parse(kSupportUrl);
+  await _openWithThanks(context, Uri.parse(kSupportUrl));
+}
+
+/// Opens the GitHub Sponsors profile and shows a thank-you snackbar when the
+/// external browser/app launch succeeds.
+Future<void> openSponsorsWithFeedback(BuildContext context) async {
+  await _openWithThanks(context, Uri.parse(kSponsorsUrl));
+}
+
+Future<void> _openWithThanks(BuildContext context, Uri uri) async {
   bool opened = false;
   try {
     opened = await launchUrl(uri, mode: LaunchMode.externalApplication);

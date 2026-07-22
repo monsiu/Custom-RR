@@ -253,7 +253,7 @@ class _AboutPageState extends State<AboutPage> {
                 ListTile(
                   leading: const Icon(Icons.favorite_border),
                   title: const Text('Sponsor on GitHub'),
-                  onTap: () => _open(Uri.parse(kSponsorsUrl)),
+                  onTap: () => openSponsorsWithFeedback(context),
                 ),
                 if (kShowCryptoDonate)
                   ListTile(
@@ -368,7 +368,7 @@ class _AboutPageState extends State<AboutPage> {
                 subtitle: const Text('Monthly or one-time via GitHub Sponsors'),
                 onTap: () async {
                   Navigator.of(ctx).pop();
-                  await _open(Uri.parse(kSponsorsUrl));
+                  await openSponsorsWithFeedback(context);
                 },
               ),
               if (kShowCryptoDonate)

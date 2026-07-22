@@ -8,8 +8,9 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- **Sponsor on GitHub.** The About page support options now include GitHub
-  Sponsors, alongside Buy Me a Coffee, so you can back the project with a
+- **Sponsor on GitHub.** GitHub Sponsors is now offered everywhere you can
+  support the app (the home support prompt, the About page, and the support
+  dialogs), alongside Buy Me a Coffee, so you can back the project with a
   monthly or one-time contribution.
 - **Rate the app.** A gentle, dismissible prompt on Google Play builds invites
   you to leave a rating, and a "Rate Custom RR" option is always available on

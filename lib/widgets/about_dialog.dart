@@ -13,9 +13,6 @@ import 'donation_nudge.dart';
 /// Public GitHub repository for Custom RR.
 const String kCustomRrRepoUrl = 'https://github.com/monsiu/Custom-RR';
 
-/// GitHub Sponsors profile for the developer.
-const String kSponsorsUrl = 'https://github.com/sponsors/monsiu';
-
 /// Public Google Play store listing for Custom RR.
 const String kPlayStoreUrl =
     'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr';
@@ -185,6 +182,22 @@ class _CustomAboutDialogState extends State<_CustomAboutDialog> {
             final BuildContext rootCtx = rootNav.context;
             rootNav.pop();
             await openSupportWithFeedback(rootCtx);
+          },
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: TextButton.icon(
+          icon: const Icon(Icons.favorite_border),
+          label: const Text('Sponsor on GitHub'),
+          onPressed: () async {
+            final NavigatorState rootNav = Navigator.of(
+              context,
+              rootNavigator: true,
+            );
+            final BuildContext rootCtx = rootNav.context;
+            rootNav.pop();
+            await openSponsorsWithFeedback(rootCtx);
           },
         ),
       ),

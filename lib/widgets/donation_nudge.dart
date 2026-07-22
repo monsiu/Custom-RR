@@ -111,6 +111,9 @@ const Duration _snoozeDuration = Duration(days: 7);
 /// Where the "Support" button sends the user.
 const String _supportUrl = 'https://www.buymeacoffee.com/monsiutech';
 
+/// GitHub Sponsors profile for the developer.
+const String _sponsorsUrl = 'https://github.com/sponsors/monsiu';
+
 class _DonationNudgeState extends State<DonationNudge>
     with SingleTickerProviderStateMixin {
   bool _ready = false;
@@ -229,6 +232,15 @@ class _DonationNudgeState extends State<DonationNudge>
                 unawaited(_openBuyMeACoffee());
               },
             ),
+            ListTile(
+              leading: Icon(Icons.favorite_border, color: scheme.primary),
+              title: const Text('Sponsor on GitHub'),
+              subtitle: const Text('Monthly or one-time via GitHub Sponsors'),
+              onTap: () {
+                Navigator.of(ctx).pop();
+                unawaited(_openSponsors());
+              },
+            ),
             if (kShowCryptoDonate)
               ListTile(
                 leading: Icon(Icons.currency_bitcoin, color: scheme.primary),
@@ -276,6 +288,55 @@ class _DonationNudgeState extends State<DonationNudge>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Could not open support page: $e')),
+      );
+      return;
+    }
+    if (!mounted || !opened) return;
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: scheme.inverseSurface,
+          content: Row(
+            children: <Widget>[
+              Icon(
+                Icons.favorite_rounded,
+                color: scheme.onInverseSurface,
+                size: 20,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  'Thank you, it means a lot!',
+                  style: TextStyle(color: scheme.onInverseSurface),
+                ),
+              ),
+            ],
+          ),
+          duration: const Duration(seconds: 4),
+        ),
+      );
+  }
+
+  Future<void> _openSponsors() async {
+    // Treat tapping Sponsor as "they've helped", so we stop nagging.
+    try {
+      final SharedPreferences sp = await SharedPreferences.getInstance();
+      await sp.setBool(_donatedKey, true);
+    } on Object {
+      // Best effort.
+    }
+    if (mounted) setState(() => _visible = false);
+    final Uri uri = Uri.parse(_sponsorsUrl);
+    bool opened = false;
+    try {
+      opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } on Object catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not open sponsors page: $e')),
       );
       return;
     }
