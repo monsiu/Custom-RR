@@ -869,6 +869,136 @@ class _FlashGuideWarningDialogState extends State<_FlashGuideWarningDialog> {
   }
 }
 
+/// How a brand's recovery gets flashed: standard fastboot, or Samsung's
+/// Download mode (Heimdall / Odin), which exposes no fastboot interface.
+enum _FlashTransport { fastboot, samsungDownload }
+
+/// Brand-specific flashing facts: recovery transport, extra host tools, how to
+/// unlock the bootloader, and safety cautions. Keeps [buildFlashScript]
+/// correct for the brands whose flow differs from the plain fastboot default.
+class _BrandFlash {
+  const _BrandFlash({
+    this.transport = _FlashTransport.fastboot,
+    this.extraPrereqs = const <String>[],
+    this.unlockLines = const <String>[],
+    this.cautions = const <String>[],
+  });
+
+  final _FlashTransport transport;
+  final List<String> extraPrereqs;
+  final List<String> unlockLines;
+  final List<String> cautions;
+}
+
+/// Maps a catalog brand to its flashing profile. Brands not listed fall back
+/// to the standard `fastboot flashing unlock` flow.
+_BrandFlash _brandFlash(String brand) {
+  switch (brand.toLowerCase()) {
+    case 'samsung':
+      return const _BrandFlash(
+        transport: _FlashTransport.samsungDownload,
+        extraPrereqs: <String>[
+          'Heimdall (Linux/macOS) or Odin (Windows) for Download-mode '
+              'flashing, plus the Samsung USB drivers',
+        ],
+        unlockLines: <String>[
+          'a. Power off, then hold Volume-Up + Volume-Down and plug in USB',
+          '   to enter Download mode.',
+          'b. Long-press Volume-Up to unlock and confirm; it wipes the phone.',
+          'c. Boot to Android, finish setup, re-enable USB debugging.',
+        ],
+        cautions: <String>[
+          'Samsung has no `fastboot flashing unlock`. If OEM unlocking is '
+              'greyed out, stay online and wait up to 7 days (KG / RMM lock).',
+        ],
+      );
+    case 'xiaomi':
+    case 'redmi':
+    case 'poco':
+    case 'black shark':
+    case 'blackshark':
+      return const _BrandFlash(
+        extraPrereqs: <String>[
+          'Mi Unlock tool (Windows) signed in with your Mi account',
+        ],
+        unlockLines: <String>[
+          'a. On the phone: Developer options > Mi Unlock status, add your',
+          '   Mi account, and keep the device online.',
+          'b. Boot to fastboot (Volume-Down + Power) and run Mi Unlock on a',
+          '   PC to unlock. It wipes the phone.',
+          'c. Xiaomi enforces a waiting period (often 72 hours to 7+ days)',
+          '   before it will unlock.',
+        ],
+        cautions: <String>[
+          'Anti-rollback (ARB): never flash firmware older than what is '
+              'installed, or the device can hard-brick.',
+        ],
+      );
+    case 'motorola':
+    case 'moto':
+      return const _BrandFlash(
+        unlockLines: <String>[
+          'a. Reboot to the bootloader: adb reboot bootloader',
+          'b. Get your unlock data: fastboot oem get_unlock_data, then',
+          "   submit it on Motorola's official unlock page for a code.",
+          'c. Unlock: fastboot oem unlock <CODE> (it wipes the phone).',
+        ],
+        cautions: <String>[
+          'Some carrier Motorola models are permanently locked and cannot '
+              'be unlocked.',
+        ],
+      );
+    case 'sony':
+      return const _BrandFlash(
+        unlockLines: <String>[
+          "a. Get an unlock code from Sony's official Open Devices site",
+          '   using your IMEI.',
+          'b. Reboot to the bootloader: adb reboot bootloader',
+          'c. Unlock: fastboot oem unlock 0x<CODE> (it wipes the phone).',
+        ],
+        cautions: <String>[
+          'Unlocking a Sony erases DRM keys, which can degrade the camera. '
+              'Back up the TA partition first if that matters to you.',
+        ],
+      );
+    case 'realme':
+    case 'oppo':
+      return const _BrandFlash(
+        unlockLines: <String>[
+          'a. Install the vendor Deep Testing (In-Depth Test) app, apply',
+          '   for unlock, and wait for approval.',
+          'b. Once approved, boot to fastboot and run:',
+          '   fastboot flashing unlock  (it wipes the phone).',
+        ],
+        cautions: <String>[
+          'Newer realme / OPPO models often reject unlock applications; '
+              'confirm yours is supported first.',
+        ],
+      );
+    case 'huawei':
+    case 'honor':
+      return const _BrandFlash(
+        unlockLines: <String>[
+          'If your model is still unlockable, unlock in the bootloader with',
+          'fastboot oem unlock <CODE> using the code for your device.',
+        ],
+        cautions: <String>[
+          'Huawei and Honor stopped issuing unlock codes, so most models '
+              'from 2018 on cannot be unlocked or flashed. Confirm yours can '
+              'be unlocked before downloading anything.',
+        ],
+      );
+    default:
+      return const _BrandFlash(
+        unlockLines: <String>[
+          'a. Unlock in the bootloader with `fastboot flashing unlock`',
+          '   (older devices: `fastboot oem unlock`), confirming on the phone.',
+          'b. It factory-resets; redo setup and re-enable USB debugging.',
+        ],
+      );
+  }
+}
+
 /// Pure builder for the recovery-ROM flash script. Top-level and fully
 /// parameterised (no widget state, no singleton) so it can be unit-tested.
 @visibleForTesting
@@ -883,6 +1013,8 @@ String buildFlashScript({
 }) {
   final CatalogEntry? rec = recovery;
   final String device = '$brand $codename';
+  final _BrandFlash bf = _brandFlash(brand);
+  final bool samsung = bf.transport == _FlashTransport.samsungDownload;
   final StringBuffer b = StringBuffer();
   b.writeln('#!/usr/bin/env bash');
   b.writeln('# Generated by Custom RR · flash-script helper');
@@ -906,21 +1038,32 @@ String buildFlashScript({
   b.writeln('# (bootloader / recovery) before continuing.');
   b.writeln('set -euo pipefail');
   b.writeln();
-  b.writeln('# Helper: block until the phone is back in fastboot (bootloader');
-  b.writeln('# or fastbootd) instead of a fixed sleep, so slow and fast');
-  b.writeln('# devices both work.');
-  b.writeln(
-    'wait_fastboot() { until fastboot devices | grep -q .; do sleep 1; done; }',
-  );
+  if (samsung) {
+    b.writeln('# Samsung phones have no fastboot interface; the recovery is');
+    b.writeln('# flashed from Download mode with Heimdall (Linux/macOS) or');
+    b.writeln('# Odin (Windows). Helper: block until the phone is in Download');
+    b.writeln('# mode instead of a fixed sleep, so slow and fast devices work.');
+    b.writeln(
+      'wait_download() { until heimdall detect >/dev/null 2>&1; do sleep 1; done; }',
+    );
+  } else {
+    b.writeln('# Helper: block until the phone is back in fastboot (bootloader');
+    b.writeln('# or fastbootd) instead of a fixed sleep, so slow and fast');
+    b.writeln('# devices both work.');
+    b.writeln(
+      'wait_fastboot() { until fastboot devices | grep -q .; do sleep 1; done; }',
+    );
+  }
   b.writeln();
   b.writeln('# 1. Prereqs (host machine):');
   b.writeln('#    - platform-tools (adb + fastboot) installed and on PATH');
+  for (final String line in bf.extraPrereqs) {
+    b.writeln('#    - $line');
+  }
   b.writeln(
     '#    - USB debugging + OEM unlocking enabled in Developer Options',
   );
-  b.writeln('#    - Bootloader unlocked for $brand $codename');
-  b.writeln('#      (see the manufacturer\'s official instructions; some');
-  b.writeln('#       brands need a server-side unlock token first.)');
+  b.writeln('#    - Bootloader unlocked (one-time steps are shown below)');
   b.writeln();
   b.writeln('# 2. Place these files in the current directory:');
   if (rec != null) {
@@ -944,25 +1087,50 @@ String buildFlashScript({
     );
   }
   b.writeln();
-  b.writeln('echo "==> Reboot to bootloader"');
-  b.writeln('adb reboot bootloader');
-  b.writeln('wait_fastboot');
+  b.writeln('# 3. One-time: unlock the bootloader (ERASES the device). Skip');
+  b.writeln('#    this if it is already unlocked.');
+  for (final String line in bf.unlockLines) {
+    b.writeln('#    $line');
+  }
+  for (final String caution in bf.cautions) {
+    b.writeln('#    ! CAUTION: $caution');
+  }
   b.writeln();
-  if (rec != null) {
-    b.writeln('echo "==> Flash custom recovery (${rec.name})"');
-    b.writeln(
-      '# On A/B devices most projects recommend `fastboot boot` first',
-    );
-    b.writeln('# to verify the recovery image actually boots before making');
-    b.writeln('# it permanent.');
-    b.writeln('fastboot boot recovery.img');
-    b.writeln(
-      '# Once you have confirmed the recovery boots cleanly, you can',
-    );
-    b.writeln('# flash it permanently from inside the recovery itself, or:');
-    b.writeln('#   fastboot flash boot recovery.img      # A/B devices');
-    b.writeln('#   fastboot flash recovery recovery.img  # A-only devices');
+  if (samsung) {
+    b.writeln('echo "==> Reboot to Download mode"');
+    b.writeln('adb reboot download');
+    b.writeln('wait_download');
     b.writeln();
+    if (rec != null) {
+      b.writeln('echo "==> Flash recovery (${rec.name}); do NOT auto-reboot"');
+      b.writeln('heimdall flash --RECOVERY recovery.img --no-reboot');
+      b.writeln('#   Odin users: load the recovery .tar in AP, UNCHECK Auto');
+      b.writeln('#   Reboot, then Start. The moment it finishes, immediately');
+      b.writeln('#   hold Volume-Up + Power to boot straight into the new');
+      b.writeln('#   recovery so stock Android cannot restore it on first boot.');
+      b.writeln();
+    }
+  } else {
+    b.writeln('echo "==> Reboot to bootloader"');
+    b.writeln('adb reboot bootloader');
+    b.writeln('wait_fastboot');
+    b.writeln();
+    if (rec != null) {
+      b.writeln('echo "==> Flash custom recovery (${rec.name})"');
+      b.writeln(
+        '# On A/B devices most projects recommend `fastboot boot` first',
+      );
+      b.writeln('# to verify the recovery image actually boots before making');
+      b.writeln('# it permanent.');
+      b.writeln('fastboot boot recovery.img');
+      b.writeln(
+        '# Once you have confirmed the recovery boots cleanly, you can',
+      );
+      b.writeln('# flash it permanently from inside the recovery itself, or:');
+      b.writeln('#   fastboot flash boot recovery.img      # A/B devices');
+      b.writeln('#   fastboot flash recovery recovery.img  # A-only devices');
+      b.writeln();
+    }
   }
   b.writeln(
     'echo "==> Inside ${rec?.name ?? 'recovery'}, perform these steps"',
@@ -990,13 +1158,13 @@ String buildFlashScript({
   }
   b.writeln('#   ${step++}) Reboot system');
   b.writeln();
-  b.writeln('# 3. Alternative ADB sideload (if you prefer):');
+  b.writeln('# 4. Alternative ADB sideload (if you prefer):');
   b.writeln('#    adb sideload rom.zip');
   if (wantsGapps) b.writeln('#    adb sideload gapps.zip');
   if (wantsMagisk) b.writeln('#    adb sideload magisk.zip');
   b.writeln();
   b.writeln(
-    '# 4. First boot can take 5-15 minutes while Android optimises apps.',
+    '# 5. First boot can take 5-15 minutes while Android optimises apps.',
   );
   b.writeln('#    Do NOT pull the battery / cable during this step.');
   b.writeln();
@@ -1045,6 +1213,12 @@ String buildGsiScript({
   b.writeln('# steps (bootloader, recovery, fastbootd), so running the whole');
   b.writeln('# file at once will fail. Run one block at a time and confirm');
   b.writeln('# the phone is in the expected mode before continuing.');
+  if (!samsung) {
+    for (final String caution in _brandFlash(brand ?? '').cautions) {
+      b.writeln('#');
+      b.writeln('# ! CAUTION: $caution');
+    }
+  }
   b.writeln('set -euo pipefail');
   b.writeln();
   b.writeln('# Helper: block until the phone is back in fastboot instead of a');

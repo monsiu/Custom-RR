@@ -14,6 +14,16 @@ project uses [Semantic Versioning](https://semver.org/).
 - **Discord release post cleanup.** The Play workflow announcement no longer
   contains beta-join or tester-only prompt text.
 
+### Fixed
+
+- **Flash script generator is now brand-aware.** The generated steps match your
+  phone's brand: Samsung uses Download mode with Heimdall or Odin (it has no
+  fastboot), Xiaomi, Redmi and POCO include the Mi Unlock and anti-rollback
+  warnings, Motorola and Sony include their unlock-code steps, realme and OPPO
+  include the Deep Testing unlock, and other brands use the standard fastboot
+  unlock. This replaces the old one-size-fits-all fastboot steps that could not
+  work on some devices.
+
 ## [1.3.2] - 2026-07-22
 
 ### Changed
