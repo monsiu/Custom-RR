@@ -70,6 +70,28 @@ Future<void> showSupportDialog(BuildContext context) {
                   },
                 ),
               ),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 48,
+                child: FilledButton.tonalIcon(
+                  style: FilledButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  icon: const Icon(Icons.favorite_border),
+                  label: const Text('Sponsor on GitHub'),
+                  onPressed: () async {
+                    final NavigatorState rootNav = Navigator.of(
+                      dialogCtx,
+                      rootNavigator: true,
+                    );
+                    final BuildContext rootCtx = rootNav.context;
+                    rootNav.pop();
+                    await openSponsorsWithFeedback(rootCtx);
+                  },
+                ),
+              ),
               if (kShowCryptoDonate) ...<Widget>[
                 const SizedBox(height: 10),
                 SizedBox(
