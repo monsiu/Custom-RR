@@ -57,3 +57,11 @@ tool/.cache/
 # Gradle build output (was leaking into git status)
 /android/build/
 flutter_*.png
+
+# Localized Play screenshots are generated locally by tool/make_showcase.py and
+# uploaded to Play via fastlane. They are NOT committed, to keep the repo from
+# bloating by hundreds of MB. (en-US was committed earlier; gitignore never
+# un-tracks already-tracked files, so en-US stays under version control.)
+fastlane/metadata/android/*/images/phoneScreenshots/
+fastlane/metadata/android/*/images/sevenInchScreenshots/
+fastlane/metadata/android/*/images/tenInchScreenshots/
