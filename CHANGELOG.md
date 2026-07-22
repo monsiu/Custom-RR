@@ -6,6 +6,14 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **Production-only Play messaging.** About now states the app is live on
+  Google Play production, with install and update wording focused on the Play
+  Store.
+- **Discord release post cleanup.** The Play workflow announcement no longer
+  contains beta-join or tester-only prompt text.
+
 ## [1.3.2] - 2026-07-22
 
 ### Changed
