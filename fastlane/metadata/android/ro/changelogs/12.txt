@@ -1,0 +1,2 @@
+- Înregistrarea Play beta a fost eliminată din aplicație.
+- About și mesajele din magazin reflectă acum accesul la producție Google Play.

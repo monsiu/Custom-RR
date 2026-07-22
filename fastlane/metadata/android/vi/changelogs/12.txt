@@ -1,0 +1,2 @@
+- Việc tích hợp Play beta đã bị xóa khỏi ứng dụng.
+- About và tin nhắn cửa hàng hiện phản ánh quyền truy cập sản xuất Google Play.

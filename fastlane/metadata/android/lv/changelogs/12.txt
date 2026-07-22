@@ -1,0 +1,2 @@
+- Play beta ieviešana ir noņemta no lietotnes.
+- About un veikala ziņojumapmaiņa tagad atspoguļo Google Play ražošanas piekļuvi.

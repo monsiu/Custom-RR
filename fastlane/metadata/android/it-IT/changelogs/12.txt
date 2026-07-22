@@ -1,0 +1,2 @@
+- L'onboarding Play beta è stato rimosso dall'app.
+- About e la messaggistica del negozio ora riflettono l'accesso alla produzione Google Play.

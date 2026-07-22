@@ -1,0 +1,2 @@
+- Ang Play beta onboarding ay inalis sa app.
+- Ipinapakita na ngayon ng About at store messaging ang Google Play production access.

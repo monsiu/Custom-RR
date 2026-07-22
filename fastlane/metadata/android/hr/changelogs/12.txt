@@ -1,0 +1,2 @@
+- Play beta onboarding je uklonjen iz aplikacije.
+- About i poruke trgovine sada odražavaju Google Play pristup proizvodnji.

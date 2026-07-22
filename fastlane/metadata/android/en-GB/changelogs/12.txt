@@ -1,0 +1,2 @@
+- Play beta onboarding has been removed from the app.
+- About and store messaging now reflect Google Play production access.

@@ -1,0 +1,2 @@
+- La incorporación de Play beta se eliminó de la aplicación.
+- About y los mensajes de la tienda ahora reflejan el acceso de producción de Google Play.

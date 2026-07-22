@@ -1,0 +1,2 @@
+- Play beta-aanboording is van die toepassing verwyder.
+- About en winkelboodskappe weerspieël nou Google Play-produksietoegang.

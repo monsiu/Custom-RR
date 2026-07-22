@@ -1,0 +1,2 @@
+- Play beta inngöngu um borð hefur verið fjarlægð úr appinu.
+- About og verslunarskilaboð endurspegla nú Google Play framleiðsluaðgang.
