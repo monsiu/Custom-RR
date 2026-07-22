@@ -36,6 +36,17 @@ body:
     attributes:
       label: Supported devices
       description: "Device codenames if you know them (e.g. sunny, lisa)."
+  - type: dropdown
+    id: us_variant
+    attributes:
+      label: Is this for a US model or carrier variant?
+      description: "If this request is for your own phone: US carrier phones (Samsung model numbers ending in U or U1, or anything bought from Verizon, AT&T, T-Mobile, etc.) usually ship with a locked bootloader that can't be unlocked, so no recovery or custom ROM can be flashed. If this is a general project request not tied to one phone, pick No."
+      options:
+        - "No, it's an international / global / factory-unlocked model"
+        - "Yes, it's a US model or bought from a US carrier"
+        - "Not sure"
+    validations:
+      required: true
   - type: textarea
     id: notes
     attributes:
