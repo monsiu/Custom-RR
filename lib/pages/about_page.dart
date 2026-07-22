@@ -238,8 +238,8 @@ class _AboutPageState extends State<AboutPage> {
                   title: const Text('Support the project'),
                   subtitle: Text(
                     kShowCryptoDonate
-                        ? 'Buy a coffee or donate crypto'
-                        : 'Buy us a coffee',
+                        ? 'Coffee, GitHub Sponsors, or crypto'
+                        : 'Coffee or GitHub Sponsors',
                   ),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: _showSupportChooser,
@@ -249,6 +249,11 @@ class _AboutPageState extends State<AboutPage> {
                   leading: const Icon(Icons.coffee_outlined),
                   title: const Text('Buy us a coffee'),
                   onTap: _openSupport,
+                ),
+                ListTile(
+                  leading: const Icon(Icons.favorite_border),
+                  title: const Text('Sponsor on GitHub'),
+                  onTap: () => _open(Uri.parse(kSponsorsUrl)),
                 ),
                 if (kShowCryptoDonate)
                   ListTile(
@@ -355,6 +360,15 @@ class _AboutPageState extends State<AboutPage> {
                 onTap: () async {
                   Navigator.of(ctx).pop();
                   await openSupportWithFeedback(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.favorite_border),
+                title: const Text('Sponsor on GitHub'),
+                subtitle: const Text('Monthly or one-time via GitHub Sponsors'),
+                onTap: () async {
+                  Navigator.of(ctx).pop();
+                  await _open(Uri.parse(kSponsorsUrl));
                 },
               ),
               if (kShowCryptoDonate)

@@ -149,6 +149,7 @@ For anything code- or catalog-related, please
 
 ## Support the project
 
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub_Sponsors-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/monsiu)
 [![Buy Me a Coffee](https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png)](https://www.buymeacoffee.com/monsiutech)
 
 <details>
