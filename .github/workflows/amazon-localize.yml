@@ -1,0 +1,61 @@
+name: Amazon listing localization
+
+# Localizes the Amazon Appstore listing (title, full description, short
+# description, feature bullets) for the languages Amazon supports, via
+# tool/amazon_localize_listings.py.
+#
+# Run it MANUALLY (workflow_dispatch): listing copy changes rarely, so this is
+# deliberate and NOT tied to a release (per-release APK + notes are amazon.yml's
+# job). It reuses the same AMAZON_* secrets as amazon.yml and is a clean no-op
+# until those are set.
+#
+# It DISCARDS any open Edit (Amazon allows one at a time), so do NOT run it while
+# you have the listing open in the Developer Console.
+#
+# submit = false (default) prepares + validates the Edit only (a safe dry run,
+# nothing is sent); submit = true commits it to Amazon review (publishes in a
+# few hours, exactly like a normal submission).
+on:
+  workflow_dispatch:
+    inputs:
+      submit:
+        description: 'Submit to Amazon review, or dry-run (prepare + validate only).'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: read
+
+jobs:
+  localize:
+    name: Localize Amazon listings
+    runs-on: ubuntu-latest
+    env:
+      # Secrets are not allowed in `if:`, so surface one as job env to gate on.
+      # When unset, the localize step is skipped and the job is a clean no-op.
+      AMAZON_CLIENT_ID: ${{ secrets.AMAZON_CLIENT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        with:
+          python-version: '3.x'
+
+      - name: Localize Amazon listings
+        if: ${{ env.AMAZON_CLIENT_ID != '' }}
+        env:
+          AMAZON_CLIENT_ID: ${{ secrets.AMAZON_CLIENT_ID }}
+          AMAZON_CLIENT_SECRET: ${{ secrets.AMAZON_CLIENT_SECRET }}
+          AMAZON_APP_ID: ${{ secrets.AMAZON_APP_ID }}
+          # Default false (dry run). Choose true on dispatch to submit to review.
+          AMAZON_SUBMIT: ${{ inputs.submit }}
+        run: python3 tool/amazon_localize_listings.py
+
+      - name: No Amazon secrets configured
+        if: ${{ env.AMAZON_CLIENT_ID == '' }}
+        run: echo "::notice::AMAZON_CLIENT_ID is not set; skipping Amazon listing localization."
