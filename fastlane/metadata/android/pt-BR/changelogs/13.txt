@@ -1,0 +1,2 @@
+- Os guias de script em Flash agora correspondem à marca do seu telefone, com as etapas corretas de desbloqueio e atualização para Samsung, Xiaomi, Motorola, Sony, realme e OPPO.
+- Adicionada uma opção para avaliar o aplicativo e o suporte do GitHub Sponsors, e o compartilhamento agora abre a listagem do Google Play.

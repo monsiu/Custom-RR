@@ -1,0 +1,2 @@
+- Sprievodcovia skriptom Flash teraz zodpovedajú značke vášho telefónu so správnymi krokmi odomknutia a blikania pre Samsung, Xiaomi, Motorola, Sony, realme a OPPO.
+- Pridaná možnosť hodnotenia aplikácie a podpory GitHub Sponsors a zdieľanie teraz otvára zoznam Google Play.

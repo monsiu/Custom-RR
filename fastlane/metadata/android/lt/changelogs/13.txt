@@ -1,0 +1,2 @@
+- „Flash“ scenarijų vadovai dabar atitinka jūsų telefono prekės ženklą su tinkamais „Samsung“, „Xiaomi“, „Motorola“, „Sony“, „realme“ ir OPPO atrakinimo ir mirksinčiais veiksmais.
+- Pridėta parinktis įvertinti programą ir GitHub Sponsors palaikymą, o bendrinimas dabar atveria Google Play sąrašą.

@@ -1,0 +1,2 @@
+- Flash script guides now match your phone brand, with the right unlock and flashing steps for Samsung, Xiaomi, Motorola, Sony, realme and OPPO.
+- Added an option to rate the app and GitHub Sponsors support, and sharing now opens the Google Play listing.

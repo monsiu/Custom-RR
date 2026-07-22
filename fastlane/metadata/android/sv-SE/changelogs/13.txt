@@ -1,0 +1,2 @@
+- Flash-skriptguider matchar nu ditt telefonmärke, med rätt upplåsnings- och blinkande steg för Samsung, Xiaomi, Motorola, Sony, realme och OPPO.
+- Lade till ett alternativ för att betygsätta appen och GitHub Sponsors-stödet, och delning öppnar nu Google Play-listan.

@@ -1,0 +1,2 @@
+- Flash スクリプト ガイドは、Samsung、Xiaomi、Motorola、Sony、realme、OPPO に適したロック解除とフラッシュの手順を備え、お使いの携帯電話のブランドにマッチするようになりました。
+- アプリと GitHub Sponsors サポートを評価するオプションが追加され、共有すると Google Play リストが開くようになりました。

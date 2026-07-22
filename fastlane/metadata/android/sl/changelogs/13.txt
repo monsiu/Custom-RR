@@ -1,0 +1,2 @@
+- Vodniki za skripte Flash se zdaj ujemajo z vašo znamko telefona s pravimi koraki za odklepanje in utripanje za Samsung, Xiaomi, Motorola, Sony, realme in OPPO.
+- Dodana možnost za ocenjevanje aplikacije in podpore GitHub Sponsors, deljenje pa zdaj odpre seznam Google Play.

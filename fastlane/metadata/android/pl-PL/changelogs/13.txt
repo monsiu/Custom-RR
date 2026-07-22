@@ -1,0 +1,2 @@
+- Przewodniki po skryptach Flash są teraz dopasowane do marki Twojego telefonu, z odpowiednimi krokami odblokowania i flashowania dla Samsunga, Xiaomi, Motoroli, Sony, realme i OPPO.
+- Dodano opcję oceniania aplikacji i obsługi GitHub Sponsors, a udostępnianie otwiera teraz listę Google Play.

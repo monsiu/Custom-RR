@@ -1,0 +1,2 @@
+- Flash-Skript-Anleitungen passen jetzt zu Ihrer Telefonmarke und enthalten die richtigen Schritte zum Entsperren und Flashen für Samsung, Xiaomi, Motorola, Sony, Realme und OPPO.
+- Es wurde eine Option zum Bewerten der App und der GitHub Sponsors-Unterstützung hinzugefügt. Beim Teilen wird jetzt die Google Play-Liste geöffnet.

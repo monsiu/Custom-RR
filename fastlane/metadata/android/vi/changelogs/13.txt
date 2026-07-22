@@ -1,0 +1,2 @@
+- Hướng dẫn tập lệnh flash hiện phù hợp với thương hiệu điện thoại của bạn, với các bước mở khóa và flash phù hợp cho Samsung, Xiaomi, Motorola, Sony, realme và OPPO.
+- Đã thêm tùy chọn để xếp hạng ứng dụng và hỗ trợ GitHub Sponsors, đồng thời chia sẻ hiện sẽ mở danh sách Google Play.

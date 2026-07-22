@@ -1,0 +1,2 @@
+- 플래시 스크립트 가이드는 이제 Samsung, Xiaomi, Motorola, Sony, realme 및 OPPO에 대한 올바른 잠금 해제 및 깜박임 단계를 통해 휴대폰 브랜드와 일치합니다.
+- 앱 및 GitHub Sponsors 지원을 평가하는 옵션이 추가되었으며 공유하면 이제 Google Play 목록이 열립니다.

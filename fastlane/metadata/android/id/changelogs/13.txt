@@ -1,0 +1,2 @@
+- Panduan skrip flash kini sesuai dengan merek ponsel Anda, dengan langkah membuka kunci dan mem-flash yang tepat untuk Samsung, Xiaomi, Motorola, Sony, realme, dan OPPO.
+- Menambahkan opsi untuk menilai aplikasi dan dukungan GitHub Sponsors, dan berbagi kini membuka daftar Google Play.
