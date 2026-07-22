@@ -1,0 +1,2 @@
+- Flash-scripthandleidingen komen nu overeen met uw telefoonmerk, met de juiste ontgrendelings- en flitsstappen voor Samsung, Xiaomi, Motorola, Sony, realme en OPPO.
+- Een optie toegevoegd om de app en GitHub Sponsors-ondersteuning te beoordelen, en door nu te delen wordt de Google Play-lijst geopend.

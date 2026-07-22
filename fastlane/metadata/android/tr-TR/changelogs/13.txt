@@ -1,0 +1,2 @@
+- Flash komut dosyası kılavuzları artık Samsung, Xiaomi, Motorola, Sony, realme ve OPPO için doğru kilit açma ve yanıp sönme adımlarıyla telefonunuzun markasıyla eşleşiyor.
+- Uygulamayı ve GitHub Sponsors desteğini derecelendirmek için bir seçenek eklendi ve paylaşım artık Google Play listesini açıyor.

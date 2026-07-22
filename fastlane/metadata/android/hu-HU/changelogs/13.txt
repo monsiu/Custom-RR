@@ -1,0 +1,2 @@
+- A Flash script útmutatók mostantól megfelelnek a telefon márkájának, a megfelelő feloldási és villogási lépésekkel a Samsung, a Xiaomi, a Motorola, a Sony, a realme és az OPPO számára.
+- Lehetőséget adtunk az alkalmazás és a GitHub Sponsors támogatás értékelésére, és a megosztás megnyitja a Google Play listát.

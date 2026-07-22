@@ -1,0 +1,2 @@
+- Flash-skriptioppaat vastaavat nyt puhelimesi merkkiä, ja oikeat lukituksen avaus- ja vilkkuvat vaiheet Samsungille, Xiaomille, Motorolalle, Sonylle, realmelle ja OPPO:lle.
+- Lisätty mahdollisuus arvioida sovellus ja GitHub Sponsors-tuki, ja jakaminen avaa nyt Google Play-listauksen.

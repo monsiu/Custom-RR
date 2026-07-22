@@ -1,0 +1,2 @@
+- Las guías de secuencias de comandos Flash ahora coinciden con la marca de su teléfono, con los pasos correctos de desbloqueo y actualización para Samsung, Xiaomi, Motorola, Sony, realme y OPPO.
+- Se agregó una opción para calificar la aplicación y la compatibilidad con GitHub Sponsors, y compartir ahora abre la lista de Google Play.

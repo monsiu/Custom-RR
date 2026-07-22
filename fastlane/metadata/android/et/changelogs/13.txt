@@ -1,0 +1,2 @@
+- Flash-skriptide juhendid sobivad nüüd teie telefoni kaubamärgiga koos õigete avamis- ja vilkumistoimingutega Samsungi, Xiaomi, Motorola, Sony, realme ja OPPO jaoks.
+- Lisati võimalus hinnata rakendust ja GitHub Sponsors tuge ning jagamine avab nüüd Google Play kirje.

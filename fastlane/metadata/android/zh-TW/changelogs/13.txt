@@ -1,0 +1,2 @@
+- Flash 腳本指南現在與您的手機品牌相匹配，為三星、小米、摩托羅拉、Sony、realme 和 OPPO 提供正確的解鎖和刷新步驟。
+- 新增了對應用程式和 GitHub Sponsors 支援進行評級的選項，現​​在共用可開啟 Google Play 清單。

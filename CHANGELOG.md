@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.3] - 2026-07-22
+
 ### Added
 
 - **Sponsor on GitHub.** GitHub Sponsors is now offered everywhere you can
@@ -22,10 +24,6 @@ project uses [Semantic Versioning](https://semver.org/).
   Google Play listing instead of the GitHub repo.
 - **About page tidied.** Removed the redundant Google Play status card and added
   a one-tap "Check for updates" that opens the Play listing.
-- **Production-only Play messaging.** About now states the app is live on
-  Google Play, with install and update wording focused on the Play Store.
-- **Discord release post cleanup.** The Play workflow announcement no longer
-  contains beta-join or tester-only prompt text.
 
 ### Fixed
 

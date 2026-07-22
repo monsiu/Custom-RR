@@ -1,0 +1,2 @@
+- Les guides de script Flash correspondent désormais à la marque de votre téléphone, avec les bonnes étapes de déverrouillage et de clignotement pour Samsung, Xiaomi, Motorola, Sony, realme et OPPO.
+- Ajout d'une option pour évaluer l'application et la prise en charge de GitHub Sponsors, et le partage ouvre désormais la liste Google Play.

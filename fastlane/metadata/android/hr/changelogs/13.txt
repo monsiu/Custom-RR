@@ -1,0 +1,2 @@
+- Vodiči za Flash skripte sada odgovaraju vašoj marki telefona, s pravim koracima za otključavanje i treptanje za Samsung, Xiaomi, Motorola, Sony, realme i OPPO.
+- Dodana je opcija za ocjenjivanje aplikacije i GitHub Sponsors podrške, a dijeljenje sada otvara Google Play popis.

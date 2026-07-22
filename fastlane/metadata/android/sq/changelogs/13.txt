@@ -1,0 +1,2 @@
+- Udhëzuesit e skriptit të Flash tani përputhen me markën e telefonit tuaj, me hapat e duhur të shkyçjes dhe ndezjes për Samsung, Xiaomi, Motorola, Sony, realme dhe OPPO.
+- U shtua një opsion për të vlerësuar aplikacionin dhe mbështetjen e GitHub Sponsors, dhe ndarja tani hap listën Google Play.

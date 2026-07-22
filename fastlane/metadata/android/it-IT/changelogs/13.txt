@@ -1,0 +1,2 @@
+- Le guide agli script Flash ora corrispondono alla marca del tuo telefono, con i giusti passaggi di sblocco e flashing per Samsung, Xiaomi, Motorola, Sony, realme e OPPO.
+- Aggiunta un'opzione per valutare l'app e il supporto GitHub Sponsors e la condivisione ora apre l'elenco Google Play.

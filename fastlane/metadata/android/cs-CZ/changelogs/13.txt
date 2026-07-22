@@ -1,0 +1,2 @@
+- Příručky skriptů Flash nyní odpovídají značce vašeho telefonu se správnými kroky odemykání a blikání pro Samsung, Xiaomi, Motorola, Sony, realme a OPPO.
+- Přidána možnost hodnocení aplikace a podpory GitHub Sponsors a sdílení nyní otevře seznam Google Play.

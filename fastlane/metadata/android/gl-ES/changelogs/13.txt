@@ -1,0 +1,2 @@
+- As guías de scripts flash agora coinciden coa marca do teu teléfono, cos pasos de desbloqueo e destellos correctos para Samsung, Xiaomi, Motorola, Sony, realme e OPPO.
+- Engadiuse unha opción para valorar a aplicación e a compatibilidade con GitHub Sponsors, e compartir agora abre a lista de Google Play.

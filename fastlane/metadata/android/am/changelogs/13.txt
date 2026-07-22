@@ -1,0 +1,2 @@
+- የፍላሽ ስክሪፕት መመሪያዎች አሁን ከስልክዎ ምርት ስም ጋር ይዛመዳሉ፣ ለSamsung፣ Xiaomi፣ Motorola፣ Sony፣ Realme እና OPPO በትክክለኛው የመክፈቻ እና ብልጭልጭ ደረጃዎች።
+- ለመተግበሪያው እና ለ GitHub Sponsors ድጋፍ ለመስጠት አንድ አማራጭ ታክሏል፣ እና አሁን ማጋራት የGoogle Play ዝርዝሩን ይከፍታል።
