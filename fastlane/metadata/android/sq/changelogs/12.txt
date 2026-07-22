@@ -1,2 +1,2 @@
-- Futja e Play beta është hequr nga aplikacioni.
+- Hyrja e vjetër në bord është hequr nga aplikacioni.
 - About dhe mesazhet e dyqaneve tani pasqyrojnë aksesin e prodhimit të Google Play.

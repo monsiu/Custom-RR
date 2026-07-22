@@ -1,2 +1,2 @@
-- A integração do Play beta foi removida do aplicativo.
+- A integração antiga foi removida do aplicativo.
 - About e mensagens de armazenamento agora refletem o acesso de produção Google Play.

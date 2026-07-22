@@ -1,2 +1,2 @@
-- Wdrożenie Play beta zostało usunięte z aplikacji.
+- Stare wprowadzenie zostało usunięte z aplikacji.
 - Komunikaty About i sklepu odzwierciedlają teraz dostęp produkcyjny Google Play.

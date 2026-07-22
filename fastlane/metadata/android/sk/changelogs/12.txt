@@ -1,2 +1,2 @@
-- Registrácia Play beta bola z aplikácie odstránená.
+- Stará registrácia bola z aplikácie odstránená.
 - About a správy obchodu teraz odrážajú produkčný prístup Google Play.

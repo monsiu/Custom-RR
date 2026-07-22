@@ -1,2 +1,2 @@
-- Vključevanje Play beta je bilo odstranjeno iz aplikacije.
+- Staro vkrcanje je bilo odstranjeno iz aplikacije.
 - About in sporočila trgovine zdaj odražajo dostop do proizvodnje Google Play.

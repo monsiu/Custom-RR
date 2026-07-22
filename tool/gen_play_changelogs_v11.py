@@ -6,7 +6,7 @@ QR, Play).
 
 Each file is written WITHOUT a trailing newline and validated to stay within
 Play's 500 code-point per-language release-notes limit. v1.3.1 is a small patch
-(community ROMs discoverability + smoother Play beta sign-up), so the note is
+(community ROMs discoverability + smoother Google Play early access sign-up), so the note is
 short and every translation fits comfortably.
 """
 import os
@@ -17,7 +17,7 @@ OUT = "11.txt"
 
 EN = (
     "- Community ROMs are easier to find, with a shortcut from the ROMs list.\n"
-    "- Joining the Play beta is faster, with a QR code and a share button.\n"
+    "- Joining the Google Play early access is faster, with a QR code and a share button.\n"
 )
 
 LANG = {
@@ -35,7 +35,7 @@ LANG = {
     ),
     "az": (
         "- İcma ROM-larını tapmaq asanlaşdı, ROM siyahısından qısayol ilə.\n"
-        "- Play betasına qoşulmaq daha sürətlidir, QR kodu və paylaşma düyməsi ilə.\n"
+        "- Google Play-ə qoşulmaq daha sürətlidir, QR kodu və paylaşma düyməsi ilə.\n"
     ),
     "be": (
         "- Супольнасныя ROM прасцей знайсці дзякуючы цэтліку са спіса ROM.\n"
@@ -79,7 +79,7 @@ LANG = {
     ),
     "eu": (
         "- Komunitateko ROMak errazago aurkitzen dira, ROM zerrendako lasterbide batekin.\n"
-        "- Play betarekin bat egitea azkarragoa da, QR kode eta partekatze botoi batekin.\n"
+        "- Google Play early accessrekin bat egitea azkarragoa da, QR kode eta partekatze botoi batekin.\n"
     ),
     "fa": (
         "- یافتن ROMهای جامعه آسان‌تر شد، با میان‌بری از فهرست ROM.\n"
@@ -91,7 +91,7 @@ LANG = {
     ),
     "fil": (
         "- Mas madaling hanapin ang mga community ROM, may shortcut mula sa listahan ng ROM.\n"
-        "- Mas mabilis sumali sa Play beta, may QR code at share button.\n"
+        "- Mas mabilis sumali sa Google Play early access, may QR code at share button.\n"
     ),
     "fr": (
         "- Les ROM de la communauté sont plus faciles à trouver, avec un raccourci depuis la liste des ROM.\n"
@@ -151,7 +151,7 @@ LANG = {
     ),
     "km": (
         "- ROM សហគមន៍ងាយស្រួលរកជាងមុន ដោយមានផ្លូវកាត់ពីបញ្ជី ROM។\n"
-        "- ការចូលរួម Play beta លឿនជាងមុន ដោយមានកូដ QR និងប៊ូតុងចែករំលែក។\n"
+        "- ការចូលរួម Google Play early access លឿនជាងមុន ដោយមានកូដ QR និងប៊ូតុងចែករំលែក។\n"
     ),
     "kn": (
         "- ಸಮುದಾಯ ROM ಗಳನ್ನು ಹುಡುಕುವುದು ಸುಲಭವಾಗಿದೆ, ROM ಪಟ್ಟಿಯಿಂದ ಶಾರ್ಟ್‌ಕಟ್ ಜೊತೆಗೆ.\n"
@@ -167,15 +167,15 @@ LANG = {
     ),
     "lo": (
         "- ROM ຂອງຊຸມຊົນຫາງ່າຍຂຶ້ນ, ດ້ວຍທາງລັດຈາກລາຍຊື່ ROM.\n"
-        "- ການເຂົ້າຮ່ວມ Play beta ໄວຂຶ້ນ, ດ້ວຍລະຫັດ QR ແລະ ປຸ່ມແບ່ງປັນ.\n"
+        "- ການເຂົ້າຮ່ວມ Google Play early access ໄວຂຶ້ນ, ດ້ວຍລະຫັດ QR ແລະ ປຸ່ມແບ່ງປັນ.\n"
     ),
     "lt": (
         "- Bendruomenės ROM lengviau rasti naudojant nuorodą iš ROM sąrašo.\n"
-        "- Prisijungti prie Play beta versijos greičiau, su QR kodu ir bendrinimo mygtuku.\n"
+        "- Prisijungti prie Google Play early access versijos greičiau, su QR kodu ir bendrinimo mygtuku.\n"
     ),
     "lv": (
         "- Kopienas ROM ir vieglāk atrast, izmantojot saīsni no ROM saraksta.\n"
-        "- Pievienoties Play beta versijai ir ātrāk, ar QR kodu un kopīgošanas pogu.\n"
+        "- Pievienoties Google Play early access versijai ir ātrāk, ar QR kodu un kopīgošanas pogu.\n"
     ),
     "mk": (
         "- ROM-овите од заедницата полесно се наоѓаат, со кратенка од списокот со ROM.\n"
@@ -199,7 +199,7 @@ LANG = {
     ),
     "my": (
         "- အသိုက်အဝန်း ROM များကို ရှာရလွယ်လာသည်၊ ROM စာရင်းမှ ဖြတ်လမ်းနှင့်အတူ။\n"
-        "- Play beta သို့ ပါဝင်ခြင်း ပိုမြန်လာသည်၊ QR ကုဒ်နှင့် မျှဝေခလုတ်ဖြင့်။\n"
+        "- Google Play early access သို့ ပါဝင်ခြင်း ပိုမြန်လာသည်၊ QR ကုဒ်နှင့် မျှဝေခလုတ်ဖြင့်။\n"
     ),
     "ne": (
         "- समुदाय ROM फेला पार्न सजिलो भयो, ROM सूचीबाट सर्टकटसहित।\n"
@@ -283,7 +283,7 @@ LANG = {
     ),
     "tr": (
         "- Topluluk ROM'larını bulmak artık daha kolay, ROM listesinden bir kısayolla.\n"
-        "- Play betasına katılmak daha hızlı, QR kodu ve paylaş düğmesiyle.\n"
+        "- Google Play'e katılmak daha hızlı, QR kodu ve paylaş düğmesiyle.\n"
     ),
     "uk": (
         "- Громадські ROM простіше знайти завдяки ярлику зі списку ROM.\n"

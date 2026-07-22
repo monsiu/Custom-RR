@@ -28,7 +28,7 @@ OUT = "12.txt"
 
 # Keep this short and user-facing so all locales fit safely under 500 chars.
 EN_LINES = [
-    "Play beta onboarding has been removed from the app.",
+    "Old onboarding has been removed from the app.",
     "About and store messaging now reflect Google Play production access.",
 ]
 
@@ -133,7 +133,7 @@ TRANSLATE_LANG_ALIAS = {
 # Manual translations for languages not supported by the API endpoint.
 MANUAL_LANG_LINES = {
     "rm": [
-        "L'onboarding da Play beta è vegnì allontanà da l'app.",
+        "L'onboarding vegl è vegnì allontanà da l'app.",
         "Ils texts en About e sin la pagina dal Store reflectan ussa l'access da producziun da Google Play.",
     ],
 }
@@ -142,7 +142,6 @@ MANUAL_LANG_LINES = {
 TERM_GUARD = {
     "Custom RR": "ZZTERM0",
     "Google Play": "ZZTERM1",
-    "Play beta": "ZZTERM2",
     "ROM": "ZZTERM3",
     "About": "ZZTERM4",
 }
@@ -152,7 +151,6 @@ TERM_GUARD = {
 ALT_TERM_TOKENS = {
     "ЗЗТЕРМ0": "Custom RR",
     "ЗЗТЕРМ1": "Google Play",
-    "ЗЗТЕРМ2": "Play beta",
     "ЗЗТЕРМ3": "ROM",
     "ЗЗТЕРМ4": "About",
 }

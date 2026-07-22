@@ -1,2 +1,2 @@
 - İcma ROM-larını tapmaq asanlaşdı, ROM siyahısından qısayol ilə.
-- Play betasına qoşulmaq daha sürətlidir, QR kodu və paylaşma düyməsi ilə.
+- Google Play-ə qoşulmaq daha sürətlidir, QR kodu və paylaşma düyməsi ilə.

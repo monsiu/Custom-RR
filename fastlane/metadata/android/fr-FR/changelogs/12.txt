@@ -1,2 +1,2 @@
-- L'intégration de Play beta a été supprimée de l'application.
+- L'ancienne intégration a été supprimée de l'application.
 - About et la messagerie du magasin reflètent désormais l'accès à la production Google Play.

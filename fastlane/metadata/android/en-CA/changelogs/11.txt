@@ -1,2 +1,2 @@
 - Community ROMs are easier to find, with a shortcut from the ROMs list.
-- Joining the Play beta is faster, with a QR code and a share button.
+- Joining the Google Play early access is faster, with a QR code and a share button.

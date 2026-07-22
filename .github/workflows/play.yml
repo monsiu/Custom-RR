@@ -180,9 +180,9 @@ jobs:
           # mirrors how Google describes each track in the Play Console.
           if [ -z "$PLAY_RELEASE_NAME" ]; then
             case "$PLAY_TRACK" in
-              internal)   label="internal test" ;;
-              alpha)      label="closed test" ;;
-              beta)       label="open test" ;;
+              internal)   label="internal" ;;
+              alpha)      label="alpha" ;;
+              beta)       label="beta" ;;
               production) label="production" ;;
               *)          label="$PLAY_TRACK" ;;
             esac
@@ -226,9 +226,9 @@ jobs:
         run: |
           set -uo pipefail
           case "$PLAY_TRACK" in
-            internal)   label="internal testing" ;;
-            alpha)      label="closed testing" ;;
-            beta)       label="open testing" ;;
+            internal)   label="internal" ;;
+            alpha)      label="alpha" ;;
+            beta)       label="beta" ;;
             production) label="production" ;;
             *)          label="$PLAY_TRACK" ;;
           esac

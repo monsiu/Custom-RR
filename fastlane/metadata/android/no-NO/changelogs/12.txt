@@ -1,2 +1,2 @@
-- Play beta onboarding er fjernet fra appen.
+- Gammel onboarding er fjernet fra appen.
 - About og butikkmeldinger gjenspeiler nå Google Play produksjonstilgang.

@@ -1,2 +1,2 @@
-- Play beta liitumine on rakendusest eemaldatud.
+- Vana sisseehitamine on rakendusest eemaldatud.
 - About ja poe sõnumid kajastavad nüüd juurdepääsu Google Play tootmisele.

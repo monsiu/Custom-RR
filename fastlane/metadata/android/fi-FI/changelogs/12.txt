@@ -1,2 +1,2 @@
-- Play beta-onboarding on poistettu sovelluksesta.
+- Vanha käyttöönotto on poistettu sovelluksesta.
 - About ja kaupan viestit heijastavat nyt Google Play:n tuotantokäyttöoikeutta.
