@@ -251,7 +251,7 @@ jobs:
           if-no-files-found: error
 
   publish:
-    name: Publish draft release
+    name: Publish release
     needs: [build-android, build-linux, build-windows, build-macos]
     runs-on: ubuntu-latest
     permissions:
@@ -317,11 +317,16 @@ jobs:
           fi
           echo "----- body.md -----"
           cat body.md
-      - name: Publish draft release
+      - name: Publish release
         id: release
         uses: softprops/action-gh-release@v2
         with:
-          draft: true
+          # Publish straight to a public, tagged release (no draft-first gate).
+          # Because the vX.Y.Z tag already exists (auto-tag.yml pushed it), the
+          # release binds to it immediately instead of the "untagged-<sha>"
+          # placeholder GitHub assigns to unpublished drafts.
+          draft: false
+          make_latest: true
           generate_release_notes: false
           name: ${{ inputs.tag || github.ref_name }}
           tag_name: ${{ inputs.tag || github.ref_name }}
@@ -329,8 +334,8 @@ jobs:
           files: release-assets/*
       - name: Force-refresh release body
         # softprops/action-gh-release does not reliably overwrite the body of
-        # an existing draft release on subsequent runs, so PATCH it directly
-        # to guarantee the published draft matches body.md.
+        # an existing release on subsequent runs, so PATCH it directly to
+        # guarantee the published release matches body.md.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -358,15 +363,22 @@ jobs:
           d = json.load(r)
           print(f"Body refreshed: {len(d['body'] or '')} chars")
           PY
-      - name: Trigger Play bundle build
-        # The draft above is created with the default GITHUB_TOKEN, and events
-        # raised by GITHUB_TOKEN cannot trigger other workflows, so the
-        # `release: [created]` trigger in play.yml never fires for the
-        # automated pipeline. Dispatch it explicitly here. The tag already
-        # exists (auto-tag.yml pushes it before release.yml runs), so play.yml
-        # checks it out and builds the .aab against the same commit.
+      - name: Fan out to the stores
+        # The release above is published with the default GITHUB_TOKEN, and
+        # events raised by GITHUB_TOKEN cannot trigger other workflows, so the
+        # `release: [created|published]` triggers in play.yml / zapstore.yml /
+        # amazon.yml never fire for the automated pipeline. Dispatch them
+        # explicitly here. Each store job is individually secret-gated (a clean
+        # no-op when its secrets are unset). The tag already exists (auto-tag.yml
+        # pushes it before release.yml runs) and the release assets are attached
+        # above, so Play builds the .aab, Amazon builds a store APK, and Zapstore
+        # pulls the published GitHub APKs, all against the same commit.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ inputs.tag || github.ref_name }}
-        run: gh workflow run play.yml --ref "$TAG"
+        run: |
+          set -euo pipefail
+          gh workflow run play.yml     --ref "$TAG"
+          gh workflow run zapstore.yml --ref "$TAG"
+          gh workflow run amazon.yml   --ref "$TAG"
 
