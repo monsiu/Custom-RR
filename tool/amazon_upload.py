@@ -67,6 +67,11 @@ BASE_URL = "https://developer.amazon.com/api/appstore"
 API_VERSION = "v1"
 APK_CONTENT_TYPE = "application/vnd.android.package-archive"
 
+# Per-request socket timeout (seconds). Guards against a stalled connection
+# hanging the whole run; it is an inactivity timeout, so it does not abort a
+# large upload that is still actively transferring.
+REQUEST_TIMEOUT = 120
+
 # Amazon listing language code (underscore) -> our fastlane metadata locale
 # (hyphen). Only the languages Amazon supports for listings; any listing
 # language not in this map falls back to the en-US release notes.
@@ -106,7 +111,7 @@ def _request(method, url, *, token=None, data=None, content_type=None,
         headers["If-Match"] = etag
     req = urllib.request.Request(url, data=data, method=method, headers=headers)
     try:
-        with urllib.request.urlopen(req) as resp:
+        with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
             body = resp.read()
             status = resp.status
             resp_headers = dict(resp.headers.items())
@@ -127,7 +132,13 @@ def _request(method, url, *, token=None, data=None, content_type=None,
                     parsed = body
             return e.code, dict(e.headers.items()), parsed
         fail(f"{method} {url} -> HTTP {e.code}: {detail}")
-    except urllib.error.URLError as e:
+    except (urllib.error.URLError, TimeoutError) as e:
+        # A stalled or failed connection is non-fatal when the caller opted into
+        # allow_errors (e.g. one listing language or one screenshot upload): the
+        # synthetic status 0 makes it skip and carry on instead of aborting the
+        # whole run.
+        if allow_errors:
+            return 0, {}, b""
         fail(f"{method} {url} -> network error: {e}")
 
     parsed = body
