@@ -185,8 +185,26 @@ def get_clean_edit(token: str, app_id: str) -> str:
         _s, headers, _b = _request(
             "GET", app_url(app_id, f"/{stale_id}"), token=token)
         etag = headers.get("ETag")
-        _request("DELETE", app_url(app_id, f"/{stale_id}"),
-                 token=token, etag=etag, want_json=False)
+        d_status, _dh, d_body = _request(
+            "DELETE", app_url(app_id, f"/{stale_id}"),
+            token=token, etag=etag, want_json=False, allow_errors=True)
+        if d_status not in (200, 204):
+            detail = (d_body.decode("utf-8", "replace")[:400]
+                      if isinstance(d_body, (bytes, bytearray)) else str(d_body))
+            # The one Edit we legitimately cannot delete is one that has already
+            # been submitted and is now an in-review "upcoming version" (Amazon
+            # returns 400 error_cannot_delete_upcoming_version, "Deletion only
+            # allowed when the edit is in [In_Progress] state"). Treat it exactly
+            # like the 412 in-review case: soft-exit (code 2) so the workflow
+            # skips cleanly instead of failing red. The APK upload can be re-run
+            # once that pending version publishes.
+            if d_status == 400 and "error_cannot_delete_upcoming_version" in detail:
+                fail(f"Amazon has a submitted edit still in review ({stale_id}); a "
+                     f"new APK cannot be uploaded until it publishes. Skipping "
+                     f"cleanly - re-run `gh workflow run amazon.yml --ref <tag>` "
+                     f"once the upcoming version goes live.", code=2)
+            fail(f"DELETE {app_url(app_id, f'/{stale_id}')} -> "
+                 f"HTTP {d_status}: {detail}")
         log(f"Discarded stale open Edit {stale_id}.")
     _status, _headers, body = _request("POST", app_url(app_id), token=token)
     if not isinstance(body, dict) or "id" not in body:
