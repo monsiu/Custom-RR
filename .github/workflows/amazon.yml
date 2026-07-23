@@ -144,4 +144,19 @@ jobs:
           # "true" (default) submits to review; the dispatch input or repo var can
           # set "false" for a dry run that prepares + validates the Edit only.
           AMAZON_SUBMIT: ${{ inputs.submit || vars.AMAZON_SUBMIT || 'true' }}
-        run: python3 tool/amazon_upload.py
+        # amazon_upload.py exits 2 for the expected, transient "Amazon isn't
+        # ready" cases: the app is in review (HTTP 412), or a previously
+        # submitted edit is still an in-review upcoming version and cannot be
+        # replaced yet. Treat exit 2 as a clean, non-failing skip so the release
+        # fan-out is not marked failed for something that just needs a re-run
+        # after Amazon publishes the pending version. Any other non-zero exit
+        # still fails the job.
+        run: |
+          set +e
+          python3 tool/amazon_upload.py
+          code=$?
+          if [ "$code" -eq 2 ]; then
+            echo "::warning::Amazon not ready (in review / pending edit) - skipped the APK upload cleanly. Re-run 'gh workflow run amazon.yml --ref <tag>' after the pending version publishes."
+            exit 0
+          fi
+          exit "$code"
