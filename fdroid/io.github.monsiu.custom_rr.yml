@@ -38,9 +38,9 @@ RepoType: git
 Repo: https://github.com/monsiu/Custom-RR.git
 
 Builds:
-  - versionName: 1.3.2
-    versionCode: 12001
-    commit: cd6b99c5f571f3fed32f815618d3497e51555926
+  - versionName: 1.3.3
+    versionCode: 13001
+    commit: 8bea1786062b9d2aa51a77ce9f2e795e399e172a
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@stable
@@ -64,9 +64,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.3.2
-    versionCode: 12002
-    commit: cd6b99c5f571f3fed32f815618d3497e51555926
+  - versionName: 1.3.3
+    versionCode: 13002
+    commit: 8bea1786062b9d2aa51a77ce9f2e795e399e172a
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@stable
@@ -90,9 +90,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --split-per-abi --target-platform=android-arm64
         --release --dart-define=FDROID_BUILD=true
 
-  - versionName: 1.3.2
-    versionCode: 12003
-    commit: cd6b99c5f571f3fed32f815618d3497e51555926
+  - versionName: 1.3.3
+    versionCode: 13003
+    commit: 8bea1786062b9d2aa51a77ce9f2e795e399e172a
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@stable
@@ -126,8 +126,8 @@ MaintainerNotes: |-
   stock Flutter scheme base * 1000 + abiCode, which keeps the ABI in the
   low-order digits (armeabi-v7a -> x001, arm64-v8a -> x002, x86_64 -> x003) and
   matches the VercodeOperation below. The base versionCode comes from
-  pubspec.yaml's +N build number (12 for 1.3.2), so the embedded codes are
-  12001/12002/12003.
+  pubspec.yaml's +N build number (13 for 1.3.3), so the embedded codes are
+  13001/13002/13003.
 
   The app's self-update machinery is disabled by default in upstream source
   (see lib/util/build_flags.dart) and enabled only for GitHub release artifacts
@@ -158,5 +158,5 @@ VercodeOperation:
   - 1000 * %c + 2
   - 1000 * %c + 3
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.3.2
-CurrentVersionCode: 12003
+CurrentVersion: 1.3.3
+CurrentVersionCode: 13003
