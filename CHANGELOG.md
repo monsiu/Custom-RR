@@ -6,6 +6,12 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **Cleaner card styling.** The highlighted callouts (Treble & GSIs and Flash a
+  Custom ROM) and the "your device" suggestion card now use a solid color
+  instead of a gradient, for a flatter, cleaner look.
+
 ## [1.3.3] - 2026-07-22
 
 ### Added
