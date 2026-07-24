@@ -109,11 +109,7 @@ class _MatchedCard extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: <Color>[brand.seed, brand.dark, brand.deep],
-        ),
+        color: brand.seed,
       ),
       child: Material(
         type: MaterialType.transparency,
