@@ -205,4 +205,6 @@ If a project you maintain is misrepresented here, [open an issue](https://github
 
 ## Stargazers over time
 
-[![Stargazers over time](https://starchart.cc/monsiu/Custom-RR.svg?variant=adaptive)](https://starchart.cc/monsiu/Custom-RR)
+[![Stargazers over time](images/generated/star-history.svg)](https://github.com/monsiu/Custom-RR/stargazers)
+
+<sub>Chart is generated in-repo by [`tool/gen_star_history.py`](tool/gen_star_history.py) and refreshed daily by the [star-history workflow](.github/workflows/star-history.yml).</sub>
