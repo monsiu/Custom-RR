@@ -27,13 +27,8 @@ Current Custom-RR status (2026-07-27, repo side DONE):
   PublisherDisplayName `Monsiu Tech`. PFN `MonsiuTech.CustomRR_der63fajnrhfp`.
   Store URL `https://apps.microsoft.com/detail/9NTS7Q5V12RG`. Repo variables
   `MSIX_IDENTITY_NAME` + `MSIX_PUBLISHER` are SET.
-- FIRST CI BUILD GREEN (run 30255345409, 2026-07-27): store MSIX
-  `custom_rr.msix` 18.3 MB (`msstore-upload` artifact) + 32.9 MB
-  `windows-unpackaged` zip. Verified inside the .msix: BackgroundColor
-  `#7ED957` patched, identity/version `MonsiuTech.CustomRR` / `1.3.3.0`,
-  tile PNGs uncropped with transparency.
-- REMAINING: smoke test the unpackaged zip on real Windows, then the Partner
-  Center submission (section 5).
+- REMAINING: push the repo-side changes, dispatch the workflow, smoke test,
+  submit (section 5).
 
 ---
 
@@ -392,7 +387,7 @@ Automation gotchas (if driving Partner Center with a browser agent):
 | Decision | Reason |
 | --- | --- |
 | Native MSIX, not PWA | Custom RR has no hosted web app; Flutter Windows is the natural target. (ClauseShift used a PWABuilder PWA as a stopgap, then replaced it in-place with the native MSIX on the same Store ID - same-identity higher-version upload = in-place upgrade, listings/reviews retained.) |
-| CI produces BOTH `.msix` and `.msixbundle` | The `msstore-upload` artifact mirrors the standard Store layout (matches the ClauseShift artifact). Building the bundle is free and keeps multi-arch growth open. ONE-WAY DOOR at submit time: a plain `.msix` is fine and recommended for a first submission; once you actually SUBMIT a bundle, Partner Center forces every later submission to be a bundle too. So the artifact carries both - choose which to upload to the Packages section. (ClauseShift is forced to ship a bundle because its first release was a PWA `.msixbundle`; Custom RR is not, so the plain `.msix` remains a valid submit choice.) |
+| Plain `.msix`, not `.msixbundle` | First-ever package sets the precedent. Bundles are only mandatory once you have shipped one. |
 | No self-updater in the Store build | The default build already compiles it out (`kGithubReleaseBuild` unset). Store policy + Store-managed updates. |
 | Repo VARIABLES (not secrets) for identity | `Package/Identity/*` values are public in every installed manifest; variables keep the workflow logs readable. |
 | `install_certificate: false` | CI would hang on the interactive cert prompt (exit 255). |
@@ -405,8 +400,8 @@ Automation gotchas (if driving Partner Center with a browser agent):
 - [x] `msix` dev dep + `msix_config` in pubspec (`publisher_display_name: Monsiu Tech`, `trim_logo: false`, `install_certificate: false`)
 - [x] `Runner.rc` `OriginalFilename` fixed; `app_icon.ico` regenerated from launcher art
 - [x] `msstore.yml` added (build -> sed BackgroundColor -> pack; msix + unpackaged artifacts)
-- [x] `flutter build windows --release` succeeds in CI
+- [ ] `flutter build windows --release` succeeds in CI
 - [ ] Unpackaged zip smoke-tested on real Windows
-- [x] Tile PNGs + patched manifest verified inside the built `.msix`
+- [ ] Tile PNGs + patched manifest verified inside the built `.msix`
 - [ ] All 6 submission sections green (incl. runFullTrust justification)
 - [ ] Submitted; certification verdict watched; README/website badges updated on pass
