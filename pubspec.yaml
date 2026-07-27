@@ -41,7 +41,25 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   flutter_native_splash: ^2.4.8
   flutter_launcher_icons: ^0.14.1
+  msix: ^3.16.8
   yaml: ^3.1.2
+
+# Microsoft Store MSIX packaging (see docs/MICROSOFT_STORE_WINDOWS_RELEASE.md).
+# identity_name / msix_version are placeholders; CI overrides them with the
+# Partner Center identity (MSIX_IDENTITY_NAME / MSIX_PUBLISHER repo variables)
+# and the pubspec version. publisher_display_name must byte-match the Partner
+# Center account name. trim_logo off keeps Start-menu tiles uncropped;
+# install_certificate off stops msix:create prompting interactively on CI.
+msix_config:
+  display_name: Custom RR
+  publisher_display_name: Monsiu Tech
+  identity_name: io.github.monsiu.customrr
+  msix_version: 1.3.3.0
+  logo_path: images/generated/launcher_full.png
+  trim_logo: false
+  capabilities: internetClient
+  store: false
+  install_certificate: false
 
 flutter:
   uses-material-design: true

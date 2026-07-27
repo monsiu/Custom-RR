@@ -5,17 +5,30 @@ distilled from taking ClauseShift through the exact same pipeline (PWA first, th
 native MSIX that passed certification). Every gotcha below was hit for real; follow the
 order and you skip all of them.
 
-Current Custom-RR status (2026-07-27):
+Current Custom-RR status (2026-07-27, repo side DONE):
 
-- `windows/` scaffold EXISTS and is mostly branded (window title "Custom RR",
-  `Runner.rc` CompanyName/ProductName set; note `OriginalFilename` still says
-  `android.exe`, fix that when touching branding). `BINARY_NAME` is `Custom_RR`.
+- `windows/` scaffold EXISTS and is branded (window title "Custom RR",
+  `Runner.rc` CompanyName/ProductName set; `OriginalFilename` fixed to
+  `Custom_RR.exe`). `BINARY_NAME` is `Custom_RR`. `app_icon.ico` regenerated
+  multi-size (256/128/64/48/32/16) from `images/generated/launcher_full.png`.
 - The APK self-updater already gates itself off (`update_installer.dart`:
   `kSelfUpdateEnabled && !kIsWeb && Platform.isAndroid`), so the Windows build
   ships no self-update path. That is exactly what the Store wants.
 - No billing SDKs in this app, so there is nothing to strip (ClauseShift had to
   strip Play/Huawei/Amazon IAP per channel; we skip that whole class of work).
-- `msix` is NOT yet a dev dependency and there is no `msstore.yml` workflow yet.
+- `msix` 3.18.0 IS a dev dependency with the `msix_config` block from section
+  2.3, and `.github/workflows/msstore.yml` exists (build -> patch
+  BackgroundColor -> pack, msix + unpackaged-zip artifacts, self-signed
+  fallback while the identity variables are unset).
+- Partner Center product CREATED 2026-07-27 as "MSIX or PWA app": **Store ID
+  `9NTS7Q5V12RG`**, names reserved `Custom RR` (dashboard name) + `Custom RR:
+  ROMs & Recovery`. Identity: `Package/Identity/Name = MonsiuTech.CustomRR`,
+  `Package/Identity/Publisher = CN=9B88F9CA-9E86-4631-ADD8-3CF8DE54C531`,
+  PublisherDisplayName `Monsiu Tech`. PFN `MonsiuTech.CustomRR_der63fajnrhfp`.
+  Store URL `https://apps.microsoft.com/detail/9NTS7Q5V12RG`. Repo variables
+  `MSIX_IDENTITY_NAME` + `MSIX_PUBLISHER` are SET.
+- REMAINING: push the repo-side changes, dispatch the workflow, smoke test,
+  submit (section 5).
 
 ---
 
@@ -382,11 +395,11 @@ Automation gotchas (if driving Partner Center with a browser agent):
 
 ## 8. Pre-flight checklist
 
-- [ ] Partner Center product created as "MSIX or PWA app", name(s) reserved
-- [ ] Product identity values copied; `MSIX_IDENTITY_NAME` + `MSIX_PUBLISHER` repo variables set
-- [ ] `msix` dev dep + `msix_config` in pubspec (`publisher_display_name: Monsiu Tech`, `trim_logo: false`, `install_certificate: false`)
-- [ ] `Runner.rc` `OriginalFilename` fixed; `app_icon.ico` regenerated from launcher art
-- [ ] `msstore.yml` added (build -> sed BackgroundColor -> pack; msix + unpackaged artifacts)
+- [x] Partner Center product created as "MSIX or PWA app", name(s) reserved
+- [x] Product identity values copied; `MSIX_IDENTITY_NAME` + `MSIX_PUBLISHER` repo variables set
+- [x] `msix` dev dep + `msix_config` in pubspec (`publisher_display_name: Monsiu Tech`, `trim_logo: false`, `install_certificate: false`)
+- [x] `Runner.rc` `OriginalFilename` fixed; `app_icon.ico` regenerated from launcher art
+- [x] `msstore.yml` added (build -> sed BackgroundColor -> pack; msix + unpackaged artifacts)
 - [ ] `flutter build windows --release` succeeds in CI
 - [ ] Unpackaged zip smoke-tested on real Windows
 - [ ] Tile PNGs + patched manifest verified inside the built `.msix`

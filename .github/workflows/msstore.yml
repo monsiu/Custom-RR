@@ -1,0 +1,102 @@
+name: Microsoft Store
+
+# Builds the native Windows app and packages it as an MSIX for Microsoft
+# Store submission. Dispatch-only: run it when a version is ready to ship
+# to the Store, then upload the msstore-upload artifact in Partner Center.
+# Full runbook: docs/MICROSOFT_STORE_WINDOWS_RELEASE.md
+#
+# Two modes, driven by the MSIX_IDENTITY_NAME / MSIX_PUBLISHER repo
+# variables (public Package/Identity values from Partner Center > Product
+# identity, not secrets):
+#   - variables set   -> store package (--store, unsigned; the Store signs it).
+#     NOTE: a --store MSIX cannot be sideloaded; smoke test with the
+#     windows-unpackaged zip artifact instead.
+#   - variables unset -> self-signed test MSIX (installable after trusting
+#     the test certificate, or just extract-and-run).
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag or ref to build (e.g. v1.3.3 or main)"
+        required: true
+        default: "main"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Store MSIX
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+      - id: flutter_version
+        run: echo "version=$(cat .flutter-version)" >> "$GITHUB_OUTPUT"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.flutter_version.outputs.version }}
+          channel: stable
+          cache: true
+      - run: flutter config --enable-windows-desktop
+      - run: flutter pub get
+
+      # No GITHUB_RELEASE_BUILD define: the Store distributes updates itself,
+      # so the in-app updater stays compiled out (same reasoning as Play).
+      - name: Build Windows release
+        run: flutter build windows --release
+
+      - name: Package MSIX
+        env:
+          MSIX_IDENTITY_NAME: ${{ vars.MSIX_IDENTITY_NAME }}
+          MSIX_PUBLISHER: ${{ vars.MSIX_PUBLISHER }}
+        run: |
+          set -euo pipefail
+          VER=$(grep -m1 '^version:' pubspec.yaml | tr -d ' ' | cut -d: -f2)
+          NAME=${VER%%+*}
+          # MSIX versions are A.B.C.D with D reserved (0 for Store submissions).
+          ARGS=(--version "${NAME}.0")
+          if [ -n "$MSIX_IDENTITY_NAME" ] && [ -n "$MSIX_PUBLISHER" ]; then
+            echo "Building STORE package for $MSIX_IDENTITY_NAME"
+            ARGS+=(--store --identity-name "$MSIX_IDENTITY_NAME" --publisher "$MSIX_PUBLISHER")
+          else
+            echo "::warning::MSIX_IDENTITY_NAME / MSIX_PUBLISHER repo variables not set - building a self-signed TEST MSIX (not submittable to the Store)."
+          fi
+          # build -> patch -> pack instead of msix:create: the msix package
+          # hardcodes BackgroundColor="transparent", which makes Windows paint
+          # the install dialog and Start tile plate with the user's accent
+          # color. Patch the generated manifest to the brand green between the
+          # two steps (pack does not regenerate the manifest). Fail loudly if
+          # the transparent marker disappears in a future msix package update.
+          dart run msix:build "${ARGS[@]}"
+          MANIFEST=build/windows/x64/runner/Release/AppxManifest.xml
+          grep -q 'BackgroundColor="transparent"' "$MANIFEST" \
+            || { echo "::error::AppxManifest.xml has no BackgroundColor=\"transparent\" - msix package changed, revisit the patch step."; exit 1; }
+          sed -i 's/BackgroundColor="transparent"/BackgroundColor="#7ED957"/' "$MANIFEST"
+          grep -q 'BackgroundColor="#7ED957"' "$MANIFEST"
+          dart run msix:pack "${ARGS[@]}"
+          ls -l build/windows/x64/runner/Release/*.msix
+
+      # An MSIX is a zip and the Release folder is a complete runnable payload
+      # (exe + flutter_windows.dll + data/ + plugin DLLs). This zip is the
+      # smoke-test vehicle: extract on any Windows machine and run the exe
+      # directly (SmartScreen warns on the loose unsigned exe; that is expected
+      # and does not happen to the Store install).
+      - name: Zip unpackaged build (smoke-test artifact)
+        run: 7z a windows-unpackaged.zip ./build/windows/x64/runner/Release/*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: msstore-upload
+          path: build/windows/x64/runner/Release/*.msix
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-unpackaged
+          path: windows-unpackaged.zip
+          if-no-files-found: error
