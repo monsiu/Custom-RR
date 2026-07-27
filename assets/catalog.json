@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-22T03:44:17.259970Z",
+  "_generatedAt": "2026-07-27T07:52:46.199118Z",
   "roms": [
     {
       "id": "lineage",
@@ -81,12 +81,12 @@
         },
         {
           "brand": "Banana Pi",
-          "model": "M5 (Android TV)",
+          "model": "M5 (S905X3, eMMC Only) [Android TV]",
           "codename": "m5"
         },
         {
           "brand": "Banana Pi",
-          "model": "M5 (Tablet)",
+          "model": "M5 (S905X3, eMMC Only) [Tablet]",
           "codename": "m5_tab"
         },
         {
@@ -329,12 +329,12 @@
         },
         {
           "brand": "HardKernel",
-          "model": "ODROID-C4 (Android TV)",
+          "model": "ODROID-C4 (S905X3, eMMC Only) [Android TV]",
           "codename": "odroidc4"
         },
         {
           "brand": "HardKernel",
-          "model": "ODROID-C4 (Tablet)",
+          "model": "ODROID-C4 (S905X3, eMMC Only) [Tablet]",
           "codename": "odroidc4_tab"
         },
         {
@@ -1332,22 +1332,22 @@
         },
         {
           "brand": "Radxa",
-          "model": "Zero (Android TV)",
+          "model": "Zero (S905Y2, eMMC Only) [Android TV]",
           "codename": "radxa0"
         },
         {
           "brand": "Radxa",
-          "model": "Zero (Tablet)",
+          "model": "Zero (S905Y2, eMMC Only) [Tablet]",
           "codename": "radxa0_tab"
         },
         {
           "brand": "Radxa",
-          "model": "Zero 2 (Android TV)",
+          "model": "Zero 2 (S905D3, eMMC Only) [Android TV]",
           "codename": "radxa02"
         },
         {
           "brand": "Radxa",
-          "model": "Zero 2 (Tablet)",
+          "model": "Zero 2 (S905D3, eMMC Only) [Tablet]",
           "codename": "radxa02_tab"
         },
         {
