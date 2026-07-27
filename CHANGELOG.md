@@ -6,6 +6,12 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **iOS build for sideloading.** Each GitHub release now includes an unsigned
+  iOS `.ipa` for AltStore and TrollStore users. It is not signed for a normal
+  install; sideloading tools re-sign it with your own certificate.
+
 ### Changed
 
 - **Cleaner card styling.** The highlighted callouts (Treble & GSIs and Flash a
