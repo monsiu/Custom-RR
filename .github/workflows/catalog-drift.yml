@@ -1,0 +1,40 @@
+name: catalog-drift
+
+# Verifies that assets/catalog.json matches what tool/sync_catalog.dart
+# produces. Its purpose is to catch a change to the generator that was not
+# accompanied by a regenerated JSON.
+#
+# It deliberately does NOT run on every push: the generator scrapes upstream
+# sources (LineageOS wiki, PixelOS, Project Infinity X, TWRP) over the network
+# with no pinned revision, so any upstream edit would otherwise fail CI on
+# completely unrelated commits. Routine upstream churn is picked up by the
+# weekly `sync-catalog` workflow, which opens a PR instead.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tool/sync_catalog.dart'
+      - 'assets/catalog.json'
+      - '.github/workflows/catalog-drift.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tool/sync_catalog.dart'
+      - 'assets/catalog.json'
+      - '.github/workflows/catalog-drift.yml'
+  workflow_dispatch:
+
+jobs:
+  drift:
+    name: Catalog drift check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Catalog drift check
+        run: dart run tool/check_catalog_drift.dart
