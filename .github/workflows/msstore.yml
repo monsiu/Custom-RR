@@ -82,21 +82,59 @@ jobs:
           dart run msix:pack "${ARGS[@]}"
           ls -l build/windows/x64/runner/Release/*.msix
 
-      # An MSIX is a zip and the Release folder is a complete runnable payload
-      # (exe + flutter_windows.dll + data/ + plugin DLLs). This zip is the
-      # smoke-test vehicle: extract on any Windows machine and run the exe
-      # directly (SmartScreen warns on the loose unsigned exe; that is expected
-      # and does not happen to the Store install).
+      # Wrap the store MSIX in a flat .msixbundle so the msstore-upload
+      # artifact carries both packages (a bundle is the more flexible Store
+      # container and keeps multi-arch growth open). Store mode only; a
+      # self-signed test build skips this and ships just the loose .msix.
+      # NOTE (one-way door): a plain .msix is fine and RECOMMENDED for a first
+      # submission. Once a submission actually ships a bundle, Partner Center
+      # forces every later submission to be a bundle too - so producing the
+      # bundle here is free, but only SUBMIT the bundle if you want that.
+      - name: Bundle for the Store
+        if: vars.MSIX_IDENTITY_NAME != '' && vars.MSIX_PUBLISHER != ''
+        run: |
+          set -euo pipefail
+          RELEASE=build/windows/x64/runner/Release
+          MSIX=$(ls "$RELEASE"/*.msix | head -1)
+          BUNDLE="${MSIX%.msix}.msixbundle"
+          VER=$(grep -m1 '^version:' pubspec.yaml | tr -d ' ' | cut -d: -f2)
+          BV="${VER%%+*}.0"
+          # Prefer the Windows SDK makeappx; fall back to the copy the msix pub
+          # package vendors under Redist.x64.
+          MAKEAPPX=$(ls "C:/Program Files (x86)/Windows Kits/10/bin/"*/x64/makeappx.exe 2>/dev/null | sort -V | tail -1)
+          if [ -z "$MAKEAPPX" ]; then
+            MAKEAPPX=$(find "$LOCALAPPDATA/Pub/Cache" ~/.pub-cache -name makeappx.exe -path '*Redist.x64*' 2>/dev/null | head -1)
+          fi
+          [ -n "$MAKEAPPX" ] || { echo "::error::makeappx.exe not found"; exit 1; }
+          STAGE=$(mktemp -d)
+          cp "$MSIX" "$STAGE/"
+          # Git Bash rewrites /o-style flags into paths; exclude the makeappx
+          # switches from MSYS conversion (the dir/file path args still convert
+          # to Windows paths, which makeappx needs).
+          MSYS2_ARG_CONV_EXCL="/o;/bv;/d;/p" "$MAKEAPPX" bundle /o /bv "$BV" /d "$STAGE" /p "$BUNDLE"
+          ls -l "$RELEASE"/*.msixbundle
+          echo "Bundled $BUNDLE at version $BV"
+
+      # An MSIX/bundle is a zip and the Release folder is a complete runnable
+      # payload (exe + flutter_windows.dll + data/ + plugin DLLs + the built
+      # .msix/.msixbundle). This zip is the smoke-test vehicle: extract on any
+      # Windows machine and run Release/custom_rr.exe directly (SmartScreen
+      # warns on the loose unsigned exe; that does not happen to the Store
+      # install). The top-level Release/ folder is preserved inside the zip.
       - name: Zip unpackaged build (smoke-test artifact)
-        run: 7z a windows-unpackaged.zip ./build/windows/x64/runner/Release/*
+        run: |
+          cd build/windows/x64/runner
+          7z a "$GITHUB_WORKSPACE/custom_rr-windows-unpackaged.zip" Release >/dev/null
 
       - uses: actions/upload-artifact@v4
         with:
           name: msstore-upload
-          path: build/windows/x64/runner/Release/*.msix
+          path: |
+            build/windows/x64/runner/Release/*.msixbundle
+            build/windows/x64/runner/Release/*.msix
           if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
           name: windows-unpackaged
-          path: windows-unpackaged.zip
+          path: custom_rr-windows-unpackaged.zip
           if-no-files-found: error
