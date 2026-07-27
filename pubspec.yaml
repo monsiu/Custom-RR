@@ -55,7 +55,7 @@ msix_config:
   publisher_display_name: Monsiu Tech
   identity_name: io.github.monsiu.customrr
   msix_version: 1.3.3.0
-  logo_path: images/generated/launcher_full.png
+  logo_path: images/generated/launcher_windows.png
   trim_logo: false
   capabilities: internetClient
   store: false

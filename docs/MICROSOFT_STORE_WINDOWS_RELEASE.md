@@ -124,11 +124,15 @@ features self-gate instead of crashing:
   LegalCopyright, and fix `OriginalFilename` (`android.exe` -> `custom_rr.exe`).
 - `windows/runner/main.cpp`: window title (already "Custom RR").
 - App icon: `windows/runner/resources/app_icon.ico`. Build a multi-size .ico
-  from the launcher art:
-  `magick images/generated/launcher_full.png -define icon:auto-resize=256,128,64,48,32,16 windows/runner/resources/app_icon.ico`
+  from the GREEN-BACKGROUND launcher art (a bare transparent robot renders
+  dull/flat in the taskbar + title bar):
+  `magick images/generated/launcher_windows.png -define icon:auto-resize=256,128,64,48,32,16 windows/runner/resources/app_icon.ico`
+  where `launcher_windows.png` is the robot composited on the brand green
+  (`magick -size 720x720 xc:'#7ed957' images/generated/launcher_full.png -gravity center -composite images/generated/launcher_windows.png`).
   NOTE: the .ico only affects the raw/unpackaged exe. An INSTALLED MSIX app
   draws window/taskbar/Start icons from the MSIX tile assets generated from
-  `msix_config.logo_path` (section 2.3), so brand both.
+  `msix_config.logo_path` (section 2.3), so brand both - point logo_path at the
+  same green `launcher_windows.png` so the Store tiles/taskbar icon match.
 
 ### 2.3 pubspec: msix packager
 
@@ -141,7 +145,7 @@ msix_config:
   publisher_display_name: Monsiu Tech        # see HICCUP below
   identity_name: io.github.monsiu.customrr   # placeholder; CI overrides
   msix_version: 1.3.3.0                      # placeholder; CI overrides
-  logo_path: images/generated/launcher_full.png
+  logo_path: images/generated/launcher_windows.png  # green-bg (not the bare transparent robot)
   trim_logo: false                           # see HICCUP below
   capabilities: internetClient
   store: false                               # CI passes --store explicitly
