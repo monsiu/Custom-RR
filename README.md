@@ -131,6 +131,7 @@ Every channel ships the **same release**. Prebuilt binaries are attached to the
 | **Linux** | `custom_rr-vX.Y.Z-linux-x64.tar.gz` |
 | **Windows** | `custom_rr-vX.Y.Z-windows-x64.zip` (portable, no installer) |
 | **macOS** (10.15+) | `custom_rr-vX.Y.Z-macos-universal.zip` (universal, unsigned, see the [macOS notes](CONTRIBUTING.md#macos-desktop)) |
+| **iOS** (sideload only) | `custom_rr-vX.Y.Z-ios-unsigned.ipa` - unsigned, for [AltStore](https://altstore.io) / TrollStore users; not a normal App Store install. |
 
 Building any platform from source, the release flow, and how the catalog is
 generated are covered in [CONTRIBUTING.md](CONTRIBUTING.md). The plan for

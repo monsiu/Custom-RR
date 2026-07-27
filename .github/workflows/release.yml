@@ -250,9 +250,65 @@ jobs:
           path: dist/custom_rr-*-macos-universal.zip
           if-no-files-found: error
 
+  build-ios:
+    name: Build unsigned iOS IPA (sideload only)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - name: Set up Flutter (cached)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      # Unsigned build. This IPA is NOT signed by an Apple Developer account, so
+      # it cannot be installed like a normal App Store app. It is meant for
+      # sideloading tools such as AltStore / TrollStore, which re-sign it with
+      # the user's own certificate at install time. Building the .app with
+      # --no-codesign and zipping it into a Payload/ folder is the standard way
+      # to produce an unsigned .ipa.
+      - run: flutter build ios --release --no-codesign --dart-define=GITHUB_RELEASE_BUILD=true
+      - name: Package unsigned IPA
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          app_dir="build/ios/iphoneos"
+          app_name=$(ls "$app_dir" | grep '\.app$' | head -n1)
+          if [ -z "$app_name" ]; then
+            echo "::error::No .app bundle found in $app_dir"
+            exit 1
+          fi
+          work=$(mktemp -d)
+          mkdir -p "$work/Payload"
+          cp -R "$app_dir/$app_name" "$work/Payload/"
+          # Strip any leftover signature so the IPA is unambiguously unsigned;
+          # sideloaders sign it themselves at install time.
+          rm -rf "$work/Payload/$app_name/_CodeSignature"
+          ( cd "$work" && zip -qry payload.zip Payload )
+          cp "$work/payload.zip" "dist/custom_rr-${TAG}-ios-unsigned.ipa"
+          ls -la dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipa
+          path: dist/custom_rr-*-ios-unsigned.ipa
+          if-no-files-found: error
+
   publish:
     name: Publish release
-    needs: [build-android, build-linux, build-windows, build-macos]
+    needs: [build-android, build-linux, build-windows, build-macos, build-ios]
+    # The unsigned iOS IPA is a best-effort extra: if that build fails, still
+    # publish the release with the Android + desktop assets (and fan out to the
+    # stores). Only the four core builds are required to succeed.
+    if: |
+      always() &&
+      needs.build-android.result == 'success' &&
+      needs.build-linux.result == 'success' &&
+      needs.build-windows.result == 'success' &&
+      needs.build-macos.result == 'success'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -274,6 +330,8 @@ jobs:
           # Linux tarball + Windows zip: already nicely named in their build jobs.
           find artifacts -type f -name '*.tar.gz' -exec cp {} release-assets/ \;
           find artifacts -type f -name '*.zip'    -exec cp {} release-assets/ \;
+          # Unsigned iOS IPA, already named custom_rr-<tag>-ios-unsigned.ipa.
+          find artifacts -type f -name '*.ipa'    -exec cp {} release-assets/ \;
           # APKs come out as app-<abi>-release.apk; rename to custom_rr-<tag>-<abi>.apk.
           for src in $(find artifacts -type f -name 'app-*-release.apk'); do
             base=$(basename "$src")
@@ -315,6 +373,21 @@ jobs:
               fi
             } > body.md
           fi
+          # Always append install guidance for the unsigned, sideload-only iOS
+          # build so nobody mistakes it for a normal App Store install.
+          cat >> body.md <<'IOSNOTE'
+
+          ---
+
+          ### iOS - unsigned IPA (for AltStore / TrollStore users)
+
+          The iOS `.ipa` asset is **not** signed by an Apple Developer account, so
+          it will **not** install like a normal app. It is for sideloading with
+          tools such as [AltStore](https://altstore.io) or TrollStore, which
+          re-sign it with your own certificate at install time. If you do not use
+          one of those, ignore this file and grab the Android or desktop builds
+          above.
+          IOSNOTE
           echo "----- body.md -----"
           cat body.md
       - name: Publish release
