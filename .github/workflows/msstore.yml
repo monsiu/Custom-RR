@@ -21,6 +21,10 @@ on:
         description: "Tag or ref to build (e.g. v1.3.3 or main)"
         required: true
         default: "main"
+      msix_version:
+        description: "Override MSIX version A.B.C.0 (blank = derive from pubspec). Use to bump the Store package without an app release, e.g. 1.3.4.0."
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -55,14 +59,24 @@ jobs:
         env:
           MSIX_IDENTITY_NAME: ${{ vars.MSIX_IDENTITY_NAME }}
           MSIX_PUBLISHER: ${{ vars.MSIX_PUBLISHER }}
+          MSIX_VERSION_OVERRIDE: ${{ inputs.msix_version }}
         run: |
           set -euo pipefail
-          VER=$(grep -m1 '^version:' pubspec.yaml | tr -d ' ' | cut -d: -f2)
-          NAME=${VER%%+*}
           # MSIX versions are A.B.C.D with D reserved (0 for Store submissions).
-          ARGS=(--version "${NAME}.0")
+          # Normally derived from pubspec (X.Y.Z -> X.Y.Z.0); the optional
+          # msix_version dispatch input overrides it to bump the Store package
+          # without an app release (Partner Center rejects re-uploading a
+          # same-version package with different contents, so an icon-only
+          # change needs a higher version, e.g. 1.3.4.0).
+          if [ -n "${MSIX_VERSION_OVERRIDE:-}" ]; then
+            MSIX_VERSION="$MSIX_VERSION_OVERRIDE"
+          else
+            VER=$(grep -m1 '^version:' pubspec.yaml | tr -d ' ' | cut -d: -f2)
+            MSIX_VERSION="${VER%%+*}.0"
+          fi
+          ARGS=(--version "$MSIX_VERSION")
           if [ -n "$MSIX_IDENTITY_NAME" ] && [ -n "$MSIX_PUBLISHER" ]; then
-            echo "Building STORE package for $MSIX_IDENTITY_NAME"
+            echo "Building STORE package $MSIX_VERSION for $MSIX_IDENTITY_NAME"
             ARGS+=(--store --identity-name "$MSIX_IDENTITY_NAME" --publisher "$MSIX_PUBLISHER")
           else
             echo "::warning::MSIX_IDENTITY_NAME / MSIX_PUBLISHER repo variables not set - building a self-signed TEST MSIX (not submittable to the Store)."
