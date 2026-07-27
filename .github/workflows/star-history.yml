@@ -1,0 +1,55 @@
+name: star-history
+
+# Regenerates images/generated/star-history.svg from the GitHub stargazers
+# API and commits it back to main when it changes. The README points at the
+# committed SVG, so the "Stargazers over time" chart no longer depends on
+# third-party services (starchart.cc / star-history.com), which regularly
+# rate-limit or time out and leave a broken image in the README.
+#
+# The generator keeps the existing SVG on any API failure, so a bad run can
+# never land a broken chart on main.
+
+on:
+  schedule:
+    - cron: '20 6 * * *'   # daily 06:20 UTC, just after sync-freshness
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'tool/gen_star_history.py'
+      - '.github/workflows/star-history.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: star-history
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Same reason as sync-freshness: deploy keys bypass the main-branch
+          # ruleset, which would otherwise reject this direct [skip ci] commit.
+          ssh-key: ${{ secrets.FRESHNESS_DEPLOY_KEY }}
+
+      - name: Generate star history chart
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tool/gen_star_history.py
+
+      - name: Commit refreshed chart to main (if changed)
+        run: |
+          if git diff --quiet images/generated/star-history.svg; then
+            echo "star-history.svg unchanged; skipping commit"
+          else
+            git config user.name  'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add images/generated/star-history.svg
+            git commit -m 'chore(readme): refresh stargazers chart [skip ci]'
+            git push
+          fi
