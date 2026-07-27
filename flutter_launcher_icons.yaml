@@ -26,7 +26,10 @@ flutter_launcher_icons:
 
   windows:
     generate: true
-    image_path: "images/generated/launcher_full.png"
+    # Green-background variant (robot composited on the brand green) so the
+    # exe / taskbar / Start-tile icon is not a dull transparent bust. The
+    # bare launcher_full.png has no background, which Windows renders flat.
+    image_path: "images/generated/launcher_windows.png"
     # Without icon_size the package builds a multi-resolution .ico
     # (16/24/32/48/64/128/256) so Explorer picks the right size per zoom.
 
