@@ -99,6 +99,8 @@ is still under review.
 - Unofficial / community-maintained build listings
 - Dedicated Magisk install section
 - Auto-update for the Linux, Windows, and macOS desktop builds
+- Microsoft Store release of the native Windows build
+  (runbook: [docs/MICROSOFT_STORE_WINDOWS_RELEASE.md](docs/MICROSOFT_STORE_WINDOWS_RELEASE.md))
 
 ## Deep links
 
@@ -131,7 +133,9 @@ Every channel ships the **same release**. Prebuilt binaries are attached to the
 | **macOS** (10.15+) | `custom_rr-vX.Y.Z-macos-universal.zip` (universal, unsigned, see the [macOS notes](CONTRIBUTING.md#macos-desktop)) |
 
 Building any platform from source, the release flow, and how the catalog is
-generated are covered in [CONTRIBUTING.md](CONTRIBUTING.md).
+generated are covered in [CONTRIBUTING.md](CONTRIBUTING.md). The plan for
+shipping the Windows build to the Microsoft Store lives in
+[docs/MICROSOFT_STORE_WINDOWS_RELEASE.md](docs/MICROSOFT_STORE_WINDOWS_RELEASE.md).
 
 ## Contributing
 
