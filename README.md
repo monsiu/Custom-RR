@@ -50,14 +50,6 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
   <img src="screenshots/phone/06.png" width="140" alt="Devices" />
 </p>
 
-<p align="center"><sub>On a tablet, Custom RR expands to a navigation rail and multi-column layout:</sub></p>
-
-<p align="center">
-  <img src="screenshots/tablet/01.png" width="220" alt="Home on a tablet" />
-  <img src="screenshots/tablet/02.png" width="220" alt="Custom ROMs on a tablet" />
-  <img src="screenshots/tablet/06.png" width="220" alt="Devices on a tablet" />
-</p>
-
 ## Contents
 
 - [Google Play status](#google-play-status)
