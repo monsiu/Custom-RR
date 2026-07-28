@@ -13,7 +13,9 @@ import '../data/catalog_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../util/xda_search.dart';
 import '../widgets/app_shell.dart';
+import '../widgets/catalog_card.dart' show xdaSearchUri;
 
 /// Stable upstream download link for Magisk, surfaced as a chip and inside
 /// the generated script so users do not have to copy a URL out of a comment.
@@ -362,14 +364,32 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: TextButton.icon(
-                    onPressed: () => context.push(AppRoutes.findPhone),
-                    icon: const Icon(Icons.help_outline, size: 16),
-                    label: const Text("Don't know your codename?"),
-                    style: TextButton.styleFrom(
-                      visualDensity: VisualDensity.compact,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                    ),
+                  child: Wrap(
+                    spacing: 4,
+                    children: <Widget>[
+                      TextButton.icon(
+                        onPressed: () => context.push(AppRoutes.findPhone),
+                        icon: const Icon(Icons.help_outline, size: 16),
+                        label: const Text("Don't know your codename?"),
+                        style: TextButton.styleFrom(
+                          visualDensity: VisualDensity.compact,
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                        ),
+                      ),
+                      if (_brand != null && _codename != null)
+                        TextButton.icon(
+                          onPressed: () => launchXdaSearch(
+                            context,
+                            xdaSearchUri('$_brand $_codename'),
+                          ),
+                          icon: const Icon(Icons.forum_outlined, size: 16),
+                          label: const Text('Search XDA'),
+                          style: TextButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                          ),
+                        ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 4),

@@ -7,6 +7,8 @@ import '../routes.dart';
 import '../theme.dart';
 import '../util/device_detector.dart';
 import '../util/request_project.dart';
+import '../util/xda_search.dart';
+import '../widgets/catalog_card.dart' show xdaSearchUri;
 
 /// On-device suggestion shown at the top of the Home and Find My Phone pages.
 ///
@@ -221,7 +223,8 @@ class _UnmatchedCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 36, right: 8),
               child: Text(
-                'It may still boot a Treble GSI. You can also ask us to add it.',
+                'It may still boot a Treble GSI, and XDA often has builds or '
+                'guides for it. You can also ask us to add it.',
                 style: text.bodySmall?.copyWith(
                   color: scheme.onSurfaceVariant,
                 ),
@@ -237,6 +240,17 @@ class _UnmatchedCard extends StatelessWidget {
                     icon: const Icon(Icons.layers_outlined, size: 18),
                     label: const Text('Treble & GSI'),
                     onPressed: () => context.push(AppRoutes.treble),
+                  ),
+                  TextButton.icon(
+                    icon: const Icon(Icons.forum_outlined, size: 18),
+                    label: const Text('Search XDA'),
+                    onPressed: () => launchXdaSearch(
+                      context,
+                      xdaSearchUri(
+                        '${device.manufacturer} ${device.model} '
+                        '${device.codename}',
+                      ),
+                    ),
                   ),
                   TextButton.icon(
                     icon: const Icon(Icons.add_to_home_screen, size: 18),

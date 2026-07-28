@@ -7,8 +7,10 @@ import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../util/request_project.dart';
+import '../util/xda_search.dart';
 import '../widgets/app_shell.dart';
 import '../widgets/brand_image.dart';
+import '../widgets/catalog_card.dart' show xdaSearchUri;
 import '../widgets/device_suggestion.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/select_device_button.dart';
@@ -159,11 +161,26 @@ class _FindPhonePageState extends State<FindPhonePage> {
                             ),
                           ),
                           const SizedBox(height: 20),
-                          OutlinedButton.icon(
-                            icon: const Icon(Icons.add_to_home_screen),
-                            label: const Text('Request this device'),
-                            onPressed: () =>
-                                openDeviceRequest(query: _query.trim()),
+                          Wrap(
+                            alignment: WrapAlignment.center,
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: <Widget>[
+                              OutlinedButton.icon(
+                                icon: const Icon(Icons.forum_outlined),
+                                label: const Text('Search XDA'),
+                                onPressed: () => launchXdaSearch(
+                                  context,
+                                  xdaSearchUri(_query.trim()),
+                                ),
+                              ),
+                              OutlinedButton.icon(
+                                icon: const Icon(Icons.add_to_home_screen),
+                                label: const Text('Request this device'),
+                                onPressed: () =>
+                                    openDeviceRequest(query: _query.trim()),
+                              ),
+                            ],
                           ),
                         ],
                       ),
