@@ -33,6 +33,8 @@ jobs:
                 "",
                 "Honest heads-up on what to expect: budget and carrier phones like this one rarely get a dedicated custom ROM. What you almost always can do once you are unlocked is flash a Treble GSI, which is the universal way to run a clean or custom Android build. Open the Treble & GSI tab in the app for how to check Treble support and pick the right image.",
                 "",
+                "It is also worth searching XDA Forums for your exact model, since unofficial builds, TWRP, and GSI guides for phones like this usually live there. In the app, the Search XDA button on your device card runs that search for you.",
+                "",
                 "I am leaving this open so we can take a closer look at your specific device. 👍",
               ].join("\n");
 
