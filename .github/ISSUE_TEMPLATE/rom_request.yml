@@ -47,6 +47,17 @@ body:
         - "Not sure"
     validations:
       required: true
+  - type: dropdown
+    id: oem_unlock
+    attributes:
+      label: Is OEM unlocking (bootloader unlock) available on this device?
+      description: "Check Settings > Developer options for an OEM unlocking toggle. If you can switch it on (or it is already on), the bootloader can likely be unlocked and you can flash a GSI. If it is greyed out or missing, the bootloader is locked and nothing can be flashed. Only relevant if this request is for your own phone; for a general project request just pick Not sure."
+      options:
+        - "Yes, OEM unlocking is available or already on"
+        - "No, the toggle is greyed out, missing, or locked"
+        - "Not sure"
+    validations:
+      required: true
   - type: textarea
     id: notes
     attributes:
