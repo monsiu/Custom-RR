@@ -1,0 +1,2 @@
+- Lapas Infinix, Itel un Tecno tagad norāda uz HOVATEK forumu, tā programmaparatūru un TWRP veidotāja rīkiem, kā arī cilni Treble GSI, jo šiem zīmoliem reti tiek iegūts īpašs pielāgots ROM.
+- Pievienots neparakstīts iOS būvējums AltStore un TrollStore, kā arī tīrāks un gludāks kartes stils.

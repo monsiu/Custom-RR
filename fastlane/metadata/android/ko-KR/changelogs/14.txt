@@ -1,0 +1,2 @@
+- Infinix, Itel 및 Tecno 페이지는 이제 HOVATEK 포럼, 해당 펌웨어 및 TWRP 빌더 도구, Treble GSI 탭을 가리킵니다. 이러한 브랜드는 전용 사용자 정의 ROM을 거의 얻지 못하기 때문입니다.
+- AltStore 및 TrollStore에 대한 서명되지 않은 iOS 빌드와 더 깨끗하고 평평한 카드 스타일이 추가되었습니다.

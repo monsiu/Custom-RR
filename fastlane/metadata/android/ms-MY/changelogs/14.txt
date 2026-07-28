@@ -1,0 +1,2 @@
+- Halaman Infinix, Itel dan Tecno kini menghala ke forum HOVATEK, perisian tegar dan alat pembina TWRP serta tab Treble GSI, memandangkan jenama ini jarang mendapat ROM tersuai khusus.
+- Menambahkan binaan iOS yang tidak ditandatangani untuk AltStore dan TrollStore, serta penggayaan kad yang lebih bersih dan lebih rata.

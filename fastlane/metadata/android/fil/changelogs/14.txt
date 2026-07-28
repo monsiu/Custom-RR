@@ -1,0 +1,2 @@
+- Ang mga pahina ng Infinix, Itel at Tecno ay tumuturo na ngayon sa forum ng HOVATEK, sa firmware nito at mga tool sa tagabuo ng TWRP, at sa tab na Treble GSI, dahil bihirang makakuha ng nakalaang custom na ROM ang mga brand na ito.
+- Nagdagdag ng unsigned iOS build para sa AltStore at TrollStore, kasama ang mas malinis at mas flat na pag-istilo ng card.

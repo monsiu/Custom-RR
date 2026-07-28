@@ -1,0 +1,2 @@
+- Infinix, Itel og Tecno síður benda nú á HOVATEK spjallborðið, vélbúnaðar og TWRP smíðaverkfæri þess og Treble GSI flipann, þar sem þessi vörumerki fá sjaldan sérstaka sérsniðna ROM.
+- Bætti við óundirrituðu iOS smíði fyrir AltStore og TrollStore, ásamt hreinni og flatari kortagerð.

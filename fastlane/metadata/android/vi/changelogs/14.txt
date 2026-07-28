@@ -1,0 +1,2 @@
+- Các trang Infinix, Itel và Tecno hiện trỏ đến diễn đàn HOVATEK, chương trình cơ sở và các công cụ xây dựng TWRP cũng như tab Treble GSI, vì những thương hiệu này hiếm khi có ROM tùy chỉnh chuyên dụng.
+- Đã thêm bản dựng iOS chưa được ký cho AltStore và TrollStore, cùng với kiểu dáng thẻ gọn gàng hơn, phẳng hơn.
