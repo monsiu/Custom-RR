@@ -1,0 +1,2 @@
+- Infinix-, Itel- en Tecno-bladsye wys nou na die HOVATEK-forum, sy firmware en TWRP-bouernutsgoed, en die Treble GSI-oortjie, aangesien hierdie handelsmerke selde 'n toegewyde pasgemaakte ROM kry.
+- Bygevoeg 'n ongetekende iOS-gebou vir AltStore en TrollStore, plus skoner, platter kaartstilering.

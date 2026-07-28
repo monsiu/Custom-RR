@@ -1,0 +1,2 @@
+- የInfinix፣ Itel እና Tecno ገፆች አሁን ወደ HOVATEK መድረክ፣ ፈርሙዌር እና TWRP መገንቢያ መሳሪያዎችን እና የ Treble GSI ትርን ያመለክታሉ፣ ምክንያቱም እነዚህ ብራንዶች እምብዛም የተለየ ብጁ ROM አያገኙም።
+- ያልተፈረመ የiOS ግንባታ ለAltStore እና TrollStore ታክሏል፣ እና ንጹህ፣ ጠፍጣፋ የካርድ ስታይል።

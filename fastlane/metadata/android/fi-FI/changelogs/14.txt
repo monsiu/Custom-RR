@@ -1,0 +1,2 @@
+- Infinix-, Itel- ja Tecno-sivut osoittavat nyt HOVATEK-foorumiin, sen laiteohjelmistoon ja TWRP-rakennustyökaluihin sekä Treble GSI -välilehteen, koska nämä merkit saavat harvoin oman mukautetun ROM:n.
+- Lisätty allekirjoittamaton iOS-versio AltStorelle ja TrollStorelle sekä selkeämpi ja tasaisempi korttityyli.

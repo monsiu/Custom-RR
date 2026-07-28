@@ -1,0 +1,2 @@
+- Stránky Infinix, Itel a Tecno teraz poukazujú na fórum HOVATEK, jeho nástroje na tvorbu firmvéru a TWRP a kartu Treble GSI, pretože tieto značky len zriedka dostanú vyhradený vlastný ROM.
+- Pridaná nepodpísaná zostava iOS pre AltStore a TrollStore a čistejší a plochejší štýl karty.

@@ -1,0 +1,2 @@
+- Infinix, Itel ir Tecno puslapiai dabar nukreipia į HOVATEK forumą, jo programinę-aparatinę įrangą ir TWRP kūrimo įrankius bei Treble GSI skirtuką, nes šie prekių ženklai retai gauna specialų tinkintą ROM.
+- Pridėta nepasirašyta „iOS“ versija, skirta „AltStore“ ir „TrollStore“, ir švaresnis, plokštesnis kortelės stilius.

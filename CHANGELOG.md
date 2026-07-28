@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.4] - 2026-07-28
+
 ### Added
 
 - **Firmware source hint for Infinix, Itel and Tecno.** Brand and device pages

@@ -1,0 +1,2 @@
+- Strony Infinix, Itel i Tecno wskazują teraz na forum HOVATEK, jego oprogramowanie sprzętowe i narzędzia do tworzenia TWRP oraz zakładkę Treble GSI, ponieważ te marki rzadko otrzymują dedykowany, niestandardowy ROM.
+- Dodano niepodpisaną wersję iOS dla AltStore i TrollStore oraz czystszą i bardziej płaską stylizację kart.

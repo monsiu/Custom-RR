@@ -1,0 +1,2 @@
+- Infinix-, Itel- en Tecno-pagina's verwijzen nu naar het HOVATEK-forum, de firmware en TWRP-buildertools, en het tabblad Treble GSI, aangezien deze merken zelden een speciale aangepaste ROM krijgen.
+- Een niet-ondertekende iOS-build toegevoegd voor AltStore en TrollStore, plus een schonere, plattere kaartstijl.

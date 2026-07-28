@@ -1,0 +1,2 @@
+- Infinix、Itel 和 Tecno 页面现在指向 HOVATEK 论坛、其固件和 TWRP 构建器工具以及 Treble GSI 选项卡，因为这些品牌很少获得专门的定制 ROM。
+- 为 AltStore 和 TrollStore 添加了未签名的 iOS 版本，以及更干净、更扁平的卡片样式。

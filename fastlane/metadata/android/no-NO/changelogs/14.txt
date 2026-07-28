@@ -1,0 +1,2 @@
+- Sidene Infinix, Itel og Tecno peker nå til HOVATEK-forumet, dets fastvare og TWRP-byggerverktøy, og Treble GSI-fanen, siden disse merkene sjelden får en dedikert tilpasset ROM.
+- Lagt til en usignert iOS-konstruksjon for AltStore og TrollStore, pluss renere, flatere kortstyling.

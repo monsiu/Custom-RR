@@ -1,0 +1,2 @@
+- Las páginas de Infinix, Itel y Tecno ahora apuntan al foro de HOVATEK, su firmware y herramientas de creación de TWRP, y a la pestaña Treble GSI, ya que estas marcas rara vez obtienen un ROM personalizado y dedicado.
+- Se agregó una versión de iOS sin firmar para AltStore y TrollStore, además de un estilo de tarjeta más limpio y plano.

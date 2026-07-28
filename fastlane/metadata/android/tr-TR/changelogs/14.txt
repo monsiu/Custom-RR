@@ -1,0 +1,2 @@
+- Infinix, Itel ve Tecno sayfaları artık HOVATEK forumuna, donanım yazılımına ve TWRP oluşturucu araçlarına ve Treble GSI sekmesine işaret ediyor çünkü bu markalar nadiren özel bir ROM alıyor.
+- AltStore ve TrollStore için imzasız bir iOS yapısının yanı sıra daha temiz, daha düz kart stili eklendi.
