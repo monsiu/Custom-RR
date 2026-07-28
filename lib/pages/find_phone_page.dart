@@ -169,9 +169,17 @@ class _FindPhonePageState extends State<FindPhonePage> {
                               OutlinedButton.icon(
                                 icon: const Icon(Icons.forum_outlined),
                                 label: const Text('Search XDA'),
-                                onPressed: () => launchXdaSearch(
+                                onPressed: () => launchXdaDeviceSearch(
                                   context,
                                   xdaSearchUri(_query.trim()),
+                                ),
+                              ),
+                              OutlinedButton.icon(
+                                icon: const Icon(Icons.download_outlined),
+                                label: const Text('Community builds'),
+                                onPressed: () => context.push(
+                                  '${AppRoutes.communityBuilds}'
+                                  '?q=${Uri.encodeComponent(_query.trim())}',
                                 ),
                               ),
                               OutlinedButton.icon(

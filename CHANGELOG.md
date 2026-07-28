@@ -6,12 +6,16 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.5] - 2026-07-28
+
 ### Added
 
-- **Search XDA for devices not in the catalog.** When your phone is not
-  listed, the "your device" card, the Find My Phone search, and the flash
-  script generator now offer a one-tap XDA Forums search for your exact model,
-  so you can track down unofficial builds, recoveries, and GSI guides for it.
+- **Find builds for devices not in the catalog.** When your phone is not
+  listed, the "your device" card and the Find My Phone search now offer one-tap
+  **Search XDA** and **Community builds** buttons (and the flash script
+  generator gets a Search XDA button too), so you can track down unofficial
+  builds, recoveries, and GSI guides for your exact model instead of hitting a
+  dead end.
 
 ## [1.3.4] - 2026-07-28
 

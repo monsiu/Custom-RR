@@ -1,0 +1,1 @@
+- When your phone is not in the catalog, the app now helps you find unofficial ROMs, recoveries and GSI guides for it on XDA and from the community.
