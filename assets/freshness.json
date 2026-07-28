@@ -1,8 +1,8 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-07-28T08:13:06.315338Z",
+  "_generatedAt": "2026-07-28T17:29:13.452522Z",
   "_netCount": 17,
-  "_curatedCount": 16,
+  "_curatedCount": 18,
   "entries": {
     "lineage": {
       "status": "active",
@@ -151,7 +151,7 @@
     "un1ca": {
       "status": "active",
       "lastBuild": "2026-06-04",
-      "daysAgo": 53,
+      "daysAgo": 54,
       "version": "UN1CA 3.1.0",
       "source": "https://github.com/salvogiangri/UN1CA/releases",
       "origin": "network"
@@ -159,7 +159,7 @@
     "artisanrom": {
       "status": "active",
       "lastBuild": "2026-06-22",
-      "daysAgo": 35,
+      "daysAgo": 36,
       "version": "ArtisanROM Quant 3.5.0",
       "source": "https://github.com/ArtisanROM/ArtisanROM/releases",
       "origin": "network"
@@ -167,7 +167,7 @@
     "lineagee3q": {
       "status": "active",
       "lastBuild": "2026-07-27",
-      "daysAgo": 0,
+      "daysAgo": 1,
       "version": "Unofficial LineageOS (e3q) (latest)",
       "source": "https://github.com/Exynoobs/OTA",
       "origin": "network"
@@ -188,6 +188,22 @@
       "source": "https://github.com/danielml3/releases/releases",
       "origin": "curated"
     },
+    "lineagecybert": {
+      "status": "stale",
+      "lastBuild": "2026-02-17",
+      "daysAgo": 161,
+      "version": "LineageOS 23.0 (unofficial, cybert)",
+      "source": "https://xdaforums.com/t/rom-unofficial-cybert-lineageos-23-0-motorola-edge-60-pro-beta-1.4776186/",
+      "origin": "curated"
+    },
+    "lineagemalachite": {
+      "status": "abandoned",
+      "lastBuild": "2025-10-24",
+      "daysAgo": 277,
+      "version": "LineageOS 23.0 (unofficial, malachite)",
+      "source": "https://github.com/mt6878-devs/releases/releases",
+      "origin": "curated"
+    },
     "magisk": {
       "status": "stale",
       "lastBuild": "2026-02-23",
@@ -199,7 +215,7 @@
     "kernelsu": {
       "status": "active",
       "lastBuild": "2026-06-23",
-      "daysAgo": 34,
+      "daysAgo": 35,
       "version": "KernelSU 3.2.5",
       "source": "https://github.com/tiann/KernelSU/releases",
       "origin": "network"
@@ -207,7 +223,7 @@
     "kernelsu_next": {
       "status": "active",
       "lastBuild": "2026-07-03",
-      "daysAgo": 24,
+      "daysAgo": 25,
       "version": "KernelSU Next 3.3.0",
       "source": "https://github.com/KernelSU-Next/KernelSU-Next/releases",
       "origin": "network"
@@ -215,7 +231,7 @@
     "apatch": {
       "status": "abandoned",
       "lastBuild": "2025-11-12",
-      "daysAgo": 257,
+      "daysAgo": 258,
       "version": "APatch 11142",
       "source": "https://github.com/bmax121/APatch/releases",
       "origin": "network"

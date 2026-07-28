@@ -152,6 +152,17 @@ Future<void> main(List<String> args) async {
       version: 'LineageOS 23.2 (unofficial, gta4xlveu)',
       source: 'https://github.com/danielml3/releases/releases',
     ),
+    'lineagecybert': _Seed(
+      lastBuild: DateTime.utc(2026, 2, 17),
+      version: 'LineageOS 23.0 (unofficial, cybert)',
+      source:
+          'https://xdaforums.com/t/rom-unofficial-cybert-lineageos-23-0-motorola-edge-60-pro-beta-1.4776186/',
+    ),
+    'lineagemalachite': _Seed(
+      lastBuild: DateTime.utc(2025, 10, 24),
+      version: 'LineageOS 23.0 (unofficial, malachite)',
+      source: 'https://github.com/mt6878-devs/releases/releases',
+    ),
 
     // Root solutions
     'magisk': _Seed(
