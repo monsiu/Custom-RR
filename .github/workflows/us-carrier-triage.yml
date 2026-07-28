@@ -24,6 +24,40 @@ jobs:
               return;
             }
 
+            const oemUnlockAvailable = body.includes("Yes, OEM unlocking is available or already on");
+            if (oemUnlockAvailable) {
+              const gsiMessage = [
+                "Hey, thanks for filling this out! 🙏",
+                "",
+                "You marked this as a US / carrier model, which is usually the one dead-end for us because those normally ship with a locked bootloader. But you also said OEM unlocking is available or already on, so your unit is the exception: if the bootloader actually unlocks, you are not stuck.",
+                "",
+                "Honest heads-up on what to expect: budget and carrier phones like this one rarely get a dedicated custom ROM. What you almost always can do once you are unlocked is flash a Treble GSI, which is the universal way to run a clean or custom Android build. Open the Treble & GSI tab in the app for how to check Treble support and pick the right image.",
+                "",
+                "I am leaving this open so we can take a closer look at your specific device. 👍",
+              ].join("\n");
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: gsiMessage,
+              });
+
+              try {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  labels: ["gsi-candidate"],
+                });
+              } catch (e) {
+                core.warning(`Could not add the gsi-candidate label: ${e.message}`);
+              }
+
+              core.info("US model but OEM unlocking available; left open with GSI guidance.");
+              return;
+            }
+
             const message = [
               "Hey, thanks a lot for filling this out! 🙏",
               "",
