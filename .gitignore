@@ -58,6 +58,14 @@ tool/.cache/
 /android/build/
 flutter_*.png
 
+# Local tooling / editor artifacts (not part of the app)
+.playwright-mcp/
+.vscode/tasks.json
+
+# MS Store showcase images are generated locally by tool/make_msstore_showcase.py
+# and uploaded to Partner Center; not committed (regenerate-able scratch).
+screenshots/msstore/
+
 # Localized Play screenshots are generated locally by tool/make_showcase.py and
 # uploaded to Play via fastlane. They are NOT committed, to keep the repo from
 # bloating by hundreds of MB. (en-US was committed earlier; gitignore never
