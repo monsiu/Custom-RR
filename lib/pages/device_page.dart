@@ -8,6 +8,7 @@ import '../util/breakpoints.dart';
 import '../widgets/brand_image.dart';
 import '../widgets/community_builds_section.dart';
 import '../widgets/home_on_back.dart';
+import '../widgets/transsion_hint.dart';
 import '../widgets/treble_hint.dart';
 
 /// Device detail page: lists the ROMs and recoveries that explicitly
@@ -104,6 +105,10 @@ class DevicePage extends StatelessWidget {
                         label: device.name,
                         isBrand: true,
                       ),
+                      if (isTranssionBrand(device.name)) ...<Widget>[
+                        const SizedBox(height: 16),
+                        TranssionHintBanner(brand: device.name),
+                      ],
                       const SizedBox(height: 16),
                       TrebleHintBanner(
                         kind: roms.isEmpty ? 'no-roms' : 'device',
