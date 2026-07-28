@@ -378,7 +378,7 @@ class _FlashScriptPageState extends State<FlashScriptPage> {
                       ),
                       if (_brand != null && _codename != null)
                         TextButton.icon(
-                          onPressed: () => launchXdaSearch(
+                          onPressed: () => launchXdaDeviceSearch(
                             context,
                             xdaSearchUri('$_brand $_codename'),
                           ),

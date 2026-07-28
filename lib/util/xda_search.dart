@@ -53,6 +53,20 @@ Future<void> launchXdaSearch(
   await launchUrl(uri, mode: LaunchMode.externalApplication);
 }
 
+/// Opens a concrete device XDA search [uri] directly in the browser.
+///
+/// Unlike [launchXdaSearch] this shows no placeholder-replacement warning:
+/// these searches are built from a known device name, so there is no
+/// "input your model here" placeholder to swap out first.
+Future<void> launchXdaDeviceSearch(BuildContext context, Uri uri) async {
+  final bool ok = await launchUrl(uri, mode: LaunchMode.externalApplication);
+  if (!ok && context.mounted) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Could not open the browser.')),
+    );
+  }
+}
+
 class _XdaSearchWarningDialog extends StatefulWidget {
   const _XdaSearchWarningDialog();
 

@@ -5,6 +5,9 @@ body:
   - type: markdown
     attributes:
       value: "Can't find your phone in the catalog? Tell us about it. The device list is built from upstream sources, so the codename and a support link help us add it fast."
+  - type: markdown
+    attributes:
+      value: "Before you ask: budget, brand-new, and US or carrier phones often have no dedicated custom ROM. In the app, try the **Search XDA** and **Community builds** buttons on your device card, plus the **Treble & GSI** tab, which cover most of these cases. If you have already found a maintained build, link it below and we will add it."
   - type: input
     id: brand
     attributes:

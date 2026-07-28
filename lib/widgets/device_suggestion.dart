@@ -244,12 +244,20 @@ class _UnmatchedCard extends StatelessWidget {
                   TextButton.icon(
                     icon: const Icon(Icons.forum_outlined, size: 18),
                     label: const Text('Search XDA'),
-                    onPressed: () => launchXdaSearch(
+                    onPressed: () => launchXdaDeviceSearch(
                       context,
                       xdaSearchUri(
                         '${device.manufacturer} ${device.model} '
                         '${device.codename}',
                       ),
+                    ),
+                  ),
+                  TextButton.icon(
+                    icon: const Icon(Icons.download_outlined, size: 18),
+                    label: const Text('Community builds'),
+                    onPressed: () => context.push(
+                      '${AppRoutes.communityBuilds}'
+                      '?q=${Uri.encodeComponent(device.codename)}',
                     ),
                   ),
                   TextButton.icon(
