@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-27T07:52:46.199118Z",
+  "_generatedAt": "2026-07-28T16:40:50.745106Z",
   "roms": [
     {
       "id": "lineage",
@@ -3898,6 +3898,11 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X7 Pro (Redmi Turbo 4)",
+          "codename": "rodin"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -22044,6 +22049,118 @@
         {
           "label": "Kernel sources",
           "url": "https://github.com/gta4xlve-dev/android_kernel_samsung_gta4xlve",
+          "iconName": "github"
+        }
+      ]
+    },
+    {
+      "id": "lineagecybert",
+      "name": "LineageOS for Edge 60 Pro (Unofficial)",
+      "headerAsset": "images/lineageos.png",
+      "shortTagline": "Community-built unofficial LineageOS 23 for the Motorola Edge 60 Pro.",
+      "description": [
+        "Unofficial LineageOS 23 (Android 16) builds for the Motorola Edge 60 Pro (cybert), maintained by XDA Recognized Developer rahulsnair. The Edge 60 Pro has no official LineageOS support, so this community port is the way to run AOSP-style Android on the device, and the maintainer reports the build works across the different Edge 60 Pro variants.",
+        "The device and kernel sources are developed in the open under the Motorola-MT6897-Devs organisation on GitHub, and builds together with a bug-report guide are shared through the XDA thread and a Telegram release channel. Camera, Bluetooth, Wi-Fi, telephony, GPS, audio, NFC, and the fingerprint sensor are reported working."
+      ],
+      "features": [
+        "LineageOS 23 (Android 16) for a device with no official LineageOS support.",
+        "Reported working: camera, Bluetooth, Wi-Fi, telephony, GPS, audio, NFC, and fingerprint.",
+        "Device and kernel sources published on GitHub (Motorola-MT6897-Devs).",
+        "MindTheGapps support for Google apps.",
+        "Active XDA thread plus Telegram support and release channels."
+      ],
+      "screenshots": [
+        "https://lineageos.org/images/2024-02-14/calculator.webp",
+        "https://lineageos.org/images/2025-10-11/hero.webp",
+        "https://lineageos.org/images/2024-02-14/glimpse.webp",
+        "https://lineageos.org/images/2022-12-31/aperture.webp",
+        "https://lineageos.org/images/2024-02-14/dialer.webp",
+        "https://lineageos.org/images/2024-12-31/twelve.webp",
+        "https://lineageos.org/images/2025-10-11/catapult.webp",
+        "https://lineageos.org/images/2024-02-14/jelly.webp"
+      ],
+      "devices": [
+        {
+          "brand": "Motorola",
+          "model": "Edge 60 Pro",
+          "codename": "cybert"
+        }
+      ],
+      "downloadLabel": "Builds & install guide (XDA)",
+      "downloadUrl": "https://xdaforums.com/t/rom-unofficial-cybert-lineageos-23-0-motorola-edge-60-pro-beta-1.4776186/",
+      "forumUrl": "https://xdaforums.com/t/rom-unofficial-cybert-lineageos-23-0-motorola-edge-60-pro-beta-1.4776186/",
+      "warning": "Unofficial community build by a single maintainer; not endorsed by the LineageOS project. SELinux is currently permissive, and Moto gestures and the always-on display are not working yet. Unlocking the bootloader trips warranty protections. Read the install instructions carefully.",
+      "unofficial": true,
+      "links": [
+        {
+          "label": "Telegram (updates)",
+          "url": "https://t.me/cybertupdates",
+          "iconName": "telegram"
+        },
+        {
+          "label": "Device sources",
+          "url": "https://github.com/Motorola-MT6897-Devs/android_device_motorola_cybert",
+          "iconName": "github"
+        },
+        {
+          "label": "Kernel sources",
+          "url": "https://github.com/Motorola-MT6897-Devs/android_kernel_motorola_cybert",
+          "iconName": "github"
+        }
+      ]
+    },
+    {
+      "id": "lineagemalachite",
+      "name": "LineageOS for Poco X7 / Note 14 Pro 5G (Unofficial)",
+      "headerAsset": "images/lineageos.png",
+      "shortTagline": "Community-built unofficial LineageOS 23 for the Redmi Note 14 Pro 5G / POCO X7.",
+      "description": [
+        "Unofficial LineageOS 23 (Android 16) builds for the Redmi Note 14 Pro 5G / POCO X7 (malachite, a MediaTek Dimensity device), maintained by XDA member claxten10. These models have no official LineageOS support, so this community port is the way to run AOSP-style Android on them. It targets the Redmi Note 14 Pro 5G and Poco X7 5G only, not the 4G or the Pro+ variants.",
+        "Builds and changelogs are published on GitHub under the mt6878-devs organisation, with a step-by-step flashing guide and a Telegram group for support. The ROM ships with Lineage Recovery and Pixel Recovery."
+      ],
+      "features": [
+        "LineageOS 23 (Android 16) for the Redmi Note 14 Pro 5G / Poco X7 (5G), which have no official LineageOS support.",
+        "Builds and changelogs published on GitHub, with a detailed flashing guide.",
+        "Ships with Lineage Recovery and Pixel Recovery.",
+        "Telegram group for support and updates.",
+        "MindTheGapps support for Google apps."
+      ],
+      "screenshots": [
+        "https://lineageos.org/images/2024-02-14/dialer.webp",
+        "https://lineageos.org/images/2024-12-31/twelve.webp",
+        "https://lineageos.org/images/2025-10-11/hero.webp",
+        "https://lineageos.org/images/2024-02-14/glimpse.webp",
+        "https://lineageos.org/images/2022-12-31/aperture.webp",
+        "https://lineageos.org/images/2024-02-14/calculator.webp",
+        "https://lineageos.org/images/2024-02-14/jelly.webp",
+        "https://lineageos.org/images/2025-10-11/catapult.webp"
+      ],
+      "devices": [
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X7 / Redmi Note 14 Pro 5G",
+          "codename": "malachite"
+        }
+      ],
+      "downloadLabel": "Builds & changelog (GitHub)",
+      "downloadUrl": "https://github.com/mt6878-devs/releases/releases/tag/lineage-23",
+      "forumUrl": "https://xdaforums.com/t/rom-unofficial-lineageos-23-0-for-redmi-note-14-pro-5g-poco-x7.4765110/",
+      "warning": "Unofficial community build by a single maintainer; not endorsed by the LineageOS project. This device hard-bricks easily on a dtbo mismatch (at least one user has bricked theirs), so you must follow the flashing guide and use the exact HyperOS base it specifies. Only for the Redmi Note 14 Pro 5G / Poco X7 5G (malachite), not the 4G or Pro+ models.",
+      "unofficial": true,
+      "links": [
+        {
+          "label": "Flashing guide",
+          "url": "https://telegra.ph/AOSP-flashing-guide-for-malachite-10-24",
+          "iconName": "web"
+        },
+        {
+          "label": "Telegram (support)",
+          "url": "https://t.me/malachitediscussion",
+          "iconName": "telegram"
+        },
+        {
+          "label": "GitHub (mt6878-devs)",
+          "url": "https://github.com/mt6878-devs",
           "iconName": "github"
         }
       ]

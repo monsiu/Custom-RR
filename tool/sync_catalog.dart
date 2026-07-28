@@ -807,6 +807,16 @@ _Policy _policyFor(String romId) {
       // no LineageOS wiki entry, so it is injected explicitly in [_buildRoms]
       // and this policy matches nothing from the wiki pool.
       return (_Device _) => false;
+    case 'lineagecybert':
+      // Unofficial LineageOS for the Motorola Edge 60 Pro. The phone has no
+      // LineageOS wiki entry, so it is injected explicitly in [_buildRoms]
+      // and this policy matches nothing from the wiki pool.
+      return (_Device _) => false;
+    case 'lineagemalachite':
+      // Unofficial LineageOS for the Redmi Note 14 Pro 5G / POCO X7. The
+      // phone has no LineageOS wiki entry, so it is injected explicitly in
+      // [_buildRoms] and this policy matches nothing from the wiki pool.
+      return (_Device _) => false;
 
     // Recoveries follow approximate official device lists.
     case 'twrp':
@@ -1111,6 +1121,64 @@ List<_Device> get _gta4xlveuExtraDevices => <_Device>[
       type: 'tablet',
       currentBranch: '',
       releaseYear: s.releaseYear ?? 2022,
+    ),
+];
+
+/// The Poco X7 Pro (rodin, also sold as the Redmi Turbo 4) is a 2025 MediaTek
+/// Dimensity device that crDroid ships official builds for, but the LineageOS
+/// wiki has no entry for it, so it must be injected by hand and unioned into
+/// the official crDroid device list.
+const List<_DeviceSeed> _rodinSeeds = <_DeviceSeed>[
+  _DeviceSeed('rodin', 'POCO X7 Pro (Redmi Turbo 4)', 2025),
+];
+
+List<_Device> get _rodinExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _rodinSeeds)
+    _Device(
+      vendor: 'Xiaomi',
+      model: s.model,
+      codename: s.codename,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: s.releaseYear ?? 2025,
+    ),
+];
+
+/// The Motorola Edge 60 Pro (cybert) has no LineageOS wiki entry, so the
+/// unofficial LineageOS 23 build that targets it must inject the device by
+/// hand.
+const List<_DeviceSeed> _cybertSeeds = <_DeviceSeed>[
+  _DeviceSeed('cybert', 'Edge 60 Pro', 2025),
+];
+
+List<_Device> get _cybertExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _cybertSeeds)
+    _Device(
+      vendor: 'Motorola',
+      model: s.model,
+      codename: s.codename,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: s.releaseYear ?? 2025,
+    ),
+];
+
+/// The Redmi Note 14 Pro 5G / POCO X7 (malachite, a MediaTek Dimensity device)
+/// has no LineageOS wiki entry, so the unofficial LineageOS 23 build that
+/// targets it must inject the device by hand.
+const List<_DeviceSeed> _malachiteSeeds = <_DeviceSeed>[
+  _DeviceSeed('malachite', 'POCO X7 / Redmi Note 14 Pro 5G', 2024),
+];
+
+List<_Device> get _malachiteExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _malachiteSeeds)
+    _Device(
+      vendor: 'Xiaomi',
+      model: s.model,
+      codename: s.codename,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: s.releaseYear ?? 2024,
     ),
 ];
 
@@ -2238,6 +2306,122 @@ List<Map<String, dynamic>> _buildRoms(
         ),
       ],
     ),
+    _RomSpec(
+      id: 'lineagecybert',
+      name: 'LineageOS for Edge 60 Pro (Unofficial)',
+      headerAsset: 'images/lineageos.png',
+      unofficial: true,
+      shortTagline:
+          'Community-built unofficial LineageOS 23 for the Motorola Edge 60 Pro.',
+      description: <String>[
+        'Unofficial LineageOS 23 (Android 16) builds for the Motorola Edge 60 Pro (cybert), maintained by XDA Recognized Developer rahulsnair. The Edge 60 Pro has no official LineageOS support, so this community port is the way to run AOSP-style Android on the device, and the maintainer reports the build works across the different Edge 60 Pro variants.',
+        'The device and kernel sources are developed in the open under the Motorola-MT6897-Devs organisation on GitHub, and builds together with a bug-report guide are shared through the XDA thread and a Telegram release channel. Camera, Bluetooth, Wi-Fi, telephony, GPS, audio, NFC, and the fingerprint sensor are reported working.',
+      ],
+      features: <String>[
+        'LineageOS 23 (Android 16) for a device with no official LineageOS support.',
+        'Reported working: camera, Bluetooth, Wi-Fi, telephony, GPS, audio, NFC, and fingerprint.',
+        'Device and kernel sources published on GitHub (Motorola-MT6897-Devs).',
+        'MindTheGapps support for Google apps.',
+        'Active XDA thread plus Telegram support and release channels.',
+      ],
+      // Reuses the official lineageos.org press shots (the build ships the
+      // same stock LineageOS UI), ordered differently from the other
+      // unofficial LineageOS entries so the galleries do not mirror one
+      // another.
+      screenshots: <String>[
+        'https://lineageos.org/images/2024-02-14/calculator.webp',
+        'https://lineageos.org/images/2025-10-11/hero.webp',
+        'https://lineageos.org/images/2024-02-14/glimpse.webp',
+        'https://lineageos.org/images/2022-12-31/aperture.webp',
+        'https://lineageos.org/images/2024-02-14/dialer.webp',
+        'https://lineageos.org/images/2024-12-31/twelve.webp',
+        'https://lineageos.org/images/2025-10-11/catapult.webp',
+        'https://lineageos.org/images/2024-02-14/jelly.webp',
+      ],
+      downloadLabel: 'Builds & install guide (XDA)',
+      downloadUrl:
+          'https://xdaforums.com/t/rom-unofficial-cybert-lineageos-23-0-motorola-edge-60-pro-beta-1.4776186/',
+      forumUrl:
+          'https://xdaforums.com/t/rom-unofficial-cybert-lineageos-23-0-motorola-edge-60-pro-beta-1.4776186/',
+      warning:
+          'Unofficial community build by a single maintainer; not endorsed by the LineageOS project. SELinux is currently permissive, and Moto gestures and the always-on display are not working yet. Unlocking the bootloader trips warranty protections. Read the install instructions carefully.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Telegram (updates)',
+          url: 'https://t.me/cybertupdates',
+          iconName: 'telegram',
+        ),
+        _RomLink(
+          label: 'Device sources',
+          url:
+              'https://github.com/Motorola-MT6897-Devs/android_device_motorola_cybert',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Kernel sources',
+          url:
+              'https://github.com/Motorola-MT6897-Devs/android_kernel_motorola_cybert',
+          iconName: 'github',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'lineagemalachite',
+      name: 'LineageOS for Poco X7 / Note 14 Pro 5G (Unofficial)',
+      headerAsset: 'images/lineageos.png',
+      unofficial: true,
+      shortTagline:
+          'Community-built unofficial LineageOS 23 for the Redmi Note 14 Pro 5G / POCO X7.',
+      description: <String>[
+        'Unofficial LineageOS 23 (Android 16) builds for the Redmi Note 14 Pro 5G / POCO X7 (malachite, a MediaTek Dimensity device), maintained by XDA member claxten10. These models have no official LineageOS support, so this community port is the way to run AOSP-style Android on them. It targets the Redmi Note 14 Pro 5G and Poco X7 5G only, not the 4G or the Pro+ variants.',
+        'Builds and changelogs are published on GitHub under the mt6878-devs organisation, with a step-by-step flashing guide and a Telegram group for support. The ROM ships with Lineage Recovery and Pixel Recovery.',
+      ],
+      features: <String>[
+        'LineageOS 23 (Android 16) for the Redmi Note 14 Pro 5G / Poco X7 (5G), which have no official LineageOS support.',
+        'Builds and changelogs published on GitHub, with a detailed flashing guide.',
+        'Ships with Lineage Recovery and Pixel Recovery.',
+        'Telegram group for support and updates.',
+        'MindTheGapps support for Google apps.',
+      ],
+      // Reuses the official lineageos.org press shots (the build ships the
+      // same stock LineageOS UI), ordered differently from the other
+      // unofficial LineageOS entries so the galleries do not mirror one
+      // another.
+      screenshots: <String>[
+        'https://lineageos.org/images/2024-02-14/dialer.webp',
+        'https://lineageos.org/images/2024-12-31/twelve.webp',
+        'https://lineageos.org/images/2025-10-11/hero.webp',
+        'https://lineageos.org/images/2024-02-14/glimpse.webp',
+        'https://lineageos.org/images/2022-12-31/aperture.webp',
+        'https://lineageos.org/images/2024-02-14/calculator.webp',
+        'https://lineageos.org/images/2024-02-14/jelly.webp',
+        'https://lineageos.org/images/2025-10-11/catapult.webp',
+      ],
+      downloadLabel: 'Builds & changelog (GitHub)',
+      downloadUrl:
+          'https://github.com/mt6878-devs/releases/releases/tag/lineage-23',
+      forumUrl:
+          'https://xdaforums.com/t/rom-unofficial-lineageos-23-0-for-redmi-note-14-pro-5g-poco-x7.4765110/',
+      warning:
+          'Unofficial community build by a single maintainer; not endorsed by the LineageOS project. This device hard-bricks easily on a dtbo mismatch (at least one user has bricked theirs), so you must follow the flashing guide and use the exact HyperOS base it specifies. Only for the Redmi Note 14 Pro 5G / Poco X7 5G (malachite), not the 4G or Pro+ models.',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Flashing guide',
+          url: 'https://telegra.ph/AOSP-flashing-guide-for-malachite-10-24',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Telegram (support)',
+          url: 'https://t.me/malachitediscussion',
+          iconName: 'telegram',
+        ),
+        _RomLink(
+          label: 'GitHub (mt6878-devs)',
+          url: 'https://github.com/mt6878-devs',
+          iconName: 'github',
+        ),
+      ],
+    ),
   ];
 
   return specs.map((_RomSpec s) {
@@ -2292,6 +2476,26 @@ List<Map<String, dynamic>> _buildRoms(
         for (final _Device d in _gta4xlveuExtraDevices)
           if (!seen.contains(d.codename)) d,
       ];
+    } else if (s.id == 'crdroid') {
+      // crDroid ships official builds for the Poco X7 Pro (rodin), a 2025
+      // device absent from the LineageOS wiki pool. Union the injected device
+      // with whatever the policy matches from the wiki pool.
+      final List<_Device> policyMatched = all.where(policy).toList();
+      final Set<String> seen =
+          policyMatched.map((_Device d) => d.codename).toSet();
+      matched = <_Device>[
+        ...policyMatched,
+        for (final _Device d in _rodinExtraDevices)
+          if (!seen.contains(d.codename)) d,
+      ];
+    } else if (s.id == 'lineagecybert') {
+      // Unofficial LineageOS for the Motorola Edge 60 Pro, which has no
+      // LineageOS wiki entry; the device is injected by hand.
+      matched = _cybertExtraDevices;
+    } else if (s.id == 'lineagemalachite') {
+      // Unofficial LineageOS for the Redmi Note 14 Pro 5G / POCO X7, which has
+      // no LineageOS wiki entry; the device is injected by hand.
+      matched = _malachiteExtraDevices;
     } else {
       matched = all.where(policy).toList();
     }
