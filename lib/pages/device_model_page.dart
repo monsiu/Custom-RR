@@ -15,6 +15,7 @@ import '../widgets/home_on_back.dart';
 import '../widgets/select_device_button.dart';
 import '../widgets/shimmer_box.dart';
 import '../widgets/star_button.dart';
+import '../widgets/transsion_hint.dart';
 import '../widgets/xda_threads_section.dart';
 
 /// Per-phone-model detail page. Lists every ROM and recovery that supports
@@ -218,6 +219,10 @@ class DeviceModelPage extends StatelessWidget {
                         term: codename,
                         label: codename,
                       ),
+                      if (isTranssionBrand(brand)) ...<Widget>[
+                        const SizedBox(height: 32),
+                        TranssionHintBanner(brand: brand),
+                      ],
                     ],
                   ),
                 ),

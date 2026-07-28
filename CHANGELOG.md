@@ -8,6 +8,11 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- **Firmware source hint for Infinix, Itel and Tecno.** Brand and device pages
+  for these budget brands now point to the HOVATEK forum, its firmware and
+  flashing-tool indexes, and its online TWRP builder for firmware, recovery and
+  unlock help, plus the Treble & GSI tab for running a custom build, since they
+  rarely have a dedicated custom ROM.
 - **iOS build for sideloading.** Each GitHub release now includes an unsigned
   iOS `.ipa` for AltStore and TrollStore users. It is not signed for a normal
   install; sideloading tools re-sign it with your own certificate.
