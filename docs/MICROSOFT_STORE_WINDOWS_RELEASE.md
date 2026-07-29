@@ -300,7 +300,55 @@ Notes and hiccups baked into that skeleton:
 
 ---
 
-## 5. Partner Center submission runbook
+## 5. Submitting a new version
+
+The release fan-out does this **hands-off**. `release.yml` dispatches
+`msstore.yml` for every tag; when the four `MSSTORE_*` credential secrets are
+set, that workflow builds the Store MSIX and submits it to Partner Center via
+the Microsoft Store Developer CLI (`msstore publish`), which clones the live
+submission, uploads + supersedes the package, and commits it for certification.
+No clicking - the same secret-gated pattern as Play / Amazon / Zapstore. Until
+the secrets exist the job is a clean build-only no-op and you submit by hand
+with section 5.2.
+
+### 5.1 One-time credential setup (turns on auto-submit)
+
+Per the Store update API this works for **free apps only** (Custom RR is free)
+and the app must already be **live in the Store** (it is). Do this once:
+
+1. **Register a Microsoft Entra ID app.** [entra.microsoft.com](https://entra.microsoft.com/)
+   > Identity > Applications > App registrations > New registration (any name,
+   single tenant). Copy the **Application (client) ID** from its Overview.
+2. **Give it a client secret.** Same app > Certificates & secrets > New client
+   secret > copy the **Value** immediately (it is shown once).
+3. **Authorize it in Partner Center.** partner.microsoft.com > Account settings
+   > User management > **Microsoft Entra applications** > Add > pick the app
+   from step 1 > assign the **Manager** role. (This is what lets the app call
+   the submission API for your account.)
+4. **Collect the four values:**
+   - **Tenant ID** - Entra > Identity > Overview > "Tenant ID".
+   - **Client ID** - from step 1.
+   - **Client Secret** - from step 2.
+   - **Seller ID** - Partner Center > Account settings > Developer settings /
+     Identifiers (this account's Seller ID is `95197540`).
+5. **Add them as GitHub repo secrets** (never paste them anywhere public):
+   ```
+   gh secret set MSSTORE_TENANT_ID     -R monsiu/Custom-RR
+   gh secret set MSSTORE_SELLER_ID     -R monsiu/Custom-RR
+   gh secret set MSSTORE_CLIENT_ID     -R monsiu/Custom-RR
+   gh secret set MSSTORE_CLIENT_SECRET -R monsiu/Custom-RR
+   ```
+   The Store product ID defaults to `9NTS7Q5V12RG`; override with the
+   `MSSTORE_PRODUCT_ID` repo variable if it ever changes. For a dry run, set
+   repo variable `MSSTORE_SUBMIT="false"` (or the workflow's `submit` input) to
+   upload a draft without committing.
+
+Once the secrets exist, every release auto-submits. Only one submission can be
+in flight per product, so if a release runs while the previous one is still
+certifying the job skips with a warning - just re-run
+`gh workflow run msstore.yml --ref <tag>` after it publishes.
+
+### 5.2 Manual submission runbook (fallback / first-ever submission)
 
 Open the product > Start submission. Six sections must go green:
 
