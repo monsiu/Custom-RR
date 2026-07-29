@@ -17,6 +17,7 @@ import '../widgets/brand_image.dart';
 import '../widgets/catalog_card.dart';
 import '../widgets/freshness_badge.dart';
 import '../widgets/home_on_back.dart';
+import '../widgets/rating_nudge.dart';
 import '../widgets/shimmer_box.dart';
 import '../widgets/xda_threads_section.dart';
 import '../widgets/zoomable_image_viewer.dart';
@@ -38,9 +39,14 @@ class DetailPage extends StatelessWidget {
   final CatalogEntry entry;
   final Object heroTag;
 
-  Future<void> _openDownloads() async {
+  Future<void> _openDownloads(BuildContext context) async {
     final Uri uri = Uri.parse(entry.downloadUrl);
     await launchUrl(uri, mode: LaunchMode.externalApplication);
+    // Opening a download is the app doing its job; on the Play build this
+    // occasionally asks for a rating when the user comes back.
+    if (context.mounted) {
+      await RatingNudge.registerHappyMoment(context);
+    }
   }
 
   Future<void> _openXdaSearch(BuildContext context) async {
@@ -167,7 +173,7 @@ class DetailPage extends StatelessWidget {
                       _DownloadActions(
                         downloadLabel: entry.downloadLabel,
                         downloadUrl: entry.downloadUrl,
-                        onDownload: _openDownloads,
+                        onDownload: () => _openDownloads(context),
                         onXda: () => _openXdaSearch(context),
                       ),
                       if (entry.forumUrl.isNotEmpty) ...<Widget>[

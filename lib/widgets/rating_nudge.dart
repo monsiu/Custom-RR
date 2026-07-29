@@ -72,10 +72,153 @@ class RatingNudge extends StatefulWidget {
       await sp.remove(_snoozeUntilMsKey);
       await sp.remove(_dismissedKey);
       await sp.remove(_ratedKey);
+      await sp.remove(_happyMomentsKey);
+      await sp.remove(_sheetLastShownMsKey);
       await sp.setInt(_launchCountKey, _minLaunches);
     } on Object {
       // Best effort.
     }
+  }
+
+  /// Pure gating rule for the contextual review sheet, extracted so tests can
+  /// exercise it without SharedPreferences or a widget tree.
+  @visibleForTesting
+  static bool shouldAskAfterHappyMoment({
+    required bool applicable,
+    required bool rated,
+    required bool dismissed,
+    required int happyMoments,
+    required int nowMs,
+    required int snoozeUntilMs,
+    required int sheetLastShownMs,
+  }) {
+    return applicable &&
+        !rated &&
+        !dismissed &&
+        happyMoments >= _minHappyMoments &&
+        nowMs >= snoozeUntilMs &&
+        nowMs - sheetLastShownMs >= _sheetCooldown.inMilliseconds;
+  }
+
+  /// Records a "success moment" (the user just opened a download link, i.e.
+  /// the app did its job) and, once a couple have accumulated, asks for a
+  /// Play rating with a bottom sheet. Because the download opens externally,
+  /// the sheet greets the user when they come back to the app, which is the
+  /// least intrusive timing for the ask.
+  ///
+  /// No-op outside the Play build and after the user has rated, dismissed the
+  /// ask, or seen the sheet recently (cooldown), so call sites can invoke it
+  /// unconditionally.
+  static Future<void> registerHappyMoment(BuildContext context) async {
+    if (!kRatingApplicable) return;
+    try {
+      final SharedPreferences sp = await SharedPreferences.getInstance();
+      final int moments = (sp.getInt(_happyMomentsKey) ?? 0) + 1;
+      await sp.setInt(_happyMomentsKey, moments);
+      final bool ask = shouldAskAfterHappyMoment(
+        applicable: kRatingApplicable,
+        rated: sp.getBool(_ratedKey) ?? false,
+        dismissed: sp.getBool(_dismissedKey) ?? false,
+        happyMoments: moments,
+        nowMs: DateTime.now().millisecondsSinceEpoch,
+        snoozeUntilMs: sp.getInt(_snoozeUntilMsKey) ?? 0,
+        sheetLastShownMs: sp.getInt(_sheetLastShownMsKey) ?? 0,
+      );
+      if (!ask) return;
+      await sp.setInt(
+        _sheetLastShownMsKey,
+        DateTime.now().millisecondsSinceEpoch,
+      );
+      if (!context.mounted) return;
+      await _showRatingSheet(context);
+    } on Object {
+      // Best effort; never let the ask break a download flow.
+    }
+  }
+
+  static Future<void> _showRatingSheet(BuildContext context) async {
+    if (!context.mounted) return;
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (BuildContext sheetContext) {
+        final ColorScheme scheme = Theme.of(sheetContext).colorScheme;
+        final TextTheme text = Theme.of(sheetContext).textTheme;
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.star_rounded, color: scheme.primary),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'Found what you were looking for?',
+                        style: text.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'A quick rating on Google Play helps more people discover '
+                  'Custom RR. It takes a few seconds.',
+                  style: text.bodyMedium?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () async {
+                        Navigator.of(sheetContext).pop();
+                        try {
+                          final SharedPreferences sp =
+                              await SharedPreferences.getInstance();
+                          await sp.setInt(
+                            _snoozeUntilMsKey,
+                            DateTime.now()
+                                .add(_snoozeDuration)
+                                .millisecondsSinceEpoch,
+                          );
+                        } on Object {
+                          // Best effort.
+                        }
+                      },
+                      child: const Text('Not now'),
+                    ),
+                    const SizedBox(width: 8),
+                    FilledButton.icon(
+                      onPressed: () async {
+                        Navigator.of(sheetContext).pop();
+                        try {
+                          final SharedPreferences sp =
+                              await SharedPreferences.getInstance();
+                          await sp.setBool(_ratedKey, true);
+                        } on Object {
+                          // Best effort.
+                        }
+                        await openPlayRating();
+                      },
+                      icon: const Icon(Icons.star_rounded, size: 18),
+                      label: const Text('Rate on Play'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -86,9 +229,17 @@ const String _launchCountKey = 'rating_nudge_launches_v1';
 const String _dismissedKey = 'rating_nudge_dismissed_v1';
 const String _snoozeUntilMsKey = 'rating_nudge_snooze_until_ms_v1';
 const String _ratedKey = 'rating_nudge_rated_v1';
+const String _happyMomentsKey = 'rating_nudge_happy_moments_v1';
+const String _sheetLastShownMsKey = 'rating_sheet_last_shown_ms_v1';
 
 /// Cold starts before the rating prompt may appear (a few opens in).
 const int _minLaunches = 4;
+
+/// Download-link opens before the contextual review sheet may appear.
+const int _minHappyMoments = 2;
+
+/// Minimum gap between two showings of the contextual review sheet.
+const Duration _sheetCooldown = Duration(days: 7);
 
 /// How long "Not now" hides the card before it can return.
 const Duration _snoozeDuration = Duration(days: 14);

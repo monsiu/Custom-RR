@@ -6,6 +6,14 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **Better-timed "rate the app" ask on Google Play.** After the app has
+  actually helped you (a couple of ROM or recovery downloads opened), the Play
+  version now asks for a quick rating in a small bottom sheet, at most once a
+  week, and never again once you rate or decline. A "Rate the app" shortcut
+  also joined the app menu.
+
 ## [1.3.5] - 2026-07-28
 
 ### Added
