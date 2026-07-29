@@ -1,26 +1,18 @@
 name: Microsoft Store
 
-# Builds the native Windows app, packages it as an MSIX, and (when the
-# MSSTORE_* credential secrets are set) submits it straight to the Microsoft
-# Store via the Microsoft Store Developer CLI - the same hands-off fan-out
-# release.yml already does for Play / Amazon / Zapstore. Without those secrets
-# it just uploads the msstore-upload artifact to attach in Partner Center by
-# hand. Full runbook: docs/MICROSOFT_STORE_WINDOWS_RELEASE.md
+# Builds the native Windows app and packages it as an MSIX for Microsoft
+# Store submission. Dispatch-only: run it when a version is ready to ship
+# to the Store, then upload the msstore-upload artifact in Partner Center.
+# Full runbook: docs/MICROSOFT_STORE_WINDOWS_RELEASE.md
 #
-# Build mode is driven by the MSIX_IDENTITY_NAME / MSIX_PUBLISHER repo
+# Two modes, driven by the MSIX_IDENTITY_NAME / MSIX_PUBLISHER repo
 # variables (public Package/Identity values from Partner Center > Product
 # identity, not secrets):
 #   - variables set   -> store package (--store, unsigned; the Store signs it).
 #     NOTE: a --store MSIX cannot be sideloaded; smoke test with the
 #     windows-unpackaged zip artifact instead.
-#   - variables unset -> self-signed test MSIX (installable after trusting the
-#     test certificate, or just extract-and-run; never auto-submitted).
-#
-# Auto-submit is opt-in + secret-gated (a clean build-only no-op until the
-# secrets exist, same as amazon.yml) and, per the Store update API, currently
-# works for FREE apps only (Custom RR is free). One-time credential setup is in
-# the runbook. The Store product ID defaults to this app's (9NTS7Q5V12RG) and
-# can be overridden with the MSSTORE_PRODUCT_ID repo variable.
+#   - variables unset -> self-signed test MSIX (installable after trusting
+#     the test certificate, or just extract-and-run).
 
 on:
   workflow_dispatch:
@@ -33,14 +25,6 @@ on:
         description: "Override MSIX version A.B.C.0 (blank = derive from pubspec). Use to bump the Store package without an app release, e.g. 1.3.4.0."
         required: false
         default: ""
-      submit:
-        description: "Submit to the Store (needs the MSSTORE_* secrets); false uploads a draft only."
-        required: false
-        default: "true"
-        type: choice
-        options:
-          - "true"
-          - "false"
 
 permissions:
   contents: read
@@ -49,11 +33,6 @@ jobs:
   build:
     name: Build Store MSIX
     runs-on: windows-latest
-    # Gate the auto-submit steps: the secrets context is not allowed in `if:`,
-    # so surface the client id as job env. Unset -> the Store submission steps
-    # are skipped and the job is build-only (opt-in, same as amazon.yml).
-    env:
-      MSSTORE_CLIENT_ID: ${{ secrets.MSSTORE_CLIENT_ID }}
     defaults:
       run:
         shell: bash
@@ -135,64 +114,3 @@ jobs:
           name: windows-unpackaged
           path: windows-unpackaged.zip
           if-no-files-found: error
-
-      # --- Auto-submit to the Microsoft Store (opt-in, secret-gated) ---
-      # When the four MSSTORE_* credential secrets exist AND this is a real
-      # --store package (MSIX_IDENTITY_NAME set), push the freshly built MSIX to
-      # Partner Center with the Microsoft Store Developer CLI: it opens a
-      # submission cloned from the live one, uploads + supersedes the package,
-      # and commits it for certification (auto-publishes on pass). Mirrors the
-      # Play/Amazon fan-out. Unset secrets -> these steps are skipped and the
-      # msstore-upload artifact above is submitted by hand instead.
-      - name: Set up Microsoft Store Developer CLI
-        if: ${{ env.MSSTORE_CLIENT_ID != '' && vars.MSIX_IDENTITY_NAME != '' }}
-        uses: microsoft/microsoft-store-apppublisher@v1.4
-
-      - name: Configure Store credentials
-        if: ${{ env.MSSTORE_CLIENT_ID != '' && vars.MSIX_IDENTITY_NAME != '' }}
-        env:
-          MSSTORE_TENANT_ID: ${{ secrets.MSSTORE_TENANT_ID }}
-          MSSTORE_SELLER_ID: ${{ secrets.MSSTORE_SELLER_ID }}
-          MSSTORE_CLIENT_ID: ${{ secrets.MSSTORE_CLIENT_ID }}
-          MSSTORE_CLIENT_SECRET: ${{ secrets.MSSTORE_CLIENT_SECRET }}
-        run: |
-          set -euo pipefail
-          # reconfigure stores the creds locally on the runner for the publish
-          # step. GitHub masks the secret values in the log.
-          msstore reconfigure \
-            --tenantId "$MSSTORE_TENANT_ID" \
-            --sellerId "$MSSTORE_SELLER_ID" \
-            --clientId "$MSSTORE_CLIENT_ID" \
-            --clientSecret "$MSSTORE_CLIENT_SECRET"
-
-      - name: Submit to the Microsoft Store
-        if: ${{ env.MSSTORE_CLIENT_ID != '' && vars.MSIX_IDENTITY_NAME != '' }}
-        env:
-          PRODUCT_ID: ${{ vars.MSSTORE_PRODUCT_ID || '9NTS7Q5V12RG' }}
-          SUBMIT: ${{ inputs.submit || vars.MSSTORE_SUBMIT || 'true' }}
-        run: |
-          set -euo pipefail
-          MSIX=$(ls build/windows/x64/runner/Release/*.msix | head -1)
-          echo "Store product: $PRODUCT_ID"
-          echo "Package:       $MSIX"
-
-          # If a submission from a recent release is still pending/certifying,
-          # the Store will not accept a new one. Detect it and skip cleanly so
-          # the release fan-out is not marked failed - re-run this workflow once
-          # it publishes (same spirit as amazon.yml's in-review skip).
-          STATUS=$(msstore submission status "$PRODUCT_ID" 2>&1 || true)
-          echo "$STATUS"
-          if printf '%s' "$STATUS" | grep -Eiq 'pending|in[ ]?progress|commitstarted|certification|publishing|prepublish'; then
-            echo "::warning::A Microsoft Store submission is already in progress for $PRODUCT_ID - skipped this push. Re-run 'gh workflow run msstore.yml --ref <tag>' after it finishes certifying."
-            exit 0
-          fi
-
-          if [ "$SUBMIT" = "true" ]; then
-            # publish = create submission + upload/supersede package + commit
-            # for certification. Auto-publishes when it passes (a few hours, up
-            # to 3 business days), like Play/Amazon.
-            msstore publish "$MSIX" -id "$PRODUCT_ID"
-          else
-            echo "MSSTORE_SUBMIT=$SUBMIT -> uploading as a DRAFT (not committing)."
-            msstore publish "$MSIX" -id "$PRODUCT_ID" --noCommit
-          fi
