@@ -1,8 +1,10 @@
 name: Microsoft Store
 
 # Builds the native Windows app and packages it as an MSIX for Microsoft
-# Store submission. Dispatch-only: run it when a version is ready to ship
-# to the Store, then upload the msstore-upload artifact in Partner Center.
+# Store submission. release.yml auto-dispatches this on every release so a
+# ready-to-upload package (the msstore-upload artifact) is waiting; you can
+# also run it by hand. It never submits - download the msstore-upload artifact
+# and upload it in Partner Center yourself (Store submission stays manual).
 # Full runbook: docs/MICROSOFT_STORE_WINDOWS_RELEASE.md
 #
 # Two modes, driven by the MSIX_IDENTITY_NAME / MSIX_PUBLISHER repo

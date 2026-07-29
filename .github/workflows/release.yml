@@ -454,4 +454,10 @@ jobs:
           gh workflow run play.yml     --ref "$TAG"
           gh workflow run zapstore.yml --ref "$TAG"
           gh workflow run amazon.yml   --ref "$TAG"
+          # Microsoft Store: build the Store MSIX for this tag so a ready-to-
+          # upload package is waiting after every release. This does NOT submit
+          # (Store submission stays manual): grab the msstore-upload artifact
+          # from this run and drop it into Partner Center by hand
+          # (docs/MICROSOFT_STORE_WINDOWS_RELEASE.md section 5).
+          gh workflow run msstore.yml  --ref "$TAG" -f tag="$TAG"
 
