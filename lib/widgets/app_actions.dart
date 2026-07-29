@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../util/request_project.dart';
 import 'about_dialog.dart';
+import 'rating_nudge.dart';
 
 /// Standard AppBar share/contact menu used across all pages.
 class AppShareMenu extends StatelessWidget {
@@ -28,6 +29,9 @@ class AppShareMenu extends StatelessWidget {
           case _ShareAction.requestProject:
             await openProjectRequest(kind: 'ROM or recovery');
             break;
+          case _ShareAction.rate:
+            await openPlayRating();
+            break;
           case _ShareAction.contact:
             final Uri uri = Uri(
               scheme: 'mailto',
@@ -38,22 +42,30 @@ class AppShareMenu extends StatelessWidget {
             break;
         }
       },
-      itemBuilder: (BuildContext _) => const <PopupMenuEntry<_ShareAction>>[
-        PopupMenuItem<_ShareAction>(
+      itemBuilder: (BuildContext _) => <PopupMenuEntry<_ShareAction>>[
+        const PopupMenuItem<_ShareAction>(
           value: _ShareAction.share,
           child: ListTile(
             leading: Icon(Icons.share_outlined),
             title: Text('Share the app'),
           ),
         ),
-        PopupMenuItem<_ShareAction>(
+        if (kRatingApplicable)
+          const PopupMenuItem<_ShareAction>(
+            value: _ShareAction.rate,
+            child: ListTile(
+              leading: Icon(Icons.star_outline),
+              title: Text('Rate the app'),
+            ),
+          ),
+        const PopupMenuItem<_ShareAction>(
           value: _ShareAction.requestProject,
           child: ListTile(
             leading: Icon(Icons.playlist_add),
             title: Text('Request a ROM or recovery'),
           ),
         ),
-        PopupMenuItem<_ShareAction>(
+        const PopupMenuItem<_ShareAction>(
           value: _ShareAction.contact,
           child: ListTile(
             leading: Icon(Icons.mail_outline),
@@ -65,4 +77,4 @@ class AppShareMenu extends StatelessWidget {
   }
 }
 
-enum _ShareAction { share, requestProject, contact }
+enum _ShareAction { share, rate, requestProject, contact }
