@@ -314,38 +314,77 @@ with section 5.2.
 ### 5.1 One-time credential setup (turns on auto-submit)
 
 Per the Store update API this works for **free apps only** (Custom RR is free)
-and the app must already be **live in the Store** (it is). Do this once:
+and the app must already be **live in the Store** (it is).
 
-1. **Register a Microsoft Entra ID app.** [entra.microsoft.com](https://entra.microsoft.com/)
-   > Identity > Applications > App registrations > New registration (any name,
-   single tenant). Copy the **Application (client) ID** from its Overview.
-2. **Give it a client secret.** Same app > Certificates & secrets > New client
-   secret > copy the **Value** immediately (it is shown once).
-3. **Authorize it in Partner Center.** partner.microsoft.com > Account settings
-   > User management > **Microsoft Entra applications** > Add > pick the app
-   from step 1 > assign the **Manager** role. (This is what lets the app call
-   the submission API for your account.)
-4. **Collect the four values:**
-   - **Tenant ID** - Entra > Identity > Overview > "Tenant ID".
-   - **Client ID** - from step 1.
-   - **Client Secret** - from step 2.
-   - **Seller ID** - Partner Center > Account settings > Developer settings /
-     Identifiers (this account's Seller ID is `95197540`).
-5. **Add them as GitHub repo secrets** (never paste them anywhere public):
+**Status (2026-07-29): 3 of 4 done.** The reusable Entra app already exists and
+three of the four credentials are already set as repo secrets. Only the client
+secret + the Partner Center authorization remain.
+
+- Reuse the existing Entra app **"Custom RR"** (created 7/27/2026), in tenant
+  **"Monsiu Tech"**. Do NOT make a new one.
+  - Client ID `1dd9e622-29ca-4b82-b788-ef245d234323`
+  - Tenant ID `f8cdef31-a31e-4b4a-93e4-5f571e91255a`
+  - Seller ID `95197540`
+- Already set: repo secrets `MSSTORE_TENANT_ID`, `MSSTORE_CLIENT_ID`,
+  `MSSTORE_SELLER_ID` and repo variable `MSSTORE_PRODUCT_ID=9NTS7Q5V12RG`.
+- **Remaining (do these once):** create `MSSTORE_CLIENT_SECRET` + authorize the
+  app in Partner Center with the **Manager** role.
+
+> **Use a normal browser for the Entra portal.** It renders its blades in
+> sandboxed cross-origin iframes that need third-party cookies; a headless /
+> automation browser shows "There was an error loading this content" and leaves
+> **New client secret** greyed out. A regular signed-in browser works fine.
+
+**A. Create the client secret** (portal). Open the app's Certificates & secrets:
+`https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Credentials/appId/1dd9e622-29ca-4b82-b788-ef245d234323`
+> Client secrets tab > **New client secret** > Description `custom-rr-store-ci`,
+Expires 24 months > **Add** > copy the **Value** (not the Secret ID; shown once)
+> store it: `gh secret set MSSTORE_CLIENT_SECRET -R monsiu/Custom-RR` (or the
+repo Settings > Secrets and variables > Actions UI).
+
+**A. (portal-free alternative)** create the secret and store it in one shot - the
+value never prints:
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash      # or: pip install azure-cli
+az login --allow-no-subscriptions --tenant f8cdef31-a31e-4b4a-93e4-5f571e91255a
+az ad app credential reset --id 1dd9e622-29ca-4b82-b788-ef245d234323 \
+  --append --display-name custom-rr-store-ci --years 2 --query password -o tsv \
+  | gh secret set MSSTORE_CLIENT_SECRET -R monsiu/Custom-RR
+```
+
+**B. Authorize the app in Partner Center** (portal only, no CLI): partner.microsoft.com
+> Account settings > User management > **Microsoft Entra applications** > sign in
+with Microsoft Entra ID if prompted > **Add Microsoft Entra application** > pick
+**Custom RR** > role **Manager** > Add. This is what lets the app call the
+submission API for the account.
+
+For a dry run, set repo variable `MSSTORE_SUBMIT="false"` (or the workflow's
+`submit` input) to upload a draft without committing. The Store product ID
+defaults to `9NTS7Q5V12RG`; override with `MSSTORE_PRODUCT_ID` if it ever changes.
+
+<details><summary>Starting from scratch (new account / app) instead of reusing the above</summary>
+
+1. Register an Entra app: entra.microsoft.com > App registrations > New
+   registration (single tenant). Copy its Application (client) ID.
+2. Certificates & secrets > New client secret > copy the Value.
+3. Partner Center > Account settings > User management > Microsoft Entra
+   applications > Add > pick the app > Manager role.
+4. Collect Tenant ID (Entra > Overview), Client ID (step 1), Client Secret
+   (step 2), Seller ID (Partner Center > Account settings > Identifiers).
+5. Set all four repo secrets:
    ```
    gh secret set MSSTORE_TENANT_ID     -R monsiu/Custom-RR
    gh secret set MSSTORE_SELLER_ID     -R monsiu/Custom-RR
    gh secret set MSSTORE_CLIENT_ID     -R monsiu/Custom-RR
    gh secret set MSSTORE_CLIENT_SECRET -R monsiu/Custom-RR
    ```
-   The Store product ID defaults to `9NTS7Q5V12RG`; override with the
-   `MSSTORE_PRODUCT_ID` repo variable if it ever changes. For a dry run, set
-   repo variable `MSSTORE_SUBMIT="false"` (or the workflow's `submit` input) to
-   upload a draft without committing.
+</details>
 
 Once the secrets exist, every release auto-submits. Only one submission can be
 in flight per product, so if a release runs while the previous one is still
 certifying the job skips with a warning - just re-run
+
 `gh workflow run msstore.yml --ref <tag>` after it publishes.
 
 ### 5.2 Manual submission runbook (fallback / first-ever submission)
