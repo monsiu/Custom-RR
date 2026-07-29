@@ -302,6 +302,12 @@ Notes and hiccups baked into that skeleton:
 
 ## 5. Partner Center submission runbook
 
+> The `msstore-upload` artifact is built **automatically on every release**
+> (release.yml fans out to the Microsoft Store workflow), so a ready-to-upload
+> `.msix` is always waiting - the only manual job is to download it and drop it
+> into the submission below. To build one off-cycle, run the "Microsoft Store"
+> workflow by hand (`gh workflow run msstore.yml --ref <tag>`).
+
 Open the product > Start submission. Six sections must go green:
 
 1. **Pricing and availability**: Free. All markets (default).
