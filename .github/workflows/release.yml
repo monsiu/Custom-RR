@@ -454,10 +454,11 @@ jobs:
           gh workflow run play.yml     --ref "$TAG"
           gh workflow run zapstore.yml --ref "$TAG"
           gh workflow run amazon.yml   --ref "$TAG"
-          # Microsoft Store: build the Store MSIX for this tag (the msix
-          # version derives from pubspec unless overridden). Unlike the other
-          # stores this does NOT auto-submit; it produces the msstore-upload
-          # artifact to upload in Partner Center (or wire the Store submission
-          # API for full hands-off submission).
+          # Microsoft Store: build the Store MSIX for this tag (version derived
+          # from pubspec) and, when the MSSTORE_* credential secrets are set,
+          # submit it to Partner Center hands-off via the Microsoft Store
+          # Developer CLI - same secret-gated fan-out as the others. Without
+          # those secrets it just produces the msstore-upload artifact to
+          # attach in Partner Center by hand.
           gh workflow run msstore.yml  --ref "$TAG" -f tag="$TAG"
 
