@@ -1182,6 +1182,30 @@ List<_Device> get _malachiteExtraDevices => <_Device>[
     ),
 ];
 
+/// The Pixel 10 family is officially supported by GrapheneOS (per
+/// grapheneos.org/faq#supported-devices) but has no LineageOS wiki entry yet,
+/// so the devices must be injected by hand and unioned into the GrapheneOS
+/// device list. Once the wiki gains them, the union dedups by codename.
+const List<_DeviceSeed> _pixel10Seeds = <_DeviceSeed>[
+  _DeviceSeed('frankel', 'Pixel 10', 2025),
+  _DeviceSeed('blazer', 'Pixel 10 Pro', 2025),
+  _DeviceSeed('mustang', 'Pixel 10 Pro XL', 2025),
+  _DeviceSeed('rango', 'Pixel 10 Pro Fold', 2025),
+  _DeviceSeed('stallion', 'Pixel 10a', 2026),
+];
+
+List<_Device> get _pixel10ExtraDevices => <_Device>[
+  for (final _DeviceSeed s in _pixel10Seeds)
+    _Device(
+      vendor: 'Google',
+      model: s.model,
+      codename: s.codename,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: s.releaseYear ?? 2025,
+    ),
+];
+
 List<Map<String, dynamic>> _buildRoms(
   List<_Device> all, {
   required List<_Device> pixelosDevices,
@@ -2486,6 +2510,18 @@ List<Map<String, dynamic>> _buildRoms(
       matched = <_Device>[
         ...policyMatched,
         for (final _Device d in _rodinExtraDevices)
+          if (!seen.contains(d.codename)) d,
+      ];
+    } else if (s.id == 'grapheneos') {
+      // GrapheneOS officially supports the Pixel 10 family, but the LineageOS
+      // wiki pool (which feeds the Pixel-only policy) does not carry those
+      // devices yet. Union the injected devices with the policy matches.
+      final List<_Device> policyMatched = all.where(policy).toList();
+      final Set<String> seen =
+          policyMatched.map((_Device d) => d.codename).toSet();
+      matched = <_Device>[
+        ...policyMatched,
+        for (final _Device d in _pixel10ExtraDevices)
           if (!seen.contains(d.codename)) d,
       ];
     } else if (s.id == 'lineagecybert') {
