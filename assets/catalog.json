@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-28T16:40:50.745106Z",
+  "_generatedAt": "2026-07-29T20:37:19.432907Z",
   "roms": [
     {
       "id": "lineage",
@@ -14905,6 +14905,31 @@
           "model": "Pixel 9a",
           "codename": "tegu",
           "forumUrl": "https://xdaforums.com/f/google-pixel-9a.12927/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10",
+          "codename": "frankel"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10 Pro",
+          "codename": "blazer"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10 Pro XL",
+          "codename": "mustang"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10 Pro Fold",
+          "codename": "rango"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10a",
+          "codename": "stallion"
         }
       ],
       "downloadLabel": "Install / web installer",
