@@ -1,0 +1,2 @@
+- Aplicația găsește acum mai multe telefoane în mod automat, inclusiv modele regionale și dispozitive care au o singură construcție de familie.
+- După ce aplicația vă ajută să ajungeți la o descărcare, acum puteți evalua aplicația într-o solicitare rapidă și din meniu.

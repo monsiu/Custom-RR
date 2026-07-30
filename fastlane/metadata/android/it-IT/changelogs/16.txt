@@ -1,0 +1,2 @@
+- L'app ora trova automaticamente più telefoni, inclusi modelli regionali e dispositivi che condividono la stessa famiglia.
+- Dopo che l'app ti ha aiutato a raggiungere un download, ora puoi valutare l'app in un breve messaggio e dal menu.

@@ -1,0 +1,2 @@
+- Rakendus leiab nüüd automaatselt rohkem telefone, sealhulgas piirkondlikke mudeleid ja seadmeid, mis jagavad ühte pereehitust.
+- Pärast seda, kui rakendus aitab teil allalaadimiseni jõuda, saate nüüd kiirviipa ja menüü kaudu rakendust hinnata.

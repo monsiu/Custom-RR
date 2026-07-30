@@ -1,0 +1,2 @@
+- L'application trouve désormais automatiquement davantage de téléphones, y compris les modèles régionaux et les appareils partageant une même version familiale.
+- Une fois que l'application vous a aidé à télécharger, vous pouvez désormais évaluer l'application dans une invite rapide et à partir du menu.

@@ -1,0 +1,2 @@
+- La aplicación ahora encuentra más teléfonos automáticamente, incluidos modelos regionales y dispositivos que comparten una estructura familiar.
+- Después de que la aplicación lo ayude a realizar una descarga, ahora puede calificar la aplicación en un mensaje rápido y desde el menú.

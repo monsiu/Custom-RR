@@ -1,0 +1,2 @@
+- Az alkalmazás mostantól több telefont talál automatikusan, beleértve a regionális modelleket és az egy családi összeállításon osztozó eszközöket is.
+- Miután az alkalmazás segít elérni a letöltést, most egy gyors felszólítással és a menüből értékelheti az alkalmazást.

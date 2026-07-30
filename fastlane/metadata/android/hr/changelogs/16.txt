@@ -1,0 +1,2 @@
+- Aplikacija sada automatski pronalazi više telefona, uključujući regionalne modele i uređaje koji dijele istu obiteljsku verziju.
+- Nakon što vam aplikacija pomogne doći do preuzimanja, sada možete ocijeniti aplikaciju u brzom upitu i iz izbornika.

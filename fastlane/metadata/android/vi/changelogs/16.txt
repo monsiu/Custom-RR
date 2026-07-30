@@ -1,0 +1,2 @@
+- Giờ đây, ứng dụng có thể tự động tìm thấy nhiều điện thoại hơn, bao gồm cả các kiểu máy và thiết bị trong khu vực có chung bản dựng gia đình.
+- Sau khi ứng dụng giúp bạn tải xuống, giờ đây bạn có thể xếp hạng ứng dụng trong lời nhắc nhanh và từ menu.

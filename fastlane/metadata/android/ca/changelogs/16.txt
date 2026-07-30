@@ -1,0 +1,2 @@
+- L'aplicació ara troba més telèfons automàticament, inclosos models regionals i dispositius que comparteixen una construcció familiar.
+- Després que l'aplicació us ajudi a arribar a una descàrrega, ara podeu avaluar l'aplicació en un missatge ràpid i des del menú.

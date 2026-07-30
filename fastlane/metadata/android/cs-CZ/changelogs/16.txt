@@ -1,0 +1,2 @@
+- Aplikace nyní automaticky najde více telefonů, včetně regionálních modelů a zařízení, která sdílejí jednu rodinnou sestavu.
+- Poté, co vám aplikace pomůže dosáhnout stažení, můžete ji nyní ohodnotit pomocí rychlé výzvy a z nabídky.

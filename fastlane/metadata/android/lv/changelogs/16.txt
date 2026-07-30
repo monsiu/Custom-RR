@@ -1,0 +1,2 @@
+- Tagad lietotne automātiski atrod vairāk tālruņu, tostarp reģionālos modeļus un ierīces, kurām ir viena ģimenes uzbūve.
+- Kad lietotne palīdz sasniegt lejupielādi, tagad varat novērtēt lietotni ātrā uzvednē un izvēlnē.

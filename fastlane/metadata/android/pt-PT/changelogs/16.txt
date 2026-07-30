@@ -1,0 +1,2 @@
+- A aplicação encontra agora mais telefones automaticamente, incluindo modelos regionais e dispositivos que partilham a mesma família.
+- Assim que a aplicação o ajudar a fazer o download, poderá agora avaliá-lo num prompt rápido e no menu.

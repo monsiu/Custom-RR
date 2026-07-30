@@ -1,0 +1,2 @@
+- Aplikazioak orain telefono gehiago aurkitzen ditu automatikoki, eskualdeko modeloak eta familiako eraikuntza partekatzen duten gailuak barne.
+- Aplikazioak deskarga batera iristen laguntzen dizunean, aplikazioa ebaluazio azkar batean eta menutik baloratu dezakezu.
