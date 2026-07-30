@@ -8,6 +8,9 @@ body:
   - type: markdown
     attributes:
       value: "Before you ask: budget, brand-new, and US or carrier phones often have no dedicated custom ROM. In the app, try the **Search XDA** and **Community builds** buttons on your device card, plus the **Treble & GSI** tab, which cover most of these cases. If you have already found a maintained build, link it below and we will add it."
+  - type: markdown
+    attributes:
+      value: "Also note that many devices are listed under a shared family codename rather than the one your phone reports (for example the Redmi 8 reports `olive` but builds ship as `mi439`, and the realme 7 reports `rmx2151l1` but TWRP covers it as `rmx2001/rmx2151`). Try searching the model name in **Find my phone** first."
   - type: input
     id: brand
     attributes:

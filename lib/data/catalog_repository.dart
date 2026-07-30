@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models.dart';
+import '../util/codename_aliases.dart';
 
 /// Loads the catalog JSON shipped under `assets/catalog.json` once and
 /// caches the parsed entries. All UI reads through [instance] after
@@ -268,12 +269,27 @@ class CatalogRepository extends ChangeNotifier {
   /// case. Used by on-device detection, where `ro.product.manufacturer`
   /// casing (`samsung` vs `Samsung`) does not reliably match catalog brands
   /// but the codename is effectively unique.
+  ///
+  /// Falls back through [codenameCandidates] (vendor-prefix stripping,
+  /// regional-suffix stripping, unified-build aliases) and matches the
+  /// components of combined catalog codenames such as `rmx2001/rmx2151`, so
+  /// a phone reporting `Infinix-X6833B`, `rmx2151l1`, `OnePlus6T` or `olive`
+  /// still resolves to its catalog device. Exact spellings always win over
+  /// aliases.
   DeviceRef? deviceRefByCodenameOnly(String codename) {
-    final String needle = codename.trim().toLowerCase();
-    if (needle.isEmpty) return null;
-    for (final CatalogEntry e in <CatalogEntry>[..._roms, ..._recoveries]) {
-      for (final DeviceRef d in e.devices) {
-        if (d.codename.toLowerCase() == needle) return d;
+    final List<CatalogEntry> entries = <CatalogEntry>[..._roms, ..._recoveries];
+    for (final String candidate in codenameCandidates(codename)) {
+      // Pass 1: exact (case-insensitive) match for this candidate.
+      for (final CatalogEntry e in entries) {
+        for (final DeviceRef d in e.devices) {
+          if (d.codename.toLowerCase() == candidate) return d;
+        }
+      }
+      // Pass 2: component of a combined catalog codename.
+      for (final CatalogEntry e in entries) {
+        for (final DeviceRef d in e.devices) {
+          if (catalogCodenameMatches(d.codename, candidate)) return d;
+        }
       }
     }
     return null;
