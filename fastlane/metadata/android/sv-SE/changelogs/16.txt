@@ -1,0 +1,2 @@
+- Appen hittar nu fler telefoner automatiskt, inklusive regionala modeller och enheter som delar en familjebyggnad.
+- Efter att appen hjälper dig att nå en nedladdning kan du nu betygsätta appen i en snabb uppmaning och från menyn.

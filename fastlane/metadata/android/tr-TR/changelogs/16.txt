@@ -1,0 +1,2 @@
+- Uygulama artık bölgesel modeller ve aynı aile yapısını paylaşan cihazlar da dahil olmak üzere daha fazla telefonu otomatik olarak buluyor.
+- Uygulama bir indirme işlemine ulaşmanıza yardımcı olduktan sonra artık uygulamayı hızlı bir şekilde ve menüden derecelendirebilirsiniz.

@@ -1,0 +1,2 @@
+- Appen finder nu automatisk flere telefoner, inklusive regionale modeller og enheder, der deler én familieopbygning.
+- Når appen hjælper dig med at downloade, kan du nu bedømme appen i en hurtig prompt og fra menuen.

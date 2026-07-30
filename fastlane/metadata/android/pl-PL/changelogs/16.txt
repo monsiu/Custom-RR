@@ -1,0 +1,2 @@
+- Aplikacja automatycznie wyszukuje teraz więcej telefonów, w tym modele regionalne i urządzenia należące do tej samej rodziny.
+- Gdy aplikacja pomoże Ci w pobraniu, możesz teraz ocenić aplikację za pomocą szybkiego monitu lub z menu.

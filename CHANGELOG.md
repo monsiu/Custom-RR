@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.6] - 2026-07-30
+
 ### Added
 
 - **Better-timed "rate the app" ask on Google Play.** After the app has

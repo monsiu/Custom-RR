@@ -1,0 +1,2 @@
+- Agora a aplicación atopa máis teléfonos automaticamente, incluídos os modelos rexionais e os dispositivos que comparten unha mesma familia.
+- Despois de que a aplicación che axude a conseguir unha descarga, agora podes valorar a aplicación nun aviso rápido e desde o menú.

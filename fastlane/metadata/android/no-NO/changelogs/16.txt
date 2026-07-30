@@ -1,0 +1,2 @@
+- Appen finner nå flere telefoner automatisk, inkludert regionale modeller og enheter som deler ett familiebygg.
+- Etter at appen hjelper deg med å nå en nedlasting, kan du nå rangere appen i en rask melding og fra menyen.

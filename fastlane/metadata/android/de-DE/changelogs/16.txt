@@ -1,0 +1,2 @@
+- Die App findet jetzt automatisch weitere Telefone, darunter regionale Modelle und Geräte, die sich ein Familienmodell teilen.
+- Nachdem die App Ihnen zu einem Download verholfen hat, können Sie die App nun in einer kurzen Eingabeaufforderung und über das Menü bewerten.

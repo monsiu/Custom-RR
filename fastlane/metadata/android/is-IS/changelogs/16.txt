@@ -1,0 +1,2 @@
+- Forritið finnur nú fleiri síma sjálfkrafa, þar á meðal svæðisgerðir og tæki sem deila einni fjölskyldubyggingu.
+- Eftir að appið hefur hjálpað þér að ná niðurhali geturðu nú gefið appinu einkunn með skjótum leiðbeiningum og úr valmyndinni.

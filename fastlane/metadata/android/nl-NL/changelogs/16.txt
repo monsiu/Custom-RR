@@ -1,0 +1,2 @@
+- De app vindt nu automatisch meer telefoons, inclusief regionale modellen en apparaten die één gezinssamenstelling delen.
+- Nadat de app u heeft geholpen een download te bereiken, kunt u de app nu snel en vanuit het menu beoordelen.

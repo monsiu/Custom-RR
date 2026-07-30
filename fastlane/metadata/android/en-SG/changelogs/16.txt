@@ -1,0 +1,2 @@
+- The app now finds more phones automatically, including regional models and devices that share one family build.
+- After the app helps you reach a download, you can now rate the app in a quick prompt, and from the menu.

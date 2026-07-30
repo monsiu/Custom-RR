@@ -1,0 +1,2 @@
+- Dabar programa automatiškai suranda daugiau telefonų, įskaitant regioninius modelius ir įrenginius, kurie bendrai naudoja vieną šeimą.
+- Kai programa padės pasiekti atsisiuntimą, dabar galite greitai įvertinti programą ir iš meniu.

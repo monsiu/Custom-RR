@@ -1,0 +1,2 @@
+- Sovellus löytää nyt automaattisesti lisää puhelimia, mukaan lukien alueelliset mallit ja laitteet, jotka jakavat yhden perheen.
+- Kun sovellus auttaa sinua saavuttamaan latauksen, voit nyt arvioida sovelluksen pikakehotteessa ja valikosta.

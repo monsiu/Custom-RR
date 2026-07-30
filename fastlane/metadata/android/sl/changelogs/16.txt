@@ -1,0 +1,2 @@
+- Aplikacija zdaj samodejno najde več telefonov, vključno z regionalnimi modeli in napravami, ki imajo skupno družinsko zgradbo.
+- Ko vam aplikacija pomaga doseči prenos, lahko zdaj ocenite aplikacijo v hitrem pozivu in iz menija.
