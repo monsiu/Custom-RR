@@ -6,6 +6,12 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **What's new after updates.** The Play and F-Droid versions now show a short
+  highlights sheet once after each update, listing what changed. The
+  direct-download version keeps its fuller release-notes banner instead.
+
 ## [1.3.6] - 2026-07-30
 
 ### Added

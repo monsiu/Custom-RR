@@ -11,6 +11,7 @@ import '../widgets/brand_image.dart';
 import '../widgets/device_suggestion.dart';
 import '../widgets/donation_nudge.dart';
 import '../widgets/rating_nudge.dart';
+import '../widgets/whats_new.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -80,6 +81,14 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocus = FocusNode(debugLabel: 'HomeSearch');
   String _query = '';
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) maybeShowWhatsNew(context);
+    });
+  }
 
   @override
   void dispose() {
