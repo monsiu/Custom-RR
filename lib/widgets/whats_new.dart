@@ -7,12 +7,18 @@ import '../util/build_flags.dart';
 /// The highlights shown in the once-per-update "What's new" sheet.
 ///
 /// RELEASE MAINTENANCE: rewrite this list on every release cut so it describes
-/// the version being shipped (source it from CHANGELOG.md). Stale entries are
-/// worse than none; keep it to the 3-4 items a user would actually notice.
+/// the version being shipped, sourced from CHANGELOG.md. Stale entries are
+/// worse than none; keep it to the 3-4 items a user would actually notice, in
+/// the same plain voice as the changelog.
+///
+/// These entries deliberately span [Unreleased] and 1.3.6: the sheet itself
+/// ships after 1.3.6, so this is the first one anyone sees. Users already on
+/// 1.3.6 will find the last two items familiar.
 const List<String> kWhatsNewHighlights = <String>[
+  'A short highlights sheet like this one after each update',
   'Device detection recognizes many more phones, including vendor-prefixed '
       'and regional codenames',
-  'A quick highlights sheet like this one after each update',
+  'A better-timed rating ask that only appears once the app has helped you',
 ];
 
 /// Tracks the last app version the user has seen a "What's new" sheet for, so
