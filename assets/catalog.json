@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-29T20:37:19.432907Z",
+  "_generatedAt": "2026-08-03T10:49:43.721582Z",
   "roms": [
     {
       "id": "lineage",
@@ -1399,6 +1399,11 @@
           "brand": "Retroid Pocket",
           "model": "6",
           "codename": "RP6"
+        },
+        {
+          "brand": "Retroid Pocket",
+          "model": "Retroid Pocket Nova",
+          "codename": "RPN"
         },
         {
           "brand": "SHIFT",
