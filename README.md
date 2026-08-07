@@ -59,6 +59,7 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
 - [Download](#download)
 - [Contributing](#contributing)
 - [Support the project](#support-the-project)
+- [Need an app built?](#need-an-app-built)
 - [Catalog sources](#catalog-sources)
 
 ## Google Play status
@@ -175,6 +176,22 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 [Trocador AnonPay](https://trocador.app/anonpay/), no account, no KYC).
 
 </details>
+
+## Need an app built?
+
+Custom RR is designed, coded, and shipped end to end by one developer: the
+catalog engine, the nightly freshness pipeline, native builds for four
+platforms, and releases on Google Play, the Amazon Appstore, and F-Droid.
+
+If you want an **Android app, a cross-platform app, or a website** built with
+the same care, from first sketch to the app stores, that is exactly what I do
+for clients. Tell me what you have in mind and you get back a plan, a timeline,
+and a quote. No obligation.
+
+<p align="left">
+  <a href="https://monsiu.github.io/services/"><img alt="Get your project built" src="https://img.shields.io/badge/Get_your_project_built-7ed957?style=for-the-badge&logo=rocket&logoColor=0f2413"></a>
+  <a href="https://monsiu.github.io/#projects"><img alt="See everything I have shipped" src="https://img.shields.io/badge/See_everything_I_have_shipped-444444?style=for-the-badge&logo=github&logoColor=white"></a>
+</p>
 
 ## Socials
 
