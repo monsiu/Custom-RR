@@ -189,7 +189,7 @@ for clients. Tell me what you have in mind and you get back a plan, a timeline,
 and a quote. No obligation.
 
 <p align="left">
-  <a href="https://monsiu.github.io/services/"><img alt="Get your project built" src="https://img.shields.io/badge/Get_your_project_built-7ed957?style=for-the-badge&logo=rocket&logoColor=0f2413"></a>
+  <a href="https://monsiu.github.io/services/"><img alt="Get your project built" src="https://img.shields.io/badge/Get_your_project_built-17351C?style=for-the-badge&logo=rocket&logoColor=7ed957"></a>
   <a href="https://monsiu.github.io/#projects"><img alt="See everything I have shipped" src="https://img.shields.io/badge/See_everything_I_have_shipped-444444?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
