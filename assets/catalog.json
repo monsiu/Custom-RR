@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-08-17T21:55:36.438056Z",
+  "_generatedAt": "2026-08-17T22:15:34.176400Z",
   "roms": [
     {
       "id": "lineage",
@@ -5553,6 +5553,465 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Nokia",
+          "model": "6.1 Plus",
+          "codename": "DRG"
+        },
+        {
+          "brand": "Nokia",
+          "model": "8",
+          "codename": "NB1"
+        },
+        {
+          "brand": "Nokia",
+          "model": "6.1",
+          "codename": "PL2"
+        },
+        {
+          "brand": "Realme",
+          "model": "6 / 7",
+          "codename": "RM6785"
+        },
+        {
+          "brand": "Realme",
+          "model": "3 Pro",
+          "codename": "RMX1851"
+        },
+        {
+          "brand": "Realme",
+          "model": "5 Pro",
+          "codename": "RMX1971"
+        },
+        {
+          "brand": "Realme",
+          "model": "6 Pro",
+          "codename": "RMX2061"
+        },
+        {
+          "brand": "Nothing",
+          "model": "Phone (1)",
+          "codename": "Spacewar",
+          "forumUrl": "https://xdaforums.com/f/nothing-phone-1.12585/?prefix_id=33"
+        },
+        {
+          "brand": "Nubia",
+          "model": "Mini 5G",
+          "codename": "TP1803"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max Pro M1",
+          "codename": "X00TD"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max M2",
+          "codename": "X01AD"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max Pro M2",
+          "codename": "X01BD"
+        },
+        {
+          "brand": "Samsung",
+          "model": "A52 4g",
+          "codename": "a52q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52-4g.12131/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "A52s 5G",
+          "codename": "a52sxq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "A72",
+          "codename": "a72q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a72.12141/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "A73 5G",
+          "codename": "a73xq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a73-5g.12667/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto Z2 Play",
+          "codename": "albus"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G6",
+          "codename": "ali"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi MIX 3 5G",
+          "codename": "andromeda"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10T / Mi 10T Pro / Redmi K30S",
+          "codename": "apollo"
+        },
+        {
+          "brand": "Razer",
+          "model": "Phone 2",
+          "codename": "aura"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto Z3 Play",
+          "codename": "beckham"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 8 Pro",
+          "codename": "begonia"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto Edge 20",
+          "codename": "berlin",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-20.12419/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10e",
+          "codename": "beyond0lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10",
+          "codename": "beyond1lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10+",
+          "codename": "beyond2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10 5G",
+          "codename": "beyondx"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 5s",
+          "codename": "capricorn"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 9",
+          "codename": "cepheus"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto One Power",
+          "codename": "chef"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO M3",
+          "codename": "citrus"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi Pad 4 / 4 Plus",
+          "codename": "clover"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note9",
+          "codename": "crownlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10",
+          "codename": "d1"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+",
+          "codename": "d2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+ 5G",
+          "codename": "d2x"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto Edge 30",
+          "codename": "dubai",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-30.12697/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G6 Plus",
+          "codename": "evert"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 10 / 10C / 10 Power",
+          "codename": "fog"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S7 Edge",
+          "codename": "hero2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S7",
+          "codename": "herolte"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi A2",
+          "codename": "jasmine_sprout"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Z5s",
+          "codename": "jd2019"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto One Vision / Motorola P50",
+          "codename": "kane"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Z6 Lite",
+          "codename": "kunlun2"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "K10 Note",
+          "codename": "kunlun2_row"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G7 Plus",
+          "codename": "lake"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 3S / 3X",
+          "codename": "land"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 9 Prime / POCO M2",
+          "codename": "lava"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 7 / 7S",
+          "codename": "lavender"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto One Fusion +",
+          "codename": "liber"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 9T / Redmi 9T NFC / Redmi 9 Power",
+          "codename": "lime"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi MIX",
+          "codename": "lithium"
+        },
+        {
+          "brand": "Samsung",
+          "model": "M52 5G",
+          "codename": "m52xq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-m52-5g.12703/?prefix_id=33"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 9",
+          "codename": "merlinx"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 4 / 4X",
+          "codename": "mido"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10",
+          "codename": "mojito"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Edge S / Moto G100",
+          "codename": "nio",
+          "forumUrl": "https://xdaforums.com/f/motorola-moto-g100-edge-s.12173/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G7 Power",
+          "codename": "ocean"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "3 / 3T",
+          "codename": "oneplus3"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi Max 2",
+          "codename": "oxygen"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto One Zoom",
+          "codename": "parker"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto X4",
+          "codename": "payton"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K30 / POCO X2",
+          "codename": "phoenix"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K30 5G",
+          "codename": "picasso"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K30i 5G",
+          "codename": "picasso_48m"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 8 Lite",
+          "codename": "platina"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G5 Plus",
+          "codename": "potter"
+        },
+        {
+          "brand": "Realme",
+          "model": "2 Pro",
+          "codename": "r2p"
+        },
+        {
+          "brand": "Realme",
+          "model": "5 / 5s / 5i",
+          "codename": "r5x"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K20 Pro / Mi 9T Pro",
+          "codename": "raphael"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X5 Pro 5G / Redmi Note 12 Pro Speed Edition",
+          "codename": "redwood"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G7",
+          "codename": "river"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 5",
+          "codename": "rosy"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 6 Pro",
+          "codename": "sakura"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G5S Plus",
+          "codename": "sanders"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 8 SE",
+          "codename": "sirius"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 11",
+          "codename": "spes"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S9+",
+          "codename": "star2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S9",
+          "codename": "starlte"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi A1",
+          "codename": "tissot"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto One Action",
+          "codename": "troika"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 6 Pro",
+          "codename": "tulip"
+        },
+        {
+          "brand": "Teracube",
+          "model": "One",
+          "codename": "v7101o"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Lite Zoom / Youth Edition",
+          "codename": "vangogh"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X4 Pro 5G / Redmi Note 11 Pro 5G / Redmi Note 11 Pro+ 5G / Redmi Note 11E Pro",
+          "codename": "veux"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 5 Plus",
+          "codename": "vince"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 5 Global / Pro",
+          "codename": "whyred"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Z6 Pro",
+          "codename": "zippo"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -7625,6 +8084,122 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Edge 30",
+          "codename": "dubai",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-30.12697/?prefix_id=33"
+        },
+        {
+          "brand": "Nothing",
+          "model": "phone (1)",
+          "codename": "phone1"
+        },
+        {
+          "brand": "Nothing",
+          "model": "phone (2)",
+          "codename": "phone2"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "8",
+          "codename": "oneplus8"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "8T",
+          "codename": "oneplus8t"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "8 Pro",
+          "codename": "oneplus8pro"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "9 / 9 Pro",
+          "codename": "oneplus9"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "9R",
+          "codename": "oneplus9r"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "M3",
+          "codename": "juice"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "M6 Pro",
+          "codename": "sky"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "X2",
+          "codename": "phoenix"
+        },
+        {
+          "brand": "Realme",
+          "model": "GT2",
+          "codename": "porsche"
+        },
+        {
+          "brand": "Realme",
+          "model": "GT Neo2 5G",
+          "codename": "bitra"
+        },
+        {
+          "brand": "Realme",
+          "model": "X50 Pro 5G Play",
+          "codename": "bladerunner_48m"
+        },
+        {
+          "brand": "Realme",
+          "model": "X50 Pro 5G",
+          "codename": "bladerunner"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "7A (4.19)",
+          "codename": "mi439_419"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Note 10",
+          "codename": "sunny"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Note 11 / Note 11 NFC",
+          "codename": "spes"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "12X",
+          "codename": "psyche"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "13 Ultra",
+          "codename": "ishtar"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10T / Mi 10T Pro",
+          "codename": "apollo"
+        },
+        {
+          "brand": "Qualcomm",
+          "model": "QRD SM72xx",
+          "codename": "lito"
+        },
+        {
+          "brand": "Qualcomm",
+          "model": "QRD SM8350",
+          "codename": "lahaina"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -9028,6 +9603,156 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone 5",
+          "codename": "X00QD"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max Pro M1",
+          "codename": "X00TD"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max M2",
+          "codename": "X01AD"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max Pro M2",
+          "codename": "X01BD"
+        },
+        {
+          "brand": "Lenovo",
+          "model": "Z5s",
+          "codename": "jd2019"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G5 Plus",
+          "codename": "potter"
+        },
+        {
+          "brand": "Motorola",
+          "model": "Moto G (5S) Plus",
+          "codename": "sanders"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 3/3T",
+          "codename": "oneplus3"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO M3 / Redmi 9T nfc/9 Power / note 9 4G",
+          "codename": "juice"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Poco X2",
+          "codename": "phoenix"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 3 Pro",
+          "codename": "RMX1851"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme XT",
+          "codename": "RMX1921"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 6/6i/6s",
+          "codename": "RMX2001"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 5 Pro",
+          "codename": "RMX1971"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy N9",
+          "codename": "crownqltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S9+",
+          "codename": "star2qltechn"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy S9",
+          "codename": "starqltechn"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10T/10T Pro",
+          "codename": "apollo"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 8 Pro",
+          "codename": "begonia"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10",
+          "codename": "mojito"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K20 Pro",
+          "codename": "raphael"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 4A/5a",
+          "codename": "rolex"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 5",
+          "codename": "rosy"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 6 Pro",
+          "codename": "sakura"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 11",
+          "codename": "spes"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi Note 10 Lite",
+          "codename": "toco"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 6 Pro",
+          "codename": "tulip"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 5 / 5 Plus",
+          "codename": "vince"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi S2",
+          "codename": "ysl"
+        },
+        {
+          "brand": "ZUK",
+          "model": "Z2 Plus",
+          "codename": "z2_plus"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -10422,6 +11147,141 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Asus",
+          "model": "ROG Phone II",
+          "codename": "I001D"
+        },
+        {
+          "brand": "Asus",
+          "model": "ROG Phone 3",
+          "codename": "obiwan"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone 6/6z",
+          "codename": "I01WD"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max Pro M2",
+          "codename": "X01BD"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone 9",
+          "codename": "AI2202"
+        },
+        {
+          "brand": "Motorola",
+          "model": "G8 Family",
+          "codename": "amogus"
+        },
+        {
+          "brand": "Nothing",
+          "model": "CMF Phone (1)",
+          "codename": "Tetris"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "3/3T",
+          "codename": "oneplus3"
+        },
+        {
+          "brand": "Realme",
+          "model": "XT",
+          "codename": "RMX1921"
+        },
+        {
+          "brand": "Realme",
+          "model": "X50 Pro 5G",
+          "codename": "bladerunner"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note 9",
+          "codename": "crownlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S5e",
+          "codename": "gts4lvwifi"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S9",
+          "codename": "starlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S9+",
+          "codename": "star2lte"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10T",
+          "codename": "apollo"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO M3 / Redmi 9T / Redmi 9 Power / Redmi Note 9 4G",
+          "codename": "chime"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F7 / Redmi Turbo 4 Pro",
+          "codename": "onyx"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Poco X2 / Redmi K30",
+          "codename": "phoenix"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K20 Pro / Mi 9T Pro",
+          "codename": "raphael"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10",
+          "codename": "mojito"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 3",
+          "codename": "kenzo"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 7/7S",
+          "codename": "lavender"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 5",
+          "codename": "vince"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 8 Pro",
+          "codename": "begonia"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 12 5g/Poco M6 Pro/ Redmi Note 12R",
+          "codename": "sky"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A70",
+          "codename": "a70q"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X4 Pro / Redmi Note 11 Pro / 11 Pro + / 11E Pro",
+          "codename": "veux"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -11831,6 +12691,127 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel Tablet",
+          "codename": "tangorpro"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel Fold",
+          "codename": "felix"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 10 pro",
+          "codename": "wly"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X4 Pro 5G",
+          "codename": "veux"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X5 5G/REDMI NOTE 12 5G",
+          "codename": "stone"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X5 Pro 5G",
+          "codename": "redwood"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO X6 5G",
+          "codename": "garnetp"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO M6 Pro 5G",
+          "codename": "sky"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F7",
+          "codename": "onyx"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F4 GT",
+          "codename": "ingres"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme GT2 pro",
+          "codename": "ferrari"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 7/Narzo 20 Pro/Narzo 30 4G",
+          "codename": "salaa"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10",
+          "codename": "sunny"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 12 4G",
+          "codename": "topaz/tapas"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10 Pro",
+          "codename": "sweet/sweetin"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung A71 4G",
+          "codename": "a71"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung A73 5G",
+          "codename": "a73xq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a73-5g.12667/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S6 Lite LTE",
+          "codename": "gta4xl"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Samsung Galaxy Tab S6 Lite WiFi",
+          "codename": "gta4xlwifi"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 9",
+          "codename": "cepheus"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10T/Mi 10T pro",
+          "codename": "apollo"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi Note 10 Lite",
+          "codename": "toco"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi Pad 6",
+          "codename": "pipa"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi 12 Lite",
+          "codename": "taoyao"
         }
       ],
       "downloadLabel": "Devices and builds",
@@ -11879,19 +12860,24 @@
       ],
       "devices": [
         {
-          "brand": "Google",
-          "model": "Pixel",
-          "codename": "sailfish"
+          "brand": "Asus",
+          "model": "ROG Phone 2 (ZS660KL)",
+          "codename": "I001D"
         },
         {
-          "brand": "Google",
-          "model": "Pixel 2",
-          "codename": "walleye"
+          "brand": "Asus",
+          "model": "ROG Phone 3",
+          "codename": "obiwan"
         },
         {
-          "brand": "Google",
-          "model": "Pixel 2 XL",
-          "codename": "taimen"
+          "brand": "Asus",
+          "model": "Zenfone 5Z (ZS620KL)",
+          "codename": "Z01R"
+        },
+        {
+          "brand": "Asus",
+          "model": "Zenfone Max Pro M2",
+          "codename": "X01BD"
         },
         {
           "brand": "Google",
@@ -11900,132 +12886,14 @@
         },
         {
           "brand": "Google",
-          "model": "Pixel 3 XL",
-          "codename": "crosshatch"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 3a",
-          "codename": "sargo"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 3a XL",
-          "codename": "bonito"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 4",
-          "codename": "flame"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 4 XL",
-          "codename": "coral"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 4a",
-          "codename": "sunfish"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 4a 5G",
-          "codename": "bramble"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 5",
-          "codename": "redfin"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 5a",
-          "codename": "barbet",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-5a.12359/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 6",
-          "codename": "oriole",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-6.12311/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 6 Pro",
-          "codename": "raven",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-6-pro.12313/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
           "model": "Pixel 6a",
           "codename": "bluejay",
           "forumUrl": "https://xdaforums.com/f/google-pixel-6a.12605/?prefix_id=33"
         },
         {
-          "brand": "Google",
-          "model": "Pixel 7",
-          "codename": "panther",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-7.12607/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 7 Pro",
-          "codename": "cheetah",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-7-pro.12609/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 7a",
-          "codename": "lynx",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-7a.12743/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 8",
-          "codename": "shiba",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-8.12799/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 8 Pro",
-          "codename": "husky",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-8-pro.12801/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 8a",
-          "codename": "akita",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-8a.12851/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9",
-          "codename": "tokay",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9.12879/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9 Pro",
-          "codename": "caiman",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9 Pro XL",
-          "codename": "komodo",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9-pro-9-pro-xl.12880/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel 9a",
-          "codename": "tegu",
-          "forumUrl": "https://xdaforums.com/f/google-pixel-9a.12927/?prefix_id=33"
-        },
-        {
-          "brand": "Google",
-          "model": "Pixel XL",
-          "codename": "marlin"
+          "brand": "Lenovo",
+          "model": "Z6 Pro",
+          "codename": "zippo"
         },
         {
           "brand": "Nothing",
@@ -12034,257 +12902,25 @@
           "forumUrl": "https://xdaforums.com/f/nothing-phone-1.12585/?prefix_id=33"
         },
         {
-          "brand": "Nothing",
-          "model": "Phone (2)",
-          "codename": "Pong",
-          "forumUrl": "https://xdaforums.com/f/nothing-phone-2.12739/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "11 5G",
-          "codename": "salami",
-          "forumUrl": "https://xdaforums.com/f/oneplus-11r-ace-2.12717/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "12",
-          "codename": "waffle",
-          "forumUrl": "https://xdaforums.com/f/oneplus-12.12820/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "12R",
-          "codename": "aston",
-          "forumUrl": "https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "13",
-          "codename": "dodge",
-          "forumUrl": "https://xdaforums.com/f/oneplus-13.12893/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "13R",
-          "codename": "giulia",
-          "forumUrl": "https://xdaforums.com/f/oneplus-13r-ace-5.12915/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "5",
-          "codename": "cheeseburger"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "5T",
-          "codename": "dumpling"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "6",
-          "codename": "enchilada"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "6T",
-          "codename": "fajita"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "6T (T-Mobile)",
-          "codename": "fajita"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7",
-          "codename": "guacamoleb"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7 Pro",
-          "codename": "guacamole"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7 Pro (T-Mobile)",
-          "codename": "guacamole"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7T",
-          "codename": "hotdogb"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7T (T-Mobile)",
-          "codename": "hotdogb"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "7T Pro",
-          "codename": "hotdog"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "8",
-          "codename": "instantnoodle"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "8 (T-Mobile)",
-          "codename": "instantnoodle"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "8 Pro",
-          "codename": "instantnoodlep"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "8T",
-          "codename": "kebab"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "8T (T-Mobile)",
-          "codename": "kebab"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9",
-          "codename": "lemonade",
-          "forumUrl": "https://xdaforums.com/f/oneplus-11.12687/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9 (T-Mobile)",
-          "codename": "lemonade",
-          "forumUrl": "https://xdaforums.com/f/oneplus-11.12687/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9 Pro",
-          "codename": "lemonadep",
-          "forumUrl": "https://xdaforums.com/f/oneplus-9-pro.12153/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9 Pro (T-Mobile)",
-          "codename": "lemonadep",
-          "forumUrl": "https://xdaforums.com/f/oneplus-9-pro.12153/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9R",
-          "codename": "lemonades",
-          "forumUrl": "https://xdaforums.com/f/oneplus-9r.12183/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "9RT",
-          "codename": "martini",
-          "forumUrl": "https://xdaforums.com/f/oneplus-9rt.12505/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 3",
-          "codename": "astonc",
-          "forumUrl": "https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 3 Pro",
-          "codename": "corvette",
-          "forumUrl": "https://xdaforums.com/f/oneplus-ace-3-pro.12865/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 3V",
-          "codename": "audi",
-          "forumUrl": "https://xdaforums.com/f/oneplus-nord-4-ace-3v.12866/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Ace 5",
-          "codename": "giuliac",
-          "forumUrl": "https://xdaforums.com/f/oneplus-13r-ace-5.12915/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord",
-          "codename": "avicii"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord 4",
-          "codename": "avalon",
-          "forumUrl": "https://xdaforums.com/f/oneplus-nord-4-ace-3v.12866/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord 5",
-          "codename": "lexus",
-          "forumUrl": "https://xdaforums.com/f/oneplus-nord-5.12937/?prefix_id=33"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord CE 2 Lite 5G",
-          "codename": "oscaro"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord CE 3 Lite 5G",
-          "codename": "larry"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord CE4",
-          "codename": "benz"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N10",
-          "codename": "billie"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N20",
-          "codename": "gunnar"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N200",
-          "codename": "dre"
-        },
-        {
-          "brand": "OnePlus",
-          "model": "Nord N30 5G",
-          "codename": "larry"
-        },
-        {
           "brand": "Realme",
-          "model": "10 Pro 5G",
-          "codename": "luigi"
+          "model": "3 Pro",
+          "codename": "RMX1851"
         },
         {
-          "brand": "Realme",
-          "model": "9 5G",
-          "codename": "oscar"
+          "brand": "Samsung",
+          "model": "Galaxy S23",
+          "codename": "dm1q",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-s23.12707/?prefix_id=33"
         },
         {
-          "brand": "Realme",
-          "model": "9 Pro 5G",
-          "codename": "oscar"
+          "brand": "Samsung",
+          "model": "Galaxy Tab S5e (LTE)",
+          "codename": "gts4lv"
         },
         {
-          "brand": "Realme",
-          "model": "GT Neo6",
-          "codename": "bale"
-        },
-        {
-          "brand": "Realme",
-          "model": "Q5",
-          "codename": "oscar"
+          "brand": "Samsung",
+          "model": "Galaxy Tab S5e (Wi-Fi)",
+          "codename": "gts4lvwifi"
         },
         {
           "brand": "Xiaomi",
@@ -12300,251 +12936,15 @@
         },
         {
           "brand": "Xiaomi",
-          "model": "12",
-          "codename": "cupid"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "12 Pro",
-          "codename": "zeus",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12-pro.12493/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "12S",
-          "codename": "mayfly",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12s.12647/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "12S Pro",
-          "codename": "unicorn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12s-pro.12645/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "12S Ultra",
-          "codename": "thor",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12s-ultra.12643/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "12T Pro",
-          "codename": "diting",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12t-pro-redmi-k50-ultra.12673/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "13",
-          "codename": "fuxi",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-13.12681/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "13 Pro",
-          "codename": "nuwa",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-13-pro.12683/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Black Shark",
-          "codename": "shark"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10",
-          "codename": "umi"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10 Lite 5G",
-          "codename": "monet"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10 Pro",
-          "codename": "cmi"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10 Ultra",
-          "codename": "cas"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10i 5G",
-          "codename": "gauguin"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10S",
-          "codename": "thyme"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10T",
-          "codename": "apollon"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10T Lite 5G",
-          "codename": "gauguin"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 10T Pro",
-          "codename": "apollon"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 11",
-          "codename": "venus",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11.12057/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "Mi 11 LE",
           "codename": "lisa",
           "forumUrl": "https://xdaforums.com/f/xiaomi-11-lite-5g-ne.12519/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Mi 11 Lite 5G",
-          "codename": "renoir",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11-lite-5g.12189/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 11 Pro",
-          "codename": "mars"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 11i",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "Mi 11X",
           "codename": "alioth",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 11X Pro",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 5",
-          "codename": "gemini"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 5s Plus",
-          "codename": "natrium"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 6",
-          "codename": "sagit"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 8",
-          "codename": "dipper"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 8 Explorer Edition",
-          "codename": "ursa"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 8 Pro",
-          "codename": "equuleus"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 9 Lite",
-          "codename": "pyxis"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 9 SE",
-          "codename": "grus"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi 9T",
-          "codename": "davinci"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi A3",
-          "codename": "laurel_sprout"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi CC9",
-          "codename": "pyxis"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi CC9 Meitu Edition",
-          "codename": "vela"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi CC9 Pro",
-          "codename": "tucana"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi MIX 2",
-          "codename": "chiron"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi MIX 2S",
-          "codename": "polaris"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi MIX 3",
-          "codename": "perseus"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi Note 10",
-          "codename": "tucana"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi Note 10 Pro",
-          "codename": "tucana"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi Note 2",
-          "codename": "scorpio"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO C55",
-          "codename": "earth"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F1",
-          "codename": "beryllium"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F2 Pro",
-          "codename": "lmi"
         },
         {
           "brand": "Xiaomi",
@@ -12572,21 +12972,9 @@
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO F5 Pro",
-          "codename": "mondrian",
-          "forumUrl": "https://xdaforums.com/f/poco-f5-pro-redmi-k60-china.12741/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "POCO F6",
           "codename": "peridot",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-redmi-turbo-3.12852/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F6 Pro",
-          "codename": "vermeer",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-pro-redmi-k70.12853/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
@@ -12595,71 +12983,13 @@
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO M5s",
-          "codename": "rosemary"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "POCO X3 NFC",
           "codename": "surya"
         },
         {
           "brand": "Xiaomi",
-          "model": "POCO X3 Pro",
-          "codename": "vayu",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-x3-pro.12163/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO X6 5G",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO X6 5G (India)",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 12C",
-          "codename": "earth"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 12C NFC",
-          "codename": "earth"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 3S",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 3X",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 4 (India)",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 4A",
-          "codename": "Mi8917"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 4X",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi 5A",
-          "codename": "Mi8917"
+          "model": "Redmi 4(X)",
+          "codename": "santoni"
         },
         {
           "brand": "Xiaomi",
@@ -12688,70 +13018,15 @@
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi K20 (China)",
-          "codename": "davinci"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K20 (India)",
-          "codename": "davinci"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K30 Pro",
-          "codename": "lmi"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K30S Ultra",
-          "codename": "apollon"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "Redmi K40",
           "codename": "alioth",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi K40 Pro",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K40 Pro+",
-          "codename": "haydn",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-mi-11i-11x-pro-redmi-k40-pro.12191/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "Redmi K40S",
           "codename": "munch",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f4-munch-redmi-k40s.12661/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K50 Ultra",
-          "codename": "diting",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-12t-pro-redmi-k50-ultra.12673/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K60",
-          "codename": "mondrian",
-          "forumUrl": "https://xdaforums.com/f/poco-f5-pro-redmi-k60-china.12741/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K60 Pro",
-          "codename": "socrates"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi K70",
-          "codename": "vermeer",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f6-pro-redmi-k70.12853/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
@@ -12778,67 +13053,19 @@
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 10S",
-          "codename": "rosemary"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 10S Latin America",
-          "codename": "rosemary"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 10S NFC",
-          "codename": "rosemary"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "Redmi Note 12 Turbo",
           "codename": "marble",
           "forumUrl": "https://xdaforums.com/f/xiaomi-poco-f5-redmi-note-12-turbo-china.12733/?prefix_id=33"
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Note 13 Pro 5G",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 13 Pro 5G (China)",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 13 Pro 5G (India)",
-          "codename": "garnet",
-          "forumUrl": "https://xdaforums.com/f/xiaomi-redmi-note-13-pro-5g-poco-x6-5g.12860/?prefix_id=33"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 5A Lite",
-          "codename": "Mi8917"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 5A Prime",
-          "codename": "Mi8937"
+          "model": "Redmi Note 7",
+          "codename": "lavender"
         },
         {
           "brand": "Xiaomi",
           "model": "Redmi Note 7 Pro",
           "codename": "violet"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 8",
-          "codename": "ginkgo"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 8T",
-          "codename": "ginkgo"
         },
         {
           "brand": "Xiaomi",
@@ -12849,11 +13076,6 @@
           "brand": "Xiaomi",
           "model": "Redmi Note 9 Pro (India)",
           "codename": "miatoll"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 9 Pro 5G",
-          "codename": "gauguin"
         },
         {
           "brand": "Xiaomi",
@@ -12873,18 +13095,118 @@
         },
         {
           "brand": "Xiaomi",
-          "model": "Redmi Y1 Lite",
-          "codename": "Mi8917"
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Y1 Prime",
-          "codename": "Mi8937"
-        },
-        {
-          "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "ZUK",
+          "model": "Z2 Plus",
+          "codename": "z2_plus"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 5 Pro",
+          "codename": "RMX1971"
+        },
+        {
+          "brand": "Asus",
+          "model": "Asus Zenfone Max Pro M1",
+          "codename": "X00T"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10",
+          "codename": "mojito"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Poco X2",
+          "codename": "phoenix"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme 5 Series",
+          "codename": "r5x"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K20 Pro",
+          "codename": "raphael"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi 5 Plus",
+          "codename": "vince"
+        },
+        {
+          "brand": "Asus",
+          "model": "AI2202",
+          "codename": "AI2202"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "apollo",
+          "codename": "apollo"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 8 Pro",
+          "codename": "begonia"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi A2 Lite",
+          "codename": "daisy"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme X3/SuperZoom",
+          "codename": "x3"
+        },
+        {
+          "brand": "Realme",
+          "model": "Realme GT 2",
+          "codename": "porsche"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "star",
+          "codename": "star"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 12 5G / POCO X5 5G",
+          "codename": "stone"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 11 Pro/Poco X4 Pro",
+          "codename": "veux"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Pad",
+          "codename": "yunluo"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S23 Plus",
+          "codename": "dm2q"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q"
+        },
+        {
+          "brand": "Sony",
+          "model": "lilac",
+          "codename": "lilac"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 10",
+          "codename": "sunny"
         }
       ],
       "downloadLabel": "Official downloads",
