@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../data/catalog_repository.dart';
+import '../data/device_index.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../util/codename_aliases.dart';
 import '../util/request_project.dart';
 import '../util/xda_search.dart';
 import '../widgets/app_shell.dart';
@@ -32,6 +34,23 @@ class FindPhonePage extends StatefulWidget {
 class _FindPhonePageState extends State<FindPhonePage> {
   final TextEditingController _controller = TextEditingController();
   String _query = '';
+
+  /// Device recognised from the bundled dictionary when the catalog has no
+  /// match, so an unsupported phone still gets named instead of a dead end.
+  KnownDevice? _recognised;
+
+  @override
+  void initState() {
+    super.initState();
+    DeviceIndex.instance.load().then((_) {
+      if (mounted && _query.trim().isNotEmpty) setState(_resolveRecognised);
+    });
+  }
+
+  void _resolveRecognised() {
+    final String q = _query.trim();
+    _recognised = q.isEmpty ? null : DeviceIndex.instance.lookup(q);
+  }
 
   @override
   void dispose() {
@@ -60,23 +79,55 @@ class _FindPhonePageState extends State<FindPhonePage> {
     return out;
   }
 
+  /// Ranked search over brand, marketing name, codename and retail model
+  /// number. The query also runs through [codenameCandidates], so a phone that
+  /// reports `olive` or `rmx2151l1` finds the unified build it actually ships
+  /// under, exactly like on-device detection already does.
+  List<DeviceRef> _search(List<DeviceRef> all, String q) {
+    final List<String> candidates = codenameCandidates(q);
+    final List<(int, DeviceRef)> scored = <(int, DeviceRef)>[];
+
+    for (final DeviceRef d in all) {
+      final String codename = d.codename.toLowerCase();
+      final Iterable<String> numbers =
+          d.models.map((String m) => m.toLowerCase());
+
+      int score = -1;
+      if (numbers.any((String m) => m == q)) {
+        score = 0; // exact retail model number, the strongest signal
+      } else if (candidates
+          .any((String c) => catalogCodenameMatches(codename, c))) {
+        score = 1; // exact codename, including aliases and combined entries
+      } else if (numbers.any((String m) => m.contains(q))) {
+        score = 2;
+      } else if (codename.contains(q)) {
+        score = 3;
+      } else if (d.model.toLowerCase().contains(q)) {
+        score = 4;
+      } else if (d.brand.toLowerCase().contains(q)) {
+        score = 5;
+      }
+      if (score >= 0) scored.add((score, d));
+    }
+
+    scored.sort(((int, DeviceRef) a, (int, DeviceRef) b) {
+      if (a.$1 != b.$1) return a.$1.compareTo(b.$1);
+      final int byBrand =
+          a.$2.brand.toLowerCase().compareTo(b.$2.brand.toLowerCase());
+      if (byBrand != 0) return byBrand;
+      return a.$2.model.toLowerCase().compareTo(b.$2.model.toLowerCase());
+    });
+    return scored.take(200).map(((int, DeviceRef) e) => e.$2).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextTheme text = Theme.of(context).textTheme;
     final String q = _query.trim().toLowerCase();
     final List<DeviceRef> all = _allModels();
-    final List<DeviceRef> visible = q.isEmpty
-        ? const <DeviceRef>[]
-        : all
-            .where(
-              (DeviceRef d) =>
-                  d.brand.toLowerCase().contains(q) ||
-                  d.model.toLowerCase().contains(q) ||
-                  d.codename.toLowerCase().contains(q),
-            )
-            .take(200)
-            .toList();
+    final List<DeviceRef> visible =
+        q.isEmpty ? const <DeviceRef>[] : _search(all, q);
 
     return AppShell(
       title: 'Find my phone',
@@ -95,7 +146,10 @@ class _FindPhonePageState extends State<FindPhonePage> {
                   controller: _controller,
                   autofocus: true,
                   textInputAction: TextInputAction.search,
-                  onChanged: (String v) => setState(() => _query = v),
+                  onChanged: (String v) => setState(() {
+                    _query = v;
+                    _resolveRecognised();
+                  }),
                   decoration: InputDecoration(
                     hintText: 'Brand, model, or codename '
                         '(e.g. "Pixel 6", "alioth")',
@@ -107,7 +161,10 @@ class _FindPhonePageState extends State<FindPhonePage> {
                             tooltip: 'Clear',
                             onPressed: () {
                               _controller.clear();
-                              setState(() => _query = '');
+                              setState(() {
+                                _query = '';
+                                _recognised = null;
+                              });
                             },
                           ),
                     border: OutlineInputBorder(
@@ -151,15 +208,34 @@ class _FindPhonePageState extends State<FindPhonePage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text(
-                            'No device matches "$_query".\n\n'
-                            'Try the codename (e.g. "oriole" for Pixel 6), or '
-                            'a simpler brand + model spelling.',
-                            textAlign: TextAlign.center,
-                            style: text.bodyMedium?.copyWith(
-                              color: scheme.onSurfaceVariant,
+                          if (_recognised != null) ...<Widget>[
+                            Text(
+                              '${_recognised!.label} '
+                              '(${_recognised!.codename})',
+                              textAlign: TextAlign.center,
+                              style: text.titleMedium,
                             ),
-                          ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'We recognise your device, but no project in the '
+                              'catalog publishes a build for it yet. A Treble '
+                              'GSI is usually the way in, and XDA is where '
+                              'unofficial builds appear first.',
+                              textAlign: TextAlign.center,
+                              style: text.bodyMedium?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ] else
+                            Text(
+                              'No device matches "$_query".\n\n'
+                              'Try the codename (e.g. "oriole" for Pixel 6), or '
+                              'a simpler brand + model spelling.',
+                              textAlign: TextAlign.center,
+                              style: text.bodyMedium?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
+                            ),
                           const SizedBox(height: 20),
                           Wrap(
                             alignment: WrapAlignment.center,
@@ -261,7 +337,11 @@ class _DeviceMatchCard extends StatelessWidget {
               brandEntry == null ? const Icon(Icons.smartphone_outlined) : null,
         ),
         title: Text('${ref.brand} ${ref.model}'),
-        subtitle: Text('Codename: ${ref.codename}'),
+        subtitle: Text(
+          ref.models.isEmpty
+              ? 'Codename: ${ref.codename}'
+              : 'Codename: ${ref.codename}  ·  ${ref.models.take(3).join(', ')}',
+        ),
         trailing: Wrap(
           spacing: 6,
           crossAxisAlignment: WrapCrossAlignment.center,

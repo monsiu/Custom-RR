@@ -88,6 +88,10 @@ const String _evolutionxCacheDir = 'tool/.cache/evolutionx';
 const String _twrpDevicesPath = 'tool/data/twrp_devices.json';
 const String _orangefoxDevicesPath = 'tool/data/orangefox_devices.json';
 const String _eosDevicesPath = 'tool/data/eos_devices.json';
+// Retail model numbers from Google's public Play device catalog, trimmed to
+// the codenames we list by tool/fetch_play_devices.py. People search the
+// number on the box (SM-X205) far more often than the codename (gta8).
+const String _playDevicesPath = 'tool/data/play_devices.json';
 
 // Projects that publish a real supported-device roster. Each is the project's
 // own official list, so the catalog no longer has to guess from vendor/year.
@@ -186,18 +190,30 @@ List<_Device> _loadOrangefoxDevices() {
     final String vendor = _normalizeVendor(parts.first);
     final String model =
         parts.length > 1 ? parts.sublist(1).join(' ') : name;
-    for (final dynamic c in (m['codenames'] as List<dynamic>? ?? const <dynamic>[])) {
-      final String codename = _canonicalCodename(c.toString().trim());
-      if (codename.isEmpty || !seen.add(codename.toLowerCase())) continue;
-      out.add(_Device(
-        vendor: vendor,
-        codename: codename,
-        model: model,
-        type: 'phone',
-        currentBranch: '',
-        releaseYear: null,
-      ));
+    final List<String> chips = <String>[
+      for (final dynamic c in (m['codenames'] as List<dynamic>? ?? const <dynamic>[]))
+        c.toString().trim(),
+    ].where((String c) => c.isNotEmpty).toList();
+    if (chips.isEmpty) continue;
+    // The first chip is the codename; the rest are retail model numbers
+    // (CPH2653, PJZ110, ...) that people search for far more often.
+    final String codename = _canonicalCodename(chips.first);
+    final List<String> numbers = chips.skip(1).toList();
+    if (numbers.isNotEmpty) {
+      _extraModelNumbers
+          .putIfAbsent(codename.toLowerCase(), () => <String>[])
+          .addAll(numbers);
     }
+    if (!seen.add(codename.toLowerCase())) continue;
+    out.add(_Device(
+      vendor: vendor,
+      codename: codename,
+      model: model,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: null,
+      models: numbers,
+    ));
   }
   return out;
 }
@@ -300,6 +316,8 @@ Future<void> main(List<String> args) async {
   // never appear in the LineageOS wiki.
   final List<Map<String, String>> twrpDevices = _loadTwrpDevices();
   stdout.writeln('[sync] loaded ${twrpDevices.length} TWRP devices');
+
+  _loadPlayModelNumbers();
 
   final List<_Device> orangefoxDevices = _loadOrangefoxDevices();
   final List<_Device> orangefoxExtras = orangefoxDevices
@@ -923,6 +941,10 @@ List<_Device> _parseAllDevices(Directory devicesDir) {
       if (vendor.isEmpty || name.isEmpty || codename.isEmpty) continue;
       final String normalizedVendor = _normalizeVendor(vendor);
       if (excludedVendors.contains(normalizedVendor)) continue;
+      final List<String> models = <String>[
+        for (final dynamic m in (y['models'] as YamlList? ?? const <dynamic>[]))
+          if (m.toString().trim().isNotEmpty) m.toString().trim(),
+      ];
       out.add(
         _Device(
           vendor: normalizedVendor,
@@ -931,6 +953,7 @@ List<_Device> _parseAllDevices(Directory devicesDir) {
           type: type,
           currentBranch: currentBranch,
           releaseYear: _yearOf(release),
+          models: models,
         ),
       );
     } on Object catch (err) {
@@ -1392,13 +1415,69 @@ bool _yearAtLeast(_Device d, int year) =>
 List<Map<String, dynamic>> _toDeviceList(Iterable<_Device> devices) {
   return devices.map((_Device d) {
     final String? forum = _xdaDeviceForums[d.codename];
+    final List<String> models = _modelNumbersFor(d);
     return <String, dynamic>{
       'brand': d.vendor,
       'model': d.model,
       'codename': d.codename,
       'forumUrl': ?forum,
+      if (models.isNotEmpty) 'models': models,
     };
   }).toList();
+}
+
+/// Retail model numbers for a device: whatever the LineageOS wiki listed, plus
+/// any extra numbers other sources advertise for the same codename.
+List<String> _modelNumbersFor(_Device d) {
+  final Set<String> seen = <String>{};
+  final List<String> out = <String>[];
+  for (final String m in <String>[
+    ...d.models,
+    ...?_extraModelNumbers[d.codename.toLowerCase()],
+  ]) {
+    final String t = m.trim();
+    if (t.isEmpty || !seen.add(t.toLowerCase())) continue;
+    out.add(t);
+  }
+  return out;
+}
+
+/// codename -> extra retail model numbers, merged in from sources that publish
+/// them alongside the codename (the OrangeFox device cards and the Play
+/// device catalog snapshot).
+Map<String, List<String>> _extraModelNumbers = <String, List<String>>{};
+
+/// Seeds [_extraModelNumbers] from the Play device catalog snapshot.
+void _loadPlayModelNumbers() {
+  final File f = File(_playDevicesPath);
+  if (!f.existsSync()) {
+    stderr.writeln('[sync] WARN $_playDevicesPath missing; run '
+        'tool/fetch_play_devices.py to add retail model numbers.');
+    return;
+  }
+  int count = 0;
+  try {
+    final Map<String, dynamic> raw =
+        jsonDecode(f.readAsStringSync()) as Map<String, dynamic>;
+    raw.forEach((String codename, dynamic value) {
+      final List<String> models = <String>[
+        for (final dynamic m in ((value as Map<String, dynamic>)['models']
+                as List<dynamic>? ??
+            const <dynamic>[]))
+          m.toString().trim(),
+      ].where((String m) => m.isNotEmpty).toList();
+      if (models.isEmpty) return;
+      _extraModelNumbers
+          .putIfAbsent(codename.toLowerCase(), () => <String>[])
+          .addAll(models);
+      count += models.length;
+    });
+  } on Object catch (e) {
+    stderr.writeln('[sync] could not parse $_playDevicesPath: $e');
+    return;
+  }
+  stdout.writeln('[sync] loaded $count retail model numbers from the Play '
+      'device catalog');
 }
 
 /// Curated per-codename XDA Developers forum category URLs.
@@ -3403,11 +3482,14 @@ List<Map<String, dynamic>> _twrpDeviceList(List<Map<String, String>> rows) {
   return rows.map((Map<String, String> d) {
     final String codename = d['codename']!;
     final String? forum = _xdaDeviceForums[codename];
+    final List<String>? models = _extraModelNumbers[codename.toLowerCase()];
     return <String, dynamic>{
       'brand': d['brand'],
       'model': d['model'],
       'codename': codename,
       'forumUrl': ?forum,
+      if (models != null && models.isNotEmpty)
+        'models': models.toSet().toList(),
     };
   }).toList();
 }
@@ -3748,6 +3830,7 @@ class _Device {
     required this.type,
     required this.currentBranch,
     required this.releaseYear,
+    this.models = const <String>[],
   });
 
   final String vendor;
@@ -3756,6 +3839,10 @@ class _Device {
   final String type;
   final String currentBranch;
   final int? releaseYear;
+
+  /// Retail model numbers (SM-A525F, CPH2653, ...). People search these far
+  /// more often than codenames, so they ship in the catalog.
+  final List<String> models;
 }
 
 /// Minimal codename/model pair used to inject ROM-specific devices that the

@@ -95,6 +95,7 @@ class DeviceRef {
     this.codename = '',
     this.url = '',
     this.forumUrl = '',
+    this.models = const <String>[],
   });
 
   /// Manufacturer label that must match a [DeviceEntry.name].
@@ -113,6 +114,11 @@ class DeviceRef {
   /// the XDA Developers thread maintained by the device maintainer.
   final String forumUrl;
 
+  /// Retail model numbers for this device (e.g. `SM-A525F`, `CPH2653`).
+  /// People know the number printed on the box far more often than the
+  /// codename, so these are what most searches actually match on.
+  final List<String> models;
+
   factory DeviceRef.fromJson(Map<String, dynamic> json) {
     return DeviceRef(
       brand: json['brand'] as String,
@@ -120,6 +126,7 @@ class DeviceRef {
       codename: (json['codename'] as String?) ?? '',
       url: (json['url'] as String?) ?? '',
       forumUrl: (json['forumUrl'] as String?) ?? '',
+      models: _stringList(json['models']),
     );
   }
 }
