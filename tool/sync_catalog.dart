@@ -741,6 +741,63 @@ _Policy _policyFor(String romId) {
         'xz2c', // Sony Xperia XZ2 Compact
       };
       return (_Device d) => axposCodenames.contains(d.codename);
+    case 'iodeos':
+      // iodéOS ships one OTA manifest per supported codename in the public
+      // iode/ota repo on GitLab, which is the authoritative device list.
+      // Mirror those codenames here rather than guessing from vendor/year.
+      // Devices not present in the LineageOS wiki pool simply do not appear.
+      const Set<String> iodeCodenames = <String>{
+        'FP3', // Fairphone 3 / 3+
+        'FP4', // Fairphone 4
+        'FP5', // Fairphone 5
+        'axolotl', // SHIFT SHIFT6mq
+        '2e', // Teracube 2e
+        'blueline', // Pixel 3
+        'flame', // Pixel 4
+        'redfin', // Pixel 5
+        'oriole', // Pixel 6
+        'raven', // Pixel 6 Pro
+        'bluejay', // Pixel 6a
+        'panther', // Pixel 7
+        'cheetah', // Pixel 7 Pro
+        'lynx', // Pixel 7a
+        'shiba', // Pixel 8
+        'husky', // Pixel 8 Pro
+        'a52sxq', // Galaxy A52s 5G
+        'a5y17lte', // Galaxy A5 (2017)
+        'a7y17lte', // Galaxy A7 (2017)
+        'beyond0lte', // Galaxy S10e
+        'beyond1lte', // Galaxy S10
+        'beyond2lte', // Galaxy S10+
+        'beyondx', // Galaxy S10 5G
+        'crownlte', // Galaxy Note 9
+        'star2lte', // Galaxy S9+
+        'starlte', // Galaxy S9
+        'd1', // Galaxy Note 10
+        'd2s', // Galaxy Note 10+
+        'd2x', // Galaxy Note 10+ 5G
+        'gts4lv', // Galaxy Tab S5e LTE
+        'gts4lvwifi', // Galaxy Tab S5e Wi-Fi
+        'apollon', // Xiaomi Mi 10T / 10T Pro
+        'cepheus', // Xiaomi Mi 9
+        'monet', // Xiaomi Mi 10 Lite 5G
+        'emerald', // Xiaomi Mi Note 10 Lite
+        'dubai', // Redmi Note 10 Pro / Mi 11i
+        'lemonade', // OnePlus 9
+        'lemonadep', // OnePlus 9 Pro
+        'salami', // OnePlus 11
+        'devon', // Motorola Edge 30
+        'hawao', // Motorola Edge 20 Lite
+        'rtwo', // Motorola Edge 40 / Edge 30 Neo family
+        'rhode', // Motorola Moto G family
+        'akari', // Sony Xperia 1
+        'akatsuki', // Sony Xperia 5
+        'pdx234', // Sony Xperia 1 V
+        'pdx237', // Sony Xperia 10 V
+        'pioneer', // Sony Xperia 5 II
+        'poplar', // Sony Xperia XZ2 Premium
+      };
+      return (_Device d) => iodeCodenames.contains(d.codename);
     case 'derpfest':
       return (_Device d) =>
           d.type == 'phone' &&
@@ -1999,6 +2056,55 @@ List<Map<String, dynamic>> _buildRoms(
           label: 'Website (Wayback)',
           url: 'https://web.archive.org/web/2024/https://divestos.org/',
           iconName: 'web',
+        ),
+      ],
+    ),
+    _RomSpec(
+      id: 'iodeos',
+      name: 'iodéOS',
+      headerAsset: 'images/iodeos.png',
+      shortTagline:
+          'De-Googled LineageOS with a built-in ad and tracker blocker, by the French iodé team.',
+      description: <String>[
+        'iodéOS is a LineageOS-based, de-Googled Android built around a system-wide ad and tracker blocker that filters traffic for every app, not just the browser.',
+        'The iodé app shows what each app tried to contact and lets you allow or block trackers per app, with microG available for apps that need Google services.',
+        'iodé is a French company that also sells new and refurbished phones with the OS pre-installed, and funds development from those sales rather than from user data.',
+      ],
+      features: <String>[
+        'System-wide ad and tracker blocking with per-app control.',
+        'Fully de-Googled, with optional microG for compatibility.',
+        'Dashboard showing which trackers each app tried to reach.',
+        'Official builds for Fairphone, Pixel, Samsung, Sony, Xiaomi and more.',
+      ],
+      // iodé publishes marketing renders rather than a raw screenshot gallery,
+      // so use the official product imagery from the 2025 site refresh.
+      screenshots: <String>[
+        'https://iode.tech/wp-content/uploads/2025/03/iodeOS-1024x754.png',
+        'https://iode.tech/wp-content/uploads/2025/03/iode-devices-768x563.png',
+      ],
+      downloadLabel: 'Official downloads',
+      downloadUrl: 'https://iode.tech/installation/',
+      forumUrl: 'https://community.iode.tech/',
+      links: <_RomLink>[
+        _RomLink(
+          label: 'Website',
+          url: 'https://iode.tech/iodeos/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'GitLab',
+          url: 'https://gitlab.iode.tech/',
+          iconName: 'github',
+        ),
+        _RomLink(
+          label: 'Documentation',
+          url: 'https://iode.tech/documentation/',
+          iconName: 'web',
+        ),
+        _RomLink(
+          label: 'Community',
+          url: 'https://community.iode.tech/',
+          iconName: 'forum',
         ),
       ],
     ),

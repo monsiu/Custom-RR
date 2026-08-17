@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-07-29T20:37:19.432907Z",
+  "_generatedAt": "2026-08-17T17:42:02.288880Z",
   "roms": [
     {
       "id": "lineage",
@@ -20196,6 +20196,341 @@
           "label": "Website (Wayback)",
           "url": "https://web.archive.org/web/2024/https://divestos.org/",
           "iconName": "web"
+        }
+      ]
+    },
+    {
+      "id": "iodeos",
+      "name": "iodéOS",
+      "headerAsset": "images/iodeos.png",
+      "shortTagline": "De-Googled LineageOS with a built-in ad and tracker blocker, by the French iodé team.",
+      "description": [
+        "iodéOS is a LineageOS-based, de-Googled Android built around a system-wide ad and tracker blocker that filters traffic for every app, not just the browser.",
+        "The iodé app shows what each app tried to contact and lets you allow or block trackers per app, with microG available for apps that need Google services.",
+        "iodé is a French company that also sells new and refurbished phones with the OS pre-installed, and funds development from those sales rather than from user data."
+      ],
+      "features": [
+        "System-wide ad and tracker blocking with per-app control.",
+        "Fully de-Googled, with optional microG for compatibility.",
+        "Dashboard showing which trackers each app tried to reach.",
+        "Official builds for Fairphone, Pixel, Samsung, Sony, Xiaomi and more."
+      ],
+      "screenshots": [
+        "https://iode.tech/wp-content/uploads/2025/03/iodeOS-1024x754.png",
+        "https://iode.tech/wp-content/uploads/2025/03/iode-devices-768x563.png"
+      ],
+      "devices": [
+        {
+          "brand": "Fairphone",
+          "model": "3",
+          "codename": "FP3",
+          "forumUrl": "https://xdaforums.com/f/fairphone-3-3.12787/?prefix_id=33"
+        },
+        {
+          "brand": "Fairphone",
+          "model": "3+",
+          "codename": "FP3",
+          "forumUrl": "https://xdaforums.com/f/fairphone-3-3.12787/?prefix_id=33"
+        },
+        {
+          "brand": "Fairphone",
+          "model": "4",
+          "codename": "FP4",
+          "forumUrl": "https://xdaforums.com/f/fairphone-4.12789/?prefix_id=33"
+        },
+        {
+          "brand": "Fairphone",
+          "model": "5",
+          "codename": "FP5",
+          "forumUrl": "https://xdaforums.com/f/fairphone-5.12791/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 3",
+          "codename": "blueline"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 4",
+          "codename": "flame"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 5",
+          "codename": "redfin"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 6",
+          "codename": "oriole",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-6.12311/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 6 Pro",
+          "codename": "raven",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-6-pro.12313/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 6a",
+          "codename": "bluejay",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-6a.12605/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7",
+          "codename": "panther",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7.12607/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7 Pro",
+          "codename": "cheetah",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7-pro.12609/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 7a",
+          "codename": "lynx",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-7a.12743/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 8",
+          "codename": "shiba",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-8.12799/?prefix_id=33"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 8 Pro",
+          "codename": "husky",
+          "forumUrl": "https://xdaforums.com/f/google-pixel-8-pro.12801/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge 30",
+          "codename": "dubai",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-30.12697/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge 40 pro",
+          "codename": "rtwo",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge+ (2023)",
+          "codename": "rtwo",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g32",
+          "codename": "devon",
+          "forumUrl": "https://xdaforums.com/f/motorola-moto-g32.12803/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g42",
+          "codename": "hawao",
+          "forumUrl": "https://xdaforums.com/f/moto-g42.12629/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g52",
+          "codename": "rhode",
+          "forumUrl": "https://xdaforums.com/f/motorola-moto-g52.12797/?prefix_id=33"
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto X40",
+          "codename": "rtwo",
+          "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "11 5G",
+          "codename": "salami",
+          "forumUrl": "https://xdaforums.com/f/oneplus-11r-ace-2.12717/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "9",
+          "codename": "lemonade",
+          "forumUrl": "https://xdaforums.com/f/oneplus-11.12687/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "9 (T-Mobile)",
+          "codename": "lemonade",
+          "forumUrl": "https://xdaforums.com/f/oneplus-11.12687/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "9 Pro",
+          "codename": "lemonadep",
+          "forumUrl": "https://xdaforums.com/f/oneplus-9-pro.12153/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "9 Pro (T-Mobile)",
+          "codename": "lemonadep",
+          "forumUrl": "https://xdaforums.com/f/oneplus-9-pro.12153/?prefix_id=33"
+        },
+        {
+          "brand": "SHIFT",
+          "model": "SHIFT6mq",
+          "codename": "axolotl"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A5 (2017)",
+          "codename": "a5y17lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A52s 5G",
+          "codename": "a52sxq",
+          "forumUrl": "https://xdaforums.com/f/samsung-galaxy-a52s-5g.12587/?prefix_id=33"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A7 (2017)",
+          "codename": "a7y17lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note 9",
+          "codename": "crownlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10",
+          "codename": "d1"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+",
+          "codename": "d2s"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Note10+ 5G",
+          "codename": "d2x"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10",
+          "codename": "beyond1lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10 5G",
+          "codename": "beyondx"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10+",
+          "codename": "beyond2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S10e",
+          "codename": "beyond0lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S9",
+          "codename": "starlte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S9+",
+          "codename": "star2lte"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S5e (LTE)",
+          "codename": "gts4lv"
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy Tab S5e (Wi-Fi)",
+          "codename": "gts4lvwifi"
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia 1 V",
+          "codename": "pdx234",
+          "forumUrl": "https://xdaforums.com/f/sony-xperia-1-v.12749/?prefix_id=33"
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia 5 V",
+          "codename": "pdx237",
+          "forumUrl": "https://xdaforums.com/f/sony-xperia-5-v.12795/?prefix_id=33"
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia XA2",
+          "codename": "pioneer"
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia XZ2",
+          "codename": "akari"
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia XZ3",
+          "codename": "akatsuki"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10 Lite 5G",
+          "codename": "monet"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10T",
+          "codename": "apollon"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Mi 10T Pro",
+          "codename": "apollon"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi K30S Ultra",
+          "codename": "apollon"
+        }
+      ],
+      "downloadLabel": "Official downloads",
+      "downloadUrl": "https://iode.tech/installation/",
+      "forumUrl": "https://community.iode.tech/",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://iode.tech/iodeos/",
+          "iconName": "web"
+        },
+        {
+          "label": "GitLab",
+          "url": "https://gitlab.iode.tech/",
+          "iconName": "github"
+        },
+        {
+          "label": "Documentation",
+          "url": "https://iode.tech/documentation/",
+          "iconName": "web"
+        },
+        {
+          "label": "Community",
+          "url": "https://community.iode.tech/",
+          "iconName": "forum"
         }
       ]
     },
