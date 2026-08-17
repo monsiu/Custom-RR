@@ -24,7 +24,17 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:custom_rr/util/codename_aliases.dart';
 import 'package:yaml/yaml.dart';
+
+/// Folds a scraped codename onto the codename the catalog already builds
+/// around, using the same alias table the app uses for on-device detection.
+/// Without this, a source that lists `olive` separately would split the Redmi 8
+/// away from the unified `mi439` entry that carries most of its builds.
+String _canonicalCodename(String codename) {
+  final String lower = codename.toLowerCase();
+  return kCodenameAliases[lower] ?? codename;
+}
 
 const String _wikiTarUrl =
     'https://github.com/LineageOS/lineage_wiki/archive/refs/heads/main.tar.gz';
@@ -51,11 +61,33 @@ const Map<String, String> _infinityxBranchTarUrls = <String, String>{
 };
 const String _infinityxCacheDir = 'tool/.cache/infinityx';
 
+// crDroid and Evolution X both publish their authoritative rosters as one OTA
+// manifest per codename in a public repo (each manifest carries the oem and
+// device name). Their websites render those lists client-side, so the repos
+// are the only server-fetchable source. Several supported branches are live at
+// once, so union the recent ones the way each downloads page does.
+const String _crdroidOtaRepo = 'crdroidandroid/android_vendor_crDroidOTA';
+const List<String> _crdroidOtaBranches = <String>[
+  '12.0',
+  '13.0',
+  '14.0',
+  '15.0',
+  '16.0',
+];
+const String _crdroidCacheDir = 'tool/.cache/crdroid';
+
+const String _evolutionxOtaRepo = 'Evolution-X/OTA';
+// Branches are Android release code names: udc = 14, vic = 15, bka = 16.
+const List<String> _evolutionxOtaBranches = <String>['udc', 'vic', 'bka'];
+const String _evolutionxCacheDir = 'tool/.cache/evolutionx';
+
 // The official TWRP device roster, scraped from https://twrp.me/Devices/ into
 // a committed snapshot by tool/scrape_twrp.dart. We read the snapshot (not the
 // live site) so the generated catalog stays deterministic for the CI drift
 // check. Refresh it with: dart run tool/scrape_twrp.dart.
 const String _twrpDevicesPath = 'tool/data/twrp_devices.json';
+const String _orangefoxDevicesPath = 'tool/data/orangefox_devices.json';
+const String _eosDevicesPath = 'tool/data/eos_devices.json';
 
 // Maps a few TWRP brand spellings onto the catalog's canonical vendor names so
 // the same manufacturer never shows up twice (e.g. as both "Nvidia" and the
@@ -108,6 +140,75 @@ List<Map<String, String>> _loadTwrpDevices() {
   return out;
 }
 
+/// Reads the committed OrangeFox snapshot (tool/data/orangefox_devices.json,
+/// scraped from the R12 download site). One card can cover several codenames,
+/// so every alias is expanded into its own record. Additive: devices the site
+/// no longer advertises stay on whatever the policy already matched, since
+/// legacy R11 builds are still downloadable.
+List<_Device> _loadOrangefoxDevices() {
+  final File f = File(_orangefoxDevicesPath);
+  if (!f.existsSync()) {
+    stderr.writeln('[sync] WARN $_orangefoxDevicesPath missing; '
+        'falling back to the policy-derived OrangeFox list.');
+    return const <_Device>[];
+  }
+  final List<_Device> out = <_Device>[];
+  final Set<String> seen = <String>{};
+  for (final dynamic e in jsonDecode(f.readAsStringSync()) as List<dynamic>) {
+    final Map<String, dynamic> m = e as Map<String, dynamic>;
+    final String name = ((m['name'] as String?) ?? '').trim();
+    if (name.isEmpty) continue;
+    final List<String> parts = name.split(' ');
+    final String vendor = _normalizeVendor(parts.first);
+    final String model =
+        parts.length > 1 ? parts.sublist(1).join(' ') : name;
+    for (final dynamic c in (m['codenames'] as List<dynamic>? ?? const <dynamic>[])) {
+      final String codename = _canonicalCodename(c.toString().trim());
+      if (codename.isEmpty || !seen.add(codename.toLowerCase())) continue;
+      out.add(_Device(
+        vendor: vendor,
+        codename: codename,
+        model: model,
+        type: 'phone',
+        currentBranch: '',
+        releaseYear: null,
+      ));
+    }
+  }
+  return out;
+}
+
+/// Reads the committed /e/OS snapshot (tool/data/eos_devices.json, scraped
+/// from doc.e.foundation/devices).
+List<_Device> _loadEosDevices() {
+  final File f = File(_eosDevicesPath);
+  if (!f.existsSync()) {
+    stderr.writeln('[sync] WARN $_eosDevicesPath missing; '
+        'falling back to the policy-derived /e/OS list.');
+    return const <_Device>[];
+  }
+  final List<_Device> out = <_Device>[];
+  final Set<String> seen = <String>{};
+  for (final dynamic e in jsonDecode(f.readAsStringSync()) as List<dynamic>) {
+    final Map<String, dynamic> m = e as Map<String, dynamic>;
+    final String codename =
+        _canonicalCodename(((m['codename'] as String?) ?? '').trim());
+    final String brand = ((m['brand'] as String?) ?? '').trim();
+    if (codename.isEmpty || brand.isEmpty) continue;
+    if (!seen.add(codename.toLowerCase())) continue;
+    final String model = ((m['model'] as String?) ?? '').trim();
+    out.add(_Device(
+      vendor: _normalizeVendor(brand),
+      codename: codename,
+      model: model.isEmpty ? codename : model,
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: null,
+    ));
+  }
+  return out;
+}
+
 Future<void> main(List<String> args) async {
   final bool refresh = args.contains('--refresh');
   final Directory cache = Directory('$_cacheDir/devices');
@@ -141,16 +242,63 @@ Future<void> main(List<String> args) async {
     '[sync] loaded ${infinityxDevices.length} Project Infinity X devices',
   );
 
+  final Set<String> poolCodenames =
+      devices.map((_Device d) => d.codename.toLowerCase()).toSet();
+
+  final _OtaRoster crdroidRoster = await _loadOtaRepoDevices(
+    repo: _crdroidOtaRepo,
+    branches: _crdroidOtaBranches,
+    subPath: '',
+    cacheDir: _crdroidCacheDir,
+    poolCodenames: poolCodenames,
+    refresh: refresh,
+  );
+  stdout.writeln(
+    '[sync] loaded ${crdroidRoster.codenames.length} crDroid devices '
+    '(${crdroidRoster.extras.length} outside the wiki pool)',
+  );
+
+  final _OtaRoster evolutionxRoster = await _loadOtaRepoDevices(
+    repo: _evolutionxOtaRepo,
+    branches: _evolutionxOtaBranches,
+    subPath: 'builds',
+    cacheDir: _evolutionxCacheDir,
+    poolCodenames: poolCodenames,
+    refresh: refresh,
+  );
+  stdout.writeln(
+    '[sync] loaded ${evolutionxRoster.codenames.length} Evolution X devices '
+    '(${evolutionxRoster.extras.length} outside the wiki pool)',
+  );
+
   // Manufacturers shown in the Devices section must cover every vendor
   // referenced by any ROM, including PixelOS-only ones (e.g. 10or) that
   // never appear in the LineageOS wiki.
   final List<Map<String, String>> twrpDevices = _loadTwrpDevices();
   stdout.writeln('[sync] loaded ${twrpDevices.length} TWRP devices');
 
+  final List<_Device> orangefoxDevices = _loadOrangefoxDevices();
+  final List<_Device> orangefoxExtras = orangefoxDevices
+      .where((_Device d) => !poolCodenames.contains(d.codename.toLowerCase()))
+      .toList();
+  stdout.writeln('[sync] loaded ${orangefoxDevices.length} OrangeFox devices '
+      '(${orangefoxExtras.length} outside the wiki pool)');
+
+  final List<_Device> eosDevices = _loadEosDevices();
+  final List<_Device> eosExtras = eosDevices
+      .where((_Device d) => !poolCodenames.contains(d.codename.toLowerCase()))
+      .toList();
+  stdout.writeln('[sync] loaded ${eosDevices.length} /e/OS devices '
+      '(${eosExtras.length} outside the wiki pool)');
+
   final Set<String> allVendors = <String>{
     ...vendors,
     ...pixelosDevices.map((_Device d) => d.vendor),
     ...infinityxDevices.map((_Device d) => d.vendor),
+    ...crdroidRoster.extras.map((_Device d) => d.vendor),
+    ...evolutionxRoster.extras.map((_Device d) => d.vendor),
+    ...orangefoxExtras.map((_Device d) => d.vendor),
+    ...eosExtras.map((_Device d) => d.vendor),
     ...twrpDevices.map((Map<String, String> d) => d['brand']!),
   };
   final List<String> mergedVendors = allVendors.toList()..sort();
@@ -163,8 +311,12 @@ Future<void> main(List<String> args) async {
       devices,
       pixelosDevices: pixelosDevices,
       infinityxDevices: infinityxDevices,
+      crdroidRoster: crdroidRoster,
+      evolutionxRoster: evolutionxRoster,
+      eosDevices: eosDevices,
     ),
-    'recoveries': _buildRecoveries(devices, twrpDevices),
+    'recoveries': _buildRecoveries(devices, twrpDevices,
+        orangefoxDevices: orangefoxDevices),
     'roots': _buildRoots(),
     'devices': _buildDevices(mergedVendors),
   };
@@ -372,6 +524,120 @@ Future<List<_Device>> _loadInfinityxDevices({required bool refresh}) async {
   return out;
 }
 
+/// The supported-device roster of a project that publishes one OTA manifest
+/// per codename: every codename it ships, plus fully described devices for the
+/// codenames the LineageOS wiki pool does not carry.
+class _OtaRoster {
+  const _OtaRoster(this.codenames, this.extras);
+
+  final Set<String> codenames;
+  final List<_Device> extras;
+}
+
+/// Loads a supported-device roster published as one OTA manifest per codename
+/// in a GitHub repo, unioning several live branches.
+///
+/// Used for crDroid and Evolution X, whose downloads pages are rendered
+/// client-side; their OTA repos are the only server-fetchable source of truth.
+/// Codenames absent from [poolCodenames] have their manifest fetched so the
+/// `oem` and `device` fields can name the device properly. Everything is
+/// cached under [cacheDir]; a failed fetch falls back to the cache rather than
+/// silently dropping devices from the catalog.
+Future<_OtaRoster> _loadOtaRepoDevices({
+  required String repo,
+  required List<String> branches,
+  required String subPath,
+  required String cacheDir,
+  required Set<String> poolCodenames,
+  required bool refresh,
+}) async {
+  Future<String?> fetch(String url, File cache) async {
+    if (!refresh && cache.existsSync()) return cache.readAsStringSync();
+    final ProcessResult curl = await Process.run('curl', <String>[
+      '-sSL',
+      '--connect-timeout',
+      '15',
+      '--retry',
+      '3',
+      '--retry-delay',
+      '2',
+      '--retry-all-errors',
+      '-H',
+      'Accept: application/vnd.github+json',
+      url,
+    ]);
+    if (curl.exitCode == 0 && (curl.stdout as String).trim().isNotEmpty) {
+      cache.parent.createSync(recursive: true);
+      cache.writeAsStringSync(curl.stdout as String);
+      return curl.stdout as String;
+    }
+    if (cache.existsSync()) {
+      stderr.writeln('[sync] $url fetch failed, using cache');
+      return cache.readAsStringSync();
+    }
+    stderr.writeln('[sync] $url fetch failed, skipping');
+    return null;
+  }
+
+  final Set<String> codenames = <String>{};
+  final Map<String, String> branchOf = <String, String>{};
+  final String path = subPath.isEmpty ? '' : '/$subPath';
+  for (final String branch in branches) {
+    final String? raw = await fetch(
+      'https://api.github.com/repos/$repo/contents$path?ref=$branch',
+      File('$cacheDir/branch-$branch.json'),
+    );
+    if (raw == null) continue;
+    final dynamic decoded = jsonDecode(raw);
+    if (decoded is! List) continue; // rate-limit or error object
+    for (final dynamic e in decoded) {
+      if (e is! Map<String, dynamic>) continue;
+      final String name = (e['name'] as String?) ?? '';
+      if (!name.endsWith('.json')) continue;
+      final String codename = name.substring(0, name.length - 5).trim();
+      if (codename.isEmpty) continue;
+      codenames.add(codename);
+      branchOf.putIfAbsent(codename, () => branch);
+    }
+  }
+
+  // Only devices the wiki pool lacks need a manifest fetch to be named.
+  final List<_Device> extras = <_Device>[];
+  for (final String codename in codenames) {
+    if (poolCodenames.contains(codename.toLowerCase())) continue;
+    final String branch = branchOf[codename]!;
+    final String? raw = await fetch(
+      'https://raw.githubusercontent.com/$repo/$branch$path/$codename.json',
+      File('$cacheDir/device-$codename.json'),
+    );
+    if (raw == null) continue;
+    try {
+      final dynamic decoded = jsonDecode(raw);
+      final List<dynamic> entries =
+          ((decoded as Map<String, dynamic>)['response'] as List<dynamic>?) ??
+              const <dynamic>[];
+      if (entries.isEmpty) continue;
+      final Map<String, dynamic> first = entries.first as Map<String, dynamic>;
+      final String oem = (first['oem'] as String?)?.trim() ?? '';
+      final String model = (first['device'] as String?)?.trim() ?? '';
+      if (oem.isEmpty && model.isEmpty) continue;
+      extras.add(
+        _Device(
+          vendor: _normalizeVendor(oem.isEmpty ? 'Other' : oem),
+          model: model.isEmpty ? codename : model,
+          codename: codename,
+          type: 'phone',
+          currentBranch: '',
+          releaseYear: null,
+        ),
+      );
+    } on Object {
+      continue; // malformed manifest, skip rather than fail the whole sync
+    }
+  }
+  return _OtaRoster(codenames, extras);
+}
+
 /// Ensures the Infinity X `devices/` files for a single [branch] are present
 /// under [devicesDir], downloading and extracting the branch tarball when
 /// needed. Falls back to any existing cache if the network fetch fails.
@@ -537,6 +803,10 @@ String _normalizeVendor(String v) {
       return 'Nothing';
     case 'realme':
       return 'Realme';
+    // The crDroid / Evolution X OTA manifests shout "TECNO"; the LineageOS
+    // wiki spells it "Tecno". Same vendor, keep one brand card.
+    case 'tecno':
+      return 'Tecno';
     case 'oppo':
       return 'Oppo';
     case 'vivo':
@@ -1267,6 +1537,9 @@ List<Map<String, dynamic>> _buildRoms(
   List<_Device> all, {
   required List<_Device> pixelosDevices,
   required List<_Device> infinityxDevices,
+  required _OtaRoster crdroidRoster,
+  required _OtaRoster evolutionxRoster,
+  required List<_Device> eosDevices,
 }) {
   final List<_RomSpec> specs = <_RomSpec>[
     _RomSpec(
@@ -2561,6 +2834,29 @@ List<Map<String, dynamic>> _buildRoms(
       matched = pixelosDevices;
     } else if (s.id == 'infinityx') {
       matched = infinityxDevices;
+    } else if (s.id == 'crdroid' || s.id == 'evolutionx') {
+      // Real roster from the project's OTA repo: wiki-pool devices it ships,
+      // plus the devices it supports that the wiki pool does not carry.
+      final _OtaRoster roster =
+          s.id == 'crdroid' ? crdroidRoster : evolutionxRoster;
+      final Set<String> want =
+          roster.codenames.map((String c) => c.toLowerCase()).toSet();
+      matched = <_Device>[
+        ...all.where((_Device d) => want.contains(d.codename.toLowerCase())),
+        ...roster.extras,
+      ];
+    } else if (s.id == 'eos') {
+      // Real list scraped from doc.e.foundation/devices. Union it with the
+      // policy match so nothing the heuristic already surfaced is dropped.
+      final List<_Device> policyMatched = all.where(policy).toList();
+      final Set<String> seen = policyMatched
+          .map((_Device d) => d.codename.toLowerCase())
+          .toSet();
+      matched = <_Device>[
+        ...policyMatched,
+        for (final _Device d in eosDevices)
+          if (seen.add(d.codename.toLowerCase())) d,
+      ];
     } else if (s.id == 'artisanrom') {
       // The maintainer supports the Exynos 990 Galaxy Note20 series, but the
       // LineageOS wiki (our device pool) carries no Note20 entry, so the
@@ -2663,8 +2959,9 @@ List<Map<String, dynamic>> _buildRoms(
 
 List<Map<String, dynamic>> _buildRecoveries(
   List<_Device> all,
-  List<Map<String, String>> twrpDevices,
-) {
+  List<Map<String, String>> twrpDevices, {
+  required List<_Device> orangefoxDevices,
+ }) {
   final List<_RomSpec> specs = <_RomSpec>[
     _RomSpec(
       id: 'twrp',
@@ -2854,7 +3151,18 @@ List<Map<String, dynamic>> _buildRecoveries(
 
   return specs.map((_RomSpec s) {
     final _Policy policy = _policyFor(s.id);
-    final List<_Device> matched = all.where(policy).toList();
+    List<_Device> matched = all.where(policy).toList();
+    // OrangeFox publishes a real roster on its R12 site; union it with the
+    // policy match so current devices appear without dropping legacy R11 ones.
+    if (s.id == 'orangefox' && orangefoxDevices.isNotEmpty) {
+      final Set<String> seen =
+          matched.map((_Device d) => d.codename.toLowerCase()).toSet();
+      matched = <_Device>[
+        ...matched,
+        for (final _Device d in orangefoxDevices)
+          if (seen.add(d.codename.toLowerCase())) d,
+      ];
+    }
     // TWRP ships the real twrp.me roster from the committed snapshot. Every
     // other recovery keeps its LineageOS-derived approximation. If the
     // snapshot is missing, TWRP falls back to the policy match too.

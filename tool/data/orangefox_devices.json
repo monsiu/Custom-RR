@@ -1,0 +1,1065 @@
+[
+ {
+  "name": "Lenovo Lenovo Tab M10 (HD)",
+  "alt": "",
+  "codenames": [
+   "x505x",
+   "tb-x505x"
+  ]
+ },
+ {
+  "name": "OnePlus 13",
+  "alt": "",
+  "codenames": [
+   "dodge",
+   "cph2653",
+   "cph2649",
+   "cph2655",
+   "pjz110"
+  ]
+ },
+ {
+  "name": "OnePlus 15",
+  "alt": "",
+  "codenames": [
+   "infiniti",
+   "cph2747",
+   "cph2745",
+   "cph2749",
+   "plk110"
+  ]
+ },
+ {
+  "name": "Oppo Reno 2F",
+  "alt": "",
+  "codenames": [
+   "cph1989"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A23 5G (a23xq - SM-A236B)",
+  "alt": "",
+  "codenames": [
+   "a23xq"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A33 5G (SM-A336B)",
+  "alt": "",
+  "codenames": [
+   "a33x"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A55",
+  "alt": "",
+  "codenames": [
+   "a55x"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi A1",
+  "alt": "",
+  "codenames": [
+   "tissot"
+  ]
+ },
+ {
+  "name": "Xiaomi Poco F3",
+  "alt": "Xiaomi Xiaomi Mi 11X",
+  "codenames": [
+   "alioth"
+  ]
+ },
+ {
+  "name": "Xiaomi POCO F4",
+  "alt": "",
+  "codenames": [
+   "munch"
+  ]
+ },
+ {
+  "name": "Xiaomi Poco F5 Pro",
+  "alt": "",
+  "codenames": [
+   "mondrian"
+  ]
+ },
+ {
+  "name": "Xiaomi Poco F6",
+  "alt": "",
+  "codenames": [
+   "peridot"
+  ]
+ },
+ {
+  "name": "Xiaomi Poco X3 Pro",
+  "alt": "",
+  "codenames": [
+   "vayu"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi K30 5G",
+  "alt": "",
+  "codenames": [
+   "picasso"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 10 Pro / Pro Max",
+  "alt": "",
+  "codenames": [
+   "sweet"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 11",
+  "alt": "",
+  "codenames": [
+   "spes"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 12 4G",
+  "alt": "Xiaomi Redmi Note 13 4G",
+  "codenames": [
+   "topaz",
+   "tapas",
+   "sapphire",
+   "creek"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 13 Pro 5G",
+  "alt": "Xiaomi POCO X6 5G",
+  "codenames": [
+   "garnet"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 7",
+  "alt": "",
+  "codenames": [
+   "lavender"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 9S",
+  "alt": "Xiaomi Redmi Note 9 Pro",
+  "codenames": [
+   "miatoll"
+  ]
+ },
+ {
+  "name": "Asus Zenfone 2 Laser ZE500KL",
+  "alt": "",
+  "codenames": [
+   "z00ed"
+  ]
+ },
+ {
+  "name": "Asus Zenfone 3",
+  "alt": "",
+  "codenames": [
+   "zenfone3"
+  ]
+ },
+ {
+  "name": "Asus ZenFone 5",
+  "alt": "",
+  "codenames": [
+   "x00qd"
+  ]
+ },
+ {
+  "name": "Asus Zenfone Lite L1",
+  "alt": "",
+  "codenames": [
+   "x00r"
+  ]
+ },
+ {
+  "name": "Asus ZenFone Max Pro M1",
+  "alt": "",
+  "codenames": [
+   "x00t"
+  ]
+ },
+ {
+  "name": "Asus Zenfone Max Pro M2",
+  "alt": "",
+  "codenames": [
+   "x01bd"
+  ]
+ },
+ {
+  "name": "General Mobile 4G",
+  "alt": "",
+  "codenames": [
+   "seed"
+  ]
+ },
+ {
+  "name": "General Mobile 5 Plus",
+  "alt": "",
+  "codenames": [
+   "shamrock"
+  ]
+ },
+ {
+  "name": "Huawei P8 Lite",
+  "alt": "",
+  "codenames": [
+   "alice"
+  ]
+ },
+ {
+  "name": "Intex Cloud Q11",
+  "alt": "",
+  "codenames": [
+   "cloud_q11"
+  ]
+ },
+ {
+  "name": "Lenovo K6 Power",
+  "alt": "",
+  "codenames": [
+   "karate"
+  ]
+ },
+ {
+  "name": "Lenovo Vibe K5/K5 Plus",
+  "alt": "",
+  "codenames": [
+   "a6020"
+  ]
+ },
+ {
+  "name": "LG G5 (H830)",
+  "alt": "",
+  "codenames": [
+   "h830"
+  ]
+ },
+ {
+  "name": "LG G5 (H850)",
+  "alt": "",
+  "codenames": [
+   "h850"
+  ]
+ },
+ {
+  "name": "LG G5 (RS988)",
+  "alt": "",
+  "codenames": [
+   "rs988"
+  ]
+ },
+ {
+  "name": "LG G7 ThinQ",
+  "alt": "",
+  "codenames": [
+   "judyln"
+  ]
+ },
+ {
+  "name": "Meizu M2",
+  "alt": "",
+  "codenames": [
+   "mblu2"
+  ]
+ },
+ {
+  "name": "Meizu M6 Note",
+  "alt": "",
+  "codenames": [
+   "m1721"
+  ]
+ },
+ {
+  "name": "Motorola G5s Plus",
+  "alt": "",
+  "codenames": [
+   "sanders"
+  ]
+ },
+ {
+  "name": "Motorola Nexus 6",
+  "alt": "",
+  "codenames": [
+   "shamu"
+  ]
+ },
+ {
+  "name": "Nothing Phone (2)",
+  "alt": "",
+  "codenames": [
+   "pong"
+  ]
+ },
+ {
+  "name": "OnePlus 5",
+  "alt": "",
+  "codenames": [
+   "cheeseburger"
+  ]
+ },
+ {
+  "name": "OnePlus 5T",
+  "alt": "",
+  "codenames": [
+   "dumpling"
+  ]
+ },
+ {
+  "name": "OnePlus 6",
+  "alt": "",
+  "codenames": [
+   "enchilada"
+  ]
+ },
+ {
+  "name": "OnePlus 7T (Pro)",
+  "alt": "",
+  "codenames": [
+   "hotdog"
+  ]
+ },
+ {
+  "name": "Realme 3 Pro",
+  "alt": "",
+  "codenames": [
+   "rmx1851"
+  ]
+ },
+ {
+  "name": "Realme 5",
+  "alt": "",
+  "codenames": [
+   "rmx1911"
+  ]
+ },
+ {
+  "name": "Realme 5 Pro",
+  "alt": "",
+  "codenames": [
+   "rmx1971"
+  ]
+ },
+ {
+  "name": "Realme 5i",
+  "alt": "",
+  "codenames": [
+   "rmx2030"
+  ]
+ },
+ {
+  "name": "Realme 6/6i/6s/7",
+  "alt": "",
+  "codenames": [
+   "rmx2001"
+  ]
+ },
+ {
+  "name": "Realme C1",
+  "alt": "",
+  "codenames": [
+   "rmx1811"
+  ]
+ },
+ {
+  "name": "Realme X",
+  "alt": "",
+  "codenames": [
+   "rmx1901"
+  ]
+ },
+ {
+  "name": "Realme X2",
+  "alt": "",
+  "codenames": [
+   "rmx1992"
+  ]
+ },
+ {
+  "name": "Realme X2 Pro",
+  "alt": "",
+  "codenames": [
+   "rmx1931"
+  ]
+ },
+ {
+  "name": "Realme XT",
+  "alt": "",
+  "codenames": [
+   "rmx1921"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A10",
+  "alt": "",
+  "codenames": [
+   "a10"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A20",
+  "alt": "",
+  "codenames": [
+   "a20"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A3 2017",
+  "alt": "",
+  "codenames": [
+   "a3y17lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A30",
+  "alt": "",
+  "codenames": [
+   "a30"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A30s",
+  "alt": "",
+  "codenames": [
+   "a30s"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A40",
+  "alt": "",
+  "codenames": [
+   "a40"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A5 (2017)",
+  "alt": "",
+  "codenames": [
+   "a5y17lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A51",
+  "alt": "",
+  "codenames": [
+   "a51nsxx"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A52",
+  "alt": "",
+  "codenames": [
+   "a52q"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A52s",
+  "alt": "",
+  "codenames": [
+   "a52sxq"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A6 2018",
+  "alt": "",
+  "codenames": [
+   "a6lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A7 (2017)",
+  "alt": "",
+  "codenames": [
+   "a7y17lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy A72",
+  "alt": "",
+  "codenames": [
+   "a72q"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy C5",
+  "alt": "",
+  "codenames": [
+   "c5lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J4",
+  "alt": "",
+  "codenames": [
+   "j4ltexx"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J4 Core",
+  "alt": "",
+  "codenames": [
+   "j4corelte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J4+",
+  "alt": "",
+  "codenames": [
+   "j4primelte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J5 (2015) 3G",
+  "alt": "",
+  "codenames": [
+   "j53gxx"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J5 (2015) LTE",
+  "alt": "",
+  "codenames": [
+   "j5lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J5 (2015) LTE China",
+  "alt": "",
+  "codenames": [
+   "j5ltechn"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J5 (2015) NFC LTE",
+  "alt": "",
+  "codenames": [
+   "j5nlte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J5 (2016)",
+  "alt": "",
+  "codenames": [
+   "j5xnlte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J5 2017",
+  "alt": "",
+  "codenames": [
+   "j5y17lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J5 Prime",
+  "alt": "",
+  "codenames": [
+   "on5xelte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J6 2018",
+  "alt": "",
+  "codenames": [
+   "j6lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J6+",
+  "alt": "",
+  "codenames": [
+   "j6primelte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J7 2016",
+  "alt": "",
+  "codenames": [
+   "j7xelte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J7 2017",
+  "alt": "",
+  "codenames": [
+   "j7y17lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J7 Nxt",
+  "alt": "",
+  "codenames": [
+   "j7velte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy J7 Prime",
+  "alt": "",
+  "codenames": [
+   "on7xelte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy M20",
+  "alt": "",
+  "codenames": [
+   "m20lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy M21/M31/F41",
+  "alt": "",
+  "codenames": [
+   "exynos9611"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy M30",
+  "alt": "",
+  "codenames": [
+   "m30lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy M31",
+  "alt": "",
+  "codenames": [
+   "m31"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy Note 10+ (snapdragon)",
+  "alt": "",
+  "codenames": [
+   "d2q"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy Note 9 (Qualcomm)",
+  "alt": "",
+  "codenames": [
+   "crownqltechn"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S4 LTE-A",
+  "alt": "",
+  "codenames": [
+   "ks01lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S5 Duos (Qualcomm)",
+  "alt": "",
+  "codenames": [
+   "klteduos"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S5 JPN (Qualcomm)",
+  "alt": "",
+  "codenames": [
+   "kltekdi"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S5(Qualcomm)",
+  "alt": "",
+  "codenames": [
+   "klte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S8",
+  "alt": "",
+  "codenames": [
+   "dreamlte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S8+",
+  "alt": "",
+  "codenames": [
+   "dream2lte"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S9 (Qualcomm)",
+  "alt": "",
+  "codenames": [
+   "starqltechn"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy S9+ (Qualcomm)",
+  "alt": "",
+  "codenames": [
+   "star2qltechn"
+  ]
+ },
+ {
+  "name": "Samsung Galaxy Tab A 10.1 (2019)",
+  "alt": "",
+  "codenames": [
+   "gta3xlwifi"
+  ]
+ },
+ {
+  "name": "Test Testing device",
+  "alt": "Test iPhone 19",
+  "codenames": [
+   "test_device",
+   "another_codename"
+  ]
+ },
+ {
+  "name": "Wileyfox Swift",
+  "alt": "",
+  "codenames": [
+   "crackling"
+  ]
+ },
+ {
+  "name": "Wileyfox Swift 2/2 Plus/2 X",
+  "alt": "",
+  "codenames": [
+   "marmite"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi 10T Lite",
+  "alt": "",
+  "codenames": [
+   "gauguin"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi 6",
+  "alt": "",
+  "codenames": [
+   "sagit"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi 6X",
+  "alt": "",
+  "codenames": [
+   "wayne"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi 8",
+  "alt": "",
+  "codenames": [
+   "dipper"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi 8 Lite",
+  "alt": "",
+  "codenames": [
+   "platina"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi 9",
+  "alt": "",
+  "codenames": [
+   "cepheus"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi 9T",
+  "alt": "",
+  "codenames": [
+   "davinci"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi A2",
+  "alt": "",
+  "codenames": [
+   "jasmine_sprout"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi A2 Lite",
+  "alt": "",
+  "codenames": [
+   "daisy"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi A3",
+  "alt": "",
+  "codenames": [
+   "laurel_sprout"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi Max 2",
+  "alt": "",
+  "codenames": [
+   "oxygen"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi Max 3",
+  "alt": "",
+  "codenames": [
+   "nitrogen"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi Mix 2",
+  "alt": "",
+  "codenames": [
+   "chiron"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi Mix 2S",
+  "alt": "",
+  "codenames": [
+   "polaris"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi Note 10",
+  "alt": "",
+  "codenames": [
+   "tucana"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi Note 3",
+  "alt": "",
+  "codenames": [
+   "jason"
+  ]
+ },
+ {
+  "name": "Xiaomi Mi Pad 4/4 Plus",
+  "alt": "",
+  "codenames": [
+   "clover"
+  ]
+ },
+ {
+  "name": "Xiaomi Poco F1",
+  "alt": "",
+  "codenames": [
+   "beryllium"
+  ]
+ },
+ {
+  "name": "Xiaomi Poco M3",
+  "alt": "",
+  "codenames": [
+   "citrus"
+  ]
+ },
+ {
+  "name": "Xiaomi POCO X2 / Redmi K30",
+  "alt": "",
+  "codenames": [
+   "phoenix"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 3/3pro",
+  "alt": "",
+  "codenames": [
+   "ido"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 4 Prime",
+  "alt": "",
+  "codenames": [
+   "markw"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 4X",
+  "alt": "",
+  "codenames": [
+   "santoni"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 5 Plus",
+  "alt": "",
+  "codenames": [
+   "vince"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 5A",
+  "alt": "",
+  "codenames": [
+   "riva"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 6",
+  "alt": "",
+  "codenames": [
+   "cereus"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 6 Pro",
+  "alt": "",
+  "codenames": [
+   "sakura"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 6a",
+  "alt": "",
+  "codenames": [
+   "cactus"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 7/Y3",
+  "alt": "",
+  "codenames": [
+   "onclite"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 8",
+  "alt": "",
+  "codenames": [
+   "olive"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 8a",
+  "alt": "",
+  "codenames": [
+   "olivelite"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi 9A",
+  "alt": "Xiaomi Redmi 9C",
+  "codenames": [
+   "garden"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi K20 Pro",
+  "alt": "",
+  "codenames": [
+   "raphael"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 10",
+  "alt": "",
+  "codenames": [
+   "mojito"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 11 Pro/Pro+ 5G / Mi 11i / 11i Hypercharge",
+  "alt": "",
+  "codenames": [
+   "pissarro"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 2",
+  "alt": "",
+  "codenames": [
+   "hermes"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 3",
+  "alt": "",
+  "codenames": [
+   "kenzo"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 4",
+  "alt": "",
+  "codenames": [
+   "mido"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 5 / 5 Pro",
+  "alt": "",
+  "codenames": [
+   "whyred"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 5A/Y1 Lite",
+  "alt": "",
+  "codenames": [
+   "ugglite"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 6 Pro",
+  "alt": "",
+  "codenames": [
+   "tulip"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 7 Pro",
+  "alt": "",
+  "codenames": [
+   "violet"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 8",
+  "alt": "",
+  "codenames": [
+   "ginkgo"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 8 (2021)",
+  "alt": "",
+  "codenames": [
+   "biloba"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 8 Pro",
+  "alt": "",
+  "codenames": [
+   "begonia"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi Note 9S (curtana)",
+  "alt": "",
+  "codenames": [
+   "curtana_obsolete"
+  ]
+ },
+ {
+  "name": "Xiaomi Redmi S2",
+  "alt": "",
+  "codenames": [
+   "ysl"
+  ]
+ }
+]
