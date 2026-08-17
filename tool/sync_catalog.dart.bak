@@ -89,6 +89,30 @@ const String _twrpDevicesPath = 'tool/data/twrp_devices.json';
 const String _orangefoxDevicesPath = 'tool/data/orangefox_devices.json';
 const String _eosDevicesPath = 'tool/data/eos_devices.json';
 
+// Projects that publish a real supported-device roster. Each is the project's
+// own official list, so the catalog no longer has to guess from vendor/year.
+const String _voltageOtaRepo = 'VoltageOS/android_vendor_voltageota';
+const List<String> _voltageOtaBranches = <String>[
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '16.2',
+  '17',
+];
+const String _voltageCacheDir = 'tool/.cache/voltage';
+const String _blissDevicesUrl =
+    'https://raw.githubusercontent.com/BlissRoms-Devices/official-devices/main/devices.json';
+const String _pixelExperienceDevicesUrl =
+    'https://raw.githubusercontent.com/PixelExperience/official_devices/master/devices.json';
+const String _aospaDevicesUrl =
+    'https://raw.githubusercontent.com/AOSPA/ota/master/devices';
+const String _dotosDevicesUrl =
+    'https://raw.githubusercontent.com/DotOS/official_devices/dot11/devices.json';
+const String _risingDevicesUrl =
+    'https://raw.githubusercontent.com/RisingOS-Revived/official_devices/fifteen/devices.md';
+
 // Maps a few TWRP brand spellings onto the catalog's canonical vendor names so
 // the same manufacturer never shows up twice (e.g. as both "Nvidia" and the
 // LineageOS-sourced "NVIDIA").
@@ -291,12 +315,45 @@ Future<void> main(List<String> args) async {
   stdout.writeln('[sync] loaded ${eosDevices.length} /e/OS devices '
       '(${eosExtras.length} outside the wiki pool)');
 
+  final _OtaRoster voltageRoster = await _loadOtaRepoDevices(
+    repo: _voltageOtaRepo,
+    branches: _voltageOtaBranches,
+    subPath: '',
+    cacheDir: _voltageCacheDir,
+    poolCodenames: poolCodenames,
+    refresh: refresh,
+  );
+  stdout.writeln('[sync] loaded ${voltageRoster.codenames.length} Voltage OS '
+      'devices (${voltageRoster.extras.length} outside the wiki pool)');
+
+  final Map<String, List<_Device>> fileRosters = <String, List<_Device>>{
+    'bliss': await _loadFlatRoster(
+        _blissDevicesUrl, 'tool/.cache/bliss/devices.json', refresh: refresh),
+    'pixelexperience': await _loadFlatRoster(_pixelExperienceDevicesUrl,
+        'tool/.cache/pixelexperience/devices.json', refresh: refresh),
+    'paranoidandroid': await _loadAospaRoster(
+        _aospaDevicesUrl, 'tool/.cache/aospa/devices.json', refresh: refresh),
+    'dotos': await _loadDotosRoster(
+        _dotosDevicesUrl, 'tool/.cache/dotos/devices.json', refresh: refresh),
+    'risingosrevived': await _loadRisingRoster(
+        _risingDevicesUrl, 'tool/.cache/rising/devices.md', refresh: refresh),
+  };
+  fileRosters.forEach((String id, List<_Device> list) {
+    final int extras = list
+        .where((_Device d) => !poolCodenames.contains(d.codename.toLowerCase()))
+        .length;
+    stdout.writeln(
+        '[sync] loaded ${list.length} $id devices ($extras outside the wiki pool)');
+  });
+
   final Set<String> allVendors = <String>{
     ...vendors,
     ...pixelosDevices.map((_Device d) => d.vendor),
     ...infinityxDevices.map((_Device d) => d.vendor),
     ...crdroidRoster.extras.map((_Device d) => d.vendor),
     ...evolutionxRoster.extras.map((_Device d) => d.vendor),
+    ...voltageRoster.extras.map((_Device d) => d.vendor),
+    ...fileRosters.values.expand((List<_Device> l) => l).map((_Device d) => d.vendor),
     ...orangefoxExtras.map((_Device d) => d.vendor),
     ...eosExtras.map((_Device d) => d.vendor),
     ...twrpDevices.map((Map<String, String> d) => d['brand']!),
@@ -313,6 +370,8 @@ Future<void> main(List<String> args) async {
       infinityxDevices: infinityxDevices,
       crdroidRoster: crdroidRoster,
       evolutionxRoster: evolutionxRoster,
+      voltageRoster: voltageRoster,
+      fileRosters: fileRosters,
       eosDevices: eosDevices,
     ),
     'recoveries': _buildRecoveries(devices, twrpDevices,
@@ -543,6 +602,140 @@ class _OtaRoster {
 /// `oem` and `device` fields can name the device properly. Everything is
 /// cached under [cacheDir]; a failed fetch falls back to the cache rather than
 /// silently dropping devices from the catalog.
+/// Fetches a URL, caching the body so repeat runs and offline builds work.
+Future<String?> _fetchCached(String url, File cache,
+    {required bool refresh}) async {
+  if (!refresh && cache.existsSync()) return cache.readAsStringSync();
+  final ProcessResult curl = await Process.run('curl', <String>[
+    '-sSL',
+    '--connect-timeout',
+    '15',
+    '--retry',
+    '3',
+    '--retry-delay',
+    '2',
+    '--retry-all-errors',
+    url,
+  ]);
+  if (curl.exitCode == 0 && (curl.stdout as String).trim().isNotEmpty) {
+    cache.parent.createSync(recursive: true);
+    cache.writeAsStringSync(curl.stdout as String);
+    return curl.stdout as String;
+  }
+  if (cache.existsSync()) {
+    stderr.writeln('[sync] $url fetch failed, using cache');
+    return cache.readAsStringSync();
+  }
+  stderr.writeln('[sync] $url fetch failed, skipping');
+  return null;
+}
+
+_Device _rosterDevice(String vendor, String model, String codename) => _Device(
+      vendor: _normalizeVendor(vendor.isEmpty ? 'Other' : vendor),
+      model: model.isEmpty ? codename : model,
+      codename: _canonicalCodename(codename),
+      type: 'phone',
+      currentBranch: '',
+      releaseYear: null,
+    );
+
+/// Bliss and PixelExperience both publish `devices.json` as a flat array of
+/// `{brand, codename, name}`.
+Future<List<_Device>> _loadFlatRoster(
+  String url,
+  String cachePath, {
+  required bool refresh,
+}) async {
+  final String? raw = await _fetchCached(url, File(cachePath), refresh: refresh);
+  if (raw == null) return const <_Device>[];
+  final List<_Device> out = <_Device>[];
+  final Set<String> seen = <String>{};
+  try {
+    for (final dynamic e in jsonDecode(raw) as List<dynamic>) {
+      if (e is! Map<String, dynamic>) continue;
+      final String codename = ((e['codename'] as String?) ?? '').trim();
+      if (codename.isEmpty || !seen.add(codename.toLowerCase())) continue;
+      out.add(_rosterDevice(((e['brand'] as String?) ?? '').trim(),
+          ((e['name'] as String?) ?? '').trim(), codename));
+    }
+  } on Object catch (e) {
+    stderr.writeln('[sync] could not parse $url: $e');
+  }
+  return out;
+}
+
+/// AOSPA publishes `{"devices":[{name, codename, manufacturer, active}]}`.
+Future<List<_Device>> _loadAospaRoster(String url, String cachePath,
+    {required bool refresh}) async {
+  final String? raw = await _fetchCached(url, File(cachePath), refresh: refresh);
+  if (raw == null) return const <_Device>[];
+  final List<_Device> out = <_Device>[];
+  final Set<String> seen = <String>{};
+  try {
+    final Map<String, dynamic> root = jsonDecode(raw) as Map<String, dynamic>;
+    for (final dynamic e in (root['devices'] as List<dynamic>? ?? const <dynamic>[])) {
+      if (e is! Map<String, dynamic>) continue;
+      if (e['active'] == false) continue;
+      final String codename = ((e['codename'] as String?) ?? '').trim();
+      if (codename.isEmpty || !seen.add(codename.toLowerCase())) continue;
+      out.add(_rosterDevice(((e['manufacturer'] as String?) ?? '').trim(),
+          ((e['name'] as String?) ?? '').trim(), codename));
+    }
+  } on Object catch (e) {
+    stderr.writeln('[sync] could not parse $url: $e');
+  }
+  return out;
+}
+
+/// DotOS publishes `{Brand: {codename: model}}`.
+Future<List<_Device>> _loadDotosRoster(String url, String cachePath,
+    {required bool refresh}) async {
+  final String? raw = await _fetchCached(url, File(cachePath), refresh: refresh);
+  if (raw == null) return const <_Device>[];
+  final List<_Device> out = <_Device>[];
+  final Set<String> seen = <String>{};
+  try {
+    final Map<String, dynamic> root = jsonDecode(raw) as Map<String, dynamic>;
+    root.forEach((String brand, dynamic models) {
+      if (models is! Map<String, dynamic>) return;
+      if (brand.toLowerCase().contains('gsi')) return; // universal images
+      models.forEach((String codename, dynamic model) {
+        if (codename.trim().isEmpty) return;
+        if (!seen.add(codename.toLowerCase())) return;
+        out.add(_rosterDevice(brand, model.toString(), codename.trim()));
+      });
+    });
+  } on Object catch (e) {
+    stderr.writeln('[sync] could not parse $url: $e');
+  }
+  return out;
+}
+
+/// RisingOS publishes a markdown list: `## Brand` then `- **Model (codename)**`.
+Future<List<_Device>> _loadRisingRoster(String url, String cachePath,
+    {required bool refresh}) async {
+  final String? raw = await _fetchCached(url, File(cachePath), refresh: refresh);
+  if (raw == null) return const <_Device>[];
+  final RegExp heading = RegExp(r'^##\s+(.+?)\s*$');
+  final RegExp entry = RegExp(r'^-\s+\*\*(.+?)\s*\(([^()]+)\)\*\*');
+  final List<_Device> out = <_Device>[];
+  final Set<String> seen = <String>{};
+  String brand = '';
+  for (final String line in const LineSplitter().convert(raw)) {
+    final RegExpMatch? h = heading.firstMatch(line);
+    if (h != null) {
+      brand = h.group(1)!.trim();
+      continue;
+    }
+    final RegExpMatch? m = entry.firstMatch(line.trim());
+    if (m == null) continue;
+    final String codename = m.group(2)!.trim();
+    if (codename.isEmpty || !seen.add(codename.toLowerCase())) continue;
+    out.add(_rosterDevice(brand, m.group(1)!.trim(), codename));
+  }
+  return out;
+}
+
 Future<_OtaRoster> _loadOtaRepoDevices({
   required String repo,
   required List<String> branches,
@@ -1539,6 +1732,8 @@ List<Map<String, dynamic>> _buildRoms(
   required List<_Device> infinityxDevices,
   required _OtaRoster crdroidRoster,
   required _OtaRoster evolutionxRoster,
+  required _OtaRoster voltageRoster,
+  required Map<String, List<_Device>> fileRosters,
   required List<_Device> eosDevices,
 }) {
   final List<_RomSpec> specs = <_RomSpec>[
@@ -2834,16 +3029,30 @@ List<Map<String, dynamic>> _buildRoms(
       matched = pixelosDevices;
     } else if (s.id == 'infinityx') {
       matched = infinityxDevices;
-    } else if (s.id == 'crdroid' || s.id == 'evolutionx') {
+    } else if (s.id == 'crdroid' || s.id == 'evolutionx' || s.id == 'voltage') {
       // Real roster from the project's OTA repo: wiki-pool devices it ships,
       // plus the devices it supports that the wiki pool does not carry.
-      final _OtaRoster roster =
-          s.id == 'crdroid' ? crdroidRoster : evolutionxRoster;
+      final _OtaRoster roster = s.id == 'crdroid'
+          ? crdroidRoster
+          : s.id == 'evolutionx'
+              ? evolutionxRoster
+              : voltageRoster;
       final Set<String> want =
           roster.codenames.map((String c) => c.toLowerCase()).toSet();
       matched = <_Device>[
         ...all.where((_Device d) => want.contains(d.codename.toLowerCase())),
         ...roster.extras,
+      ];
+    } else if (fileRosters[s.id] != null && fileRosters[s.id]!.isNotEmpty) {
+      // Project publishes its own device list; union it with the policy match
+      // so nothing the heuristic already surfaced is dropped.
+      final List<_Device> policyMatched = all.where(policy).toList();
+      final Set<String> seen =
+          policyMatched.map((_Device d) => d.codename.toLowerCase()).toSet();
+      matched = <_Device>[
+        ...policyMatched,
+        for (final _Device d in fileRosters[s.id]!)
+          if (seen.add(d.codename.toLowerCase())) d,
       ];
     } else if (s.id == 'eos') {
       // Real list scraped from doc.e.foundation/devices. Union it with the

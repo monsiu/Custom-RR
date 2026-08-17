@@ -1,0 +1,5525 @@
+{
+ "a04e": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A042F",
+   "SM-A042M"
+  ],
+  "name": "Galaxy A04e"
+ },
+ "a04s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A047F",
+   "SM-A047M"
+  ],
+  "name": "Galaxy A04s"
+ },
+ "a05s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A057F",
+   "SM-A057G",
+   "SM-A057M",
+   "SM-E145F",
+   "SM-M145F"
+  ],
+  "name": "Galaxy A05s"
+ },
+ "a06": {
+  "brand": "KXD mobile",
+  "models": [
+   "SM-A065F",
+   "SM-A065M"
+  ],
+  "name": "A06"
+ },
+ "a10": {
+  "brand": "Aamra WE",
+  "models": [
+   "WE A10",
+   "S510",
+   "Asus A10",
+   "Garmin-Asus A10",
+   "A10",
+   "IdeaPadA10",
+   "PicassoTab A10",
+   "SM-A105F",
+   "SM-A105FN",
+   "SM-A105G",
+   "SM-A105M",
+   "SM-A105N"
+  ],
+  "name": "A10"
+ },
+ "a11": {
+  "brand": "IkuMobile",
+  "models": [
+   "A11"
+  ],
+  "name": "A11"
+ },
+ "a117": {
+  "brand": "Micromax",
+  "models": [
+   "Micromax A117"
+  ],
+  "name": "Canvas Magnus"
+ },
+ "a12s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A127F",
+   "SM-A127M"
+  ],
+  "name": "Galaxy A12"
+ },
+ "a13": {
+  "brand": "Jeazans",
+  "models": [
+   "SM-A135F",
+   "SM-A135M",
+   "SM-A135N",
+   "SM-A135U",
+   "SM-A135U1",
+   "MP05"
+  ],
+  "name": "A13"
+ },
+ "a13ve": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A137F"
+  ],
+  "name": "Galaxy A13"
+ },
+ "a14x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A146B",
+   "SM-A146M"
+  ],
+  "name": "Galaxy A14 5G"
+ },
+ "a15": {
+  "brand": "Hercls",
+  "models": [
+   "A15",
+   "SM-A155F",
+   "SM-A155M",
+   "SM-A155N"
+  ],
+  "name": "HERCLS A15"
+ },
+ "a16x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A1660",
+   "SM-A166B",
+   "SM-A166E",
+   "SM-A166M",
+   "SM-A166U",
+   "SM-A166U1",
+   "SM-A166W",
+   "SM-S166V",
+   "SM-A166L"
+  ],
+  "name": "Galaxy A16 5G"
+ },
+ "a17x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A1760",
+   "SM-A176B",
+   "SM-A176U",
+   "SM-A176U1",
+   "SM-A176W",
+   "SM-S176V",
+   "SM-A176L",
+   "SM-E176B",
+   "SM-M176B",
+   "SM-M176S"
+  ],
+  "name": "Galaxy A17 5G"
+ },
+ "a20": {
+  "brand": "BESTTAB",
+  "models": [
+   "A20",
+   "SM-A205F",
+   "SM-A205FN",
+   "SM-A205G",
+   "SM-A205GN",
+   "SM-A205W",
+   "SM-A205YN",
+   "SM-A205S"
+  ],
+  "name": "A20_EEA"
+ },
+ "a20e": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A202F",
+   "SM-A202K"
+  ],
+  "name": "Galaxy A20e"
+ },
+ "a20s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A2070",
+   "SM-A207F",
+   "SM-A207M"
+  ],
+  "name": "Galaxy A20s"
+ },
+ "a21s": {
+  "brand": "AOYODKG",
+  "models": [
+   "A21S",
+   "SM-A217F",
+   "SM-A217M",
+   "SM-A217N"
+  ],
+  "name": "A21S"
+ },
+ "a23": {
+  "brand": "Hiking",
+  "models": [
+   "SM-A235F",
+   "SM-A235M",
+   "SM-A235N"
+  ],
+  "name": "A23"
+ },
+ "a23xq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A2360",
+   "SM-A236B",
+   "SM-A236E",
+   "SM-A236M",
+   "SM-A236U",
+   "SM-A236U1",
+   "SM-S236DL",
+   "SM-S237VL",
+   "SM-A236V"
+  ],
+  "name": "Galaxy A23 5G"
+ },
+ "a25ex": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A253C",
+   "SM-A253Q",
+   "SM-A253Z"
+  ],
+  "name": "Galaxy A25 5G"
+ },
+ "a25x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A2560",
+   "SM-A256B",
+   "SM-A256E",
+   "SM-A256N",
+   "SM-A256U",
+   "SM-A256U1",
+   "SM-S256VL"
+  ],
+  "name": "Galaxy A25 5G"
+ },
+ "a26x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A266B",
+   "SM-A266U",
+   "SM-A266U1",
+   "SM-S266V"
+  ],
+  "name": "Galaxy A26 5G"
+ },
+ "a30": {
+  "brand": "AvidPad",
+  "models": [
+   "A30",
+   "SM-A305F",
+   "SM-A305FN",
+   "SM-A305G",
+   "SM-A305GN",
+   "SM-A305GT",
+   "SM-A305N",
+   "SM-A305YN",
+   "TOXIIK_A30"
+  ],
+  "name": "A30"
+ },
+ "a30s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A307FN",
+   "SM-A307G",
+   "SM-A307GN",
+   "SM-A307GT"
+  ],
+  "name": "Galaxy A30s"
+ },
+ "a31": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A315F",
+   "SM-A315G",
+   "SM-A315N"
+  ],
+  "name": "Galaxy A31"
+ },
+ "a315": {
+  "brand": "Micromax",
+  "models": [
+   "Micromax A315"
+  ],
+  "name": "Canvas 4+"
+ },
+ "a33g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A300H"
+  ],
+  "name": "Galaxy A3"
+ },
+ "a33x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A3360",
+   "SM-A336B",
+   "SM-A336E",
+   "SM-A336M",
+   "SM-A336N"
+  ],
+  "name": "Galaxy A33 5G"
+ },
+ "a34x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A3460",
+   "SM-A346B",
+   "SM-A346E",
+   "SM-A346M",
+   "SM-A346N"
+  ],
+  "name": "Galaxy A34 5G"
+ },
+ "a35x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A3560",
+   "SM-A356B",
+   "SM-A356E",
+   "SM-A356N",
+   "SM-A356U",
+   "SM-A356U1",
+   "SM-A356W",
+   "SM-S356V"
+  ],
+  "name": "Galaxy A35 5G"
+ },
+ "a37f": {
+  "brand": "Oppo",
+  "models": [
+   "A37fw"
+  ],
+  "name": "A37f"
+ },
+ "a3xelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A310F",
+   "SM-A310M",
+   "SM-A310X",
+   "SM-A310Y"
+  ],
+  "name": "Galaxy A3(2016)"
+ },
+ "a3y17lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A320Y",
+   "SM-A320F",
+   "SM-A320FL",
+   "SM-A320X"
+  ],
+  "name": "Galaxy A3 (2017)"
+ },
+ "a40": {
+  "brand": "Cubot",
+  "models": [
+   "SM-A405FM",
+   "SM-A405FN",
+   "SM-A405S"
+  ],
+  "name": "A40"
+ },
+ "a5": {
+  "brand": "Acer",
+  "models": [
+   "S300",
+   "Neffos A5",
+   "XTOUCH_A5"
+  ],
+  "name": "Azumi A5"
+ },
+ "a51": {
+  "brand": "Hiking",
+  "models": [
+   "Lava A51",
+   "A51f",
+   "SM-A515F",
+   "SM-A515U",
+   "SM-A515U1",
+   "SM-A515W",
+   "SM-A515X",
+   "SM-S515DL"
+  ],
+  "name": "A51"
+ },
+ "a52q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A525F",
+   "SM-A525M"
+  ],
+  "name": "Galaxy A52"
+ },
+ "a52sxq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A528B",
+   "SM-A528N"
+  ],
+  "name": "Galaxy A52s 5G"
+ },
+ "a53x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A5360",
+   "SM-A536B",
+   "SM-A536E",
+   "SM-A536N",
+   "SM-A536U",
+   "SM-A536U1",
+   "SM-A536W",
+   "SM-S536DL",
+   "SM-A536V"
+  ],
+  "name": "Galaxy A53 5G"
+ },
+ "a55x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A5560",
+   "SM-A556B",
+   "SM-A556E",
+   "SM-A556S"
+  ],
+  "name": "Galaxy A55 5G"
+ },
+ "a5xelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A510F",
+   "SM-A510M",
+   "SM-A510X",
+   "SM-A510Y"
+  ],
+  "name": "Galaxy A5(2016)"
+ },
+ "a5y17lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A520F",
+   "SM-A520X"
+  ],
+  "name": "Galaxy A5(2017)"
+ },
+ "a60q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A6060",
+   "SM-A606Y"
+  ],
+  "name": "Galaxy A60"
+ },
+ "a6lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A600F",
+   "SM-A600FN",
+   "SM-A600G",
+   "SM-A600GN"
+  ],
+  "name": "Galaxy A6"
+ },
+ "a70q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A7050",
+   "SM-A705F",
+   "SM-A705FN",
+   "SM-A705GM",
+   "SM-A705MN",
+   "SM-A705U",
+   "SM-A705W",
+   "SM-A705YN"
+  ],
+  "name": "Galaxy A70"
+ },
+ "a71": {
+  "brand": "Lava",
+  "models": [
+   "SM-A715F",
+   "SM-A715W",
+   "SM-A715X"
+  ],
+  "name": "A71"
+ },
+ "a72q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A725F",
+   "SM-A725M"
+  ],
+  "name": "Galaxy A72"
+ },
+ "a73xq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A736B"
+  ],
+  "name": "Galaxy A73 5G"
+ },
+ "a7xelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A710F",
+   "SM-A710M",
+   "SM-A710X"
+  ],
+  "name": "Galaxy A7(2016)"
+ },
+ "a7y17lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A720F"
+  ],
+  "name": "Galaxy A7(2017)"
+ },
+ "a8hplte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A800I",
+   "SM-A800IZ"
+  ],
+  "name": "Galaxy A8"
+ },
+ "ac50da": {
+  "brand": "Archos",
+  "models": [
+   "Archos 50 Diamond"
+  ],
+  "name": "50 Diamond"
+ },
+ "ac55diselfie": {
+  "brand": "Archos",
+  "models": [
+   "Archos 55 diamond Selfie",
+   "BUSH SPIRA E4X"
+  ],
+  "name": "55 Diamond Selfie"
+ },
+ "ac80cxe": {
+  "brand": "Archos",
+  "models": [
+   "Archos 80c Xenon"
+  ],
+  "name": "80c Xenon"
+ },
+ "ace": {
+  "brand": "HTC",
+  "models": [
+   "001HT",
+   "HTC Desire HD A9191",
+   "Inspire HD"
+  ],
+  "name": "Desire HD"
+ },
+ "addison": {
+  "brand": "Motorola",
+  "models": [
+   "XT1563",
+   "XT1635-02",
+   "XT1635-03",
+   "XT1635-01"
+  ],
+  "name": "Moto Z Play"
+ },
+ "ahannah": {
+  "brand": "Motorola",
+  "models": [
+   "Moto E",
+   "XT1924-9"
+  ],
+  "name": "moto e5 plus"
+ },
+ "ailsa_ii": {
+  "brand": "Tonino Lamborghini",
+  "models": [
+   "ZTE A2017",
+   "ZTE A2017G",
+   "ZTE A2017U"
+  ],
+  "name": "TL99"
+ },
+ "albus": {
+  "brand": "Motorola",
+  "models": [
+   "Moto Z2 Play",
+   "XT1710-02",
+   "XT1710-08",
+   "XT1710-11"
+  ],
+  "name": "Moto Z (2) Play"
+ },
+ "ali": {
+  "brand": "Motorola",
+  "models": [
+   "XT1925-10",
+   "moto g(6) (XT1925DL)"
+  ],
+  "name": "moto g(6)"
+ },
+ "alice": {
+  "brand": "ZTE",
+  "models": [
+   "ZTE C2017"
+  ],
+  "name": "C2017"
+ },
+ "alioth": {
+  "brand": "POCO",
+  "models": [
+   "M2012K11AG",
+   "M2012K11AC"
+  ],
+  "name": "POCO F3"
+ },
+ "alphaplus": {
+  "brand": "LGE",
+  "models": [
+   "LM-G820N"
+  ],
+  "name": "LG G8 ThinQ™"
+ },
+ "amber": {
+  "brand": "QUEST",
+  "models": [
+   "21081111RG",
+   "YNDX-000SB"
+  ],
+  "name": "Amber"
+ },
+ "apollo": {
+  "brand": "Coolpad",
+  "models": [
+   "CP3706AS",
+   "M2007J3SC",
+   "M2007J3SP",
+   "M2007J3SY",
+   "M2007J3SG",
+   "M2007J3SI"
+  ],
+  "name": "Coolpad 3706AS"
+ },
+ "aquaris_m8": {
+  "brand": "bq",
+  "models": [
+   "Aquaris M8"
+  ],
+  "name": "M8"
+ },
+ "aries": {
+  "brand": "Sony",
+  "models": [
+   "D5803",
+   "MI 2S"
+  ],
+  "name": "Xperia Z3 Compact"
+ },
+ "armani": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo A706",
+   "HM 1AC",
+   "HM 1S",
+   "HM 1SW"
+  ],
+  "name": "A706"
+ },
+ "armor_6": {
+  "brand": "Ulefone",
+  "models": [
+   "Armor_6"
+  ],
+  "name": "Armor 6"
+ },
+ "asanti_c": {
+  "brand": "Motorola",
+  "models": [
+   "XT897",
+   "XT897S"
+  ],
+  "name": "Photon"
+ },
+ "asteroids": {
+  "brand": "Nothing",
+  "models": [
+   "A059",
+   "A059P"
+  ],
+  "name": "Nothing Phone (3a)"
+ },
+ "athene": {
+  "brand": "Motorola",
+  "models": [
+   "Moto G (4)"
+  ],
+  "name": "Moto G(4)"
+ },
+ "audi": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo A760"
+  ],
+  "name": "A760"
+ },
+ "aurora": {
+  "brand": "Google",
+  "models": [
+   "Google Pixel Watch 2",
+   "24030PN60G",
+   "24031PN0DC",
+   "Xiaomi for arm64"
+  ],
+  "name": "Pixel Watch 2"
+ },
+ "avatrn": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge 2023"
+  ],
+  "name": "motorola edge 2024"
+ },
+ "b0s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S908B"
+  ],
+  "name": "Galaxy S22 Ultra"
+ },
+ "bangkk": {
+  "brand": "Motorola",
+  "models": [
+   "moto g53 5G"
+  ],
+  "name": "moto g84 5G"
+ },
+ "barbet": {
+  "brand": "Google",
+  "models": [
+   "Pixel 5a"
+  ],
+  "name": "Pixel 5a 5G"
+ },
+ "begonia": {
+  "brand": "Redmi",
+  "models": [
+   "begonia"
+  ],
+  "name": "Redmi Note 8 Pro"
+ },
+ "benz": {
+  "brand": "TCT (Alcatel)",
+  "models": [
+   "5039D",
+   "5039D_EEA",
+   "5039D_RU",
+   "5039U",
+   "5039Y_RU",
+   "HEYOU50"
+  ],
+  "name": "Alcatel 3L"
+ },
+ "berlin": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge plus",
+   "XT2143-1"
+  ],
+  "name": "motorola edge 20"
+ },
+ "berlna": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge plus",
+   "motorola edge 5G UW"
+  ],
+  "name": "motorola edge (2021)"
+ },
+ "beryllium": {
+  "brand": "Xiaomi",
+  "models": [
+   "POCOPHONE F1"
+  ],
+  "name": "POCO F1"
+ },
+ "betalm": {
+  "brand": "LGE",
+  "models": [
+   "LM-G810"
+  ],
+  "name": "G8S ThinQ"
+ },
+ "beyondx": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G977B",
+   "SM-G977N"
+  ],
+  "name": "Galaxy S10 5G"
+ },
+ "beyondxq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G977P",
+   "SM-G977T",
+   "SM-G977U"
+  ],
+  "name": "Galaxy S10 5G"
+ },
+ "biloba": {
+  "brand": "Redmi",
+  "models": [
+   "M1908C3JGG"
+  ],
+  "name": "Redmi Note 8"
+ },
+ "blanc": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge 50 ultra"
+  ],
+  "name": "motorola razr fold"
+ },
+ "borneo": {
+  "brand": "Motorola",
+  "models": [
+   "moto g power"
+  ],
+  "name": "moto g power (2021)"
+ },
+ "bronco": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge 30 pro"
+  ],
+  "name": "ThinkPhone by Motorola"
+ },
+ "bullhead": {
+  "brand": "Blackshark",
+  "models": [
+   "AWM-A0"
+  ],
+  "name": "Shark 1S"
+ },
+ "c1s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N980F",
+   "SM-N981B"
+  ],
+  "name": "Galaxy Note20"
+ },
+ "c2s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N985F",
+   "SM-N986B"
+  ],
+  "name": "Galaxy Note20 Ultra"
+ },
+ "c50": {
+  "brand": "LGE",
+  "models": [
+   "LG-H345",
+   "VS820",
+   "LG-H340",
+   "LG-H340AR",
+   "LG-H340GT",
+   "LG-H343",
+   "LGMS345",
+   "LGL33L",
+   "LGLS665",
+   "C50"
+  ],
+  "name": "LG LEON™ LTE"
+ },
+ "c70n": {
+  "brand": "LGE",
+  "models": [
+   "LG-H443",
+   "LG-H445",
+   "LG-H440n"
+  ],
+  "name": "LG Escape2"
+ },
+ "c90": {
+  "brand": "CHAINWAY",
+  "models": [
+   "C90",
+   "LG-H525",
+   "LG-F640S"
+  ],
+  "name": "C90"
+ },
+ "c9lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-C900F",
+   "SM-C900Y"
+  ],
+  "name": "Galaxy C9 Pro"
+ },
+ "c9ltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-C9000",
+   "SM-C9008",
+   "SM-C900X"
+  ],
+  "name": "Galaxy C9 Pro"
+ },
+ "camellia": {
+  "brand": "POCO",
+  "models": [
+   "M2103K19PI",
+   "M2103K19C",
+   "M2103K19I",
+   "TBD"
+  ],
+  "name": "POCO M3 Pro 5G"
+ },
+ "cancro": {
+  "brand": "Xiaomi",
+  "models": [
+   "MI 4C",
+   "MI 4W",
+   "MI 4LTE"
+  ],
+  "name": "MI 3W"
+ },
+ "cancunf": {
+  "brand": "Motorola",
+  "models": [
+   "XT2343-3",
+   "moto g73 5G",
+   "moto g54 5G"
+  ],
+  "name": "moto g54 5G"
+ },
+ "capri": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo K12 Note",
+   "moto e(7) plus",
+   "moto g(10) power"
+  ],
+  "name": "Lenovo K13 Note"
+ },
+ "capricorn": {
+  "brand": "KTC",
+  "models": [
+   "Eco Smart Display"
+  ],
+  "name": "SD_GM01"
+ },
+ "caprip": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo K12 Note"
+  ],
+  "name": "Lenovo K13 Pro"
+ },
+ "cas": {
+  "brand": "Xiaomi",
+  "models": [
+   "M2007J1SC"
+  ],
+  "name": "Mi 10 Ultra"
+ },
+ "caymanslm": {
+  "brand": "LGE",
+  "models": [
+   "LM-G910"
+  ],
+  "name": "VELVET"
+ },
+ "cebu": {
+  "brand": "Motorola",
+  "models": [
+   "Lenovo K12 Note"
+  ],
+  "name": "Lenovo K12 Pro"
+ },
+ "cedric": {
+  "brand": "Motorola",
+  "models": [
+   "Moto G (5)"
+  ],
+  "name": "Moto G (5)"
+ },
+ "chagalllte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T805",
+   "SM-T805C",
+   "SM-T805M",
+   "SM-T805Y",
+   "SM-T807"
+  ],
+  "name": "Galaxy TabS 10.5"
+ },
+ "chagallwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T800",
+   "SM-T800X"
+  ],
+  "name": "Galaxy Tab S 10.5"
+ },
+ "channel": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(6)"
+  ],
+  "name": "moto g(7) optimo (XT1952DL)"
+ },
+ "chef": {
+  "brand": "Motorola",
+  "models": [
+   "XT1942-1"
+  ],
+  "name": "moto P30 NOTE"
+ },
+ "cheryl": {
+  "brand": "Razer",
+  "models": [
+   "Phone"
+  ],
+  "name": "Razer Phone"
+ },
+ "chiron": {
+  "brand": "Xiaomi",
+  "models": [
+   "Mi MIX 2"
+  ],
+  "name": "MIX 2"
+ },
+ "chopin": {
+  "brand": "Redmi",
+  "models": [
+   "21061110AG",
+   "M2104K10AC"
+  ],
+  "name": "Redmi Note 10 Pro"
+ },
+ "citrus": {
+  "brand": "POCO",
+  "models": [
+   "M2010J19CG",
+   "M2010J19CI"
+  ],
+  "name": "POCO M3"
+ },
+ "clark": {
+  "brand": "Motorola",
+  "models": [
+   "XT1575",
+   "XT1572"
+  ],
+  "name": "Moto X Pure Edition"
+ },
+ "cmi": {
+  "brand": "Xiaomi",
+  "models": [
+   "Cmi"
+  ],
+  "name": "Mi 10 Pro"
+ },
+ "comet": {
+  "brand": "Google",
+  "models": [
+   "EEJ55"
+  ],
+  "name": "Pixel 9 Pro Fold"
+ },
+ "core33g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G360H",
+   "SM-G360HU"
+  ],
+  "name": "Galaxy Core Prime"
+ },
+ "coreprimelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G360F",
+   "SM-G360FY",
+   "SM-G360M"
+  ],
+  "name": "Galaxy Core Prime"
+ },
+ "courbet": {
+  "brand": "Xiaomi",
+  "models": [
+   "M2101K9AG"
+  ],
+  "name": "Mi 11 Lite"
+ },
+ "cprimeltemtr": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G360T1"
+  ],
+  "name": "Galaxy Core Prime"
+ },
+ "crackling": {
+  "brand": "Wileyfox",
+  "models": [
+   "Wileyfox Swift"
+  ],
+  "name": "Swift"
+ },
+ "crater": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9152"
+  ],
+  "name": "Galaxy Mega 5.8"
+ },
+ "crespo4g": {
+  "brand": "Samsung",
+  "models": [
+   "Nexus S 4G"
+  ],
+  "name": "Nexus S"
+ },
+ "crownlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N960F"
+  ],
+  "name": "Galaxy Note9"
+ },
+ "crownqltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N9600"
+  ],
+  "name": "Galaxy Note9"
+ },
+ "cs02": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G350"
+  ],
+  "name": "Galaxy Core Plus"
+ },
+ "cupid": {
+  "brand": "Xiaomi",
+  "models": [
+   "2201123C",
+   "2201123G"
+  ],
+  "name": "Xiaomi 12"
+ },
+ "cybert": {
+  "brand": "Motorola",
+  "models": [
+   "moto g play - 2024"
+  ],
+  "name": "motorola edge 60 pro"
+ },
+ "cypfq": {
+  "brand": "Motorola",
+  "models": [
+   "XT2171-3",
+   "moto[SPACE]g(50)",
+   "moto g(50)"
+  ],
+  "name": "moto g51"
+ },
+ "d1": {
+  "brand": "Maximus",
+  "models": [
+   "Maximus D1",
+   "SM-N970F"
+  ],
+  "name": "D1"
+ },
+ "d1q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N9700",
+   "SM-N970U",
+   "SM-N970U1",
+   "SM-N970W"
+  ],
+  "name": "Galaxy Note10"
+ },
+ "d1x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N971N"
+  ],
+  "name": "Galaxy Note10 5G"
+ },
+ "d2att": {
+  "brand": "Samsung",
+  "models": [
+   "SAMSUNG-SGH-I747"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2can": {
+  "brand": "Samsung",
+  "models": [
+   "SGH-I747M",
+   "SGH-T999V"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2cri": {
+  "brand": "Samsung",
+  "models": [
+   "SCH-R530C"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2mtr": {
+  "brand": "Samsung",
+  "models": [
+   "SCH-R530M"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N9750",
+   "SM-N975C",
+   "SM-N975U",
+   "SM-N975U1",
+   "SM-N975W"
+  ],
+  "name": "Galaxy Note10+"
+ },
+ "d2s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N975F"
+  ],
+  "name": "Galaxy Note10+"
+ },
+ "d2spr": {
+  "brand": "Samsung",
+  "models": [
+   "SPH-L710"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2tmo": {
+  "brand": "Samsung",
+  "models": [
+   "SGH-T999"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2usc": {
+  "brand": "Samsung",
+  "models": [
+   "SCH-R530U"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2vzw": {
+  "brand": "Samsung",
+  "models": [
+   "SCH-I535",
+   "SCH-I535PP"
+  ],
+  "name": "Galaxy S3"
+ },
+ "d2x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N976B",
+   "SM-N976N"
+  ],
+  "name": "Galaxy Note10+ 5G"
+ },
+ "d800": {
+  "brand": "British Telecom",
+  "models": [
+   "BT Home SmartPhone S II"
+  ],
+  "name": "HomeSmartphone d800"
+ },
+ "davinci": {
+  "brand": "NIO",
+  "models": [
+   "Mi 9T"
+  ],
+  "name": "N2301"
+ },
+ "deb": {
+  "brand": "Asus",
+  "models": [
+   "Nexus 7"
+  ],
+  "name": "Nexus 7 (2013)"
+ },
+ "degas": {
+  "brand": "Xiaomi",
+  "models": [
+   "2406APNFAG"
+  ],
+  "name": "Xiaomi 14T"
+ },
+ "denver": {
+  "brand": "Motorola",
+  "models": [
+   "moto g stylus (2021)"
+  ],
+  "name": "moto g stylus 5G"
+ },
+ "devon": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(100)"
+  ],
+  "name": "moto g32"
+ },
+ "dior": {
+  "brand": "Xiaomi",
+  "models": [
+   "HM NOTE 1LTE",
+   "HM NOTE 1LTEW"
+  ],
+  "name": "HM NOTE 1LTETD"
+ },
+ "discovery": {
+  "brand": "Multilaser",
+  "models": [
+   "Discovery"
+  ],
+  "name": "Discovery"
+ },
+ "diting": {
+  "brand": "Xiaomi",
+  "models": [
+   "22081212C",
+   "22081212R",
+   "22081212UG",
+   "22200414R",
+   "A201XM"
+  ],
+  "name": "Xiaomi 12T Pro"
+ },
+ "dlx": {
+  "brand": "HTC",
+  "models": [
+   "HTC6435LRA",
+   "HTC6435LVW"
+  ],
+  "name": "DROID DNA"
+ },
+ "dlxu": {
+  "brand": "HTC",
+  "models": [
+   "HTC Butterfly",
+   "HTC DLX_U",
+   "HTC X920e"
+  ],
+  "name": "Butterfly"
+ },
+ "dlxub1": {
+  "brand": "HTC",
+  "models": [
+   "HTC Butterfly",
+   "HTC DLXUB1"
+  ],
+  "name": "Butterfly"
+ },
+ "dm1q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9110",
+   "SM-S911B",
+   "SM-S911C",
+   "SM-S911N",
+   "SM-S911U",
+   "SM-S911U1",
+   "SM-S911W"
+  ],
+  "name": "Galaxy S23"
+ },
+ "dm2q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9160",
+   "SM-S916B",
+   "SM-S916N",
+   "SM-S916U",
+   "SM-S916U1",
+   "SM-S916W"
+  ],
+  "name": "Galaxy S23+"
+ },
+ "dm3q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9180",
+   "SM-S918B",
+   "SM-S918N",
+   "SM-S918Q",
+   "SM-S918U",
+   "SM-S918U1",
+   "SM-S918W"
+  ],
+  "name": "Galaxy S23 Ultra"
+ },
+ "dream2lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G955F"
+  ],
+  "name": "Galaxy S8+"
+ },
+ "dreamlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G950F"
+  ],
+  "name": "Galaxy S8"
+ },
+ "dubai": {
+  "brand": "Motorola",
+  "models": [
+   "moto g200 5G"
+  ],
+  "name": "motorola edge 30"
+ },
+ "duchamp": {
+  "brand": "POCO",
+  "models": [
+   "2311DRK48G",
+   "2311DRK48I",
+   "2311DRK48C"
+  ],
+  "name": "POCO X6 Pro 5G"
+ },
+ "e3q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9280",
+   "SM-S928B",
+   "SM-S928N",
+   "SM-S928Q",
+   "SM-S928U",
+   "SM-S928U1",
+   "SM-S928W"
+  ],
+  "name": "Galaxy S24 Ultra"
+ },
+ "e8": {
+  "brand": "TCL",
+  "models": [
+   "9011"
+  ],
+  "name": "TCL 随学园 E8 4G"
+ },
+ "e9wifi": {
+  "brand": "LGE",
+  "models": [
+   "LG-V700"
+  ],
+  "name": "G Pad 10.1"
+ },
+ "earth": {
+  "brand": "POCO",
+  "models": [
+   "22127PC95I",
+   "22120RN86G",
+   "22120RN86I",
+   "2212ARNC4L"
+  ],
+  "name": "POCO C55"
+ },
+ "emerald": {
+  "brand": "Mint",
+  "models": [
+   "Emerald_M55CR",
+   "Emerald_M55CRD",
+   "2312FPCA6G",
+   "23117RA68G",
+   "2502FRA65G"
+  ],
+  "name": "Emerald"
+ },
+ "endeavoru": {
+  "brand": "HTC",
+  "models": [
+   "HTC One X",
+   "HTC S720e"
+  ],
+  "name": "One X"
+ },
+ "enrc2b": {
+  "brand": "HTC",
+  "models": [
+   "HTC One X+"
+  ],
+  "name": "One X+"
+ },
+ "eqs": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge"
+  ],
+  "name": "motorola edge 30 ultra"
+ },
+ "equuleus": {
+  "brand": "Xiaomi",
+  "models": [
+   "MI 8 Pro",
+   "MI 8 UD",
+   "equuleus"
+  ],
+  "name": "MI  8  Pro"
+ },
+ "espressowifi": {
+  "brand": "Samsung",
+  "models": [
+   "GT-P3110",
+   "GT-P3113"
+  ],
+  "name": "Galaxy Tab2 7.0"
+ },
+ "eva": {
+  "brand": "Xiaomi",
+  "models": [
+   "MiProjM05"
+  ],
+  "name": "Mi smart projector"
+ },
+ "evita": {
+  "brand": "HTC",
+  "models": [
+   "HTC One X",
+   "HTC One XL",
+   "HTC_One_XL"
+  ],
+  "name": "One X"
+ },
+ "evitareul": {
+  "brand": "HTC",
+  "models": [
+   "HTC EVARE_UL",
+   "HTC One X+"
+  ],
+  "name": "AT&T HTC One X+"
+ },
+ "f1f": {
+  "brand": "Oppo",
+  "models": [
+   "F1fw",
+   "F1w",
+   "F1f"
+  ],
+  "name": "F1f"
+ },
+ "f41": {
+  "brand": "Mobicel",
+  "models": [
+   "SM-F415F"
+  ],
+  "name": "F41"
+ },
+ "f500": {
+  "brand": "Emtec",
+  "models": [
+   "Gem Box F500"
+  ],
+  "name": "Gaming Android Gem Box"
+ },
+ "f62": {
+  "brand": "Samsung",
+  "models": [
+   "SM-E625F"
+  ],
+  "name": "Galaxy F62"
+ },
+ "falcon": {
+  "brand": "Borqs",
+  "models": [
+   "LM-Q850",
+   "LM-Q925K",
+   "LM-Q925L",
+   "LM-Q925S"
+  ],
+  "name": "Falcon"
+ },
+ "find5": {
+  "brand": "Oppo",
+  "models": [
+   "X909",
+   "X909T"
+  ],
+  "name": "Find 5"
+ },
+ "fire": {
+  "brand": "Admiral Overseas Corporation",
+  "models": [
+   "23053RN02A",
+   "23053RN02I",
+   "23053RN02L"
+  ],
+  "name": "Fire"
+ },
+ "fireball": {
+  "brand": "Compaq",
+  "models": [
+   "ADR6410LRA",
+   "ADR6410LVW",
+   "ADR6410OM"
+  ],
+  "name": "CT101"
+ },
+ "flame": {
+  "brand": "Google",
+  "models": [
+   "24108PCE2I",
+   "2411DRN47I"
+  ],
+  "name": "Pixel 4"
+ },
+ "flashlmdd": {
+  "brand": "LGE",
+  "models": [
+   "LM-V500",
+   "LM-V500N"
+  ],
+  "name": "LG V50 ThinQ"
+ },
+ "fleur": {
+  "brand": "POCO",
+  "models": [
+   "2201117PG",
+   "2201117SY"
+  ],
+  "name": "POCO M4 Pro"
+ },
+ "flo": {
+  "brand": "Asus",
+  "models": [
+   "Nexus 7"
+  ],
+  "name": "Nexus 7 (2013)"
+ },
+ "fog": {
+  "brand": "Explay",
+  "models": [
+   "M1_Plus",
+   "220333QAG",
+   "220333QBI"
+  ],
+  "name": "Fog"
+ },
+ "fogo": {
+  "brand": "Motorola",
+  "models": [
+   "moto g 5G - 2023"
+  ],
+  "name": "moto g 5G - 2024"
+ },
+ "fogos": {
+  "brand": "Motorola",
+  "models": [
+   "XT2363-4",
+   "moto g53 5G",
+   "moto g34 5GP"
+  ],
+  "name": "moto g34"
+ },
+ "fortuna3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G530H"
+  ],
+  "name": "Galaxy Grand Prime"
+ },
+ "foster": {
+  "brand": "NVIDIA",
+  "models": [
+   "SHIELD Console"
+  ],
+  "name": "SHIELD Android TV"
+ },
+ "fp3": {
+  "brand": "Fairphone",
+  "models": [
+   "FP3"
+  ],
+  "name": "Fairphone3"
+ },
+ "fp4": {
+  "brand": "Fairphone",
+  "models": [
+   "FP4"
+  ],
+  "name": "Fairphone4"
+ },
+ "fp5": {
+  "brand": "Fairphone",
+  "models": [
+   "FP5"
+  ],
+  "name": "Fairphone 5 5G"
+ },
+ "fp6": {
+  "brand": "Fairphone",
+  "models": [
+   "Fairphone 6"
+  ],
+  "name": "The Fairphone (Gen. 6)"
+ },
+ "fuxi": {
+  "brand": "Xiaomi",
+  "models": [
+   "2211133C",
+   "2211133G"
+  ],
+  "name": "Xiaomi 13"
+ },
+ "g0s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S906B"
+  ],
+  "name": "Galaxy S22+"
+ },
+ "g2": {
+  "brand": "10.or",
+  "models": [
+   "10or G2",
+   "G2",
+   "LG-D800",
+   "LG-D801",
+   "LG-D802",
+   "LG-D802T",
+   "LG-D802TR",
+   "LG-D803",
+   "LG-D805",
+   "LG-D806",
+   "LG-F320K",
+   "LG-F320L",
+   "LG-F320S",
+   "LG-LS980",
+   "VS980 4G"
+  ],
+  "name": "10or_G2"
+ },
+ "g4": {
+  "brand": "Claresta",
+  "models": [
+   "G4"
+  ],
+  "name": "G4"
+ },
+ "garnet": {
+  "brand": "POCO",
+  "models": [
+   "23122PCD1G",
+   "23122PCD1I",
+   "2312CRAD3C",
+   "2312DRA50C",
+   "2312DRA50G",
+   "2312DRA50I"
+  ],
+  "name": "POCO X6 5G"
+ },
+ "gauguin": {
+  "brand": "Xiaomi",
+  "models": [
+   "M2007J17G"
+  ],
+  "name": "Mi 10T Lite"
+ },
+ "gauguininpro": {
+  "brand": "Xiaomi",
+  "models": [
+   "M2007J17I"
+  ],
+  "name": "Mi 10i"
+ },
+ "gauguinpro": {
+  "brand": "Redmi",
+  "models": [
+   "M2007J17C"
+  ],
+  "name": "Redmi Note 9 pro"
+ },
+ "geeb": {
+  "brand": "LGE",
+  "models": [
+   "LG-E970",
+   "LG-E971",
+   "LG-E973"
+  ],
+  "name": "LG Optimus G"
+ },
+ "geehrc4g": {
+  "brand": "LGE",
+  "models": [
+   "LG-F180L",
+   "LG-LS970"
+  ],
+  "name": "LG Optimus G"
+ },
+ "gemini": {
+  "brand": "KOOLMAAX",
+  "models": [
+   "G7576"
+  ],
+  "name": "GEMINI"
+ },
+ "genevn": {
+  "brand": "Motorola",
+  "models": [
+   "moto g stylus 5g"
+  ],
+  "name": "moto g stylus 5G - 2023"
+ },
+ "ghost": {
+  "brand": "AG Mobile",
+  "models": [
+   "XT1049",
+   "XT1050",
+   "XT1052",
+   "XT1053",
+   "XT1055",
+   "XT1056",
+   "XT1058",
+   "XT1060"
+  ],
+  "name": "Ghost"
+ },
+ "gigaset_gs4": {
+  "brand": "Gigaset",
+  "models": [
+   "E940-2795-00"
+  ],
+  "name": "Gigaset GS4"
+ },
+ "ginkgo": {
+  "brand": "Redmi",
+  "models": [
+   "GINKGO"
+  ],
+  "name": "Redmi Note 8"
+ },
+ "gm6_s_sprout": {
+  "brand": "General Mobile",
+  "models": [
+   "GM 6",
+   "GM6"
+  ],
+  "name": "GM 6 s"
+ },
+ "goghspr": {
+  "brand": "Samsung",
+  "models": [
+   "SPH-L300"
+  ],
+  "name": "Galaxy Victory"
+ },
+ "golden": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I8190",
+   "GT-I8190L",
+   "GT-I8190N",
+   "GT-I8190T"
+  ],
+  "name": "Galaxy S3 Mini"
+ },
+ "golfu": {
+  "brand": "HTC",
+  "models": [
+   "HTC Desire C"
+  ],
+  "name": "Desire C"
+ },
+ "goya": {
+  "brand": "Xiaomi",
+  "models": [
+   "25069PTEBG"
+  ],
+  "name": "Xiaomi 15T"
+ },
+ "gprimeltespr": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G530P"
+  ],
+  "name": "Galaxy Grand Prime"
+ },
+ "gprimeltetfnvzw": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S920L"
+  ],
+  "name": "Galaxy Grand Prime"
+ },
+ "gracelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N930F",
+   "SM-N930X"
+  ],
+  "name": "Galaxy Note7"
+ },
+ "graceqltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N9300"
+  ],
+  "name": "Galaxy Note7"
+ },
+ "grandneove3g": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9060C",
+   "GT-I9060I",
+   "GT-I9060M"
+  ],
+  "name": "Galaxy Grand Neo Plus"
+ },
+ "grandprimeve3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G531H"
+  ],
+  "name": "Galaxy Grand Prime"
+ },
+ "grandprimevelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G531F"
+  ],
+  "name": "Galaxy Grand Prime"
+ },
+ "greatlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N950F"
+  ],
+  "name": "Galaxy Note8"
+ },
+ "greatqlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N950U"
+  ],
+  "name": "Galaxy Note8"
+ },
+ "griffin": {
+  "brand": "Motorola",
+  "models": [
+   "XT1650",
+   "XT1650-05"
+  ],
+  "name": "Moto Z"
+ },
+ "grouper": {
+  "brand": "Asus",
+  "models": [
+   "Nexus 7"
+  ],
+  "name": "Nexus 7 (2012)"
+ },
+ "gs6_venus": {
+  "brand": "Gigaset",
+  "models": [
+   "E940-3043-00"
+  ],
+  "name": "GS6 PRO"
+ },
+ "gt510wifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T550",
+   "SM-T550X"
+  ],
+  "name": "Galaxy Tab A"
+ },
+ "gta3xlwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T510"
+  ],
+  "name": "Galaxy Tab A"
+ },
+ "gta4l": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T505",
+   "SM-T505C",
+   "SM-T505N",
+   "SM-T507"
+  ],
+  "name": "Galaxy Tab A7"
+ },
+ "gta4lwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T500"
+  ],
+  "name": "Galaxy Tab A7"
+ },
+ "gta4xl": {
+  "brand": "Samsung",
+  "models": [
+   "SM-P615",
+   "SM-P615C",
+   "SM-P615N",
+   "SM-P617"
+  ],
+  "name": "Galaxy Tab S6 Lite"
+ },
+ "gta4xlswifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-P620"
+  ],
+  "name": "Galaxy Tab S6 Lite"
+ },
+ "gta4xlwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-P610",
+   "SM-P610X"
+  ],
+  "name": "Galaxy Tab S6 Lite"
+ },
+ "gtanotexllte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-P585",
+   "SM-P585M",
+   "SM-P585Y",
+   "SM-P587"
+  ],
+  "name": "Galaxy Tab A (2016) with S Pen"
+ },
+ "gtaxllte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T585",
+   "SM-T585M",
+   "SM-T587"
+  ],
+  "name": "Galaxy Tab A (2016)"
+ },
+ "gtaxlwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T580",
+   "SM-T580X"
+  ],
+  "name": "Galaxy Tab A (2016)"
+ },
+ "gtel3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T561M",
+   "SM-T561",
+   "SM-T561Y",
+   "SM-T562"
+  ],
+  "name": "Galaxy Tab E"
+ },
+ "gtelwifiue": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T560NU"
+  ],
+  "name": "Galaxy Tab E 9.6"
+ },
+ "gtesqltespr": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T377P"
+  ],
+  "name": "Galaxy Tab E 8.0"
+ },
+ "gtowifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T290"
+  ],
+  "name": "Galaxy Tab A (8.0\", 2019)"
+ },
+ "gts210velte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T819",
+   "SM-T819Y",
+   "SM-T818"
+  ],
+  "name": "Galaxy Tab S2"
+ },
+ "gts210vewifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T813"
+  ],
+  "name": "Galaxy Tab S2"
+ },
+ "gts210wifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T810",
+   "SM-T810X"
+  ],
+  "name": "Galaxy Tab S2"
+ },
+ "gts28velte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T719",
+   "SM-T719Y"
+  ],
+  "name": "Galaxy Tab S2"
+ },
+ "gts28vewifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T713"
+  ],
+  "name": "Galaxy Tab S2"
+ },
+ "gts28wifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T710",
+   "SM-T710X"
+  ],
+  "name": "Galaxy Tab S2"
+ },
+ "gts4lv": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T725",
+   "SM-T725C",
+   "SM-T725N",
+   "SM-T727",
+   "SM-T727A",
+   "SM-T727R4",
+   "SM-T727U",
+   "SM-T727V"
+  ],
+  "name": "Galaxy Tab S5e"
+ },
+ "gts4lvwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T720"
+  ],
+  "name": "Galaxy Tab S5e"
+ },
+ "gts4lwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T830"
+  ],
+  "name": "Galaxy Tab S4"
+ },
+ "gts6l": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T865",
+   "SM-T865N",
+   "SM-T867",
+   "SM-T867R4",
+   "SM-T867U",
+   "SM-T867V"
+  ],
+  "name": "Galaxy Tab S6"
+ },
+ "gts6lwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T860"
+  ],
+  "name": "Galaxy Tab S6"
+ },
+ "gts7l": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T875",
+   "SM-T875N",
+   "SM-T878U"
+  ],
+  "name": "Galaxy Tab S7"
+ },
+ "gts7lwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T870"
+  ],
+  "name": "Galaxy Tab S7"
+ },
+ "ha3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N900",
+   "SM-N9000Q"
+  ],
+  "name": "Galaxy Note3"
+ },
+ "hannah": {
+  "brand": "Motorola",
+  "models": [
+   "Moto E",
+   "moto e5 supra"
+  ],
+  "name": "moto e5 plus"
+ },
+ "hanoip": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(40) fusion"
+  ],
+  "name": "moto g(60)"
+ },
+ "harpia": {
+  "brand": "Motorola",
+  "models": [
+   "Moto G Play",
+   "XT1609"
+  ],
+  "name": "Moto G4 Play"
+ },
+ "hawao": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(100)"
+  ],
+  "name": "moto g42"
+ },
+ "haydn": {
+  "brand": "Redmi",
+  "models": [
+   "M2012K11C",
+   "M2012K11G"
+  ],
+  "name": "Redmi K40 Pro"
+ },
+ "heart": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo L78032"
+  ],
+  "name": "Lenovo Z5 Pro"
+ },
+ "hermes": {
+  "brand": "QUBO",
+  "models": [
+   "Redmi Note 2"
+  ],
+  "name": "Hermes"
+ },
+ "hero2lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G935X",
+   "SM-G935F"
+  ],
+  "name": "Galaxy S7 Edge"
+ },
+ "hero2qltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G9350"
+  ],
+  "name": "Galaxy S7 edge"
+ },
+ "heroc": {
+  "brand": "HTC",
+  "models": [
+   "HERO200"
+  ],
+  "name": "Hero"
+ },
+ "herolte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G930F",
+   "SM-G930X"
+  ],
+  "name": "Galaxy S7"
+ },
+ "heroqltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G9300",
+   "SM-G9308"
+  ],
+  "name": "Galaxy S7"
+ },
+ "hl3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N750",
+   "SM-N7500Q"
+  ],
+  "name": "Galaxy Note3 Neo"
+ },
+ "hllte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N7505",
+   "SM-N7505L",
+   "SM-N7507"
+  ],
+  "name": "Galaxy Note3 Neo"
+ },
+ "hlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N9005",
+   "SM-N9006",
+   "SM-N9007",
+   "SM-N9008V",
+   "SM-N9009",
+   "SM-N900U",
+   "SM-N9002",
+   "SM-N9008"
+  ],
+  "name": "Galaxy Note3"
+ },
+ "hltetmo": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N900T"
+  ],
+  "name": "Galaxy Note3"
+ },
+ "holiday": {
+  "brand": "HTC",
+  "models": [
+   "HTC PH39100",
+   "HTC Raider X710e",
+   "HTC Velocity 4G",
+   "HTC Velocity 4G X710s",
+   "HTC-X710a"
+  ],
+  "name": "Velocity 4G"
+ },
+ "huanghe": {
+  "brand": "Hisense",
+  "models": [
+   "HIDB 4K"
+  ],
+  "name": "Goboard Series"
+ },
+ "hummingbird": {
+  "brand": "Barnes and Noble",
+  "models": [
+   "BNTV400"
+  ],
+  "name": "HD"
+ },
+ "ibiza": {
+  "brand": "Motorola",
+  "models": [
+   "XT2137-2"
+  ],
+  "name": "moto g(50)"
+ },
+ "ice": {
+  "brand": "Mobicell",
+  "models": [
+   "ICE",
+   "220733SG",
+   "220733SI",
+   "220733SL"
+  ],
+  "name": "Mobicel ICE"
+ },
+ "iconvmu": {
+  "brand": "Samsung",
+  "models": [
+   "SPH-M950"
+  ],
+  "name": "Galaxy Reverb"
+ },
+ "ido": {
+  "brand": "Xiaomi",
+  "models": [
+   "ido"
+  ],
+  "name": "Redmi 3"
+ },
+ "inc": {
+  "brand": "HTC",
+  "models": [
+   "ADR6300"
+  ],
+  "name": "Droid Incredible"
+ },
+ "ingres": {
+  "brand": "POCO",
+  "models": [
+   "21121210G",
+   "21121210C"
+  ],
+  "name": "POCO F4 GT"
+ },
+ "ishtar": {
+  "brand": "Xiaomi",
+  "models": [
+   "2304FPN6DC",
+   "2304FPN6DG"
+  ],
+  "name": "Xiaomi 13 Ultra"
+ },
+ "j1acelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J110F",
+   "SM-J110G"
+  ],
+  "name": "Galaxy J1 Ace"
+ },
+ "j1pop3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J110H",
+   "SM-J110L"
+  ],
+  "name": "Galaxy J1 Ace"
+ },
+ "j1x3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J120H"
+  ],
+  "name": "Galaxy J1(2016)"
+ },
+ "j2lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J200F",
+   "SM-J200G",
+   "SM-J200GU",
+   "SM-J200M",
+   "SM-J200Y"
+  ],
+  "name": "Galaxy J2"
+ },
+ "j2xlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J210F"
+  ],
+  "name": "Galaxy J2(2016)"
+ },
+ "j2y18lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J250F",
+   "SM-J250Y",
+   "SM-J250G",
+   "SM-J250M"
+  ],
+  "name": "Galaxy Grand Prime Pro"
+ },
+ "j4corelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J410F",
+   "SM-J410G"
+  ],
+  "name": "Galaxy J4 Core"
+ },
+ "j4lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J400F",
+   "SM-J400G",
+   "SM-J400M"
+  ],
+  "name": "Galaxy J4"
+ },
+ "j4primelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J415F",
+   "SM-J415FN",
+   "SM-J415G",
+   "SM-J415GN"
+  ],
+  "name": "Galaxy J4+"
+ },
+ "j5lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J5007",
+   "SM-J500F",
+   "SM-J500G",
+   "SM-J500M"
+  ],
+  "name": "Galaxy J5"
+ },
+ "j5ltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J5008"
+  ],
+  "name": "Galaxy J5"
+ },
+ "j5nlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J500FN"
+  ],
+  "name": "Galaxy J5"
+ },
+ "j5xltecmcc": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J5108"
+  ],
+  "name": "Galaxy J5(2016)"
+ },
+ "j5xnlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J510F",
+   "SM-J510FN",
+   "SM-J510FQ",
+   "SM-J510GN",
+   "SM-J510MN",
+   "SM-J510UN"
+  ],
+  "name": "Galaxy J5(2016)"
+ },
+ "j5y17lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J530F",
+   "SM-J530FM",
+   "SM-J530G",
+   "SM-J530GM"
+  ],
+  "name": "Galaxy J5"
+ },
+ "j6lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J600F",
+   "SM-J600FN",
+   "SM-J600G",
+   "SM-J600GT",
+   "SM-J600GF"
+  ],
+  "name": "Galaxy J6"
+ },
+ "j6primelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J610F",
+   "SM-J610FN",
+   "SM-J610G"
+  ],
+  "name": "Galaxy J6+"
+ },
+ "j7elte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J700F",
+   "SM-J700M"
+  ],
+  "name": "Galaxy J7"
+ },
+ "j7ltespr": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J700P"
+  ],
+  "name": "Galaxy J7(2015)"
+ },
+ "j7popltespr": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J727P"
+  ],
+  "name": "Galaxy J7 Perx"
+ },
+ "j7velte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J701F",
+   "SM-J701M",
+   "SM-J701MT"
+  ],
+  "name": "Galaxy J7 Neo"
+ },
+ "j7xelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J710F",
+   "SM-J710FQ",
+   "SM-J710GN",
+   "SM-J710MN"
+  ],
+  "name": "Galaxy J7(2016)"
+ },
+ "j7y17lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-J730F",
+   "SM-J730FM",
+   "SM-J730G",
+   "SM-J730GM"
+  ],
+  "name": "Galaxy J7"
+ },
+ "jackpot2lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A730F",
+   "SM-A730X"
+  ],
+  "name": "Galaxy A8+(2018)"
+ },
+ "jackpotlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A530F",
+   "SM-A530X"
+  ],
+  "name": "Galaxy A8(2018)"
+ },
+ "jactivelte": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9295"
+  ],
+  "name": "Galaxy S4 Active"
+ },
+ "james": {
+  "brand": "Motorola",
+  "models": [
+   "moto e5 cruise",
+   "moto e5 play"
+  ],
+  "name": "moto e(5) cruise"
+ },
+ "jaspervzw": {
+  "brand": "Samsung",
+  "models": [
+   "SCH-I200",
+   "SCH-I200PP"
+  ],
+  "name": "Galaxy Stellar"
+ },
+ "jd2019": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo L78071"
+  ],
+  "name": "Z5s"
+ },
+ "jewel": {
+  "brand": "Cell_C",
+  "models": [
+   "EVO"
+  ],
+  "name": "Jewel"
+ },
+ "jflte": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9505",
+   "GT-I9508",
+   "GT-I9508C"
+  ],
+  "name": "Galaxy S4"
+ },
+ "jflteatt": {
+  "brand": "Samsung",
+  "models": [
+   "SAMSUNG-SGH-I337"
+  ],
+  "name": "Galaxy S4"
+ },
+ "jfltespr": {
+  "brand": "Samsung",
+  "models": [
+   "SPH-L720"
+  ],
+  "name": "Galaxy S4"
+ },
+ "jfltevzw": {
+  "brand": "Samsung",
+  "models": [
+   "SCH-I545"
+  ],
+  "name": "Galaxy S4"
+ },
+ "jfvelte": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9515",
+   "GT-I9515L"
+  ],
+  "name": "Galaxy S4"
+ },
+ "jgedlte": {
+  "brand": "Google",
+  "models": [
+   "GT-I9505G"
+  ],
+  "name": "Galaxy S4 Google Play edition"
+ },
+ "joan": {
+  "brand": "LGE",
+  "models": [
+   "LG-AS998",
+   "LG-H930",
+   "LG-H931",
+   "LG-H932",
+   "LG-H932PR",
+   "LG-H933",
+   "LG-LS998",
+   "LG-US998",
+   "LGM-V300K",
+   "LGM-V300L",
+   "LGM-V300S",
+   "VS996",
+   "LGV35"
+  ],
+  "name": "V30"
+ },
+ "judyln": {
+  "brand": "LGE",
+  "models": [
+   "LG-G710",
+   "LM-G710",
+   "LM-G710N",
+   "LM-G710VM"
+  ],
+  "name": "LG G7 ThinQ"
+ },
+ "judyp": {
+  "brand": "LGE",
+  "models": [
+   "LM-V350",
+   "LM-V350N"
+  ],
+  "name": "LG V35 ThinQ"
+ },
+ "judypn": {
+  "brand": "LGE",
+  "models": [
+   "LM-V405",
+   "LM-V409N"
+  ],
+  "name": "V40 ThinQ"
+ },
+ "k10": {
+  "brand": "Astro_Tab",
+  "models": [
+   "K10"
+  ],
+  "name": "K10"
+ },
+ "k3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G900H"
+  ],
+  "name": "Galaxy S5"
+ },
+ "kanas3gnfc": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G355HN"
+  ],
+  "name": "Galaxy Core2"
+ },
+ "kane": {
+  "brand": "Motorola",
+  "models": [
+   "XT1970-5"
+  ],
+  "name": "motorola p50"
+ },
+ "kccat6": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G901F"
+  ],
+  "name": "Galaxy S5 LTE-A"
+ },
+ "kelly": {
+  "brand": "ZTE",
+  "models": [
+   "Z852"
+  ],
+  "name": "ZTE Fanfare 3"
+ },
+ "kiev": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge"
+  ],
+  "name": "moto g 5G"
+ },
+ "kinzie": {
+  "brand": "Motorola",
+  "models": [
+   "XT1585",
+   "XT1580"
+  ],
+  "name": "DROID Turbo 2"
+ },
+ "klee": {
+  "brand": "POCO",
+  "models": [
+   "2511FPC34G",
+   "2511FPC34I",
+   "2606FRT34I"
+  ],
+  "name": "POCO X8 Pro"
+ },
+ "klimtlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T705",
+   "SM-T705C",
+   "SM-T705Y",
+   "SM-T705M"
+  ],
+  "name": "Galaxy Tab S 8.4"
+ },
+ "klimtwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T700"
+  ],
+  "name": "Galaxy Tab S 8.4"
+ },
+ "klte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G9008W",
+   "SM-G9009W",
+   "SM-G900F",
+   "SM-G900FQ",
+   "SM-G900I",
+   "SM-G900M",
+   "SM-G900MD",
+   "SM-G900FD"
+  ],
+  "name": "Galaxy S5"
+ },
+ "klteaio": {
+  "brand": "Samsung",
+  "models": [
+   "SAMSUNG-SM-G900AZ"
+  ],
+  "name": "Galaxy S5"
+ },
+ "kmini3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G800H",
+   "SM-G800HQ"
+  ],
+  "name": "Galaxy S5 Mini"
+ },
+ "kminilte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G800F",
+   "SM-G800M",
+   "SM-G800Y"
+  ],
+  "name": "Galaxy S5 mini"
+ },
+ "komodo": {
+  "brand": "Google",
+  "models": [
+   "SMART AM60",
+   "AMG series",
+   "SMART AMG1"
+  ],
+  "name": "Pixel 9 Pro XL"
+ },
+ "kona3g": {
+  "brand": "Samsung",
+  "models": [
+   "GT-N5100",
+   "GT-N5105"
+  ],
+  "name": "Galaxy Note 8.0"
+ },
+ "ks01lte": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9506"
+  ],
+  "name": "Galaxy S4"
+ },
+ "kunlun2": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo L38111"
+  ],
+  "name": "TBD"
+ },
+ "kuntao": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo P2c72"
+  ],
+  "name": "P2"
+ },
+ "kylepro": {
+  "brand": "Samsung",
+  "models": [
+   "GT-S7580",
+   "GT-S7580E",
+   "GT-S7580L",
+   "GT-S7583T"
+  ],
+  "name": "Galaxy Trend Plus"
+ },
+ "kyleve": {
+  "brand": "Samsung",
+  "models": [
+   "GT-S7392",
+   "GT-S7392L",
+   "GT-S7390",
+   "GT-S7562C"
+  ],
+  "name": "Galaxy Trend"
+ },
+ "kylevess": {
+  "brand": "Samsung",
+  "models": [
+   "GT-S7390",
+   "GT-S7390E",
+   "GT-S7390G",
+   "GT-S7390L"
+  ],
+  "name": "Galaxy Fresh"
+ },
+ "lake": {
+  "brand": "Motorola",
+  "models": [
+   "XT1965-6",
+   "2410FPCC5G",
+   "2409BRN2CY"
+  ],
+  "name": "moto g(7) plus"
+ },
+ "lamu": {
+  "brand": "Motorola",
+  "models": [
+   "lamu_g"
+  ],
+  "name": "moto g15"
+ },
+ "lancelot": {
+  "brand": "Redmi",
+  "models": [
+   "M2004J19C",
+   "M2004J19G",
+   "M2004J19I"
+  ],
+  "name": "Redmi 9"
+ },
+ "lavender": {
+  "brand": "Aiwa",
+  "models": [
+   "4K SMART TV",
+   "BLAUPUNKT 4K TV",
+   "BLAUPUNKT GOOGLE TV 4K",
+   "EKO 4K Android TV",
+   "EcoTV Plus C",
+   "EcoTV Plus D",
+   "EcoTV Plus I",
+   "4K SMART COL TV",
+   "4K SMART ISDB TV",
+   "HYUNDAI 4K SMART TV",
+   "INDURAMA GOOGLE TV 4K",
+   "JVC 4K DVB TV",
+   "JVC 4K ISDB TV",
+   "EcoTV C",
+   "EcoTV D",
+   "EcoTV",
+   "DIGGIO GOOGLE TV 4K",
+   "GLOBAL GOOGLE TV 4K",
+   "INNOVA GOOGLE TV 4K",
+   "NAKAMICHI GOOGLE TV 4K",
+   "STAR-TRACK 4K SMART TV",
+   "VIMEEL GOOGLE TV 4K",
+   "KENWOOD DVB 4K TV",
+   "KENWOOD ISDB 4K TV",
+   "MASTERTECH GOOGLE TV",
+   "MOTOROLA GOOGLE TV 4K",
+   "4K SMART TV PH",
+   "QBELL 4K Android TV",
+   "Redmi Note 7",
+   "SVISION 4K Android TV"
+  ],
+  "name": "AIWA"
+ },
+ "leo": {
+  "brand": "KTC",
+  "models": [
+   "Eco Smart Display ME",
+   "D6603",
+   "Vestel_5000",
+   "Vestel_5000_Dual",
+   "Z955A"
+  ],
+  "name": "SD_GM02"
+ },
+ "libra": {
+  "brand": "Xiaomi",
+  "models": [
+   "Mi-4c"
+  ],
+  "name": "Mi 4c"
+ },
+ "lime": {
+  "brand": "Redmi",
+  "models": [
+   "M2010J19SI",
+   "M2010J19SG",
+   "M2010J19SC"
+  ],
+  "name": "Redmi 9 Power"
+ },
+ "lion": {
+  "brand": "Deutsche Telekom",
+  "models": [
+   "lion",
+   "moto g04"
+  ],
+  "name": "T Phone Pro"
+ },
+ "lisa": {
+  "brand": "Xiaomi",
+  "models": [
+   "2107119DC",
+   "2109119DG",
+   "2109119DI"
+  ],
+  "name": "Mi 11 LE"
+ },
+ "lithium": {
+  "brand": "Coolpad",
+  "models": [
+   "cp3705A",
+   "lithium"
+  ],
+  "name": "3705A"
+ },
+ "lmi": {
+  "brand": "POCO",
+  "models": [
+   "Lmi",
+   "Redmi K30 Pro"
+  ],
+  "name": "POCO F2 Pro"
+ },
+ "logan2g": {
+  "brand": "Samsung",
+  "models": [
+   "GT-S7262"
+  ],
+  "name": "Galaxy Star Plus"
+ },
+ "lt02ltetmo": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T217T"
+  ],
+  "name": "Galaxy Tab3 7.0"
+ },
+ "lt03wifiue": {
+  "brand": "Samsung",
+  "models": [
+   "SM-P600"
+  ],
+  "name": "Galaxy Note 10.1 2014 Edition"
+ },
+ "lux": {
+  "brand": "Motorola",
+  "models": [
+   "XT1021",
+   "XT1565",
+   "XT1562",
+   "XT1563",
+   "XT1564"
+  ],
+  "name": "DROID MAXX 2"
+ },
+ "m0": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9300",
+   "GT-I9300T"
+  ],
+  "name": "Galaxy S3"
+ },
+ "m1": {
+  "brand": "Faiba",
+  "models": [
+   "LG-AS330",
+   "LG-K330",
+   "LGMS330",
+   "LGL51AL",
+   "LGL52VL",
+   "LGLS675"
+  ],
+  "name": "M1"
+ },
+ "m14x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-E146B",
+   "SM-M146B"
+  ],
+  "name": "Galaxy F14 5G"
+ },
+ "m20lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M205F",
+   "SM-M205FN",
+   "SM-M205G",
+   "SM-M205M"
+  ],
+  "name": "Galaxy M20"
+ },
+ "m21": {
+  "brand": "AOC",
+  "models": [
+   "SM-M215F",
+   "SM-M215G"
+  ],
+  "name": "M21"
+ },
+ "m216": {
+  "brand": "LGE",
+  "models": [
+   "LG-K420"
+  ],
+  "name": "LG K10"
+ },
+ "m23xq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M236L",
+   "SM-E236B",
+   "SM-M236B",
+   "SM-M236Q"
+  ],
+  "name": "Galaxy Buddy2"
+ },
+ "m30lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M305F",
+   "SM-M305M"
+  ],
+  "name": "Galaxy M30"
+ },
+ "m30s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M3070",
+   "SM-M307F",
+   "SM-M307FN"
+  ],
+  "name": "Galaxy M30s"
+ },
+ "m31": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M315F"
+  ],
+  "name": "Galaxy M31"
+ },
+ "m31s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M317F"
+  ],
+  "name": "Galaxy M31s"
+ },
+ "m33x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M336K",
+   "SM-M336B",
+   "SM-M336BU"
+  ],
+  "name": "Galaxy Jump2"
+ },
+ "m34x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-E346B",
+   "SM-M346B",
+   "SM-M346B1",
+   "SM-M346B2"
+  ],
+  "name": "Galaxy F34 5G"
+ },
+ "m35x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M356B"
+  ],
+  "name": "Galaxy M35 5G"
+ },
+ "m52xq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-M526B",
+   "SM-M526BR"
+  ],
+  "name": "Galaxy M52 5G"
+ },
+ "m55xq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-C5560",
+   "SM-E556B",
+   "SM-M556B",
+   "SM-M556E",
+   "SM-M558B"
+  ],
+  "name": "Galaxy C55 5G"
+ },
+ "m56x": {
+  "brand": "Samsung",
+  "models": [
+   "SM-E566B",
+   "SM-M566B"
+  ],
+  "name": "Galaxy F56 5G"
+ },
+ "m7": {
+  "brand": "CZ Electronics",
+  "models": [
+   "M7",
+   "HTC 801e",
+   "HTC One",
+   "HTC One 801e",
+   "HTC_PN071",
+   "HTC One 801s",
+   "M7_EEA"
+  ],
+  "name": "M7 Sapphire"
+ },
+ "m7wls": {
+  "brand": "HTC",
+  "models": [
+   "HTC One",
+   "HTCONE"
+  ],
+  "name": "HTC One"
+ },
+ "m7wlv": {
+  "brand": "HTC",
+  "models": [
+   "HTC One",
+   "HTC6500LVW"
+  ],
+  "name": "One"
+ },
+ "m8": {
+  "brand": "AORO",
+  "models": [
+   "M8 for arm64",
+   "M8"
+  ],
+  "name": "M8"
+ },
+ "maguro": {
+  "brand": "Samsung",
+  "models": [
+   "Galaxy X"
+  ],
+  "name": "Galaxy Nexus"
+ },
+ "malachite": {
+  "brand": "POCO",
+  "models": [
+   "24095PCADG",
+   "24095PCADI",
+   "24090RA29C",
+   "24090RA29G",
+   "24090RA29I"
+  ],
+  "name": "POCO X7"
+ },
+ "manning": {
+  "brand": "Lenovo",
+  "models": [
+   "XT1902-3"
+  ],
+  "name": "Lenovo K8 Note"
+ },
+ "maple": {
+  "brand": "HP",
+  "models": [
+   "HP 8 G2"
+  ],
+  "name": "8 G2"
+ },
+ "marble": {
+  "brand": "POCO",
+  "models": [
+   "23049PCD8G",
+   "23049PCD8I",
+   "23049RAD8C"
+  ],
+  "name": "POCO F5"
+ },
+ "markw": {
+  "brand": "Xiaomi",
+  "models": [
+   "Redmi 4"
+  ],
+  "name": "Redmi 4 Pro"
+ },
+ "marmite": {
+  "brand": "Wileyfox",
+  "models": [
+   "Swift 2 Plus",
+   "Swift 2 X",
+   "Wileyfox Swift 2 Plus"
+  ],
+  "name": "Swift 2"
+ },
+ "mars": {
+  "brand": "Xiaomi",
+  "models": [
+   "M2102K1AC"
+  ],
+  "name": "Mi 11 Pro"
+ },
+ "martini": {
+  "brand": "TCT (Alcatel)",
+  "models": [
+   "one touch 906"
+  ],
+  "name": "MARTINI"
+ },
+ "marvel": {
+  "brand": "Disney Frozen",
+  "models": [
+   "HTC Wildfire S",
+   "HTC Wildfire S A510b",
+   "HTC Wildfire S A510e",
+   "HTC-A510a",
+   "motorola edge 50 ultra",
+   "motorola edge 70 fusion plus",
+   "STYLO MARVEL"
+  ],
+  "name": "MARVEL"
+ },
+ "mayfly": {
+  "brand": "Xiaomi",
+  "models": [
+   "2206123SC"
+  ],
+  "name": "Xiaomi 12S"
+ },
+ "mdarcy": {
+  "brand": "NVIDIA",
+  "models": [
+   "SHIELD Android TV"
+  ],
+  "name": "SHIELD TV Pro"
+ },
+ "mecha": {
+  "brand": "HTC",
+  "models": [
+   "ADR6400L",
+   "HTC Mecha"
+  ],
+  "name": "Thunderbolt"
+ },
+ "merlin": {
+  "brand": "Motorola",
+  "models": [
+   "MotoG3",
+   "MotoG3-TE",
+   "M2003J15SC",
+   "M2003J15SI",
+   "M2003J15SS"
+  ],
+  "name": "Moto G Turbo Edition"
+ },
+ "messi": {
+  "brand": "Motorola",
+  "models": [
+   "Moto Z (2)",
+   "XT1929-15",
+   "moto z3"
+  ],
+  "name": "Moto Z(3)"
+ },
+ "mh2lm": {
+  "brand": "LGE",
+  "models": [
+   "901LG",
+   "LM-G850",
+   "LM-V510N"
+  ],
+  "name": "G8X ThinQ"
+ },
+ "miami": {
+  "brand": "Motorola",
+  "models": [
+   "moto g71 5G"
+  ],
+  "name": "motorola edge 30 neo"
+ },
+ "mido": {
+  "brand": "Xiaomi",
+  "models": [
+   "Redmi Note 4X"
+  ],
+  "name": "Redmi Note 4"
+ },
+ "milanf": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(50)"
+  ],
+  "name": "moto g stylus 5G (2022)"
+ },
+ "mint": {
+  "brand": "Samsung",
+  "models": [
+   "GT-S5282"
+  ],
+  "name": "Galaxy Star"
+ },
+ "mondrian": {
+  "brand": "Redmi",
+  "models": [
+   "23013RK75C"
+  ],
+  "name": "Redmi K60"
+ },
+ "mondrianlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T325"
+  ],
+  "name": "Galaxy Tab Pro 8.4"
+ },
+ "mondrianwifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T320",
+   "SM-T320X"
+  ],
+  "name": "Galaxy Tab Pro 8.4"
+ },
+ "monet": {
+  "brand": "TCL",
+  "models": [
+   "T523H",
+   "T523P",
+   "XIG01",
+   "M2002J9G",
+   "M2002J9S"
+  ],
+  "name": "TCL K70 5G"
+ },
+ "montana": {
+  "brand": "Motorola",
+  "models": [
+   "XT1799-1"
+  ],
+  "name": "Moto G (5S)"
+ },
+ "mozart": {
+  "brand": "Toshiba",
+  "models": [
+   "Mozart"
+  ],
+  "name": "Mozart"
+ },
+ "mumba": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge 60 stylus"
+  ],
+  "name": "moto g57"
+ },
+ "munch": {
+  "brand": "POCO",
+  "models": [
+   "22021211RG",
+   "22021211RI",
+   "22021211RC"
+  ],
+  "name": "POCO F4"
+ },
+ "mystul": {
+  "brand": "HTC",
+  "models": [
+   "HTC first"
+  ],
+  "name": "first"
+ },
+ "n3": {
+  "brand": "BAMtelecoms",
+  "models": [
+   "N3",
+   "N5206",
+   "N5207",
+   "N5209"
+  ],
+  "name": "N3"
+ },
+ "nabu": {
+  "brand": "Xiaomi",
+  "models": [
+   "21051182C",
+   "21051182G"
+  ],
+  "name": "Xiaomi Pad 5"
+ },
+ "nairo": {
+  "brand": "Motorola",
+  "models": [
+   "moto g 5G plus",
+   "motorola one 5G"
+  ],
+  "name": "moto g 5G plus"
+ },
+ "nash": {
+  "brand": "Motorola",
+  "models": [
+   "Moto Z (2)",
+   "XT1789-05"
+  ],
+  "name": "Moto Z (2) Force"
+ },
+ "nb1": {
+  "brand": "Nokia",
+  "models": [
+   "TA-1004",
+   "TA-1012",
+   "TA-1052"
+  ],
+  "name": "Nokia 8"
+ },
+ "nd1": {
+  "brand": "Nokia",
+  "models": [
+   "TA-1024",
+   "TA-1027",
+   "TA-1044",
+   "TA-1053"
+  ],
+  "name": "Nokia 5"
+ },
+ "nemo": {
+  "brand": "LGE",
+  "models": [
+   "LG Watch Urbane"
+  ],
+  "name": "LG Watch Urbane 2nd Edition LTE"
+ },
+ "nio": {
+  "brand": "Motorola",
+  "models": [
+   "XT2125-4"
+  ],
+  "name": "moto g(100)"
+ },
+ "nitrogen": {
+  "brand": "Xiaomi",
+  "models": [
+   "MI MAX 3"
+  ],
+  "name": "MI  MAX  3"
+ },
+ "noblelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N9208",
+   "SM-N920C",
+   "SM-N920F",
+   "SM-N920G",
+   "SM-N920I",
+   "SM-N920X"
+  ],
+  "name": "Galaxy Note5"
+ },
+ "nora": {
+  "brand": "Motorola",
+  "models": [
+   "moto e5 (XT1920DL)"
+  ],
+  "name": "moto e5"
+ },
+ "nuwa": {
+  "brand": "Xiaomi",
+  "models": [
+   "2210132G",
+   "2210132C"
+  ],
+  "name": "Xiaomi 13 Pro"
+ },
+ "nx651j": {
+  "brand": "ZTE",
+  "models": [
+   "NX651J"
+  ],
+  "name": "nubia Play"
+ },
+ "nx659j": {
+  "brand": "ZTE",
+  "models": [
+   "NX659J"
+  ],
+  "name": "RED MAGIC 5G"
+ },
+ "o1s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G991B",
+   "SM-G991N"
+  ],
+  "name": "Galaxy S21 5G"
+ },
+ "o7prolte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G600FY"
+  ],
+  "name": "Galaxy On7 Pro"
+ },
+ "ocean": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(6) play",
+   "2303CRA44A",
+   "2303ERA42L"
+  ],
+  "name": "moto g(7) optimo maxx(XT1955DL)"
+ },
+ "odin": {
+  "brand": "ALT.mive",
+  "models": [
+   "AT-M130",
+   "9081X",
+   "9080G",
+   "9080X",
+   "2106118C"
+  ],
+  "name": "Kids Phone"
+ },
+ "olympus": {
+  "brand": "Motorola",
+  "models": [
+   "MB860",
+   "MB861",
+   "ME860"
+  ],
+  "name": "Atrix"
+ },
+ "on5ltetmo": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G550T",
+   "SM-G550T2"
+  ],
+  "name": "Galaxy On5"
+ },
+ "on5xelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G570F",
+   "SM-G570M",
+   "SM-G570Y"
+  ],
+  "name": "Galaxy J5 Prime"
+ },
+ "on7xelte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G610F",
+   "SM-G610M",
+   "SM-G610Y"
+  ],
+  "name": "Galaxy J7 Prime"
+ },
+ "one_max": {
+  "brand": "Umidigi",
+  "models": [
+   "One Max"
+  ],
+  "name": "One Max"
+ },
+ "oneplus2": {
+  "brand": "OnePlus",
+  "models": [
+   "ONE A2003"
+  ],
+  "name": "2"
+ },
+ "oneplus3": {
+  "brand": "OnePlus",
+  "models": [
+   "ONEPLUS A3000"
+  ],
+  "name": "3"
+ },
+ "oneplus8": {
+  "brand": "OnePlus",
+  "models": [
+   "IN2010",
+   "IN2011",
+   "IN2013",
+   "IN2015"
+  ],
+  "name": "OnePlus 8"
+ },
+ "oneplus8pro": {
+  "brand": "OnePlus",
+  "models": [
+   "IN2020",
+   "IN2021",
+   "IN2023",
+   "IN2025"
+  ],
+  "name": "OnePlus 8 Pro"
+ },
+ "oneplus8t": {
+  "brand": "OnePlus",
+  "models": [
+   "KB2000",
+   "KB2001",
+   "KB2003",
+   "KB2005"
+  ],
+  "name": "OnePlus 8T"
+ },
+ "oneplus9": {
+  "brand": "OnePlus",
+  "models": [
+   "LE2110",
+   "LE2111",
+   "LE2113",
+   "LE2115"
+  ],
+  "name": "OnePlus 9 5G"
+ },
+ "oneplus9r": {
+  "brand": "OnePlus",
+  "models": [
+   "LE2100",
+   "LE2101"
+  ],
+  "name": "OnePlus 9R"
+ },
+ "onyx": {
+  "brand": "Explay",
+  "models": [
+   "25053PC47G",
+   "25053PC47I",
+   "25053RT47C"
+  ],
+  "name": "Onyx"
+ },
+ "oscar": {
+  "brand": "Pantech",
+  "models": [
+   "PantechP8010"
+  ],
+  "name": "Flex"
+ },
+ "ovation": {
+  "brand": "Barnes and Noble",
+  "models": [
+   "BNTV600"
+  ],
+  "name": "HD+"
+ },
+ "p3s": {
+  "brand": "Gigabyte",
+  "models": [
+   "SM-G998B",
+   "SM-G998N",
+   "P3S"
+  ],
+  "name": "TECNO P3S"
+ },
+ "p4noterf": {
+  "brand": "Samsung",
+  "models": [
+   "GT-N8000",
+   "GT-N8005"
+  ],
+  "name": "Galaxy Note 10.1"
+ },
+ "p990": {
+  "brand": "LGE",
+  "models": [
+   "LG-P990",
+   "LG-P990H",
+   "LG-P990h"
+  ],
+  "name": "Optimus 2X"
+ },
+ "p999": {
+  "brand": "LGE",
+  "models": [
+   "LG-P999"
+  ],
+  "name": "Optimus 2X"
+ },
+ "pa1q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9310",
+   "SM-S931B",
+   "SM-S931N",
+   "SM-S931Q",
+   "SM-S931U",
+   "SM-S931U1",
+   "SM-S931W",
+   "SM-S931Z"
+  ],
+  "name": "Galaxy S25"
+ },
+ "pa2q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9360",
+   "SM-S936B",
+   "SM-S936N",
+   "SM-S936U",
+   "SM-S936U1",
+   "SM-S936W"
+  ],
+  "name": "Galaxy S25+"
+ },
+ "pa3q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9380",
+   "SM-S938B",
+   "SM-S938N",
+   "SM-S938Q",
+   "SM-S938U",
+   "SM-S938U1",
+   "SM-S938W",
+   "SM-S938Z"
+  ],
+  "name": "Galaxy S25 Ultra"
+ },
+ "pace": {
+  "brand": "Rhino",
+  "models": [
+   "PACE A1"
+  ],
+  "name": "RHINO PACE"
+ },
+ "pacman": {
+  "brand": "Nothing",
+  "models": [
+   "A142"
+  ],
+  "name": "Nothing Phone (2a)"
+ },
+ "parker": {
+  "brand": "Motorola",
+  "models": [
+   "moto z4"
+  ],
+  "name": "motorola one zoom"
+ },
+ "passion": {
+  "brand": "HTC",
+  "models": [
+   "Lenovo P1c72"
+  ],
+  "name": "Nexus One"
+ },
+ "payton": {
+  "brand": "Motorola",
+  "models": [
+   "XT1789-05",
+   "moto x4"
+  ],
+  "name": "Moto X (4)"
+ },
+ "pd1510": {
+  "brand": "Vivo",
+  "models": [
+   "vivo Y51A"
+  ],
+  "name": "Y51A"
+ },
+ "pearlyn": {
+  "brand": "Razer",
+  "models": [
+   "Forge"
+  ],
+  "name": "Forge TV"
+ },
+ "penang": {
+  "brand": "Motorola",
+  "models": [
+   "XT2335-3",
+   "moto g stylus 5G (2022)"
+  ],
+  "name": "moto G53"
+ },
+ "peregrine": {
+  "brand": "Motorola",
+  "models": [
+   "XT1039",
+   "XT1040",
+   "XT1042",
+   "XT1045"
+  ],
+  "name": "Moto G with 4G LTE (1st Gen)"
+ },
+ "peridot": {
+  "brand": "POCO",
+  "models": [
+   "24069PC21G",
+   "24069PC21I",
+   "24069RA21C"
+  ],
+  "name": "POCO F6"
+ },
+ "perseus": {
+  "brand": "Xiaomi",
+  "models": [
+   "Mi MIX 3"
+  ],
+  "name": "MIX 3"
+ },
+ "ph2n": {
+  "brand": "LGE",
+  "models": [
+   "LG-K550",
+   "LG-K557",
+   "LGMS550",
+   "LG-K535",
+   "LG-K535n"
+  ],
+  "name": "LG Stylo 2 Plus"
+ },
+ "picasso": {
+  "brand": "Acer",
+  "models": [
+   "A500",
+   "A501"
+  ],
+  "name": "Iconia Tab A500"
+ },
+ "picassowifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-T520"
+  ],
+  "name": "Galaxy Tab Pro 10.1"
+ },
+ "pico": {
+  "brand": "HTC",
+  "models": [
+   "HTC Explorer",
+   "HTC Explorer A310b",
+   "HTC Explorer A310e"
+  ],
+  "name": "Explorer A310e"
+ },
+ "pine": {
+  "brand": "HP",
+  "models": [
+   "HP Slate 7",
+   "Redmi 7A",
+   "pine"
+  ],
+  "name": "Slate 7"
+ },
+ "pioneer": {
+  "brand": "Daewoo",
+  "models": [
+   "4K SA Smart TV",
+   "DAEWOO 4K SA Smart TV",
+   "4K PA Smart TV",
+   "HKC 4K SA Smart TV"
+  ],
+  "name": "4K Smart TV"
+ },
+ "pipa": {
+  "brand": "Xiaomi",
+  "models": [
+   "23043RP34C",
+   "23043RP34G",
+   "23043RP34I"
+  ],
+  "name": "Xiaomi Pad 6"
+ },
+ "pissarro": {
+  "brand": "Redmi",
+  "models": [
+   "21091116C"
+  ],
+  "name": "Redmi Note 11 Pro"
+ },
+ "pissarroin": {
+  "brand": "Xiaomi",
+  "models": [
+   "21091116I"
+  ],
+  "name": "Xiaomi 11i"
+ },
+ "pissarroinpro": {
+  "brand": "Xiaomi",
+  "models": [
+   "21091116UI"
+  ],
+  "name": "Xiaomi 11i HyperCharge"
+ },
+ "pissarropro": {
+  "brand": "Redmi",
+  "models": [
+   "21091116UC",
+   "21091116UG"
+  ],
+  "name": "Redmi Note 11 Pro+"
+ },
+ "pl2": {
+  "brand": "Nokia",
+  "models": [
+   "TA-1054"
+  ],
+  "name": "Nokia 6"
+ },
+ "platina": {
+  "brand": "Xiaomi",
+  "models": [
+   "Platina"
+  ],
+  "name": "MI 8 Lite"
+ },
+ "platy": {
+  "brand": "ZTE",
+  "models": [
+   "ZW10"
+  ],
+  "name": "Quartz"
+ },
+ "ple": {
+  "brand": "Nokia",
+  "models": [
+   "TA-1021",
+   "TA-1025",
+   "TA-1033",
+   "TA-1039"
+  ],
+  "name": "Nokia 6"
+ },
+ "polaris": {
+  "brand": "Selvas",
+  "models": [
+   "BrailleSensePolaris",
+   "Mi MIX 2S"
+  ],
+  "name": "BrailleSense Polaris"
+ },
+ "pollux": {
+  "brand": "Coolpad",
+  "models": [
+   "POL-A0"
+  ],
+  "name": "Coolpad POL-A0"
+ },
+ "pong": {
+  "brand": "Nothing",
+  "models": [
+   "A065",
+   "AIN065"
+  ],
+  "name": "Nothing Phone (2)"
+ },
+ "porridge": {
+  "brand": "Wileyfox",
+  "models": [
+   "Wileyfox Spark",
+   "Wileyfox Spark +"
+  ],
+  "name": "Spark"
+ },
+ "porridgek3": {
+  "brand": "Wileyfox",
+  "models": [
+   "Wileyfox Spark X"
+  ],
+  "name": "Spark"
+ },
+ "potter": {
+  "brand": "Motorola",
+  "models": [
+   "Moto G (5) Plus"
+  ],
+  "name": "Moto G Plus (5th Gen)"
+ },
+ "prevail2spr": {
+  "brand": "Samsung",
+  "models": [
+   "SPH-M830"
+  ],
+  "name": "Galaxy Rush"
+ },
+ "primoc": {
+  "brand": "HTC",
+  "models": [
+   "HTC One V"
+  ],
+  "name": "One V"
+ },
+ "primou": {
+  "brand": "HTC",
+  "models": [
+   "HTC ONE V",
+   "HTC One V"
+  ],
+  "name": "One V"
+ },
+ "protou": {
+  "brand": "HTC",
+  "models": [
+   "HTC Desire X",
+   "HTC POO_U"
+  ],
+  "name": "Desire X"
+ },
+ "psq": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S9370",
+   "SM-S937B",
+   "SM-S937N",
+   "SM-S937U",
+   "SM-S937U1",
+   "SM-S937W"
+  ],
+  "name": "Galaxy S25 Edge"
+ },
+ "pstar": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(100)",
+   "XT2153-1"
+  ],
+  "name": "motorola edge 20 pro"
+ },
+ "psyche": {
+  "brand": "Xiaomi",
+  "models": [
+   "2112123AC"
+  ],
+  "name": "Xiaomi 12X"
+ },
+ "pyramid": {
+  "brand": "HTC",
+  "models": [
+   "HTC Sensation",
+   "HTC Sensation 4G",
+   "HTC Sensation XE with Beats Audio",
+   "HTC Sensation XE with Beats Audio Z715a",
+   "HTC Sensation XE with Beats Audio Z715e",
+   "HTC Sensation Z710a",
+   "HTC Sensation Z710e",
+   "HTC-Z710a"
+  ],
+  "name": "Sensation 4G"
+ },
+ "pyxis": {
+  "brand": "Xiaomi",
+  "models": [
+   "Mi 9 Lite",
+   "Pyxis"
+  ],
+  "name": "MI CC 9"
+ },
+ "quark": {
+  "brand": "Motorola",
+  "models": [
+   "XT1250",
+   "XT1254"
+  ],
+  "name": "Droid Turbo"
+ },
+ "r0s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S901B"
+  ],
+  "name": "Galaxy S22"
+ },
+ "r11": {
+  "brand": "Google",
+  "models": [
+   "Google Pixel Watch",
+   "OPPO R11",
+   "OPPO R11t"
+  ],
+  "name": "Pixel Watch"
+ },
+ "r11q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-S7110",
+   "SM-S711U",
+   "SM-S711U1",
+   "SM-S711W"
+  ],
+  "name": "Galaxy S23 FE"
+ },
+ "r11s": {
+  "brand": "Oppo",
+  "models": [
+   "OPPO R11s",
+   "OPPO R11st",
+   "SM-S711B",
+   "SM-S711N"
+  ],
+  "name": "R11s"
+ },
+ "r1q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-A8050",
+   "SM-A805F",
+   "SM-A805N"
+  ],
+  "name": "Galaxy A80"
+ },
+ "r5": {
+  "brand": "ATM (Brazil)",
+  "models": [
+   "R8106",
+   "R8107",
+   "R8109"
+  ],
+  "name": "R5"
+ },
+ "r7f": {
+  "brand": "Oppo",
+  "models": [
+   "R7kf"
+  ],
+  "name": "R7 Lite"
+ },
+ "r7sf": {
+  "brand": "Oppo",
+  "models": [
+   "R7sf"
+  ],
+  "name": "R7sfg"
+ },
+ "r8q": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G780G",
+   "SM-G7810",
+   "SM-G781B",
+   "SM-G781N",
+   "SM-G781U",
+   "SM-G781U1",
+   "SM-G781V",
+   "SM-G781W"
+  ],
+  "name": "Galaxy S20 FE"
+ },
+ "r8s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G780F"
+  ],
+  "name": "Galaxy S20 FE"
+ },
+ "r9s": {
+  "brand": "Oppo",
+  "models": [
+   "OPPO R9s",
+   "OPPO R9st",
+   "SM-G990E"
+  ],
+  "name": "R9s"
+ },
+ "rango": {
+  "brand": "Google",
+  "models": [
+   "MiTV-AXFR0",
+   "MiTV-AXFR1"
+  ],
+  "name": "Pixel 10 Pro Fold"
+ },
+ "raphael": {
+  "brand": "Redmi",
+  "models": [
+   "Mi 9T Pro",
+   "Redmi K20 Pro Premium Edition"
+  ],
+  "name": "Redmi K20 Pro"
+ },
+ "raphaelin": {
+  "brand": "Redmi",
+  "models": [
+   "Redmi K20 Pro"
+  ],
+  "name": "Mi  9T  Pro"
+ },
+ "redwood": {
+  "brand": "ALBADEEL",
+  "models": [
+   "AI PONT",
+   "ANEXA Android TV",
+   "ARTEQLED Android TV",
+   "ERGOGS",
+   "HP 7 G2",
+   "AI PONT NA",
+   "AI PONT SA",
+   "AI PONT CO",
+   "AI PONT DE",
+   "22101320G",
+   "22101320C",
+   "AI PONT IT",
+   "TD SYSTEMS Android TV"
+  ],
+  "name": "Smart TV"
+ },
+ "renoir": {
+  "brand": "Xiaomi",
+  "models": [
+   "M2101K9C",
+   "M2101K9G"
+  ],
+  "name": "Mi 11 Lite 5G"
+ },
+ "rhannah": {
+  "brand": "Motorola",
+  "models": [
+   "Moto E",
+   "moto e5 plus"
+  ],
+  "name": "moto e(5) plus"
+ },
+ "rhode": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(50)"
+  ],
+  "name": "moto g52"
+ },
+ "rhodep": {
+  "brand": "Motorola",
+  "models": [
+   "XT2169-2",
+   "XT2225-2",
+   "moto g71 5G"
+  ],
+  "name": "moto g82 5G"
+ },
+ "rio": {
+  "brand": "ImageMobile",
+  "models": [
+   "B001",
+   "T431A",
+   "T431D",
+   "T431E",
+   "T431P",
+   "T431Q",
+   "T431U"
+  ],
+  "name": "Rio"
+ },
+ "river": {
+  "brand": "Motorola",
+  "models": [
+   "moto g(6)",
+   "23076RA4BR",
+   "23076RN8DY",
+   "A401XM",
+   "MiTV-MZTU0"
+  ],
+  "name": "moto g(7)"
+ },
+ "rmx1801": {
+  "brand": "Realme",
+  "models": [
+   "RMX1801"
+  ],
+  "name": "realme 2 Pro"
+ },
+ "rmx1811": {
+  "brand": "Oppo",
+  "models": [
+   "RMX1811"
+  ],
+  "name": "realme C1"
+ },
+ "rmx1851": {
+  "brand": "Realme",
+  "models": [
+   "RMX1851"
+  ],
+  "name": "realme 3Pro"
+ },
+ "rmx1911": {
+  "brand": "Oppo",
+  "models": [
+   "RMX1911"
+  ],
+  "name": "realme 5"
+ },
+ "rmx1921": {
+  "brand": "Realme",
+  "models": [
+   "RMX1921"
+  ],
+  "name": "realme XT"
+ },
+ "rmx1941": {
+  "brand": "Oppo",
+  "models": [
+   "RMX1941"
+  ],
+  "name": "realme C2"
+ },
+ "rmx1971": {
+  "brand": "Realme",
+  "models": [
+   "RMX1971"
+  ],
+  "name": "realme 5Pro"
+ },
+ "rmx2001l1": {
+  "brand": "Realme",
+  "models": [
+   "RMX2001"
+  ],
+  "name": "realme 6"
+ },
+ "rmx2020": {
+  "brand": "Realme",
+  "models": [
+   "RMX2020"
+  ],
+  "name": "RMX2020"
+ },
+ "rmx2030": {
+  "brand": "Realme",
+  "models": [
+   "RMX2030",
+   "RMX2190"
+  ],
+  "name": "realme 5i"
+ },
+ "rodin": {
+  "brand": "POCO",
+  "models": [
+   "2412DPC0AG",
+   "2412DPC0AI",
+   "24129RT7CC"
+  ],
+  "name": "POCO X7 Pro"
+ },
+ "rolex": {
+  "brand": "Acer",
+  "models": [
+   "ZTE W1010"
+  ],
+  "name": "GT-810"
+ },
+ "rosemary": {
+  "brand": "POCO",
+  "models": [
+   "2207117BPG",
+   "M2101K7BL",
+   "M2101K7BNY"
+  ],
+  "name": "POCO M5s"
+ },
+ "rtwo": {
+  "brand": "Motorola",
+  "models": [
+   "XT2301-5",
+   "motorola edge 30 pro",
+   "motorola edge plus (2022)"
+  ],
+  "name": "moto X40"
+ },
+ "ruby": {
+  "brand": "HTC",
+  "models": [
+   "HTC Amaze 4G",
+   "HTC Ruby",
+   "HTC_Amaze_4G",
+   "22101316C",
+   "22101316G",
+   "22101316I"
+  ],
+  "name": "Amaze_4G"
+ },
+ "runnymede": {
+  "brand": "HTC",
+  "models": [
+   "HTC Sensation XL with Beats Audio X315b",
+   "HTC Sensation XL with Beats Audio X315e",
+   "HTC-X315E",
+   "Sensation XL with Beats Audio"
+  ],
+  "name": "Sensation XL with Beats Audio X315e"
+ },
+ "s2": {
+  "brand": "Bluboo",
+  "models": [
+   "s2"
+  ],
+  "name": "S2"
+ },
+ "s2ve": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9105"
+  ],
+  "name": "Galaxy S2 Plus"
+ },
+ "s3ve3g": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9300I",
+   "GT-I9301I",
+   "GT-I9301Q",
+   "GT-I9308I"
+  ],
+  "name": "Galaxy S3 Neo"
+ },
+ "s3ve3gds": {
+  "brand": "Samsung",
+  "models": [
+   "GT-I9300I"
+  ],
+  "name": "Galaxy S3 Neo"
+ },
+ "s5neolte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G903F",
+   "SM-G903M"
+  ],
+  "name": "Galaxy S5 Neo"
+ },
+ "sabrina": {
+  "brand": "Google",
+  "models": [
+   "Chromecast"
+  ],
+  "name": "Chromecast Google TV"
+ },
+ "saga": {
+  "brand": "HTC",
+  "models": [
+   "HTC Desire S"
+  ],
+  "name": "Desire S"
+ },
+ "sagit": {
+  "brand": "Xiaomi",
+  "models": [
+   "MI 6"
+  ],
+  "name": "MI6"
+ },
+ "sakura": {
+  "brand": "Honda",
+  "models": [
+   "MY18ADA",
+   "Redmi 6 Pro"
+  ],
+  "name": "A-DA"
+ },
+ "santoni": {
+  "brand": "Xiaomi",
+  "models": [
+   "santoni"
+  ],
+  "name": "Redmi 4X"
+ },
+ "sapphire": {
+  "brand": "HTC",
+  "models": [
+   "HTC Magic",
+   "T-Mobile myTouch 3G",
+   "23129RA5FL",
+   "23129RAA4G",
+   "Sapphire",
+   "N818S"
+  ],
+  "name": "myTouch 3G"
+ },
+ "scorpio": {
+  "brand": "Anydata",
+  "models": [
+   "nuvi 3590",
+   "nuvi 3595",
+   "Mi Note 2"
+  ],
+  "name": "Garmin nuvi3590"
+ },
+ "serranoltespr": {
+  "brand": "Samsung",
+  "models": [
+   "SPH-L520"
+  ],
+  "name": "Galaxy S4 Mini"
+ },
+ "serranolteusc": {
+  "brand": "Samsung",
+  "models": [
+   "SCH-R890"
+  ],
+  "name": "Galaxy S4 Mini"
+ },
+ "sf340n": {
+  "brand": "LGE",
+  "models": [
+   "LG-M470",
+   "LG-M470F",
+   "LG-TP450",
+   "LGMP450"
+  ],
+  "name": "LG Stylo 3 Plus"
+ },
+ "sgh-t769": {
+  "brand": "Samsung",
+  "models": [
+   "SGH-T769"
+  ],
+  "name": "Galaxy S Blaze"
+ },
+ "shark": {
+  "brand": "Blackshark",
+  "models": [
+   "SKR-H0",
+   "SKR-A0"
+  ],
+  "name": "Shark"
+ },
+ "shooter": {
+  "brand": "HTC",
+  "models": [
+   "HTCEVOV4G",
+   "PG86100"
+  ],
+  "name": "EVO 3D"
+ },
+ "shooteru": {
+  "brand": "HTC",
+  "models": [
+   "HTC EVO 3D X515a",
+   "HTC EVO 3D X515m",
+   "HTC Inspire 3D"
+  ],
+  "name": "EVO 3D X515m"
+ },
+ "sif": {
+  "brand": "NVIDIA",
+  "models": [
+   "SHIELD Android TV"
+  ],
+  "name": "SHIELD TV"
+ },
+ "sirius": {
+  "brand": "Xiaomi",
+  "models": [
+   "sirius"
+  ],
+  "name": "MI 8 SE"
+ },
+ "skipjack": {
+  "brand": "Mobvoi",
+  "models": [
+   "TicWatch C2+"
+  ],
+  "name": "TicWatch C2"
+ },
+ "sky": {
+  "brand": "Konrow",
+  "models": [
+   "23076PC4BI"
+  ],
+  "name": "Sky"
+ },
+ "slte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G850F",
+   "SM-G850FQ",
+   "SM-G850M",
+   "SM-G850X",
+   "SM-G850Y"
+  ],
+  "name": "Galaxy Alpha"
+ },
+ "socrates": {
+  "brand": "Redmi",
+  "models": [
+   "22127RK46C"
+  ],
+  "name": "Redmi K60 Pro"
+ },
+ "soho": {
+  "brand": "Datalogic",
+  "models": [
+   "Joya Smart"
+  ],
+  "name": "Joya Smart/Smart+"
+ },
+ "spacewar": {
+  "brand": "Nothing",
+  "models": [
+   "A063"
+  ],
+  "name": "Nothing Phone (1)"
+ },
+ "speedy": {
+  "brand": "HTC",
+  "models": [
+   "PG06100"
+  ],
+  "name": "EVO Shift 4G"
+ },
+ "spes": {
+  "brand": "Redmi",
+  "models": [
+   "2201117TG",
+   "2201117TI",
+   "2201117TL"
+  ],
+  "name": "Redmi Note 11"
+ },
+ "spinel": {
+  "brand": "Redmi",
+  "models": [
+   "2510DRA23E",
+   "2510DRA23G",
+   "2510DRA23L"
+  ],
+  "name": "REDMI Note 15"
+ },
+ "sprout": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo L58041"
+  ],
+  "name": "Lenovo S5 Pro"
+ },
+ "star": {
+  "brand": "LGE",
+  "models": [
+   "LG-P990hN",
+   "LG-P990",
+   "LG-SU660",
+   "M2102K1C",
+   "M2102K1G"
+  ],
+  "name": "Optimus 2X"
+ },
+ "star2lte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G965F"
+  ],
+  "name": "Galaxy S9+"
+ },
+ "star2qltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G9650"
+  ],
+  "name": "Galaxy S9+"
+ },
+ "starlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G960F"
+  ],
+  "name": "Galaxy S9"
+ },
+ "starqltechn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G9600"
+  ],
+  "name": "Galaxy S9"
+ },
+ "stone": {
+  "brand": "POCO",
+  "models": [
+   "22071219CG"
+  ],
+  "name": "POCO M5"
+ },
+ "streak7": {
+  "brand": "Dell",
+  "models": [
+   "Dell Streak 7",
+   "streak7"
+  ],
+  "name": ""
+ },
+ "sunfire": {
+  "brand": "Motorola",
+  "models": [
+   "ISW11M",
+   "MB855",
+   "Motorola Electrify"
+  ],
+  "name": "Photon 4G"
+ },
+ "sunny": {
+  "brand": "Redmi",
+  "models": [
+   "M2101K7AG",
+   "M2101K7AI"
+  ],
+  "name": "Redmi Note 10"
+ },
+ "sunstone": {
+  "brand": "Redmi",
+  "models": [
+   "22101317C"
+  ],
+  "name": "Redmi Note 12 5G"
+ },
+ "supersonic": {
+  "brand": "HTC",
+  "models": [
+   "PC36100"
+  ],
+  "name": "Evo 4G"
+ },
+ "surya": {
+  "brand": "POCO",
+  "models": [
+   "M2007J20CG"
+  ],
+  "name": "POCO X3 NFC"
+ },
+ "suzu": {
+  "brand": "Sony",
+  "models": [
+   "F5121"
+  ],
+  "name": "Xperia X"
+ },
+ "sweet": {
+  "brand": "Redmi",
+  "models": [
+   "M2101K6G",
+   "2209116AG"
+  ],
+  "name": "Redmi Note 10 Pro"
+ },
+ "sweetin": {
+  "brand": "Redmi",
+  "models": [
+   "M2101K6P",
+   "M2101K6I"
+  ],
+  "name": "Redmi Note 10 Pro"
+ },
+ "t2s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G996B",
+   "SM-G996N"
+  ],
+  "name": "Galaxy S21+ 5G"
+ },
+ "taoyao": {
+  "brand": "Xiaomi",
+  "models": [
+   "2203129G"
+  ],
+  "name": "Xiaomi 12 Lite"
+ },
+ "tapas": {
+  "brand": "Redmi",
+  "models": [
+   "23021RAAEG",
+   "23027RAD4I",
+   "23028RA60L"
+  ],
+  "name": "Redmi Note 12"
+ },
+ "tblte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N9150",
+   "SM-N915F",
+   "SM-N915FY",
+   "SM-N915G",
+   "SM-N915X"
+  ],
+  "name": "Galaxy Note Edge"
+ },
+ "tbltecan": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N915W8"
+  ],
+  "name": "Galaxy Note Edge"
+ },
+ "tbltespr": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N915P"
+  ],
+  "name": "Galaxy Note Edge"
+ },
+ "tbltetmo": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N915T",
+   "SM-N915T3"
+  ],
+  "name": "Galaxy Note Edge"
+ },
+ "tblteusc": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N915R4"
+  ],
+  "name": "Galaxy Note Edge"
+ },
+ "tbltevzw": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N915V"
+  ],
+  "name": "Galaxy Note Edge"
+ },
+ "tetris": {
+  "brand": "CMF by Nothing",
+  "models": [
+   "A015"
+  ],
+  "name": "CMF by Nothing Phone 1"
+ },
+ "tf101": {
+  "brand": "Asus",
+  "models": [
+   "TF101",
+   "Transformer TF101"
+  ],
+  "name": "Eee Pad TF101"
+ },
+ "tf201": {
+  "brand": "Asus",
+  "models": [
+   "TF201",
+   "Transformer Prime TF201",
+   "Transformer TF201"
+  ],
+  "name": "Eee Pad Transformer Prime"
+ },
+ "tf300t": {
+  "brand": "Asus",
+  "models": [
+   "ASUS Transformer Pad TF300T",
+   "ASUS Pad TF300T",
+   "ASUS Transformer 300"
+  ],
+  "name": "Transformer Pad"
+ },
+ "tf700t": {
+  "brand": "Asus",
+  "models": [
+   "ASUS Pad TF700T",
+   "ASUS Transformer Pad TF700T"
+  ],
+  "name": "TF700T"
+ },
+ "thea": {
+  "brand": "Motorola",
+  "models": [
+   "XT1072"
+  ],
+  "name": "Moto G with 4G LTE (2nd Gen)"
+ },
+ "thor": {
+  "brand": "ALT.mive",
+  "models": [
+   "AT-M120",
+   "2203121C"
+  ],
+  "name": "Style Folder"
+ },
+ "thyme": {
+  "brand": "TCL",
+  "models": [
+   "T453D",
+   "M2102J2SC",
+   "Thyme"
+  ],
+  "name": "TCL K70 SE"
+ },
+ "tilapia": {
+  "brand": "Asus",
+  "models": [
+   "Nexus 7"
+  ],
+  "name": "Nexus 7 (2012)"
+ },
+ "timelm": {
+  "brand": "LGE",
+  "models": [
+   "LM-V600",
+   "LM-V600N",
+   "A001LG"
+  ],
+  "name": "LG V60 ThinQ"
+ },
+ "titan": {
+  "brand": "Cell_C",
+  "models": [
+   "Signature Touch L"
+  ],
+  "name": "Titan"
+ },
+ "toco": {
+  "brand": "Xiaomi",
+  "models": [
+   "toco"
+  ],
+  "name": "Mi Note 10 Lite"
+ },
+ "topaz": {
+  "brand": "Philips",
+  "models": [
+   "Philips W8510",
+   "23021RAA2Y"
+  ],
+  "name": "W8510"
+ },
+ "totemc2": {
+  "brand": "HTC",
+  "models": [
+   "HTC One VX"
+  ],
+  "name": "One VX"
+ },
+ "trlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-N910F",
+   "SM-N910G",
+   "SM-N910X"
+  ],
+  "name": "Galaxy Note4"
+ },
+ "tucana": {
+  "brand": "Xiaomi",
+  "models": [
+   "Mi Note 10"
+  ],
+  "name": "MI CC9 Pro"
+ },
+ "tulip": {
+  "brand": "Xiaomi",
+  "models": [
+   "Redmi Note 6 Pro",
+   "ZTE B2017G"
+  ],
+  "name": "Redmi  Note  6  Pro"
+ },
+ "tundra": {
+  "brand": "Motorola",
+  "models": [
+   "XT2243-2",
+   "moto g200 5G"
+  ],
+  "name": "moto S30"
+ },
+ "u50a_att": {
+  "brand": "TCT (Alcatel)",
+  "models": [
+   "5041C"
+  ],
+  "name": "TETRA"
+ },
+ "umi": {
+  "brand": "Xiaomi",
+  "models": [
+   "Umi"
+  ],
+  "name": "MI 10"
+ },
+ "unicorn": {
+  "brand": "Xiaomi",
+  "models": [
+   "2206122SC"
+  ],
+  "name": "Xiaomi 12S Pro"
+ },
+ "ursa": {
+  "brand": "Xiaomi",
+  "models": [
+   "MI 8 Explorer Edition"
+  ],
+  "name": "MI  8  Explorer  Edition"
+ },
+ "v1awifi": {
+  "brand": "Samsung",
+  "models": [
+   "SM-P900"
+  ],
+  "name": "Galaxy Note Pro"
+ },
+ "vangogh": {
+  "brand": "Acer",
+  "models": [
+   "A100",
+   "A101",
+   "M2002J9E"
+  ],
+  "name": "A100"
+ },
+ "vayu": {
+  "brand": "POCO",
+  "models": [
+   "M2102J20SG"
+  ],
+  "name": "POCO X3 Pro"
+ },
+ "vela": {
+  "brand": "Meitu",
+  "models": [
+   "Vela"
+  ],
+  "name": "MI CC 9 Meitu Edition"
+ },
+ "venus": {
+  "brand": "Hotwav",
+  "models": [
+   "Venus",
+   "M2011K2C",
+   "M2011K2G"
+  ],
+  "name": "Venus"
+ },
+ "vermeer": {
+  "brand": "POCO",
+  "models": [
+   "23113RKC6G",
+   "23113RKC6C"
+  ],
+  "name": "POCO F6 Pro"
+ },
+ "veux": {
+  "brand": "POCO",
+  "models": [
+   "2201116PG",
+   "2201116SG",
+   "2201116SR",
+   "2201116SC"
+  ],
+  "name": "POCO X4 Pro 5G"
+ },
+ "victara": {
+  "brand": "Motorola",
+  "models": [
+   "XT1085",
+   "XT1092",
+   "XT1093",
+   "XT1094",
+   "XT1095",
+   "XT1096",
+   "XT1097",
+   "XT1098"
+  ],
+  "name": "Moto X (2nd Gen)"
+ },
+ "vienna": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge 50 neo"
+  ],
+  "name": "ThinkPhone 25 by motorola"
+ },
+ "vili": {
+  "brand": "Xiaomi",
+  "models": [
+   "2107113SG",
+   "2107113SI",
+   "2107113SR"
+  ],
+  "name": "Xiaomi 11T Pro"
+ },
+ "ville": {
+  "brand": "HTC",
+  "models": [
+   "HTC One S",
+   "HTC VLE_U"
+  ],
+  "name": "ONE S"
+ },
+ "vince": {
+  "brand": "Xiaomi",
+  "models": [
+   "Redmi Note 5"
+  ],
+  "name": "Redmi 5 Plus"
+ },
+ "violet": {
+  "brand": "Xiaomi",
+  "models": [
+   "Redmi Note 7 Pro"
+  ],
+  "name": "Redmi  Note  7 Pro"
+ },
+ "vivalto3gvn": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G313HZ"
+  ],
+  "name": "Galaxy S Duos3"
+ },
+ "vivalto5mve3g": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G316HU",
+   "SM-G316M",
+   "SM-G316MY"
+  ],
+  "name": "Galaxy Ace4"
+ },
+ "vivo": {
+  "brand": "HTC",
+  "models": [
+   "HTC Incredible S",
+   "HTC_S710E"
+  ],
+  "name": "Incredible S"
+ },
+ "vivow": {
+  "brand": "HTC",
+  "models": [
+   "ADR6350",
+   "HTC IncredibleS S710d"
+  ],
+  "name": "Incredible 2"
+ },
+ "w7": {
+  "brand": "HEADWOLF",
+  "models": [
+   "LG-D400",
+   "LG-D405",
+   "LG-D415"
+  ],
+  "name": "W7"
+ },
+ "w7ds": {
+  "brand": "LGE",
+  "models": [
+   "LG-D410"
+  ],
+  "name": "L90"
+ },
+ "w7n": {
+  "brand": "LGE",
+  "models": [
+   "LG-D400",
+   "LG-D405"
+  ],
+  "name": "L90"
+ },
+ "warm": {
+  "brand": "POCO",
+  "models": [
+   "24116PCC1I",
+   "24116RNC1I"
+  ],
+  "name": "POCO C75 5G"
+ },
+ "whyred": {
+  "brand": "Xiaomi",
+  "models": [
+   "Redmi Note 5"
+  ],
+  "name": "Redmi Note 5"
+ },
+ "willow": {
+  "brand": "Redmi",
+  "models": [
+   "willow"
+  ],
+  "name": "Redmi Note 8T"
+ },
+ "x1": {
+  "brand": "Go Mobile",
+  "models": [
+   "7053D"
+  ],
+  "name": "X1"
+ },
+ "x1s": {
+  "brand": "Lanix",
+  "models": [
+   "SM-G980F",
+   "SM-G981B"
+  ],
+  "name": "X1S"
+ },
+ "x2": {
+  "brand": "Go Mobile",
+  "models": [
+   "iKU X2",
+   "LG-SU880",
+   "IS11LG"
+  ],
+  "name": "X2"
+ },
+ "x3": {
+  "brand": "Guophone",
+  "models": [
+   "iKU X3",
+   "LG-P880",
+   "LG-P880g",
+   "X3"
+  ],
+  "name": "X3"
+ },
+ "x605f": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo TB-X605F"
+  ],
+  "name": "Lenovo Tab M10 (FHD)"
+ },
+ "x704f": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo TB-X704F",
+   "PC-TE510HAW"
+  ],
+  "name": "Lenovo TAB4 10 Plus"
+ },
+ "xcover3velte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G389F"
+  ],
+  "name": "Galaxy Xcover3"
+ },
+ "xpeng": {
+  "brand": "Motorola",
+  "models": [
+   "motorola edge 20 pro",
+   "XT2175-2"
+  ],
+  "name": "moto g200 5G"
+ },
+ "y2s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G985F",
+   "SM-G986B"
+  ],
+  "name": "Galaxy S20+"
+ },
+ "yaris_m_gsm": {
+  "brand": "TCT (Alcatel)",
+  "models": [
+   "4032A",
+   "4032D",
+   "4032E",
+   "4032X",
+   "4033L",
+   "MS3B",
+   "ONE TOUCH 4032A",
+   "ONE TOUCH 4033A",
+   "ONE TOUCH 4033D",
+   "ONE TOUCH 4033E",
+   "OWN S3010",
+   "OWN S3010D",
+   "TCLJ330"
+  ],
+  "name": "ONE TOUCH 4033X"
+ },
+ "ysl": {
+  "brand": "Xiaomi",
+  "models": [
+   "Redmi S2"
+  ],
+  "name": "Redmi  S2"
+ },
+ "yunluo": {
+  "brand": "Redmi",
+  "models": [
+   "22081283G"
+  ],
+  "name": "Redmi Pad"
+ },
+ "z00a": {
+  "brand": "Asus",
+  "models": [
+   "ASUS_Z00AD",
+   "ASUS_Z00ADA"
+  ],
+  "name": "ZenFone 2 (ZE551ML)"
+ },
+ "z2_plus": {
+  "brand": "Zuk",
+  "models": [
+   "ZUK Z2131"
+  ],
+  "name": "Z2"
+ },
+ "z2_row": {
+  "brand": "Zuk",
+  "models": [
+   "ZUK Z2121"
+  ],
+  "name": "Z2 Pro"
+ },
+ "z3s": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G988B"
+  ],
+  "name": "Galaxy S20 Ultra 5G"
+ },
+ "zara": {
+  "brand": "Acer",
+  "models": [
+   "HTC_0P4E2",
+   "HTC Desire 601"
+  ],
+  "name": "A3-A10"
+ },
+ "zaracl": {
+  "brand": "HTC",
+  "models": [
+   "HTC Desire 601",
+   "HTC0P4E1"
+  ],
+  "name": "Desire 601"
+ },
+ "zenlte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G9287C",
+   "SM-G928C",
+   "SM-G928G",
+   "SM-G928I",
+   "SM-G928X",
+   "SM-G9287",
+   "SM-G928F"
+  ],
+  "name": "Galaxy S6 Edge+"
+ },
+ "zeroflte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G920F",
+   "SM-G920I",
+   "SM-G920X"
+  ],
+  "name": "Galaxy S6"
+ },
+ "zerolte": {
+  "brand": "Samsung",
+  "models": [
+   "SM-G925I",
+   "SM-G925X",
+   "SM-G925F"
+  ],
+  "name": "Galaxy S6 Edge"
+ },
+ "zeus": {
+  "brand": "Kobo",
+  "models": [
+   "Zeus",
+   "2201122C",
+   "2201122G"
+  ],
+  "name": "Arc"
+ },
+ "zippo": {
+  "brand": "Lenovo",
+  "models": [
+   "Lenovo L78051"
+  ],
+  "name": "Z6 Pro"
+ },
+ "zizhan": {
+  "brand": "Xiaomi",
+  "models": [
+   "22061218C"
+  ],
+  "name": "Xiaomi MIX Fold 2"
+ }
+}

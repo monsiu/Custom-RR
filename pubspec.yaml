@@ -67,6 +67,11 @@ flutter:
   assets:
     - assets/catalog.json
     - assets/freshness.json
+    # Codename/model dictionary from Google's public Play device catalog. Lets
+    # the app name a phone (gta8 -> Galaxy Tab A8, SM-X205) even when no
+    # maintained build exists, so a search never dead-ends. Refresh with
+    # tool/fetch_play_devices.py --refresh.
+    - assets/device_index.json
     - PRIVACY.md
     # Catalog logo artwork (device/brand imageAsset + ROM/recovery headerAsset)
     # is NOT bundled. It is hosted in this repo's images/ folder and loaded over
