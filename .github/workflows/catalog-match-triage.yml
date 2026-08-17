@@ -64,14 +64,14 @@ jobs:
             let message;
             if (match.strength === 'strong') {
               message = [
-                'Hey, thanks for the request! 🙏 Good news: this device is **already in the catalog** — it is listed as `' + example.device + '`.',
+                'Hey, thanks for the request! 🙏 Good news: this device is **already in the catalog**. It is listed as `' + example.device + '`.',
                 '',
                 'It is covered by:',
                 ...list.map((l) => '- ' + l),
                 '',
                 'In the app, open **Find my phone** and search for the codename `' + match.term + '` (device lists use the codename, so marketing names sometimes miss). Each ROM/recovery card shows its supported-device list.',
                 '',
-                'Closing this as already covered — if you meant a *different* variant that reports another codename, reply here and we will take another look. 👍',
+                'Closing this as already covered. If you meant a *different* variant that reports another codename, reply here and we will take another look. 👍',
               ].join('\n');
             } else {
               message = [
@@ -81,7 +81,7 @@ jobs:
                 '',
                 'Sometimes a device is listed under a sibling or family codename rather than the one your phone reports. Try searching those in **Find my phone** in the app.',
                 '',
-                'If none of these is your exact device, ignore this — a human will take a look. 👍',
+                'If none of these is your exact device, ignore this. A human will take a look. 👍',
               ].join('\n');
             }
 
