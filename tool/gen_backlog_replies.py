@@ -4,6 +4,12 @@ import json, subprocess, textwrap
 
 issues = {it['number']: it for it in json.load(open('/tmp/crr-issues.json'))}
 
+PLAY_URL = 'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr'
+REVIEW_CTA = (
+    "If Custom RR helped you out, a quick rating on Google Play goes a long way "
+    "and helps other people find the app: " + PLAY_URL
+)
+
 def match(n):
     it = issues[n]
     out = subprocess.run(['node', 'tool/catalog_match.mjs', it['title'], it.get('body') or ''],
@@ -104,7 +110,9 @@ drafts.append(manual(158, """
 
 out = []
 for d in drafts:
+    d['text'] = d['text'].rstrip() + '\n\n' + REVIEW_CTA
     assert '\u2014' not in d['text'] and '\u2013' not in d['text'], f"dash found in #{d['n']}"
     out.append(f"{'='*70}\nISSUE #{d['n']} | ACTION: {d['action']}\n{'-'*70}\n{d['text']}\n")
 open('/tmp/crr-drafts.txt', 'w').write('\n'.join(out))
-print(f"wrote {len(drafts)} drafts to /tmp/crr-drafts.txt")
+json.dump(drafts, open('/tmp/crr-drafts.json', 'w'), ensure_ascii=False, indent=1)
+print(f"wrote {len(drafts)} drafts to /tmp/crr-drafts.txt and /tmp/crr-drafts.json")

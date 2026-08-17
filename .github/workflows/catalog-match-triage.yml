@@ -85,6 +85,9 @@ jobs:
               ].join('\n');
             }
 
+            const playUrl = 'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr';
+            message += '\n\nIf Custom RR helped you out, a quick rating on Google Play goes a long way and helps other people find the app: ' + playUrl;
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
