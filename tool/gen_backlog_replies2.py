@@ -9,6 +9,24 @@ import json, re
 
 issues = {it['number']: it for it in json.load(open('/tmp/crr-open2.json'))}
 
+# Codename -> friendly name, from the bundled Play device dictionary. Lets a
+# reply name the requester's phone even when nothing builds for it.
+try:
+    _index = json.load(open('/home/monsiu/Custom-RR/assets/device_index.json'))
+except Exception:
+    _index = {}
+
+
+def device_label(codename):
+    e = _index.get((codename or '').lower())
+    if not e:
+        return ''
+    label = ' '.join(x for x in (e.get('b', ''), e.get('n', '')) if x).strip()
+    models = e.get('m') or []
+    if label and models:
+        return f"{label} ({models[0]})"
+    return label
+
 PLAY_URL = 'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr'
 REVIEW_CTA = (
     "If Custom RR helped you out, a quick rating on Google Play goes a long way "
@@ -23,8 +41,22 @@ def field(body, name):
 
 
 def codename_of(it):
-    m = re.search(r'\(([a-z0-9_]{3,})\)', it['title'], re.I)
-    return (field(it.get('body') or '', 'Codename') or (m.group(1) if m else '')).strip()
+    """Best codename for an issue, preferring one the device dictionary knows.
+
+    People often type something in the Codename field that disagrees with the
+    codename in the title, so try both and keep whichever we can actually
+    resolve to a real device.
+    """
+    m = re.search(r'\(([a-z0-9_.-]{3,})\)', it['title'], re.I)
+    candidates = [
+        field(it.get('body') or '', 'Codename').strip(),
+        (m.group(1).strip() if m else ''),
+    ]
+    candidates = [c for c in candidates if c]
+    for c in candidates:
+        if c.lower() in _index:
+            return c
+    return candidates[0] if candidates else ''
 
 
 drafts = []
@@ -79,17 +111,26 @@ for n in EMPTY_NEEDS_INFO:
 
 # Devices that have a codename but no maintained build in the catalog. The bot
 # handles this automatically for new issues; these predate it.
-NO_BUILD = [229, 225, 221, 219, 216, 212, 210, 211, 206, 204, 202, 200, 197,
-            192, 189, 188, 187, 182, 181, 179, 177, 175, 173, 171, 170, 169,
-            168, 164, 161, 154, 151, 149]
+# #188 a55x, #171 topaz, #169 duchamp and #168 dm3q used to be here. Reading
+# real upstream rosters showed they ARE supported, so upstream-device-watch.yml
+# answers those instead.
+NO_BUILD = [229, 225, 221, 219, 216, 212, 211, 210, 206, 204, 202, 200, 197,
+            192, 189, 187, 182, 181, 179, 177, 175, 173, 170, 164, 161, 154,
+            151, 149]
 
 for n in NO_BUILD:
     if n not in issues:
         continue
     cn = codename_of(issues[n])
-    tag = f' (`{cn}`)' if cn else ''
+    label = device_label(cn)
+    if label and cn:
+        who = f'your **{label}**, codename `{cn}`,'
+    elif cn:
+        who = f'your device (`{cn}`)'
+    else:
+        who = 'your device'
     add(n, 'comment (stay open, tracked gap)', [
-        f"Hey, thanks for the request! \U0001f64f Honest status check: your device{tag} does not have a maintained custom ROM or recovery that we can list yet, so there is nothing for us to add today rather than something we are ignoring.",
+        f"Hey, thanks for the request! \U0001f64f Honest status check: {who} does not have a maintained custom ROM or recovery that we can list yet, so there is nothing for us to add today rather than something we are ignoring.",
         "",
         "That is normal and it is usually about who is building, not about your phone being bad. Budget models, very recent releases, and phones outside the big enthusiast brands often never get a dedicated build because nobody has picked up maintaining one.",
         "",

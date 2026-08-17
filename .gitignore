@@ -73,3 +73,6 @@ screenshots/msstore/
 fastlane/metadata/android/*/images/phoneScreenshots/
 fastlane/metadata/android/*/images/sevenInchScreenshots/
 fastlane/metadata/android/*/images/tenInchScreenshots/
+
+# Editor/tool scratch backups
+*.bak
