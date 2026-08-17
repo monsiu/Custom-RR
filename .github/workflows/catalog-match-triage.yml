@@ -1,0 +1,113 @@
+name: Catalog match triage
+
+# When a device/ROM/recovery request is opened, check whether the requested
+# device is already covered by an entry in assets/catalog.json and answer
+# immediately. Strong codename matches get a comment + `already-covered`
+# label and are closed; weaker model-text matches get a suggestion comment
+# and stay open. US-carrier requests are left to us-carrier-triage.yml.
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  match:
+    if: >-
+      contains(github.event.issue.title, 'Device request') ||
+      contains(github.event.issue.title, 'ROM request') ||
+      contains(github.event.issue.title, 'Recovery request') ||
+      contains(github.event.issue.title, 'ROM or recovery request') ||
+      contains(github.event.issue.labels.*.name, 'device') ||
+      contains(github.event.issue.labels.*.name, 'request')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Match request against catalog
+        id: match
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          node tool/catalog_match.mjs > /tmp/match.json
+          cat /tmp/match.json
+          echo "strength=$(node -pe 'JSON.parse(require("fs").readFileSync("/tmp/match.json","utf8")).strength')" >> "$GITHUB_OUTPUT"
+
+      - name: Reply when the device is already covered
+        if: steps.match.outputs.strength != 'none'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const match = JSON.parse(require('fs').readFileSync('/tmp/match.json', 'utf8'));
+            const body = context.payload.issue.body || '';
+
+            // Locked US-carrier units are a different conversation; let
+            // us-carrier-triage.yml own those.
+            if (body.includes("Yes, it's a US model or bought from a US carrier")) {
+              core.info('US carrier flow owns this issue; skipping.');
+              return;
+            }
+
+            const roms = match.matches.filter((m) => m.kind === 'roms');
+            const recoveries = match.matches.filter((m) => m.kind === 'recoveries');
+            const roots = match.matches.filter((m) => m.kind === 'roots');
+            const list = [];
+            if (roms.length) list.push(`**ROMs:** ${roms.map((m) => m.name).join(', ')}`);
+            if (recoveries.length) list.push(`**Recoveries:** ${recoveries.map((m) => m.name).join(', ')}`);
+            if (roots.length) list.push(`**Root:** ${roots.map((m) => m.name).join(', ')}`);
+            const example = match.matches[0];
+
+            let message;
+            if (match.strength === 'strong') {
+              message = [
+                'Hey, thanks for the request! 🙏 Good news: this device is **already in the catalog** — it is listed as `' + example.device + '`.',
+                '',
+                'It is covered by:',
+                ...list.map((l) => '- ' + l),
+                '',
+                'In the app, open **Find my phone** and search for the codename `' + match.term + '` (device lists use the codename, so marketing names sometimes miss). Each ROM/recovery card shows its supported-device list.',
+                '',
+                'Closing this as already covered — if you meant a *different* variant that reports another codename, reply here and we will take another look. 👍',
+              ].join('\n');
+            } else {
+              message = [
+                'Hey, thanks for the request! 🙏 A quick automated check found **similar devices already in the catalog** (matched on `' + match.term + '`):',
+                '',
+                ...match.matches.slice(0, 6).map((m) => `- ${m.kind === 'roms' ? 'ROM' : m.kind === 'recoveries' ? 'Recovery' : 'Root'} **${m.name}**: ${m.device}`),
+                '',
+                'Sometimes a device is listed under a sibling or family codename rather than the one your phone reports. Try searching those in **Find my phone** in the app.',
+                '',
+                'If none of these is your exact device, ignore this — a human will take a look. 👍',
+              ].join('\n');
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: message,
+            });
+
+            if (match.strength === 'strong') {
+              try {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  labels: ['already-covered'],
+                });
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  state: 'closed',
+                  state_reason: 'completed',
+                });
+              } catch (e) {
+                core.warning(`Label/close failed: ${e.message}`);
+              }
+            }
