@@ -10,8 +10,11 @@
 // image is still valid for normal users.
 //
 // Transient failures (timeouts, connection errors, HTTP 5xx or 403) are retried
-// a few times before being reported, so a momentary blip or a runner-IP block
-// does not fail the whole sweep. Hard failures (404, 410, non-image) fail fast.
+// a few times; if they persist they are reported as WARNINGS, not failures,
+// because a server-side error says nothing about whether the link rotted (e.g.
+// the Wayback Machine 503s site-wide for hours). Only hard evidence of rot
+// fails the run: 404/410 and other 4xx, a non-image Content-Type, or a domain
+// that no longer resolves.
 //
 // Catches link rot before users do. Not wired into CI by default because
 // it makes ~50 outbound requests per run; invoke it manually or from a
@@ -88,13 +91,27 @@ Future<void> main(List<String> args) async {
   ]);
   client.close(force: true);
 
-  final List<_Result> failures =
-      results.where((_Result r) => !r.ok).toList(growable: false);
+  // Exhausted-retry transient errors are warnings; only hard rot fails.
+  final List<_Result> failures = results
+      .where((_Result r) => !r.ok && !r.retryable)
+      .toList(growable: false);
+  final List<_Result> warnings = results
+      .where((_Result r) => !r.ok && r.retryable)
+      .toList(growable: false);
 
   stdout.writeln('');
   stdout.writeln(
-    'OK: ${results.length - failures.length} / ${results.length}',
+    'OK: ${results.length - failures.length - warnings.length} '
+    '/ ${results.length}',
   );
+  if (warnings.isNotEmpty) {
+    stdout.writeln('Warnings (${warnings.length}, transient server-side '
+        'errors, NOT counted as link rot):');
+    for (final _Result w in warnings) {
+      stdout.writeln('  [${w.job.section}/${w.job.id}] ${w.job.url}');
+      stdout.writeln('    ${w.reason}');
+    }
+  }
   if (failures.isEmpty) {
     return;
   }
@@ -153,6 +170,11 @@ Future<_Result> _check(HttpClient client, _Job job) async {
     return _Result(job, true, 'HTTP $code ${ctype ?? '(no type)'}');
   } on TimeoutException {
     return _Result(job, false, 'timeout', retryable: true);
+  } on SocketException catch (e) {
+    // A domain that no longer resolves is real rot; other socket errors
+    // (refused, reset) are treated as transient.
+    final bool dead = e.message.contains('Failed host lookup');
+    return _Result(job, false, '$e', retryable: !dead);
   } on Object catch (e) {
     return _Result(job, false, '$e', retryable: true);
   }
@@ -172,6 +194,7 @@ class _Result {
   final String reason;
 
   /// True when the failure looks transient (timeout, connection error, HTTP
-  /// 5xx/403) and is worth retrying before being reported as link rot.
+  /// 5xx/403). Transient failures are retried and, if they persist, reported
+  /// as warnings rather than link rot.
   final bool retryable;
 }
