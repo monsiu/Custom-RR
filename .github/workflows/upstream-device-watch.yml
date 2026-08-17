@@ -1,0 +1,86 @@
+name: Upstream device watch
+
+# Weekly check for the failure mode this repo hit before: an upstream project
+# starts shipping a device somebody requested, and nobody notices. Compares
+# every open device/ROM request against the catalog and comments on the issue
+# when the device is now covered.
+
+on:
+  schedule:
+    # Tuesdays 07:00 UTC, the morning after the catalog sync.
+    - cron: '0 7 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    name: Match open requests against the catalog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Find requests the catalog now covers
+        id: scan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh issue list -R "$GITHUB_REPOSITORY" --state open -L 200 \
+            --json number,title,body,labels > /tmp/open.json
+          node tool/match_open_requests.mjs /tmp/open.json > /tmp/hits.json
+          cat /tmp/hits.json
+          echo "count=$(node -pe 'JSON.parse(require("fs").readFileSync("/tmp/hits.json","utf8")).length')" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on newly covered requests
+        if: steps.scan.outputs.count != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const hits = JSON.parse(require('fs').readFileSync('/tmp/hits.json', 'utf8'));
+            const playUrl = 'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr';
+            for (const hit of hits) {
+              const roms = hit.matches.filter((m) => m.kind === 'roms').map((m) => m.name);
+              const recoveries = hit.matches.filter((m) => m.kind === 'recoveries').map((m) => m.name);
+              const lines = [
+                'Good news, this one aged well. Your device (`' + hit.term + '`) is **now in the catalog**: an upstream project started publishing builds for it since you asked.',
+                '',
+              ];
+              if (roms.length) lines.push('- **ROMs:** ' + roms.join(', '));
+              if (recoveries.length) lines.push('- **Recoveries:** ' + recoveries.join(', '));
+              lines.push(
+                '',
+                'Open **Find my phone** in the app and search `' + hit.term + '` (or your model number) to see it.',
+                '',
+                'If Custom RR helped you out, a quick rating on Google Play goes a long way and helps other people find the app: ' + playUrl,
+              );
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: hit.number,
+                body: lines.join('\n'),
+              });
+              try {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: hit.number,
+                  labels: ['already-covered'],
+                });
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: hit.number,
+                  state: 'closed',
+                  state_reason: 'completed',
+                });
+              } catch (e) {
+                core.warning(`Could not label/close #${hit.number}: ${e.message}`);
+              }
+            }

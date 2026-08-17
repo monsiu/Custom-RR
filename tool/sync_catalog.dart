@@ -2191,6 +2191,9 @@ List<Map<String, dynamic>> _buildRoms(
       headerAsset: 'images/potatoaosp.png',
       shortTagline:
           'AOSP-based "Potato Open Sauce Project" with a light customisation set.',
+      warning: 'POSP is no longer actively maintained and publishes no current '
+          'official device list, so there are no builds to show here. It is '
+          'kept for reference; look at an actively maintained ROM instead.',
       description: <String>[
         'POSP ships a clean AOSP base with a curated set of features and a focus on snappy, low-overhead daily use.',
       ],
