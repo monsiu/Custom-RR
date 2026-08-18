@@ -40,7 +40,7 @@ jobs:
 
       - name: Comment on newly covered requests
         if: steps.scan.outputs.count != '0'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const hits = JSON.parse(require('fs').readFileSync('/tmp/hits.json', 'utf8'));
