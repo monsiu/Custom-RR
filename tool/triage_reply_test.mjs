@@ -81,7 +81,7 @@ const cases = [
       if (r.closed) return 'closed an issue whose model number and codename disagree';
       if (r.labels.includes('already-covered')) return 'marked a conflicting request already-covered';
       const c = r.comments[0] ?? '';
-      if (!c.includes('two different phones')) return 'did not explain the conflict';
+      if (!c.includes('do not agree on which phone')) return 'did not explain the conflict';
       if (!c.includes('SM-G991B') || !c.includes('Galaxy S21')) return 'did not name the real device';
       if (!c.includes('o1s') || !c.includes('r0s')) return 'did not show both codenames';
       return null;
@@ -110,7 +110,9 @@ const cases = [
     body: '',
     check: (r) => {
       const c = r.comments[0] ?? '';
-      return c.includes('two different phones') ? 'flagged rmx2151 vs rmx2151l1 as different phones' : null;
+      return c.includes('do not agree on which phone')
+        ? 'flagged rmx2151 vs rmx2151l1 as different phones'
+        : null;
     },
   },
   {
@@ -121,6 +123,61 @@ const cases = [
       if (r.strength !== 'none') return `expected no match, got ${r.strength}`;
       if (r.comments.length) return 'commented on a device we do not cover';
       return null;
+    },
+  },
+  {
+    name: 'confident reply states the model numbers it is claiming',
+    title: 'Device request: samsung SM-S901B (r0s)',
+    body: '',
+    check: (r) => {
+      const c = r.comments[0] ?? '';
+      if (!c.includes('SM-S901B')) return 'did not state the model number it is answering for';
+      if (!c.includes('do not flash')) return 'did not warn what to do if the model number differs';
+      return null;
+    },
+  },
+  {
+    name: 'brand that belongs to another manufacturer is not auto-closed',
+    title: 'Device request: motorola something (r0s)',
+    body: '### Brand\n\nmotorola\n\n### Codename\n\nr0s\n',
+    check: (r) => {
+      if (r.closed) return 'closed a request whose brand contradicts the codename';
+      const c = r.comments[0] ?? '';
+      if (!c.includes('motorola')) return 'did not quote the stated brand';
+      return null;
+    },
+  },
+  {
+    name: 'sub-brand is not mistaken for a different manufacturer',
+    title: 'Device request: Redmi Redmi 8 (olive)',
+    body: '### Brand\n\nRedmi\n\n### Codename\n\nolive\n',
+    check: (r) => {
+      const c = r.comments[0] ?? '';
+      if (c.includes('do not agree on which phone')) return 'flagged Redmi against Xiaomi as a brand conflict';
+      if (!r.closed) return 'failed to close a genuinely covered Redmi device';
+      return null;
+    },
+  },
+  {
+    name: 'OnePlus stock codename in the dictionary is not a conflict (#201)',
+    title: 'Device request: OnePlus CPH2655 (op5d55l1)',
+    body: '### Brand\n\nOnePlus\n\n### Model\n\nCPH2655\n\n### Codename\n\ndodge\n',
+    check: (r) => {
+      const c = r.comments[0] ?? '';
+      return c.includes('do not agree on which phone')
+        ? 'flagged the OnePlus 13 against its own ROM codename'
+        : null;
+    },
+  },
+  {
+    name: 'codename that collides across manufacturers is not a conflict (#166)',
+    title: 'Device request: OnePlus CPH2613 (op5d3fl1)',
+    body: '### Brand\n\nOnePlus\n\n### Model\n\nCPH2613\n\n### Codename\n\nbenz\n',
+    check: (r) => {
+      const c = r.comments[0] ?? '';
+      return c.includes('do not agree on which phone')
+        ? 'trusted the dictionary calling benz an Alcatel over our own catalog'
+        : null;
     },
   },
   {

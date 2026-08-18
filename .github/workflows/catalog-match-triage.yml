@@ -63,27 +63,47 @@ jobs:
 
             let message;
             if (match.conflict) {
-              // The model number and the codename in the issue describe two
-              // different phones. Answering either one could send someone to
-              // builds for hardware they do not own, so ask instead.
+              // The issue contradicts itself about which phone this is.
+              // Answering either reading could send someone to builds for
+              // hardware they do not own, so ask instead of guessing.
               const c = match.conflict;
+              const evidence =
+                c.kind === 'brand'
+                  ? [
+                      '- You listed the brand **' + c.brandGiven + '**.',
+                      '- The codename `' + c.codenameGiven + '` belongs to a **' + c.brandMatched + '** device: `' + example.device + '`.',
+                    ]
+                  : c.kind === 'ambiguous'
+                    ? ['- The codename `' + c.codenameGiven + '` is used by more than one device in the catalog:', ...c.devices.map((d) => '  - `' + d + '`')]
+                    : [
+                        '- The model number `' + c.modelNumber + '` is the **' + (c.modelBrand ? c.modelBrand + ' ' : '') + (c.modelName || c.modelResolvesTo) + '** (codename `' + c.modelResolvesTo + '`).',
+                        '- The codename you listed, `' + c.codenameGiven + '`, belongs to a different device: `' + example.device + '`.',
+                      ];
               message = [
-                'Hey, thanks for the request! 🙏 Before we answer, we need one thing cleared up, because the details in this issue point at **two different phones**:',
+                'Hey, thanks for the request! 🙏 Before we answer, we need one thing cleared up, because the details here do not agree on which phone this is:',
                 '',
-                '- The model number `' + c.modelNumber + '` is the **' + (c.modelBrand ? c.modelBrand + ' ' : '') + (c.modelName || c.modelResolvesTo) + '** (codename `' + c.modelResolvesTo + '`).',
-                '- The codename you listed, `' + c.codenameGiven + '`, belongs to a different device: `' + example.device + '`.',
+                ...evidence,
                 '',
                 'We do not want to point you at builds for the wrong hardware, since flashing a ROM meant for another device can leave you with a phone that will not boot.',
                 '',
                 'Could you double check which one you have? The reliable way: dial `*#06#` for the model number, or check **Settings > About phone**. Reply with the model number and we will sort it out. 👍',
               ].join('\n');
             } else if (match.strength === 'strong') {
+              // State the hardware we are claiming, so a reporter who typed the
+              // wrong codename can catch it before flashing anything.
+              const models = (match.models || []).slice(0, 6);
               message = [
                 'Hey, thanks for the request! 🙏 Good news: this device is **already in the catalog**. It is listed as `' + example.device + '`.',
                 '',
                 'It is covered by:',
                 ...list.map((l) => '- ' + l),
                 '',
+                ...(models.length
+                  ? [
+                      'Just so we are talking about the same phone, `' + match.term + '` is the model ' + models.map((m) => '`' + m + '`').join(', ') + '. **If your model number is not in that list, do not flash any of these**, reply here instead and we will find the right entry. You can check yours by dialling `*#06#`.',
+                      '',
+                    ]
+                  : []),
                 'In the app, open **Find my phone** and search for the codename `' + match.term + '` (device lists use the codename, so marketing names sometimes miss). Each ROM/recovery card shows its supported-device list.',
                 '',
                 'Closing this as already covered. If you meant a *different* variant that reports another codename, reply here and we will take another look. 👍',

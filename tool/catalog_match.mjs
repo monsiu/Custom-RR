@@ -16,6 +16,16 @@ const body = process.argv[3] ?? process.env.ISSUE_BODY ?? '';
 
 const catalog = JSON.parse(readFileSync('assets/catalog.json', 'utf8'));
 
+// Retail model numbers for 36k codenames, used to cross-check what the reporter
+// says against what they actually own.
+const deviceIndex = (() => {
+  try {
+    return JSON.parse(readFileSync('assets/device_index.json', 'utf8'));
+  } catch {
+    return null;
+  }
+})();
+
 const norm = (s) => s.toLowerCase().replace(/[\s\-_]+/g, '');
 
 // Reuse the app's alias map rather than duplicating it here, so a phone that
@@ -50,6 +60,8 @@ for (const kind of ['roms', 'recoveries', 'roots']) {
         id: entry.id,
         name: entry.name ?? entry.id,
         device: label,
+        brand: typeof device === 'string' ? '' : (device.brand ?? ''),
+        models: typeof device === 'string' ? [] : (device.models ?? []),
         labelNorm: norm(label),
         labelTokens: new Set(label.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean)),
         codenameNorm: norm(codename),
@@ -143,61 +155,139 @@ if (!best || best.strength !== 'strong') {
 
 const result = best ?? { strength: 'none', term: '', matches: [] };
 
-// Safety net: if the issue also carries a retail model number that resolves to
-// a DIFFERENT device than the codename we matched on, the two disagree and we
-// must not answer confidently. A Galaxy S21 (SM-G991B, o1s) filed with the
-// codename r0s is a Galaxy S22, and pointing that owner at S22 builds is how
-// phones get bricked. Downgrade to weak so nothing is auto-closed.
+// Resolve a codename to its canonical spelling, then decide whether two
+// spellings describe the same handset. rmx2151 and rmx2151l1 are one realme 7,
+// and a combined page ("rmx2001/rmx2151") covers both of its components.
+const resolve = (c) => aliases.get(c) ?? c;
+const sameDevice = (a, b) => {
+  const [ra, rb] = [resolve(a), resolve(b)];
+  return ra === rb || ra.startsWith(rb) || rb.startsWith(ra);
+};
+
+// Sub-brands ship under a parent in the catalog: a Redmi Pad Pro is listed as
+// POCO, and both are Xiaomi. Returns '' for anything unrecognised, so a ROM
+// name scraped out of a title ("crDroid for ...") never counts as a brand.
+const brandFamily = (b) => {
+  const n = norm(b);
+  if (!n) return '';
+  for (const [family, members] of Object.entries({
+    xiaomi: ['xiaomi', 'redmi', 'poco', 'mi'],
+    samsung: ['samsung', 'galaxy'],
+    motorola: ['motorola', 'moto'],
+    google: ['google', 'pixel'],
+    oppo: ['oppo', 'realme'],
+    vivo: ['vivo', 'iqoo'],
+    oneplus: ['oneplus'],
+    huawei: ['huawei'],
+    honor: ['honor'],
+    nothing: ['nothing', 'cmf'],
+    transsion: ['infinix', 'tecno', 'itel'],
+  })) {
+    if (members.some((m) => n === m || n.startsWith(m))) return family;
+  }
+  return '';
+};
+
+// Everything below only matters when we are about to answer confidently and
+// close the issue. A wrong confident answer sends someone to builds for
+// hardware they do not own, which is how a phone stops booting.
 if (result.strength === 'strong') {
-  const deviceIndex = (() => {
-    try {
-      return JSON.parse(readFileSync('assets/device_index.json', 'utf8'));
-    } catch {
-      return null;
-    }
-  })();
+  const matchedCodename = norm(result.term);
+  const downgrade = (conflict) => {
+    result.strength = 'weak';
+    result.conflict = conflict;
+  };
+
   if (deviceIndex) {
     const byModel = new Map();
     for (const [codename, entry] of Object.entries(deviceIndex)) {
       for (const m of entry.m ?? []) byModel.set(norm(m), codename);
     }
-    // Retail model numbers keep their dashes (SM-G991B, XT2531-2), so they need
-    // a looser pattern than the token scan above, then normalizing to compare.
-    const haystack = `${title}\n${body}`;
-    // Keep the original spelling (SM-G991B) alongside the normalized key so the
-    // reply quotes the model number back the way the reporter wrote it.
-    const candidates = new Map();
-    for (const raw of haystack.match(/\b[A-Za-z]{1,3}-?[A-Za-z]?\d{3,}[A-Za-z0-9-]*\b/g) ?? []) {
-      if (!candidates.has(norm(raw))) candidates.set(norm(raw), raw.trim());
-    }
-    for (const term of modelTerms) {
-      if (!candidates.has(norm(term))) candidates.set(norm(term), term.trim());
-    }
-    const matchedCodename = norm(result.term);
-    // Two spellings of the same phone are not a conflict: resolve both sides
-    // through the alias map, and treat a regional suffix (rmx2151 vs
-    // rmx2151l1) as the same device. Only a genuinely different phone counts.
-    const resolve = (c) => aliases.get(c) ?? c;
-    const sameDevice = (a, b) => {
-      const [ra, rb] = [resolve(a), resolve(b)];
-      return ra === rb || ra.startsWith(rb) || rb.startsWith(ra);
-    };
-    for (const [candidate, original] of candidates) {
-      const viaModel = byModel.get(candidate);
-      if (viaModel && !sameDevice(norm(viaModel), matchedCodename)) {
-        result.strength = 'weak';
-        result.conflict = {
-          modelNumber: original,
-          modelResolvesTo: viaModel,
-          modelBrand: deviceIndex[viaModel]?.b ?? '',
-          modelName: deviceIndex[viaModel]?.n ?? '',
-          codenameGiven: result.term,
-        };
-        break;
+    // The dictionary and the catalog disagree about codenames more often than
+    // you would hope. OnePlus stock reports op5d55l1 where every ROM says
+    // dodge, and `benz` is an Alcatel 3L in the dictionary but a OnePlus Nord
+    // CE4 in ours. So only cross-check a model number when both sources agree
+    // on what the matched codename is, otherwise we would reject good requests.
+    const matchedEntry = deviceIndex[resolve(matchedCodename)];
+    const catalogBrand = result.matches.find((m) => m.brand)?.brand ?? '';
+    const dictionaryIsTrustworthy =
+      matchedEntry && brandFamily(matchedEntry.b) === brandFamily(catalogBrand);
+
+    if (dictionaryIsTrustworthy) {
+      // Retail model numbers keep their dashes (SM-G991B, XT2531-2), so they
+      // need a looser pattern than the token scan above. Keep the original
+      // spelling so the reply quotes it back the way the reporter wrote it.
+      const haystack = `${title}\n${body}`;
+      const candidates = new Map();
+      for (const raw of haystack.match(/\b[A-Za-z]{1,3}-?[A-Za-z]?\d{3,}[A-Za-z0-9-]*\b/g) ?? []) {
+        if (!candidates.has(norm(raw))) candidates.set(norm(raw), raw.trim());
+      }
+      for (const term of modelTerms) {
+        if (!candidates.has(norm(term))) candidates.set(norm(term), term.trim());
+      }
+      for (const [candidate, original] of candidates) {
+        const viaModel = byModel.get(candidate);
+        if (viaModel && !sameDevice(norm(viaModel), matchedCodename)) {
+          downgrade({
+            kind: 'model',
+            modelNumber: original,
+            modelResolvesTo: viaModel,
+            modelBrand: deviceIndex[viaModel]?.b ?? '',
+            modelName: deviceIndex[viaModel]?.n ?? '',
+            codenameGiven: result.term,
+          });
+          break;
+        }
       }
     }
   }
+
+  // No model number to cross-check against, but a stated brand that belongs to
+  // another manufacturer is the same mistake wearing a different hat.
+  if (result.strength === 'strong') {
+    const statedBrand = clean(field('Brand')) || clean((title.match(/:\s*([A-Za-z]+)/) ?? [])[1]);
+    const stated = brandFamily(statedBrand);
+    const matchedBrand =
+      result.matches.find((m) => m.brand)?.brand || deviceIndex?.[resolve(matchedCodename)]?.b || '';
+    const matched = brandFamily(matchedBrand);
+    if (stated && matched && stated !== matched) {
+      downgrade({
+        kind: 'brand',
+        brandGiven: statedBrand,
+        brandMatched: matchedBrand,
+        codenameGiven: result.term,
+      });
+    }
+  }
+
+  // One codename that lands on two unrelated handsets is not something to
+  // answer confidently either.
+  if (result.strength === 'strong') {
+    const groups = [];
+    for (const m of result.matches) {
+      const parts = m.codenameParts.size ? [...m.codenameParts] : [m.codenameNorm];
+      const hit = groups.find((g) => g.some((p) => parts.some((q) => sameDevice(p, q))));
+      if (hit) hit.push(...parts);
+      else groups.push([...parts]);
+    }
+    if (groups.length > 1) {
+      downgrade({
+        kind: 'ambiguous',
+        codenameGiven: result.term,
+        devices: [...new Set(result.matches.map((m) => m.device))].slice(0, 6),
+      });
+    }
+  }
 }
+
+// Model numbers for whatever we did match, so a confident reply can state the
+// hardware it is claiming and the reporter can catch a bad codename themselves.
+const matchedModels = [
+  ...new Set([
+    ...result.matches.flatMap((m) => m.models ?? []),
+    ...(deviceIndex?.[resolve(norm(result.term))]?.m ?? []),
+  ]),
+];
 
 const seen = new Set();
 result.matches = result.matches.filter((m) => {
@@ -213,6 +303,7 @@ console.log(
       strength: result.strength,
       term: result.term,
       conflict: result.conflict ?? null,
+      models: matchedModels,
       matches: result.matches.map(({ kind, id, name, device }) => ({
         kind,
         id,
