@@ -20,6 +20,8 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test --reporter expanded
+      - name: Triage bot reply rules
+        run: node tool/triage_reply_test.mjs
 
   build-apk:
     name: Build release APKs
