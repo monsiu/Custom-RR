@@ -18,6 +18,22 @@ const catalog = JSON.parse(readFileSync('assets/catalog.json', 'utf8'));
 
 const norm = (s) => s.toLowerCase().replace(/[\s\-_]+/g, '');
 
+// Reuse the app's alias map rather than duplicating it here, so a phone that
+// reports `olive` is still recognised as the Redmi 8 that ships as `mi439`.
+const aliases = (() => {
+  const map = new Map();
+  try {
+    const src = readFileSync('lib/util/codename_aliases.dart', 'utf8');
+    const block = src.match(/kCodenameAliases\s*=\s*<String,\s*String>\{([\s\S]*?)\n\};/);
+    for (const [, k, v] of (block?.[1] ?? '').matchAll(/'([^']+)'\s*:\s*'([^']+)'/g)) {
+      map.set(norm(k), norm(v));
+    }
+  } catch {
+    /* aliases are a bonus; matching still works without them */
+  }
+  return map;
+})();
+
 const index = [];
 for (const kind of ['roms', 'recoveries', 'roots']) {
   for (const entry of catalog[kind] ?? []) {
@@ -37,6 +53,13 @@ for (const kind of ['roms', 'recoveries', 'roots']) {
         labelNorm: norm(label),
         labelTokens: new Set(label.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean)),
         codenameNorm: norm(codename),
+        // Some projects publish one combined page, e.g. "rmx2001/rmx2151".
+        codenameParts: new Set(
+          codename
+            .split(/[/,]/)
+            .map(norm)
+            .filter(Boolean),
+        ),
       });
     }
   }
@@ -83,9 +106,20 @@ for (const term of declared) {
   const t = norm(term);
   const tok = term.toLowerCase().trim();
   if (t.length < 3) continue;
-  const exact = index.filter(
-    (e) => (e.codenameNorm && e.codenameNorm === t) || e.labelTokens.has(tok),
-  );
+  // Direct spellings always win; the alias is only a fallback.
+  const spellings = [t];
+  const alias = aliases.get(t);
+  if (alias && alias !== t) spellings.push(alias);
+  let exact = [];
+  for (const spelling of spellings) {
+    exact = index.filter(
+      (e) =>
+        (e.codenameNorm && e.codenameNorm === spelling) ||
+        e.codenameParts.has(spelling) ||
+        (spelling === t && e.labelTokens.has(tok)),
+    );
+    if (exact.length > 0) break;
+  }
   if (exact.length > 0) {
     best = { strength: 'strong', term, matches: exact };
     break;
@@ -108,6 +142,63 @@ if (!best || best.strength !== 'strong') {
 }
 
 const result = best ?? { strength: 'none', term: '', matches: [] };
+
+// Safety net: if the issue also carries a retail model number that resolves to
+// a DIFFERENT device than the codename we matched on, the two disagree and we
+// must not answer confidently. A Galaxy S21 (SM-G991B, o1s) filed with the
+// codename r0s is a Galaxy S22, and pointing that owner at S22 builds is how
+// phones get bricked. Downgrade to weak so nothing is auto-closed.
+if (result.strength === 'strong') {
+  const deviceIndex = (() => {
+    try {
+      return JSON.parse(readFileSync('assets/device_index.json', 'utf8'));
+    } catch {
+      return null;
+    }
+  })();
+  if (deviceIndex) {
+    const byModel = new Map();
+    for (const [codename, entry] of Object.entries(deviceIndex)) {
+      for (const m of entry.m ?? []) byModel.set(norm(m), codename);
+    }
+    // Retail model numbers keep their dashes (SM-G991B, XT2531-2), so they need
+    // a looser pattern than the token scan above, then normalizing to compare.
+    const haystack = `${title}\n${body}`;
+    // Keep the original spelling (SM-G991B) alongside the normalized key so the
+    // reply quotes the model number back the way the reporter wrote it.
+    const candidates = new Map();
+    for (const raw of haystack.match(/\b[A-Za-z]{1,3}-?[A-Za-z]?\d{3,}[A-Za-z0-9-]*\b/g) ?? []) {
+      if (!candidates.has(norm(raw))) candidates.set(norm(raw), raw.trim());
+    }
+    for (const term of modelTerms) {
+      if (!candidates.has(norm(term))) candidates.set(norm(term), term.trim());
+    }
+    const matchedCodename = norm(result.term);
+    // Two spellings of the same phone are not a conflict: resolve both sides
+    // through the alias map, and treat a regional suffix (rmx2151 vs
+    // rmx2151l1) as the same device. Only a genuinely different phone counts.
+    const resolve = (c) => aliases.get(c) ?? c;
+    const sameDevice = (a, b) => {
+      const [ra, rb] = [resolve(a), resolve(b)];
+      return ra === rb || ra.startsWith(rb) || rb.startsWith(ra);
+    };
+    for (const [candidate, original] of candidates) {
+      const viaModel = byModel.get(candidate);
+      if (viaModel && !sameDevice(norm(viaModel), matchedCodename)) {
+        result.strength = 'weak';
+        result.conflict = {
+          modelNumber: original,
+          modelResolvesTo: viaModel,
+          modelBrand: deviceIndex[viaModel]?.b ?? '',
+          modelName: deviceIndex[viaModel]?.n ?? '',
+          codenameGiven: result.term,
+        };
+        break;
+      }
+    }
+  }
+}
+
 const seen = new Set();
 result.matches = result.matches.filter((m) => {
   const k = `${m.kind}/${m.id}`;
@@ -121,6 +212,7 @@ console.log(
     {
       strength: result.strength,
       term: result.term,
+      conflict: result.conflict ?? null,
       matches: result.matches.map(({ kind, id, name, device }) => ({
         kind,
         id,

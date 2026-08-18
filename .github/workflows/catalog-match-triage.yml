@@ -62,7 +62,22 @@ jobs:
             const example = match.matches[0];
 
             let message;
-            if (match.strength === 'strong') {
+            if (match.conflict) {
+              // The model number and the codename in the issue describe two
+              // different phones. Answering either one could send someone to
+              // builds for hardware they do not own, so ask instead.
+              const c = match.conflict;
+              message = [
+                'Hey, thanks for the request! 🙏 Before we answer, we need one thing cleared up, because the details in this issue point at **two different phones**:',
+                '',
+                '- The model number `' + c.modelNumber + '` is the **' + (c.modelBrand ? c.modelBrand + ' ' : '') + (c.modelName || c.modelResolvesTo) + '** (codename `' + c.modelResolvesTo + '`).',
+                '- The codename you listed, `' + c.codenameGiven + '`, belongs to a different device: `' + example.device + '`.',
+                '',
+                'We do not want to point you at builds for the wrong hardware, since flashing a ROM meant for another device can leave you with a phone that will not boot.',
+                '',
+                'Could you double check which one you have? The reliable way: dial `*#06#` for the model number, or check **Settings > About phone**. Reply with the model number and we will sort it out. 👍',
+              ].join('\n');
+            } else if (match.strength === 'strong') {
               message = [
                 'Hey, thanks for the request! 🙏 Good news: this device is **already in the catalog**. It is listed as `' + example.device + '`.',
                 '',
