@@ -28,6 +28,20 @@ const deviceIndex = (() => {
 
 const norm = (s) => s.toLowerCase().replace(/[\s\-_]+/g, '');
 
+// Recovery/ROM tool names and generic placeholders that people type into the
+// Codename field when they do not know their real codename. None is a device
+// codename, so neither a catalog device nor an issue term may match on one. The
+// "TWRP Android Emulator (twrp)" catalog entry auto-closed #239 exactly this way:
+// the reporter put "twrp" as the codename and it matched that placeholder.
+const nonCodenames = new Set(
+  [
+    'twrp', 'orangefox', 'ofox', 'pbrp', 'shrp', 'magisk', 'kernelsu', 'apatch',
+    'recovery', 'root', 'rom', 'customrom', 'gsi', 'emulator',
+    'none', 'unknown', 'idk', 'tbd', 'nil', 'any', 'other',
+  ].map((w) => norm(w)),
+);
+const isCodenameLike = (t) => Boolean(t) && !nonCodenames.has(norm(t));
+
 // Reuse the app's alias map rather than duplicating it here, so a phone that
 // reports `olive` is still recognised as the Redmi 8 that ships as `mi439`.
 const aliases = (() => {
@@ -48,13 +62,16 @@ const index = [];
 for (const kind of ['roms', 'recoveries', 'roots']) {
   for (const entry of catalog[kind] ?? []) {
     for (const device of entry.devices ?? []) {
+      const codename = typeof device === 'string' ? '' : (device.codename ?? '');
+      // Skip placeholder/emulator devices whose codename is a tool name (the
+      // "TWRP Android Emulator (twrp)" entry), so a mistaken "twrp" never matches.
+      if (codename && nonCodenames.has(norm(codename))) continue;
       const label =
         typeof device === 'string'
           ? device
           : [device.brand, device.model, device.codename && `(${device.codename})`]
               .filter(Boolean)
               .join(' ');
-      const codename = typeof device === 'string' ? '' : (device.codename ?? '');
       index.push({
         kind,
         id: entry.id,
@@ -76,6 +93,15 @@ for (const kind of ['roms', 'recoveries', 'roots']) {
     }
   }
 }
+
+// Weak match: the term appears inside a SINGLE label token or codename part,
+// never spanning word boundaries. Testing the fully-concatenated label let
+// "vegas" hit "Pantech VEGA Screct Note" (VEGA + Screct), the #194-style false
+// suggestion, so the substring test is scoped to one token at a time.
+const labelHasTerm = (e, t) =>
+  e.codenameNorm.includes(t) ||
+  [...e.codenameParts].some((p) => p.includes(t)) ||
+  [...e.labelTokens].some((tok) => tok.includes(t));
 
 function field(name) {
   const m = body.match(new RegExp(`###\\s*${name}\\s*\\n+([^\\n#]+)`, 'i'));
@@ -102,11 +128,11 @@ const clean = (t) =>
     ? t.trim()
     : '';
 const titleParen = clean((title.match(/\(([^)]+)\)/) ?? [])[1]);
-if (titleParen) declared.push(titleParen);
+if (isCodenameLike(titleParen)) declared.push(titleParen);
 const fieldCodename = clean(field('Codename'));
-if (fieldCodename && trustworthy(fieldCodename)) declared.push(fieldCodename);
+if (isCodenameLike(fieldCodename) && trustworthy(fieldCodename)) declared.push(fieldCodename);
 const fieldModel = clean(field('Model'));
-if (fieldModel && trustworthy(fieldModel)) modelTerms.push(fieldModel);
+if (isCodenameLike(fieldModel) && trustworthy(fieldModel)) modelTerms.push(fieldModel);
 // Model-number-ish tokens in the title (SM-A556E, RMX3939, KB2005, xt2513v…).
 for (const tok of title.match(/[A-Za-z]{1,3}[\d][\w-]{3,}/g) ?? []) {
   const c = clean(tok);
@@ -137,7 +163,7 @@ for (const term of declared) {
     break;
   }
   if (!best && t.length >= 4) {
-    const fuzzy = index.filter((e) => e.labelNorm.includes(t));
+    const fuzzy = index.filter((e) => labelHasTerm(e, t));
     if (fuzzy.length > 0) best = { strength: 'weak', term, matches: fuzzy };
   }
 }
@@ -145,7 +171,7 @@ if (!best || best.strength !== 'strong') {
   for (const term of modelTerms) {
     const t = norm(term);
     if (t.length < 5) continue;
-    const fuzzy = index.filter((e) => e.labelNorm.includes(t));
+    const fuzzy = index.filter((e) => labelHasTerm(e, t));
     if (fuzzy.length > 0) {
       best = best ?? { strength: 'weak', term, matches: fuzzy };
       break;
