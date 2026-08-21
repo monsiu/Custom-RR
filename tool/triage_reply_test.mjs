@@ -186,6 +186,28 @@ const cases = [
     body: "Yes, it's a US model or bought from a US carrier",
     check: (r) => (r.comments.length || r.closed ? 'stepped on the US carrier flow' : null),
   },
+  {
+    name: 'a recovery name typed as the codename is never a match (#239)',
+    title: 'Device request: OPPO CPH1901 (cph1901)',
+    body: '### Brand\n\noppo\n\n### Model\n\nCPH1901\n\n### Codename\n\ntwrp\n',
+    check: (r) => {
+      if (r.strength !== 'none') return `matched a recovery name as a codename, got ${r.strength}`;
+      if (r.closed) return 'auto-closed a real device against the TWRP emulator placeholder';
+      if (r.labels.includes('already-covered')) return 'marked an uncovered device already-covered';
+      return null;
+    },
+  },
+  {
+    name: 'the TWRP Android Emulator placeholder is never matched (#194)',
+    title: 'Device request: vegas',
+    body: '### Brand\n\nMotorola\n\n### Model\n\nG power 2025\n\n### Codename\n\nVegas\n',
+    check: () => {
+      const out = JSON.parse(readFileSync('/tmp/match.json', 'utf8'));
+      return out.matches.some((m) => m.id === 'twrp')
+        ? 'matched the TWRP Android Emulator placeholder entry'
+        : null;
+    },
+  },
 ];
 
 let failed = 0;
