@@ -39,7 +39,7 @@ jobs:
 
       - name: Reply when the device is already covered
         if: steps.match.outputs.strength != 'none'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const match = JSON.parse(require('fs').readFileSync('/tmp/match.json', 'utf8'));
