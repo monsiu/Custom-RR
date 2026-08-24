@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-08-17T23:12:32.404220Z",
+  "_generatedAt": "2026-08-24T08:01:30.385051Z",
   "roms": [
     {
       "id": "lineage",
@@ -12011,6 +12011,14 @@
           "brand": "Realme",
           "model": "7 / Narzo 20 Pro / Narzo 30 4G",
           "codename": "salaa"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "12 Lite",
+          "codename": "taoyao",
+          "models": [
+            "2203129G"
+          ]
         }
       ],
       "downloadLabel": "Official downloads",
