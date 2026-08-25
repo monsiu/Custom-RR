@@ -232,21 +232,31 @@ Future<void> main(List<String> args) async {
         for (final MapEntry<String, _NetFetcher> e in _netFetchers.entries)
           MapEntry<String, Future<_NetResult?>>(
             e.key,
-            e.value(client).timeout(_httpTimeout, onTimeout: () => null),
+            // Errors must be caught HERE, at creation. The loop below awaits
+            // jobs in list order, so a fetcher that fails fast while an
+            // earlier one is still pending completes with no listener
+            // attached = unhandled async error = dead isolate (exit 255,
+            // seen 2026-08-24 when the OrangeFox API 404'd).
+            () async {
+              try {
+                return await e
+                    .value(client)
+                    .timeout(_httpTimeout, onTimeout: () => null);
+              } on Object catch (err) {
+                stdout.writeln('[freshness] net FAIL  ${e.key}  $err');
+                return null;
+              }
+            }(),
           ),
       ];
       for (final MapEntry<String, Future<_NetResult?>> j in jobs) {
-        try {
-          final _NetResult? r = await j.value;
-          if (r != null) {
-            netResults[j.key] = r;
-            stdout.writeln('[freshness] net OK    ${j.key}  '
-                '${_isoDate(r.lastBuild)}  ${r.version}');
-          } else {
-            stdout.writeln('[freshness] net SKIP  ${j.key}  (no data)');
-          }
-        } on Object catch (err) {
-          stdout.writeln('[freshness] net FAIL  ${j.key}  $err');
+        final _NetResult? r = await j.value;
+        if (r != null) {
+          netResults[j.key] = r;
+          stdout.writeln('[freshness] net OK    ${j.key}  '
+              '${_isoDate(r.lastBuild)}  ${r.version}');
+        } else {
+          stdout.writeln('[freshness] net SKIP  ${j.key}  (no data)');
         }
       }
     } finally {
@@ -627,12 +637,13 @@ Future<_NetResult?> _fetchGitHubLatestCommit(
   );
 }
 
-/// OrangeFox exposes a public API. `releases/?sort=date_desc&limit=1` returns
+/// OrangeFox exposes a public API. `releases?sort=date_desc&limit=1` returns
 /// the single most recent release across all devices, whose `date` field is a
 /// unix timestamp. That is our project-wide "last build" signal.
+/// (FoxAPI v6 dropped the `/v3/` prefix; the old path now 404s.)
 Future<_NetResult?> _fetchOrangeFox(HttpClient client) async {
   final Uri url = Uri.parse(
-    'https://api.orangefox.download/v3/releases/?sort=date_desc&limit=1',
+    'https://api.orangefox.download/releases?sort=date_desc&limit=1',
   );
   final String body = await _httpGetText(client, url);
   final dynamic decoded = json.decode(body);
