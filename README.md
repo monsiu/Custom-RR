@@ -28,6 +28,8 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
   <a href="https://github.com/monsiu/Custom-RR/releases"><img alt="Download from GitHub Releases" src="https://img.shields.io/badge/GitHub-Download_APK-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white"></a>
   <a href="https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr"><img alt="Get it on the Amazon Appstore" src="https://img.shields.io/badge/Amazon_Appstore-Download-FF9900?style=for-the-badge&amp;logo=amazon&amp;logoColor=white"></a>
   <a href="https://f-droid.org/packages/io.github.monsiu.custom_rr/"><img alt="Get it on F-Droid" src="https://img.shields.io/badge/F--Droid-Get_it_now-1976D2?style=for-the-badge&amp;logo=fdroid&amp;logoColor=white"></a>
+  <a href="https://apps.microsoft.com/detail/9NTS7Q5V12RG"><img alt="Get it from the Microsoft Store" src="https://img.shields.io/badge/Microsoft_Store-Get_it_now-0078D4?style=for-the-badge&amp;logo=windows&amp;logoColor=white"></a>
+  <a href="https://zapstore.dev/apps/io.github.monsiu.custom_rr"><img alt="Get it on Zapstore" src="https://img.shields.io/badge/Zapstore-Get_it_now-7B2FF2?style=for-the-badge&amp;logo=nostr&amp;logoColor=white"></a>
 </p>
 
 ## Why Custom RR?
@@ -52,7 +54,7 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
 
 ## Contents
 
-- [Google Play status](#google-play-status)
+- [Availability](#availability)
 - [Features](#features)
 - [Roadmap](#roadmap)
 - [Deep links](#deep-links)
@@ -62,14 +64,21 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
 - [Need an app built?](#need-an-app-built)
 - [Catalog sources](#catalog-sources)
 
-## Google Play status
+## Availability
 
-Custom RR is now **publicly available on Google Play**.
+Custom RR is published to five app stores plus direct download:
 
-You can also install from
-[GitHub Releases](https://github.com/monsiu/Custom-RR/releases/latest), the
-[Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr),
-or [F-Droid](https://f-droid.org/packages/io.github.monsiu.custom_rr/).
+| Store | Platform |
+| --- | --- |
+| [Google Play](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr) | Android |
+| [Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr) | Android |
+| [F-Droid](https://f-droid.org/packages/io.github.monsiu.custom_rr/) | Android |
+| [Zapstore](https://zapstore.dev/apps/io.github.monsiu.custom_rr) | Android |
+| [Microsoft Store](https://apps.microsoft.com/detail/9NTS7Q5V12RG) | Windows |
+| [GitHub Releases](https://github.com/monsiu/Custom-RR/releases/latest) | Android, Windows, Linux, macOS, iOS (sideload) |
+
+Every store build comes from the same tagged release, published automatically
+by CI. See [Download](#download) for the per-platform artifacts.
 
 ## Features
 
@@ -99,8 +108,6 @@ or [F-Droid](https://f-droid.org/packages/io.github.monsiu.custom_rr/).
 - Unofficial / community-maintained build listings
 - Dedicated Magisk install section
 - Auto-update for the Linux, Windows, and macOS desktop builds
-- Microsoft Store release of the native Windows build
-  (runbook: [docs/MICROSOFT_STORE_WINDOWS_RELEASE.md](docs/MICROSOFT_STORE_WINDOWS_RELEASE.md))
 
 ## Deep links
 
@@ -127,15 +134,15 @@ Every channel ships the **same release**. Prebuilt binaries are attached to the
 
 | Platform | Where to get it |
 | --- | --- |
-| **Android** (7.0+, APK) | [GitHub Releases](https://github.com/monsiu/Custom-RR/releases/latest) (per-ABI), the [Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr), the [Google Play listing](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr), or [F-Droid](https://f-droid.org/packages/io.github.monsiu.custom_rr/). |
+| **Android** (7.0+, APK) | [GitHub Releases](https://github.com/monsiu/Custom-RR/releases/latest) (per-ABI), the [Amazon Appstore](https://www.amazon.com/gp/mas/dl/android?p=io.github.monsiu.custom_rr), the [Google Play listing](https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr), [F-Droid](https://f-droid.org/packages/io.github.monsiu.custom_rr/), or [Zapstore](https://zapstore.dev/apps/io.github.monsiu.custom_rr). |
+| **Windows** | The [Microsoft Store](https://apps.microsoft.com/detail/9NTS7Q5V12RG), or `custom_rr-vX.Y.Z-windows-x64.zip` (portable, no installer) |
 | **Linux** | `custom_rr-vX.Y.Z-linux-x64.tar.gz` |
-| **Windows** | `custom_rr-vX.Y.Z-windows-x64.zip` (portable, no installer) |
 | **macOS** (10.15+) | `custom_rr-vX.Y.Z-macos-universal.zip` (universal, unsigned, see the [macOS notes](CONTRIBUTING.md#macos-desktop)) |
 | **iOS** (sideload only) | `custom_rr-vX.Y.Z-ios-unsigned.ipa` - unsigned, for [AltStore](https://altstore.io) / TrollStore users; not a normal App Store install. |
 
 Building any platform from source, the release flow, and how the catalog is
-generated are covered in [CONTRIBUTING.md](CONTRIBUTING.md). The plan for
-shipping the Windows build to the Microsoft Store lives in
+generated are covered in [CONTRIBUTING.md](CONTRIBUTING.md). Notes on the
+Microsoft Store packaging and submission live in
 [docs/MICROSOFT_STORE_WINDOWS_RELEASE.md](docs/MICROSOFT_STORE_WINDOWS_RELEASE.md).
 
 ## Contributing
@@ -181,7 +188,8 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 
 Custom RR is designed, coded, and shipped end to end by one developer: the
 catalog engine, the nightly freshness pipeline, native builds for four
-platforms, and releases on Google Play, the Amazon Appstore, and F-Droid.
+platforms, and automated releases to five app stores: Google Play, the Amazon
+Appstore, F-Droid, Zapstore, and the Microsoft Store.
 
 If you want an **Android app, a cross-platform app, or a website** built with
 the same care, from first sketch to the app stores, that is exactly what I do
