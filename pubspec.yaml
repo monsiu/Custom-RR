@@ -42,7 +42,7 @@ dev_dependencies:
   flutter_native_splash: ^2.4.8
   flutter_launcher_icons: ^0.14.1
   msix: ^3.16.8
-  yaml: ^3.1.2
+  yaml: ^3.1.4
 
 # Microsoft Store MSIX packaging (see docs/MICROSOFT_STORE_WINDOWS_RELEASE.md).
 # identity_name / msix_version are placeholders; CI overrides them with the
