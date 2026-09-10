@@ -30,7 +30,7 @@ dependencies:
   qr_flutter: ^4.1.0
   # In-app updater: download the matching split APK from the latest
   # GitHub release and hand it to the system installer.
-  dio: ^5.11.0
+  dio: ^5.11.1
   device_info_plus: ^13.2.0
   open_filex: ^4.5.0
   path_provider: ^2.1.6
@@ -42,7 +42,7 @@ dev_dependencies:
   flutter_native_splash: ^2.4.8
   flutter_launcher_icons: ^0.14.1
   msix: ^3.16.8
-  yaml: ^3.1.2
+  yaml: ^3.1.4
 
 # Microsoft Store MSIX packaging (see docs/MICROSOFT_STORE_WINDOWS_RELEASE.md).
 # identity_name / msix_version are placeholders; CI overrides them with the
