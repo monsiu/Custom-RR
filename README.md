@@ -20,6 +20,8 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
 
 > A single home for popular **custom ROMs** and **custom recoveries**: direct links to the official builders, screenshots, freshness signals, and step-by-step flashing guides. No tracking, no ads, no Play Services. GPL-3.0.
 
+> **Maintainer note:** Running on a slower cadence for a while. Issues get triaged on weekends and PRs reviewed within a week or two. The project is alive.
+
 ![Custom RR banner](images/readme/banner.png)
 
 <p align="left">
