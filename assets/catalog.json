@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-09-12T18:08:23.422807Z",
+  "_generatedAt": "2026-09-14T13:50:21.529563Z",
   "roms": [
     {
       "id": "lineage",
@@ -53,6 +53,30 @@
           ]
         },
         {
+          "brand": "AYN",
+          "model": "Odin 2",
+          "codename": "odin2",
+          "models": [
+            "Odin 2"
+          ]
+        },
+        {
+          "brand": "AYN",
+          "model": "Odin2 Mini",
+          "codename": "odin2mini",
+          "models": [
+            "Odin2 Mini"
+          ]
+        },
+        {
+          "brand": "AYN",
+          "model": "Odin2 Portal",
+          "codename": "odin2portal",
+          "models": [
+            "Odin2Portal"
+          ]
+        },
+        {
           "brand": "Asus",
           "model": "Zenfone 5Z (ZS620KL)",
           "codename": "Z01R"
@@ -101,6 +125,16 @@
           "brand": "Banana Pi",
           "model": "M5 (S905X3, eMMC Only) [Tablet]",
           "codename": "m5_tab"
+        },
+        {
+          "brand": "DroidLogic",
+          "model": "ADT-4/4+/4 (Low Ram)",
+          "codename": "ohm"
+        },
+        {
+          "brand": "DroidLogic",
+          "model": "Developer Kit (S905X4-B/K)",
+          "codename": "ohm"
         },
         {
           "brand": "Dynalink",
@@ -169,8 +203,13 @@
         },
         {
           "brand": "Freebox",
-          "model": "Pop / TV",
+          "model": "Pop / TV (Broadcom Wi-Fi/Bluetooth)",
           "codename": "nicepool"
+        },
+        {
+          "brand": "Freebox",
+          "model": "Pop / TV (Realtek Wi-Fi/Bluetooth)",
+          "codename": "nicepool_rtk"
         },
         {
           "brand": "Google",
@@ -891,6 +930,16 @@
             "XT2241-1",
             "XT2241-2",
             "motorola edge"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
           ]
         },
         {
@@ -7680,6 +7729,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Xiaomi 11T",
+          "codename": "agate"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Xiaomi 11T Pro",
           "codename": "vili",
           "models": [
@@ -9089,6 +9143,16 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Redmi 9",
+          "codename": "lancelot",
+          "models": [
+            "M2004J19C",
+            "M2004J19G",
+            "M2004J19I"
+          ]
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Redmi K20 (China)",
           "codename": "davinci",
           "models": [
@@ -9375,6 +9439,11 @@
           "models": [
             "GINKGO"
           ]
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 9",
+          "codename": "merlinx"
         },
         {
           "brand": "Xiaomi",
@@ -9892,11 +9961,6 @@
             "SM-M526B",
             "SM-M526BR"
           ]
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Redmi Note 9",
-          "codename": "merlinx"
         },
         {
           "brand": "Xiaomi",
@@ -12011,6 +12075,14 @@
           "brand": "Realme",
           "model": "7 / Narzo 20 Pro / Narzo 30 4G",
           "codename": "salaa"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "12 Lite",
+          "codename": "taoyao",
+          "models": [
+            "2203129G"
+          ]
         }
       ],
       "downloadLabel": "Official downloads",
@@ -13363,6 +13435,16 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Redmi 9",
+          "codename": "lancelot",
+          "models": [
+            "M2004J19C",
+            "M2004J19G",
+            "M2004J19I"
+          ]
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Redmi K20 (China)",
           "codename": "davinci",
           "models": [
@@ -13649,6 +13731,11 @@
           "models": [
             "GINKGO"
           ]
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 9",
+          "codename": "merlinx"
         },
         {
           "brand": "Xiaomi",
@@ -14196,6 +14283,16 @@
             "XT2241-1",
             "XT2241-2",
             "motorola edge"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
           ]
         },
         {
@@ -16970,6 +17067,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 pro",
           "codename": "rtwo",
           "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33",
@@ -19677,6 +19784,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 pro",
           "codename": "rtwo",
           "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33",
@@ -21408,6 +21525,16 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Redmi 9",
+          "codename": "lancelot",
+          "models": [
+            "M2004J19C",
+            "M2004J19G",
+            "M2004J19I"
+          ]
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Redmi K20 (China)",
           "codename": "davinci",
           "models": [
@@ -21697,6 +21824,11 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Redmi Note 9",
+          "codename": "merlinx"
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Redmi Note 9 Pro (Global)",
           "codename": "miatoll",
           "models": [
@@ -21780,6 +21912,21 @@
           "codename": "felix"
         },
         {
+          "brand": "Google",
+          "model": "Pixel 10",
+          "codename": "frankel"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10 Pro",
+          "codename": "blazer"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10 Pro Xl",
+          "codename": "mustang"
+        },
+        {
           "brand": "OnePlus",
           "model": "OnePlus 10 pro",
           "codename": "wly"
@@ -21830,10 +21977,29 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "POCO X7 Pro 5G",
+          "codename": "rodin",
+          "models": [
+            "2412DPC0AG",
+            "2412DPC0AI",
+            "24129RT7CC"
+          ]
+        },
+        {
+          "brand": "Xiaomi",
           "model": "POCO M6 Pro 5G",
           "codename": "sky",
           "models": [
             "23076PC4BI"
+          ]
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "POCO F4 GT",
+          "codename": "ingres",
+          "models": [
+            "21121210G",
+            "21121210C"
           ]
         },
         {
@@ -21844,15 +22010,6 @@
             "25053PC47G",
             "25053PC47I",
             "25053RT47C"
-          ]
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "POCO F4 GT",
-          "codename": "ingres",
-          "models": [
-            "21121210G",
-            "21121210C"
           ]
         },
         {
@@ -21939,14 +22096,6 @@
             "M2007J3SY",
             "M2007J3SG",
             "M2007J3SI"
-          ]
-        },
-        {
-          "brand": "Xiaomi",
-          "model": "Mi Note 10 Lite",
-          "codename": "toco",
-          "models": [
-            "toco"
           ]
         },
         {
@@ -22633,6 +22782,11 @@
             "M2101K7AG",
             "M2101K7AI"
           ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus Nord CE3 5G",
+          "codename": "ziti"
         }
       ],
       "downloadLabel": "Official downloads",
@@ -24040,6 +24194,16 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Redmi 9",
+          "codename": "lancelot",
+          "models": [
+            "M2004J19C",
+            "M2004J19G",
+            "M2004J19I"
+          ]
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Redmi K20 (China)",
           "codename": "davinci",
           "models": [
@@ -24326,6 +24490,11 @@
           "models": [
             "GINKGO"
           ]
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 9",
+          "codename": "merlinx"
         },
         {
           "brand": "Xiaomi",
@@ -26417,6 +26586,16 @@
             "XT2241-1",
             "XT2241-2",
             "motorola edge"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
           ]
         },
         {
@@ -31163,6 +31342,16 @@
             "XT2241-1",
             "XT2241-2",
             "motorola edge"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
           ]
         },
         {
@@ -35946,6 +36135,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 pro",
           "codename": "rtwo",
           "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33",
@@ -37677,6 +37876,16 @@
         },
         {
           "brand": "Xiaomi",
+          "model": "Redmi 9",
+          "codename": "lancelot",
+          "models": [
+            "M2004J19C",
+            "M2004J19G",
+            "M2004J19I"
+          ]
+        },
+        {
+          "brand": "Xiaomi",
           "model": "Redmi K20 (China)",
           "codename": "davinci",
           "models": [
@@ -37963,6 +38172,11 @@
           "models": [
             "GINKGO"
           ]
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Redmi Note 9",
+          "codename": "merlinx"
         },
         {
           "brand": "Xiaomi",
@@ -45370,6 +45584,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 pro",
           "codename": "rtwo",
           "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33",
@@ -50468,6 +50692,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40 neo",
+          "codename": "manaus",
+          "models": [
+            "XT2307-1",
+            "XT2307-2",
+            "XT2307-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 pro",
           "codename": "rtwo",
           "forumUrl": "https://xdaforums.com/f/motorola-edge-40-pro-moto-x40-china.12731/?prefix_id=33",
@@ -55164,6 +55398,10 @@
     {
       "name": "Dell",
       "imageAsset": "images/device_dell.png"
+    },
+    {
+      "name": "DroidLogic",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Dynalink",
