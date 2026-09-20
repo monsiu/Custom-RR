@@ -38,17 +38,55 @@ jobs:
           echo "strength=$(node -pe 'JSON.parse(require("fs").readFileSync("/tmp/match.json","utf8")).strength')" >> "$GITHUB_OUTPUT"
 
       - name: Reply when the device is already covered
-        if: steps.match.outputs.strength != 'none'
         uses: actions/github-script@v7
         with:
           script: |
             const match = JSON.parse(require('fs').readFileSync('/tmp/match.json', 'utf8'));
             const body = context.payload.issue.body || '';
+            const isDeviceRequest =
+              /device request/i.test(context.payload.issue.title || '') ||
+              (context.payload.issue.labels || []).some((label) => label.name === 'device');
+
+            // Keep this workflow idempotent and do not compete with another
+            // triage workflow that has already answered the issue.
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            if (comments.some((comment) => comment.user?.type === 'Bot' || comment.user?.login?.endsWith('[bot]'))) {
+              core.info('A bot has already replied; skipping this issue.');
+              return;
+            }
 
             // Locked US-carrier units are a different conversation; let
             // us-carrier-triage.yml own those.
             if (body.includes("Yes, it's a US model or bought from a US carrier")) {
               core.info('US carrier flow owns this issue; skipping.');
+              return;
+            }
+
+            if (match.strength === 'none' && !isDeviceRequest) {
+              core.info('Unmatched non-device request; leaving it for human triage.');
+              return;
+            }
+
+            if (match.strength === 'none') {
+              const playUrl = 'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr';
+              const message = [
+                'Thanks for the request. I\'ve recorded this device and will check upstream support and compatibility when the next development window opens. There is no release date yet.',
+                '',
+                'Please do not flash a build for a different codename or model, since that can brick the device.',
+                '',
+                'If Custom RR helped you out, a quick rating on Google Play goes a long way and helps other people find the app: ' + playUrl,
+              ].join('\\n');
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: message,
+              });
               return;
             }
 
