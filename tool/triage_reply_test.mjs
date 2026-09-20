@@ -43,7 +43,7 @@ const script = extractScript(workflow);
 const AsyncFunction = Object.getPrototypeOf(async () => {}).constructor;
 const run = new AsyncFunction('github', 'context', 'core', 'require', script);
 
-async function triage({ title, body }) {
+async function triage({ title, body, existingBotReply = false }) {
   const out = execFileSync('node', ['tool/catalog_match.mjs'], {
     env: { ...process.env, ISSUE_TITLE: title, ISSUE_BODY: body },
     encoding: 'utf8',
@@ -52,10 +52,8 @@ async function triage({ title, body }) {
   const strength = JSON.parse(out).strength;
 
   const calls = { comments: [], labels: [], closed: false };
-  // The step itself is gated on the match being something.
-  if (strength === 'none') return { strength, ...calls };
-
   const github = {
+    paginate: async () => (existingBotReply ? [{ user: { type: 'Bot', login: 'github-actions[bot]' }, body: 'existing bot reply' }] : []),
     rest: {
       issues: {
         createComment: async ({ body }) => calls.comments.push(body),
@@ -66,7 +64,11 @@ async function triage({ title, body }) {
       },
     },
   };
-  const context = { payload: { issue: { body } }, repo: { owner: 'o', repo: 'r' }, issue: { number: 1 } };
+  const context = {
+    payload: { issue: { title, body, labels: [] } },
+    repo: { owner: 'o', repo: 'r' },
+    issue: { number: 1 },
+  };
   const core = { info: () => {}, warning: () => {} };
   await run(github, context, core, require);
   return { strength, ...calls };
@@ -124,6 +126,26 @@ const cases = [
       if (r.comments.length) return 'commented on a device we do not cover';
       return null;
     },
+  },
+  {
+    name: 'uncovered device receives the standard response',
+    title: 'Device request: Infinix Hot 9 (x6532c)',
+    body: '',
+    check: (r) => {
+      const c = r.comments[0] ?? '';
+      if (!c.includes("I've recorded this device")) return 'missing the standard device-request response';
+      if (!c.includes('There is no release date yet')) return 'made a release promise';
+      if (!c.includes('do not flash a build for a different codename or model')) return 'missing the wrong-device warning';
+      if (!c.includes('play.google.com/store/apps/details?id=io.github.monsiu.custom_rr')) return 'missing the rating CTA';
+      return null;
+    },
+  },
+  {
+    name: 'standard response does not clash with an existing bot reply',
+    title: 'Device request: Infinix Hot 9 (x6532c)',
+    body: '',
+    existingBotReply: true,
+    check: (r) => (r.comments.length ? 'added a second comment after a bot reply' : null),
   },
   {
     name: 'confident reply states the model numbers it is claiming',
