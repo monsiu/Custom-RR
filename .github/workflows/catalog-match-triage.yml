@@ -38,7 +38,7 @@ jobs:
           echo "strength=$(node -pe 'JSON.parse(require("fs").readFileSync("/tmp/match.json","utf8")).strength')" >> "$GITHUB_OUTPUT"
 
       - name: Reply when the device is already covered
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const match = JSON.parse(require('fs').readFileSync('/tmp/match.json', 'utf8'));
