@@ -106,12 +106,12 @@ jobs:
       - name: Zip unpackaged build (smoke-test artifact)
         run: 7z a windows-unpackaged.zip ./build/windows/x64/runner/Release/*
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: msstore-upload
           path: build/windows/x64/runner/Release/*.msix
           if-no-files-found: error
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: windows-unpackaged
           path: windows-unpackaged.zip
