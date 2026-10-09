@@ -141,7 +141,7 @@ jobs:
           # e.g. custom_rr-v1.0.0-vc8-play-upload.aab.
           cp build/app/outputs/bundle/release/app-release.aab \
             "dist/custom_rr-v${VNAME}-vc${VCODE}-play-upload.aab"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           # Artifact (the downloadable zip) carries the versionCode too, so the
           # Actions page shows e.g. "play-appbundle-vc8" at a glance.
