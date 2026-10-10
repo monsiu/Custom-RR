@@ -141,7 +141,7 @@ class DesktopMenuBar extends StatelessWidget {
               ),
             ),
             PlatformMenuItem(
-              label: 'Request a ROM or recovery',
+              label: 'Suggest a catalog entry',
               onSelected: () => openProjectRequest(kind: 'ROM or recovery'),
             ),
             PlatformMenuItem(

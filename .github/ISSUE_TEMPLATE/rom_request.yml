@@ -1,10 +1,10 @@
 name: "Request a catalog entry"
-description: "Ask us to add a custom ROM, recovery, GSI, or root solution to the Custom RR catalog"
+description: "Suggest an existing custom ROM, recovery, GSI, or root solution for the Custom RR catalog"
 labels: ["request"]
 body:
   - type: markdown
     attributes:
-      value: "Thanks for helping grow the Custom RR catalog. Please fill in what you can."
+      value: "Thanks for helping grow the Custom RR catalog. This form suggests existing upstream projects for listing; it is not a request for us to build a ROM or recovery. Please fill in what you can."
   - type: dropdown
     id: kind
     attributes:

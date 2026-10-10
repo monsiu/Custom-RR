@@ -385,7 +385,7 @@ class _DesktopRailState extends State<_DesktopRail> {
           children: <Widget>[
             ListTile(
               leading: const Icon(Icons.playlist_add),
-              title: const Text('Request a ROM or recovery'),
+              title: const Text('Suggest a catalog entry'),
               onTap: () {
                 Navigator.of(ctx).pop();
                 openProjectRequest(kind: 'ROM or recovery');
