@@ -45,6 +45,10 @@ to the real download page. **18 actively maintained ROMs**, **5 recoveries**,
 **500+ devices**, sourced live from the LineageOS wiki + the PixelOS
 `official_devices` repo and refreshed nightly.
 
+Custom RR catalogs existing upstream projects and links to their official sources.
+It does not build ROMs or recoveries for individual phones. Use the suggestion
+form to point us to a maintained project that should be listed.
+
 <p align="center">
   <img src="screenshots/phone/01.png" width="140" alt="Home" />
   <img src="screenshots/phone/02.png" width="140" alt="Custom ROMs" />

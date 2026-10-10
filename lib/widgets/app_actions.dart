@@ -62,7 +62,7 @@ class AppShareMenu extends StatelessWidget {
           value: _ShareAction.requestProject,
           child: ListTile(
             leading: Icon(Icons.playlist_add),
-            title: Text('Request a ROM or recovery'),
+            title: Text('Suggest a catalog entry'),
           ),
         ),
         const PopupMenuItem<_ShareAction>(

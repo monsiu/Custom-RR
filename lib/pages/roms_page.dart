@@ -46,7 +46,7 @@ class CatalogPage extends StatefulWidget {
   /// the project is greyed out.
   final List<DefunctEntry> defunct;
 
-  /// When non-null, a "Don't see your ROM/recovery? Request it" footer is
+  /// When non-null, a "Don't see your ROM/recovery? Suggest it" footer is
   /// shown at the bottom of the list and in the empty-search state. The value
   /// is a short label such as 'ROM' or 'recovery'. Left null (e.g. for Roots)
   /// to hide the footer entirely.
@@ -500,7 +500,7 @@ class _DeviceFilterBanner extends StatelessWidget {
   }
 }
 
-/// "Don't see your ROM/recovery? Request it" prompt shown at the bottom of
+/// "Don't see your ROM/recovery? Suggest it" prompt shown at the bottom of
 /// the ROMs and Recoveries lists (and in the empty-search state). Opens a
 /// prefilled GitHub issue via [openProjectRequest].
 class _RequestProjectFooter extends StatelessWidget {
@@ -524,14 +524,14 @@ class _RequestProjectFooter extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            'Tell us which one to add next.',
+            'Suggest an existing project or source for the catalog. We do not build ROMs or recoveries.',
             style: text.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 10),
           OutlinedButton.icon(
             icon: const Icon(Icons.playlist_add),
-            label: Text('Request a $kind'),
+            label: Text('Suggest a $kind for the catalog'),
             onPressed: () => openProjectRequest(kind: kind),
           ),
         ],
