@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:custom_rr/data/catalog_repository.dart';
 import 'package:custom_rr/pages/home_page.dart';
 import 'package:custom_rr/theme.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 
 Widget _wrap(Size size) {
   return MediaQuery(

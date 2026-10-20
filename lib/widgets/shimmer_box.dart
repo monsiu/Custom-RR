@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A lightweight, dependency-free loading skeleton for network images
 /// (catalog logos and screenshots). It fills its parent's bounds with a
