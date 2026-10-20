@@ -1,6 +1,6 @@
 import 'package:custom_rr/widgets/zoomable_image_viewer.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   // CachedNetworkImage tries to hit the network; in tests that fails
