@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-10-20T10:35:33.783948Z",
+  "_generatedAt": "2026-10-20T18:45:34.937957Z",
   "_netCount": 17,
   "_curatedCount": 18,
   "entries": {
@@ -15,7 +15,7 @@
     "crdroid": {
       "status": "active",
       "lastBuild": "2026-10-19",
-      "daysAgo": 0,
+      "daysAgo": 1,
       "version": "crDroid 13.0",
       "source": "https://github.com/crdroidandroid/android_vendor_crDroidOTA",
       "origin": "network"
@@ -31,7 +31,7 @@
     "evolutionx": {
       "status": "active",
       "lastBuild": "2026-10-10",
-      "daysAgo": 9,
+      "daysAgo": 10,
       "version": "Evolution X (latest)",
       "source": "https://github.com/Evolution-X/OTA",
       "origin": "network"
@@ -62,8 +62,8 @@
     },
     "risingosrevived": {
       "status": "active",
-      "lastBuild": "2026-10-15",
-      "daysAgo": 4,
+      "lastBuild": "2026-10-20",
+      "daysAgo": 0,
       "version": "RisingOS Revived (latest)",
       "source": "https://sourceforge.net/projects/risingos-revived/files/",
       "origin": "network"
@@ -71,7 +71,7 @@
     "voltage": {
       "status": "active",
       "lastBuild": "2026-10-18",
-      "daysAgo": 1,
+      "daysAgo": 2,
       "version": "VoltageOS (latest)",
       "source": "https://github.com/VoltageOS/android_vendor_voltageota",
       "origin": "network"
@@ -151,7 +151,7 @@
     "un1ca": {
       "status": "active",
       "lastBuild": "2026-09-29",
-      "daysAgo": 20,
+      "daysAgo": 21,
       "version": "UN1CA 3.2.1",
       "source": "https://github.com/salvogiangri/UN1CA/releases",
       "origin": "network"
@@ -167,7 +167,7 @@
     "lineagee3q": {
       "status": "active",
       "lastBuild": "2026-10-16",
-      "daysAgo": 3,
+      "daysAgo": 4,
       "version": "Unofficial LineageOS (e3q) (latest)",
       "source": "https://github.com/Exynoobs/OTA",
       "origin": "network"
@@ -205,10 +205,10 @@
       "origin": "curated"
     },
     "magisk": {
-      "status": "abandoned",
-      "lastBuild": "2026-02-23",
-      "daysAgo": 239,
-      "version": "Magisk 30.7",
+      "status": "active",
+      "lastBuild": "2026-09-04",
+      "daysAgo": 46,
+      "version": "Magisk 31.0 (pre-release)",
       "source": "https://github.com/topjohnwu/Magisk/releases",
       "origin": "network"
     },
@@ -255,7 +255,7 @@
     "orangefox": {
       "status": "active",
       "lastBuild": "2026-10-10",
-      "daysAgo": 9,
+      "daysAgo": 10,
       "version": "OrangeFox R12.0_7",
       "source": "https://orangefox.download/",
       "origin": "network"
