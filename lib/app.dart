@@ -28,52 +28,57 @@ class _CustomRrAppState extends State<CustomRrApp> {
         return ValueListenableBuilder<bool>(
           valueListenable: ThemeController.instance.amoled,
           builder: (BuildContext context, bool amoled, _) {
+            Widget buildApp(
+              ColorScheme? lightDynamic,
+              ColorScheme? darkDynamic,
+            ) {
+              return MaterialApp.router(
+                title: 'Custom RR',
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.light(dynamicScheme: lightDynamic),
+                darkTheme: AppTheme.dark(
+                  dynamicScheme: darkDynamic,
+                  amoled: amoled,
+                ),
+                themeMode: mode,
+                routerConfig: _router,
+                scrollBehavior: useDesktopShell
+                    ? const _DesktopScrollBehavior()
+                    : const MaterialScrollBehavior(),
+                builder: (BuildContext context, Widget? child) {
+                  final Brightness brightness = Theme.of(context).brightness;
+                  final bool isDark = brightness == Brightness.dark;
+                  final Widget content = child ?? const SizedBox.shrink();
+                  final Widget gated = DisclaimerGate(child: content);
+                  final Widget wrapped = useDesktopShell
+                      ? DesktopMenuBar(router: _router, child: gated)
+                      : gated;
+                  // Desktop platforms have no system status / nav bars,
+                  // so skip the AnnotatedRegion to avoid a useless
+                  // rebuild wrapper on every theme change.
+                  if (useDesktopShell) {
+                    return wrapped;
+                  }
+                  return AnnotatedRegion<SystemUiOverlayStyle>(
+                    value: SystemUiOverlayStyle(
+                      statusBarColor: Colors.transparent,
+                      systemNavigationBarColor: Colors.transparent,
+                      systemNavigationBarDividerColor: Colors.transparent,
+                      systemNavigationBarContrastEnforced: false,
+                      statusBarIconBrightness:
+                          isDark ? Brightness.light : Brightness.dark,
+                      statusBarBrightness: brightness,
+                      systemNavigationBarIconBrightness:
+                          isDark ? Brightness.light : Brightness.dark,
+                    ),
+                    child: wrapped,
+                  );
+                },
+              );
+            }
+
             return DynamicColorBuilder(
-              builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-                return MaterialApp.router(
-                  title: 'Custom RR',
-                  debugShowCheckedModeBanner: false,
-                  theme: AppTheme.light(dynamicScheme: lightDynamic),
-                  darkTheme: AppTheme.dark(
-                    dynamicScheme: darkDynamic,
-                    amoled: amoled,
-                  ),
-                  themeMode: mode,
-                  routerConfig: _router,
-                  scrollBehavior: useDesktopShell
-                      ? const _DesktopScrollBehavior()
-                      : const MaterialScrollBehavior(),
-                  builder: (BuildContext context, Widget? child) {
-                    final Brightness brightness = Theme.of(context).brightness;
-                    final bool isDark = brightness == Brightness.dark;
-                    final Widget content = child ?? const SizedBox.shrink();
-                    final Widget gated = DisclaimerGate(child: content);
-                    final Widget wrapped = useDesktopShell
-                        ? DesktopMenuBar(router: _router, child: gated)
-                        : gated;
-                    // Desktop platforms have no system status / nav bars,
-                    // so skip the AnnotatedRegion to avoid a useless
-                    // rebuild wrapper on every theme change.
-                    if (useDesktopShell) {
-                      return wrapped;
-                    }
-                    return AnnotatedRegion<SystemUiOverlayStyle>(
-                      value: SystemUiOverlayStyle(
-                        statusBarColor: Colors.transparent,
-                        systemNavigationBarColor: Colors.transparent,
-                        systemNavigationBarDividerColor: Colors.transparent,
-                        systemNavigationBarContrastEnforced: false,
-                        statusBarIconBrightness:
-                            isDark ? Brightness.light : Brightness.dark,
-                        statusBarBrightness: brightness,
-                        systemNavigationBarIconBrightness:
-                            isDark ? Brightness.light : Brightness.dark,
-                      ),
-                      child: wrapped,
-                    );
-                  },
-                );
-              },
+              builder: buildApp,
             );
           },
         );
