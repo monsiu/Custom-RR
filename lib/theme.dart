@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Brand colour for Custom RR (Custom ROMs & Recoveries).
 const Color kBrandSeed = Color(0xFF7ED957);

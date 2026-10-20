@@ -5,8 +5,8 @@ import 'package:custom_rr/data/selected_device_controller.dart';
 import 'package:custom_rr/models.dart';
 import 'package:custom_rr/pages/roms_page.dart';
 import 'package:custom_rr/theme.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Widget tests for the selected-device filter banner on the ROMs list.

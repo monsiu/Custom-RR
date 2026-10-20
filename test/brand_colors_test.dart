@@ -1,6 +1,6 @@
 import 'package:custom_rr/theme.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Locks in the contract for [BrandColors]: present on both light and dark
 /// themes, anchored on [kBrandSeed], and reachable through the
