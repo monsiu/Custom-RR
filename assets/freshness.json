@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_freshness.dart",
-  "_generatedAt": "2026-10-20T18:45:34.937957Z",
+  "_generatedAt": "2026-10-20T19:02:23.752239Z",
   "_netCount": 17,
   "_curatedCount": 18,
   "entries": {
@@ -95,7 +95,7 @@
     "grapheneos": {
       "status": "active",
       "lastBuild": "2026-10-16",
-      "daysAgo": 3,
+      "daysAgo": 4,
       "version": "2026101600",
       "source": "https://grapheneos.org/releases",
       "origin": "network"
