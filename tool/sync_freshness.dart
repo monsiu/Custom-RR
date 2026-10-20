@@ -477,33 +477,54 @@ Future<_NetResult?> _fetchLineage(HttpClient client) async {
   );
 }
 
-/// GitHub Releases API: `repos/{owner}/{repo}/releases/latest` returns the
-/// most recent non-draft, non-prerelease release as JSON. We use the
-/// `published_at` timestamp as the build date and the `tag_name` (stripped
-/// of a leading `v`) as the version suffix. Drafts and prereleases are
-/// invisible to this endpoint, which is the same behaviour the in-app
-/// UpdateChecker relies on.
+/// GitHub Releases API: `repos/{owner}/{repo}/releases` lists releases
+/// newest-first, including prereleases (but not drafts, which the
+/// unauthenticated API never returns). We take the newest one overall
+/// rather than calling `/releases/latest` (which only ever returns the
+/// newest *non-prerelease*), because some projects ship exclusively as
+/// prereleases for extended stretches — e.g. Magisk mid-rewrite, where the
+/// last stable release sat still long enough to trip our "abandoned"
+/// threshold while prereleases kept shipping. A prerelease win is labelled
+/// as such so the UI stays honest about it not being a stable build.
 Future<_NetResult?> _fetchGitHubReleaseLatest(
   HttpClient client, {
   required String owner,
   required String repo,
   required String displayName,
 }) async {
-  final Uri url =
-      Uri.parse('https://api.github.com/repos/$owner/$repo/releases/latest');
+  final Uri url = Uri.parse(
+    'https://api.github.com/repos/$owner/$repo/releases?per_page=10',
+  );
   final String body = await _httpGetText(client, url);
   final dynamic decoded = json.decode(body);
-  if (decoded is! Map) return null;
-  final dynamic published = decoded['published_at'];
-  final dynamic tag = decoded['tag_name'];
-  if (published is! String || tag is! String) return null;
-  final DateTime? when = DateTime.tryParse(published);
-  if (when == null) return null;
+  if (decoded is! List) return null;
+
+  Map<dynamic, dynamic>? newest;
+  DateTime? newestWhen;
+  for (final dynamic item in decoded) {
+    if (item is! Map) continue;
+    if (item['draft'] == true) continue;
+    final dynamic published = item['published_at'];
+    if (published is! String) continue;
+    final DateTime? when = DateTime.tryParse(published);
+    if (when == null) continue;
+    if (newestWhen == null || when.isAfter(newestWhen)) {
+      newestWhen = when;
+      newest = item;
+    }
+  }
+  if (newest == null || newestWhen == null) return null;
+
+  final dynamic tag = newest['tag_name'];
+  if (tag is! String) return null;
   final String cleanTag =
       tag.startsWith('v') || tag.startsWith('V') ? tag.substring(1) : tag;
+  final bool isPrerelease = newest['prerelease'] == true;
   return _NetResult(
-    lastBuild: when.toUtc(),
-    version: '$displayName $cleanTag',
+    lastBuild: newestWhen.toUtc(),
+    version: isPrerelease
+        ? '$displayName $cleanTag (pre-release)'
+        : '$displayName $cleanTag',
     source: 'https://github.com/$owner/$repo/releases',
   );
 }
