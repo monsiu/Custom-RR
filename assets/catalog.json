@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-10-20T18:09:12.680135Z",
+  "_generatedAt": "2026-10-26T14:05:51.235904Z",
   "roms": [
     {
       "id": "lineage",
@@ -1121,6 +1121,19 @@
             "XT2117-3",
             "XT2117-4",
             "moto g power"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
           ]
         },
         {
@@ -3029,6 +3042,15 @@
           ]
         },
         {
+          "brand": "Samsung",
+          "model": "Galaxy Z Fold5",
+          "codename": "q5q",
+          "models": [
+            "SM-F946B",
+            "SM-F946B/DS"
+          ]
+        },
+        {
           "brand": "Smartisan",
           "model": "R1",
           "codename": "trident",
@@ -4464,6 +4486,11 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi TV Box S (2nd gen)",
+          "codename": "jaws"
         },
         {
           "brand": "ZTE",
@@ -14862,6 +14889,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -17695,6 +17735,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -20271,6 +20324,19 @@
             "XT2117-3",
             "XT2117-4",
             "moto g power"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
           ]
         },
         {
@@ -27371,6 +27437,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -32298,6 +32377,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -37150,6 +37242,19 @@
             "XT2117-3",
             "XT2117-4",
             "moto g power"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
           ]
         },
         {
@@ -46735,6 +46840,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -51969,6 +52087,19 @@
             "XT2117-3",
             "XT2117-4",
             "moto g power"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
           ]
         },
         {
