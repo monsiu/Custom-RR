@@ -33,7 +33,7 @@ dependencies:
   # GitHub release and hand it to the system installer.
   dio: ^5.11.0
   device_info_plus: ^13.3.0
-  open_filex: ^4.5.0
+  open_filex: ^5.0.0
   path_provider: ^2.1.6
 
 dev_dependencies:
