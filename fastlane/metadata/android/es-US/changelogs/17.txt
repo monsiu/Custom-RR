@@ -1,0 +1,2 @@
+- La aplicación ahora muestra aspectos destacados después de las actualizaciones y coincide con más teléfonos, incluida ayuda cuando su teléfono no está en el catálogo.
+- Ahora puede consultar sobre una compilación ROM personalizada con los detalles de su teléfono incluidos automáticamente.

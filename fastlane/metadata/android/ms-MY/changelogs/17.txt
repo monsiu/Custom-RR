@@ -1,0 +1,2 @@
+- Apl kini menunjukkan sorotan selepas kemas kini dan memadankan lebih banyak telefon, termasuk bantuan apabila telefon anda tiada dalam katalog.
+- Anda kini boleh bertanya tentang binaan ROM tersuai dengan butiran telefon anda disertakan secara automatik.

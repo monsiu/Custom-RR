@@ -1,0 +1,2 @@
+- Uygulama artık güncellemelerden sonra öne çıkanları gösteriyor ve daha fazla telefonla eşleşiyor; telefonunuz katalogda olmadığında yardım da dahil.
+- Artık telefon ayrıntılarınızın otomatik olarak dahil edildiği özel bir ROM yapısı hakkında bilgi alabilirsiniz.

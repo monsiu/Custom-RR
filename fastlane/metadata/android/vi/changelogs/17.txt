@@ -1,0 +1,2 @@
+- Ứng dụng hiện hiển thị các điểm nổi bật sau khi cập nhật và phù hợp với nhiều điện thoại hơn, bao gồm cả trợ giúp khi điện thoại của bạn không có trong danh mục.
+- Giờ đây, bạn có thể hỏi về bản dựng ROM tùy chỉnh với thông tin chi tiết về điện thoại của bạn được tự động đưa vào.

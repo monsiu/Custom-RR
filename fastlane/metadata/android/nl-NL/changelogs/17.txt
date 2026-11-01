@@ -1,0 +1,2 @@
+- De app toont nu hoogtepunten na updates en matcht meer telefoons, inclusief hulp als je telefoon niet in de catalogus staat.
+- U kunt nu informeren naar een aangepaste ROM-build waarbij uw telefoongegevens automatisch worden vermeld.

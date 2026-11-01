@@ -4,13 +4,23 @@ All notable changes to **Custom RR** are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.4.0] - 2026-11-01
 
 ### Added
 
 - **What's new after updates.** The Play and F-Droid versions now show a short
   highlights sheet once after each update, listing what changed. The
   direct-download version keeps its fuller release-notes banner instead.
+- **Custom ROM build enquiries.** A compact home banner and Services page let
+  users ask about a device-specific ROM build, with detected manufacturer,
+  model and codename included in the enquiry email.
+- **Community help for unsupported phones.** The device suggestion flow now
+  stays compact on Home and offers next steps for phones outside the catalog.
+
+### Fixed
+
+- **Device requests open their proper forms.** Request links stay in the app
+  browser and preserve their issue-form labels on mobile.
 
 ## [1.3.6] - 2026-07-30
 

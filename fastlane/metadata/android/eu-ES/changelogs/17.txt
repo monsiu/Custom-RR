@@ -1,0 +1,2 @@
+- Aplikazioak eguneratzeen ondoren aipagarriak erakusten ditu eta telefono gehiagorekin bat egiten du, telefonoa katalogoan ez dagoenean laguntza barne.
+- Orain, zure telefonoaren xehetasunak automatikoki sartuta dituen ROM eraikuntza pertsonalizatu bati buruz galdetu dezakezu.

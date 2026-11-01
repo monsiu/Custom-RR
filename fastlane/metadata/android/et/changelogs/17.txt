@@ -1,0 +1,2 @@
+- Rakendus näitab nüüd pärast värskendusi esiletõstmisi ja sobib rohkematele telefonidele, sealhulgas abi, kui teie telefoni kataloogis pole.
+- Nüüd saate küsida kohandatud ROM konstruktsiooni kohta, mis sisaldab automaatselt teie telefoni üksikasju.

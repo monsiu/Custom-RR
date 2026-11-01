@@ -1,0 +1,2 @@
+- Aplikacija zdaj prikazuje poudarke po posodobitvah in ujema več telefonov, vključno s pomočjo, ko vašega telefona ni v katalogu.
+- Zdaj lahko povprašate o gradnji ROM po meri s samodejno vključenimi podatki o telefonu.

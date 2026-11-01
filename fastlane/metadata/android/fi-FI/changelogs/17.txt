@@ -1,0 +1,2 @@
+- Sovellus näyttää nyt kohokohdat päivitysten jälkeen ja vastaa useammille puhelimille, mukaan lukien apua, kun puhelinta ei ole luettelossa.
+- Voit nyt tiedustella mukautettua ROM-rakennetta, jossa puhelintietosi sisältyvät automaattisesti.

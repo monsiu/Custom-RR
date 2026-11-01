@@ -1,0 +1,2 @@
+- L'application affiche désormais les faits saillants après les mises à jour et correspond à davantage de téléphones, y compris une aide lorsque votre téléphone n'est pas dans le catalogue.
+- Vous pouvez désormais vous renseigner sur une version personnalisée de ROM avec les détails de votre téléphone inclus automatiquement.

@@ -1,0 +1,2 @@
+- Aplikácia teraz zobrazuje zvýraznenia po aktualizáciách a priraďuje viac telefónov vrátane pomoci, keď váš telefón nie je v katalógu.
+- Teraz sa môžete opýtať na vlastnú zostavu ROM s automaticky zahrnutými podrobnosťami o vašom telefóne.

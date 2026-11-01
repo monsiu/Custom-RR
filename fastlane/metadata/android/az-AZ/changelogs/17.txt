@@ -1,0 +1,2 @@
+- Tətbiq indi yeniləmələrdən sonra əsas məqamları göstərir və telefonunuz kataloqda olmadıqda kömək daxil olmaqla daha çox telefona uyğun gəlir.
+- Siz indi telefon təfərrüatları avtomatik daxil olmaqla fərdi ROM quruluşu haqqında məlumat ala bilərsiniz.

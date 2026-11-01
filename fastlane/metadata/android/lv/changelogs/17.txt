@@ -1,0 +1,2 @@
+- Lietojumprogramma tagad parāda svarīgākos punktus pēc atjauninājumiem un atbilst vairākiem tālruņiem, tostarp palīdzību, ja tālrunis nav katalogā.
+- Tagad varat jautāt par pielāgotu ROM versiju, automātiski iekļaujot tālruņa informāciju.

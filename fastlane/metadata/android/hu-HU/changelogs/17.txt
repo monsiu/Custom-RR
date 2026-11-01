@@ -1,0 +1,2 @@
+- Az alkalmazás most a frissítések után kiemeli a kiemeléseket, és több telefont is talál, beleértve a segítséget, ha a telefon nem szerepel a katalógusban.
+- Mostantól érdeklődhet egy egyedi ROM összeállításról, amely automatikusan tartalmazza a telefon adatait.

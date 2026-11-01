@@ -1,0 +1,2 @@
+- Aplikacija sada prikazuje istaknute stavke nakon ažuriranja i spaja više telefona, uključujući pomoć kada vaš telefon nije u katalogu.
+- Sada se možete raspitati o prilagođenoj verziji ROM s automatski uključenim podacima o vašem telefonu.

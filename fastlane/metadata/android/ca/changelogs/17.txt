@@ -1,0 +1,2 @@
+- L'aplicació ara mostra els aspectes més destacats després de les actualitzacions i coincideix amb més telèfons, inclosa l'ajuda quan el telèfon no està al catàleg.
+- Ara podeu demanar informació sobre una creació personalitzada de ROM amb les dades del vostre telèfon incloses automàticament.

@@ -1,0 +1,2 @@
+- Dabar programa rodo svarbiausius elementus po atnaujinimų ir atitinka daugiau telefonų, įskaitant pagalbą, kai jūsų telefono nėra kataloge.
+- Dabar galite teirautis apie pasirinktinį ROM kūrimą su automatiškai įtraukta telefono informacija.

@@ -1,0 +1,2 @@
+- Appen viser nu højdepunkter efter opdateringer og matcher flere telefoner, inklusive hjælp, når din telefon ikke er i kataloget.
+- Du kan nu forespørge om en brugerdefineret ROM build med dine telefonoplysninger inkluderet automatisk.

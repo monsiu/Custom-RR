@@ -1,0 +1,2 @@
+- L'app ora mostra i punti salienti dopo gli aggiornamenti e abbina più telefoni, incluso l'aiuto quando il tuo telefono non è nel catalogo.
+- Ora puoi richiedere una build ROM personalizzata con i dettagli del tuo telefono inclusi automaticamente.

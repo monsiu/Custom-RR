@@ -1,0 +1,2 @@
+- Forritið sýnir nú hápunkta eftir uppfærslur og passar við fleiri síma, þar á meðal hjálp þegar síminn þinn er ekki í vörulistanum.
+- Þú getur nú spurt um sérsniðna ROM byggingu með símaupplýsingunum þínum sjálfkrafa.

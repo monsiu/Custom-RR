@@ -1,0 +1,2 @@
+- The app now shows highlights after updates and matches more phones, including help when your phone is not in the catalog.
+- You can now enquire about a custom ROM build with your phone details included automatically.

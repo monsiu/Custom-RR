@@ -1,0 +1,2 @@
+- Aplikacja wyświetla teraz najważniejsze informacje po aktualizacjach i dopasowuje więcej telefonów, łącznie z pomocą, gdy Twojego telefonu nie ma w katalogu.
+- Możesz teraz zapytać o niestandardową wersję ROM, automatycznie dodając dane telefonu.

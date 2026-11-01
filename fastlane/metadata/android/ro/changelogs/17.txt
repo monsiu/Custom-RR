@@ -1,0 +1,2 @@
+- Aplicația arată acum momentele importante după actualizări și se potrivește cu mai multe telefoane, inclusiv ajutor atunci când telefonul nu este în catalog.
+- Acum puteți să întrebați despre o versiune personalizată ROM cu detaliile telefonului dvs. incluse automat.

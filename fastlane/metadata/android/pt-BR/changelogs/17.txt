@@ -1,0 +1,2 @@
+- O aplicativo agora mostra destaques após atualizações e corresponde a mais telefones, incluindo ajuda quando seu telefone não está no catálogo.
+- Agora você pode consultar uma versão personalizada do ROM com os detalhes do seu telefone incluídos automaticamente.

@@ -1,0 +1,2 @@
+- Ang app ay nagpapakita na ngayon ng mga highlight pagkatapos ng mga update at tumutugma sa higit pang mga telepono, kabilang ang tulong kapag ang iyong telepono ay wala sa catalog.
+- Maaari ka na ngayong magtanong tungkol sa isang custom na ROM build na awtomatikong kasama ang mga detalye ng iyong telepono.

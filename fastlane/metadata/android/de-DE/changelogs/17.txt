@@ -1,0 +1,2 @@
+- Die App zeigt jetzt nach Aktualisierungen Highlights an und passt mehr Telefone an, einschließlich Hilfe, wenn Ihr Telefon nicht im Katalog enthalten ist.
+- Sie können sich jetzt nach einem benutzerdefinierten ROM-Build erkundigen, bei dem Ihre Telefondaten automatisch enthalten sind.

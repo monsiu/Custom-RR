@@ -1,0 +1,2 @@
+- Aplikasi ini sekarang menampilkan sorotan setelah pembaruan dan mencocokkan lebih banyak ponsel, termasuk bantuan saat ponsel Anda tidak ada dalam katalog.
+- Anda sekarang dapat menanyakan tentang build ROM khusus dengan detail ponsel Anda disertakan secara otomatis.
