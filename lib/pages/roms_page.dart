@@ -429,6 +429,7 @@ class _CatalogPageState extends State<CatalogPage> {
       assetImage: entry.headerAsset,
       heroTag: tag,
       freshness: FreshnessRepository.instance.forId(entry.id),
+      unofficial: entry.unofficial,
       xdaSearchName: entry.name,
       xdaSearchKind: widget.entryKind,
       onTap: () => context.push(widget.detailPathBuilder(entry.id)),

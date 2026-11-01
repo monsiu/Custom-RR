@@ -170,6 +170,9 @@ class _CompactUnmatchedCard extends StatelessWidget {
                   query:
                       '${device.manufacturer} ${device.model} '
                       '(${device.codename})',
+                  brand: device.manufacturer,
+                  model: device.model,
+                  codename: device.codename,
                 ),
               ),
               TextButton.icon(
@@ -361,6 +364,9 @@ class _UnmatchedCard extends StatelessWidget {
                       query:
                           '${device.manufacturer} ${device.model} '
                           '(${device.codename})',
+                      brand: device.manufacturer,
+                      model: device.model,
+                      codename: device.codename,
                     ),
                   ),
                 ],

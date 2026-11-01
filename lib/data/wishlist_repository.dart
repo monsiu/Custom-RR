@@ -13,19 +13,23 @@ class WishlistRepository extends ChangeNotifier {
   static final WishlistRepository instance = WishlistRepository._();
 
   static const String _prefsKey = 'wishlist_keys_v1';
+  static const String _buildAlertsKey = 'wishlist_build_alerts_v1';
 
   final Set<String> _keys = <String>{};
   bool _loaded = false;
+  bool _buildAlertsEnabled = false;
   SharedPreferences? _prefs;
 
   bool get isLoaded => _loaded;
   Set<String> get keys => Set<String>.unmodifiable(_keys);
   int get count => _keys.length;
+  bool get buildAlertsEnabled => _buildAlertsEnabled;
 
   Future<void> load() async {
     if (_loaded) return;
     _prefs = await SharedPreferences.getInstance();
     final List<String>? saved = _prefs!.getStringList(_prefsKey);
+    _buildAlertsEnabled = _prefs!.getBool(_buildAlertsKey) ?? false;
     if (saved != null) {
       _keys
         ..clear()
@@ -63,6 +67,13 @@ class WishlistRepository extends ChangeNotifier {
     if (_keys.isEmpty) return;
     _keys.clear();
     await _persist();
+    notifyListeners();
+  }
+
+  Future<void> setBuildAlertsEnabled(bool enabled) async {
+    if (_buildAlertsEnabled == enabled) return;
+    _buildAlertsEnabled = enabled;
+    if (_prefs != null) await _prefs!.setBool(_buildAlertsKey, enabled);
     notifyListeners();
   }
 

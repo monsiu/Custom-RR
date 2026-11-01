@@ -12,6 +12,7 @@ import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../util/breakpoints.dart';
+import '../util/request_project.dart';
 import '../util/xda_search.dart';
 import '../widgets/brand_image.dart';
 import '../widgets/catalog_card.dart';
@@ -119,6 +120,8 @@ class DetailPage extends StatelessWidget {
                       FreshnessBadge(
                         info: FreshnessRepository.instance.forId(entry.id),
                       ),
+                      const SizedBox(height: 12),
+                      _CatalogTrustPanel(entry: entry),
                       const SizedBox(height: 20),
                       if (entry.warning.isNotEmpty) ...<Widget>[
                         _WarningBanner(message: entry.warning),
@@ -189,6 +192,126 @@ class DetailPage extends StatelessWidget {
         ],
       ),
     ),
+    );
+  }
+}
+
+class _CatalogTrustPanel extends StatelessWidget {
+  const _CatalogTrustPanel({required this.entry});
+
+  final CatalogEntry entry;
+
+  Future<void> _openSource(FreshnessInfo info) async {
+    final Uri? uri = Uri.tryParse(info.source);
+    if (uri == null || (uri.scheme != 'https' && uri.scheme != 'http')) return;
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  String _snapshotLabel(DateTime? value) {
+    if (value == null) return 'Refresh time unavailable';
+    final DateTime utc = value.toUtc();
+    String two(int n) => n.toString().padLeft(2, '0');
+    return 'Freshness data updated ${utc.year}-${two(utc.month)}-'
+        '${two(utc.day)} ${two(utc.hour)}:${two(utc.minute)} UTC';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    final FreshnessRepository repository = FreshnessRepository.instance;
+
+    return AnimatedBuilder(
+      animation: repository,
+      builder: (BuildContext context, _) {
+        final FreshnessInfo info = repository.forId(entry.id);
+        final String originLabel = switch (info.origin) {
+          'network' => 'Upstream feed',
+          'curated' => 'Curated record',
+          _ => '',
+        };
+        final String buildLabel = info.lastBuild.isNotEmpty
+            ? 'Latest known build: ${info.lastBuild}'
+            : 'Build date not available';
+        final Uri? sourceUri = Uri.tryParse(info.source);
+        final bool hasSource = sourceUri != null &&
+            (sourceUri.scheme == 'https' || sourceUri.scheme == 'http');
+        return Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.fact_check_outlined, color: scheme.primary),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text('Listing details', style: text.titleMedium),
+                    ),
+                    Chip(
+                      visualDensity: VisualDensity.compact,
+                      label: Text(
+                        entry.unofficial ? 'Community' : 'Official listing',
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  entry.unofficial
+                      ? 'Community-maintained listing'
+                      : 'Official project listing',
+                  style: text.bodyMedium,
+                ),
+                const SizedBox(height: 6),
+                Text(buildLabel, style: text.bodyMedium),
+                if (info.version.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: 4),
+                  Text('Version: ${info.version}', style: text.bodySmall),
+                ],
+                const SizedBox(height: 4),
+                Text(
+                  _snapshotLabel(repository.generatedAt),
+                  style: text.bodySmall?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ),
+                if (originLabel.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: 4),
+                  Text(
+                    'Freshness source type: $originLabel',
+                    style: text.bodySmall?.copyWith(
+                      color: scheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  children: <Widget>[
+                    if (hasSource)
+                      TextButton.icon(
+                        onPressed: () => _openSource(info),
+                        icon: const Icon(Icons.open_in_new, size: 18),
+                        label: const Text('Open freshness source'),
+                      ),
+                    TextButton.icon(
+                      onPressed: () => openCatalogReport(
+                        projectName: entry.name,
+                        projectId: entry.id,
+                        currentUrl: entry.downloadUrl,
+                      ),
+                      icon: const Icon(Icons.flag_outlined, size: 18),
+                      label: const Text('Report a problem'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

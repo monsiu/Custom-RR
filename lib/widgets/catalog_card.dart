@@ -40,6 +40,7 @@ class CatalogCard extends StatefulWidget {
     this.networkImage,
     this.heroTag,
     this.freshness,
+    this.unofficial = false,
     this.trailing,
     this.xdaSearchName = '',
     this.xdaSearchKind = 'build',
@@ -55,6 +56,7 @@ class CatalogCard extends StatefulWidget {
   final String? networkImage;
   final Object? heroTag;
   final FreshnessInfo? freshness;
+  final bool unofficial;
   final Widget? trailing;
 
   /// Name to seed an XDA search with. When non-empty, the card shows a
@@ -116,6 +118,11 @@ class _CatalogCardState extends State<CatalogCard> {
     final Widget imageStack = Stack(
       children: <Widget>[
         image,
+        Positioned(
+          top: 8,
+          left: 8,
+          child: _ListingTypeBadge(unofficial: widget.unofficial),
+        ),
         if (widget.freshness != null &&
             widget.freshness!.status != FreshnessStatus.unknown)
           Positioned(
@@ -188,6 +195,39 @@ class _CatalogCardState extends State<CatalogCard> {
       label: '${widget.title}. ${widget.subtitle}',
       button: true,
       child: _HoverScale(child: card),
+    );
+  }
+}
+
+class _ListingTypeBadge extends StatelessWidget {
+  const _ListingTypeBadge({required this.unofficial});
+
+  final bool unofficial;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final Color background = unofficial
+        ? scheme.tertiaryContainer
+        : scheme.surfaceContainerHighest;
+    final Color foreground = unofficial
+        ? scheme.onTertiaryContainer
+        : scheme.onSurfaceVariant;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: background.withValues(alpha: 0.96),
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+        child: Text(
+          unofficial ? 'Community' : 'Official listing',
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                color: foreground,
+                fontWeight: FontWeight.w700,
+              ),
+        ),
+      ),
     );
   }
 }

@@ -31,11 +31,17 @@ body:
       placeholder: "https://..."
     validations:
       required: true
+  - type: input
+    id: android_version
+    attributes:
+      label: Android version
+      description: "Which Android version does this release support? Include a range if needed."
+      placeholder: "e.g. Android 15 / Android 15 and 16"
   - type: textarea
     id: devices
     attributes:
       label: Supported devices
-      description: "Device codenames if you know them (e.g. sunny, lisa)."
+      description: "Include model names and device codenames where possible (e.g. Xiaomi 12 Lite / taoyao)."
   - type: dropdown
     id: us_variant
     attributes:

@@ -225,6 +225,7 @@ class FreshnessInfo {
     required this.daysAgo,
     required this.version,
     required this.source,
+    this.origin = '',
   });
 
   final FreshnessStatus status;
@@ -233,12 +234,17 @@ class FreshnessInfo {
   final String version;
   final String source;
 
+  /// Whether this freshness record came from an upstream feed or a curated
+  /// project check. Empty means an older snapshot did not record provenance.
+  final String origin;
+
   static const FreshnessInfo unknown = FreshnessInfo(
     status: FreshnessStatus.unknown,
     lastBuild: '',
     daysAgo: -1,
     version: '',
     source: '',
+    origin: '',
   );
 
   factory FreshnessInfo.fromJson(Map<String, dynamic> json) {
@@ -248,6 +254,7 @@ class FreshnessInfo {
       daysAgo: (json['daysAgo'] as num?)?.toInt() ?? -1,
       version: (json['version'] as String?) ?? '',
       source: (json['source'] as String?) ?? '',
+      origin: (json['origin'] as String?) ?? '',
     );
   }
 

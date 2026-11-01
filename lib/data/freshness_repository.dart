@@ -37,6 +37,7 @@ class FreshnessRepository extends ChangeNotifier {
   static const Duration _retryDelay = Duration(seconds: 2);
 
   Map<String, FreshnessInfo> _byId = const <String, FreshnessInfo>{};
+  DateTime? _generatedAt;
   bool _loaded = false;
   bool _remoteKicked = false;
   bool _hasCachedPayload = false;
@@ -44,6 +45,7 @@ class FreshnessRepository extends ChangeNotifier {
 
   bool get isLoaded => _loaded;
   Map<String, FreshnessInfo> get all => _byId;
+  DateTime? get generatedAt => _generatedAt;
 
   /// True when a previous successful remote fetch is cached in
   /// SharedPreferences (or has succeeded this session). Used by the
@@ -127,8 +129,9 @@ class FreshnessRepository extends ChangeNotifier {
   /// was applied + cached. Never throws.
   Future<bool> _tryFetchOnce() async {
     try {
-      final http.Response resp =
-          await http.get(Uri.parse(_remoteUrl)).timeout(_remoteTimeout);
+      final http.Response resp = await http
+          .get(Uri.parse(_remoteUrl))
+          .timeout(_remoteTimeout);
       if (resp.statusCode < 200 || resp.statusCode >= 300) return false;
       final String body = resp.body;
       if (body.isEmpty) return false;
@@ -151,6 +154,7 @@ class FreshnessRepository extends ChangeNotifier {
   void _applyJson(String source) {
     final Map<String, dynamic> root =
         json.decode(source) as Map<String, dynamic>;
+    _generatedAt = DateTime.tryParse(root['_generatedAt'] as String? ?? '');
     final Map<String, dynamic> entries =
         (root['entries'] as Map<String, dynamic>? ?? <String, dynamic>{});
     _byId = <String, FreshnessInfo>{

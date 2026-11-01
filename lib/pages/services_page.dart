@@ -5,7 +5,7 @@ import '../routes.dart';
 import '../util/breakpoints.dart';
 import '../widgets/app_shell.dart';
 
-class ServicesPage extends StatelessWidget {
+class ServicesPage extends StatefulWidget {
   const ServicesPage({
     super.key,
     this.manufacturer = '',
@@ -17,21 +17,31 @@ class ServicesPage extends StatelessWidget {
   final String model;
   final String codename;
 
+  @override
+  State<ServicesPage> createState() => _ServicesPageState();
+}
+
+class _ServicesPageState extends State<ServicesPage> {
+  String _requestType = 'New ROM build';
+
   Uri get _romEnquiry {
     final String deviceName = <String>[
-      manufacturer,
-      model,
+      widget.manufacturer,
+      widget.model,
     ].where((String value) => value.trim().isNotEmpty).join(' ');
     final String body = <String>[
+      'Request type: $_requestType',
       'Device model: ${deviceName.isEmpty ? '(please add)' : deviceName}',
-      'Device codename: ${codename.isEmpty ? '(please add if known)' : codename}',
+      'Device codename: ${widget.codename.isEmpty ? '(please add if known)' : widget.codename}',
       'ROM and Android version:',
-      'Source links:',
+      'Source links (ROM/device/kernel/vendor trees, if available):',
       'Goal or build issue:',
+      'Build log or error link (if troubleshooting):',
+      'Budget or timeline (optional):',
     ].join('\n');
     return Uri.parse(
       'mailto:contactmonsiu@gmail.com'
-      '?subject=Custom%20ROM%20Project'
+      '?subject=${Uri.encodeComponent('Custom ROM enquiry: $_requestType')}'
       '&body=${Uri.encodeComponent(body)}',
     );
   }
@@ -49,8 +59,8 @@ class ServicesPage extends StatelessWidget {
     final TextTheme text = Theme.of(context).textTheme;
     final ColorScheme colors = Theme.of(context).colorScheme;
     final String deviceLabel = <String>[
-      manufacturer,
-      model,
+      widget.manufacturer,
+      widget.model,
     ].where((String value) => value.isNotEmpty).join(' ');
 
     return AppShell(
@@ -74,7 +84,8 @@ class ServicesPage extends StatelessWidget {
                 'what is feasible, the scope, and a quote.',
                 style: text.bodyLarge,
               ),
-              if (model.isNotEmpty || codename.isNotEmpty) ...<Widget>[
+              if (widget.model.isNotEmpty ||
+                  widget.codename.isNotEmpty) ...<Widget>[
                 const SizedBox(height: 16),
                 Card(
                   color: colors.secondaryContainer,
@@ -88,9 +99,9 @@ class ServicesPage extends StatelessWidget {
                       style: TextStyle(color: colors.onSecondaryContainer),
                     ),
                     subtitle: Text(
-                      codename.isEmpty
+                      widget.codename.isEmpty
                           ? 'Detected device'
-                          : 'Codename: $codename',
+                          : 'Codename: ${widget.codename}',
                       style: TextStyle(color: colors.onSecondaryContainer),
                     ),
                     trailing: Icon(
@@ -140,6 +151,31 @@ class ServicesPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
+              Text('What do you need?', style: text.titleMedium),
+              const SizedBox(height: 8),
+              DropdownButtonFormField<String>(
+                initialValue: _requestType,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.build_outlined),
+                ),
+                items:
+                    const <String>[
+                      'New ROM build',
+                      'Port an existing ROM',
+                      'Troubleshoot a build',
+                      'Other ROM build help',
+                    ].map((String type) {
+                      return DropdownMenuItem<String>(
+                        value: type,
+                        child: Text(type),
+                      );
+                    }).toList(),
+                onChanged: (String? value) {
+                  if (value != null) setState(() => _requestType = value);
+                },
+              ),
+              const SizedBox(height: 16),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -168,7 +204,7 @@ class ServicesPage extends StatelessWidget {
               FilledButton.icon(
                 onPressed: () => _open(_romEnquiry),
                 icon: const Icon(Icons.mail_outline),
-                label: const Text('Ask about a ROM build'),
+                label: const Text('Request a feasibility check'),
               ),
               const SizedBox(height: 8),
               OutlinedButton.icon(

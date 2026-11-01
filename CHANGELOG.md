@@ -4,6 +4,24 @@ All notable changes to **Custom RR** are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- **A clearer ROM build enquiry.** Choose a new build, a port, or build
+  troubleshooting. The email draft includes detected device details and asks
+  for Android version, source links, build logs when relevant, and an optional
+  budget or timeline.
+- **Catalog trust details and reporting.** ROM and recovery cards identify
+  official or community listings; detail pages show freshness source and
+  snapshot time and open a prefilled correction form.
+- **Recent build alerts for saved devices.** An optional, on-device setting
+  highlights ROMs or recoveries whose latest known build is from the past
+  seven days.
+- **More complete issue requests.** Device requests prefill known brand, model,
+  and codename. Both issue forms ask for Android version and useful source
+  links; ROM requests also ask for device model names and codenames.
+
 ## [1.4.0] - 2026-11-01
 
 ### Added

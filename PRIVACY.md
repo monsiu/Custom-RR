@@ -36,6 +36,9 @@ The app stores the following only on your device, never sent to us:
 
 - Your in-app preferences (theme, last-used filters, dismissed notices), via
   Android `SharedPreferences`.
+- Devices you save in **My Devices** and whether recent-build alerts are
+  enabled. These remain on your device; alerts are shown in the app and are
+  not sent as push notifications.
 - Cached catalog data, screenshots, and a local SQLite cache to speed up
   browsing offline.
 - Clipboard contents you choose to copy by tapping a donation address.

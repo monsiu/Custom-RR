@@ -31,6 +31,12 @@ body:
       label: Codename
       description: "The device codename (e.g. a52xq, oriole, alioth). Check Settings, the LineageOS wiki, or a Treble info app."
       placeholder: "e.g. a52xq"
+  - type: input
+    id: android_version
+    attributes:
+      label: Android version you want to run
+      description: "Optional. Helps us check whether a ROM or GSI exists for the right Android version."
+      placeholder: "e.g. Android 15"
   - type: dropdown
     id: us_variant
     attributes:
@@ -57,7 +63,7 @@ body:
     id: support
     attributes:
       label: What should list it?
-      description: "Which ROM(s) or recovery should support it, with a link to the official downloads, maintainer thread, or LineageOS wiki page if you have one."
+      description: "Which ROM(s) or recovery should support it? Add links to official downloads, a maintainer thread, device wiki, or source tree if available."
       placeholder: "e.g. LineageOS 21 - https://wiki.lineageos.org/devices/a52xq"
   - type: textarea
     id: notes

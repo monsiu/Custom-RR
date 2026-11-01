@@ -21,13 +21,19 @@ class WishlistPage extends StatelessWidget {
       title: 'My Devices',
       selectedRoute: AppRoutes.wishlist,
       body: AnimatedBuilder(
-        animation: WishlistRepository.instance,
+        animation: Listenable.merge(<Listenable>[
+          WishlistRepository.instance,
+          FreshnessRepository.instance,
+        ]),
         builder: (BuildContext context, _) {
-          final List<String> keys = WishlistRepository.instance.keys.toList()
-            ..sort();
+          final WishlistRepository wishlist = WishlistRepository.instance;
+          final List<String> keys = wishlist.keys.toList()..sort();
           if (keys.isEmpty) {
             return _EmptyState();
           }
+          final List<_RecentBuild> recent = wishlist.buildAlertsEnabled
+              ? _recentBuilds(keys)
+              : const <_RecentBuild>[];
           return Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(
@@ -35,10 +41,17 @@ class WishlistPage extends StatelessWidget {
               ),
               child: ListView.builder(
                 padding: const EdgeInsets.all(16),
-                itemCount: keys.length,
+                itemCount: keys.length + 1,
                 itemBuilder: (BuildContext context, int i) {
-                  final ({String brand, String codename})? split =
-                      WishlistRepository.instance.splitKey(keys[i]);
+                  if (i == 0) {
+                    return _BuildAlertsCard(
+                      enabled: wishlist.buildAlertsEnabled,
+                      recent: recent,
+                    );
+                  }
+                  final int keyIndex = i - 1;
+                  final ({String brand, String codename})? split = wishlist
+                      .splitKey(keys[keyIndex]);
                   if (split == null) return const SizedBox.shrink();
                   return _StarredDeviceCard(
                     brand: split.brand,
@@ -81,9 +94,7 @@ class _EmptyState extends StatelessWidget {
               'Tap the star on any device or ROM-detail row to add it here. '
               'Starred devices stay on your phone. Nothing is synced.',
               textAlign: TextAlign.center,
-              style: text.bodyMedium?.copyWith(
-                color: scheme.onSurfaceVariant,
-              ),
+              style: text.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
             ),
             const SizedBox(height: 24),
             FilledButton.icon(
@@ -93,6 +104,162 @@ class _EmptyState extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _RecentBuild {
+  const _RecentBuild({
+    required this.brand,
+    required this.codename,
+    required this.entry,
+    required this.isRecovery,
+    required this.info,
+  });
+
+  final String brand;
+  final String codename;
+  final CatalogEntry entry;
+  final bool isRecovery;
+  final FreshnessInfo info;
+}
+
+List<_RecentBuild> _recentBuilds(List<String> keys) {
+  final CatalogRepository catalog = CatalogRepository.instance;
+  final FreshnessRepository freshness = FreshnessRepository.instance;
+  final List<_RecentBuild> out = <_RecentBuild>[];
+  for (final String key in keys) {
+    final ({String brand, String codename})? device = WishlistRepository
+        .instance
+        .splitKey(key);
+    if (device == null) continue;
+    for (final CatalogEntry entry in catalog.romsForCodename(
+      device.brand,
+      device.codename,
+    )) {
+      final FreshnessInfo info = freshness.forId(entry.id);
+      if (info.daysAgo >= 0 && info.daysAgo <= 7 && info.lastBuild.isNotEmpty) {
+        out.add(
+          _RecentBuild(
+            brand: device.brand,
+            codename: device.codename,
+            entry: entry,
+            isRecovery: false,
+            info: info,
+          ),
+        );
+      }
+    }
+    for (final CatalogEntry entry in catalog.recoveriesForCodename(
+      device.brand,
+      device.codename,
+    )) {
+      final FreshnessInfo info = freshness.forId(entry.id);
+      if (info.daysAgo >= 0 && info.daysAgo <= 7 && info.lastBuild.isNotEmpty) {
+        out.add(
+          _RecentBuild(
+            brand: device.brand,
+            codename: device.codename,
+            entry: entry,
+            isRecovery: true,
+            info: info,
+          ),
+        );
+      }
+    }
+  }
+  out.sort((a, b) => a.info.daysAgo.compareTo(b.info.daysAgo));
+  return out;
+}
+
+class _BuildAlertsCard extends StatelessWidget {
+  const _BuildAlertsCard({required this.enabled, required this.recent});
+
+  final bool enabled;
+  final List<_RecentBuild> recent;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final TextTheme text = Theme.of(context).textTheme;
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        children: <Widget>[
+          SwitchListTile(
+            secondary: Icon(
+              Icons.notifications_active_outlined,
+              color: scheme.primary,
+            ),
+            title: const Text('Show recent build alerts'),
+            subtitle: const Text(
+              'Highlight ROMs and recoveries updated in the past 7 days. '
+              'This stays on your device; it does not send push notifications.',
+            ),
+            value: enabled,
+            onChanged: WishlistRepository.instance.setBuildAlertsEnabled,
+          ),
+          if (enabled) ...<Widget>[
+            const Divider(height: 1),
+            if (recent.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: <Widget>[
+                    Icon(Icons.check_circle_outline, color: scheme.primary),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'No recent builds for your saved devices.',
+                        style: text.bodyMedium,
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            else ...<Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${recent.length} recent build${recent.length == 1 ? '' : 's'}',
+                    style: text.titleSmall,
+                  ),
+                ),
+              ),
+              for (final _RecentBuild item in recent.take(5))
+                ListTile(
+                  dense: true,
+                  leading: Icon(
+                    item.isRecovery ? Icons.settings_outlined : Icons.android,
+                    color: scheme.primary,
+                  ),
+                  title: Text(item.entry.name),
+                  subtitle: Text(
+                    '${item.brand} $item.codename · ${item.info.lastBuild}',
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => context.push(
+                    item.isRecovery
+                        ? AppRoutes.recoveryDetail(item.entry.id)
+                        : AppRoutes.romDetail(item.entry.id),
+                  ),
+                ),
+              if (recent.length > 5)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                  child: Text(
+                    '+ ${recent.length - 5} more recent builds',
+                    style: text.bodySmall?.copyWith(
+                      color: scheme.onSurfaceVariant,
+                    ),
+                  ),
+                ),
+            ],
+          ],
+        ],
       ),
     );
   }
@@ -117,9 +284,11 @@ class _StarredDeviceCard extends StatelessWidget {
     final List<CatalogEntry> sortedRoms = List<CatalogEntry>.from(roms)
       ..sort((CatalogEntry a, CatalogEntry b) {
         final FreshnessRepository fr = FreshnessRepository.instance;
-        return fr.forId(a.id).status.index.compareTo(
-              fr.forId(b.id).status.index,
-            );
+        return fr
+            .forId(a.id)
+            .status
+            .index
+            .compareTo(fr.forId(b.id).status.index);
       });
 
     return Card(
@@ -135,10 +304,7 @@ class _StarredDeviceCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        '$brand $displayName',
-                        style: text.titleMedium,
-                      ),
+                      Text('$brand $displayName', style: text.titleMedium),
                       Text(
                         'Codename: $codename',
                         style: text.bodySmall?.copyWith(
@@ -152,10 +318,8 @@ class _StarredDeviceCard extends StatelessWidget {
                   tooltip: 'Remove from My Devices',
                   icon: const Icon(Icons.star_rounded),
                   color: Colors.amber.shade600,
-                  onPressed: () => WishlistRepository.instance.toggle(
-                    brand,
-                    codename,
-                  ),
+                  onPressed: () =>
+                      WishlistRepository.instance.toggle(brand, codename),
                 ),
               ],
             ),
@@ -214,10 +378,7 @@ class _StarredDeviceCard extends StatelessWidget {
                 minimumSize: const Size.fromHeight(44),
               ),
               onPressed: () => context.push(
-                AppRoutes.deviceModelDetail(
-                  _slugFor(brand),
-                  codename,
-                ),
+                AppRoutes.deviceModelDetail(_slugFor(brand), codename),
               ),
             ),
             const SizedBox(height: 8),
