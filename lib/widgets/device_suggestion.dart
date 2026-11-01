@@ -18,7 +18,11 @@ import '../widgets/catalog_card.dart' show xdaSearchUri;
 /// Renders nothing on iOS, desktop, web, or while detection is in flight, so
 /// callers can drop it in unconditionally.
 class DeviceSuggestion extends StatefulWidget {
-  const DeviceSuggestion({super.key});
+  const DeviceSuggestion({super.key, this.compact = false});
+
+  /// Shows the unmatched-device suggestion as a short expandable row.
+  /// Home uses this to keep the catalog and primary actions in view.
+  final bool compact;
 
   @override
   State<DeviceSuggestion> createState() => _DeviceSuggestionState();
@@ -78,13 +82,105 @@ class _DeviceSuggestionState extends State<DeviceSuggestion> {
             onView: _openDevicePage,
             onDismiss: () => setState(() => _dismissed = true),
           )
+        : widget.compact
+        ? _CompactUnmatchedCard(
+            device: device,
+            onDismiss: () => setState(() => _dismissed = true),
+          )
         : _UnmatchedCard(
             device: device,
             onDismiss: () => setState(() => _dismissed = true),
           );
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: card,
+    return Padding(padding: const EdgeInsets.only(bottom: 16), child: card);
+  }
+}
+
+class _CompactUnmatchedCard extends StatelessWidget {
+  const _CompactUnmatchedCard({required this.device, required this.onDismiss});
+
+  final DetectedDevice device;
+  final VoidCallback onDismiss;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final DetectedDevice device = this.device;
+    final String search =
+        '${device.manufacturer} ${device.model} ${device.codename}'.trim();
+
+    return Card(
+      margin: EdgeInsets.zero,
+      color: scheme.surfaceContainerHigh,
+      child: ExpansionTile(
+        leading: Icon(
+          Icons.smartphone_outlined,
+          color: scheme.onSurfaceVariant,
+        ),
+        title: Text(
+          'Your phone (${device.codename})',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+        subtitle: const Text(
+          'Not listed · tap for options',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+        children: <Widget>[
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'It may still boot a Treble GSI, and community builds or guides '
+              'may be available.',
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 4,
+            runSpacing: 0,
+            children: <Widget>[
+              TextButton.icon(
+                icon: const Icon(Icons.layers_outlined, size: 18),
+                label: const Text('Treble & GSI'),
+                onPressed: () => context.push(AppRoutes.treble),
+              ),
+              TextButton.icon(
+                icon: const Icon(Icons.forum_outlined, size: 18),
+                label: const Text('Search XDA'),
+                onPressed: () =>
+                    launchXdaDeviceSearch(context, xdaSearchUri(search)),
+              ),
+              TextButton.icon(
+                icon: const Icon(Icons.download_outlined, size: 18),
+                label: const Text('Community builds'),
+                onPressed: () => context.push(
+                  '${AppRoutes.communityBuilds}'
+                  '?q=${Uri.encodeComponent(device.codename)}',
+                ),
+              ),
+              TextButton.icon(
+                icon: const Icon(Icons.add_to_home_screen, size: 18),
+                label: const Text('Request it'),
+                onPressed: () => openDeviceRequest(
+                  query:
+                      '${device.manufacturer} ${device.model} '
+                      '(${device.codename})',
+                ),
+              ),
+              TextButton.icon(
+                icon: const Icon(Icons.close_rounded, size: 18),
+                label: const Text('Dismiss'),
+                onPressed: onDismiss,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -225,9 +321,7 @@ class _UnmatchedCard extends StatelessWidget {
               child: Text(
                 'It may still boot a Treble GSI, and XDA often has builds or '
                 'guides for it. You can also ask us to add it.',
-                style: text.bodySmall?.copyWith(
-                  color: scheme.onSurfaceVariant,
-                ),
+                style: text.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
               ),
             ),
             const SizedBox(height: 8),
@@ -264,7 +358,8 @@ class _UnmatchedCard extends StatelessWidget {
                     icon: const Icon(Icons.add_to_home_screen, size: 18),
                     label: const Text('Request it'),
                     onPressed: () => openDeviceRequest(
-                      query: '${device.manufacturer} ${device.model} '
+                      query:
+                          '${device.manufacturer} ${device.model} '
                           '(${device.codename})',
                     ),
                   ),

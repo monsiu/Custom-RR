@@ -15,6 +15,7 @@ import '../widgets/donation_feedback.dart';
 import '../widgets/donation_nudge.dart';
 import '../widgets/rating_nudge.dart';
 import '../widgets/update_dialog.dart';
+import '../widgets/work_with_monsiu_card.dart';
 import 'easter_egg_page.dart';
 
 class AboutPage extends StatefulWidget {
@@ -150,15 +151,10 @@ class _AboutPageState extends State<AboutPage> {
                 style: text.bodyLarge,
               ),
               const SizedBox(height: 24),
+              const WorkWithMonsiuCard(),
+              const SizedBox(height: 24),
               Text('Links', style: text.titleLarge),
               const SizedBox(height: 8),
-              ListTile(
-                leading: const Icon(Icons.code),
-                title: const Text('Monsiu Tech Solutions'),
-                subtitle: const Text('Built with Flutter - by Monsiu'),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () => _open(Uri.parse('https://monsiu.github.io/')),
-              ),
               ListTile(
                 leading: const Icon(Icons.public),
                 title: const Text('GitHub repository'),

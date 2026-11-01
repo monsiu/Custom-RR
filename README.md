@@ -18,9 +18,7 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
   <img alt="Platforms" src="https://img.shields.io/badge/Android%20%7C%20Linux%20%7C%20Windows%20%7C%20macOS-444444?style=flat-square">
 </p>
 
-> A single home for popular **custom ROMs** and **custom recoveries**: direct links to the official builders, screenshots, freshness signals, and step-by-step flashing guides. No tracking, no ads, no Play Services. GPL-3.0.
-
-> **Maintainer note:** Running on a slower cadence for a while. Issues get triaged on weekends and PRs reviewed within a week or two. The project is alive.
+A single home for popular **custom ROMs** and **custom recoveries**: direct links to the official builders, screenshots, freshness signals, and step-by-step flashing guides. No tracking, no ads, no Play Services. GPL-3.0.
 
 ![Custom RR banner](images/readme/banner.png)
 
@@ -32,6 +30,18 @@ _By [Monsiu](https://github.com/monsiu) · [github.com/monsiu/Custom-RR](https:/
   <a href="https://f-droid.org/packages/io.github.monsiu.custom_rr/"><img alt="Get it on F-Droid" src="https://img.shields.io/badge/F--Droid-Get_it_now-1976D2?style=for-the-badge&amp;logo=fdroid&amp;logoColor=white"></a>
   <a href="https://apps.microsoft.com/detail/9NTS7Q5V12RG"><img alt="Get it from the Microsoft Store" src="https://img.shields.io/badge/Microsoft_Store-Get_it_now-0078D4?style=for-the-badge&amp;logo=windows&amp;logoColor=white"></a>
   <a href="https://zapstore.dev/apps/io.github.monsiu.custom_rr"><img alt="Get it on Zapstore" src="https://img.shields.io/badge/Zapstore-Get_it_now-7B2FF2?style=for-the-badge&amp;logo=nostr&amp;logoColor=white"></a>
+</p>
+
+## Work with Monsiu
+
+I build Android apps, cross-platform apps, websites, and custom ROMs for
+eligible devices. ROM work starts with a device and source feasibility check;
+I’ll agree on the scope, timeline, and quote before build work begins.
+
+<p align="left">
+  <a href="https://monsiu.github.io/services/"><img alt="Discuss an app or website project" src="https://img.shields.io/badge/App_%26_Web_Projects-17351C?style=for-the-badge&amp;logo=rocket&amp;logoColor=7ed957"></a>
+  <a href="mailto:contactmonsiu@gmail.com?subject=Custom%20ROM%20project"><img alt="Ask about a custom ROM project" src="https://img.shields.io/badge/Custom_ROM_Projects-444444?style=for-the-badge&amp;logo=android&amp;logoColor=7ed957"></a>
+  <a href="https://github.com/sponsors/monsiu"><img alt="Support Custom RR" src="https://img.shields.io/badge/Support_Custom_RR-EA4AAA?style=for-the-badge&amp;logo=githubsponsors&amp;logoColor=white"></a>
 </p>
 
 ## Why Custom RR?
@@ -61,13 +71,13 @@ form to point us to a maintained project that should be listed.
 ## Contents
 
 - [Availability](#availability)
+- [Work with Monsiu](#work-with-monsiu)
 - [Features](#features)
 - [Roadmap](#roadmap)
 - [Deep links](#deep-links)
 - [Download](#download)
 - [Contributing](#contributing)
 - [Support the project](#support-the-project)
-- [Need an app built?](#need-an-app-built)
 - [Catalog sources](#catalog-sources)
 
 ## Availability
@@ -189,23 +199,6 @@ Have a different coin? Use the in-app **Swap to XMR** button (powered by
 [Trocador AnonPay](https://trocador.app/anonpay/), no account, no KYC).
 
 </details>
-
-## Need an app built?
-
-Custom RR is designed, coded, and shipped end to end by one developer: the
-catalog engine, the nightly freshness pipeline, native builds for four
-platforms, and automated releases to five app stores: Google Play, the Amazon
-Appstore, F-Droid, Zapstore, and the Microsoft Store.
-
-If you want an **Android app, a cross-platform app, or a website** built with
-the same care, from first sketch to the app stores, that is exactly what I do
-for clients. Tell me what you have in mind and you get back a plan, a timeline,
-and a quote. No obligation.
-
-<p align="left">
-  <a href="https://monsiu.github.io/services/"><img alt="Get your project built" src="https://img.shields.io/badge/Get_your_project_built-17351C?style=for-the-badge&logo=rocket&logoColor=7ed957"></a>
-  <a href="https://monsiu.github.io/#projects"><img alt="See everything I have shipped" src="https://img.shields.io/badge/See_everything_I_have_shipped-444444?style=for-the-badge&logo=github&logoColor=white"></a>
-</p>
 
 ## Socials
 
