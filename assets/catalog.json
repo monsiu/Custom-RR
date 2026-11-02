@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-10-20T18:09:12.680135Z",
+  "_generatedAt": "2026-11-02T18:40:12.180960Z",
   "roms": [
     {
       "id": "lineage",
@@ -1121,6 +1121,19 @@
             "XT2117-3",
             "XT2117-4",
             "moto g power"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
           ]
         },
         {
@@ -2273,6 +2286,14 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord",
           "codename": "avicii",
           "models": [
@@ -2606,6 +2627,24 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy A53 5G",
+          "codename": "a53x",
+          "models": [
+            "SM-A5360",
+            "SM-A536B",
+            "SM-A536B/DS",
+            "SM-A536E",
+            "SM-A536E/DS",
+            "SM-A536N",
+            "SM-A536U",
+            "SM-A536U1",
+            "SM-A536W",
+            "SM-S536DL",
+            "SM-A536V"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy A71",
           "codename": "a71",
           "models": [
@@ -2647,6 +2686,18 @@
           "models": [
             "SM-E625F",
             "SM-E625F/DS"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy M20",
+          "codename": "m20lte",
+          "models": [
+            "SM-M205F",
+            "SM-M205FN",
+            "SM-M205G",
+            "SM-M205M",
+            "SM-M205N"
           ]
         },
         {
@@ -3029,6 +3080,15 @@
           ]
         },
         {
+          "brand": "Samsung",
+          "model": "Galaxy Z Fold5",
+          "codename": "q5q",
+          "models": [
+            "SM-F946B",
+            "SM-F946B/DS"
+          ]
+        },
+        {
           "brand": "Smartisan",
           "model": "R1",
           "codename": "trident",
@@ -3145,6 +3205,15 @@
           "models": [
             "XQ-FE54",
             "XQ-FE72"
+          ]
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia 10 VIII",
+          "codename": "pdx268",
+          "models": [
+            "XQ-GH54",
+            "XQ-GH74"
           ]
         },
         {
@@ -4464,6 +4533,11 @@
           "brand": "Xiaomi",
           "model": "Redmi Y3",
           "codename": "onclite"
+        },
+        {
+          "brand": "Xiaomi",
+          "model": "Xiaomi TV Box S (2nd gen)",
+          "codename": "jaws"
         },
         {
           "brand": "ZTE",
@@ -8594,6 +8668,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
@@ -12975,6 +13057,14 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord",
           "codename": "avicii",
           "models": [
@@ -14862,6 +14952,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -15713,6 +15816,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
@@ -17695,6 +17806,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -18511,6 +18635,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
@@ -19841,13 +19973,13 @@
         "Active Telegram channel and GitHub org."
       ],
       "screenshots": [
-        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-1-7-portrait.png",
-        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-2-7-portrait.png",
-        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-3-7-portrait.png",
-        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-4-7-portrait.png",
-        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-5-7-portrait.png",
-        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-6-7-portrait.png",
-        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-7-7-portrait.png"
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-about.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-customization.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-lockscreen.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-quicksettings1.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-quicksettings2.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-quicksettings3.png",
+        "https://raw.githubusercontent.com/RisingOS-Revived-devices/risingos-revived-devices.github.io/refs/heads/main/assets/img/screenshots/ss-settings.png"
       ],
       "devices": [
         {
@@ -20271,6 +20403,19 @@
             "XT2117-3",
             "XT2117-4",
             "moto g power"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
           ]
         },
         {
@@ -21066,6 +21211,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
@@ -23837,6 +23990,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
@@ -27371,6 +27532,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -28458,6 +28632,14 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord",
           "codename": "avicii",
           "models": [
@@ -28693,6 +28875,24 @@
             "SM-A528B",
             "SM-A528N",
             "SM-A528B/DS"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A53 5G",
+          "codename": "a53x",
+          "models": [
+            "SM-A5360",
+            "SM-A536B",
+            "SM-A536B/DS",
+            "SM-A536E",
+            "SM-A536E/DS",
+            "SM-A536N",
+            "SM-A536U",
+            "SM-A536U1",
+            "SM-A536W",
+            "SM-S536DL",
+            "SM-A536V"
           ]
         },
         {
@@ -29363,6 +29563,15 @@
           "models": [
             "XQ-FE54",
             "XQ-FE72"
+          ]
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia 10 VIII",
+          "codename": "pdx268",
+          "models": [
+            "XQ-GH54",
+            "XQ-GH74"
           ]
         },
         {
@@ -32298,6 +32507,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -33434,6 +33656,14 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord",
           "codename": "avicii",
           "models": [
@@ -33706,6 +33936,24 @@
             "SM-A528B",
             "SM-A528N",
             "SM-A528B/DS"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A53 5G",
+          "codename": "a53x",
+          "models": [
+            "SM-A5360",
+            "SM-A536B",
+            "SM-A536B/DS",
+            "SM-A536E",
+            "SM-A536E/DS",
+            "SM-A536N",
+            "SM-A536U",
+            "SM-A536U1",
+            "SM-A536W",
+            "SM-S536DL",
+            "SM-A536V"
           ]
         },
         {
@@ -34413,6 +34661,15 @@
           "models": [
             "XQ-FE54",
             "XQ-FE72"
+          ]
+        },
+        {
+          "brand": "Sony",
+          "model": "Xperia 10 VIII",
+          "codename": "pdx268",
+          "models": [
+            "XQ-GH54",
+            "XQ-GH74"
           ]
         },
         {
@@ -37154,6 +37411,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -37945,6 +38215,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
@@ -46735,6 +47013,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -47605,6 +47896,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
@@ -50235,6 +50534,14 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord",
           "codename": "avicii",
           "models": [
@@ -51973,6 +52280,19 @@
         },
         {
           "brand": "Motorola",
+          "model": "moto g pure",
+          "codename": "ellis",
+          "models": [
+            "XT2163-1",
+            "XT2163-2",
+            "XT2163-4",
+            "XT2163-6",
+            "XT2163-7",
+            "XT2163DL"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "moto g stylus 5G",
           "codename": "denver",
           "forumUrl": "https://xdaforums.com/f/moto-g-stylus-5g.12373/?prefix_id=33",
@@ -52901,6 +53221,14 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord",
           "codename": "avicii",
           "models": [
@@ -53044,6 +53372,24 @@
             "SM-A528B",
             "SM-A528N",
             "SM-A528B/DS"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A53 5G",
+          "codename": "a53x",
+          "models": [
+            "SM-A5360",
+            "SM-A536B",
+            "SM-A536B/DS",
+            "SM-A536E",
+            "SM-A536E/DS",
+            "SM-A536N",
+            "SM-A536U",
+            "SM-A536U1",
+            "SM-A536W",
+            "SM-S536DL",
+            "SM-A536V"
           ]
         },
         {
@@ -55060,6 +55406,14 @@
           "codename": "hummer",
           "models": [
             "PKR110"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Ace 6",
+          "codename": "ktm",
+          "models": [
+            "PLQ110"
           ]
         },
         {
