@@ -8,10 +8,6 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- **A clearer ROM build enquiry.** Choose a new build, a port, or build
-  troubleshooting. The email draft includes detected device details and asks
-  for Android version, source links, build logs when relevant, and an optional
-  budget or timeline.
 - **Catalog trust details and reporting.** ROM and recovery cards identify
   official or community listings; detail pages show freshness source and
   snapshot time and open a prefilled correction form.
@@ -21,6 +17,12 @@ project uses [Semantic Versioning](https://semver.org/).
 - **More complete issue requests.** Device requests prefill known brand, model,
   and codename. Both issue forms ask for Android version and useful source
   links; ROM requests also ask for device model names and codenames.
+
+### Removed
+
+- **Paid ROM build enquiries.** ROM build requests are no longer offered. Use
+  GitHub Issues for catalog requests and issue reports so maintainers can
+  triage them with the project.
 
 ## [1.4.0] - 2026-11-01
 

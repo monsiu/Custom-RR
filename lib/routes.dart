@@ -261,12 +261,8 @@ GoRouter buildRouter() {
               GoRoute(
                 path: 'services',
                 caseSensitive: false,
-                builder: (BuildContext _, GoRouterState state) => ServicesPage(
-                  manufacturer:
-                      state.uri.queryParameters['manufacturer'] ?? '',
-                  model: state.uri.queryParameters['model'] ?? '',
-                  codename: state.uri.queryParameters['codename'] ?? '',
-                ),
+                builder: (BuildContext _, GoRouterState _) =>
+                    const ServicesPage(),
               ),
               GoRoute(
                 path: 'privacy',
