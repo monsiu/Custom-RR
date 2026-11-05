@@ -37,4 +37,14 @@ post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
   end
+
+  # Xcode's User Script Sandboxing blocks CocoaPods' own script build
+  # phases (e.g. Check Pods Manifest.lock) from writing outside their
+  # declared sandbox, which surfaces as "The sandbox is not in sync with
+  # the Podfile.lock" even right after a successful pod install. Disable
+  # it for the Pods project; the Runner target has the matching setting
+  # in project.pbxproj.
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings['ENABLE_USER_SCRIPT_SANDBOXING'] = 'NO'
+  end
 end
