@@ -225,11 +225,6 @@ class AppNavList extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.work_outline),
-                title: const Text('Services'),
-                onTap: () => _go(context, AppRoutes.services),
-              ),
-              ListTile(
                 leading: const Icon(Icons.info_outline),
                 title: const Text('About'),
                 onTap: () => _go(context, AppRoutes.about),

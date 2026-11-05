@@ -40,7 +40,14 @@ const bool kSelfUpdateEnabled =
     kGithubReleaseBuild && !kFdroidBuild && !kPlayBuild;
 
 /// Whether to surface the in-app crypto donation UI (wallet addresses, QR
-/// codes, wallet deep-links). Hidden on the Play build to stay clear of
-/// Google Play's financial-services policy; the external Buy Me a Coffee link
-/// remains available on every variant.
-const bool kShowCryptoDonate = !kPlayBuild;
+/// codes, wallet deep-links). Static donation addresses sit outside Play's
+/// Cryptocurrency Exchanges and Software Wallets policy (which targets
+/// wallets/exchanges, not plain donation addresses), so this is shown on
+/// every variant, including Play.
+const bool kShowCryptoDonate = true;
+
+/// Whether to show the "swap other crypto to XMR" button, which calls out to
+/// the third-party Trocador exchange. Unlike the static donation addresses,
+/// this actively links to an exchange service, so it stays hidden on the
+/// Play build pending clearer policy guidance.
+const bool kShowTrocadorSwap = !kPlayBuild;

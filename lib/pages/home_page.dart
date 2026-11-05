@@ -12,7 +12,6 @@ import '../widgets/device_suggestion.dart';
 import '../widgets/donation_nudge.dart';
 import '../widgets/rating_nudge.dart';
 import '../widgets/whats_new.dart';
-import '../widgets/work_with_monsiu_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -244,7 +243,6 @@ class _HomePageState extends State<HomePage> {
                     if (q.isNotEmpty)
                       _SearchResults(hits: hits, query: q)
                     else ...<Widget>[
-                      const WorkWithMonsiuCard(),
                       const DeviceSuggestion(compact: true),
                       const DonationNudge(),
                       const RatingNudge(),

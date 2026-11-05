@@ -7,10 +7,9 @@ import 'package:material_ui/material_ui.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../util/build_flags.dart';
+
 /// Crypto donation addresses for Custom RR.
-///
-/// These are PLACEHOLDER addresses. Replace them with your real wallet
-/// addresses when ready. They are always shown in the UI.
 const Map<String, CryptoCoin> kCryptoDonationAddresses = <String, CryptoCoin>{
   'BTC': CryptoCoin(
     'Bitcoin (P2WPKH)',
@@ -19,13 +18,6 @@ const Map<String, CryptoCoin> kCryptoDonationAddresses = <String, CryptoCoin>{
     explorerUrl:
         'https://mempool.space/address/bc1qaxx6dxkz0s5cw4h9nysw4yvmsaf3qlk7j0gwa2',
     walletScheme: 'bitcoin',
-  ),
-  'LTC': CryptoCoin(
-    'Litecoin (P2WPKH)',
-    'ltc1qdrjqjzk0sfn7grysxruxuuev6jpn9yqm8wrrg0',
-    explorerUrl:
-        'https://litecoinspace.org/address/ltc1qdrjqjzk0sfn7grysxruxuuev6jpn9yqm8wrrg0',
-    walletScheme: 'litecoin',
   ),
   'ETH': CryptoCoin(
     'Ethereum (ETH and ERC-20 like USDT, USDC)',
@@ -55,16 +47,9 @@ const Map<String, CryptoCoin> kCryptoDonationAddresses = <String, CryptoCoin>{
         'Ethereum mainnet by default. Double-check the network on the '
         'send screen.',
   ),
-  'SOL': CryptoCoin(
-    'Solana',
-    '6qC53PkKjoFtyhohHnYFApf3YccZwULFLTfrUMiruM97',
-    explorerUrl:
-        'https://solscan.io/account/6qC53PkKjoFtyhohHnYFApf3YccZwULFLTfrUMiruM97',
-    walletScheme: 'solana',
-  ),
   'XMR': CryptoCoin(
     'Monero',
-    '8ADyd3DvN5D6wAauq2Q2BSZp7aG3LhYZAFswk5dNQohVUBDT8G84MjPimsj5vzfB8TBrwtC3y3BATNm76bX21kWfUys3ehE',
+    '873UqQQ65aNeX4jPqJ2rPu95rVk1wYkV3c4JaPcXJkhCWTagk9mC4ZsjGPLsEcG9vefUkdeyjCrtRUtWU1ZExcVZ4PqohxN',
     walletScheme: 'monero',
   ),
 };
@@ -178,23 +163,25 @@ Future<void> showCryptoDonateSheet(BuildContext context) {
                   networkChip: entry.value.networkChip,
                   networkChipTone: entry.value.networkChipTone,
                 ),
-              const SizedBox(height: 8),
-              const Divider(height: 1),
-              const SizedBox(height: 12),
-              Text(
-                'Have a different coin? Swap it to Monero anonymously via '
-                'Trocador (no account, no KYC). The payout goes straight '
-                'to the project XMR address.',
-                style: Theme.of(ctx).textTheme.bodySmall?.copyWith(
-                  color: scheme.onSurfaceVariant,
+              if (kShowTrocadorSwap) ...<Widget>[
+                const SizedBox(height: 8),
+                const Divider(height: 1),
+                const SizedBox(height: 12),
+                Text(
+                  'Have a different coin? Swap it to Monero anonymously via '
+                  'Trocador (no account, no KYC). The payout goes straight '
+                  'to the project XMR address.',
+                  style: Theme.of(ctx).textTheme.bodySmall?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              FilledButton.tonalIcon(
-                onPressed: () => _openTrocador(ctx),
-                icon: const Icon(Icons.swap_horiz_rounded),
-                label: const Text('Use other crypto (swap to XMR)'),
-              ),
+                const SizedBox(height: 10),
+                FilledButton.tonalIcon(
+                  onPressed: () => _openTrocador(ctx),
+                  icon: const Icon(Icons.swap_horiz_rounded),
+                  label: const Text('Use other crypto (swap to XMR)'),
+                ),
+              ],
             ],
           ),
         ),
@@ -206,7 +193,7 @@ Future<void> showCryptoDonateSheet(BuildContext context) {
 const String _kTrocadorSwapUrl =
     'https://trocador.app/anonpay/'
     '?ticker_to=xmr&network_to=Mainnet'
-    '&address=8AKYcpCAVrZhUJ4zEmMdgi36sa2DjTWxufpbnXLwzZKU4mnBrVVHWs2eU1SnGtKKBFB3hVVJSrRbZ1zJnGqyWUix5zdmagg'
+    '&address=873UqQQ65aNeX4jPqJ2rPu95rVk1wYkV3c4JaPcXJkhCWTagk9mC4ZsjGPLsEcG9vefUkdeyjCrtRUtWU1ZExcVZ4PqohxN'
     '&fiat_equiv=USD&name=Monsiu%20Tech&email=techmonsiu%40gmail.com'
     '&description=Donation%20to%20Custom%20RR%2C%20an%20open-source%20Android%20app%20cataloging%20custom%20ROMs%20and%20recoveries.'
     '&bgcolor=00000000'

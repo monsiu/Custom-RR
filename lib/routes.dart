@@ -19,7 +19,6 @@ import 'pages/privacy_policy_page.dart';
 import 'pages/recoveries_page.dart';
 import 'pages/roms_page.dart';
 import 'pages/roots_page.dart';
-import 'pages/services_page.dart';
 import 'pages/treble_page.dart';
 import 'pages/wishlist_page.dart';
 import 'util/platform_shell.dart';
@@ -43,7 +42,6 @@ class AppRoutes {
   static const String community = '/community';
   static const String communityBuilds = '/community-builds';
   static const String about = '/about';
-  static const String services = '/services';
   static const String privacy = '/privacy';
 
   static String romDetail(String id) => '/roms/$id';
@@ -257,12 +255,6 @@ GoRouter buildRouter() {
                 caseSensitive: false,
                 builder:
                     (BuildContext _, GoRouterState _) => const AboutPage(),
-              ),
-              GoRoute(
-                path: 'services',
-                caseSensitive: false,
-                builder: (BuildContext _, GoRouterState _) =>
-                    const ServicesPage(),
               ),
               GoRoute(
                 path: 'privacy',

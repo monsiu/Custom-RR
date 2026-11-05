@@ -15,7 +15,6 @@ import '../widgets/donation_feedback.dart';
 import '../widgets/donation_nudge.dart';
 import '../widgets/rating_nudge.dart';
 import '../widgets/update_dialog.dart';
-import '../widgets/work_with_monsiu_card.dart';
 import 'easter_egg_page.dart';
 
 class AboutPage extends StatefulWidget {
@@ -150,8 +149,6 @@ class _AboutPageState extends State<AboutPage> {
                 'and jump directly to official download pages.',
                 style: text.bodyLarge,
               ),
-              const SizedBox(height: 24),
-              const WorkWithMonsiuCard(),
               const SizedBox(height: 24),
               Text('Links', style: text.titleLarge),
               const SizedBox(height: 8),

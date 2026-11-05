@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-11-05
+
 ### Added
 
 - **Catalog trust details and reporting.** ROM and recovery cards identify
@@ -18,11 +20,22 @@ project uses [Semantic Versioning](https://semver.org/).
   and codename. Both issue forms ask for Android version and useful source
   links; ROM requests also ask for device model names and codenames.
 
+### Changed
+
+- **Crypto donations now available on Play.** Static donation addresses
+  (BTC, ETH, BNB, XMR) no longer fall under Play's Cryptocurrency Exchanges
+  and Software Wallets policy, so they're shown on every build, including
+  Play. The Trocador swap-to-XMR button still links out to a third-party
+  exchange, so it stays hidden on the Play build only. Dropped LTC and SOL
+  from the donation list and refreshed the XMR address.
+
 ### Removed
 
 - **Paid ROM build enquiries.** ROM build requests are no longer offered. Use
   GitHub Issues for catalog requests and issue reports so maintainers can
   triage them with the project.
+- **Services page.** The "Work with Monsiu" services page, its home and About
+  page cards, and the drawer entry pointing to it have been removed.
 
 ## [1.4.0] - 2026-11-01
 
