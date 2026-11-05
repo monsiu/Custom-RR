@@ -1,0 +1,2 @@
+- ROM və bərpa siyahıları indi etibar və təzəlik təfərrüatlarını göstərir və problem sorğuları avtomatik olaraq daha faydalı məlumat tələb edir.
+- Kripto ianələri indi Google Play də daxil olmaqla proqramda mövcuddur. Ödənişli fərdi ROM qurma sorğuları və Xidmətlər səhifəsi silindi.

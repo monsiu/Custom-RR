@@ -1,0 +1,2 @@
+- O ROM e as listagens de recuperação mostram agora detalhes de confiança e de atualização, e os pedidos de emissão solicitam informações mais úteis automaticamente.
+- As doações criptográficas estão agora disponíveis na aplicação, inclusive no Google Play. Os pedidos de compilação ROM personalizados pagos e a página de serviços foram removidos.

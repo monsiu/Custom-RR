@@ -1,0 +1,2 @@
+- ROM og gendannelseslister viser nu tillids- og friskhedsdetaljer, og spørgsmålsanmodninger beder automatisk om mere nyttig information.
+- Kryptodonationer er nu tilgængelige i appen, inklusive på Google Play. Betalte brugerdefinerede ROM-buildanmodninger og siden Tjenester er blevet fjernet.

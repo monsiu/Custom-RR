@@ -1,0 +1,2 @@
+- A ROM és a helyreállítási listák mostantól megbízhatósági és frissességi adatokat mutatnak, és a problémakérések automatikusan további hasznos információkat kérnek.
+- A kriptográfiai adományok már elérhetőek az alkalmazásban, beleértve a Google Play-et is. A fizetett egyéni ROM összeállítási kérelmeket és a Szolgáltatások oldalt eltávolítottuk.

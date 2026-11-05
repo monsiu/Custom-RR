@@ -1,0 +1,2 @@
+- ROM et les listes de récupération affichent désormais les détails de confiance et de fraîcheur, et les demandes de problèmes demandent automatiquement des informations plus utiles.
+- Les dons cryptographiques sont désormais disponibles dans l'application, y compris sur Google Play. Les demandes de build personnalisées ROM payantes et la page Services ont été supprimées.

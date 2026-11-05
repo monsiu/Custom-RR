@@ -1,9 +1,11 @@
-## Custom RR v1.4.0
+## Custom RR v1.5.0
 
-This release makes it easier to find builds and community help for your phone, and adds a way to enquire about a custom ROM build.
+This release adds catalog trust details and recent build alerts, brings crypto donations to the Play build, and removes paid ROM build enquiries.
 
-- The app now highlights what changed after updates.
-- Device matching and help for phones outside the catalog are improved.
-- Ask about a custom ROM build with your phone details included automatically.
+- ROM and recovery cards now show trust and freshness details, with a prefilled correction form.
+- An optional setting highlights ROMs or recoveries with a build from the past seven days.
+- Issue requests ask for more useful info (Android version, source links, device model and codename) automatically.
+- Crypto donations (BTC, ETH, BNB, XMR) are now available on every build, including Play.
+- Paid custom ROM build requests and the Services page have been removed.
 
 See the full diff and commit log via the **Full Changelog** link below.

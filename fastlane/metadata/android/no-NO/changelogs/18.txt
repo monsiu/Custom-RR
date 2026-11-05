@@ -1,0 +1,2 @@
+- ROM og gjenopprettingsoppføringer viser nå tillits- og friskhetsdetaljer, og problemforespørsler ber automatisk om mer nyttig informasjon.
+- Kryptodonasjoner er nå tilgjengelig i appen, inkludert på Google Play. Betalte tilpassede ROM byggeforespørsler og Tjenester-siden er fjernet.

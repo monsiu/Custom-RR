@@ -1,0 +1,2 @@
+- Listat e ROM dhe recovery tani shfaqin detaje besueshmërie dhe freskie, dhe kërkesat për probleme kërkojnë automatikisht më shumë informacion të dobishëm.
+- Donacionet me kriptomonedha tani janë të disponueshme në aplikacion, përfshirë në Google Play. Kërkesat me pagesë për ndërtimin e ROM të personalizuar dhe faqja e Shërbimeve janë hequr.

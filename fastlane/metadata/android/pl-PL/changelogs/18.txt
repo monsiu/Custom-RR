@@ -1,0 +1,2 @@
+- ROM i listy odzyskiwania pokazują teraz szczegóły dotyczące zaufania i aktualności, a żądania wydania automatycznie proszą o bardziej przydatne informacje.
+- Darowizny w kryptowalutach są teraz dostępne w aplikacji, w tym na Google Play. Płatne niestandardowe żądania kompilacji ROM i strona Usługi zostały usunięte.

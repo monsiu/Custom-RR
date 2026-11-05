@@ -1,0 +1,2 @@
+- ROM e as listas de recuperación agora mostran detalles de confianza e actualización, e as solicitudes de problemas solicitan información máis útil automaticamente.
+- As doazóns criptográficas xa están dispoñibles na aplicación, incluso en Google Play. Elimináronse as solicitudes de compilación ROM personalizadas de pago e a páxina de Servizos.

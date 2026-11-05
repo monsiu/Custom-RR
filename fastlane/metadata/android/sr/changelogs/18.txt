@@ -1,0 +1,2 @@
+- Spiskovi ROM i recovery sada prikazuju detalje o pouzdanosti i svežini, a zahtevi za probleme automatski traže više korisnih informacija.
+- Donacije u kriptovalutama su sada dostupne u aplikaciji, uključujući Google Play. Plaćeni zahtevi za izradu prilagođenog ROM-a i stranica Usluge su uklonjeni.

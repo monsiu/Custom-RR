@@ -1,0 +1,2 @@
+- ROM ja palautusluettelot näyttävät nyt luottamus- ja tuoreustiedot, ja ongelmapyynnöt pyytävät automaattisesti lisää hyödyllisiä tietoja.
+- Kryptolahjoitukset ovat nyt saatavilla sovelluksessa, mukaan lukien Google Play. Maksulliset mukautetut ROM-koontipyynnöt ja Palvelut-sivu on poistettu.

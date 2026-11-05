@@ -1,0 +1,2 @@
+- ROM ir atkūrimo sąrašai dabar rodo išsamią pasitikėjimo ir atnaujinimo informaciją, o užklausose dėl problemų automatiškai prašoma daugiau naudingos informacijos.
+- Kriptografijos aukos dabar pasiekiamos programoje, įskaitant Google Play. Mokamos tinkintos ROM kūrimo užklausos ir paslaugų puslapis buvo pašalinti.

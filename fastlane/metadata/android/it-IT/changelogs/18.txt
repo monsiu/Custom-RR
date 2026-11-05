@@ -1,0 +1,2 @@
+- ROM e gli elenchi di ripristino ora mostrano dettagli sull'affidabilità e sull'aggiornamento e le richieste di emissione richiedono automaticamente informazioni più utili.
+- Le donazioni in criptovalute sono ora disponibili nell'app, anche su Google Play. Le richieste di build ROM personalizzate a pagamento e la pagina Servizi sono state rimosse.

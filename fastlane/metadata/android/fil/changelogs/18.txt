@@ -1,0 +1,2 @@
+- Ang ROM at mga listahan ng pagbawi ay nagpapakita na ngayon ng mga detalye ng tiwala at pagiging bago, at awtomatikong humihingi ng mas kapaki-pakinabang na impormasyon ang mga kahilingan sa isyu.
+- Ang mga donasyon ng crypto ay magagamit na ngayon sa app, kabilang ang sa Google Play. Mga binabayarang custom na ROM build request at ang pahina ng Mga Serbisyo ay inalis na.

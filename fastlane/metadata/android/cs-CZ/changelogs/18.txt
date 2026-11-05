@@ -1,0 +1,2 @@
+- Seznamy ROM a obnovení nyní zobrazují podrobnosti o důvěryhodnosti a aktuálnosti a žádosti o vydání automaticky požadují užitečnější informace.
+- V aplikaci jsou nyní k dispozici dary kryptoměn, včetně Google Play. Placené vlastní požadavky na sestavení ROM a stránka Služby byly odstraněny.

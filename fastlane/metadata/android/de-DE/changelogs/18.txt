@@ -1,0 +1,2 @@
+- ROM- und Wiederherstellungslisten zeigen jetzt Vertrauens- und Aktualitätsdetails an, und Problemanfragen fragen automatisch nach weiteren nützlichen Informationen.
+- Kryptospenden sind jetzt in der App verfügbar, auch auf Google Play. Bezahlte benutzerdefinierte ROM-Build-Anfragen und die Seite „Dienste“ wurden entfernt.

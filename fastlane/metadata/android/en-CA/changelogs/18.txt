@@ -1,0 +1,2 @@
+- ROM and recovery listings now show trust and freshness details, and issue requests ask for more useful info automatically.
+- Crypto donations are now available in the app, including on Google Play. Paid custom ROM build requests and the Services page have been removed.

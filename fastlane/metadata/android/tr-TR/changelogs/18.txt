@@ -1,0 +1,2 @@
+- ROM ve recovery listeleri artık güvenilirlik ve güncellik ayrıntılarını gösteriyor, sorun talepleri ise otomatik olarak daha kullanışlı bilgi istiyor.
+- Kripto bağışları artık Google Play dahil olmak üzere uygulamada kullanılabilir. Ücretli özel ROM derleme talepleri ve Hizmetler sayfası kaldırıldı.

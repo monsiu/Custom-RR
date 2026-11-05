@@ -1,0 +1,2 @@
+- Danh sách ROM và recovery giờ đây hiển thị chi tiết về độ tin cậy và độ mới, và yêu cầu vấn đề sẽ tự động hỏi thêm thông tin hữu ích.
+- Quyên góp bằng tiền điện tử giờ đây có sẵn trong ứng dụng, bao gồm trên Google Play. Các yêu cầu xây dựng ROM tùy chỉnh có phí và trang Services đã được xóa.

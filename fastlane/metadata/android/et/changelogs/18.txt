@@ -1,0 +1,2 @@
+- ROM ja taastamise loendid näitavad nüüd usaldusväärsuse ja värskuse üksikasju ning probleemipäringud nõuavad automaatselt rohkem kasulikku teavet.
+- Krüptoannetused on nüüd saadaval rakenduses, sealhulgas saidil Google Play. Tasulised kohandatud ROM ehitustaotlused ja teenuste leht on eemaldatud.

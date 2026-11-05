@@ -1,0 +1,2 @@
+- Les llistes de ROM i de recuperació ara mostren detalls de confiança i actualització, i les sol·licituds d'emissió demanen informació més útil automàticament.
+- Les donacions de criptografia ja estan disponibles a l'aplicació, inclòs a Google Play. S'han eliminat les sol·licituds de compilació ROM personalitzades de pagament i la pàgina Serveis.

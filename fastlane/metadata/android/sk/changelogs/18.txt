@@ -1,0 +1,2 @@
+- Zoznamy ROM a recovery teraz zobrazujú podrobnosti o dôveryhodnosti a aktuálnosti, a žiadosti o problémy automaticky žiadajú viac užitočných informácií.
+- Darovanie v kryptomenách je teraz dostupné v aplikácii, aj na Google Play. Platené žiadosti o vlastné zostavenie ROM a stránka Služby boli odstránené.

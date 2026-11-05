@@ -1,0 +1,2 @@
+- ROM dan daftar pemulihan kini menampilkan detail kepercayaan dan kesegaran, dan permintaan masalah meminta informasi lebih berguna secara otomatis.
+- Donasi kripto kini tersedia di aplikasi, termasuk di Google Play. Permintaan pembuatan ROM khusus berbayar dan halaman Layanan telah dihapus.

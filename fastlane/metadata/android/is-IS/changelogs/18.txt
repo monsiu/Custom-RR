@@ -1,0 +1,2 @@
+- ROM og endurheimtarskráningar sýna nú upplýsingar um traust og ferskleika og útgáfubeiðnir biðja sjálfkrafa um gagnlegri upplýsingar.
+- Dulritunargjafir eru nú fáanlegar í appinu, þar á meðal á Google Play. Greiddar sérsniðnar ROM byggingarbeiðnir og þjónustusíðan hafa verið fjarlægð.

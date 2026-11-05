@@ -1,0 +1,2 @@
+- ROM- en herstellijsten tonen nu details over vertrouwen en versheid, en bij uitgifteverzoeken wordt automatisch om meer nuttige informatie gevraagd.
+- Crypto-donaties zijn nu beschikbaar in de app, ook op Google Play. Betaalde aangepaste ROM-buildverzoeken en de Services-pagina zijn verwijderd.

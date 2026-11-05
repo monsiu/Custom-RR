@@ -1,0 +1,2 @@
+- ROM un atkopšanas sarakstos tagad tiek rādīta informācija par uzticamību un svaigumu, un problēmu pieprasījumos automātiski tiek prasīta noderīgāka informācija.
+- Kriptoziedojumi tagad ir pieejami lietotnē, tostarp vietnē Google Play. Apmaksātie pielāgotie ROM būvēšanas pieprasījumi un pakalpojumu lapa ir noņemti.

@@ -1,0 +1,2 @@
+- ROM i popisi za oporavak sada pokazuju pojedinosti o pouzdanosti i svježini, a zahtjevi za problem automatski traže više korisnih informacija.
+- Kripto donacije sada su dostupne u aplikaciji, uključujući na Google Play. Plaćeni prilagođeni ROM zahtjevi za izgradnju i stranica Usluge su uklonjeni.

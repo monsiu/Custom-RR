@@ -1,0 +1,2 @@
+- ROM și listele de recuperare afișează acum detalii de încredere și prospețime, iar solicitările de probleme solicită automat informații mai utile.
+- Donațiile cripto sunt acum disponibile în aplicație, inclusiv pe Google Play. Solicitările de compilare ROM personalizate plătite și pagina Servicii au fost eliminate.
