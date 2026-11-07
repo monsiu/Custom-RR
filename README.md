@@ -40,7 +40,6 @@ I’ll agree on the scope, timeline, and quote before build work begins.
 
 <p align="left">
   <a href="https://monsiu.github.io/services/"><img alt="Discuss an app or website project" src="https://img.shields.io/badge/App_%26_Web_Projects-17351C?style=for-the-badge&amp;logo=rocket&amp;logoColor=7ed957"></a>
-  <a href="mailto:contactmonsiu@gmail.com?subject=Custom%20ROM%20project"><img alt="Ask about a custom ROM project" src="https://img.shields.io/badge/Custom_ROM_Projects-444444?style=for-the-badge&amp;logo=android&amp;logoColor=7ed957"></a>
   <a href="https://github.com/sponsors/monsiu"><img alt="Support Custom RR" src="https://img.shields.io/badge/Support_Custom_RR-EA4AAA?style=for-the-badge&amp;logo=githubsponsors&amp;logoColor=white"></a>
 </p>
 
