@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-11-02T18:40:12.180960Z",
+  "_generatedAt": "2026-11-09T17:22:11.175731Z",
   "roms": [
     {
       "id": "lineage",
@@ -1009,6 +1009,16 @@
             "XT2241-1",
             "XT2241-2",
             "motorola edge"
+          ]
+        },
+        {
+          "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
           ]
         },
         {
@@ -2337,6 +2347,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -8727,6 +8746,15 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord CE4",
           "codename": "benz",
           "models": [
@@ -13112,6 +13140,15 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord CE4",
           "codename": "benz",
           "models": [
@@ -14805,6 +14842,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -15871,6 +15918,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -17694,6 +17750,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -18690,6 +18756,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -20295,6 +20370,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -21266,6 +21351,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -24045,6 +24139,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -27385,6 +27488,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -28683,6 +28796,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -32333,6 +32455,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -33707,6 +33839,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -37299,6 +37440,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -38270,6 +38421,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -46866,6 +47026,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -47951,6 +48121,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -50589,6 +50768,15 @@
         },
         {
           "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
+          ]
+        },
+        {
+          "brand": "OnePlus",
           "model": "Nord CE4",
           "codename": "benz",
           "models": [
@@ -52133,6 +52321,16 @@
         },
         {
           "brand": "Motorola",
+          "model": "edge 40",
+          "codename": "lyriq",
+          "models": [
+            "XT2303-1",
+            "XT2303-2",
+            "XT2303-3"
+          ]
+        },
+        {
+          "brand": "Motorola",
           "model": "edge 40 neo",
           "codename": "manaus",
           "models": [
@@ -53272,6 +53470,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
@@ -55461,6 +55668,15 @@
           "models": [
             "CPH2467",
             "CPH2465"
+          ]
+        },
+        {
+          "brand": "OnePlus",
+          "model": "Nord CE 5G",
+          "codename": "ebba",
+          "models": [
+            "EB2101",
+            "EB2103"
           ]
         },
         {
