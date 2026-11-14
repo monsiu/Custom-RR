@@ -9,8 +9,8 @@ repository: https://github.com/monsiu/Custom-RR
 issue_tracker: https://github.com/monsiu/Custom-RR/issues
 
 environment:
-  sdk: '>=3.11.0 <4.0.0'
-  flutter: '>=3.38.4'
+  sdk: '>=3.13.0 <4.0.0'
+  flutter: '>=3.47.0'
 
 dependencies:
   flutter:
