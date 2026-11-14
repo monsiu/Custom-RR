@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-11-09T17:22:11.175731Z",
+  "_generatedAt": "2026-11-14T12:22:09.786602Z",
   "roms": [
     {
       "id": "lineage",
@@ -2524,9 +2524,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -2561,6 +2580,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
@@ -2660,6 +2688,19 @@
             "SM-A536W",
             "SM-S536DL",
             "SM-A536V"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A55 5G",
+          "codename": "a55x",
+          "models": [
+            "SM-A556B",
+            "SM-A556B/DS",
+            "SM-A556E",
+            "SM-A556E/DS",
+            "SM-A5560",
+            "SM-A556S"
           ]
         },
         {
@@ -7477,6 +7518,18 @@
           "model": "OnePlus 12R / ACE 3",
           "codename": "aston",
           "forumUrl": "https://xdaforums.com/f/oneplus-12r-oneplus-ace-3.12829/?prefix_id=33"
+        },
+        {
+          "brand": "OnePlus",
+          "model": "OnePlus 13 5G",
+          "codename": "dodge",
+          "forumUrl": "https://xdaforums.com/f/oneplus-13.12893/?prefix_id=33",
+          "models": [
+            "cph2653",
+            "cph2649",
+            "cph2655",
+            "pjz110"
+          ]
         },
         {
           "brand": "OnePlus",
@@ -21423,9 +21476,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -21460,6 +21532,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
@@ -22629,6 +22710,15 @@
           "brand": "Google",
           "model": "Pixel Fold",
           "codename": "felix"
+        },
+        {
+          "brand": "Google",
+          "model": "Pixel 10 Pro Fold",
+          "codename": "rango",
+          "models": [
+            "MiTV-AXFR0",
+            "MiTV-AXFR1"
+          ]
         },
         {
           "brand": "OnePlus",
@@ -24211,9 +24301,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -24248,6 +24357,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
@@ -28886,9 +29004,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -28923,6 +29060,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
@@ -29015,6 +29161,19 @@
             "SM-A536W",
             "SM-S536DL",
             "SM-A536V"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A55 5G",
+          "codename": "a55x",
+          "models": [
+            "SM-A556B",
+            "SM-A556B/DS",
+            "SM-A556E",
+            "SM-A556E/DS",
+            "SM-A5560",
+            "SM-A556S"
           ]
         },
         {
@@ -33937,9 +34096,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -33974,6 +34152,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
@@ -34095,6 +34282,19 @@
             "SM-A536W",
             "SM-S536DL",
             "SM-A536V"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy A55 5G",
+          "codename": "a55x",
+          "models": [
+            "SM-A556B",
+            "SM-A556B/DS",
+            "SM-A556E",
+            "SM-A556E/DS",
+            "SM-A5560",
+            "SM-A556S"
           ]
         },
         {
@@ -38493,9 +38693,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -38530,6 +38749,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
@@ -48209,9 +48437,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -48246,6 +48493,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
@@ -53601,6 +53857,19 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy A55 5G",
+          "codename": "a55x",
+          "models": [
+            "SM-A556B",
+            "SM-A556B/DS",
+            "SM-A556E",
+            "SM-A556E/DS",
+            "SM-A5560",
+            "SM-A556S"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy A7 (2017)",
           "codename": "a7y17lte",
           "models": [
@@ -55756,9 +56025,28 @@
         {
           "brand": "Realme",
           "model": "9 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3474",
+            "PantechP8010"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 5G",
           "codename": "oscarru",
           "models": [
             "RMX3474"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "9 Pro 5G",
+          "codename": "oscar",
+          "models": [
+            "RMX3471",
+            "RMX3472",
+            "PantechP8010"
           ]
         },
         {
@@ -55793,6 +56081,15 @@
           "codename": "piloti",
           "models": [
             "RMX5090"
+          ]
+        },
+        {
+          "brand": "Realme",
+          "model": "Q5",
+          "codename": "oscar",
+          "models": [
+            "RMX3478",
+            "PantechP8010"
           ]
         },
         {
