@@ -10,9 +10,9 @@ import 'dart:ui' as ui;
 
 import 'package:custom_rr/services/xda_feed.dart';
 import 'package:custom_rr/widgets/xda_threads_section.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   testWidgets('snapshot XdaThreadsSection', (WidgetTester tester) async {
