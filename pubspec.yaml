@@ -9,8 +9,8 @@ repository: https://github.com/monsiu/Custom-RR
 issue_tracker: https://github.com/monsiu/Custom-RR/issues
 
 environment:
-  sdk: '>=3.11.0 <4.0.0'
-  flutter: '>=3.38.4'
+  sdk: '>=3.13.0 <4.0.0'
+  flutter: '>=3.47.0'
 
 dependencies:
   flutter:
@@ -27,7 +27,7 @@ dependencies:
   go_router: ^18.1.4
   http: ^1.2.2
   dynamic_color: ^2.1.0
-  material_ui: ^1.3.0
+  material_ui: ^1.11.0
   xml: ^7.1.0
   qr_flutter: ^4.1.0
   # In-app updater: download the matching split APK from the latest
