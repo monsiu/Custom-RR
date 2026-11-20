@@ -7,7 +7,9 @@ import '../data/catalog_repository.dart';
 import '../data/freshness_repository.dart';
 import '../models.dart';
 import '../routes.dart';
+import '../util/bootloader_lock.dart';
 import '../util/breakpoints.dart';
+import '../widgets/bootloader_lock_banner.dart';
 import '../widgets/brand_image.dart';
 import '../widgets/community_builds_section.dart';
 import '../widgets/freshness_badge.dart';
@@ -47,6 +49,8 @@ class DeviceModelPage extends StatelessWidget {
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextTheme text = Theme.of(context).textTheme;
     final String modelLabel = ref?.model ?? codename;
+    final BootloaderLock? lock =
+        bootloaderLockForModels(ref?.models ?? const <String>[]);
     // Keep the header image below the status bar instead of hugging it.
     final double topInset = MediaQuery.paddingOf(context).top;
 
@@ -151,6 +155,10 @@ class DeviceModelPage extends StatelessWidget {
                           color: scheme.onSurfaceVariant,
                         ),
                       ),
+                      if (lock != null) ...<Widget>[
+                        const SizedBox(height: 16),
+                        BootloaderLockBanner(lock: lock, exact: false),
+                      ],
                       const SizedBox(height: 16),
                       Align(
                         alignment: Alignment.centerLeft,
