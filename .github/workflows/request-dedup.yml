@@ -1,0 +1,119 @@
+name: Request dedup
+
+# When a device/ROM/recovery request is opened, collapse it onto the existing
+# open request for the same device, or bounce it back when it names no device
+# at all. This keeps the tracker to one issue per device (a demand signal)
+# instead of hundreds of near-identical tickets. Catalog coverage is handled
+# separately by catalog-match-triage.yml (on open) and upstream-device-watch.yml
+# (weekly); this workflow only deduplicates and screens empty requests.
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  dedup:
+    if: >-
+      contains(github.event.issue.title, 'Device request') ||
+      contains(github.event.issue.title, 'ROM request') ||
+      contains(github.event.issue.title, 'Recovery request') ||
+      contains(github.event.issue.title, 'ROM or recovery request') ||
+      contains(github.event.issue.title, 'Root solution request') ||
+      contains(github.event.issue.labels.*.name, 'device') ||
+      contains(github.event.issue.labels.*.name, 'request')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Classify the request
+        id: classify
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set -euo pipefail
+          gh issue list -R "$GITHUB_REPOSITORY" --state open -L 500 \
+            --json number,title,body,labels,createdAt > /tmp/open.json
+          node tool/find_duplicate.mjs "${{ github.event.issue.number }}" /tmp/open.json > /tmp/verdict.json
+          cat /tmp/verdict.json
+          echo "verdict=$(node -pe 'JSON.parse(require("fs").readFileSync("/tmp/verdict.json","utf8")).verdict')" >> "$GITHUB_OUTPUT"
+
+      - name: Act on the verdict
+        if: steps.classify.outputs.verdict != 'unique'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const v = JSON.parse(require('fs').readFileSync('/tmp/verdict.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            // Defer only to a workflow that has already *resolved* the issue.
+            // catalog-match-triage comments "recorded this device" on every
+            // uncovered device request without closing it, so a bot comment is
+            // not a reason to skip (that would stop us folding the common case,
+            // an uncovered duplicate). A closed state is: us-carrier-triage or
+            // catalog-match already handled it, so leave it be.
+            const issue = await github.rest.issues.get({ owner, repo, issue_number });
+            if (issue.data.state !== 'open') {
+              core.info('Issue already closed by another workflow; skipping.');
+              return;
+            }
+            // Idempotency: if we have already folded/screened this issue (our
+            // labels are present), do not comment again on a re-run.
+            const existing = (issue.data.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
+            if (existing.includes('duplicate') || existing.includes('invalid')) {
+              core.info('Already triaged by this workflow; skipping.');
+              return;
+            }
+
+            if (v.verdict === 'empty') {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
+                body: [
+                  'Thanks for the request! 🙏 We could not tell which phone this is for: the request does not include a model number or codename.',
+                  '',
+                  'Reply with your device\'s **model number** (dial `*#06#`, or check **Settings > About phone**) and its **codename** if you know it, and we will reopen and take a look. The in-app request form fills these in automatically if you send it from **Find my phone**.',
+                ].join('\n'),
+              });
+              try {
+                await github.rest.issues.addLabels({ owner, repo, issue_number, labels: ['invalid'] });
+                await github.rest.issues.update({ owner, repo, issue_number, state: 'closed', state_reason: 'not_planned' });
+              } catch (e) {
+                core.warning(`Label/close failed: ${e.message}`);
+              }
+              return;
+            }
+
+            if (v.verdict === 'duplicate') {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
+                body: [
+                  'Thanks! This is the same device already tracked in #' + v.canonical + ' (`' + v.key + '`), so we are folding this into that issue to keep everything in one place.',
+                  '',
+                  'Follow #' + v.canonical + ' for updates. If you meant a *different* variant that reports another codename, reply there and mention it. 👍',
+                ].join('\n'),
+              });
+              try {
+                await github.rest.issues.addLabels({ owner, repo, issue_number, labels: ['duplicate'] });
+                await github.rest.issues.update({ owner, repo, issue_number, state: 'closed', state_reason: 'not_planned' });
+              } catch (e) {
+                core.warning(`Label/close failed: ${e.message}`);
+              }
+              // Register demand on the canonical issue with a reaction, no comment spam.
+              try {
+                await github.rest.reactions.createForIssue({
+                  owner, repo, issue_number: v.canonical, content: '+1',
+                });
+              } catch (e) {
+                core.warning(`Reaction on #${v.canonical} failed: ${e.message}`);
+              }
+            }
