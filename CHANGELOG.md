@@ -6,6 +6,16 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **Carrier-locked bootloader warning.** On-device detection and per-model
+  pages now flag Samsung US, Canada and US-prepaid models (model numbers
+  ending in `U`, `U1`, `W`, or `SM-S…DL`) whose Snapdragon bootloader cannot
+  normally be unlocked. A red banner appears when your exact model is
+  detected, and an amber "some variants are locked" note on a device page
+  whose international variant still unlocks, so you can tell before trying
+  that no ROM or recovery can be flashed on that unit.
+
 ## [1.5.0] - 2026-11-05
 
 ### Added
