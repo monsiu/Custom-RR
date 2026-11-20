@@ -32,7 +32,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          gh issue list -R "$GITHUB_REPOSITORY" --state open -L 200 \
+          gh issue list -R "$GITHUB_REPOSITORY" --state open -L 500 \
             --json number,title,body,labels > /tmp/open.json
           node tool/match_open_requests.mjs /tmp/open.json > /tmp/hits.json
           cat /tmp/hits.json
