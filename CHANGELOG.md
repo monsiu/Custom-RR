@@ -16,6 +16,12 @@ project uses [Semantic Versioning](https://semver.org/).
   whose international variant still unlocks, so you can tell before trying
   that no ROM or recovery can be flashed on that unit.
 
+### Changed
+
+- **Dependency refresh.** Updated Flutter and Dart dependencies to their
+  latest compatible versions (50 packages, including `cached_network_image`,
+  `material_ui`, `sqflite`, `shared_preferences` and `url_launcher`).
+
 ## [1.5.0] - 2026-11-05
 
 ### Added
