@@ -5,9 +5,11 @@ import '../data/catalog_repository.dart';
 import '../models.dart';
 import '../routes.dart';
 import '../theme.dart';
+import '../util/bootloader_lock.dart';
 import '../util/device_detector.dart';
 import '../util/request_project.dart';
 import '../util/xda_search.dart';
+import '../widgets/bootloader_lock_banner.dart';
 import '../widgets/catalog_card.dart' show xdaSearchUri;
 
 /// On-device suggestion shown at the top of the Home and Find My Phone pages.
@@ -32,6 +34,7 @@ class _DeviceSuggestionState extends State<DeviceSuggestion> {
   DetectedDevice? _device;
   DeviceRef? _match;
   DeviceEntry? _brandEntry;
+  BootloaderLock? _lock;
   bool _dismissed = false;
 
   @override
@@ -59,6 +62,7 @@ class _DeviceSuggestionState extends State<DeviceSuggestion> {
       _device = device;
       _match = ref;
       _brandEntry = brandEntry;
+      _lock = bootloaderLockForModel(device.model);
     });
   }
 
@@ -91,7 +95,19 @@ class _DeviceSuggestionState extends State<DeviceSuggestion> {
             device: device,
             onDismiss: () => setState(() => _dismissed = true),
           );
-    return Padding(padding: const EdgeInsets.only(bottom: 16), child: card);
+    final BootloaderLock? lock = _lock;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: lock == null
+          ? card
+          : Column(
+              children: <Widget>[
+                BootloaderLockBanner(lock: lock, compact: widget.compact),
+                const SizedBox(height: 10),
+                card,
+              ],
+            ),
+    );
   }
 }
 
