@@ -56,12 +56,22 @@ jobs:
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
 
-            // Do not pile on if another triage workflow already answered.
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner, repo, issue_number, per_page: 100,
-            });
-            if (comments.some((c) => c.user?.type === 'Bot' || c.user?.login?.endsWith('[bot]'))) {
-              core.info('A bot already replied; skipping.');
+            // Defer only to a workflow that has already *resolved* the issue.
+            // catalog-match-triage comments "recorded this device" on every
+            // uncovered device request without closing it, so a bot comment is
+            // not a reason to skip (that would stop us folding the common case,
+            // an uncovered duplicate). A closed state is: us-carrier-triage or
+            // catalog-match already handled it, so leave it be.
+            const issue = await github.rest.issues.get({ owner, repo, issue_number });
+            if (issue.data.state !== 'open') {
+              core.info('Issue already closed by another workflow; skipping.');
+              return;
+            }
+            // Idempotency: if we have already folded/screened this issue (our
+            // labels are present), do not comment again on a re-run.
+            const existing = (issue.data.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
+            if (existing.includes('duplicate') || existing.includes('invalid')) {
+              core.info('Already triaged by this workflow; skipping.');
               return;
             }
 

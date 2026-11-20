@@ -43,11 +43,19 @@ if (kind === 'codename') {
     const labels = (i.labels ?? []).map((l) => l.name);
     return REQUEST.test(i.title ?? '') || labels.includes('device') || labels.includes('request');
   };
-  // Oldest open request sharing this key wins; never fold onto a newer issue or
-  // onto the new issue itself.
+  // Fold only onto a request that is genuinely OLDER than this one, never onto
+  // a newer issue or onto itself. Folding onto the oldest *other* sibling would
+  // let two issues opened seconds apart close each other (A->B while B->A),
+  // leaving nothing canonical open; "strictly older" keeps the earliest issue
+  // as the canonical and makes it classify as unique.
+  const subject = open.find((i) => i.number === newNumber);
+  const subjectAt = subject?.createdAt ?? '';
+  const olderThanSubject = (i) =>
+    i.createdAt < subjectAt || (i.createdAt === subjectAt && i.number < newNumber);
   const siblings = open
     .filter((i) => i.number !== newNumber && isRequest(i))
     .filter((i) => requestKey(i.title ?? '', i.body ?? '').key === key)
+    .filter(olderThanSubject)
     .sort((a, b) => (a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : a.number - b.number));
   if (siblings.length > 0) canonical = siblings[0].number;
 }
