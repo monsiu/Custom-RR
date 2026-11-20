@@ -13,14 +13,46 @@ jobs:
     if: ${{ contains(github.event.issue.labels.*.name, 'device') || contains(github.event.issue.labels.*.name, 'request') }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Detect a locked Samsung model number
+        id: lock
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          node tool/bootloader_lock.mjs > /tmp/lock.json
+          cat /tmp/lock.json
+
       - name: Flag and close US carrier requests
         uses: actions/github-script@v9
         with:
           script: |
             const body = context.payload.issue.body || "";
+            const lock = JSON.parse(require('fs').readFileSync('/tmp/lock.json', 'utf8'));
             const isUsCarrier = body.includes("Yes, it's a US model or bought from a US carrier");
-            if (!isUsCarrier) {
-              core.info("Not flagged as a US carrier device; nothing to do.");
+            const saysInternational = body.includes("No, it's an international / global / factory-unlocked model");
+            // A locked model number is a decisive signal on its own, but respect
+            // a reporter who explicitly says their unit is international: treat
+            // that as the self-report winning over a model-number guess.
+            const modelLocked = lock.locked && !saysInternational;
+            if (!isUsCarrier && !modelLocked) {
+              core.info("Neither self-reported US carrier nor a locked model number; nothing to do.");
+              return;
+            }
+
+            // Do not pile on if another triage workflow already resolved this.
+            const issue = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            if (issue.data.state !== 'open') {
+              core.info("Issue already closed by another workflow; skipping.");
               return;
             }
 
@@ -60,10 +92,15 @@ jobs:
               return;
             }
 
+            const opener = lock.locked
+              ? "Quick honest heads-up: your model number `" + lock.model + "` is a " +
+                (lock.region === "Canada" ? "Canada" : "US") +
+                " carrier Samsung, and that's basically the one case where our hands are tied."
+              : "Quick honest heads-up though: you marked this as a US model / bought from a US carrier, and that's basically the one case where our hands are tied.";
             const message = [
               "Hey, thanks a lot for filling this out! 🙏",
               "",
-              "Quick honest heads-up though: you marked this as a US model / bought from a US carrier, and that's basically the one case where our hands are tied. US carrier phones (Samsung model numbers ending in `U` or `U1`, and pretty much anything from Verizon, AT&T, T-Mobile and co) ship with the bootloader locked, and Samsung or the carrier don't hand out a way to unlock it. No bootloader unlock means no custom recovery and no custom ROM can be flashed, even when the exact same phone sold in another region can. So there's realistically nothing we can add that would actually run on your unit.",
+              opener + " US / Canada carrier phones (Samsung model numbers ending in `U`, `U1` or `W`, and pretty much anything from Verizon, AT&T, T-Mobile and co) ship with the bootloader locked, and Samsung or the carrier don't hand out a way to unlock it. No bootloader unlock means no custom recovery and no custom ROM can be flashed, even when the exact same phone sold in another region can. So there's realistically nothing we can add that would actually run on your unit.",
               "",
               "am going to close this one out for now, but if you reckon this is off, say your phone actually has the **OEM unlocking** toggle in Developer options, or it turns out to be an international / factory-unlocked unit, just reply here and we'll happily take another look. 👍",
             ].join("\n");

@@ -28,6 +28,8 @@ jobs:
         run: node tool/find_duplicate_test.mjs
       - name: Request dedup workflow script
         run: node tool/dedup_workflow_test.mjs
+      - name: Bootloader lock rule (CI port)
+        run: node tool/bootloader_lock_test.mjs
 
   build-apk:
     name: Build release APKs
