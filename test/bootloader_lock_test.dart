@@ -68,4 +68,22 @@ void main() {
       expect(bootloaderLockForModels(const <String>[]), isNull);
     });
   });
+
+  group('hasUnlockableVariant', () {
+    test('true when the set mixes locked and international variants', () {
+      expect(hasUnlockableVariant(<String>['SM-A135U', 'SM-A135F']), isTrue);
+    });
+
+    test('false when every variant is locked', () {
+      expect(hasUnlockableVariant(<String>['SM-A135U', 'SM-A135U1', 'SM-A135W']), isFalse);
+    });
+
+    test('blank entries are ignored', () {
+      expect(hasUnlockableVariant(<String>['SM-A135U', '  ']), isFalse);
+    });
+
+    test('empty set is false', () {
+      expect(hasUnlockableVariant(const <String>[]), isFalse);
+    });
+  });
 }

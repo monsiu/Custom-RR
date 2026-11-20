@@ -56,3 +56,13 @@ BootloaderLock? bootloaderLockForModels(Iterable<String> models) {
   }
   return null;
 }
+
+/// True when [models] contains at least one model that is not known-locked, so
+/// the device has a variant that unlocks normally. Blank entries are ignored.
+bool hasUnlockableVariant(Iterable<String> models) {
+  for (final String model in models) {
+    if (model.trim().isEmpty) continue;
+    if (bootloaderLockForModel(model) == null) return true;
+  }
+  return false;
+}

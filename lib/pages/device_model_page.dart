@@ -49,8 +49,9 @@ class DeviceModelPage extends StatelessWidget {
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final TextTheme text = Theme.of(context).textTheme;
     final String modelLabel = ref?.model ?? codename;
-    final BootloaderLock? lock =
-        bootloaderLockForModels(ref?.models ?? const <String>[]);
+    final List<String> refModels = ref?.models ?? const <String>[];
+    final BootloaderLock? lock = bootloaderLockForModels(refModels);
+    final bool lockHasUnlockableSibling = hasUnlockableVariant(refModels);
     // Keep the header image below the status bar instead of hugging it.
     final double topInset = MediaQuery.paddingOf(context).top;
 
@@ -157,7 +158,11 @@ class DeviceModelPage extends StatelessWidget {
                       ),
                       if (lock != null) ...<Widget>[
                         const SizedBox(height: 16),
-                        BootloaderLockBanner(lock: lock, exact: false),
+                        BootloaderLockBanner(
+                          lock: lock,
+                          exact: false,
+                          hasUnlockableVariant: lockHasUnlockableSibling,
+                        ),
                       ],
                       const SizedBox(height: 16),
                       Align(
