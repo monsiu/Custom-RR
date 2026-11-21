@@ -1,0 +1,53 @@
+name: Stale requests
+
+# Age out quiet requests so the tracker reflects live demand, not a graveyard.
+# An issue with no activity for 90 days is marked `stale` with a heads-up
+# comment; if it stays quiet for another 14 days it is closed as not planned.
+# Any activity (a comment, a label change, a reaction that updates the issue)
+# removes the `stale` label and resets the clock. This runs on every open
+# issue, device requests included: an old device request nobody has touched in
+# over three months is a stale demand signal, not a live one, and folding it
+# keeps the queue honest. Dedup and catalog triage still screen new requests on
+# open (request-dedup.yml, catalog-match-triage.yml).
+
+on:
+  schedule:
+    # Daily at 03:17 UTC, off the hour to avoid the cron rush.
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: stale-requests
+  cancel-in-progress: false
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 90
+          days-before-close: 14
+          stale-issue-label: stale
+          close-issue-reason: not_planned
+          stale-issue-message: >-
+            This request has had no activity for 90 days, so we have marked it
+            `stale`. If the device or ROM is still wanted, just leave a comment
+            (a model number or codename helps) and we will keep it open. With no
+            further activity it will be closed in 14 days to keep the tracker
+            focused on live demand. 🙏
+          close-issue-message: >-
+            Closing this out after 14 more days of quiet. No hard feelings, this
+            just keeps the queue honest. Comment to reopen any time if the
+            request is still relevant. 👍
+          # Issues only; this workflow does not touch pull requests.
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          # The backlog is large, so raise the per-run budget and work oldest
+          # first (ascending) to drain the tail before the fresh issues.
+          operations-per-run: 300
+          ascending: true
