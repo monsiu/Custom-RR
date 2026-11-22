@@ -1,0 +1,34 @@
+name: source-health
+
+# Weekly check that every upstream device roster the catalog depends on still
+# parses. A source can change format and start shipping unparseable data (as
+# BlissRoms' devices.json did), which otherwise silently drops that source's
+# devices from the catalog with no signal. Running the generator with
+# --strict-sources turns that into a red run so it gets noticed and fixed,
+# instead of being discovered by a user with a missing device.
+#
+# This does not write or commit anything; the weekly sync-catalog workflow owns
+# regenerating the JSON. It only reports health.
+
+on:
+  schedule:
+    # Mondays 06:00 UTC, an hour before the catalog sync.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Upstream roster parse check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Parse every upstream roster
+        run: dart run tool/sync_catalog.dart --refresh --strict-sources

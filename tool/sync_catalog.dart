@@ -272,8 +272,40 @@ List<_Device> _loadEosDevices() {
   return out;
 }
 
+/// Upstream rosters that fetched content this run but failed to parse it. A
+/// silent format change upstream (e.g. BlissRoms shipping invalid JSON) would
+/// otherwise just drop that source's devices with no signal. We collect the
+/// failures so the run can flag them loudly and, under `--strict-sources`, fail
+/// rather than quietly ship a degraded catalog.
+final List<String> _parseFailures = <String>[];
+
+void _noteParseFailure(String source, Object error) {
+  _parseFailures.add(source);
+  stderr.writeln('[sync] could not parse $source: $error');
+}
+
+/// Human-readable summary of the sources that failed to parse. Empty string
+/// when everything parsed, so callers can test `isEmpty`.
+String degradedSourcesSummary(List<String> parseFailures) {
+  if (parseFailures.isEmpty) return '';
+  final StringBuffer b = StringBuffer()
+    ..writeln('[sync] WARNING: ${parseFailures.length} source(s) fetched but '
+        'failed to parse; their devices are missing from this catalog:');
+  for (final String s in parseFailures) {
+    b.writeln('[sync]   - $s');
+  }
+  return b.toString().trimRight();
+}
+
+/// Exit code for the run given which sources failed to parse. Non-zero only
+/// under `--strict-sources`, so the drift check and local runs stay unaffected
+/// while the weekly sync can opt in to failing loudly.
+int strictSourcesExitCode(List<String> parseFailures, {required bool strict}) =>
+    (strict && parseFailures.isNotEmpty) ? 3 : 0;
+
 Future<void> main(List<String> args) async {
   final bool refresh = args.contains('--refresh');
+  final bool strictSources = args.contains('--strict-sources');
   final Directory cache = Directory('$_cacheDir/devices');
 
   if (refresh || !cache.existsSync() || cache.listSync().isEmpty) {
@@ -426,6 +458,17 @@ Future<void> main(List<String> args) async {
     stdout.writeln('[sync] wrote $_catalogPath');
   } else {
     stdout.writeln('[sync] no semantic changes; kept $_catalogPath');
+  }
+
+  if (_parseFailures.isNotEmpty) {
+    stderr.writeln('');
+    stderr.writeln(degradedSourcesSummary(_parseFailures));
+    final int code = strictSourcesExitCode(_parseFailures, strict: strictSources);
+    if (code != 0) {
+      stderr.writeln('[sync] --strict-sources set; failing so the break is '
+          'noticed instead of shipped.');
+      exit(code);
+    }
   }
 }
 
@@ -700,7 +743,7 @@ Future<List<_Device>> _loadFlatRoster(
           ((e['name'] as String?) ?? '').trim(), codename));
     }
   } on Object catch (e) {
-    stderr.writeln('[sync] could not parse $url: $e');
+    _noteParseFailure(url, e);
   }
   return out;
 }
@@ -723,7 +766,7 @@ Future<List<_Device>> _loadAospaRoster(String url, String cachePath,
           ((e['name'] as String?) ?? '').trim(), codename));
     }
   } on Object catch (e) {
-    stderr.writeln('[sync] could not parse $url: $e');
+    _noteParseFailure(url, e);
   }
   return out;
 }
@@ -747,7 +790,7 @@ Future<List<_Device>> _loadDotosRoster(String url, String cachePath,
       });
     });
   } on Object catch (e) {
-    stderr.writeln('[sync] could not parse $url: $e');
+    _noteParseFailure(url, e);
   }
   return out;
 }
@@ -1539,7 +1582,7 @@ void _loadPlayModelNumbers() {
       }
     });
   } on Object catch (e) {
-    stderr.writeln('[sync] could not parse $_playDevicesPath: $e');
+    _noteParseFailure(_playDevicesPath, e);
     return;
   }
   stdout.writeln('[sync] loaded $count retail model numbers from the Play '
