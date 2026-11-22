@@ -1,0 +1,67 @@
+name: Triage audit
+
+# Weekly re-check of the issues the triage bots auto-closed as `already-covered`.
+# A codename reused across phones (e.g. `emerald` is both the Teracube 2e and the
+# Xiaomi POCO M6 Pro 4G) can make the matcher close a request against the wrong
+# device. This re-runs the matcher over those closures and surfaces any where the
+# reporter's own brand/model text disagrees with the device that was matched, so a
+# human can take a look. It only reports; it does not reopen or comment.
+
+on:
+  schedule:
+    # Wednesdays 07:00 UTC, after the Monday catalog sync and Tuesday watch.
+    - cron: '0 7 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  audit:
+    name: Re-check already-covered closures
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Re-match closed already-covered requests
+        id: audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh issue list -R "$GITHUB_REPOSITORY" --state closed --label already-covered \
+            -L 500 --json number,title,body > /tmp/closed.json
+          node tool/audit_closed_requests.mjs /tmp/closed.json > /tmp/flagged.json
+          cat /tmp/flagged.json
+          echo "count=$(node -pe 'JSON.parse(require("fs").readFileSync("/tmp/flagged.json","utf8")).length')" >> "$GITHUB_OUTPUT"
+
+      - name: Write findings to the job summary
+        if: always()
+        run: |
+          node -e '
+            const fs = require("fs");
+            const flagged = JSON.parse(fs.readFileSync("/tmp/flagged.json", "utf8"));
+            const out = [];
+            if (!flagged.length) {
+              out.push("No suspicious already-covered closures. ✅");
+            } else {
+              out.push("### Suspicious already-covered closures", "",
+                "The reporter text disagrees with the matched device, review for a codename collision:", "",
+                "| Issue | Matched as | Reporter said | Mismatch |",
+                "| --- | --- | --- | --- |");
+              for (const f of flagged) {
+                out.push(`| #${f.number} | ${f.matchedDevice} | ${f.reported} | ${f.mismatch.join(", ")} |`);
+              }
+            }
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join("\n") + "\n");
+          '
+
+      - name: Fail if anything needs review
+        if: steps.audit.outputs.count != '0'
+        run: |
+          echo "::warning::${{ steps.audit.outputs.count }} already-covered closure(s) look like a codename collision; see the job summary."
+          exit 1
