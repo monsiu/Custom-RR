@@ -53,7 +53,7 @@ for (const issue of issues) {
   } catch {
     continue;
   }
-  if (result.strength !== 'strong' || !result.matches?.length) continue;
+  if (!result.matches?.length) continue;
 
   const matched = result.matches[0].device || '';
   const matchedNorm = norm(matched);
@@ -71,7 +71,19 @@ for (const issue of issues) {
   );
   const mismatch = words.filter((w) => !matchedNorm.includes(norm(w)));
 
-  if (mismatch.length) {
+  // Flag a past closure when the matcher would no longer close it confidently:
+  // it now reports a conflict (the brand/model-name checks catch the reused
+  // codename), or it still matches strongly but the reporter's own words
+  // disagree with the device. Either way a human should look.
+  if (result.conflict) {
+    flagged.push({
+      number: issue.number,
+      term: result.term,
+      matchedDevice: matched,
+      reported: reported.trim(),
+      mismatch: [`conflict:${result.conflict.kind}`],
+    });
+  } else if (result.strength === 'strong' && mismatch.length) {
     flagged.push({
       number: issue.number,
       term: result.term,

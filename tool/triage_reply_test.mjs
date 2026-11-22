@@ -101,6 +101,30 @@ const cases = [
     },
   },
   {
+    name: 'a codename reused across brands is not auto-closed (#80)',
+    // emerald is both the Teracube 2e and the Xiaomi POCO M6 Pro 4G.
+    title: 'Device request: xiaomi 2312FPCA6G (emerald)',
+    body: '### Brand\n\nXiaomi\n\n### Model\n\nPOCO M6 PRO\n\n### Codename\n\nemerald',
+    check: (r) => {
+      if (r.closed || r.labels.includes('already-covered')) return 'closed a cross-brand codename collision';
+      if (!(r.comments[0] ?? '').includes('do not agree on which phone')) return 'did not ask which phone';
+      return null;
+    },
+  },
+  {
+    name: 'same brand but a different model line is not auto-closed (#508/#522)',
+    // kiev is a moto g 5G (2021); "moto g power 5g" reporters are a different phone.
+    title: 'Moto g power 5g 2023',
+    body: '### Brand\n\nMotorola\n\n### Model\n\nMoto g power 5g\n\n### Codename\n\nKiev',
+    check: (r) => {
+      if (r.closed || r.labels.includes('already-covered')) return 'closed a model-line mismatch';
+      const c = r.comments[0] ?? '';
+      if (!c.includes('do not agree on which phone')) return 'did not ask which phone';
+      if (!c.includes('power')) return 'did not name the distinguishing model text';
+      return null;
+    },
+  },
+  {
     name: 'unified-build alias resolves instead of matching nothing',
     title: 'Device request: Xiaomi Redmi 8 (olive)',
     body: '',
