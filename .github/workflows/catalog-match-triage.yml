@@ -113,10 +113,16 @@ jobs:
                     ]
                   : c.kind === 'ambiguous'
                     ? ['- The codename `' + c.codenameGiven + '` is used by more than one device in the catalog:', ...c.devices.map((d) => '  - `' + d + '`')]
-                    : [
-                        '- The model number `' + c.modelNumber + '` is the **' + (c.modelBrand ? c.modelBrand + ' ' : '') + (c.modelName || c.modelResolvesTo) + '** (codename `' + c.modelResolvesTo + '`).',
-                        '- The codename you listed, `' + c.codenameGiven + '`, belongs to a different device: `' + example.device + '`.',
-                      ];
+                    : c.kind === 'model-name'
+                      ? [
+                          '- You listed the model **' + c.modelGiven + '**.',
+                          '- The codename `' + c.codenameGiven + '` belongs to a different device: `' + (c.deviceMatched || example.device) + '`.',
+                          '- Some codenames are reused across unrelated phones, so the name alone is not enough to be sure.',
+                        ]
+                      : [
+                          '- The model number `' + c.modelNumber + '` is the **' + (c.modelBrand ? c.modelBrand + ' ' : '') + (c.modelName || c.modelResolvesTo) + '** (codename `' + c.modelResolvesTo + '`).',
+                          '- The codename you listed, `' + c.codenameGiven + '`, belongs to a different device: `' + example.device + '`.',
+                        ];
               message = [
                 'Hey, thanks for the request! 🙏 Before we answer, we need one thing cleared up, because the details here do not agree on which phone this is:',
                 '',

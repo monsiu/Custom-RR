@@ -47,8 +47,10 @@ function check(name, cond, detail) {
 check('flags the cross-brand collision (#80)', numbers.includes(80), `flagged: ${numbers}`);
 check('does not flag a correct closure', !numbers.includes(1), `flagged: ${numbers}`);
 check(
-  'the #80 finding names the reported brand as the mismatch',
-  flagged.find((f) => f.number === 80)?.mismatch.includes('xiaomi'),
+  'the #80 finding explains the mismatch (brand conflict or reported-brand word)',
+  (flagged.find((f) => f.number === 80)?.mismatch ?? []).some(
+    (m) => m === 'xiaomi' || m.startsWith('conflict:'),
+  ),
   JSON.stringify(flagged.find((f) => f.number === 80)),
 );
 

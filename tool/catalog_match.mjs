@@ -199,7 +199,7 @@ const brandFamily = (b) => {
   for (const [family, members] of Object.entries({
     xiaomi: ['xiaomi', 'redmi', 'poco', 'mi'],
     samsung: ['samsung', 'galaxy'],
-    motorola: ['motorola', 'moto'],
+    motorola: ['motorola', 'moto', 'lenovo'],
     google: ['google', 'pixel'],
     oppo: ['oppo', 'realme'],
     vivo: ['vivo', 'iqoo'],
@@ -208,6 +208,17 @@ const brandFamily = (b) => {
     honor: ['honor'],
     nothing: ['nothing', 'cmf'],
     transsion: ['infinix', 'tecno', 'itel'],
+    asus: ['asus', 'zenfone', 'rog'],
+    sony: ['sony', 'xperia'],
+    nokia: ['nokia', 'hmd'],
+    lg: ['lg'],
+    zte: ['zte', 'nubia'],
+    tcl: ['tcl', 'alcatel'],
+    teracube: ['teracube', 'mint'],
+    fairphone: ['fairphone'],
+    sharp: ['sharp'],
+    meizu: ['meizu'],
+    blackshark: ['blackshark'],
   })) {
     if (members.some((m) => n === m || n.startsWith(m))) return family;
   }
@@ -282,6 +293,40 @@ if (result.strength === 'strong') {
         brandGiven: statedBrand,
         brandMatched: matchedBrand,
         codenameGiven: result.term,
+      });
+    }
+  }
+
+  // Same brand, but the reporter named a different model line than the device
+  // we matched. A reused codename does this: `kiev` is a moto g 5G and `devon`
+  // a moto g32, yet "moto g power 5g" reporters kept landing on them. If a
+  // distinctive word from the reporter's Model field is missing from the device
+  // we matched, they are different phones, so ask instead of closing.
+  if (result.strength === 'strong') {
+    const matchedLabel = norm(result.matches.map((m) => m.device || '').join(' '));
+    // Generic qualifiers and brand words carry no model identity, so they are
+    // not evidence of a mismatch; a word that survives this filter is.
+    const qualifiers = new Set([
+      'pro', 'plus', 'max', 'ultra', 'lite', 'mini', 'neo', 'prime', 'star', 'active',
+      'global', 'international', 'dual', 'phone', 'smartphone', 'edition', 'series', 'gen',
+    ]);
+    const familyWords = new Set([
+      'xiaomi', 'redmi', 'poco', 'samsung', 'galaxy', 'motorola', 'moto', 'lenovo', 'google',
+      'pixel', 'oppo', 'realme', 'vivo', 'iqoo', 'oneplus', 'huawei', 'honor', 'nothing', 'cmf',
+      'infinix', 'tecno', 'itel', 'asus', 'zenfone', 'sony', 'xperia', 'nokia', 'teracube', 'mint',
+      'fairphone', 'sharp', 'meizu', 'nubia', 'alcatel',
+    ]);
+    const modelField = clean(field('Model'));
+    const discriminator = [...new Set(modelField.toLowerCase().match(/[a-z]{4,}/g) ?? [])]
+      .filter((w) => !qualifiers.has(w) && !familyWords.has(w) && norm(w) !== matchedCodename)
+      .find((w) => !matchedLabel.includes(norm(w)));
+    if (discriminator) {
+      downgrade({
+        kind: 'model-name',
+        wordGiven: discriminator,
+        modelGiven: field('Model').trim(),
+        codenameGiven: result.term,
+        deviceMatched: result.matches[0]?.device ?? '',
       });
     }
   }
