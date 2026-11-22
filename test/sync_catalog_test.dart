@@ -3,7 +3,8 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import '../tool/sync_catalog.dart' show writeCatalogIfChanged;
+import '../tool/sync_catalog.dart'
+    show writeCatalogIfChanged, degradedSourcesSummary, strictSourcesExitCode;
 
 void main() {
   late Directory tempDirectory;
@@ -60,5 +61,32 @@ void main() {
           as Map<String, dynamic>)['roms'],
       isNotEmpty,
     );
+  });
+
+  group('source health tripwire', () {
+    test('clean run produces no summary and exit code 0', () {
+      expect(degradedSourcesSummary(const <String>[]), isEmpty);
+      expect(strictSourcesExitCode(const <String>[], strict: true), 0);
+      expect(strictSourcesExitCode(const <String>[], strict: false), 0);
+    });
+
+    test('a parse failure is only fatal under --strict-sources', () {
+      final List<String> failures = <String>['https://example.test/devices.json'];
+      // Default: surface it, but do not fail (keeps the drift check and local
+      // runs working even while an upstream source is broken).
+      expect(strictSourcesExitCode(failures, strict: false), 0);
+      // Strict: fail so the weekly sync notices instead of shipping a catalog
+      // that is silently missing that source's devices.
+      expect(strictSourcesExitCode(failures, strict: true), 3);
+    });
+
+    test('summary names every degraded source', () {
+      final String summary = degradedSourcesSummary(
+        <String>['https://a.test/x.json', 'https://b.test/y.json'],
+      );
+      expect(summary, contains('2 source(s)'));
+      expect(summary, contains('https://a.test/x.json'));
+      expect(summary, contains('https://b.test/y.json'));
+    });
   });
 }
