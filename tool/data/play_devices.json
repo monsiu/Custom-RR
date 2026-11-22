@@ -1479,12 +1479,20 @@
   "brand": "Mint",
   "models": [
    "Emerald_M55CR",
-   "Emerald_M55CRD",
-   "2312FPCA6G",
-   "23117RA68G",
-   "2502FRA65G"
+   "Emerald_M55CRD"
   ],
-  "name": "Emerald"
+  "name": "Emerald",
+  "variants": [
+   {
+    "brand": "Xiaomi",
+    "models": [
+     "2312FPCA6G",
+     "23117RA68G",
+     "2502FRA65G"
+    ],
+    "name": "POCO M6 Pro 4G"
+   }
+  ]
  },
  "endeavoru": {
   "brand": "HTC",

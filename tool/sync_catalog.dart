@@ -129,6 +129,29 @@ const Map<String, String> _twrpBrandAliases = <String, String>{
 String _normalizeTwrpBrand(String brand) =>
     _twrpBrandAliases[brand] ?? brand;
 
+// Google's Play "Retail Branding" sometimes differs from the catalog's vendor
+// name for the same maker (e.g. the Teracube 2e ships under the brand "Mint").
+// Fold the few we know so a codename shared across brands still attaches its
+// model numbers to the right device instead of the wrong one.
+const Map<String, String> _playBrandAliases = <String, String>{
+  'mint': 'teracube',
+};
+
+String _normBrand(String s) =>
+    s.toLowerCase().replaceAll(RegExp('[^a-z0-9]+'), '');
+
+/// Whether a catalog vendor and a Play brand name the same manufacturer. Only
+/// used to disambiguate codenames shared across brands, so it can afford to be
+/// strict: no match means we simply do not borrow those model numbers.
+bool _brandMatch(String vendor, String playBrand) {
+  String a = _normBrand(vendor);
+  String b = _normBrand(playBrand);
+  a = _playBrandAliases[a] ?? a;
+  b = _playBrandAliases[b] ?? b;
+  if (a.isEmpty || b.isEmpty) return false;
+  return a == b || a.contains(b) || b.contains(a);
+}
+
 /// Reads the committed TWRP snapshot. Returns an empty list (with a warning)
 /// when the snapshot is missing so a fresh checkout without it falls back to
 /// the old LineageOS-derived approximation instead of failing.
@@ -1434,6 +1457,7 @@ List<String> _modelNumbersFor(_Device d) {
   for (final String m in <String>[
     ...d.models,
     ...?_extraModelNumbers[d.codename.toLowerCase()],
+    ..._collisionModelsFor(d.codename, d.vendor),
   ]) {
     final String t = m.trim();
     if (t.isEmpty || !seen.add(t.toLowerCase())) continue;
@@ -1444,10 +1468,33 @@ List<String> _modelNumbersFor(_Device d) {
 
 /// codename -> extra retail model numbers, merged in from sources that publish
 /// them alongside the codename (the OrangeFox device cards and the Play
-/// device catalog snapshot).
+/// device catalog snapshot). Only holds codenames that map to a single device;
+/// codenames reused across brands go to [_collisionModelNumbers] instead so a
+/// number is never attached to the wrong manufacturer.
 Map<String, List<String>> _extraModelNumbers = <String, List<String>>{};
 
-/// Seeds [_extraModelNumbers] from the Play device catalog snapshot.
+/// codename -> brand (as Play spells it) -> that brand's model numbers, for the
+/// handful of codenames Google reuses across unrelated phones (e.g. `emerald`
+/// is both the Teracube 2e and the Xiaomi POCO M6 Pro 4G). Attached by brand so
+/// one device never inherits another's model numbers (issue #80).
+Map<String, Map<String, List<String>>> _collisionModelNumbers =
+    <String, Map<String, List<String>>>{};
+
+/// Model numbers to borrow for [codename] on a device made by [vendor], picking
+/// only the brand variants that match the vendor.
+List<String> _collisionModelsFor(String codename, String vendor) {
+  final Map<String, List<String>>? byBrand =
+      _collisionModelNumbers[codename.toLowerCase()];
+  if (byBrand == null) return const <String>[];
+  final List<String> out = <String>[];
+  byBrand.forEach((String brand, List<String> models) {
+    if (_brandMatch(vendor, brand)) out.addAll(models);
+  });
+  return out;
+}
+
+/// Seeds [_extraModelNumbers] and [_collisionModelNumbers] from the Play device
+/// catalog snapshot.
 void _loadPlayModelNumbers() {
   final File f = File(_playDevicesPath);
   if (!f.existsSync()) {
@@ -1455,29 +1502,48 @@ void _loadPlayModelNumbers() {
         'tool/fetch_play_devices.py to add retail model numbers.');
     return;
   }
+  List<String> numbersOf(Map<String, dynamic> m) => <String>[
+        for (final dynamic x in (m['models'] as List<dynamic>? ?? const <dynamic>[]))
+          x.toString().trim(),
+      ].where((String s) => s.isNotEmpty).toList();
   int count = 0;
+  int collided = 0;
   try {
     final Map<String, dynamic> raw =
         jsonDecode(f.readAsStringSync()) as Map<String, dynamic>;
     raw.forEach((String codename, dynamic value) {
-      final List<String> models = <String>[
-        for (final dynamic m in ((value as Map<String, dynamic>)['models']
-                as List<dynamic>? ??
-            const <dynamic>[]))
-          m.toString().trim(),
-      ].where((String m) => m.isNotEmpty).toList();
-      if (models.isEmpty) return;
-      _extraModelNumbers
-          .putIfAbsent(codename.toLowerCase(), () => <String>[])
-          .addAll(models);
-      count += models.length;
+      final Map<String, dynamic> entry = value as Map<String, dynamic>;
+      final String key = codename.toLowerCase();
+      final List<Map<String, dynamic>> variants = <Map<String, dynamic>>[
+        for (final dynamic v in (entry['variants'] as List<dynamic>? ?? const <dynamic>[]))
+          v as Map<String, dynamic>,
+      ];
+      if (variants.isEmpty) {
+        // One device: keep the brand-agnostic behaviour.
+        final List<String> models = numbersOf(entry);
+        if (models.isEmpty) return;
+        _extraModelNumbers.putIfAbsent(key, () => <String>[]).addAll(models);
+        count += models.length;
+        return;
+      }
+      // Shared codename: bucket model numbers by brand.
+      collided += 1;
+      final Map<String, List<String>> byBrand =
+          _collisionModelNumbers.putIfAbsent(key, () => <String, List<String>>{});
+      for (final Map<String, dynamic> part in <Map<String, dynamic>>[entry, ...variants]) {
+        final String brand = (part['brand'] as String? ?? '').trim();
+        final List<String> models = numbersOf(part);
+        if (brand.isEmpty || models.isEmpty) continue;
+        byBrand.putIfAbsent(brand, () => <String>[]).addAll(models);
+        count += models.length;
+      }
     });
   } on Object catch (e) {
     stderr.writeln('[sync] could not parse $_playDevicesPath: $e');
     return;
   }
   stdout.writeln('[sync] loaded $count retail model numbers from the Play '
-      'device catalog');
+      'device catalog ($collided codenames shared across brands)');
 }
 
 /// Curated per-codename XDA Developers forum category URLs.
@@ -3484,15 +3550,18 @@ List<Map<String, dynamic>> _buildRecoveries(
 List<Map<String, dynamic>> _twrpDeviceList(List<Map<String, String>> rows) {
   return rows.map((Map<String, String> d) {
     final String codename = d['codename']!;
+    final String brand = d['brand'] ?? '';
     final String? forum = _xdaDeviceForums[codename];
-    final List<String>? models = _extraModelNumbers[codename.toLowerCase()];
+    final List<String> models = <String>[
+      ...?_extraModelNumbers[codename.toLowerCase()],
+      ..._collisionModelsFor(codename, brand),
+    ];
     return <String, dynamic>{
       'brand': d['brand'],
       'model': d['model'],
       'codename': codename,
       'forumUrl': ?forum,
-      if (models != null && models.isNotEmpty)
-        'models': models.toSet().toList(),
+      if (models.isNotEmpty) 'models': models.toSet().toList(),
     };
   }).toList();
 }
