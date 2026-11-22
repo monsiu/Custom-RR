@@ -54,6 +54,13 @@ jobs:
               ];
               if (roms.length) lines.push('- **ROMs:** ' + roms.join(', '));
               if (recoveries.length) lines.push('- **Recoveries:** ' + recoveries.join(', '));
+              const models = hit.models ?? [];
+              if (models.length) {
+                lines.push(
+                  '',
+                  'Just so we are talking about the same phone, `' + hit.term + '` is the model ' + models.map((m) => '`' + m + '`').join(', ') + '. **If your model number is not in that list, do not flash any of these** — reply here instead and we will find the right entry. You can check yours by dialling `*#06#`.',
+                );
+              }
               lines.push(
                 '',
                 'Open **Find my phone** in the app and search `' + hit.term + '` (or your model number) to see it.',
