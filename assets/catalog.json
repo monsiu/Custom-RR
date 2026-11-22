@@ -1,6 +1,6 @@
 {
   "_generated": "tool/sync_catalog.dart",
-  "_generatedAt": "2026-11-14T12:29:16.818390Z",
+  "_generatedAt": "2026-11-22T10:28:02.911539Z",
   "roms": [
     {
       "id": "lineage",
@@ -150,6 +150,11 @@
           "brand": "Banana Pi",
           "model": "M5 (S905X3, eMMC Only) [Tablet]",
           "codename": "m5_tab"
+        },
+        {
+          "brand": "Daylight",
+          "model": "DC-1",
+          "codename": "jagar"
         },
         {
           "brand": "DroidLogic",
@@ -2979,6 +2984,21 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q",
+          "models": [
+            "SM-S918B",
+            "SM-S918B/DS",
+            "SM-S9180",
+            "SM-S918N",
+            "SM-S918Q",
+            "SM-S918U",
+            "SM-S918U1",
+            "SM-S918W"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy S9",
           "codename": "starlte",
           "models": [
@@ -4590,6 +4610,11 @@
         },
         {
           "brand": "Zinwa",
+          "model": "P26",
+          "codename": "P26"
+        },
+        {
+          "brand": "Zinwa",
           "model": "Q25 Pro",
           "codename": "Q25"
         }
@@ -5787,6 +5812,21 @@
             "SM-S911U",
             "SM-S911U1",
             "SM-S911W"
+          ]
+        },
+        {
+          "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q",
+          "models": [
+            "SM-S918B",
+            "SM-S918B/DS",
+            "SM-S9180",
+            "SM-S918N",
+            "SM-S918Q",
+            "SM-S918U",
+            "SM-S918U1",
+            "SM-S918W"
           ]
         },
         {
@@ -7153,20 +7193,6 @@
             "SM-S916U",
             "SM-S916U1",
             "SM-S916W"
-          ]
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S23 Ultra",
-          "codename": "dm3q",
-          "models": [
-            "SM-S9180",
-            "SM-S918B",
-            "SM-S918N",
-            "SM-S918Q",
-            "SM-S918U",
-            "SM-S918U1",
-            "SM-S918W"
           ]
         },
         {
@@ -11742,6 +11768,21 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q",
+          "models": [
+            "SM-S918B",
+            "SM-S918B/DS",
+            "SM-S9180",
+            "SM-S918N",
+            "SM-S918Q",
+            "SM-S918U",
+            "SM-S918U1",
+            "SM-S918W"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy Tab S5e (LTE)",
           "codename": "gts4lv",
           "models": [
@@ -12465,20 +12506,6 @@
             "SM-S916U",
             "SM-S916U1",
             "SM-S916W"
-          ]
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S23 Ultra",
-          "codename": "dm3q",
-          "models": [
-            "SM-S9180",
-            "SM-S918B",
-            "SM-S918N",
-            "SM-S918Q",
-            "SM-S918U",
-            "SM-S918U1",
-            "SM-S918W"
           ]
         },
         {
@@ -22966,6 +22993,21 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q",
+          "models": [
+            "SM-S918B",
+            "SM-S918B/DS",
+            "SM-S9180",
+            "SM-S918N",
+            "SM-S918Q",
+            "SM-S918U",
+            "SM-S918U1",
+            "SM-S918W"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy Tab S5e (LTE)",
           "codename": "gts4lv",
           "models": [
@@ -23479,20 +23521,6 @@
             "SM-S916U",
             "SM-S916U1",
             "SM-S916W"
-          ]
-        },
-        {
-          "brand": "Samsung",
-          "model": "Galaxy S23 Ultra",
-          "codename": "dm3q",
-          "models": [
-            "SM-S9180",
-            "SM-S918B",
-            "SM-S918N",
-            "SM-S918Q",
-            "SM-S918U",
-            "SM-S918U1",
-            "SM-S918W"
           ]
         },
         {
@@ -26628,6 +26656,11 @@
           "codename": "zangyapro"
         },
         {
+          "brand": "Daylight",
+          "model": "DC-1",
+          "codename": "jagar"
+        },
+        {
           "brand": "Essential",
           "model": "PH-1",
           "codename": "mata"
@@ -29436,6 +29469,21 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q",
+          "models": [
+            "SM-S918B",
+            "SM-S918B/DS",
+            "SM-S9180",
+            "SM-S918N",
+            "SM-S918Q",
+            "SM-S918U",
+            "SM-S918U1",
+            "SM-S918W"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy S4 (GT-I9505, SGH-I337M, SGH-M919/V)",
           "codename": "jfltexx",
           "models": [
@@ -31182,6 +31230,11 @@
         },
         {
           "brand": "Zinwa",
+          "model": "P26",
+          "codename": "P26"
+        },
+        {
+          "brand": "Zinwa",
           "model": "Q25 Pro",
           "codename": "Q25"
         },
@@ -31557,6 +31610,11 @@
           "brand": "BQ",
           "model": "Aquaris X2 Pro",
           "codename": "zangyapro"
+        },
+        {
+          "brand": "Daylight",
+          "model": "DC-1",
+          "codename": "jagar"
         },
         {
           "brand": "Essential",
@@ -34552,6 +34610,21 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q",
+          "models": [
+            "SM-S918B",
+            "SM-S918B/DS",
+            "SM-S9180",
+            "SM-S918N",
+            "SM-S918Q",
+            "SM-S918U",
+            "SM-S918U1",
+            "SM-S918W"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy S4 (GT-I9505, SGH-I337M, SGH-M919/V)",
           "codename": "jfltexx",
           "models": [
@@ -36329,6 +36402,11 @@
           "models": [
             "ZUK Z2131"
           ]
+        },
+        {
+          "brand": "Zinwa",
+          "model": "P26",
+          "codename": "P26"
         },
         {
           "brand": "Zinwa",
@@ -53971,6 +54049,21 @@
         },
         {
           "brand": "Samsung",
+          "model": "Galaxy S23 Ultra",
+          "codename": "dm3q",
+          "models": [
+            "SM-S918B",
+            "SM-S918B/DS",
+            "SM-S9180",
+            "SM-S918N",
+            "SM-S918Q",
+            "SM-S918U",
+            "SM-S918U1",
+            "SM-S918W"
+          ]
+        },
+        {
+          "brand": "Samsung",
           "model": "Galaxy S7",
           "codename": "herolte",
           "models": [
@@ -57323,6 +57416,10 @@
     {
       "name": "Cat",
       "imageAsset": "images/device_cat.png"
+    },
+    {
+      "name": "Daylight",
+      "imageAsset": "images/branding.png"
     },
     {
       "name": "Dell",
