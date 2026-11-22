@@ -43,10 +43,25 @@ for (const issue of issues) {
   }
   if (result.strength !== 'strong' || result.matches.length === 0) continue;
 
+  // Mirror the guards the on-open triage applies before it closes anything.
+  // Without these, the weekly watch re-closes issues that catalog-match-triage
+  // deliberately left open, which is how the Moto G Power 5G 2023 (XT2311DL)
+  // reports got shut as the moto g32 (devon) / moto g 5G 2021 (kiev).
+
+  // A conflict means the codename and the model number point at different
+  // hardware. Closing it would send someone to builds for a phone they do not
+  // own, so leave it for the on-open triage's "which phone is this?" question.
+  if (result.conflict) continue;
+
+  // US-carrier units are owned by us-carrier-triage.yml; they usually ship a
+  // locked bootloader, so "it's in the catalog" is not the answer they need.
+  if ((issue.body ?? '').includes("Yes, it's a US model or bought from a US carrier")) continue;
+
   hits.push({
     number: issue.number,
     title: issue.title,
     term: result.term,
+    models: (result.models ?? []).slice(0, 6),
     matches: result.matches.map(({ kind, id, name }) => ({ kind, id, name })),
   });
 }

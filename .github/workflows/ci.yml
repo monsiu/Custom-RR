@@ -22,6 +22,10 @@ jobs:
       - run: flutter test --reporter expanded
       - name: Triage bot reply rules
         run: node tool/triage_reply_test.mjs
+      - name: Upstream watch close guards
+        run: node tool/match_open_requests_test.mjs
+      - name: Upstream watch reopen guard
+        run: node tool/upstream_watch_test.mjs
       - name: Request key / dedup rules
         run: node tool/request_key_test.mjs
       - name: Duplicate finder rules

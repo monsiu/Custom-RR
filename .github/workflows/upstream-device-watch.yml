@@ -46,6 +46,27 @@ jobs:
             const hits = JSON.parse(require('fs').readFileSync('/tmp/hits.json', 'utf8'));
             const playUrl = 'https://play.google.com/store/apps/details?id=io.github.monsiu.custom_rr';
             for (const hit of hits) {
+              // If the watch already closed this once and a human reopened it,
+              // the earlier "now in the catalog" match was wrong (that is why it
+              // was reopened). Do not re-close it; leave it for a person. This is
+              // what the Moto G Power 5G 2023 (XT2311DL) reports needed: the bare
+              // codename kept matching the wrong catalog device.
+              const prior = await github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: hit.number,
+                per_page: 100,
+              });
+              const alreadyAnswered = prior.some(
+                (c) =>
+                  (c.user?.type === 'Bot' || c.user?.login?.endsWith('[bot]') || c.user?.login === 'github-actions') &&
+                  (c.body || '').includes('now in the catalog'),
+              );
+              if (alreadyAnswered) {
+                core.info('#' + hit.number + ' was already auto-closed once and reopened; skipping.');
+                continue;
+              }
+
               const roms = hit.matches.filter((m) => m.kind === 'roms').map((m) => m.name);
               const recoveries = hit.matches.filter((m) => m.kind === 'recoveries').map((m) => m.name);
               const lines = [
@@ -54,6 +75,13 @@ jobs:
               ];
               if (roms.length) lines.push('- **ROMs:** ' + roms.join(', '));
               if (recoveries.length) lines.push('- **Recoveries:** ' + recoveries.join(', '));
+              const models = hit.models ?? [];
+              if (models.length) {
+                lines.push(
+                  '',
+                  'Just so we are talking about the same phone, `' + hit.term + '` is the model ' + models.map((m) => '`' + m + '`').join(', ') + '. **If your model number is not in that list, do not flash any of these** — reply here instead and we will find the right entry. You can check yours by dialling `*#06#`.',
+                );
+              }
               lines.push(
                 '',
                 'Open **Find my phone** in the app and search `' + hit.term + '` (or your model number) to see it.',
